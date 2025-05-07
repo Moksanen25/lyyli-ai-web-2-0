@@ -39,7 +39,7 @@ const FeatureHero = () => {
           
           <div className="relative min-h-[300px] lg:h-[500px] rounded-xl overflow-hidden shadow-xl animate-fade-in">
             <img 
-              src="/images/features-dashboard.jpg" 
+              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2000&auto=format&fit=crop" 
               alt={t('features.pageHero.imageAlt')} 
               className="w-full h-full object-cover"
             />
