@@ -4,11 +4,11 @@ import { MessageCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { useMediaQuery } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width: 640px)');
+  const isMobile = useIsMobile();
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
