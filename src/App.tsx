@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
-import About from "./pages/About"; // Import the new About page
+import About from "./pages/About";
+import Contact from "./pages/Contact"; // Import the new Contact page
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,7 +23,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} /> {/* Add new route for About page */}
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} /> {/* Add new route for Contact page */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
