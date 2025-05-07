@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the languages and their translations
@@ -70,7 +71,7 @@ export const languages = {
       },
       quotes: {
         title: 'How Our Features Help Customers',
-        quote1: 'The AI content generation has cut our production time in half while actually improving quality. It's remarkable how well it adapts to our brand voice.',
+        quote1: 'The AI content generation has cut our production time in half while actually improving quality. It\'s remarkable how well it adapts to our brand voice.',
         author1: 'Emma Rodriguez',
         role1: 'Content Director, Elevate Media',
         feature1: 'AI Content Generation',
