@@ -27,29 +27,29 @@ const CompanyTimeline = () => {
   const timelineItems: TimelineItemProps[] = [
     {
       year: "2023",
-      title: "Company Founded",
-      description: "Lyyli was founded by Mikko Oksanen and Veikko Laitinen with a vision to transform content workflows through AI."
+      title: t('about.timeline.founded.title'),
+      description: t('about.timeline.founded.description')
     },
     {
       year: "2024",
-      title: "First Product Launch",
-      description: "We launched our AI-powered content management platform to help businesses streamline their content creation process."
+      title: t('about.timeline.launch.title'),
+      description: t('about.timeline.launch.description')
     },
     {
       year: "2024",
-      title: "First Major Partnerships",
-      description: "Established key partnerships to expand our platform's capabilities and reach more customers."
+      title: t('about.timeline.partnerships.title'),
+      description: t('about.timeline.partnerships.description')
     },
     {
       year: "2025",
-      title: "Looking Forward",
-      description: "Planning to expand our offerings and team to better serve our growing customer base."
+      title: t('about.timeline.future.title'),
+      description: t('about.timeline.future.description')
     }
   ];
   
   return (
     <div className="mb-16">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Our Journey</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">{t('about.timeline.title')}</h2>
       <div className="max-w-3xl mx-auto mt-12">
         {timelineItems.map((item, index) => (
           <TimelineItem 

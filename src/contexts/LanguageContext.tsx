@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the languages and their translations
@@ -144,6 +145,78 @@ export const languages = {
       accept: 'Accept All',
       essential: 'Essential Only',
       settings: 'Cookie Settings',
+    },
+    about: {
+      hero: {
+        title: 'About Lyyli',
+        description: 'We\'re creating revolutionary AI-powered content management solutions that transform how businesses handle their content workflows.',
+        imageAlt: 'Team collaboration'
+      },
+      timeline: {
+        title: 'Our Journey',
+        founded: {
+          title: 'Company Founded',
+          description: 'Lyyli was founded by Mikko Oksanen and Veikko Laitinen with a vision to transform content workflows through AI.'
+        },
+        launch: {
+          title: 'First Product Launch',
+          description: 'We launched our AI-powered content management platform to help businesses streamline their content creation process.'
+        },
+        partnerships: {
+          title: 'First Major Partnerships',
+          description: 'Established key partnerships to expand our platform\'s capabilities and reach more customers.'
+        },
+        future: {
+          title: 'Looking Forward',
+          description: 'Planning to expand our offerings and team to better serve our growing customer base.'
+        }
+      },
+      mission: {
+        title: 'Our Mission',
+        vision: {
+          title: 'Our Vision',
+          description: 'To revolutionize content creation and management through ethical AI, making it accessible to businesses of all sizes.'
+        },
+        values: {
+          title: 'Our Values',
+          description: 'We believe in transparency, ethical AI development, customer-driven innovation, and building tools that amplify human creativity.'
+        },
+        impact: {
+          title: 'Our Impact',
+          description: 'We\'re helping businesses reduce content creation time by up to 70% while improving quality and maintaining authentic brand voice.'
+        }
+      },
+      team: {
+        title: 'Our Team',
+        description: 'Meet the passionate people behind Lyyli who are committed to transforming how businesses create and manage content.',
+        mikko: {
+          role: 'Co-Founder & CEO',
+          bio: 'International management professional with extensive experience in business development, sales, product management, and strategy. Driven by innovation and scaling companies to their full potential.'
+        },
+        veikko: {
+          role: 'Co-Founder & CTO',
+          bio: 'Software developer focused on creating intuitive and efficient user experiences. With expertise in TypeScript, React, and modern web technologies, Veikko leads our technical vision and development.'
+        }
+      }
+    },
+    contact: {
+      title: 'Contact Us',
+      subtitle: 'Have questions? Our AI assistant is ready to help you or get in touch directly with our team.',
+      information: 'Contact Information',
+      role: 'Sales and networks',
+      call: 'Call',
+      email: 'Email'
+    },
+    chat: {
+      title: 'Customer Support',
+      welcomeMessage: 'Hello! How can I help you today?',
+      inputPlaceholder: 'Type your message...',
+      send: 'Send',
+      error: {
+        title: 'Error',
+        initThread: 'Failed to initialize chat. Please try again.',
+        sendMessage: 'Failed to send message. Please try again.'
+      }
     }
   },
   fi: {
@@ -288,6 +361,78 @@ export const languages = {
       accept: 'Hyväksy Kaikki',
       essential: 'Vain Välttämättömät',
       settings: 'Evästeasetukset',
+    },
+    about: {
+      hero: {
+        title: 'Tietoa Lyylistä',
+        description: 'Kehitämme vallankumouksellisia tekoälypohjaisia sisällönhallintaratkaisuja, jotka muuttavat yritysten tapaa käsitellä sisältötyönkulkuja.',
+        imageAlt: 'Tiimin yhteistyö'
+      },
+      timeline: {
+        title: 'Matkamme',
+        founded: {
+          title: 'Yritys Perustettu',
+          description: 'Lyyli perustettiin Mikko Oksasen ja Veikko Laitisen toimesta visiolla muuttaa sisältötyönkulkuja tekoälyn avulla.'
+        },
+        launch: {
+          title: 'Ensimmäisen Tuotteen Julkaisu',
+          description: 'Lanseerasimme tekoälypohjaisen sisällönhallinta-alustan auttamaan yrityksiä virtaviivaistamaan sisällöntuotantoprosessejaan.'
+        },
+        partnerships: {
+          title: 'Ensimmäiset Merkittävät Kumppanuudet',
+          description: 'Solmimme keskeisiä kumppanuuksia laajentaaksemme alustamme ominaisuuksia ja tavoittaaksemme lisää asiakkaita.'
+        },
+        future: {
+          title: 'Tulevaisuuden Näkymät',
+          description: 'Suunnittelemme tarjontamme ja tiimimme laajentamista palvellaksemme kasvavaa asiakaskuntaamme entistä paremmin.'
+        }
+      },
+      mission: {
+        title: 'Missiomme',
+        vision: {
+          title: 'Visiomme',
+          description: 'Vallankumouksellistaa sisällön luominen ja hallinta eettisen tekoälyn avulla, tehden siitä saavutettavaa kaikenkokoisille yrityksille.'
+        },
+        values: {
+          title: 'Arvomme',
+          description: 'Uskomme läpinäkyvyyteen, eettiseen tekoälykehitykseen, asiakaslähtöiseen innovaatioon ja työkaluihin, jotka vahvistavat ihmisten luovuutta.'
+        },
+        impact: {
+          title: 'Vaikutuksemme',
+          description: 'Autamme yrityksiä vähentämään sisällöntuotantoaikaa jopa 70 prosentilla parantaen samalla laatua ja säilyttäen aidon brändiäänen.'
+        }
+      },
+      team: {
+        title: 'Tiimimme',
+        description: 'Tapaa intohimoiset ihmiset Lyylin takana, jotka ovat sitoutuneet muuttamaan yritysten tapaa luoda ja hallita sisältöä.',
+        mikko: {
+          role: 'Perustaja & Toimitusjohtaja',
+          bio: 'Kansainvälinen johtamisen ammattilainen, jolla on laaja kokemus liiketoiminnan kehittämisestä, myynnistä, tuotehallinnasta ja strategiasta. Innovaatiot ja yritysten skaalaaminen täyteen potentiaaliin motivoivat häntä.'
+        },
+        veikko: {
+          role: 'Perustaja & Teknologiajohtaja',
+          bio: 'Ohjelmistokehittäjä, joka keskittyy intuitiivisten ja tehokkaiden käyttökokemusten luomiseen. TypeScript-, React- ja modernien web-teknologioiden asiantuntemuksellaan Veikko johtaa teknistä visiotamme ja kehitystämme.'
+        }
+      }
+    },
+    contact: {
+      title: 'Ota yhteyttä',
+      subtitle: 'Onko kysyttävää? Tekoälyavustajamme on valmis auttamaan tai ota suoraan yhteyttä tiimiimme.',
+      information: 'Yhteystiedot',
+      role: 'Myynti ja verkostot',
+      call: 'Soita',
+      email: 'Sähköposti'
+    },
+    chat: {
+      title: 'Asiakastuki',
+      welcomeMessage: 'Hei! Miten voin auttaa sinua tänään?',
+      inputPlaceholder: 'Kirjoita viestisi...',
+      send: 'Lähetä',
+      error: {
+        title: 'Virhe',
+        initThread: 'Keskustelun alustaminen epäonnistui. Yritä uudelleen.',
+        sendMessage: 'Viestin lähettäminen epäonnistui. Yritä uudelleen.'
+      }
     }
   }
 };

@@ -5,10 +5,12 @@ import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -25,7 +27,7 @@ const FloatingChat = () => {
           <DialogContent className="sm:max-w-md p-0 h-[80vh]">
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
-                <h2 className="font-semibold">Customer Support</h2>
+                <h2 className="font-semibold">{t('chat.title')}</h2>
                 <Button 
                   variant="ghost" 
                   size="icon" 
@@ -48,7 +50,7 @@ const FloatingChat = () => {
           {isOpen ? (
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
-                <h2 className="font-semibold">Customer Support</h2>
+                <h2 className="font-semibold">{t('chat.title')}</h2>
                 <Button 
                   variant="ghost" 
                   size="icon"

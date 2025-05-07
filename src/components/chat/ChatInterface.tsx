@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/components/ui/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   createThread,
   getThreadId,
@@ -21,10 +22,11 @@ interface Message {
 }
 
 const ChatInterface = () => {
+  const { t } = useLanguage();
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: 'assistant', 
-      content: 'Hello! How can I help you today?', 
+      content: '', 
       timestamp: new Date() 
     }
   ]);
@@ -33,6 +35,15 @@ const ChatInterface = () => {
   const [threadId, setThreadId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  
+  // Set welcome message based on current language
+  useEffect(() => {
+    setMessages([{ 
+      role: 'assistant', 
+      content: t('chat.welcomeMessage'), 
+      timestamp: new Date() 
+    }]);
+  }, [t]);
 
   // Initialize thread
   useEffect(() => {
@@ -58,8 +69,8 @@ const ChatInterface = () => {
     } catch (error) {
       console.error('Error initializing thread:', error);
       toast({
-        title: "Error",
-        description: "Failed to initialize chat. Please try again.",
+        title: t('chat.error.title'),
+        description: t('chat.error.initThread'),
         variant: "destructive",
       });
     }
@@ -137,8 +148,8 @@ const ChatInterface = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: t('chat.error.title'),
+        description: t('chat.error.sendMessage'),
         variant: "destructive",
       });
       setIsLoading(false);
@@ -176,13 +187,13 @@ const ChatInterface = () => {
         <Input
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Type your message..."
+          placeholder={t('chat.inputPlaceholder')}
           disabled={isLoading}
           className="flex-grow"
         />
         <Button type="submit" disabled={isLoading || !inputMessage.trim()}>
           {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-          <span className="sr-only">Send</span>
+          <span className="sr-only">{t('chat.send')}</span>
         </Button>
       </form>
     </div>

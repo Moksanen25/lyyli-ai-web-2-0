@@ -48,15 +48,15 @@ const TeamSection = () => {
   const teamMembers: TeamMemberProps[] = [
     {
       name: "Mikko Oksanen",
-      role: "Co-Founder & CEO",
-      bio: "International management professional with extensive experience in business development, sales, product management, and strategy. Driven by innovation and scaling companies to their full potential.",
+      role: t('about.team.mikko.role'),
+      bio: t('about.team.mikko.bio'),
       imageUrl: "/placeholder.svg",
       linkedin: "https://www.linkedin.com/in/mikko-oksanen",
     },
     {
       name: "Veikko Laitinen",
-      role: "Co-Founder & CTO",
-      bio: "Software developer focused on creating intuitive and efficient user experiences. With expertise in TypeScript, React, and modern web technologies, Veikko leads our technical vision and development.",
+      role: t('about.team.veikko.role'),
+      bio: t('about.team.veikko.bio'),
       imageUrl: "/placeholder.svg",
       website: "https://veikkolaitinen.com",
     },
@@ -64,9 +64,9 @@ const TeamSection = () => {
 
   return (
     <div className="mb-16">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Our Team</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">{t('about.team.title')}</h2>
       <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12 text-center">
-        Meet the passionate people behind Lyyli who are committed to transforming how businesses create and manage content.
+        {t('about.team.description')}
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
