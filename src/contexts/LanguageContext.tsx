@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define the languages and their translations
@@ -37,6 +36,42 @@ export const languages = {
         title: 'Analytics Dashboard',
         description: 'Track performance and gain insights with comprehensive analytics',
       },
+      pageHero: {
+        title: 'Powerful AI Features for Modern Content Management',
+        description: 'Discover how Lyyli transforms your content workflow with cutting-edge AI technology and intuitive tools',
+        imageAlt: 'AI-powered content management platform interface'
+      },
+      mainFeatures: {
+        title: 'Core Capabilities'
+      },
+      additionalFeatures: {
+        title: 'Advanced Capabilities',
+        ai: {
+          title: 'Smart AI Assistant',
+          description: 'Our AI understands your brand voice and helps create consistent content across all channels'
+        },
+        workflow: {
+          title: 'Custom Workflows',
+          description: 'Design approval processes tailored to your team structure and content requirements'
+        },
+        integration: {
+          title: 'Seamless Integrations',
+          description: 'Connect with your favorite tools including Slack, Teams, and other platforms'
+        }
+      },
+      comparison: {
+        title: 'Compare Plans',
+        description: 'Find the plan that works best for your business needs',
+        feature: 'Feature',
+        aiAgents: 'AI Agents',
+        userAccounts: 'User Accounts',
+        integrations: 'Integrations',
+        images: 'AI Image Creation',
+        workflows: 'Custom Workflows',
+        unlimited: 'Unlimited',
+        custom: 'Custom',
+        cta: 'View Full Pricing'
+      }
     },
     pricing: {
       title: 'Simple, Transparent Pricing',
@@ -253,6 +288,42 @@ export const languages = {
         title: 'Analytiikkatyökalut',
         description: 'Seuraa suorituskykyä ja saa näkemyksiä kattavalla analytiikalla',
       },
+      pageHero: {
+        title: 'Tehokkaat tekoälyominaisuudet moderniin sisällönhallintaan',
+        description: 'Tutustu kuinka Lyyli muuttaa sisältötyönkulkusi edistyksellisellä tekoälyteknologialla ja intuitiivisilla työkaluilla',
+        imageAlt: 'Tekoälyllä toimivan sisällönhallintajärjestelmän käyttöliittymä'
+      },
+      mainFeatures: {
+        title: 'Ydinominaisuudet'
+      },
+      additionalFeatures: {
+        title: 'Edistyneet ominaisuudet',
+        ai: {
+          title: 'Älykäs tekoälyavustaja',
+          description: 'Tekoälymme ymmärtää brändisi äänen ja auttaa luomaan yhtenäistä sisältöä kaikissa kanavissa'
+        },
+        workflow: {
+          title: 'Mukautetut työnkulut',
+          description: 'Suunnittele hyväksyntäprosessit, jotka on räätälöity tiimisi rakenteelle ja sisältövaatimuksille'
+        },
+        integration: {
+          title: 'Saumattomat integraatiot',
+          description: 'Yhdistä suosikkityökaluihisi, mukaan lukien Slack, Teams ja muut alustat'
+        }
+      },
+      comparison: {
+        title: 'Vertaile paketteja',
+        description: 'Löydä yrityksesi tarpeisiin sopiva paketti',
+        feature: 'Ominaisuus',
+        aiAgents: 'Tekoäly-agentit',
+        userAccounts: 'Käyttäjätilit',
+        integrations: 'Integraatiot',
+        images: 'Tekoälykuvien luonti',
+        workflows: 'Mukautetut työnkulut',
+        unlimited: 'Rajoittamaton',
+        custom: 'Räätälöity',
+        cta: 'Katso täydellinen hinnoittelu'
+      }
     },
     pricing: {
       title: 'Selkeä, läpinäkyvä hinnoittelu',
@@ -399,7 +470,7 @@ export const languages = {
         },
         impact: {
           title: 'Vaikutuksemme',
-          description: 'Autamme yrityksiä vähentämään sisällöntuotantoaikaa jopa 70 prosentilla parantaen samalla laatua ja säilyttäen aidon brändiäänen.'
+          description: 'Autamme yrityksiä vähentämään sisällöntuotantoaikaa jopa 70 prosentilla parantaen samalla laatua ja säilyttäen aidon brändiään.'
         }
       },
       team: {
