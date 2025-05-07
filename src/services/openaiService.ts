@@ -1,35 +1,20 @@
 
 import { useToast } from "@/components/ui/use-toast";
 
-// These would be provided by environment variables or user input
-let OPENAI_API_KEY: string | null = null;
-let OPENAI_ASSISTANT_ID: string | null = null;
+// Hardcoded OpenAI credentials for all users
+const OPENAI_API_KEY = "your_openai_api_key_here"; // Replace with your actual API key
+const OPENAI_ASSISTANT_ID = "your_assistant_id_here"; // Replace with your actual Assistant ID
 
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
 }
 
-export const setOpenAICredentials = (apiKey: string, assistantId: string) => {
-  OPENAI_API_KEY = apiKey;
-  OPENAI_ASSISTANT_ID = assistantId;
-  localStorage.setItem('openai_assistant_id', assistantId);
-  // Note: We're not storing the API key in localStorage for security reasons
-};
-
-export const getOpenAIAssistantId = (): string | null => {
-  return OPENAI_ASSISTANT_ID || localStorage.getItem('openai_assistant_id');
-};
-
 export const hasOpenAICredentials = (): boolean => {
-  return !!OPENAI_API_KEY && !!getOpenAIAssistantId();
+  return !!OPENAI_API_KEY && !!OPENAI_ASSISTANT_ID;
 };
 
 export const createThread = async () => {
-  if (!OPENAI_API_KEY) {
-    throw new Error('OpenAI API key not set');
-  }
-  
   try {
     const response = await fetch('https://api.openai.com/v1/threads', {
       method: 'POST',
@@ -59,10 +44,6 @@ export const getThreadId = (): string | null => {
 };
 
 export const addMessageToThread = async (threadId: string, message: string) => {
-  if (!OPENAI_API_KEY) {
-    throw new Error('OpenAI API key not set');
-  }
-  
   try {
     const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
       method: 'POST',
@@ -89,10 +70,6 @@ export const addMessageToThread = async (threadId: string, message: string) => {
 };
 
 export const runAssistant = async (threadId: string) => {
-  if (!OPENAI_API_KEY || !OPENAI_ASSISTANT_ID) {
-    throw new Error('OpenAI credentials not set');
-  }
-  
   try {
     const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
       method: 'POST',
@@ -118,10 +95,6 @@ export const runAssistant = async (threadId: string) => {
 };
 
 export const checkRunStatus = async (threadId: string, runId: string) => {
-  if (!OPENAI_API_KEY) {
-    throw new Error('OpenAI API key not set');
-  }
-  
   try {
     const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
       method: 'GET',
@@ -143,10 +116,6 @@ export const checkRunStatus = async (threadId: string, runId: string) => {
 };
 
 export const getMessages = async (threadId: string) => {
-  if (!OPENAI_API_KEY) {
-    throw new Error('OpenAI API key not set');
-  }
-  
   try {
     const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
       method: 'GET',
