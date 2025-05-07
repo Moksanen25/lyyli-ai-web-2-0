@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 import FeatureHero from '@/components/features/FeatureHero';
 import FeatureDetails from '@/components/features/FeatureDetails';
 import FeatureComparison from '@/components/features/FeatureComparison';
+import IntegrationShowcase from '@/components/features/IntegrationShowcase';
+import CustomerQuotes from '@/components/features/CustomerQuotes';
+import FeatureFAQ from '@/components/features/FeatureFAQ';
 import CTASection from '@/components/CTASection';
 
 const Features = () => {
@@ -17,7 +20,10 @@ const Features = () => {
       <main className="flex-grow">
         <FeatureHero />
         <FeatureDetails />
+        <IntegrationShowcase />
+        <CustomerQuotes />
         <FeatureComparison />
+        <FeatureFAQ />
         <CTASection />
       </main>
       <Footer />

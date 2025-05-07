@@ -39,7 +39,9 @@ export const languages = {
       pageHero: {
         title: 'Powerful AI Features for Modern Content Management',
         description: 'Discover how Lyyli transforms your content workflow with cutting-edge AI technology and intuitive tools',
-        imageAlt: 'AI-powered content management platform interface'
+        imageAlt: 'AI-powered content management platform interface',
+        primaryCta: 'Start Free Trial',
+        secondaryCta: 'Schedule a Demo',
       },
       mainFeatures: {
         title: 'Core Capabilities'
@@ -58,6 +60,39 @@ export const languages = {
           title: 'Seamless Integrations',
           description: 'Connect with your favorite tools including Slack, Teams, and other platforms'
         }
+      },
+      integrations: {
+        title: 'Seamless Integrations',
+        description: 'Connect Lyyli with the tools you already use and love',
+        slack: 'Real-time notifications and commands directly within your Slack workspace',
+        teams: 'Collaborate and share content directly through Microsoft Teams',
+        api: 'Build custom solutions with our robust API and webhooks'
+      },
+      quotes: {
+        title: 'How Our Features Help Customers',
+        quote1: 'The AI content generation has cut our production time in half while actually improving quality. It's remarkable how well it adapts to our brand voice.',
+        author1: 'Emma Rodriguez',
+        role1: 'Content Director, Elevate Media',
+        feature1: 'AI Content Generation',
+        
+        quote2: 'The custom workflows have revolutionized our approval process. What used to take days now happens in hours, with complete visibility for the entire team.',
+        author2: 'Michael Chen',
+        role2: 'Operations Manager, GreenTech Solutions',
+        feature2: 'Custom Workflows'
+      },
+      faq: {
+        title: 'Frequently Asked Questions',
+        question1: 'How does the AI content generation work?',
+        answer1: 'Our AI is trained on high-quality content specific to your industry. It learns your brand voice from your existing content and can generate new content that matches your style. You have full control to edit, approve, or reject the generated content.',
+        
+        question2: 'Can I integrate Lyyli with my existing tools?',
+        answer2: 'Yes! Lyyli integrates with popular platforms like Slack, Microsoft Teams, WordPress, and more. We also offer a robust API for custom integrations.',
+        
+        question3: 'Is there a limit to how many users I can add?',
+        answer3: 'The Starter plan includes 1 user, Professional includes 3 users, and Enterprise offers unlimited users. You can add additional users to any plan for an extra monthly fee.',
+        
+        question4: 'How secure is my content within Lyyli?',
+        answer4: 'We take security seriously. All data is encrypted both in transit and at rest. We use industry-standard security practices and regularly undergo security audits.'
       },
       comparison: {
         title: 'Compare Plans',
@@ -291,7 +326,9 @@ export const languages = {
       pageHero: {
         title: 'Tehokkaat tekoälyominaisuudet moderniin sisällönhallintaan',
         description: 'Tutustu kuinka Lyyli muuttaa sisältötyönkulkusi edistyksellisellä tekoälyteknologialla ja intuitiivisilla työkaluilla',
-        imageAlt: 'Tekoälyllä toimivan sisällönhallintajärjestelmän käyttöliittymä'
+        imageAlt: 'Tekoälyllä toimivan sisällönhallintajärjestelmän käyttöliittymä',
+        primaryCta: 'Aloita Ilmainen Kokeilu',
+        secondaryCta: 'Varaa Esittely',
       },
       mainFeatures: {
         title: 'Ydinominaisuudet'
@@ -311,6 +348,40 @@ export const languages = {
           description: 'Yhdistä suosikkityökaluihisi, mukaan lukien Slack, Teams ja muut alustat'
         }
       },
+      integrations: {
+        title: 'Saumattomat Integraatiot',
+        description: 'Yhdistä Lyyli työkaluihin, joita jo käytät ja rakastat',
+        slack: 'Reaaliaikaiset ilmoitukset ja komennot suoraan Slack-työtilassasi',
+        teams: 'Tee yhteistyötä ja jaa sisältöä suoraan Microsoft Teamsin kautta',
+        api: 'Rakenna mukautettuja ratkaisuja vankan API:n ja webhookien avulla'
+      },
+      quotes: {
+        title: 'Kuinka Ominaisuutemme Auttavat Asiakkaita',
+        quote1: 'Tekoälysisällön tuotanto on puolittanut tuotantoaikamme ja samalla parantanut laatua. On hämmästyttävää, kuinka hyvin se mukautuu brändiääneeseemme.',
+        author1: 'Emma Rodriguez',
+        role1: 'Sisältöjohtaja, Elevate Media',
+        feature1: 'Tekoälysisällön Luonti',
+        
+        quote2: 'Mukautetut työnkulut ovat mullistaneet hyväksyntäprosessimme. Mikä ennen vei päiviä, tapahtuu nyt tunneissa, ja koko tiimillä on täysi näkyvyys.',
+        author2: 'Michael Chen',
+        role2: 'Operatiivinen johtaja, GreenTech Solutions',
+        feature2: 'Mukautetut Työnkulut'
+      },
+      faq: {
+        title: 'Usein Kysytyt Kysymykset',
+        question1: 'Miten tekoälysisällön luonti toimii?',
+        answer1: 'Tekoälymme on koulutettu alallesi ominaisella korkealaatuisella sisällöllä. Se oppii brändisi äänen olemassa olevasta sisällöstäsi ja voi luoda uutta sisältöä, joka vastaa tyyliäsi. Sinulla on täysi hallinta muokata, hyväksyä tai hylätä tuotettu sisältö.',
+        
+        question2: 'Voiko Lyylin integroida olemassa oleviin työkaluihini?',
+        answer2: 'Kyllä! Lyyli integroituu suosittujen alustojen, kuten Slackin, Microsoft Teamsin, WordPressin ja muiden kanssa. Tarjoamme myös vankan API:n mukautettuja integraatioita varten.',
+        
+        question3: 'Onko käyttäjien lisäämiselle rajoitusta?',
+        answer3: 'Aloituspaketti sisältää 1 käyttäjän, Ammattilaisversio sisältää 3 käyttäjää ja Yritysversio tarjoaa rajoittamattoman määrän käyttäjiä. Voit lisätä käyttäjiä mihin tahansa pakettiin lisämaksusta kuukausittain.',
+        
+        question4: 'Kuinka turvallista sisältöni on Lyylissä?',
+        answer4: 'Suhtaudumme turvallisuuteen vakavasti. Kaikki tiedot salataan sekä siirrossa että levossa. Käytämme alan standardoituja turvallisuuskäytäntöjä ja suoritamme säännöllisesti turvallisuusauditointeja.'
+      },
+      
       comparison: {
         title: 'Vertaile paketteja',
         description: 'Löydä yrityksesi tarpeisiin sopiva paketti',
@@ -466,7 +537,7 @@ export const languages = {
         },
         values: {
           title: 'Arvomme',
-          description: 'Uskomme läpinäkyvyyteen, eettiseen tekoälykehitykseen, asiakaslähtöiseen innovaatioon ja työkaluihin, jotka vahvistavat ihmisten luovuutta.'
+          description: 'Uskomme läpinäkyvyyteen, eettisen tekoälykehitykseen, asiakaslähtöiseen innovaatioon ja työkaluihin, jotka vahvistavat ihmisten luovuutta.'
         },
         impact: {
           title: 'Vaikutuksemme',
