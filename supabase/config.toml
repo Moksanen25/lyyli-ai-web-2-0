@@ -3,3 +3,4 @@ project_id = "zkyqdwmwignohqujlnxf"
 
 [functions.openai-assistant]
 verify_jwt = false
+
