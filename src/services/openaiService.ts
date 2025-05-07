@@ -1,9 +1,6 @@
 
+import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
-
-// Hardcoded OpenAI credentials for all users
-const OPENAI_API_KEY = "your_openai_api_key_here"; // Replace with your actual API key
-const OPENAI_ASSISTANT_ID = "your_assistant_id_here"; // Replace with your actual Assistant ID
 
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
@@ -11,26 +8,19 @@ interface ChatMessage {
 }
 
 export const hasOpenAICredentials = (): boolean => {
-  return !!OPENAI_API_KEY && !!OPENAI_ASSISTANT_ID;
+  return true; // Always return true since we're using server-side credentials
 };
 
 export const createThread = async () => {
   try {
-    const response = await fetch('https://api.openai.com/v1/threads', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1'
-      },
-      body: JSON.stringify({})
+    const { data, error } = await supabase.functions.invoke('openai-assistant', {
+      body: { action: 'createThread' }
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to create thread: ${response.statusText}`);
+    if (error) {
+      throw new Error(`Failed to create thread: ${error.message}`);
     }
 
-    const data = await response.json();
     localStorage.setItem('openai_thread_id', data.id);
     return data.id;
   } catch (error) {
@@ -45,24 +35,15 @@ export const getThreadId = (): string | null => {
 
 export const addMessageToThread = async (threadId: string, message: string) => {
   try {
-    const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1'
-      },
-      body: JSON.stringify({
-        role: 'user',
-        content: message
-      })
+    const { data, error } = await supabase.functions.invoke('openai-assistant', {
+      body: { action: 'addMessage', data: { threadId, message } }
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to add message: ${response.statusText}`);
+    if (error) {
+      throw new Error(`Failed to add message: ${error.message}`);
     }
 
-    return await response.json();
+    return data;
   } catch (error) {
     console.error('Error adding message to thread:', error);
     throw error;
@@ -71,23 +52,15 @@ export const addMessageToThread = async (threadId: string, message: string) => {
 
 export const runAssistant = async (threadId: string) => {
   try {
-    const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1'
-      },
-      body: JSON.stringify({
-        assistant_id: OPENAI_ASSISTANT_ID
-      })
+    const { data, error } = await supabase.functions.invoke('openai-assistant', {
+      body: { action: 'runAssistant', data: { threadId } }
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to run assistant: ${response.statusText}`);
+    if (error) {
+      throw new Error(`Failed to run assistant: ${error.message}`);
     }
 
-    return await response.json();
+    return data;
   } catch (error) {
     console.error('Error running assistant:', error);
     throw error;
@@ -96,19 +69,15 @@ export const runAssistant = async (threadId: string) => {
 
 export const checkRunStatus = async (threadId: string, runId: string) => {
   try {
-    const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/runs/${runId}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1'
-      }
+    const { data, error } = await supabase.functions.invoke('openai-assistant', {
+      body: { action: 'checkRunStatus', data: { threadId, runId } }
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to check run status: ${response.statusText}`);
+    if (error) {
+      throw new Error(`Failed to check run status: ${error.message}`);
     }
 
-    return await response.json();
+    return data;
   } catch (error) {
     console.error('Error checking run status:', error);
     throw error;
@@ -117,19 +86,15 @@ export const checkRunStatus = async (threadId: string, runId: string) => {
 
 export const getMessages = async (threadId: string) => {
   try {
-    const response = await fetch(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
-        'OpenAI-Beta': 'assistants=v1'
-      }
+    const { data, error } = await supabase.functions.invoke('openai-assistant', {
+      body: { action: 'getMessages', data: { threadId } }
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to retrieve messages: ${response.statusText}`);
+    if (error) {
+      throw new Error(`Failed to retrieve messages: ${error.message}`);
     }
 
-    return await response.json();
+    return data;
   } catch (error) {
     console.error('Error getting messages:', error);
     throw error;
