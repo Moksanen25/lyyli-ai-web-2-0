@@ -58,7 +58,7 @@ async function createThread() {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'OpenAI-Beta': 'assistants=v1'
+      'OpenAI-Beta': 'assistants=v2'  // Updated to v2
     },
     body: JSON.stringify({})
   });
@@ -77,7 +77,7 @@ async function addMessageToThread(threadId, message) {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'OpenAI-Beta': 'assistants=v1'
+      'OpenAI-Beta': 'assistants=v2'  // Updated to v2
     },
     body: JSON.stringify({
       role: 'user',
@@ -99,7 +99,7 @@ async function runAssistant(threadId) {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'OpenAI-Beta': 'assistants=v1'
+      'OpenAI-Beta': 'assistants=v2'  // Updated to v2
     },
     body: JSON.stringify({
       assistant_id: OPENAI_ASSISTANT_ID
@@ -119,7 +119,7 @@ async function checkRunStatus(threadId, runId) {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'OpenAI-Beta': 'assistants=v1'
+      'OpenAI-Beta': 'assistants=v2'  // Updated to v2
     }
   });
 
@@ -136,7 +136,7 @@ async function getMessages(threadId) {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'OpenAI-Beta': 'assistants=v1'
+      'OpenAI-Beta': 'assistants=v2'  // Updated to v2
     }
   });
 

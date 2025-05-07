@@ -66,36 +66,42 @@ const ChatInterface = () => {
   };
 
   const pollRunStatus = async (threadId: string, runId: string) => {
-    let runStatus = await checkRunStatus(threadId, runId);
-    
-    while (runStatus.status !== 'completed' && runStatus.status !== 'failed' && runStatus.status !== 'expired') {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    let runStatus;
+    try {
       runStatus = await checkRunStatus(threadId, runId);
-    }
-    
-    if (runStatus.status === 'completed') {
-      const messagesResponse = await getMessages(threadId);
       
-      if (messagesResponse.data && messagesResponse.data.length > 0) {
-        const assistantMessage = messagesResponse.data.find(
-          (msg: any) => msg.role === 'assistant'
-        );
-        
-        if (assistantMessage) {
-          const content = assistantMessage.content[0].text.value;
-          
-          setMessages(prev => [
-            ...prev, 
-            { 
-              role: 'assistant', 
-              content, 
-              timestamp: new Date() 
-            }
-          ]);
-        }
+      while (runStatus.status !== 'completed' && runStatus.status !== 'failed' && runStatus.status !== 'expired') {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        runStatus = await checkRunStatus(threadId, runId);
       }
-    } else {
-      throw new Error(`Run ended with status: ${runStatus.status}`);
+      
+      if (runStatus.status === 'completed') {
+        const messagesResponse = await getMessages(threadId);
+        
+        if (messagesResponse.data && messagesResponse.data.length > 0) {
+          const assistantMessage = messagesResponse.data.find(
+            (msg: any) => msg.role === 'assistant'
+          );
+          
+          if (assistantMessage) {
+            const content = assistantMessage.content[0].text.value;
+            
+            setMessages(prev => [
+              ...prev, 
+              { 
+                role: 'assistant', 
+                content, 
+                timestamp: new Date() 
+              }
+            ]);
+          }
+        }
+      } else {
+        throw new Error(`Run ended with status: ${runStatus.status}`);
+      }
+    } catch (error) {
+      console.error('Error polling run status:', error);
+      throw error;
     }
   };
 
@@ -140,12 +146,8 @@ const ChatInterface = () => {
   };
 
   return (
-    <div className="border rounded-lg shadow-sm bg-card h-[600px] flex flex-col">
-      <div className="p-4 border-b">
-        <h2 className="font-semibold">Customer Support</h2>
-      </div>
-      
-      <ScrollArea className="flex-grow p-4">
+    <div className="h-full flex flex-col">
+      <ScrollArea className="flex-grow p-4 h-[calc(100%-80px)]">
         <div className="space-y-4">
           {messages.map((message, index) => (
             <div 

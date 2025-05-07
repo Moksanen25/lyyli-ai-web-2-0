@@ -8,8 +8,9 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
-import Contact from "./pages/Contact"; // Import the new Contact page
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import FloatingChat from "./components/chat/FloatingChat";
 
 const queryClient = new QueryClient();
 
@@ -24,10 +25,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} /> {/* Add new route for Contact page */}
+            <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <FloatingChat />
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
