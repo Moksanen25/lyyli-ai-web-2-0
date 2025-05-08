@@ -9,14 +9,14 @@ export const fi = {
     signup: 'Rekisteröidy',
   },
   hero: {
-    title: 'Tekoälyllä toimiva sisällönhallintajärjestelmä',
+    title: 'Tekoälyllä toimiva viestinnän automaatiojärjestelmä',
     subtitle: 'Virtaviivaista sisällöntuotantoprosessisi Lyylin avulla',
     cta: 'Aloita Nyt',
     secondaryCta: 'Katso Miten Se Toimii',
   },
   features: {
     title: 'Ominaisuudet',
-    subtitle: 'Kaikki mitä tarvitset vaivattomaan sisällönhallintaan',
+    subtitle: 'Kaikki mitä tarvitset vaivattomaan viestinnän automaatioon',
     feature1: {
       title: 'Tekoälysisällön Luonti',
       description: 'Luo laadukasta sisältöä sekunneissa kehittyneillä tekoälytyökaluilla',
@@ -34,9 +34,9 @@ export const fi = {
       description: 'Seuraa suorituskykyä ja saa näkemyksiä kattavalla analytiikalla',
     },
     pageHero: {
-      title: 'Tehokkaat tekoälyominaisuudet moderniin sisällönhallintaan',
-      description: 'Tutustu kuinka Lyyli muuttaa sisältötyönkulkusi edistyksellisellä tekoälyteknologialla ja intuitiivisilla työkaluilla',
-      imageAlt: 'Tekoälyllä toimivan sisällönhallintajärjestelmän käyttöliittymä',
+      title: 'Tehokkaat tekoälyominaisuudet moderniin viestintään',
+      description: 'Tutustu kuinka Lyyli muuttaa viestintätyönkulkusi edistyksellisellä tekoälyteknologialla ja intuitiivisilla työkaluilla',
+      imageAlt: 'Tekoälyllä toimivan viestinnän automaatiojärjestelmän käyttöliittymä',
       primaryCta: 'Aloita Ilmainen Kokeilu',
       secondaryCta: 'Varaa Esittely',
     },
@@ -51,7 +51,7 @@ export const fi = {
       },
       workflow: {
         title: 'Mukautetut työnkulut',
-        description: 'Suunnittele hyväksyntäprosessit, jotka on räätälöity tiimisi rakenteelle ja sisältövaatimuksille'
+        description: 'Suunnittele hyväksyntäprosessit, jotka on räätälöity tiimisi rakenteelle ja viestintävaatimuksille'
       },
       integration: {
         title: 'Saumattomat integraatiot',
@@ -67,9 +67,9 @@ export const fi = {
     },
     quotes: {
       title: 'Kuinka Ominaisuutemme Auttavat Asiakkaita',
-      quote1: 'Tekoälysisällön tuotanto on puolittanut tuotantoaikamme ja samalla parantanut laatua. On hämmästyttävää, kuinka hyvin se mukautuu brändiääneeseemme.',
+      quote1: 'Tekoälysisällön tuotanto on puolittanut viestintäaikamme ja samalla parantanut laatua. On hämmästyttävää, kuinka hyvin se mukautuu brändiääneeseemme.',
       author1: 'Emma Rodriguez',
-      role1: 'Sisältöjohtaja, Elevate Media',
+      role1: 'Viestintäjohtaja, Elevate Media',
       feature1: 'Tekoälysisällön Luonti',
       
       quote2: 'Mukautetut työnkulut ovat mullistaneet hyväksyntäprosessimme. Mikä ennen vei päiviä, tapahtuu nyt tunneissa, ja koko tiimillä on täysi näkyvyys.',
@@ -83,7 +83,7 @@ export const fi = {
       answer1: 'Tekoälymme on koulutettu alallesi ominaisella korkealaatuisella sisällöllä. Se oppii brändisi äänen olemassa olevasta sisällöstäsi ja voi luoda uutta sisältöä, joka vastaa tyyliäsi. Sinulla on täysi hallinta muokata, hyväksyä tai hylätä tuotettu sisältö.',
       
       question2: 'Voiko Lyylin integroida olemassa oleviin työkaluihini?',
-      answer2: 'Kyllä! Lyyli integroituu suosittujen alustojen, kuten Slackin, Microsoft Teamsin, WordPressin ja muiden kanssa. Tarjoamme myös vankan API:n mukautettuja integraatioita varten.',
+      answer2: 'Kyllä! Lyyli integroituu suosittujen alustojen, kuten Slackin, Microsoft Teamsin, ja muiden kanssa. Tarjoamme myös vankan API:n mukautettuja integraatioita varten.',
       
       question3: 'Onko käyttäjien lisäämiselle rajoitusta?',
       answer3: 'Aloituspaketti sisältää 1 käyttäjän, Ammattilaisversio sisältää 3 käyttäjää ja Yritysversio tarjoaa rajoittamattoman määrän käyttäjiä. Voit lisätä käyttäjiä mihin tahansa pakettiin lisämaksusta kuukausittain.',
@@ -158,14 +158,14 @@ export const fi = {
   testimonials: {
     title: 'Mitä asiakkaamme sanovat',
     testimonial1: {
-      text: 'Lyyli on muuttanut sisällöntuotantoprosessimme. Luomme parempaa sisältöä puolessa ajassa.',
+      text: 'Lyyli on muuttanut viestintäprosessimme. Luomme parempaa sisältöä puolessa ajassa.',
       author: 'Maria Anderson',
       role: 'Markkinointijohtaja, TechFlow',
     },
     testimonial2: {
       text: 'Tekoälytyökalut ovat uskomattomia. On kuin meillä olisi ylimääräinen tiimin jäsen, joka työskentelee 24/7.',
       author: 'James Wilson',
-      role: 'Sisältöpäällikkö, Greensoft',
+      role: 'Viestintäpäällikkö, Greensoft',
     },
     testimonial3: {
       text: 'ROI-laskuri todisti sen - Lyyli maksaa itsensä takaisin jo ensimmäisen käyttökuukauden aikana.',
@@ -188,7 +188,7 @@ export const fi = {
     large: 'Suuri',
   },
   cta: {
-    title: 'Valmis muuttamaan sisällöntuotantoprosessisi?',
+    title: 'Valmis muuttamaan viestintäprosessisi?',
     subtitle: 'Liity tuhansien tyytyväisten asiakkaiden joukkoon tänään.',
     button: 'Aloita Ilmainen Kokeilu',
   },
@@ -217,18 +217,18 @@ export const fi = {
   about: {
     hero: {
       title: 'Tietoa Lyylistä',
-      description: 'Kehitämme vallankumouksellisia tekoälypohjaisia sisällönhallintaratkaisuja, jotka muuttavat yritysten tapaa käsitellä sisältötyönkulkuja.',
+      description: 'Kehitämme vallankumouksellisia tekoälypohjaisia viestinnän automaatioratkaisuja, jotka muuttavat yritysten tapaa käsitellä viestintää.',
       imageAlt: 'Tiimin yhteistyö'
     },
     timeline: {
       title: 'Matkamme',
       founded: {
         title: 'Yritys Perustettu',
-        description: 'Lyyli perustettiin Mikko Oksasen ja Veikko Laitisen toimesta visiolla muuttaa sisältötyönkulkuja tekoälyn avulla.'
+        description: 'Lyyli perustettiin Mikko Oksasen ja Veikko Laitisen toimesta visiolla muuttaa viestintätyönkulkuja tekoälyn avulla.'
       },
       launch: {
         title: 'Ensimmäisen Tuotteen Julkaisu',
-        description: 'Lanseerasimme tekoälypohjaisen sisällönhallinta-alustan auttamaan yrityksiä virtaviivaistamaan sisällöntuotantoprosessejaan.'
+        description: 'Lanseerasimme tekoälypohjaisen viestinnän automaatiojärjestelmän auttamaan yrityksiä virtaviivaistamaan sisällöntuotantoprosessejaan.'
       },
       partnerships: {
         title: 'Ensimmäiset Merkittävät Kumppanuudet',
@@ -243,7 +243,7 @@ export const fi = {
       title: 'Missiomme',
       vision: {
         title: 'Visiomme',
-        description: 'Vallankumouksellistaa sisällön luominen ja hallinta eettisen tekoälyn avulla, tehden siitä saavutettavaa kaikenkokoisille yrityksille.'
+        description: 'Vallankumouksellistaa sisällön luominen ja viestintä eettisen tekoälyn avulla, tehden siitä saavutettavaa kaikenkokoisille yrityksille.'
       },
       values: {
         title: 'Arvomme',
@@ -251,7 +251,7 @@ export const fi = {
       },
       impact: {
         title: 'Vaikutuksemme',
-        description: 'Autamme yrityksiä vähentämään sisällöntuotantoaikaa jopa 70 prosentilla parantaen samalla laatua ja säilyttäen aidon brändiään.'
+        description: 'Autamme yrityksiä vähentämään sisällöntuotantoaikaa jopa 70 prosentilla parantaen samalla laatua ja säilyttäen aidon brändiäänen.'
       }
     },
     team: {
@@ -285,5 +285,144 @@ export const fi = {
       initThread: 'Keskustelun alustaminen epäonnistui. Yritä uudelleen.',
       sendMessage: 'Viestin lähettäminen epäonnistui. Yritä uudelleen.'
     }
+  },
+  customerSegments: {
+    title: 'Viestintäratkaisuja Jokaiselle Toimialalle',
+    subtitle: 'Tekoälypohjainen alustamme mullistaa organisaatioiden sisäisen ja ulkoisen viestinnän automaatiolla, joka ylläpitää brändin ääntä ja johdonmukaisuutta.',
+    tailoredSolutions: 'Räätälöidyt Ratkaisut',
+    bookDemoButton: 'Varaa Toimialakohtainen Esittely',
+    learnMoreButton: 'Lue Lisää',
+    viewComparisonButton: 'Katso Ominaisuusvertailu',
+    techSMEs: {
+      name: 'Teknologiaorientoituneet PK-yritykset',
+      description: 'Teknologiayrityksille, joissa on 30-300 työntekijää ja hajautetut tiimit sekä runsaat viestintätarpeet.',
+      painPoints: [
+        'Viestintäsiilot osastojen välillä',
+        'Epäjohdonmukainen brändiviestintä eri kanavissa',
+        'Rajalliset aika- ja henkilöresurssit laadukkaaseen sisällöntuotantoon'
+      ],
+      solutions: [
+        'Automatisoitu sisällöntuotanto brändisi äänellä',
+        'Saumaton integraatio Teamsiin ja Slackiin',
+        'Yhtenäinen viestintä kaikissa kanavissa'
+      ],
+      quote: 'Olemme vähentäneet sisäisten tiedotteiden tuotantoaikaa 70% säilyttäen samalla ainutlaatuisen brändiäänenne.',
+      author: 'Teknologiajohtaja, Ohjelmistokehitysyritys'
+    },
+    consulting: {
+      name: 'Konsultointiyritykset',
+      description: 'Asiantuntijayrityksille, jotka kääntävät osaamistaan selkeäksi ja ammattimaiseksi asiakasviestinnäksi.',
+      painPoints: [
+        'Manuaalisen sisällöntuotannon pullonkaulat',
+        'Vaikeus muuntaa asiantuntijuus ymmärrettäväksi sisällöksi',
+        'Yhtenäisen ammattimaisen äänensävyn ylläpitäminen tiimeissä'
+      ],
+      solutions: [
+        'Muunna monimutkainen asiantuntijuus selkeäksi asiakasviestinnäksi',
+        'Ylläpidä johdonmukaista ammattimaista sävyä kaikissa tiimeissä',
+        'Automatisoi toistuvat raportit ja asiakaspäivitykset'
+      ],
+      quote: 'Asiakasviestintämme on nyt johdonmukaista riippumatta siitä, kuka konsultti hoitaa asiakassuhdetta.',
+      author: 'Partneri, Liikkeenjohdon konsultointi'
+    },
+    nonprofits: {
+      name: 'Voittoa tavoittelemattomat järjestöt',
+      description: 'Tavoitelähtöisille organisaatioille, jotka venyttävät rajallisia resursseja maksimaalisen vaikutuksen saavuttamiseksi.',
+      painPoints: [
+        'Haasteet jatkuvassa sisällöntuotannossa',
+        'Monikielisen viestinnän tarve',
+        'Rajalliset henkilöresurssit viestintätehtäviin'
+      ],
+      solutions: [
+        'Luo vaikuttavia tarinoita rajallisilla resursseilla',
+        'Ylläpidä sidosryhmien sitoutumista kaikissa kanavissa',
+        'Tue monikielisiä viestintätarpeita'
+      ],
+      quote: 'Voimme nyt viestiä johdonmukaisesti sidosryhmillemme kolmella kielellä samalla pienellä tiimillä.',
+      author: 'Viestintäjohtaja, Kansainvälinen kansalaisjärjestö'
+    },
+    education: {
+      name: 'Oppilaitokset',
+      description: 'Yliopistoille ja tutkimusorganisaatioille, jotka yhdistävät akateemista ja julkista viestintää.',
+      painPoints: [
+        'Tehottomat sisäiset viestintäprosessit',
+        'Tarve yksinkertaistaa monimutkaisia aiheita suurelle yleisölle',
+        'Pirstoutunut viestintä eri osastojen välillä'
+      ],
+      solutions: [
+        'Yksinkertaista monimutkaiset aiheet yleistajuisiksi',
+        'Yhtenäistä viestintä useiden osastojen välillä',
+        'Automatisoi tiedotteet ja tapahtumaviestintä'
+      ],
+      quote: 'Tutkimustuloksemme tavoittavat nyt suuren yleisön selkeällä ja kiinnostavalla kielellä säilyttäen akateemisen eheyden.',
+      author: 'Viestinnän dekaani, Tutkimusyliopisto'
+    },
+    creative: {
+      name: 'Luovat yritykset',
+      description: 'Suunnittelu- ja mediayrityksille, joissa brändiääni ja visuaalinen yhdenmukaisuus ovat ensisijaisen tärkeitä.',
+      painPoints: [
+        'Aikaavievät sisällönsuunnitteluprosessit',
+        'Brändi-identiteetin yhtenäistäminen etätiimeissä',
+        'Paine luoda inspiroivaa sisältöä jatkuvasti'
+      ],
+      solutions: [
+        'Ylläpidä luovaa brändiääntä kaikissa kanavissa',
+        'Virtaviivaista yhteistyöhön perustuvia sisältötyönkulkuja',
+        'Luo designiin sopivaa sisältöä nopeasti'
+      ],
+      quote: 'Suunnittelijoillamme ja kirjoittajillamme on vihdoin työkalu, joka puhuu luovaa kieltämme ja säästää tunteja iteraatiosta.',
+      author: 'Luova johtaja, Designtoimisto'
+    },
+    sports: {
+      name: 'Urheiluorganisaatiot',
+      description: 'Joukkueille ja liitoille, jotka tasapainottelevat yhteisöllisen sitoutumisen ja ammattimaisen viestinnän välillä.',
+      painPoints: [
+        'Pirstoutuneet viestintätyökalut ja -prosessit',
+        'Tarve automatisoituun monikanavajulkaisuun',
+        'Rajalliset ammattimaisen viestinnän resurssit'
+      ],
+      solutions: [
+        'Luo johdonmukaista viestintää faneille ja sponsoreille',
+        'Automatisoi tapahtumapäivitykset useissa kanavissa',
+        'Ylläpidä ammattimaista ääntä rajallisella henkilöstöllä'
+      ],
+      quote: 'Olemme muuttaneet tapaamme viestiä faneille ja sponsoreille puolella aiemmasta työstä ja tuplaten paremmalla sitoutumisella.',
+      author: 'Markkinointipäällikkö, Ammattiurheiluseura'
+    },
+    successStory: 'Menestystarina',
+    keyFeatures: 'Keskeiset alustan ominaisuudet:',
+    challenges: 'Yleiset haasteet:',
+    solutions: 'Ratkaisumme:',
+    voiceAI: 'Ääniohjattu tekoäly',
+    slackIntegration: 'Slack-integraatio',
+    contentTemplates: 'Sisältömallit',
+    teamsIntegration: 'Teams-integraatio',
+    closingText: 'Olipa kyseessä kasvava teknologiayritys, vakiintunut konsultointiyritys tai oppilaitos, tekoälyviestintäalustamme mukautuu ainutlaatuisiin tarpeisiisi ja ääneesi.'
+  },
+  caseStudies: {
+    title: 'Menestystarinat',
+    subtitle: 'Katso kuinka johtavat organisaatiot ovat muuttaneet toimintaansa yritysratkaisujemme avulla.',
+    globalFinancial: {
+      company: "Global Financial Corp",
+      industry: "Rahoitus",
+      challenge: "Perinteiset sisällönhallintajärjestelmät aiheuttavat työnkulun pullonkauloja",
+      solution: "Tekoälyllä toimiva sisällön automatisointi mukautetulla integraatiolla",
+      results: "72% nopeampi sisällöntuotanto ja 45% kustannussäästöt"
+    },
+    techNova: {
+      company: "TechNova Systems",
+      industry: "Teknologia",
+      challenge: "Sisällön skaalaaminen 12 tuotelinjalle ja 30 globaalille markkinalle",
+      solution: "Keskitetty sisältökeskus lokalisaation automatisoinnilla",
+      results: "Sisällöntuotannon kolminkertainen kasvu yhtenäisellä brändillä"
+    },
+    healthFirst: {
+      company: "HealthFirst Network",
+      industry: "Terveydenhuolto",
+      challenge: "Vaatimustenmukaisuuden ylläpito potilasviestinnän nopeuttamisen ohella",
+      solution: "Vaatimustenmukaisuuteen keskittyvä tekoälyn sisältötyönkulku hyväksynnän automatisoinnilla",
+      results: "99,8% vaatimustenmukaisuus 60% nopeammilla hyväksyntäjaksoilla"
+    },
+    readFullCase: "Lue koko tapaustutkimus"
   }
 };

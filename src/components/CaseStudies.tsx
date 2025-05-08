@@ -11,27 +11,27 @@ const CaseStudies: React.FC = () => {
   
   const caseStudies = [
     {
-      company: "Global Financial Corp",
-      industry: "Finance",
-      challenge: "Legacy content management systems causing workflow bottlenecks",
-      solution: "AI-powered content automation with custom integration",
-      results: "72% faster content production and 45% cost savings",
+      company: t('caseStudies.globalFinancial.company'),
+      industry: t('caseStudies.globalFinancial.industry'),
+      challenge: t('caseStudies.globalFinancial.challenge'),
+      solution: t('caseStudies.globalFinancial.solution'),
+      results: t('caseStudies.globalFinancial.results'),
       logo: "https://img.shields.io/badge/GFC-Financial-blue"
     },
     {
-      company: "TechNova Systems",
-      industry: "Technology",
-      challenge: "Scaling content across 12 product lines and 30 global markets",
-      solution: "Centralized content hub with localization automation",
-      results: "3x increase in content output with consistent brand voice",
+      company: t('caseStudies.techNova.company'),
+      industry: t('caseStudies.techNova.industry'),
+      challenge: t('caseStudies.techNova.challenge'),
+      solution: t('caseStudies.techNova.solution'),
+      results: t('caseStudies.techNova.results'),
       logo: "https://img.shields.io/badge/TechNova-Systems-purple"
     },
     {
-      company: "HealthFirst Network",
-      industry: "Healthcare",
-      challenge: "Maintaining compliance while accelerating patient communications",
-      solution: "Compliance-first AI content workflow with approval automation",
-      results: "99.8% compliance rate with 60% faster approval cycles",
+      company: t('caseStudies.healthFirst.company'),
+      industry: t('caseStudies.healthFirst.industry'),
+      challenge: t('caseStudies.healthFirst.challenge'),
+      solution: t('caseStudies.healthFirst.solution'),
+      results: t('caseStudies.healthFirst.results'),
       logo: "https://img.shields.io/badge/HealthFirst-Network-green"
     }
   ];
@@ -43,9 +43,9 @@ const CaseStudies: React.FC = () => {
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
             Success Stories
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Enterprise Case Studies</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('caseStudies.title')}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            See how leading organizations transformed their operations with our enterprise solutions.
+            {t('caseStudies.subtitle')}
           </p>
         </div>
         
@@ -79,7 +79,7 @@ const CaseStudies: React.FC = () => {
                 </div>
                 
                 <button className="text-primary flex items-center text-sm font-medium mt-auto">
-                  Read Full Case Study <ArrowRight className="h-4 w-4 ml-1" />
+                  {t('caseStudies.readFullCase')} <ArrowRight className="h-4 w-4 ml-1" />
                 </button>
               </CardContent>
             </Card>

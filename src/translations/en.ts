@@ -9,14 +9,14 @@ export const en = {
     signup: 'Sign Up',
   },
   hero: {
-    title: 'AI-powered content management platform',
+    title: 'AI-powered communication automation platform',
     subtitle: 'Streamline your content creation process with Lyyli',
     cta: 'Get Started',
     secondaryCta: 'See How It Works',
   },
   features: {
     title: 'Features',
-    subtitle: 'Everything you need for effortless content management',
+    subtitle: 'Everything you need for effortless communication automation',
     feature1: {
       title: 'AI Content Generation',
       description: 'Create high-quality content in seconds with our advanced AI tools',
@@ -34,9 +34,9 @@ export const en = {
       description: 'Track performance and gain insights with comprehensive analytics',
     },
     pageHero: {
-      title: 'Powerful AI Features for Modern Content Management',
-      description: 'Discover how Lyyli transforms your content workflow with cutting-edge AI technology and intuitive tools',
-      imageAlt: 'AI-powered content management platform interface',
+      title: 'Powerful AI Features for Modern Communication',
+      description: 'Discover how Lyyli transforms your communication workflow with cutting-edge AI technology and intuitive tools',
+      imageAlt: 'AI-powered communication automation platform interface',
       primaryCta: 'Start Free Trial',
       secondaryCta: 'Schedule a Demo',
     },
@@ -69,7 +69,7 @@ export const en = {
       title: 'How Our Features Help Customers',
       quote1: 'The AI content generation has cut our production time in half while actually improving quality. It\'s remarkable how well it adapts to our brand voice.',
       author1: 'Emma Rodriguez',
-      role1: 'Content Director, Elevate Media',
+      role1: 'Communication Director, Elevate Media',
       feature1: 'AI Content Generation',
       
       quote2: 'The custom workflows have revolutionized our approval process. What used to take days now happens in hours, with complete visibility for the entire team.',
@@ -83,7 +83,7 @@ export const en = {
       answer1: 'Our AI is trained on high-quality content specific to your industry. It learns your brand voice from your existing content and can generate new content that matches your style. You have full control to edit, approve, or reject the generated content.',
       
       question2: 'Can I integrate Lyyli with my existing tools?',
-      answer2: 'Yes! Lyyli integrates with popular platforms like Slack, Microsoft Teams, WordPress, and more. We also offer a robust API for custom integrations.',
+      answer2: 'Yes! Lyyli integrates with popular platforms like Slack, Microsoft Teams, and more. We also offer a robust API for custom integrations.',
       
       question3: 'Is there a limit to how many users I can add?',
       answer3: 'The Starter plan includes 1 user, Professional includes 3 users, and Enterprise offers unlimited users. You can add additional users to any plan for an extra monthly fee.',
@@ -157,14 +157,14 @@ export const en = {
   testimonials: {
     title: 'What our customers say',
     testimonial1: {
-      text: 'Lyyli has transformed our content workflow. We\'re creating better content in half the time.',
+      text: 'Lyyli has transformed our communication workflow. We\'re creating better content in half the time.',
       author: 'Maria Anderson',
       role: 'Marketing Director, TechFlow',
     },
     testimonial2: {
       text: 'The AI tools are incredible. It\'s like having an extra team member who works 24/7.',
       author: 'James Wilson',
-      role: 'Content Manager, Greensoft',
+      role: 'Communication Manager, Greensoft',
     },
     testimonial3: {
       text: 'The ROI calculator proved it - Lyyli pays for itself within the first month of use.',
@@ -187,7 +187,7 @@ export const en = {
     large: 'Large',
   },
   cta: {
-    title: 'Ready to transform your content workflow?',
+    title: 'Ready to transform your communication workflow?',
     subtitle: 'Join thousands of satisfied customers today.',
     button: 'Start Free Trial',
   },
@@ -216,18 +216,18 @@ export const en = {
   about: {
     hero: {
       title: 'About Lyyli',
-      description: 'We\'re creating revolutionary AI-powered content management solutions that transform how businesses handle their content workflows.',
+      description: 'We\'re creating revolutionary AI-powered communication automation solutions that transform how businesses handle their communication workflows.',
       imageAlt: 'Team collaboration'
     },
     timeline: {
       title: 'Our Journey',
       founded: {
         title: 'Company Founded',
-        description: 'Lyyli was founded by Mikko Oksanen and Veikko Laitinen with a vision to transform content workflows through AI.'
+        description: 'Lyyli was founded by Mikko Oksanen and Veikko Laitinen with a vision to transform communication workflows through AI.'
       },
       launch: {
         title: 'First Product Launch',
-        description: 'We launched our AI-powered content management platform to help businesses streamline their content creation process.'
+        description: 'We launched our AI-powered communication automation platform to help businesses streamline their content creation process.'
       },
       partnerships: {
         title: 'First Major Partnerships',
@@ -242,7 +242,7 @@ export const en = {
       title: 'Our Mission',
       vision: {
         title: 'Our Vision',
-        description: 'To revolutionize content creation and management through ethical AI, making it accessible to businesses of all sizes.'
+        description: 'To revolutionize content creation and communication through ethical AI, making it accessible to businesses of all sizes.'
       },
       values: {
         title: 'Our Values',
@@ -284,5 +284,144 @@ export const en = {
       initThread: 'Failed to initialize chat. Please try again.',
       sendMessage: 'Failed to send message. Please try again.'
     }
+  },
+  customerSegments: {
+    title: 'Communication Solutions for Every Industry',
+    subtitle: 'Our AI-powered platform transforms how organizations handle internal and external communication, automating content production while maintaining your unique voice and brand consistency.',
+    tailoredSolutions: 'Tailored Solutions',
+    bookDemoButton: 'Book Industry-Specific Demo',
+    learnMoreButton: 'Learn More',
+    viewComparisonButton: 'View Feature Comparison',
+    techSMEs: {
+      name: 'Tech-Savvy SMEs',
+      description: 'For tech companies with 30-300 employees managing distributed teams and heavy communication needs.',
+      painPoints: [
+        'Communication silos between departments',
+        'Inconsistent brand messaging across channels',
+        'Limited time and resources for quality content'
+      ],
+      solutions: [
+        'Automated content generation in your brand voice',
+        'Seamless integration with Teams and Slack',
+        'Consistent messaging across all communication channels'
+      ],
+      quote: 'We\'ve cut our internal announcement time by 70% while maintaining our unique brand voice.',
+      author: 'CTO, Software Development Company'
+    },
+    consulting: {
+      name: 'Consulting Firms',
+      description: 'For advisory businesses translating expertise into clear, professional client communications.',
+      painPoints: [
+        'Manual content creation bottlenecks',
+        'Difficulty translating expertise into digestible content',
+        'Maintaining consistent professional tone across teams'
+      ],
+      solutions: [
+        'Transform complex expertise into clear client communications',
+        'Maintain consistent professional tone across all teams',
+        'Automate recurring reports and client updates'
+      ],
+      quote: 'Our client communications are now consistent regardless of which consultant is managing the relationship.',
+      author: 'Partner, Management Consulting Firm'
+    },
+    nonprofits: {
+      name: 'Non-Profits & Associations',
+      description: 'For mission-driven organizations stretching limited resources to maximize impact.',
+      painPoints: [
+        'Struggles with continuous content production',
+        'Need for multilingual communication',
+        'Limited staff time for communication tasks'
+      ],
+      solutions: [
+        'Create impactful stories with limited resources',
+        'Maintain stakeholder engagement across channels',
+        'Support multilingual communication needs'
+      ],
+      quote: 'We can now communicate consistently with our stakeholders in three languages using the same small team.',
+      author: 'Communications Director, International NGO'
+    },
+    education: {
+      name: 'Educational Institutions',
+      description: 'For universities and research organizations bridging academic and public communication.',
+      painPoints: [
+        'Inefficient internal communication processes',
+        'Need to simplify complex topics for public audiences',
+        'Fragmented messaging across departments'
+      ],
+      solutions: [
+        'Simplify complex topics for public consumption',
+        'Unify messaging across multiple departments',
+        'Automate announcements and event communications'
+      ],
+      quote: 'Our research findings now reach the public in clear, engaging language while maintaining academic integrity.',
+      author: 'Dean of Communications, Research University'
+    },
+    creative: {
+      name: 'Creative Firms',
+      description: 'For design and media companies where brand voice and visual consistency are paramount.',
+      painPoints: [
+        'Time-intensive content planning processes',
+        'Aligning brand identity across remote teams',
+        'Pressure to create inspiring content consistently'
+      ],
+      solutions: [
+        'Maintain creative brand voice across all channels',
+        'Streamline collaborative content workflows',
+        'Generate design-friendly content quickly'
+      ],
+      quote: 'Our designers and writers finally have a tool that speaks our creative language and saves hours of iteration.',
+      author: 'Creative Director, Design Agency'
+    },
+    sports: {
+      name: 'Sports Organizations',
+      description: 'For teams and federations balancing community engagement with professional communications.',
+      painPoints: [
+        'Fragmented communication tools and processes',
+        'Need for automated multi-channel publishing',
+        'Limited professional communication resources'
+      ],
+      solutions: [
+        'Create consistent fan and sponsor communications',
+        'Automate event updates across multiple channels',
+        'Maintain professional voice with limited staff'
+      ],
+      quote: 'We\'ve transformed how we communicate with fans and sponsors with half the effort and twice the engagement.',
+      author: 'Marketing Manager, Professional Sports Club'
+    },
+    successStory: 'Success Story',
+    keyFeatures: 'Key Platform Features:',
+    challenges: 'Common Challenges:',
+    solutions: 'Our Solutions:',
+    voiceAI: 'Voice Consistent AI',
+    slackIntegration: 'Slack Integration',
+    contentTemplates: 'Content Templates',
+    teamsIntegration: 'Teams Integration',
+    closingText: 'Whether you\'re a growing tech company, established consultancy, or educational institution, our AI communication platform adapts to your unique needs and voice.'
+  },
+  caseStudies: {
+    title: 'Enterprise Case Studies',
+    subtitle: 'See how leading organizations transformed their operations with our enterprise solutions.',
+    globalFinancial: {
+      company: "Global Financial Corp",
+      industry: "Finance",
+      challenge: "Legacy content management systems causing workflow bottlenecks",
+      solution: "AI-powered content automation with custom integration",
+      results: "72% faster content production and 45% cost savings"
+    },
+    techNova: {
+      company: "TechNova Systems",
+      industry: "Technology",
+      challenge: "Scaling content across 12 product lines and 30 global markets",
+      solution: "Centralized content hub with localization automation",
+      results: "3x increase in content output with consistent brand voice"
+    },
+    healthFirst: {
+      company: "HealthFirst Network",
+      industry: "Healthcare",
+      challenge: "Maintaining compliance while accelerating patient communications",
+      solution: "Compliance-first AI content workflow with approval automation",
+      results: "99.8% compliance rate with 60% faster approval cycles"
+    },
+    readFullCase: "Read Full Case Study"
   }
 };
