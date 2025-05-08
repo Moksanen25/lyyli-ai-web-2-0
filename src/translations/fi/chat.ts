@@ -1,0 +1,12 @@
+
+export const chat = {
+  title: 'Asiakastuki',
+  welcomeMessage: 'Hei! Miten voin auttaa sinua tänään?',
+  inputPlaceholder: 'Kirjoita viestisi...',
+  send: 'Lähetä',
+  error: {
+    title: 'Virhe',
+    initThread: 'Keskustelun alustaminen epäonnistui. Yritä uudelleen.',
+    sendMessage: 'Viestin lähettäminen epäonnistui. Yritä uudelleen.'
+  }
+};
