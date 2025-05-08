@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Building, 
@@ -15,6 +14,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const CustomerSegments: React.FC = () => {
   const { t } = useLanguage();
+
+  // Helper function to ensure we get an array from translations
+  const ensureArray = (value: unknown): string[] => {
+    if (Array.isArray(value)) return value;
+    return [];
+  };
   
   const segments = [
     {
@@ -22,8 +27,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.techSMEs.name'),
       icon: <Building className="h-10 w-10 text-primary" />,
       description: t('customerSegments.techSMEs.description'),
-      painPoints: t('customerSegments.techSMEs.painPoints') as unknown as string[],
-      solutions: t('customerSegments.techSMEs.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.techSMEs.painPoints')),
+      solutions: ensureArray(t('customerSegments.techSMEs.solutions')),
       quote: {
         text: t('customerSegments.techSMEs.quote'),
         author: t('customerSegments.techSMEs.author')
@@ -34,8 +39,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.consulting.name'),
       icon: <Briefcase className="h-10 w-10 text-primary" />,
       description: t('customerSegments.consulting.description'),
-      painPoints: t('customerSegments.consulting.painPoints') as unknown as string[],
-      solutions: t('customerSegments.consulting.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.consulting.painPoints')),
+      solutions: ensureArray(t('customerSegments.consulting.solutions')),
       quote: {
         text: t('customerSegments.consulting.quote'),
         author: t('customerSegments.consulting.author')
@@ -46,8 +51,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.nonprofits.name'),
       icon: <HandHelping className="h-10 w-10 text-primary" />,
       description: t('customerSegments.nonprofits.description'),
-      painPoints: t('customerSegments.nonprofits.painPoints') as unknown as string[],
-      solutions: t('customerSegments.nonprofits.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.nonprofits.painPoints')),
+      solutions: ensureArray(t('customerSegments.nonprofits.solutions')),
       quote: {
         text: t('customerSegments.nonprofits.quote'),
         author: t('customerSegments.nonprofits.author')
@@ -58,8 +63,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.education.name'),
       icon: <School className="h-10 w-10 text-primary" />,
       description: t('customerSegments.education.description'),
-      painPoints: t('customerSegments.education.painPoints') as unknown as string[],
-      solutions: t('customerSegments.education.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.education.painPoints')),
+      solutions: ensureArray(t('customerSegments.education.solutions')),
       quote: {
         text: t('customerSegments.education.quote'),
         author: t('customerSegments.education.author')
@@ -70,8 +75,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.creative.name'),
       icon: <PenTool className="h-10 w-10 text-primary" />,
       description: t('customerSegments.creative.description'),
-      painPoints: t('customerSegments.creative.painPoints') as unknown as string[],
-      solutions: t('customerSegments.creative.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.creative.painPoints')),
+      solutions: ensureArray(t('customerSegments.creative.solutions')),
       quote: {
         text: t('customerSegments.creative.quote'),
         author: t('customerSegments.creative.author')
@@ -82,8 +87,8 @@ const CustomerSegments: React.FC = () => {
       name: t('customerSegments.sports.name'),
       icon: <Users className="h-10 w-10 text-primary" />,
       description: t('customerSegments.sports.description'),
-      painPoints: t('customerSegments.sports.painPoints') as unknown as string[],
-      solutions: t('customerSegments.sports.solutions') as unknown as string[],
+      painPoints: ensureArray(t('customerSegments.sports.painPoints')),
+      solutions: ensureArray(t('customerSegments.sports.solutions')),
       quote: {
         text: t('customerSegments.sports.quote'),
         author: t('customerSegments.sports.author')
