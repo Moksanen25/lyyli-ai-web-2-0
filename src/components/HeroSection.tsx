@@ -2,14 +2,19 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Shield, Database, Users } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary to-white">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
       <div className="container-padding container mx-auto flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in">
+          <div className="flex items-center mb-4">
+            <span className="bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full">Enterprise Ready</span>
+            <span className="ml-3 text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             {t('hero.title')}
           </h1>
@@ -29,6 +34,28 @@ const HeroSection: React.FC = () => {
               {t('hero.secondaryCta')}
             </Button>
           </div>
+          
+          {/* Enterprise Trust Indicators */}
+          <div className="mt-10 grid grid-cols-3 gap-4">
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-secondary/30 p-2 rounded-full mb-2">
+                <Shield className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-sm font-medium">Enterprise Security</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-secondary/30 p-2 rounded-full mb-2">
+                <Database className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-sm font-medium">99.9% Uptime SLA</span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-secondary/30 p-2 rounded-full mb-2">
+                <Users className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-sm font-medium">24/7 Support</span>
+            </div>
+          </div>
         </div>
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-fade-in-slow">
@@ -40,30 +67,31 @@ const HeroSection: React.FC = () => {
                   L
                 </div>
                 <div className="font-medium">Lyyli Assistant</div>
+                <div className="ml-auto bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full">Enterprise</div>
               </div>
               
               <div className="space-y-3">
                 <div className="flex">
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                    How can I help you with content creation today?
+                    How can I help optimize your enterprise content strategy today?
                   </div>
                 </div>
                 
                 <div className="flex justify-end">
                   <div className="bg-primary/10 rounded-2xl rounded-tr-none p-3 max-w-[80%]">
-                    I need a blog post about sustainable marketing
+                    We need to create quarterly reports for our marketing department
                   </div>
                 </div>
                 
                 <div className="flex">
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                    I'll create a blog post about sustainable marketing strategies. Would you like me to focus on specific aspects like eco-friendly campaigns or reducing digital waste?
+                    I'll generate comprehensive quarterly marketing reports with performance analytics and competitive benchmarks. Would you like to include conversion metrics and ROI analysis as well?
                   </div>
                 </div>
                 
                 <div className="flex justify-end">
                   <div className="bg-primary/10 rounded-2xl rounded-tr-none p-3 max-w-[80%]">
-                    Focus on eco-friendly campaigns please
+                    Yes, please include ROI analysis across all channels
                   </div>
                 </div>
                 
@@ -71,7 +99,7 @@ const HeroSection: React.FC = () => {
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
                     <div className="flex items-center space-x-2 mb-2">
                       <div className="w-4 h-4 rounded-full bg-primary/40 animate-pulse"></div>
-                      <span>Generating content...</span>
+                      <span>Generating enterprise reports...</span>
                     </div>
                   </div>
                 </div>
@@ -89,6 +117,13 @@ const HeroSection: React.FC = () => {
                   </svg>
                 </button>
               </div>
+            </div>
+            
+            {/* Trust badges */}
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white py-2 px-4 rounded-full shadow-lg flex items-center space-x-3">
+              <img src="https://img.shields.io/badge/ISO-27001-blue" alt="ISO 27001" className="h-5" />
+              <img src="https://img.shields.io/badge/GDPR-Compliant-green" alt="GDPR Compliant" className="h-5" />
+              <img src="https://img.shields.io/badge/SOC2-Certified-purple" alt="SOC2 Certified" className="h-5" />
             </div>
             
             {/* Decorative elements */}

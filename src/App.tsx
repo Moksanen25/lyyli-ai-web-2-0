@@ -10,6 +10,7 @@ import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import CaseStudies from "./pages/CaseStudies";
 import NotFound from "./pages/NotFound";
 import FloatingChat from "./components/chat/FloatingChat";
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/features" element={<Features />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
