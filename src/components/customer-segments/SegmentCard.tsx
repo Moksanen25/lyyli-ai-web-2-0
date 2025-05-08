@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { SegmentData } from './SegmentItem';
+import { ensureArray } from './utils';
 
 interface SegmentCardProps {
   segment: SegmentData;
@@ -11,6 +12,10 @@ interface SegmentCardProps {
 
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t } = useLanguage();
+  
+  // Ensure painPoints and solutions are always arrays
+  const painPoints = ensureArray(segment.painPoints);
+  const solutions = ensureArray(segment.solutions);
   
   return (
     <Card className="overflow-hidden">
@@ -25,7 +30,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         <div className="mb-4">
           <h4 className="font-semibold text-sm text-primary mb-2">{t('customerSegments.challenges')}</h4>
           <ul className="space-y-1 text-sm">
-            {segment.painPoints.map((point, idx) => (
+            {painPoints.map((point, idx) => (
               <li key={idx} className="flex items-start">
                 <span className="text-primary mr-1">•</span> {point}
               </li>
@@ -36,7 +41,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         <div className="mb-5">
           <h4 className="font-semibold text-sm text-primary mb-2">{t('customerSegments.solutions')}</h4>
           <ul className="space-y-1 text-sm">
-            {segment.solutions.map((solution, idx) => (
+            {solutions.map((solution, idx) => (
               <li key={idx} className="flex items-start">
                 <span className="text-primary mr-1">•</span> {solution}
               </li>

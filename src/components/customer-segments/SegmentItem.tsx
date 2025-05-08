@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ensureArray } from './utils';
 
 export interface SegmentQuote {
   text: string;
@@ -14,8 +15,8 @@ export interface SegmentData {
   name: string;
   icon: React.ReactNode;
   description: string;
-  painPoints: string[];
-  solutions: string[];
+  painPoints: string[] | string;
+  solutions: string[] | string;
   quote: SegmentQuote;
 }
 
@@ -25,6 +26,10 @@ interface SegmentItemProps {
 
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t } = useLanguage();
+  
+  // Ensure painPoints and solutions are always arrays
+  const painPoints = ensureArray(segment.painPoints);
+  const solutions = ensureArray(segment.solutions);
   
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -40,7 +45,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         <div className="mb-6">
           <h4 className="font-semibold mb-3 text-primary">{t('customerSegments.challenges')}</h4>
           <ul className="space-y-2">
-            {segment.painPoints.map((point, index) => (
+            {painPoints.map((point, index) => (
               <li key={index} className="flex items-start">
                 <span className="bg-primary/10 text-primary p-1 rounded-full mr-2 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -54,7 +59,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         <div className="mb-8">
           <h4 className="font-semibold mb-3 text-primary">{t('customerSegments.solutions')}</h4>
           <ul className="space-y-2">
-            {segment.solutions.map((solution, index) => (
+            {solutions.map((solution, index) => (
               <li key={index} className="flex items-start">
                 <span className="bg-primary/10 text-primary p-1 rounded-full mr-2 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
