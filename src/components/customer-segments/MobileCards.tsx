@@ -1,0 +1,20 @@
+
+import React from 'react';
+import SegmentCard from './SegmentCard';
+import type { SegmentData } from './SegmentItem';
+
+interface MobileCardsProps {
+  segments: SegmentData[];
+}
+
+const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
+  return (
+    <div className="md:hidden space-y-8">
+      {segments.map((segment, index) => (
+        <SegmentCard key={index} segment={segment} />
+      ))}
+    </div>
+  );
+};
+
+export default MobileCards;
