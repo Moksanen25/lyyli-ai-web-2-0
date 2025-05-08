@@ -12,18 +12,35 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 
+/**
+ * Main landing page component
+ * Structure:
+ * 1. Hero section (primary message)
+ * 2. Trust indicators (compliance badges)
+ * 3. Main content (features, customer segments, testimonials)
+ * 4. Enterprise-specific content
+ * 5. Call to action
+ * 6. Footer and cookie consent
+ */
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
+        {/* Primary messaging */}
         <HeroSection />
         <ComplianceBadges />
+        
+        {/* Main content sections */}
         <FeaturesSection />
         <CustomerSegments />
+        
+        {/* Social proof and enterprise focus */}
         <EnterpriseCallout />
         <TestimonialsSection />
         <CaseStudies />
+        
+        {/* Final conversion point */}
         <CTASection />
       </main>
       <Footer />

@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Database, MessageSquare } from 'lucide-react';
+import TrustIndicators from '@/components/TrustIndicators';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -36,26 +37,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           {/* Enterprise Trust Indicators */}
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-secondary/30 p-2 rounded-full mb-2">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
-              <span className="text-sm font-medium">Enterprise Security</span>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-secondary/30 p-2 rounded-full mb-2">
-                <Database className="h-6 w-6 text-primary" />
-              </div>
-              <span className="text-sm font-medium">99.9% Uptime SLA</span>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-secondary/30 p-2 rounded-full mb-2">
-                <MessageSquare className="h-6 w-6 text-primary" />
-              </div>
-              <span className="text-sm font-medium">24/7 Support</span>
-            </div>
-          </div>
+          <TrustIndicators className="mt-10" />
         </div>
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-fade-in-slow">
