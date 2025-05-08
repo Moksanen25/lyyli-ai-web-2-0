@@ -11,9 +11,9 @@ const ComplianceBadges: React.FC = () => {
   ];
 
   return (
-    <section className="py-8 bg-white border-t border-gray-100">
+    <section className="py-6 bg-white border-t border-gray-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <p className="text-sm text-muted-foreground">Enterprise-Grade Security & Compliance</p>
         </div>
         <div className="flex flex-wrap justify-center items-center gap-6">

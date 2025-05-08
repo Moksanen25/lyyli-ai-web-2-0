@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Database, Users } from 'lucide-react';
+import { Shield, Database, MessageSquare } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -16,10 +16,10 @@ const HeroSection: React.FC = () => {
             <span className="ml-3 text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            {t('hero.title')}
+            AI-powered communication automation
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary/80">
-            {t('hero.subtitle')}
+            Transform your internal and external communications with AI that speaks in your authentic brand voice
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a href="https://lyyli.vercel.app/">
@@ -51,7 +51,7 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="bg-secondary/30 p-2 rounded-full mb-2">
-                <Users className="h-6 w-6 text-primary" />
+                <MessageSquare className="h-6 w-6 text-primary" />
               </div>
               <span className="text-sm font-medium">24/7 Support</span>
             </div>
@@ -73,25 +73,25 @@ const HeroSection: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex">
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                    How can I help optimize your enterprise content strategy today?
+                    How can I help with your communication needs today?
                   </div>
                 </div>
                 
                 <div className="flex justify-end">
                   <div className="bg-primary/10 rounded-2xl rounded-tr-none p-3 max-w-[80%]">
-                    We need to create quarterly reports for our marketing department
+                    We need to create an internal announcement about our new sustainability initiative
                   </div>
                 </div>
                 
                 <div className="flex">
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                    I'll generate comprehensive quarterly marketing reports with performance analytics and competitive benchmarks. Would you like to include conversion metrics and ROI analysis as well?
+                    I'll draft an internal announcement about your sustainability initiative using your company's tone of voice. Would you prefer a formal email format or a more conversational Teams message?
                   </div>
                 </div>
                 
                 <div className="flex justify-end">
                   <div className="bg-primary/10 rounded-2xl rounded-tr-none p-3 max-w-[80%]">
-                    Yes, please include ROI analysis across all channels
+                    A Teams message that we can share across departments
                   </div>
                 </div>
                 
@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
                   <div className="bg-secondary rounded-2xl rounded-tl-none p-3 max-w-[80%]">
                     <div className="flex items-center space-x-2 mb-2">
                       <div className="w-4 h-4 rounded-full bg-primary/40 animate-pulse"></div>
-                      <span>Generating enterprise reports...</span>
+                      <span>Drafting Teams message in your brand voice...</span>
                     </div>
                   </div>
                 </div>
