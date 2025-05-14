@@ -11,16 +11,19 @@ import SegmentCTA from './customer-segments/SegmentCTA';
  * and cards on mobile, showing challenges and solutions for each customer segment.
  */
 const CustomerSegments: React.FC = () => {
-  // Get segment data
+  // Get segment data with error handling
   const segments = useSegmentsData();
-  
-  // Set initial state with a default empty value
   const [activeSegmentId, setActiveSegmentId] = useState<string>('');
+  const [isLoaded, setIsLoaded] = useState(false);
   
-  // Only set the activeSegmentId once when segments are loaded and it's not set yet
+  // Initialize with safer logic
   useEffect(() => {
-    if (segments.length > 0 && !activeSegmentId) {
+    if (segments && segments.length > 0 && !activeSegmentId) {
       setActiveSegmentId(segments[0]?.id || '');
+      setIsLoaded(true);
+    } else if (segments && segments.length === 0) {
+      // Even with no segments, mark as loaded
+      setIsLoaded(true);
     }
   }, [segments, activeSegmentId]);
 
@@ -31,19 +34,17 @@ const CustomerSegments: React.FC = () => {
     }
   };
 
-  // Ensure we have valid data before rendering the components
-  const shouldRenderContent = segments.length > 0;
-
+  // Safer rendering - don't try to render segments until we have some or have confirmed there are none
   return (
     <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeader />
         
-        {shouldRenderContent && (
+        {segments && segments.length > 0 && (
           <div className="mt-16 mb-12">
             <DesktopTabs 
               segments={segments} 
-              activeSegmentId={activeSegmentId}
+              activeSegmentId={activeSegmentId || segments[0]?.id || ''}
               onSegmentChange={handleSegmentChange}
             />
             <MobileCards 

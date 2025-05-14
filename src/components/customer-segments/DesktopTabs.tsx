@@ -10,13 +10,18 @@ interface DesktopTabsProps {
   onSegmentChange: (id: string) => void;
 }
 
-// Simplifying the component to minimize rendering issues
 const DesktopTabs: React.FC<DesktopTabsProps> = ({ 
   segments, 
   activeSegmentId, 
   onSegmentChange 
 }) => {
-  // Ensure we have a valid active segment ID
+  // Safety check for data
+  if (!segments || !Array.isArray(segments) || segments.length === 0) {
+    console.warn('DesktopTabs received invalid or empty segments data');
+    return null;
+  }
+
+  // Ensure we have a valid active ID, defaulting to the first segment if needed
   const validActiveId = segments.some(s => s.id === activeSegmentId) 
     ? activeSegmentId 
     : segments[0]?.id || "";
@@ -33,7 +38,7 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
             {segments.map(segment => (
               <TabsTrigger 
-                key={segment.id} 
+                key={segment.id || `tab-${Math.random().toString(36).substr(2, 9)}`} 
                 value={segment.id} 
                 className="px-6 py-5"
               >
@@ -53,7 +58,7 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
         <div className="mt-8">
           {segments.map(segment => (
             <TabsContent 
-              key={segment.id} 
+              key={segment.id || `content-${Math.random().toString(36).substr(2, 9)}`} 
               value={segment.id}
             >
               <SegmentItem segment={segment} />
@@ -65,5 +70,4 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
   );
 };
 
-// Using React.memo to prevent unnecessary re-renders
-export default React.memo(DesktopTabs);
+export default DesktopTabs;

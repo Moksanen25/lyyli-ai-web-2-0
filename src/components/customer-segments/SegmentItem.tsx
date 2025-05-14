@@ -17,7 +17,7 @@ export interface SegmentData {
   description: string;
   painPoints: string[] | string;
   solutions: string[] | string;
-  quote: SegmentQuote;
+  quote: SegmentQuote | { text: string; author: string } | { [key: string]: string };
 }
 
 interface SegmentItemProps {
@@ -27,9 +27,24 @@ interface SegmentItemProps {
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t } = useLanguage();
   
+  // Safety check - don't render if segment data is invalid
+  if (!segment || typeof segment !== 'object') {
+    console.warn('SegmentItem received invalid segment data:', segment);
+    return null;
+  }
+  
   // Ensure painPoints and solutions are always arrays
-  const painPoints = ensureArray(segment.painPoints);
-  const solutions = ensureArray(segment.solutions);
+  const painPoints = ensureArray(segment.painPoints || []);
+  const solutions = ensureArray(segment.solutions || []);
+  
+  // Safely handle the quote object
+  const quoteText = typeof segment.quote === 'string' 
+    ? segment.quote 
+    : (segment.quote as any)?.text || '';
+    
+  const quoteAuthor = typeof segment.quote === 'string' 
+    ? '' 
+    : (segment.quote as any)?.author || '';
   
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto py-4">
@@ -83,9 +98,9 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           </CardHeader>
           <CardContent className="pt-2">
             <blockquote className="border-l-4 border-primary/30 pl-5 italic py-1 text-lg">
-              "{segment.quote.text}"
+              "{quoteText}"
             </blockquote>
-            <p className="text-right mt-6 text-sm font-medium">— {segment.quote.author}</p>
+            <p className="text-right mt-6 text-sm font-medium">— {quoteAuthor}</p>
             
             <SegmentFeatures />
           </CardContent>
