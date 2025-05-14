@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Check } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -56,19 +56,26 @@ const LyyliDemo: React.FC = () => {
       </Button>
       
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md md:max-w-2xl" style={{ width: "100%", maxWidth: "650px", height: "500px" }}>
-          <DialogHeader>
+        <DialogContent className="p-0 overflow-hidden" style={{ width: "650px", height: "600px", maxWidth: "90vw", maxHeight: "90vh" }}>
+          <DialogHeader className="p-4 border-b">
             <DialogTitle className="text-center">
               {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
             </DialogTitle>
+            <DialogDescription className="text-center text-sm text-muted-foreground">
+              {animationPhase < 7 ? "Creating content with AI" : "Publishing to communication channels"}
+            </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4 h-[calc(100%-60px)] flex flex-col">
-            {/* Full conversation flow in one view */}
-            <div className={`${animationPhase >= 7 ? "hidden" : "flex-1 overflow-hidden"}`}>
+          <div className="h-full relative">
+            {/* Chat Interface */}
+            <div 
+              className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
+                animationPhase >= 7 ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+            >
               <div 
                 ref={chatContainerRef}
-                className="bg-card rounded-lg border p-4 h-full overflow-y-auto"
+                className="bg-card p-4 h-full overflow-y-auto"
               >
                 <div className="flex items-center mb-4 border-b pb-2">
                   <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
@@ -144,9 +151,13 @@ const LyyliDemo: React.FC = () => {
             </div>
             
             {/* Slack interface transition */}
-            {animationPhase >= 7 && (
-              <div className="animate-fade-in h-full overflow-hidden flex flex-col">
-                <div className="bg-[#4A154B] text-white p-4 rounded-t-lg">
+            <div 
+              className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
+                animationPhase < 7 ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+            >
+              <div className="h-full flex flex-col">
+                <div className="bg-[#4A154B] text-white p-4">
                   <div className="flex items-center">
                     <svg viewBox="0 0 54 54" className="w-6 h-6 mr-2">
                       <path fill="white" d="M19.712.133a5.381 5.381 0 0 0-5.376 5.387 5.381 5.381 0 0 0 5.376 5.386h5.376V5.52A5.381 5.381 0 0 0 19.712.133m0 14.365H5.376A5.381 5.381 0 0 0 0 19.884a5.381 5.381 0 0 0 5.376 5.387h14.336a5.381 5.381 0 0 0 5.376-5.387 5.381 5.381 0 0 0-5.376-5.386"></path>
@@ -158,7 +169,7 @@ const LyyliDemo: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="bg-[#222529] text-white p-4 rounded-b-lg flex-1 overflow-y-auto">
+                <div className="bg-[#222529] text-white p-4 flex-1 overflow-y-auto">
                   <div className="mb-4 pb-2 border-b border-gray-700">
                     <p className="text-gray-300 font-medium">#general</p>
                   </div>
@@ -210,13 +221,13 @@ const LyyliDemo: React.FC = () => {
                 </div>
                 
                 {animationPhase >= 8 && (
-                  <div className="bg-gradient-to-r from-primary/80 to-primary p-4 text-white rounded-lg mt-6 text-center animate-fade-in">
+                  <div className="bg-gradient-to-r from-primary/80 to-primary p-4 text-white text-center animate-fade-in">
                     <h3 className="text-lg font-semibold mb-2">Lyyli.ai - Communication Automation</h3>
                     <p>Content creation and publishing simplified for enterprise teams</p>
                   </div>
                 )}
               </div>
-            )}
+            </div>
           </div>
         </DialogContent>
       </Dialog>
