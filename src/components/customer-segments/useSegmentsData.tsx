@@ -10,6 +10,7 @@ import {
   Users 
 } from 'lucide-react';
 import type { SegmentData } from './SegmentItem';
+import { ensureArray } from './utils';
 
 export const useSegmentsData = (): SegmentData[] => {
   console.log('useSegmentsData hook called');
@@ -19,79 +20,46 @@ export const useSegmentsData = (): SegmentData[] => {
   
   try {
     console.log('Building segments data with translations');
-    const segments = [
-      {
-        id: "tech-smes",
-        name: t('customerSegments.techSMEs.name'),
-        icon: <Building className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.techSMEs.description'),
-        painPoints: t('customerSegments.techSMEs.painPoints'),
-        solutions: t('customerSegments.techSMEs.solutions'),
-        quote: {
-          text: t('customerSegments.techSMEs.quote'),
-          author: t('customerSegments.techSMEs.author')
-        }
-      },
-      {
-        id: "consulting",
-        name: t('customerSegments.consulting.name'),
-        icon: <Briefcase className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.consulting.description'),
-        painPoints: t('customerSegments.consulting.painPoints'),
-        solutions: t('customerSegments.consulting.solutions'),
-        quote: {
-          text: t('customerSegments.consulting.quote'),
-          author: t('customerSegments.consulting.author')
-        }
-      },
-      {
-        id: "nonprofits",
-        name: t('customerSegments.nonprofits.name'),
-        icon: <HandHelping className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.nonprofits.description'),
-        painPoints: t('customerSegments.nonprofits.painPoints'),
-        solutions: t('customerSegments.nonprofits.solutions'),
-        quote: {
-          text: t('customerSegments.nonprofits.quote'),
-          author: t('customerSegments.nonprofits.author')
-        }
-      },
-      {
-        id: "education",
-        name: t('customerSegments.education.name'),
-        icon: <School className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.education.description'),
-        painPoints: t('customerSegments.education.painPoints'),
-        solutions: t('customerSegments.education.solutions'),
-        quote: {
-          text: t('customerSegments.education.quote'),
-          author: t('customerSegments.education.author')
-        }
-      },
-      {
-        id: "creative",
-        name: t('customerSegments.creative.name'),
-        icon: <PenTool className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.creative.description'),
-        painPoints: t('customerSegments.creative.painPoints'),
-        solutions: t('customerSegments.creative.solutions'),
-        quote: {
-          text: t('customerSegments.creative.quote'),
-          author: t('customerSegments.creative.author')
-        }
-      },
-      {
-        id: "sports",
-        name: t('customerSegments.sports.name'),
-        icon: <Users className="h-7 w-7 text-primary" {...iconSize} />,
-        description: t('customerSegments.sports.description'),
-        painPoints: t('customerSegments.sports.painPoints'),
-        solutions: t('customerSegments.sports.solutions'),
-        quote: {
-          text: t('customerSegments.sports.quote'),
-          author: t('customerSegments.sports.author')
-        }
+    
+    // Safely create a segment object with fallbacks for missing translations
+    const createSegment = (id: string, iconComponent: React.ReactNode): SegmentData => {
+      try {
+        return {
+          id,
+          name: t(`customerSegments.${id}.name`) || id,
+          icon: iconComponent,
+          description: t(`customerSegments.${id}.description`) || '',
+          painPoints: ensureArray(t(`customerSegments.${id}.painPoints`)),
+          solutions: ensureArray(t(`customerSegments.${id}.solutions`)),
+          quote: {
+            text: t(`customerSegments.${id}.quote`) || '',
+            author: t(`customerSegments.${id}.author`) || ''
+          }
+        };
+      } catch (error) {
+        console.error(`Error creating segment ${id}:`, error);
+        return {
+          id,
+          name: id,
+          icon: iconComponent,
+          description: `Error loading segment: ${id}`,
+          painPoints: [],
+          solutions: [],
+          quote: {
+            text: '',
+            author: ''
+          }
+        };
       }
+    };
+    
+    const segments = [
+      createSegment("tech-smes", <Building className="h-7 w-7 text-primary" {...iconSize} />),
+      createSegment("consulting", <Briefcase className="h-7 w-7 text-primary" {...iconSize} />),
+      createSegment("nonprofits", <HandHelping className="h-7 w-7 text-primary" {...iconSize} />),
+      createSegment("education", <School className="h-7 w-7 text-primary" {...iconSize} />),
+      createSegment("creative", <PenTool className="h-7 w-7 text-primary" {...iconSize} />),
+      createSegment("sports", <Users className="h-7 w-7 text-primary" {...iconSize} />)
     ];
     
     console.log('Successfully generated segments data:', segments.length);

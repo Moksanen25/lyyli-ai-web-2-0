@@ -13,74 +13,110 @@ import SegmentCTA from './customer-segments/SegmentCTA';
 const CustomerSegments: React.FC = () => {
   console.log('CustomerSegments component rendering');
   
-  // Get segment data with error handling
-  const segments = useSegmentsData();
-  const [activeSegmentId, setActiveSegmentId] = useState<string>('');
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  // Initialize with safer logic
-  useEffect(() => {
-    console.log('CustomerSegments useEffect running', { 
-      segments: segments?.length || 0, 
-      activeSegmentId 
-    });
+  try {
+    // Get segment data with error handling
+    const segments = useSegmentsData();
+    const [activeSegmentId, setActiveSegmentId] = useState<string>('');
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [hasError, setHasError] = useState(false);
     
-    if (segments && segments.length > 0) {
-      if (!activeSegmentId) {
-        setActiveSegmentId(segments[0]?.id || '');
+    // Initialize with safer logic
+    useEffect(() => {
+      try {
+        console.log('CustomerSegments useEffect running', { 
+          segments: segments?.length || 0, 
+          activeSegmentId 
+        });
+        
+        if (segments && segments.length > 0) {
+          if (!activeSegmentId) {
+            setActiveSegmentId(segments[0]?.id || '');
+          }
+          setIsLoaded(true);
+        } else if (segments && segments.length === 0) {
+          // Even with no segments, mark as loaded
+          setIsLoaded(true);
+        }
+      } catch (error) {
+        console.error('Error in CustomerSegments useEffect:', error);
+        setHasError(true);
+        setIsLoaded(true);
       }
-      setIsLoaded(true);
-    } else if (segments && segments.length === 0) {
-      // Even with no segments, mark as loaded
-      setIsLoaded(true);
+    }, [segments, activeSegmentId]);
+
+    // Handler for switching segments
+    const handleSegmentChange = (id: string) => {
+      console.log('Changing segment to:', id);
+      if (id) {
+        setActiveSegmentId(id);
+      }
+    };
+
+    console.log('CustomerSegments rendering with', {
+      hasSegments: Boolean(segments?.length),
+      segmentCount: segments?.length || 0,
+      activeId: activeSegmentId,
+      isLoaded,
+      hasError
+    });
+
+    if (hasError) {
+      return (
+        <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-2xl font-bold text-red-600">Unable to load customer segments</h2>
+            <p className="mt-4">There was an error loading this section. Please try refreshing the page.</p>
+          </div>
+        </section>
+      );
     }
-  }, [segments, activeSegmentId]);
 
-  // Handler for switching segments
-  const handleSegmentChange = (id: string) => {
-    console.log('Changing segment to:', id);
-    if (id) {
-      setActiveSegmentId(id);
-    }
-  };
-
-  console.log('CustomerSegments rendering with', {
-    hasSegments: Boolean(segments?.length),
-    segmentCount: segments?.length || 0,
-    activeId: activeSegmentId,
-    isLoaded
-  });
-
-  return (
-    <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeader />
-        
-        {isLoaded && (
-          <>
-            {segments && segments.length > 0 ? (
-              <div className="mt-16 mb-12">
-                <DesktopTabs 
-                  segments={segments} 
-                  activeSegmentId={activeSegmentId || segments[0]?.id || ''}
-                  onSegmentChange={handleSegmentChange}
-                />
-                <MobileCards 
-                  segments={segments} 
-                />
-              </div>
-            ) : (
-              <div className="text-center py-10">
-                <p>No customer segments available at this time.</p>
-              </div>
-            )}
-          </>
-        )}
-        
-        <SegmentCTA />
-      </div>
-    </section>
-  );
+    return (
+      <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeader />
+          
+          {isLoaded ? (
+            <>
+              {segments && segments.length > 0 ? (
+                <div className="mt-16 mb-12">
+                  <DesktopTabs 
+                    segments={segments} 
+                    activeSegmentId={activeSegmentId || segments[0]?.id || ''}
+                    onSegmentChange={handleSegmentChange}
+                  />
+                  <MobileCards 
+                    segments={segments} 
+                  />
+                </div>
+              ) : (
+                <div className="text-center py-10">
+                  <p>No customer segments available at this time.</p>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center py-16">
+              <div className="animate-pulse h-6 w-40 bg-muted rounded mx-auto mb-8"></div>
+              <div className="animate-pulse h-24 w-full max-w-4xl bg-muted rounded mx-auto"></div>
+            </div>
+          )}
+          
+          <SegmentCTA />
+        </div>
+      </section>
+    );
+  } catch (error) {
+    console.error('Fatal error in CustomerSegments component:', error);
+    return (
+      <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-2xl font-bold text-red-600">Unable to render customer segments</h2>
+          <p className="mt-4">There was an unexpected error. Please try refreshing the page.</p>
+        </div>
+      </section>
+    );
+  }
 };
 
 export default CustomerSegments;

@@ -21,11 +21,15 @@ export const ensureArray = (value: unknown): string[] => {
   // This covers both English and Finnish translations
   if (typeof value === 'string') {
     console.log('Converting string to array');
+    // String might be empty, handle this case
+    if (value.trim() === '') {
+      return [];
+    }
     return value.split(',').map(item => item.trim()).filter(Boolean);
   }
   
   // Try to convert object to array if possible
-  if (typeof value === 'object') {
+  if (typeof value === 'object' && value !== null) {
     try {
       console.log('Attempting to extract array from object');
       const objectValues = Object.values(value);
