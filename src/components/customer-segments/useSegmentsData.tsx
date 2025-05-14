@@ -14,13 +14,13 @@ import type { SegmentData } from './SegmentItem';
 export const useSegmentsData = (): SegmentData[] => {
   const { t } = useLanguage();
   
-  const iconSize = { width: 24, height: 24 };
+  const iconSize = { width: 28, height: 28 };
   
   return [
     {
       id: "tech-smes",
       name: t('customerSegments.techSMEs.name'),
-      icon: <Building className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <Building className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.techSMEs.description'),
       painPoints: t('customerSegments.techSMEs.painPoints'),
       solutions: t('customerSegments.techSMEs.solutions'),
@@ -32,7 +32,7 @@ export const useSegmentsData = (): SegmentData[] => {
     {
       id: "consulting",
       name: t('customerSegments.consulting.name'),
-      icon: <Briefcase className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <Briefcase className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.consulting.description'),
       painPoints: t('customerSegments.consulting.painPoints'),
       solutions: t('customerSegments.consulting.solutions'),
@@ -44,7 +44,7 @@ export const useSegmentsData = (): SegmentData[] => {
     {
       id: "nonprofits",
       name: t('customerSegments.nonprofits.name'),
-      icon: <HandHelping className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <HandHelping className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.nonprofits.description'),
       painPoints: t('customerSegments.nonprofits.painPoints'),
       solutions: t('customerSegments.nonprofits.solutions'),
@@ -56,7 +56,7 @@ export const useSegmentsData = (): SegmentData[] => {
     {
       id: "education",
       name: t('customerSegments.education.name'),
-      icon: <School className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <School className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.education.description'),
       painPoints: t('customerSegments.education.painPoints'),
       solutions: t('customerSegments.education.solutions'),
@@ -68,7 +68,7 @@ export const useSegmentsData = (): SegmentData[] => {
     {
       id: "creative",
       name: t('customerSegments.creative.name'),
-      icon: <PenTool className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <PenTool className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.creative.description'),
       painPoints: t('customerSegments.creative.painPoints'),
       solutions: t('customerSegments.creative.solutions'),
@@ -80,7 +80,7 @@ export const useSegmentsData = (): SegmentData[] => {
     {
       id: "sports",
       name: t('customerSegments.sports.name'),
-      icon: <Users className="h-6 w-6 text-primary" {...iconSize} />,
+      icon: <Users className="h-7 w-7 text-primary" {...iconSize} />,
       description: t('customerSegments.sports.description'),
       painPoints: t('customerSegments.sports.painPoints'),
       solutions: t('customerSegments.sports.solutions'),

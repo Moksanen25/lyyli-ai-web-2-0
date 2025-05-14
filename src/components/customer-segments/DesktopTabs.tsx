@@ -30,31 +30,43 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
         onValueChange={handleTabChange}
         value={activeTab}
       >
-        <div className="flex justify-center mb-12 overflow-x-auto pb-2">
-          <TabsList className="bg-background p-1.5 space-x-2">
+        <div className="flex justify-center mb-16 overflow-x-auto pb-2">
+          <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
             {segments.map(segment => (
               <TabsTrigger 
                 key={segment.id} 
                 value={segment.id} 
-                className={`px-5 py-4 transition-all duration-200 ${activeTab === segment.id ? 'bg-primary/10 text-primary transform scale-105' : ''}`}
+                className={`px-6 py-5 transition-all duration-300 ${
+                  activeTab === segment.id 
+                    ? 'bg-primary/10 text-primary transform scale-105 shadow-sm' 
+                    : 'hover:bg-muted'
+                }`}
               >
                 <div className="flex flex-col items-center">
-                  <span className="flex mb-1">
+                  <span className={`flex mb-2 transition-transform duration-300 ${
+                    activeTab === segment.id ? 'scale-110' : ''
+                  }`}>
                     {segment.icon}
                   </span>
-                  <span className="text-xs sm:text-sm mt-1.5 whitespace-nowrap font-medium">{segment.name}</span>
+                  <span className="text-sm sm:text-base mt-1 whitespace-nowrap font-medium">
+                    {segment.name}
+                  </span>
                 </div>
               </TabsTrigger>
             ))}
           </TabsList>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-8">
           {segments.map(segment => (
             <TabsContent 
               key={segment.id} 
               value={segment.id} 
-              className={`animate-fade-in transition-all duration-300 ${activeTab === segment.id ? 'opacity-100' : 'opacity-0'}`}
+              className={`transition-all duration-500 ${
+                activeTab === segment.id 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4 absolute'
+              }`}
             >
               <SegmentItem segment={segment} />
             </TabsContent>
