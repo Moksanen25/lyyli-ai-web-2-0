@@ -12,6 +12,7 @@ import Waitlist from '@/pages/Waitlist';
 import FloatingChat from '@/components/chat/FloatingChat';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import TranslationManager from '@/components/dev/TranslationManager';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       </Routes>
       <FloatingChat />
       <Toaster />
+      <TranslationManager />
     </LanguageProvider>
   );
 }

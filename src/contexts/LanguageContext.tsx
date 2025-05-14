@@ -2,12 +2,15 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage, TranslationsType } from '../translations';
+import { verifyTranslations } from '@/utils/translationUtils';
+import { toast } from '@/components/ui/use-toast';
 
 // Type for our context
 type LanguageContextType = {
   language: SupportedLanguage;
   setLanguage: (language: SupportedLanguage) => void;
   t: (key: string) => string;
+  verifyLanguageCompleteness: () => void;
 };
 
 // Create the context
@@ -25,6 +28,33 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   
   // Use path language first, then saved language, then default to 'en'
   const [language, setLanguageState] = useState<SupportedLanguage>(pathLanguage || savedLanguage || 'en');
+
+  // Verify translations are complete when language changes
+  useEffect(() => {
+    // Only show in development environment
+    if (import.meta.env.DEV) {
+      verifyLanguageCompleteness();
+    }
+  }, [language]);
+
+  // Function to verify language completeness
+  const verifyLanguageCompleteness = () => {
+    // For each supported language, verify translations are complete
+    Object.keys(languages).forEach(lang => {
+      const result = verifyTranslations(lang as SupportedLanguage);
+      if (!result.isComplete) {
+        toast({
+          title: `Translation issues in ${result.language.toUpperCase()}`,
+          description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
+          variant: "destructive",
+          duration: 10000,
+        });
+        
+        // Log all missing keys to console for developers
+        console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
+      }
+    });
+  };
 
   // Custom setLanguage function to handle both state and URL updates
   const setLanguage = (newLanguage: SupportedLanguage) => {
@@ -74,7 +104,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       if (value && value[k] !== undefined) {
         value = value[k];
       } else {
-        // If the key doesn't exist, return the key itself
+        // If the key doesn't exist, return the key itself and show warning in dev mode
+        if (import.meta.env.DEV) {
+          console.warn(`Translation key not found: ${key} in language: ${language}`);
+          toast({
+            title: "Missing translation",
+            description: `Key "${key}" is missing in language "${language}"`,
+            variant: "destructive",
+          });
+        }
         return key;
       }
     }
@@ -84,7 +122,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, verifyLanguageCompleteness }}>
       {children}
     </LanguageContext.Provider>
   );
