@@ -85,7 +85,7 @@ export const customerSegments = {
     ],
     quote: 'Suunnittelijoillamme ja kirjoittajillamme on vihdoin työkalu, joka puhuu luovaa kieltämme ja säästää tunteja iteraatiosta.',
     author: 'Luova johtaja, Designtoimisto'
-  ],
+  },
   sports: {
     name: 'Urheiluorganisaatiot',
     description: 'Joukkueille ja liitoille, jotka tasapainottelevat yhteisöllisen sitoutumisen ja ammattimaisen viestinnän välillä.',
