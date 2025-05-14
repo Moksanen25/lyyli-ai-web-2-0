@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Check } from 'lucide-react';
@@ -9,6 +9,7 @@ const LyyliDemo: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const { t } = useLanguage();
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   
   // Animation timeline management
   useEffect(() => {
@@ -33,6 +34,13 @@ const LyyliDemo: React.FC = () => {
     return () => timeline.forEach(timer => clearTimeout(timer));
   }, [isOpen]);
   
+  // Auto-scroll to bottom when new messages appear
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [animationPhase]);
+  
   const handleOpen = () => {
     setIsOpen(true);
   };
@@ -48,17 +56,20 @@ const LyyliDemo: React.FC = () => {
       </Button>
       
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md md:max-w-2xl">
+        <DialogContent className="sm:max-w-md md:max-w-2xl" style={{ width: "100%", maxWidth: "650px", height: "500px" }}>
           <DialogHeader>
             <DialogTitle className="text-center">
               {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
             </DialogTitle>
           </DialogHeader>
           
-          <div className="space-y-4">
+          <div className="space-y-4 h-[calc(100%-60px)] flex flex-col">
             {/* Full conversation flow in one view */}
-            <div className={`${animationPhase >= 7 ? "hidden" : "block"}`}>
-              <div className="bg-card rounded-lg border p-4 max-h-[400px] overflow-y-auto">
+            <div className={`${animationPhase >= 7 ? "hidden" : "flex-1 overflow-hidden"}`}>
+              <div 
+                ref={chatContainerRef}
+                className="bg-card rounded-lg border p-4 h-full overflow-y-auto"
+              >
                 <div className="flex items-center mb-4 border-b pb-2">
                   <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
                   <span className="ml-2 font-medium">Lyyli Assistant</span>
@@ -134,7 +145,7 @@ const LyyliDemo: React.FC = () => {
             
             {/* Slack interface transition */}
             {animationPhase >= 7 && (
-              <div className="animate-fade-in">
+              <div className="animate-fade-in h-full overflow-hidden flex flex-col">
                 <div className="bg-[#4A154B] text-white p-4 rounded-t-lg">
                   <div className="flex items-center">
                     <svg viewBox="0 0 54 54" className="w-6 h-6 mr-2">
@@ -147,7 +158,7 @@ const LyyliDemo: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="bg-[#222529] text-white p-4 rounded-b-lg max-h-[400px] overflow-y-auto">
+                <div className="bg-[#222529] text-white p-4 rounded-b-lg flex-1 overflow-y-auto">
                   <div className="mb-4 pb-2 border-b border-gray-700">
                     <p className="text-gray-300 font-medium">#general</p>
                   </div>
