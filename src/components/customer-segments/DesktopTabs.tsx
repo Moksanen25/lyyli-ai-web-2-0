@@ -40,7 +40,7 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
             {segments.map(segment => (
               <TabsTrigger 
-                key={`tab-trigger-${segment.id}`}
+                key={`tab-${segment.id}`} 
                 value={segment.id} 
                 className="px-6 py-5"
               >
@@ -60,10 +60,10 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
         <div className="mt-8">
           {segments.map(segment => (
             <TabsContent 
-              key={`tab-content-${segment.id}`}
+              key={`content-${segment.id}`} 
               value={segment.id}
             >
-              <SegmentItem segment={segment} />
+              <SegmentItem key={`item-${segment.id}`} segment={segment} />
             </TabsContent>
           ))}
         </div>

@@ -8,12 +8,11 @@ interface MobileCardsProps {
 }
 
 const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
-  // Use a stable rendering approach with fixed keys based on ID
   return (
     <div className="sm:hidden space-y-6 py-4">
-      {segments.map((segment, index) => (
+      {segments.map((segment) => (
         <SegmentCard 
-          key={`mobile-segment-${segment.id || index}`} 
+          key={`mobile-card-${segment.id}`} 
           segment={segment} 
         />
       ))}

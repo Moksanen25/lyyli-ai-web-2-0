@@ -11,17 +11,20 @@ import SegmentCTA from './customer-segments/SegmentCTA';
  * and cards on mobile, showing challenges and solutions for each customer segment.
  */
 const CustomerSegments: React.FC = () => {
+  // Get segment data
   const segments = useSegmentsData();
-  // Use state with a more stable approach - set initial value once and maintain it
-  const [activeSegmentId, setActiveSegmentId] = useState('');
   
-  // Set initial active ID once when segments are loaded
+  // Set initial state with a default empty value
+  const [activeSegmentId, setActiveSegmentId] = useState<string>('');
+  
+  // Only set the activeSegmentId once when segments are loaded and it's not set yet
   useEffect(() => {
     if (segments.length > 0 && !activeSegmentId) {
-      setActiveSegmentId(segments[0]?.id || '');
+      setActiveSegmentId(segments[0]?.id);
     }
   }, [segments, activeSegmentId]);
 
+  // Handler for switching segments
   const handleSegmentChange = (id: string) => {
     if (id) {
       setActiveSegmentId(id);
@@ -32,16 +35,22 @@ const CustomerSegments: React.FC = () => {
     <section className="py-16 md:py-32 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeader />
-        {segments.length > 0 && (
+        
+        {segments.length > 0 && activeSegmentId && (
           <div className="mt-16 mb-12">
             <DesktopTabs 
+              key="desktop-tabs"
               segments={segments} 
               activeSegmentId={activeSegmentId}
               onSegmentChange={handleSegmentChange}
             />
-            <MobileCards segments={segments} />
+            <MobileCards 
+              key="mobile-cards"
+              segments={segments} 
+            />
           </div>
         )}
+        
         <SegmentCTA />
       </div>
     </section>
