@@ -3,7 +3,6 @@ import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SegmentItem from './SegmentItem';
 import type { SegmentData } from './SegmentItem';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface DesktopTabsProps {
   segments: SegmentData[];
@@ -11,57 +10,16 @@ interface DesktopTabsProps {
   onSegmentChange: (id: string) => void;
 }
 
+// Simplifying the component to minimize rendering issues
 const DesktopTabs: React.FC<DesktopTabsProps> = ({ 
   segments, 
   activeSegmentId, 
   onSegmentChange 
 }) => {
-  const isMobile = useIsMobile();
-  
-  // Don't render this component at all on truly small devices
-  if (isMobile) {
-    return null;
-  }
-
   // Ensure we have a valid active segment ID
   const validActiveId = segments.some(s => s.id === activeSegmentId) 
     ? activeSegmentId 
     : segments[0]?.id || "";
-
-  // Pre-calculate the tab triggers to prevent re-rendering issues
-  const tabTriggers = React.useMemo(() => {
-    return segments.map(segment => (
-      <TabsTrigger 
-        key={`tab-${segment.id}`} 
-        value={segment.id} 
-        className="px-6 py-5"
-      >
-        <div className="flex flex-col items-center">
-          <span className="flex mb-2">
-            {segment.icon}
-          </span>
-          <span className="text-sm sm:text-base mt-1 whitespace-nowrap font-medium">
-            {segment.name}
-          </span>
-        </div>
-      </TabsTrigger>
-    ));
-  }, [segments]);
-  
-  // Pre-calculate the tab contents to prevent re-rendering issues
-  const tabContents = React.useMemo(() => {
-    return segments.map(segment => (
-      <TabsContent 
-        key={`content-${segment.id}`} 
-        value={segment.id}
-      >
-        <SegmentItem 
-          key={`item-${segment.id}`} 
-          segment={segment} 
-        />
-      </TabsContent>
-    ));
-  }, [segments]);
 
   return (
     <div className="hidden sm:block">
@@ -73,16 +31,39 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
       >
         <div className="flex justify-center mb-12 overflow-x-auto pb-4">
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
-            {tabTriggers}
+            {segments.map(segment => (
+              <TabsTrigger 
+                key={segment.id} 
+                value={segment.id} 
+                className="px-6 py-5"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="flex mb-2">
+                    {segment.icon}
+                  </span>
+                  <span className="text-sm sm:text-base mt-1 whitespace-nowrap font-medium">
+                    {segment.name}
+                  </span>
+                </div>
+              </TabsTrigger>
+            ))}
           </TabsList>
         </div>
 
         <div className="mt-8">
-          {tabContents}
+          {segments.map(segment => (
+            <TabsContent 
+              key={segment.id} 
+              value={segment.id}
+            >
+              <SegmentItem segment={segment} />
+            </TabsContent>
+          ))}
         </div>
       </Tabs>
     </div>
   );
 };
 
-export default DesktopTabs;
+// Using React.memo to prevent unnecessary re-renders
+export default React.memo(DesktopTabs);
