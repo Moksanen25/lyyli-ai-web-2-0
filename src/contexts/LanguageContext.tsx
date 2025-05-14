@@ -21,29 +21,24 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const navigate = useNavigate();
   const location = useLocation();
   
+  // Debug information
   console.log('Current location path:', location.pathname);
   
-  // Try to get the saved language from localStorage, default to 'en'
-  const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') as SupportedLanguage : null;
-  // Check if path starts with /fi to determine language
-  const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' : null;
+  // Determine language from path or localStorage
+  const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' as SupportedLanguage : null;
+  const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
+  const initialLanguage = pathLanguage || savedLanguage || 'en';
   
-  // Use path language first, then saved language, then default to 'en'
-  const [language, setLanguageState] = useState<SupportedLanguage>(pathLanguage || savedLanguage || 'en');
-
-  console.log('Current language:', language);
-
-  // Verify translations are complete when language changes
-  useEffect(() => {
-    // Only show in development environment
-    if (import.meta.env.DEV) {
-      verifyLanguageCompleteness();
-    }
-  }, [language]);
+  const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
+  
+  // Debug information
+  console.log('Initial language selected:', language);
 
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
-    // For each supported language, verify translations are complete
+    // Only run in development
+    if (!import.meta.env.DEV) return;
+    
     Object.keys(languages).forEach(lang => {
       const result = verifyTranslations(lang as SupportedLanguage);
       if (!result.isComplete) {
@@ -84,34 +79,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Only navigate if the path changed
     if (newPath !== currentPath) {
       console.log('Navigating to:', newPath);
-      navigate(newPath);
+      navigate(newPath, { replace: true }); // Use replace to avoid adding to history stack
     }
   };
-
-  // Update URL on initial load if needed
-  useEffect(() => {
-    console.log('Initial language and path check:', language, location.pathname);
-    if (language === 'fi' && !location.pathname.startsWith('/fi')) {
-      navigate(`/fi${location.pathname}`);
-    } else if (language === 'en' && location.pathname.startsWith('/fi')) {
-      navigate(location.pathname.substring(3));
-    }
-  }, []);
 
   // Translation function
   const t = (key: string): string => {
     try {
-      // Split the key by dots to navigate the nested object
       const keys = key.split('.');
-      // Start with the selected language object
       let value: any = languages[language];
       
-      // Navigate through the nested object
       for (const k of keys) {
         if (value && value[k] !== undefined) {
           value = value[k];
         } else {
-          // If the key doesn't exist, return the key itself and show warning in dev mode
           if (import.meta.env.DEV) {
             console.warn(`Translation key not found: ${key} in language: ${language}`);
           }
@@ -119,13 +100,33 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         }
       }
       
-      // If the value is not a string, convert it to string
       return typeof value === 'string' ? value : String(value);
     } catch (error) {
       console.error(`Error translating key: ${key}`, error);
       return key;
     }
   };
+
+  // Sync URL with language state on initial load and when language changes
+  useEffect(() => {
+    console.log('Setting up initial path based on language', language, location.pathname);
+    
+    // Delay execution to ensure proper initialization
+    setTimeout(() => {
+      if (language === 'fi' && !location.pathname.startsWith('/fi')) {
+        console.log('Redirecting to Finnish path');
+        navigate(`/fi${location.pathname}`, { replace: true });
+      } else if (language === 'en' && location.pathname.startsWith('/fi')) {
+        console.log('Redirecting to English path');
+        navigate(location.pathname.substring(3), { replace: true });
+      }
+    }, 0);
+    
+    // Verify translations in development mode
+    if (import.meta.env.DEV) {
+      verifyLanguageCompleteness();
+    }
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, verifyLanguageCompleteness }}>

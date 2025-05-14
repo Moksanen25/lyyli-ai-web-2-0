@@ -18,10 +18,10 @@ function App() {
   return (
     <LanguageProvider>
       <Routes>
-        {/* Waitlist is the main landing page */}
+        {/* Default route to waitlist */}
         <Route path="/" element={<Waitlist />} />
         
-        {/* Original site moved behind /full path */}
+        {/* English routes */}
         <Route path="/full" element={<Index />} />
         <Route path="/full/about" element={<About />} />
         <Route path="/full/contact" element={<Contact />} />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/full/pricing" element={<Pricing />} />
         <Route path="/full/case-studies" element={<CaseStudies />} />
         
-        {/* Finnish routes with proper paths */}
+        {/* Finnish routes */}
         <Route path="/fi" element={<Waitlist />} />
         <Route path="/fi/full" element={<Index />} />
         <Route path="/fi/full/about" element={<About />} />
@@ -38,12 +38,12 @@ function App() {
         <Route path="/fi/full/pricing" element={<Pricing />} />
         <Route path="/fi/full/case-studies" element={<CaseStudies />} />
         
-        {/* Fallback route for any undefined paths */}
+        {/* Catch-all route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <FloatingChat />
       <Toaster />
-      <TranslationManager />
+      {import.meta.env.DEV && <TranslationManager />}
     </LanguageProvider>
   );
 }
