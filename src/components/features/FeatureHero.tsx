@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -84,15 +83,14 @@ const FeatureHero = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90"
+                className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
                 onClick={() => navigate('/pricing')}
               >
                 {t('features.pageHero.primaryCta')}
               </Button>
               <Button 
-                variant="outline" 
-                size="lg"
+                variant="outline"
+                className="border-primary text-primary h-10 px-4 py-2"
                 onClick={() => navigate('/contact')}
               >
                 {t('features.pageHero.secondaryCta')}

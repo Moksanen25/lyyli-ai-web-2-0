@@ -21,7 +21,7 @@ const LyyliDemo: React.FC = () => {
     <>
       <Button 
         variant="outline" 
-        className="border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg"
+        className="border-primary text-primary hover:bg-primary/10 h-10 px-4 py-2"
         onClick={handleOpen}
       >
         {t('hero.secondaryCta')}

@@ -12,8 +12,10 @@ const SegmentCTA: React.FC = () => {
         {t('customerSegments.closingText')}
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button className="bg-primary hover:bg-primary/90">{t('customerSegments.bookDemoButton')}</Button>
-        <Button variant="outline" className="border-primary text-primary">
+        <Button className="bg-primary hover:bg-primary/90 h-10 px-4 py-2">
+          {t('customerSegments.bookDemoButton')}
+        </Button>
+        <Button variant="outline" className="border-primary text-primary h-10 px-4 py-2">
           {t('customerSegments.viewComparisonButton')}
         </Button>
       </div>
