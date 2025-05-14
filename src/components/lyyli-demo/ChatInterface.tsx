@@ -8,7 +8,7 @@ interface ChatInterfaceProps {
 }
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatContainerRef }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <div 
@@ -24,7 +24,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {/* Initial assistant message */}
         {animationPhase >= 1 && (
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-            <p>Good morning! 🌞 I notice you have a new feature launching soon. Would you like me to prepare a Slack announcement for the company's public channel?</p>
+            <p>{language === 'fi' ? t('demo.assistantGreeting') : "Good morning! 🌞 I notice you have a new feature launching soon. Would you like me to prepare a Slack announcement for the company's public channel?"}</p>
           </div>
         )}
         
@@ -32,7 +32,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {animationPhase >= 2 && (
           <div className="flex justify-end animate-fade-in">
             <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-              <p>That sounds good. Can you create a draft based on the meeting memo from yesterday's developer meeting?</p>
+              <p>{language === 'fi' ? t('demo.userResponse') : "That sounds good. Can you create a draft based on the meeting memo from yesterday's developer meeting?"}</p>
             </div>
           </div>
         )}
@@ -42,7 +42,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-              <span>Creating draft from meeting memo...</span>
+              <span>{language === 'fi' ? t('demo.creatingDraft') : "Creating draft from meeting memo..."}</span>
             </div>
           </div>
         )}
@@ -50,19 +50,19 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {/* Assistant suggestion */}
         {animationPhase >= 4 && (
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-            <p>I've drafted a Slack message based on your meeting memo. Here's the suggestion:</p>
+            <p>{language === 'fi' ? t('demo.assistantSuggestion') : "I've drafted a Slack message based on your meeting memo. Here's the suggestion:"}</p>
             <div className="mt-2 p-3 bg-white border rounded-md">
-              <p className="font-medium">✨ Exciting News! 🚀</p>
-              <p className="mt-2">Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! 📈</p>
-              <p className="mt-2">This feature includes:</p>
+              <p className="font-medium">{language === 'fi' ? t('demo.draftTitle') : "✨ Exciting News! 🚀"}</p>
+              <p className="mt-2">{language === 'fi' ? t('demo.draftContent') : "Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! 📈"}</p>
+              <p className="mt-2">{language === 'fi' ? t('demo.draftFeatures') : "This feature includes:"}</p>
               <ul className="list-disc ml-6 mt-1">
-                <li>Real-time data visualization</li>
-                <li>Custom report generation</li>
-                <li>Improved export options</li>
+                <li>{language === 'fi' ? t('demo.draftFeature1') : "Real-time data visualization"}</li>
+                <li>{language === 'fi' ? t('demo.draftFeature2') : "Custom report generation"}</li>
+                <li>{language === 'fi' ? t('demo.draftFeature3') : "Improved export options"}</li>
               </ul>
-              <p className="mt-2">Can't wait for you all to try it out!</p>
+              <p className="mt-2">{language === 'fi' ? t('demo.draftClosing') : "Can't wait for you all to try it out!"}</p>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">This message follows your company's casual but professional tone of voice. Would you like to add a screenshot of the new feature? 🖼️</p>
+            <p className="mt-2 text-sm text-muted-foreground">{language === 'fi' ? t('demo.draftNote') : "This message follows your company's casual but professional tone of voice. Would you like to add a screenshot of the new feature? 🖼️"}</p>
           </div>
         )}
         
@@ -70,7 +70,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {animationPhase >= 5 && (
           <div className="flex justify-end animate-fade-in">
             <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-              <p>This looks perfect! Yes, please add the screenshot and publish it to Slack right away. 👍</p>
+              <p>{language === 'fi' ? t('demo.userApproval') : "This looks perfect! Yes, please add the screenshot and publish it to Slack right away. 👍"}</p>
             </div>
           </div>
         )}
@@ -80,7 +80,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-              <span>Adding screenshot and publishing to Slack... 🔄</span>
+              <span>{language === 'fi' ? t('demo.publishing') : "Adding screenshot and publishing to Slack... 🔄"}</span>
             </div>
           </div>
         )}

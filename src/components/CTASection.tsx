@@ -15,7 +15,7 @@ const CTASection: React.FC = () => {
             {t('cta.subtitle')}
           </p>
           <a href="https://lyyli.vercel.app/">
-            <Button className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg">
+            <Button className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg capitalize">
               {t('cta.button')}
             </Button>
           </a>

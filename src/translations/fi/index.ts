@@ -13,6 +13,7 @@ import { contact } from './contact';
 import { chat } from './chat';
 import { customerSegments } from './customerSegments';
 import { caseStudies } from './caseStudies';
+import { demo } from './demo';
 
 export const fi = {
   nav,
@@ -28,5 +29,6 @@ export const fi = {
   contact,
   chat,
   customerSegments,
-  caseStudies
+  caseStudies,
+  demo
 };

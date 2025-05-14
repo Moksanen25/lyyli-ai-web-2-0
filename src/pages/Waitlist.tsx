@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 
 const Waitlist: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showDemo, setShowDemo] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -76,6 +76,9 @@ const Waitlist: React.FC = () => {
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold text-primary">Lyyli</div>
+            <div>
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </header>
@@ -84,11 +87,13 @@ const Waitlist: React.FC = () => {
       <main className="flex-grow flex flex-col items-center justify-center py-10 px-4 md:py-16 bg-gradient-to-b from-white to-accent/20">
         <div className="max-w-xl w-full mx-auto text-center animate-fade-in">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
-            Something big is coming!
+            {language === 'fi' ? 'Jotain suurta on tulossa!' : 'Something big is coming!'}
           </h1>
           
           <p className="text-lg md:text-xl mb-8 text-foreground/80">
-            We're building the next generation AI-powered content management platform. Join our waitlist to be the first to know when we launch.
+            {language === 'fi' 
+              ? 'Olemme rakentamassa seuraavan sukupolven tekoälyllä toimivaa sisällönhallintajärjestelmää. Liity jonotuslistallemme ollaksesi ensimmäinen, joka saa tietää, kun julkaisemme sen.' 
+              : 'We\'re building the next generation AI-powered content management platform. Join our waitlist to be the first to know when we launch.'}
           </p>
           
           {/* Demo Button */}
@@ -98,7 +103,7 @@ const Waitlist: React.FC = () => {
               variant="secondary" 
               className="px-6 py-2"
             >
-              See how it works
+              {language === 'fi' ? t('demo.seeHowItWorks') : 'See how it works'}
             </Button>
           </div>
           
@@ -120,7 +125,7 @@ const Waitlist: React.FC = () => {
       {/* Footer */}
       <footer className="py-8 px-4 text-center text-sm text-foreground/70">
         <div className="container mx-auto">
-          <p>&copy; {new Date().getFullYear()} Lyyli. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Lyyli. {language === 'fi' ? 'Kaikki oikeudet pidätetään.' : 'All rights reserved.'}</p>
         </div>
       </footer>
     </div>
@@ -128,3 +133,6 @@ const Waitlist: React.FC = () => {
 };
 
 export default Waitlist;
+
+// Import the LanguageSwitcher at the top of the file
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';

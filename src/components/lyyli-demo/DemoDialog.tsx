@@ -7,6 +7,7 @@ import ChatInterface from './ChatInterface';
 import SlackInterface from './SlackInterface';
 import AnimationController from './AnimationController';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface DemoDialogProps {
   isOpen: boolean;
@@ -28,6 +29,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const isMobile = useIsMobile();
+  const { t, language } = useLanguage();
   
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -61,10 +63,16 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           <DialogHeader className="p-3 md:p-4 border-b bg-background flex flex-row justify-between items-center">
             <div className="flex-1">
               <DialogTitle className="text-center text-base md:text-lg">
-                {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
+                {animationPhase < 7 
+                  ? (language === 'fi' ? t('demo.dialogTitle') : "Lyyli.ai Content Assistant")
+                  : (language === 'fi' ? t('demo.publishedTitle') : "Content Published")
+                }
               </DialogTitle>
               <DialogDescription className="text-center text-xs md:text-sm text-muted-foreground">
-                {animationPhase < 7 ? "Creating content with AI" : "Publishing to communication channels"}
+                {animationPhase < 7 
+                  ? (language === 'fi' ? t('demo.dialogDescription') : "Creating content with AI")
+                  : (language === 'fi' ? t('demo.publishedDescription') : "Publishing to communication channels")
+                }
               </DialogDescription>
             </div>
             
@@ -73,7 +81,10 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               size="icon"
               onClick={togglePause}
               className="ml-2"
-              title={isPaused ? "Resume animation" : "Pause animation"}
+              title={isPaused 
+                ? (language === 'fi' ? t('demo.resumeAnimation') : "Resume animation") 
+                : (language === 'fi' ? t('demo.pauseAnimation') : "Pause animation")
+              }
               disabled={isLoading}
             >
               {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
@@ -85,7 +96,9 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
-                  <p className="text-sm text-muted-foreground">Initializing demo...</p>
+                  <p className="text-sm text-muted-foreground">
+                    {language === 'fi' ? t('demo.initializingDemo') : "Initializing demo..."}
+                  </p>
                 </div>
               </div>
             )}
