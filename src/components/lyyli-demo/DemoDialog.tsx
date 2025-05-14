@@ -29,7 +29,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const isMobile = useIsMobile();
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -64,14 +64,14 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
             <div className="flex-1">
               <DialogTitle className="text-center text-base md:text-lg">
                 {animationPhase < 7 
-                  ? (language === 'fi' ? t('demo.dialogTitle') : "Lyyli.ai Content Assistant")
-                  : (language === 'fi' ? t('demo.publishedTitle') : "Content Published")
+                  ? t('demo.dialogTitle')
+                  : t('demo.publishedTitle')
                 }
               </DialogTitle>
               <DialogDescription className="text-center text-xs md:text-sm text-muted-foreground">
                 {animationPhase < 7 
-                  ? (language === 'fi' ? t('demo.dialogDescription') : "Creating content with AI")
-                  : (language === 'fi' ? t('demo.publishedDescription') : "Publishing to communication channels")
+                  ? t('demo.dialogDescription')
+                  : t('demo.publishedDescription')
                 }
               </DialogDescription>
             </div>
@@ -82,8 +82,8 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               onClick={togglePause}
               className="ml-2"
               title={isPaused 
-                ? (language === 'fi' ? t('demo.resumeAnimation') : "Resume animation") 
-                : (language === 'fi' ? t('demo.pauseAnimation') : "Pause animation")
+                ? t('demo.resumeAnimation')
+                : t('demo.pauseAnimation')
               }
               disabled={isLoading}
             >
@@ -97,7 +97,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
                   <p className="text-sm text-muted-foreground">
-                    {language === 'fi' ? t('demo.initializingDemo') : "Initializing demo..."}
+                    {t('demo.initializingDemo')}
                   </p>
                 </div>
               </div>

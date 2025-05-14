@@ -13,6 +13,7 @@ export const LanguageSwitcher: React.FC = () => {
     <button 
       onClick={toggleLanguage}
       className="flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+      aria-label={language === 'en' ? 'Switch to Finnish' : 'Vaihda englantiin'}
     >
       <span className={`${language === 'en' ? 'font-semibold' : ''} mr-1`}>EN</span>
       <span className="mx-1">|</span>

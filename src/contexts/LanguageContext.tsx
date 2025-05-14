@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage, TranslationsType } from '../translations';
 
 // Type for our context
@@ -14,14 +15,52 @@ export const LanguageContext = createContext<LanguageContextType | undefined>(un
 
 // Provider component
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   // Try to get the saved language from localStorage, default to 'en'
   const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') as SupportedLanguage : null;
-  const [language, setLanguage] = useState<SupportedLanguage>(savedLanguage || 'en');
+  // Check if path starts with /fi to determine language
+  const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' : null;
+  
+  // Use path language first, then saved language, then default to 'en'
+  const [language, setLanguageState] = useState<SupportedLanguage>(pathLanguage || savedLanguage || 'en');
 
-  // Save language preference to localStorage when it changes
+  // Custom setLanguage function to handle both state and URL updates
+  const setLanguage = (newLanguage: SupportedLanguage) => {
+    setLanguageState(newLanguage);
+    localStorage.setItem('language', newLanguage);
+    
+    // Update URL based on language
+    const currentPath = location.pathname;
+    let newPath = currentPath;
+    
+    if (newLanguage === 'fi') {
+      // Add /fi prefix if not already there
+      if (!currentPath.startsWith('/fi')) {
+        newPath = `/fi${currentPath}`;
+      }
+    } else {
+      // Remove /fi prefix if it's there
+      if (currentPath.startsWith('/fi')) {
+        newPath = currentPath.substring(3);
+      }
+    }
+    
+    // Only navigate if the path changed
+    if (newPath !== currentPath) {
+      navigate(newPath);
+    }
+  };
+
+  // Update URL on initial load if needed
   useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
+    if (language === 'fi' && !location.pathname.startsWith('/fi')) {
+      navigate(`/fi${location.pathname}`);
+    } else if (language === 'en' && location.pathname.startsWith('/fi')) {
+      navigate(location.pathname.substring(3));
+    }
+  }, []);
 
   // Translation function
   const t = (key: string): string => {

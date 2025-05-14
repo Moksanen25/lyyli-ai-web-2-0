@@ -37,7 +37,7 @@ const FeatureHero = () => {
     <div className="bg-gradient-to-b from-primary/10 to-background pt-24 pb-20 px-4">
       <div className="container mx-auto">
         <div className="flex items-center justify-center mb-6">
-          <div className="bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full">Enterprise Solutions</div>
+          <div className="bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full">Yritysratkaisut</div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -56,8 +56,8 @@ const FeatureHero = () => {
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Enterprise-grade Security</h3>
-                  <p className="text-sm text-muted-foreground">ISO 27001 certified with advanced data protection</p>
+                  <h3 className="font-medium">Yritystason tietoturva</h3>
+                  <p className="text-sm text-muted-foreground">ISO 27001 -sertifioitu edistyneellä tietosuojalla</p>
                 </div>
               </div>
               
@@ -66,8 +66,8 @@ const FeatureHero = () => {
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Dedicated Account Management</h3>
-                  <p className="text-sm text-muted-foreground">Your own success team for onboarding and support</p>
+                  <h3 className="font-medium">Oma yhteyshenkilö</h3>
+                  <p className="text-sm text-muted-foreground">Oma tiimisi käyttöönottoa ja tukea varten</p>
                 </div>
               </div>
               
@@ -76,8 +76,8 @@ const FeatureHero = () => {
                   <Layers className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Custom Integration</h3>
-                  <p className="text-sm text-muted-foreground">Seamless integration with your enterprise stack</p>
+                  <h3 className="font-medium">Räätälöidyt integraatiot</h3>
+                  <p className="text-sm text-muted-foreground">Saumaton integraatio yritysympäristöösi</p>
                 </div>
               </div>
             </div>
@@ -116,8 +116,8 @@ const FeatureHero = () => {
                       {/* Enterprise use case labels */}
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="bg-white/90 rounded-lg px-4 py-3">
-                          <h3 className="font-medium text-lg">{index === 0 ? 'Enterprise Dashboard' : index === 1 ? 'Advanced Analytics' : 'Team Collaboration'}</h3>
-                          <p className="text-sm text-muted-foreground">{index === 0 ? 'Customizable for your organization' : index === 1 ? 'Data-driven insights for leadership' : 'Seamless team workflows'}</p>
+                          <h3 className="font-medium text-lg">{index === 0 ? 'Yrityshallinta' : index === 1 ? 'Kehittynyt analytiikka' : 'Tiimin yhteistyö'}</h3>
+                          <p className="text-sm text-muted-foreground">{index === 0 ? 'Mukautettavissa organisaatiollesi' : index === 1 ? 'Datapohjaisia näkemyksiä johdolle' : 'Saumattomat tiimityönkulut'}</p>
                         </div>
                       </div>
                     </div>
