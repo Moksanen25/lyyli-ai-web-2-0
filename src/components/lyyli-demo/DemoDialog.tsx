@@ -7,11 +7,12 @@ import ChatInterface from './ChatInterface';
 import SlackInterface from './SlackInterface';
 import AnimationController from './AnimationController';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { ErrorBoundary } from '@/components/ui/error-boundary';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 interface DemoDialogProps {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpen: (open: boolean) => void;
   animationPhase: number;
   setAnimationPhase: React.Dispatch<React.SetStateAction<number>>;
   isLoading: boolean;
@@ -29,7 +30,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const isMobile = useIsMobile();
-  const { t } = useLanguage();
+  const { safeT } = useSafeTranslation();
   
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -39,12 +40,14 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   }, [animationPhase]);
   
   const togglePause = () => {
+    console.log('Animation pause toggled:', !isPaused);
     setIsPaused(!isPaused);
   };
   
   // Clean up function when dialog closes
   useEffect(() => {
     if (!isOpen) {
+      console.log('Dialog closed, resetting animation state');
       setAnimationPhase(0);
       setIsPaused(false); // Reset pause state when dialog closes
     }
@@ -54,6 +57,23 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   if (!isOpen && animationPhase === 0) {
     return null;
   }
+  
+  // Determine dialog titles safely
+  const dialogTitle = animationPhase < 7 
+    ? safeT('demo.title', { fallback: 'See How Lyyli Works' })
+    : safeT('demo.readyToReplaceTitle', { fallback: 'Ready to replace time-consuming communication tasks?' });
+    
+  const dialogSubtitle = animationPhase < 7 
+    ? safeT('demo.subtitle', { fallback: 'See how Lyyli can automate your communications and save you time' })
+    : '';
+  
+  // Safe loading text
+  const loadingText = safeT('demo.generating', { fallback: 'Generating...' });
+  
+  // Safe pause/resume button text
+  const pauseButtonText = isPaused 
+    ? safeT('demo.resume', { fallback: 'Resume' })
+    : safeT('demo.pause', { fallback: 'Pause' });
   
   return (
     <Dialog open={isOpen} onOpenChange={(open) => {
@@ -83,16 +103,10 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           <DialogHeader className="p-3 md:p-4 border-b bg-background flex flex-row justify-between items-center">
             <div className="flex-1">
               <DialogTitle className="text-center text-base md:text-lg">
-                {animationPhase < 7 
-                  ? t('demo.title')
-                  : t('demo.readyToReplaceTitle')
-                }
+                {dialogTitle}
               </DialogTitle>
               <DialogDescription className="text-center text-xs md:text-sm text-muted-foreground">
-                {animationPhase < 7 
-                  ? t('demo.subtitle')
-                  : ''
-                }
+                {dialogSubtitle}
               </DialogDescription>
             </div>
             
@@ -101,10 +115,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               size="icon"
               onClick={togglePause}
               className="ml-2"
-              title={isPaused 
-                ? t('demo.resume')
-                : t('demo.pause')
-              }
+              title={pauseButtonText}
               disabled={isLoading}
             >
               {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
@@ -117,31 +128,34 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
                   <p className="text-sm text-muted-foreground">
-                    {t('demo.generating') || "Generating..."}
+                    {loadingText}
                   </p>
                 </div>
               </div>
             )}
-            {/* Chat Interface */}
-            <div 
-              className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
-                animationPhase >= 7 ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
-            >
-              <ChatInterface 
-                animationPhase={animationPhase}
-                chatContainerRef={chatContainerRef}
-              />
-            </div>
             
-            {/* Slack interface transition */}
-            <div 
-              className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
-                animationPhase < 7 ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
-            >
-              <SlackInterface animationPhase={animationPhase} />
-            </div>
+            <ErrorBoundary>
+              {/* Chat Interface */}
+              <div 
+                className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
+                  animationPhase >= 7 ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
+              >
+                <ChatInterface 
+                  animationPhase={animationPhase}
+                  chatContainerRef={chatContainerRef}
+                />
+              </div>
+              
+              {/* Slack interface transition */}
+              <div 
+                className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
+                  animationPhase < 7 ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
+              >
+                <SlackInterface animationPhase={animationPhase} />
+              </div>
+            </ErrorBoundary>
           </div>
         </div>
       </DialogContent>
