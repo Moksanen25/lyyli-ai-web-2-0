@@ -56,8 +56,8 @@ const LyyliDemo: React.FC = () => {
       </Button>
       
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="p-0 overflow-hidden" style={{ width: "650px", height: "600px", maxWidth: "90vw", maxHeight: "90vh" }}>
-          <DialogHeader className="p-4 border-b">
+        <DialogContent className="p-0 overflow-hidden max-h-[600px] h-[600px]" style={{ width: "650px", maxWidth: "90vw" }}>
+          <DialogHeader className="p-4 border-b bg-background sticky top-0 z-10">
             <DialogTitle className="text-center">
               {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
             </DialogTitle>
@@ -66,7 +66,7 @@ const LyyliDemo: React.FC = () => {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="h-full relative">
+          <div className="h-[calc(100%-73px)] relative">
             {/* Chat Interface */}
             <div 
               className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
