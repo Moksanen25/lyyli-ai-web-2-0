@@ -1,9 +1,14 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
+import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 
 const Waitlist: React.FC = () => {
   const { t } = useLanguage();
+  const [showDemo, setShowDemo] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Create script element for HubSpot form
@@ -56,6 +61,14 @@ const Waitlist: React.FC = () => {
     };
   }, []);
 
+  // Reset animation phase when demo is opened
+  useEffect(() => {
+    if (showDemo) {
+      setAnimationPhase(0);
+      setIsLoading(true);
+    }
+  }, [showDemo]);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -68,7 +81,7 @@ const Waitlist: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow flex items-center justify-center py-10 px-4 md:py-20 bg-gradient-to-b from-white to-accent/20">
+      <main className="flex-grow flex flex-col items-center justify-center py-10 px-4 md:py-16 bg-gradient-to-b from-white to-accent/20">
         <div className="max-w-xl w-full mx-auto text-center animate-fade-in">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
             Something big is coming!
@@ -78,10 +91,31 @@ const Waitlist: React.FC = () => {
             We're building the next generation AI-powered content management platform. Join our waitlist to be the first to know when we launch.
           </p>
           
+          {/* Demo Button */}
+          <div className="mb-8">
+            <Button 
+              onClick={() => setShowDemo(true)} 
+              variant="secondary" 
+              className="px-6 py-2"
+            >
+              See how it works
+            </Button>
+          </div>
+          
           {/* HubSpot Form */}
           <div className="hs-form-frame" data-region="eu1" data-form-id="f337eade-e814-4038-b2aa-908dcf612cce" data-portal-id="146205702"></div>
         </div>
       </main>
+
+      {/* Demo Dialog */}
+      <DemoDialog
+        isOpen={showDemo}
+        setIsOpen={setShowDemo}
+        animationPhase={animationPhase}
+        setAnimationPhase={setAnimationPhase}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      />
 
       {/* Footer */}
       <footer className="py-8 px-4 text-center text-sm text-foreground/70">
