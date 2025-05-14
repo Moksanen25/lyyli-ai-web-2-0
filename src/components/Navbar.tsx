@@ -62,22 +62,22 @@ const Navbar: React.FC = () => {
     >
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/full" className="flex items-center">
           <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
-          <Link to="/features" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/features" className="text-primary hover:text-primary-light transition-colors">
             {t('nav.features')}
           </Link>
-          <Link to="/pricing" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/pricing" className="text-primary hover:text-primary-light transition-colors">
             {t('nav.pricing')}
           </Link>
-          <Link to="/faq" className="text-primary hover:text-primary-light transition-colors">
-            {t('nav.faq')}
+          <Link to="/full/about" className="text-primary hover:text-primary-light transition-colors">
+            {t('nav.about')}
           </Link>
-          <Link to="/contact" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/contact" className="text-primary hover:text-primary-light transition-colors">
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
@@ -112,28 +112,28 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto pt-16">
           <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
             <Link 
-              to="/features" 
+              to="/full/features" 
               className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.features')}
             </Link>
             <Link 
-              to="/pricing" 
+              to="/full/pricing" 
               className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.pricing')}
             </Link>
             <Link 
-              to="/faq" 
+              to="/full/about" 
               className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
-              {t('nav.faq')}
+              {t('nav.about')}
             </Link>
             <Link 
-              to="/contact" 
+              to="/full/contact" 
               className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >

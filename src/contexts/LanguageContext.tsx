@@ -93,26 +93,31 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Translation function
   const t = (key: string): string => {
-    // Split the key by dots to navigate the nested object
-    const keys = key.split('.');
-    // Start with the selected language object
-    let value: any = languages[language];
-    
-    // Navigate through the nested object
-    for (const k of keys) {
-      if (value && value[k] !== undefined) {
-        value = value[k];
-      } else {
-        // If the key doesn't exist, return the key itself and show warning in dev mode
-        if (import.meta.env.DEV) {
-          console.warn(`Translation key not found: ${key} in language: ${language}`);
+    try {
+      // Split the key by dots to navigate the nested object
+      const keys = key.split('.');
+      // Start with the selected language object
+      let value: any = languages[language];
+      
+      // Navigate through the nested object
+      for (const k of keys) {
+        if (value && value[k] !== undefined) {
+          value = value[k];
+        } else {
+          // If the key doesn't exist, return the key itself and show warning in dev mode
+          if (import.meta.env.DEV) {
+            console.warn(`Translation key not found: ${key} in language: ${language}`);
+          }
+          return key;
         }
-        return key;
       }
+      
+      // If the value is not a string, convert it to string
+      return typeof value === 'string' ? value : String(value);
+    } catch (error) {
+      console.error(`Error translating key: ${key}`, error);
+      return key;
     }
-    
-    // If the value is not a string, convert it to string
-    return typeof value === 'string' ? value : String(value);
   };
 
   return (

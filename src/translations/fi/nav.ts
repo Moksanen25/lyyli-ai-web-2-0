@@ -6,4 +6,5 @@ export const nav = {
   contact: 'Yhteystiedot',
   login: 'Kirjaudu',
   signup: 'Rekisteröidy',
+  about: 'Tietoa meistä',
 };

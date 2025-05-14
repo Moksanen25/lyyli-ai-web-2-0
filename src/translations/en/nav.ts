@@ -6,4 +6,5 @@ export const nav = {
   contact: 'Contact',
   login: 'Log In',
   signup: 'Sign Up',
+  about: 'About',
 };
