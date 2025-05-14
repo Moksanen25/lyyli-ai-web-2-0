@@ -7,13 +7,14 @@ interface MobileCardsProps {
   segments: SegmentData[];
 }
 
-// Making this component as simple and stable as possible with no internal state
-const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
+// Simplified component with stable rendering
+const MobileCards = ({ segments }: MobileCardsProps) => {
+  // Simple render with explicit keys
   return (
     <div className="sm:hidden space-y-6 py-4">
-      {segments.map((segment) => (
+      {segments.length > 0 && segments.map((segment) => (
         <SegmentCard 
-          key={segment.id} 
+          key={segment.id || Math.random().toString(36)} 
           segment={segment} 
         />
       ))}
@@ -21,5 +22,4 @@ const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
   );
 };
 
-// Using React.memo to prevent unnecessary re-renders
-export default React.memo(MobileCards);
+export default MobileCards;
