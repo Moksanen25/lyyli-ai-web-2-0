@@ -23,10 +23,7 @@ const ComplianceBadges: React.FC<ComplianceBadgesProps> = ({
   className = "",
 }) => {
   const defaultBadges: ComplianceBadgeType[] = [
-    { name: "ISO 27001", image: "https://img.shields.io/badge/ISO-27001-blue", color: 'blue' },
     { name: "GDPR Compliant", image: "https://img.shields.io/badge/GDPR-Compliant-green", color: 'green' },
-    { name: "SOC2 Type II", image: "https://img.shields.io/badge/SOC2-TypeII-purple", color: 'purple' },
-    { name: "HIPAA Compliant", image: "https://img.shields.io/badge/HIPAA-Compliant-red", color: 'red' },
     { name: "99.9% Uptime SLA", image: "https://img.shields.io/badge/99.9%25-Uptime_SLA-blue", color: 'blue' }
   ];
 
