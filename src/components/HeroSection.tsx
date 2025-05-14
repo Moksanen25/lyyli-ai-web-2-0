@@ -5,38 +5,43 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Database, MessageSquare } from 'lucide-react';
 import TrustIndicators from '@/components/TrustIndicators';
 import LyyliDemo from '@/components/LyyliDemo';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
+    <section className="pt-16 pb-10 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
       <div className="container-padding container mx-auto flex flex-col lg:flex-row items-center">
-        <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in">
-          <div className="flex items-center mb-4">
-            <span className="bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full">Enterprise Ready</span>
-            <span className="ml-3 text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
+        <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in text-center lg:text-left">
+          <div className="flex items-center justify-center lg:justify-start mb-4 flex-wrap gap-2">
+            <span className="bg-primary/10 text-primary text-xs md:text-sm font-semibold py-1 px-3 rounded-full">Enterprise Ready</span>
+            <span className="text-xs md:text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             {t('hero.title')}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-primary/80">
+          <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-primary/80">
             {t('hero.subtitle')}
           </p>
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
             <a href="https://lyyli.vercel.app/">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg">
+              <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-5 text-base md:text-lg w-full sm:w-auto">
                 {t('hero.cta')}
               </Button>
             </a>
             <LyyliDemo />
           </div>
           
-          {/* Enterprise Trust Indicators */}
-          <TrustIndicators className="mt-10" />
+          {/* Enterprise Trust Indicators - Hide on small mobile screens */}
+          <div className="mt-8 md:mt-10">
+            <TrustIndicators className={isMobile ? "scale-90 origin-center" : ""} />
+          </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-fade-in-slow">
+        {/* Only show chat mockup on tablet and larger screens */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-fade-in-slow hidden md:flex">
           <div className="relative w-full max-w-lg">
             {/* Chat interface mockup */}
             <div className="bg-white rounded-2xl card-shadow p-4 w-full">
@@ -97,14 +102,30 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Trust badges - Removed ISO 27001, GDPR Compliant, and SOC2 Certified */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white py-2 px-4 rounded-full shadow-lg flex items-center space-x-3">
-              {/* Badges removed */}
-            </div>
-            
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent/30 rounded-full -z-10"></div>
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/70 rounded-full -z-10"></div>
+          </div>
+        </div>
+        
+        {/* Mobile-only simpler illustration */}
+        <div className="w-full flex justify-center md:hidden animate-fade-in-slow mt-6">
+          <div className="bg-white rounded-xl card-shadow p-3 w-full max-w-[280px]">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs mr-2">
+                L
+              </div>
+              <div className="font-medium text-sm">Lyyli Assistant</div>
+            </div>
+            <div className="space-y-2">
+              <div className="bg-secondary rounded-lg p-2 text-sm">
+                I'll draft that Teams message for you right away.
+              </div>
+              <div className="flex items-center space-x-1 ml-1">
+                <div className="w-3 h-3 rounded-full bg-primary/40 animate-pulse"></div>
+                <span className="text-xs">Drafting...</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

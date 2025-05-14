@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
@@ -9,11 +9,31 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showButton, setShowButton] = useState(true);
   const isMobile = useIsMobile();
   const { t } = useLanguage();
 
+  // Handle scroll position to hide button when scrolling down on mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let lastScrollY = window.scrollY;
+    
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Hide when scrolling down, show when scrolling up or at the top
+      setShowButton(currentScrollY <= 100 || currentScrollY < lastScrollY);
+      lastScrollY = currentScrollY;
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className={`fixed z-50 transition-all duration-300 ${
+      showButton ? 'bottom-4 opacity-100' : 'bottom-[-80px] opacity-0'
+    } right-4`}>
       {isMobile ? (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
@@ -24,7 +44,7 @@ const FloatingChat = () => {
               <MessageCircle />
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-md p-0" style={{ height: "80vh" }}>
+          <DialogContent className="sm:max-w-md p-0 w-[calc(100vw-32px)]" style={{ height: "80vh" }}>
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
                 <h2 className="font-semibold">{t('chat.title')}</h2>

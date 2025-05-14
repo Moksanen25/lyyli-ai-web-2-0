@@ -4,10 +4,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const CaseStudies: React.FC = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   
   const caseStudies = [
     {
@@ -36,21 +38,25 @@ const CaseStudies: React.FC = () => {
     }
   ];
 
+  // For mobile, only show first 2 case studies to avoid excessive scrolling
+  const displayedCaseStudies = isMobile ? caseStudies.slice(0, 1) : caseStudies;
+
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-24 bg-white">
       <div className="container-padding container mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-10 md:mb-16 animate-fade-in">
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
             Success Stories
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('caseStudies.title')}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('caseStudies.title')}</h2>
+          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('caseStudies.subtitle')}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in">
-          {caseStudies.map((study, index) => (
+        {/* Case Studies Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 animate-fade-in mb-6 md:mb-8">
+          {displayedCaseStudies.map((study, index) => (
             <Card 
               key={index} 
               className="border-none card-shadow hover:shadow-lg transition-shadow duration-300"
@@ -85,6 +91,19 @@ const CaseStudies: React.FC = () => {
             </Card>
           ))}
         </div>
+        
+        {/* Mobile-specific "See More" button */}
+        {isMobile && (
+          <div className="text-center">
+            <Button 
+              variant="outline" 
+              className="mt-4" 
+              onClick={() => navigate('/case-studies')}
+            >
+              See All Case Studies <ArrowRight className="h-4 w-4 ml-1" />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

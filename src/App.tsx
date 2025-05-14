@@ -1,43 +1,33 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import Index from "./pages/Index";
-import Pricing from "./pages/Pricing";
-import Features from "./pages/Features";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import CaseStudies from "./pages/CaseStudies";
-import NotFound from "./pages/NotFound";
-import FloatingChat from "./components/chat/FloatingChat";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Index from '@/pages/Index';
+import About from '@/pages/About';
+import Contact from '@/pages/Contact';
+import Features from '@/pages/Features';
+import Pricing from '@/pages/Pricing';
+import CaseStudies from '@/pages/CaseStudies';
+import NotFound from '@/pages/NotFound';
+import FloatingChat from '@/components/chat/FloatingChat';
+import { Toaster } from '@/components/ui/toaster';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <FloatingChat />
-        </BrowserRouter>
-      </LanguageProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <LanguageProvider>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <FloatingChat />
+      <Toaster />
+    </LanguageProvider>
+  );
+}
 
 export default App;

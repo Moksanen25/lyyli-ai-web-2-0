@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
 import SlackInterface from './SlackInterface';
 import AnimationController from './AnimationController';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface DemoDialogProps {
   isOpen: boolean;
@@ -26,6 +27,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
 }) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const isMobile = useIsMobile();
   
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -40,7 +42,14 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="p-0 overflow-hidden max-h-[90vh]" style={{ width: "650px", maxWidth: "90vw", height: "600px" }}>
+      <DialogContent 
+        className="p-0 overflow-hidden" 
+        style={{ 
+          width: isMobile ? "95vw" : "650px", 
+          maxWidth: "95vw", 
+          height: isMobile ? "80vh" : "600px"
+        }}
+      >
         <AnimationController 
           isOpen={isOpen}
           animationPhase={animationPhase}
@@ -49,12 +58,12 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           isPaused={isPaused}
         />
         <div className="flex flex-col h-full">
-          <DialogHeader className="p-4 border-b bg-background flex flex-row justify-between items-center">
+          <DialogHeader className="p-3 md:p-4 border-b bg-background flex flex-row justify-between items-center">
             <div className="flex-1">
-              <DialogTitle className="text-center">
+              <DialogTitle className="text-center text-base md:text-lg">
                 {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
               </DialogTitle>
-              <DialogDescription className="text-center text-sm text-muted-foreground">
+              <DialogDescription className="text-center text-xs md:text-sm text-muted-foreground">
                 {animationPhase < 7 ? "Creating content with AI" : "Publishing to communication channels"}
               </DialogDescription>
             </div>
@@ -75,7 +84,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
                 <div className="flex flex-col items-center space-y-4">
-                  <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                  <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
                   <p className="text-sm text-muted-foreground">Initializing demo...</p>
                 </div>
               </div>

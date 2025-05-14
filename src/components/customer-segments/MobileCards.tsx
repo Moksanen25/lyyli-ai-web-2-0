@@ -9,7 +9,7 @@ interface MobileCardsProps {
 
 const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
   return (
-    <div className="md:hidden space-y-8">
+    <div className="sm:hidden space-y-6">
       {segments.map((segment, index) => (
         <SegmentCard key={index} segment={segment} />
       ))}

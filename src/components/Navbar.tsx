@@ -5,31 +5,60 @@ import { Button } from '@/components/ui/button';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar: React.FC = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [visible, setVisible] = useState(true);
 
-  // Handle scroll to add background to navbar when scrolling
+  // Handle scroll to add background to navbar when scrolling and hide on scroll down
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      
+      // Determine navbar visibility (hide when scrolling down, show when scrolling up)
+      if (isMobile) {
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+      }
+      
+      setScrolled(currentScrollY > 10);
+      setLastScrollY(currentScrollY);
     };
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [lastScrollY, isMobile]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // When menu is open, prevent body scroll
+  useEffect(() => {
+    if (isMenuOpen && isMobile) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen, isMobile]);
 
   return (
     <nav 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white card-shadow py-2' : 'bg-transparent py-4'
-      }`}
+      } ${visible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -69,58 +98,60 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden flex items-center">
           <LanguageSwitcher />
           <button
-            className="ml-4 text-primary focus:outline-none"
+            className="ml-4 text-primary p-2 focus:outline-none"
             onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white card-shadow absolute w-full">
-          <div className="container-padding container mx-auto py-4 flex flex-col space-y-4">
+        <div className="lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto pt-16">
+          <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
             <Link 
               to="/features" 
-              className="text-primary hover:text-primary-light transition-colors py-2"
+              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.features')}
             </Link>
             <Link 
               to="/pricing" 
-              className="text-primary hover:text-primary-light transition-colors py-2"
+              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.pricing')}
             </Link>
             <Link 
               to="/faq" 
-              className="text-primary hover:text-primary-light transition-colors py-2"
+              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.faq')}
             </Link>
             <Link 
               to="/contact" 
-              className="text-primary hover:text-primary-light transition-colors py-2"
+              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.contact')}
             </Link>
-            <hr className="border-gray-200" />
-            <a 
-              href="https://lyyli.vercel.app/"
-              className="text-primary hover:text-primary-light transition-colors py-2"
-            >
-              {t('nav.login')}
-            </a>
-            <a href="https://lyyli.vercel.app/" className="py-2">
-              <Button className="bg-primary hover:bg-primary/90 text-white w-full">
-                {t('nav.signup')}
-              </Button>
-            </a>
+            <div className="py-4">
+              <a 
+                href="https://lyyli.vercel.app/"
+                className="text-primary hover:text-primary-light transition-colors py-3 text-lg block mb-4"
+              >
+                {t('nav.login')}
+              </a>
+              <a href="https://lyyli.vercel.app/">
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
+                  {t('nav.signup')}
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       )}

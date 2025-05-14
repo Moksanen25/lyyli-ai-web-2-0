@@ -14,8 +14,8 @@ const CustomerSegments: React.FC = () => {
   const segments = useSegmentsData();
 
   return (
-    <section className="py-16 md:py-24 bg-muted/20">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-24 bg-muted/20">
+      <div className="container-padding container mx-auto">
         <SectionHeader />
         <DesktopTabs segments={segments} />
         <MobileCards segments={segments} />

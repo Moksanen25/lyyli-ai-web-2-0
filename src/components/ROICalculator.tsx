@@ -20,9 +20,11 @@ import {
   Slider 
 } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ROICalculator: React.FC = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   
   // Calculator state
   const [companySize, setCompanySize] = useState<string>("medium");
@@ -71,22 +73,22 @@ const ROICalculator: React.FC = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="calculator">
+    <section className="py-12 md:py-16 bg-white" id="calculator">
       <div className="container-padding container mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('calculator.title')}</h2>
-          <p className="text-xl text-primary/80 max-w-2xl mx-auto">
+        <div className="text-center mb-10 md:mb-16 animate-fade-in">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('calculator.title')}</h2>
+          <p className="text-base md:text-xl text-primary/80 max-w-2xl mx-auto">
             {t('calculator.subtitle')}
           </p>
         </div>
         
-        <div className="flex flex-col lg:flex-row gap-8 animate-fade-in">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 animate-fade-in">
           <Card className="flex-1 border-none card-shadow">
-            <CardHeader>
-              <CardTitle className="text-2xl">{t('calculator.title')}</CardTitle>
-              <CardDescription>{t('calculator.subtitle')}</CardDescription>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl md:text-2xl">{t('calculator.title')}</CardTitle>
+              <CardDescription>{isMobile ? 'Calculate your potential savings' : t('calculator.subtitle')}</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-5">
               <div>
                 <label className="block text-sm font-medium mb-2">
                   {t('calculator.companySize')}
@@ -121,7 +123,7 @@ const ROICalculator: React.FC = () => {
                   max={12000} 
                   step={500} 
                   onValueChange={(value) => setSpecialistSalary(value[0])}
-                  className="my-6"
+                  className="my-4 md:my-6"
                 />
               </div>
               
@@ -140,7 +142,7 @@ const ROICalculator: React.FC = () => {
                   max={50} 
                   step={5} 
                   onValueChange={(value) => setReplacementRatio(value[0])}
-                  className="my-6" 
+                  className="my-4 md:my-6" 
                 />
               </div>
             </CardContent>
@@ -156,22 +158,22 @@ const ROICalculator: React.FC = () => {
           
           <Card className="flex-1 border-none card-shadow bg-accent/10">
             <CardHeader>
-              <CardTitle className="text-2xl">Results</CardTitle>
+              <CardTitle className="text-xl md:text-2xl">Results</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="text-center">
                 <div className="text-sm text-primary/70 mb-1">{t('calculator.monthlySavings')}</div>
-                <div className="text-4xl font-bold font-playfair">€{monthlySavings.toLocaleString()}</div>
+                <div className="text-2xl md:text-4xl font-bold font-playfair">€{monthlySavings.toLocaleString()}</div>
               </div>
               
               <div className="text-center">
                 <div className="text-sm text-primary/70 mb-1">{t('calculator.annualSavings')}</div>
-                <div className="text-4xl font-bold font-playfair">€{annualSavings.toLocaleString()}</div>
+                <div className="text-2xl md:text-4xl font-bold font-playfair">€{annualSavings.toLocaleString()}</div>
               </div>
               
               <div className="text-center">
                 <div className="text-sm text-primary/70 mb-1">{t('calculator.roi')}</div>
-                <div className="text-4xl font-bold font-playfair">{roi}%</div>
+                <div className="text-2xl md:text-4xl font-bold font-playfair">{roi}%</div>
               </div>
             </CardContent>
           </Card>
