@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { ErrorBoundary } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
@@ -12,6 +12,35 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 
+// Error fallback component
+const SectionErrorFallback = ({ error, componentName }: { error: Error; componentName: string }) => (
+  <div className="py-16 text-center">
+    <p className="text-red-500">Unable to display {componentName}.</p>
+    {process.env.NODE_ENV === 'development' && (
+      <pre className="mt-2 text-xs text-left bg-gray-100 p-4 rounded mx-auto max-w-md overflow-auto">
+        {error.message}
+      </pre>
+    )}
+  </div>
+);
+
+// Section wrapper with error handling
+const SafeSection = ({ 
+  children, 
+  name 
+}: { 
+  children: React.ReactNode; 
+  name: string 
+}) => {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center">Loading {name}...</div>}>
+      <ErrorBoundary fallback={<SectionErrorFallback componentName={name} />}>
+        {children}
+      </ErrorBoundary>
+    </React.Suspense>
+  );
+};
+
 /**
  * Main landing page component
  * Structure:
@@ -23,25 +52,47 @@ import CookieConsent from '@/components/CookieConsent';
  * 6. Footer and cookie consent
  */
 const Index = () => {
+  console.log('Index page rendering');
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
         {/* Primary messaging */}
-        <HeroSection />
-        <ComplianceBadges />
+        <SafeSection name="Hero Section">
+          <HeroSection />
+        </SafeSection>
+        
+        <SafeSection name="Compliance Badges">
+          <ComplianceBadges />
+        </SafeSection>
         
         {/* Main content sections */}
-        <FeaturesSection />
-        <CustomerSegments />
+        <SafeSection name="Features">
+          <FeaturesSection />
+        </SafeSection>
+        
+        <SafeSection name="Customer Segments">
+          <CustomerSegments />
+        </SafeSection>
         
         {/* Social proof and enterprise focus */}
-        <EnterpriseCallout />
-        <TestimonialsSection />
-        <CaseStudies />
+        <SafeSection name="Enterprise">
+          <EnterpriseCallout />
+        </SafeSection>
+        
+        <SafeSection name="Testimonials">
+          <TestimonialsSection />
+        </SafeSection>
+        
+        <SafeSection name="Case Studies">
+          <CaseStudies />
+        </SafeSection>
         
         {/* Final conversion point */}
-        <CTASection />
+        <SafeSection name="CTA">
+          <CTASection />
+        </SafeSection>
       </main>
       <Footer />
       <CookieConsent />
