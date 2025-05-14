@@ -24,7 +24,7 @@ function AppRoutes() {
 
   return (
     <Routes>
-      {/* Default route to waitlist */}
+      {/* Default route redirects to /full */}
       <Route path="/" element={<Navigate to="/full" replace />} />
       
       {/* English routes */}
@@ -59,12 +59,10 @@ function App() {
   
   return (
     <LanguageProvider>
-      <>
-        <AppRoutes />
-        <FloatingChat />
-        <Toaster />
-        {import.meta.env.DEV && <TranslationManager />}
-      </>
+      <AppRoutes />
+      <FloatingChat />
+      <Toaster />
+      {import.meta.env.DEV && <TranslationManager />}
     </LanguageProvider>
   );
 }

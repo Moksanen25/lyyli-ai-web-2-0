@@ -33,6 +33,31 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   
   // Debug information
   console.log('Selected language:', language);
+
+  // Effect to update path when language changes
+  useEffect(() => {
+    console.log('Language effect triggered with language:', language);
+    localStorage.setItem('language', language);
+    
+    // Update URL if needed based on current language
+    try {
+      const currentPath = location.pathname;
+      
+      if (language === 'fi' && !currentPath.startsWith('/fi')) {
+        // Need to add /fi prefix
+        const newPath = `/fi${currentPath}`;
+        console.log('Updating path to:', newPath);
+        navigate(newPath, { replace: true });
+      } else if (language === 'en' && currentPath.startsWith('/fi')) {
+        // Need to remove /fi prefix
+        const newPath = currentPath.substring(3) || '/';
+        console.log('Updating path to:', newPath);
+        navigate(newPath, { replace: true });
+      }
+    } catch (error) {
+      console.error('Error updating URL for language change:', error);
+    }
+  }, [language, location.pathname, navigate]);
   
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
@@ -98,43 +123,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const setLanguage = (newLanguage: SupportedLanguage) => {
     console.log('Setting language to:', newLanguage);
     setLanguageState(newLanguage);
-    localStorage.setItem('language', newLanguage);
-    
-    try {
-      // Update URL based on language
-      const currentPath = location.pathname;
-      let newPath = currentPath;
-      
-      if (newLanguage === 'fi') {
-        // Add /fi prefix if not already there
-        if (!currentPath.startsWith('/fi')) {
-          newPath = `/fi${currentPath}`;
-          if (newPath === '/fi/') newPath = '/fi';
-        }
-      } else {
-        // Remove /fi prefix if it's there
-        if (currentPath.startsWith('/fi')) {
-          newPath = currentPath.substring(3) || '/';
-          if (newPath === '') newPath = '/';
-        }
-      }
-      
-      // Only navigate if the path changed
-      if (newPath !== currentPath) {
-        console.log('Navigating to:', newPath);
-        navigate(newPath);
-      }
-    } catch (error) {
-      console.error('Error updating URL for language change:', error);
-    }
   };
 
-  // Effect to handle initial language setting
+  // Initial verification in development mode
   useEffect(() => {
     console.log('LanguageContext effect running');
-    
-    // Store language in localStorage
-    localStorage.setItem('language', language);
     
     // Verify translations only in development mode
     if (import.meta.env.DEV) {
