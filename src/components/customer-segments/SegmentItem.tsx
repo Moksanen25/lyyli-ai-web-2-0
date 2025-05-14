@@ -32,8 +32,8 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const solutions = ensureArray(segment.solutions);
   
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto py-8">
-      <div className="animate-fade-in">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto py-4">
+      <div>
         <div className="flex items-center mb-8">
           <span className="text-primary mr-4 flex-shrink-0">
             {segment.icon}
@@ -48,7 +48,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.challenges')}</h4>
           <ul className="space-y-4">
             {painPoints.map((point, index) => (
-              <li key={index} className="flex items-start animate-fade-in" style={{animationDelay: `${index * 100}ms`}}>
+              <li key={index} className="flex items-start">
                 <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </span>
@@ -62,7 +62,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.solutions')}</h4>
           <ul className="space-y-4">
             {solutions.map((solution, index) => (
-              <li key={index} className="flex items-start animate-fade-in" style={{animationDelay: `${100 + index * 100}ms`}}>
+              <li key={index} className="flex items-start">
                 <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
                 </span>
@@ -75,11 +75,11 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         <Button className="bg-primary hover:bg-primary/90 mt-2 px-6 py-2 h-auto text-base">{t('customerSegments.bookDemoButton')}</Button>
       </div>
 
-      <div className="bg-white p-8 rounded-xl shadow-md animate-fade-in">
+      <div className="bg-white p-8 rounded-xl shadow-md">
         <Card className="border-none shadow-none">
           <CardHeader className="pb-4">
             <CardTitle className="text-xl">{t('customerSegments.successStory')}</CardTitle>
-            <CardDescription>How Lyyli transforms communication workflows</CardDescription>
+            <CardDescription className="mt-1">How Lyyli transforms communication workflows</CardDescription>
           </CardHeader>
           <CardContent className="pt-2">
             <blockquote className="border-l-4 border-primary/30 pl-5 italic py-1 text-lg">

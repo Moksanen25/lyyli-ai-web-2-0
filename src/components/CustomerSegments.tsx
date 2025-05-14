@@ -19,11 +19,8 @@ const CustomerSegments: React.FC = () => {
         <SectionHeader />
         {segments.length > 0 && (
           <div className="mt-16 mb-12">
-            {/* Increased vertical spacing by adding py-8 */}
-            <div className="py-8">
-              <DesktopTabs segments={segments} />
-              <MobileCards segments={segments} />
-            </div>
+            <DesktopTabs segments={segments} />
+            <MobileCards segments={segments} />
           </div>
         )}
         <SegmentCTA />

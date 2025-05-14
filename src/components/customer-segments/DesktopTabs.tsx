@@ -30,7 +30,7 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
         onValueChange={handleTabChange}
         value={activeTab}
       >
-        <div className="flex justify-center mb-16 overflow-x-auto pb-4">
+        <div className="flex justify-center mb-12 overflow-x-auto pb-4">
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
             {segments.map(segment => (
               <TabsTrigger 
@@ -57,20 +57,16 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
           </TabsList>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 relative">
           {segments.map(segment => (
             <TabsContent 
               key={segment.id} 
               value={segment.id} 
-              className={`transition-all duration-500 ${
+              className={`transition-all duration-300 ${
                 activeTab === segment.id 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-4 absolute pointer-events-none'
+                  ? 'opacity-100' 
+                  : 'opacity-0 hidden'
               }`}
-              style={{ 
-                position: activeTab === segment.id ? 'relative' : 'absolute',
-                width: '100%'
-              }}
             >
               <SegmentItem segment={segment} />
             </TabsContent>
