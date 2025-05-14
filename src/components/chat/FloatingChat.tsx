@@ -24,7 +24,7 @@ const FloatingChat = () => {
               <MessageCircle />
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-md p-0 h-[80vh]">
+          <DialogContent className="sm:max-w-md p-0" style={{ height: "80vh" }}>
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
                 <h2 className="font-semibold">{t('chat.title')}</h2>
