@@ -28,7 +28,8 @@ function App() {
         <Route path="/full/pricing" element={<Pricing />} />
         <Route path="/full/case-studies" element={<CaseStudies />} />
         
-        {/* Finnish routes */}
+        {/* Finnish routes with proper paths */}
+        <Route path="/fi" element={<Waitlist />} />
         <Route path="/fi/full" element={<Index />} />
         <Route path="/fi/full/about" element={<About />} />
         <Route path="/fi/full/contact" element={<Contact />} />

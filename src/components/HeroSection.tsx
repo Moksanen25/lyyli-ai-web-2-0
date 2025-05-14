@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
             <a href="https://lyyli.vercel.app/">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-5 text-base md:text-lg w-full sm:w-auto capitalize">
+              <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-5 text-base md:text-lg w-full sm:w-auto">
                 {t('hero.cta')}
               </Button>
             </a>

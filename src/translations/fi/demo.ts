@@ -1,27 +1,53 @@
 
 export const demo = {
-  dialogTitle: 'Lyyli.ai-sisältöapuri',
-  dialogDescription: 'Sisällönluontia tekoälyllä',
-  publishedTitle: 'Sisältö julkaistu',
-  publishedDescription: 'Julkaisu viestintäkanaviin',
-  initializingDemo: 'Alustetaan demoa...',
-  resumeAnimation: 'Jatka animaatiota',
-  pauseAnimation: 'Keskeytä animaatio',
-  assistantGreeting: 'Huomenta! 🌞 Huomaan, että teillä on uusi ominaisuus tulossa pian. Haluaisitko minun valmistelevan Slack-ilmoituksen yrityksen julkiselle kanavalle?',
-  userResponse: 'Kuulostaa hyvältä. Voitko luoda luonnoksen eilisen kehittäjäpalaverin muistion perusteella?',
-  creatingDraft: 'Luodaan luonnosta palaverimuistiosta...',
-  assistantSuggestion: 'Olen luonnostellut Slack-viestin palaverimuistionne perusteella. Tässä ehdotukseni:',
-  draftTitle: '✨ Innostavia uutisia! 🚀',
-  draftContent: 'Hei tiimi! Olemme innoissamme ilmoittaessanne, että uusi analytiikan hallintapaneeli julkaistaan ensi tiistaina! 📈',
-  draftFeatures: 'Tämä ominaisuus sisältää:',
-  draftFeature1: 'Reaaliaikainen datan visualisointi',
-  draftFeature2: 'Mukautettujen raporttien luominen',
-  draftFeature3: 'Parannetut vientivaihtoehdot',
-  draftClosing: 'Odotamme innolla, että pääsette kokeilemaan sitä!',
-  draftNote: 'Tämä viesti noudattaa yrityksenne rentoa mutta ammattimaista äänensävyä. Haluaisitko lisätä kuvakaappauksen uudesta ominaisuudesta? 🖼️',
-  userApproval: 'Tämä näyttää täydelliseltä! Kyllä, lisää kuvakaappaus ja julkaise se Slackiin heti. 👍',
-  publishing: 'Lisätään kuvakaappaus ja julkaistaan Slackiin... 🔄',
-  seeHowItWorks: 'Katso miten se toimii',
-  waitlistTitle: 'Jotain suurta on tulossa!',
-  waitlistDescription: 'Olemme rakentamassa seuraavan sukupolven tekoälyllä toimivaa sisällönhallintajärjestelmää. Liity jonotuslistallemme ollaksesi ensimmäinen, joka saa tietää, kun julkaisemme sen.',
+  title: 'Katso miten Lyyli toimii',
+  subtitle: 'Katso miten Lyyli voi automatisoida viestintääsi ja säästää aikaasi',
+  step1: {
+    title: 'Kirjoita mitä haluat tehdä',
+    description: 'Kerro Lyylille millaista viestintää tarvitset – oli kyseessä sitten blogi, sähköposti tai sosiaalisen median julkaisu'
+  },
+  step2: {
+    title: 'Lyyli generoi sisällön',
+    description: 'Tekoälymme tuottaa laadukkaan ensimmäisen version tekstistä brändisi äänensävyllä'
+  },
+  step3: {
+    title: 'Muokkaa ja hyväksy',
+    description: 'Tarkista ja muokkaa sisältöä tarpeen mukaan, jonka jälkeen se on valmis julkaistavaksi'
+  },
+  slackIntegration: {
+    title: 'Slack-integraatio',
+    description: 'Käytä Lyyliä suoraan Slackista – ei tarvetta vaihtaa sovellusta',
+    commandPlaceholder: 'kirjoita /lyyli [tehtäväsi]',
+    teamsFallback: 'Toimii myös Microsoft Teamsissa',
+    aiAssistant: 'Lyyli AI'
+  },
+  close: 'Sulje',
+  generating: 'Generoidaan...',
+  readyToReplaceTitle: 'Valmis korvaamaan aikaa vievät viestintätehtävät?',
+  readyToReplaceButton: 'Aloita ilmainen kokeilu',
+  chatMessages: {
+    welcome: 'Hei! Miten voin auttaa viestinnässäsi tänään?',
+    userPrompt: 'Tarvitsemme sisäisen tiedotteen uudesta kestävän kehityksen aloitteestamme',
+    aiThinking: 'Luon tiedotteen kestävän kehityksen aloitteesta käyttäen yrityksenne äänensävyä. Haluatko muodollisen sähköpostin vai rennomman Teams-viestin?',
+    userAnswer: 'Teams-viesti, jonka voimme jakaa eri osastoille',
+    aiResponse: 'Tässä luonnos Teams-viestistä kestävyysaloitteestanne:'
+  },
+  generatedContent: {
+    header: '🌱 **UUSI KESTÄVÄN KEHITYKSEN ALOITE – TOIMENPITEET ALKAVAT ENSI VIIKOLLA**',
+    body: `Hei tiimi,
+
+Olemme innoissamme voidessamme ilmoittaa uudesta kestävän kehityksen aloitteestamme, joka käynnistyy ensi maanantaina. Tämä on merkittävä askel pyrkiessämme pienentämään ympäristöjalanjälkeämme ja edistämään vastuullisempia työkäytäntöjä.
+
+**Mitä tämä tarkoittaa sinulle:**
+• Uudet kierrätysasemat jokaisella osastolla
+• Paperittoman dokumentoinnin siirtymä (IT lähettää ohjeet)
+• Energiansäästökampanja – muista sammuttaa laitteet työpäivän päätteeksi
+
+**Tule mukaan aloitustilaisuuteen** ensi maanantaina klo 11.00 kahvilassa.
+
+Kysymyksiä? Kommentoi alle tai ota yhteyttä kestävän kehityksen tiimiin.
+
+#YhdessäVihreämmäksi`,
+    teamReaction: '15 henkilöä reagoi tähän viestiin 👍'
+  }
 };

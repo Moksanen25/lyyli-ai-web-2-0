@@ -1,4 +1,3 @@
-
 export const fi = {
   nav: {
     features: 'Ominaisuudet',
@@ -11,8 +10,8 @@ export const fi = {
   hero: {
     title: 'Tekoälyllä toimiva viestinnän automaatiojärjestelmä',
     subtitle: 'Virtaviivaista sisällöntuotantoprosessisi Lyylin avulla',
-    cta: 'Aloita Nyt',
-    secondaryCta: 'Katso Miten Se Toimii',
+    cta: 'Aloita nyt',
+    secondaryCta: 'Katso miten se toimii',
   },
   features: {
     title: 'Ominaisuudet',
@@ -37,8 +36,8 @@ export const fi = {
       title: 'Tehokkaat tekoälyominaisuudet moderniin viestintään',
       description: 'Tutustu kuinka Lyyli muuttaa viestintätyönkulkusi edistyksellisellä tekoälyteknologialla ja intuitiivisilla työkaluilla',
       imageAlt: 'Tekoälyllä toimivan viestinnän automaatiojärjestelmän käyttöliittymä',
-      primaryCta: 'Aloita Ilmainen Kokeilu',
-      secondaryCta: 'Varaa Esittely',
+      primaryCta: 'Aloita ilmainen kokeilu',
+      secondaryCta: 'Varaa esittely',
     },
     mainFeatures: {
       title: 'Ydinominaisuudet'
@@ -123,12 +122,12 @@ export const fi = {
     professional: {
       name: 'Ammattilais',
       description: 'Kaikki mitä tarvitset kasvavalle yritykselle, jolla on useita tarpeita.',
-      cta: 'Aloita Ilmainen Kokeilu',
+      cta: 'Aloita ilmainen kokeilu',
     },
     enterprise: {
       name: 'Yritys',
       description: 'Räätälöidyt ratkaisut suurille organisaatioille, joilla on edistyneet vaatimukset.',
-      cta: 'Ota Yhteyttä',
+      cta: 'Ota yhteyttä',
     },
     features: {
       agents: 'Tekoäly-agentit',
@@ -153,7 +152,7 @@ export const fi = {
     faqTitle: 'Kysymyksiä?',
     faqText: 'Käy UKK-sivullamme tai ota yhteyttä saadaksesi lisätietoja paketeistamme.',
     faqButton: 'Katso UKK',
-    contactButton: 'Ota Yhteyttä Myyntiin',
+    contactButton: 'Ota yhteyttä myyntiin',
   },
   testimonials: {
     title: 'Mitä asiakkaamme sanovat',
@@ -190,7 +189,7 @@ export const fi = {
   cta: {
     title: 'Valmis muuttamaan viestintäprosessisi?',
     subtitle: 'Liity tuhansien tyytyväisten asiakkaiden joukkoon tänään.',
-    button: 'Aloita Ilmainen Kokeilu',
+    button: 'Aloita ilmainen kokeilu',
   },
   footer: {
     product: 'Tuote',
