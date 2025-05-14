@@ -31,7 +31,6 @@ class ErrorBoundary extends React.Component<{children: React.ReactNode}, {hasErr
       return (
         <div style={{ 
           padding: '20px', 
-          margin: '20px', 
           backgroundColor: '#fff1f0', 
           border: '1px solid #ffa39e',
           borderRadius: '4px',
