@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Loader2 } from 'lucide-react';
 import ChatInterface from './ChatInterface';
 import SlackInterface from './SlackInterface';
 import AnimationController from './AnimationController';
@@ -10,13 +11,17 @@ interface DemoDialogProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   animationPhase: number;
   setAnimationPhase: React.Dispatch<React.SetStateAction<number>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DemoDialog: React.FC<DemoDialogProps> = ({ 
   isOpen,
   setIsOpen, 
   animationPhase, 
-  setAnimationPhase 
+  setAnimationPhase,
+  isLoading,
+  setIsLoading
 }) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   
@@ -34,6 +39,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           isOpen={isOpen}
           animationPhase={animationPhase}
           setAnimationPhase={setAnimationPhase}
+          setIsLoading={setIsLoading}
         />
         <div className="flex flex-col h-full">
           <DialogHeader className="p-4 border-b bg-background">
@@ -46,6 +52,14 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           </DialogHeader>
           
           <div className="flex-grow relative overflow-hidden">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
+                <div className="flex flex-col items-center space-y-4">
+                  <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                  <p className="text-sm text-muted-foreground">Initializing demo...</p>
+                </div>
+              </div>
+            )}
             {/* Chat Interface */}
             <div 
               className={`w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${

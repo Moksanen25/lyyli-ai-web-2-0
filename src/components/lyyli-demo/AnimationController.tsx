@@ -5,12 +5,14 @@ interface AnimationControllerProps {
   isOpen: boolean;
   animationPhase: number;
   setAnimationPhase: React.Dispatch<React.SetStateAction<number>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AnimationController: React.FC<AnimationControllerProps> = ({ 
   isOpen, 
   animationPhase, 
-  setAnimationPhase 
+  setAnimationPhase,
+  setIsLoading
 }) => {
   // Animation timeline management
   useEffect(() => {
@@ -21,7 +23,10 @@ const AnimationController: React.FC<AnimationControllerProps> = ({
     
     // Schedule animation phases
     const timeline = [
-      setTimeout(() => setAnimationPhase(1), 2000), // Initial assistant message
+      setTimeout(() => {
+        setIsLoading(false); // Remove loading state when first animation starts
+        setAnimationPhase(1);
+      }, 2000), // Initial assistant message
       setTimeout(() => setAnimationPhase(2), 4000), // User response
       setTimeout(() => setAnimationPhase(3), 6000), // Assistant typing
       setTimeout(() => setAnimationPhase(4), 8000), // Assistant suggestion
@@ -33,7 +38,7 @@ const AnimationController: React.FC<AnimationControllerProps> = ({
     
     // Cleanup timeouts when dialog closes
     return () => timeline.forEach(timer => clearTimeout(timer));
-  }, [isOpen, setAnimationPhase]);
+  }, [isOpen, setAnimationPhase, setIsLoading]);
 
   return null; // This is a logic-only component, no UI to render
 };
