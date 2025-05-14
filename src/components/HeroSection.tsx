@@ -16,8 +16,8 @@ const HeroSection: React.FC = () => {
       <div className="container-padding container mx-auto flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in text-center lg:text-left">
           <div className="flex items-center justify-center lg:justify-start mb-4 flex-wrap gap-2">
-            <span className="bg-primary/10 text-primary text-xs md:text-sm font-semibold py-1 px-3 rounded-full">Enterprise Ready</span>
-            <span className="text-xs md:text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
+            <span className="bg-primary/10 text-primary text-xs md:text-sm font-semibold py-1 px-3 rounded-full">{t('hero.enterpriseReady') || 'Enterprise Ready'}</span>
+            <span className="text-xs md:text-sm text-muted-foreground">{t('hero.trustedBy') || 'Trusted by Fortune 500 companies'}</span>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             {t('hero.title')}
@@ -36,7 +36,23 @@ const HeroSection: React.FC = () => {
           
           {/* Enterprise Trust Indicators - Hide on small mobile screens */}
           <div className="mt-8 md:mt-10">
-            <TrustIndicators className={isMobile ? "scale-90 origin-center" : ""} />
+            <TrustIndicators 
+              indicators={[
+                {
+                  icon: <Shield className="h-6 w-6 text-primary" />,
+                  label: t('hero.badges.security') || "Enterprise Security"
+                },
+                {
+                  icon: <Database className="h-6 w-6 text-primary" />,
+                  label: t('hero.badges.uptime') || "99.9% Uptime SLA"
+                },
+                {
+                  icon: <MessageSquare className="h-6 w-6 text-primary" />,
+                  label: t('hero.badges.support') || "24/7 Support"
+                }
+              ]}
+              className={isMobile ? "scale-90 origin-center" : ""} 
+            />
           </div>
         </div>
 

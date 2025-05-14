@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Shield, Database, MessageSquare, CheckCircle } from 'lucide-react';
+import { Shield, Database, MessageSquare } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TrustIndicatorProps {
   indicators?: Array<{
@@ -14,18 +15,20 @@ const TrustIndicators: React.FC<TrustIndicatorProps> = ({
   indicators,
   className = "" 
 }) => {
+  const { t } = useLanguage();
+  
   const defaultIndicators = [
     {
       icon: <Shield className="h-6 w-6 text-primary" />,
-      label: "Enterprise Security"
+      label: t('hero.badges.security') || "Enterprise Security"
     },
     {
       icon: <Database className="h-6 w-6 text-primary" />,
-      label: "99.9% Uptime SLA"
+      label: t('hero.badges.uptime') || "99.9% Uptime SLA"
     },
     {
       icon: <MessageSquare className="h-6 w-6 text-primary" />,
-      label: "24/7 Support"
+      label: t('hero.badges.support') || "24/7 Support"
     }
   ];
 

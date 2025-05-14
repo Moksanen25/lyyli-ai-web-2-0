@@ -2,6 +2,7 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export type ComplianceBadgeType = {
   name: string;
@@ -17,23 +18,28 @@ interface ComplianceBadgesProps {
 }
 
 const ComplianceBadges: React.FC<ComplianceBadgesProps> = ({ 
-  title = "Enterprise-Grade Security & Compliance",
+  title,
   description,
   badges,
   className = "",
 }) => {
+  const { t } = useLanguage();
+
+  const defaultTitle = t('compliance.title') || "Enterprise-Grade Security & Compliance";
+
   const defaultBadges: ComplianceBadgeType[] = [
-    { name: "GDPR Compliant", image: "https://img.shields.io/badge/GDPR-Compliant-green", color: 'green' },
-    { name: "99.9% Uptime SLA", image: "https://img.shields.io/badge/99.9%25-Uptime_SLA-blue", color: 'blue' }
+    { name: t('compliance.badges.gdpr') || "GDPR Compliant", image: "https://img.shields.io/badge/GDPR-Compliant-green", color: 'green' },
+    { name: t('compliance.badges.uptime') || "99.9% Uptime SLA", image: "https://img.shields.io/badge/99.9%25-Uptime_SLA-blue", color: 'blue' }
   ];
 
   const badgesToRender = badges || defaultBadges;
+  const titleToRender = title || defaultTitle;
 
   return (
     <section className={`py-6 bg-white border-t border-gray-100 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-4">
-          {title && <p className="text-sm text-muted-foreground">{title}</p>}
+          {titleToRender && <p className="text-sm text-muted-foreground">{titleToRender}</p>}
           {description && <p className="text-xs text-muted-foreground mt-1">{description}</p>}
         </div>
         <Card className="border-none shadow-sm bg-transparent">

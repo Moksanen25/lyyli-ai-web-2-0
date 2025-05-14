@@ -47,4 +47,8 @@ export const pricing = {
   faqText: 'Käy UKK-sivullamme tai ota yhteyttä saadaksesi lisätietoja paketeistamme.',
   faqButton: 'Katso UKK',
   contactButton: 'Ota Yhteyttä Myyntiin',
+  pricingHeader: {
+    title: 'Selkeä, läpinäkyvä hinnoittelu',
+    subtitle: 'Valitse yrityksesi tarpeisiin sopiva paketti. Kaikki paketit sisältävät keskeisen tekoälytoiminnallisuuden.'
+  },
 };

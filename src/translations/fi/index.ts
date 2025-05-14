@@ -14,6 +14,7 @@ import { chat } from './chat';
 import { customerSegments } from './customerSegments';
 import { caseStudies } from './caseStudies';
 import { demo } from './demo';
+import { compliance } from './compliance';
 
 export const fi = {
   nav,
@@ -30,5 +31,6 @@ export const fi = {
   chat,
   customerSegments,
   caseStudies,
-  demo
+  demo,
+  compliance
 };
