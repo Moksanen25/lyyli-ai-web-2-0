@@ -32,25 +32,27 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const solutions = ensureArray(segment.solutions);
   
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
       <div>
-        <div className="flex items-center mb-4">
-          {segment.icon}
-          <h3 className="text-2xl font-bold ml-3">{segment.name}</h3>
+        <div className="flex items-center mb-5">
+          <span className="text-primary mr-3 flex-shrink-0">
+            {segment.icon}
+          </span>
+          <h3 className="text-2xl font-bold">{segment.name}</h3>
         </div>
-        <p className="text-lg mb-6 text-muted-foreground">
+        <p className="text-lg mb-7 text-muted-foreground">
           {segment.description}
         </p>
         
-        <div className="mb-6">
+        <div className="mb-7">
           <h4 className="font-semibold mb-3 text-primary">{t('customerSegments.challenges')}</h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {painPoints.map((point, index) => (
               <li key={index} className="flex items-start">
-                <span className="bg-primary/10 text-primary p-1 rounded-full mr-2 mt-1">
+                <span className="bg-primary/10 text-primary p-1 rounded-full mr-2.5 mt-0.5 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </span>
-                {point}
+                <span>{point}</span>
               </li>
             ))}
           </ul>
@@ -58,13 +60,13 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
 
         <div className="mb-8">
           <h4 className="font-semibold mb-3 text-primary">{t('customerSegments.solutions')}</h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {solutions.map((solution, index) => (
               <li key={index} className="flex items-start">
-                <span className="bg-primary/10 text-primary p-1 rounded-full mr-2 mt-1">
+                <span className="bg-primary/10 text-primary p-1 rounded-full mr-2.5 mt-0.5 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
                 </span>
-                {solution}
+                <span>{solution}</span>
               </li>
             ))}
           </ul>
@@ -123,7 +125,7 @@ const SegmentFeatures: React.FC = () => {
 
 const FeatureIcon: React.FC<{ icon: React.ReactNode; text: string }> = ({ icon, text }) => (
   <div className="flex items-center">
-    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-2">
+    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-2 flex-shrink-0">
       {icon}
     </div>
     <span className="text-sm">{text}</span>

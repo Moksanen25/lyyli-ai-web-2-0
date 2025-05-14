@@ -19,16 +19,16 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
 
   return (
     <div className="hidden sm:block">
-      <Tabs defaultValue={segments[0]?.id || ""} className="max-w-5xl mx-auto">
-        <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+      <Tabs defaultValue={segments[0]?.id || ""} className="max-w-6xl mx-auto">
+        <div className="flex justify-center mb-10 overflow-x-auto pb-2">
           <TabsList className="bg-background">
             {segments.map(segment => (
-              <TabsTrigger key={segment.id} value={segment.id} className="px-3 sm:px-4 py-2">
+              <TabsTrigger key={segment.id} value={segment.id} className="px-4 sm:px-5 py-3">
                 <div className="flex flex-col items-center">
                   <span className="flex">
                     {segment.icon}
                   </span>
-                  <span className="text-xs sm:text-sm mt-1 whitespace-nowrap">{segment.name}</span>
+                  <span className="text-xs sm:text-sm mt-1.5 whitespace-nowrap">{segment.name}</span>
                 </div>
               </TabsTrigger>
             ))}
