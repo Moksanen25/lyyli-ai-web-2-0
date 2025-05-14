@@ -24,16 +24,26 @@ export const useSegmentsData = (): SegmentData[] => {
     // Safely create a segment object with fallbacks for missing translations
     const createSegment = (id: string, iconComponent: React.ReactNode): SegmentData => {
       try {
+        const segmentTranslationBase = `customerSegments.${id}`;
+        const name = t(`${segmentTranslationBase}.name`) || id;
+        const description = t(`${segmentTranslationBase}.description`) || '';
+        const painPoints = ensureArray(t(`${segmentTranslationBase}.painPoints`));
+        const solutions = ensureArray(t(`${segmentTranslationBase}.solutions`));
+        const quoteText = t(`${segmentTranslationBase}.quote`) || '';
+        const author = t(`${segmentTranslationBase}.author`) || '';
+        
+        console.log(`Created segment ${id} with name: ${name}`);
+        
         return {
           id,
-          name: t(`customerSegments.${id}.name`) || id,
+          name,
           icon: iconComponent,
-          description: t(`customerSegments.${id}.description`) || '',
-          painPoints: ensureArray(t(`customerSegments.${id}.painPoints`)),
-          solutions: ensureArray(t(`customerSegments.${id}.solutions`)),
+          description,
+          painPoints,
+          solutions,
           quote: {
-            text: t(`customerSegments.${id}.quote`) || '',
-            author: t(`customerSegments.${id}.author`) || ''
+            text: quoteText,
+            author
           }
         };
       } catch (error) {

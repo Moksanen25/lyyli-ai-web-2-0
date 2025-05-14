@@ -63,19 +63,23 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const verifyLanguageCompleteness = () => {
     try {
       // Only run in development
-      if (!import.meta.env.DEV) return;
+      if (typeof import.meta.env.DEV === 'undefined' || !import.meta.env.DEV) return;
       
       Object.keys(languages).forEach(lang => {
         const result = verifyTranslations(lang as SupportedLanguage);
         if (!result.isComplete) {
           console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
           
-          toast({
-            title: `Translation issues in ${result.language.toUpperCase()}`,
-            description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
-            variant: "destructive",
-            duration: 10000,
-          });
+          try {
+            toast({
+              title: `Translation issues in ${result.language.toUpperCase()}`,
+              description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
+              variant: "destructive",
+              duration: 10000,
+            });
+          } catch (error) {
+            console.error('Error showing toast:', error);
+          }
         }
       });
     } catch (error) {
@@ -105,10 +109,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         if (value && value[k] !== undefined) {
           value = value[k];
         } else {
-          if (import.meta.env.DEV) {
-            console.warn(`Translation key not found: ${key} in language: ${language}`);
+          console.warn(`Translation key not found: ${key} in language: ${language}`);
+          // Try to fallback to English for this key
+          let enValue = languages.en;
+          let found = true;
+          for (const enKey of keys) {
+            if (enValue && enValue[enKey] !== undefined) {
+              enValue = enValue[enKey];
+            } else {
+              found = false;
+              break;
+            }
           }
-          return key;
+          return found && typeof enValue === 'string' ? enValue : key;
         }
       }
       
@@ -124,20 +137,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     console.log('Setting language to:', newLanguage);
     setLanguageState(newLanguage);
   };
-
-  // Initial verification in development mode
-  useEffect(() => {
-    console.log('LanguageContext effect running');
-    
-    // Verify translations only in development mode
-    if (import.meta.env.DEV) {
-      try {
-        verifyLanguageCompleteness();
-      } catch (error) {
-        console.error('Error verifying translations:', error);
-      }
-    }
-  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, verifyLanguageCompleteness }}>

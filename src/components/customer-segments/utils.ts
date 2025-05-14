@@ -5,7 +5,7 @@
  * or where it might be delivered as a comma-separated string
  */
 export const ensureArray = (value: unknown): string[] => {
-  console.log('ensureArray called with:', typeof value, value);
+  console.log('ensureArray called with type:', typeof value);
   
   if (!value) {
     console.warn('Empty or null value provided to ensureArray');
@@ -13,14 +13,11 @@ export const ensureArray = (value: unknown): string[] => {
   }
   
   if (Array.isArray(value)) {
-    console.log('Value is already an array');
     return value;
   }
   
   // Handle case where value is a string that should be an array
-  // This covers both English and Finnish translations
   if (typeof value === 'string') {
-    console.log('Converting string to array');
     // String might be empty, handle this case
     if (value.trim() === '') {
       return [];
@@ -31,7 +28,6 @@ export const ensureArray = (value: unknown): string[] => {
   // Try to convert object to array if possible
   if (typeof value === 'object' && value !== null) {
     try {
-      console.log('Attempting to extract array from object');
       const objectValues = Object.values(value);
       if (Array.isArray(objectValues) && objectValues.every(item => typeof item === 'string')) {
         return objectValues;

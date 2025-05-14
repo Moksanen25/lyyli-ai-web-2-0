@@ -29,7 +29,8 @@ const CustomerSegments: React.FC = () => {
         });
         
         if (segments && segments.length > 0) {
-          if (!activeSegmentId) {
+          // Make sure we have a valid active segment
+          if (!activeSegmentId || !segments.some(s => s.id === activeSegmentId)) {
             setActiveSegmentId(segments[0]?.id || '');
           }
           setIsLoaded(true);
@@ -52,14 +53,23 @@ const CustomerSegments: React.FC = () => {
       }
     };
 
-    console.log('CustomerSegments rendering with', {
-      hasSegments: Boolean(segments?.length),
-      segmentCount: segments?.length || 0,
-      activeId: activeSegmentId,
-      isLoaded,
-      hasError
-    });
+    // Fall back to a placeholder if we have no segments
+    if (segments.length === 0 && isLoaded && !hasError) {
+      console.log('No segments available, showing placeholder');
+      return (
+        <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
+          <div className="container mx-auto px-4 md:px-6">
+            <SectionHeader />
+            <div className="text-center py-10">
+              <p>Segment data is currently loading. Please check back later.</p>
+            </div>
+            <SegmentCTA />
+          </div>
+        </section>
+      );
+    }
 
+    // Show an error message if we had a problem
     if (hasError) {
       return (
         <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">

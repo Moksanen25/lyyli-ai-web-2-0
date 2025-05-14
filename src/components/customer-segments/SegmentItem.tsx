@@ -33,81 +33,92 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
     return null;
   }
   
-  // Ensure painPoints and solutions are always arrays
-  const painPoints = ensureArray(segment.painPoints || []);
-  const solutions = ensureArray(segment.solutions || []);
-  
-  // Safely handle the quote object
-  const quoteText = typeof segment.quote === 'string' 
-    ? segment.quote 
-    : (segment.quote as any)?.text || '';
+  try {
+    // Ensure painPoints and solutions are always arrays
+    const painPoints = ensureArray(segment.painPoints || []);
+    const solutions = ensureArray(segment.solutions || []);
     
-  const quoteAuthor = typeof segment.quote === 'string' 
-    ? '' 
-    : (segment.quote as any)?.author || '';
-  
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto py-4">
-      <div>
-        <div className="flex items-center mb-8">
-          <span className="text-primary mr-4 flex-shrink-0">
-            {segment.icon}
-          </span>
-          <h3 className="text-2xl md:text-3xl font-bold">{segment.name}</h3>
-        </div>
-        <p className="text-lg mb-10 text-muted-foreground leading-relaxed">
-          {segment.description}
-        </p>
-        
-        <div className="mb-10">
-          <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.challenges')}</h4>
-          <ul className="space-y-4">
-            {painPoints.map((point, index) => (
-              <li key={index} className="flex items-start">
-                <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                </span>
-                <span className="text-base">{point}</span>
-              </li>
-            ))}
-          </ul>
+    // Safely handle the quote object
+    let quoteText = '';
+    let quoteAuthor = '';
+    
+    if (typeof segment.quote === 'string') {
+      quoteText = segment.quote;
+    } else if (segment.quote && typeof segment.quote === 'object') {
+      quoteText = (segment.quote as any).text || '';
+      quoteAuthor = (segment.quote as any).author || '';
+    }
+    
+    return (
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto py-4">
+        <div>
+          <div className="flex items-center mb-8">
+            <span className="text-primary mr-4 flex-shrink-0">
+              {segment.icon}
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold">{segment.name}</h3>
+          </div>
+          <p className="text-lg mb-10 text-muted-foreground leading-relaxed">
+            {segment.description}
+          </p>
+          
+          <div className="mb-10">
+            <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.challenges')}</h4>
+            <ul className="space-y-4">
+              {painPoints.map((point, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </span>
+                  <span className="text-base">{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mb-10">
+            <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.solutions')}</h4>
+            <ul className="space-y-4">
+              {solutions.map((solution, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span className="text-base">{solution}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Button className="bg-primary hover:bg-primary/90 mt-2 px-6 py-2 h-auto text-base">{t('customerSegments.bookDemoButton')}</Button>
         </div>
 
-        <div className="mb-10">
-          <h4 className="font-semibold mb-5 text-primary text-lg">{t('customerSegments.solutions')}</h4>
-          <ul className="space-y-4">
-            {solutions.map((solution, index) => (
-              <li key={index} className="flex items-start">
-                <span className="bg-primary/10 text-primary p-1.5 rounded-full mr-3.5 mt-0.5 flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
-                </span>
-                <span className="text-base">{solution}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="bg-white p-8 rounded-xl shadow-md">
+          <Card className="border-none shadow-none">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-xl">{t('customerSegments.successStory')}</CardTitle>
+              <CardDescription className="mt-1">How Lyyli transforms communication workflows</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-2">
+              <blockquote className="border-l-4 border-primary/30 pl-5 italic py-1 text-lg">
+                "{quoteText}"
+              </blockquote>
+              <p className="text-right mt-6 text-sm font-medium">— {quoteAuthor}</p>
+              
+              <SegmentFeatures />
+            </CardContent>
+          </Card>
         </div>
-
-        <Button className="bg-primary hover:bg-primary/90 mt-2 px-6 py-2 h-auto text-base">{t('customerSegments.bookDemoButton')}</Button>
       </div>
-
-      <div className="bg-white p-8 rounded-xl shadow-md">
-        <Card className="border-none shadow-none">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-xl">{t('customerSegments.successStory')}</CardTitle>
-            <CardDescription className="mt-1">How Lyyli transforms communication workflows</CardDescription>
-          </CardHeader>
-          <CardContent className="pt-2">
-            <blockquote className="border-l-4 border-primary/30 pl-5 italic py-1 text-lg">
-              "{quoteText}"
-            </blockquote>
-            <p className="text-right mt-6 text-sm font-medium">— {quoteAuthor}</p>
-            
-            <SegmentFeatures />
-          </CardContent>
-        </Card>
+    );
+  } catch (error) {
+    console.error('Error rendering SegmentItem:', error);
+    return (
+      <div className="text-center p-8 bg-red-50 rounded-lg">
+        <p className="text-red-600">There was an error displaying this segment.</p>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 const SegmentFeatures: React.FC = () => {
