@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Send, Image, MessageSquare, Check } from 'lucide-react';
@@ -11,6 +11,19 @@ const LyyliDemo: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const { t } = useLanguage();
+  
+  // Auto-advance through the demo
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const timer = setTimeout(() => {
+      if (currentStep < 3) {
+        setCurrentStep((prev) => (prev + 1) as Step);
+      }
+    }, 5000); // 5 seconds per screen
+    
+    return () => clearTimeout(timer);
+  }, [isOpen, currentStep]);
   
   const handleOpen = () => {
     setIsOpen(true);
@@ -46,7 +59,7 @@ const LyyliDemo: React.FC = () => {
           </DialogHeader>
           
           {currentStep === 1 && (
-            <div className="space-y-4">
+            <div className="space-y-4 animate-fade-in">
               <div className="bg-card rounded-lg border p-4 max-h-[400px] overflow-y-auto">
                 <div className="flex items-center mb-4 border-b pb-2">
                   <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
@@ -55,7 +68,7 @@ const LyyliDemo: React.FC = () => {
                 
                 <div className="space-y-3">
                   <div className="bg-muted p-3 rounded-lg max-w-[80%]">
-                    <p>Good morning! I notice you have a new feature launching soon. Would you like me to prepare a Slack announcement for the company's public channel?</p>
+                    <p>Good morning! 🌞 I notice you have a new feature launching soon. Would you like me to prepare a Slack announcement for the company's public channel?</p>
                   </div>
                   
                   <div className="flex justify-end">
@@ -72,15 +85,11 @@ const LyyliDemo: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
-              <div className="flex justify-end">
-                <Button onClick={nextStep}>See next step <MessageSquare className="ml-2" /></Button>
-              </div>
             </div>
           )}
           
           {currentStep === 2 && (
-            <div className="space-y-4">
+            <div className="space-y-4 animate-fade-in">
               <div className="bg-card rounded-lg border p-4 max-h-[400px] overflow-y-auto">
                 <div className="flex items-center mb-4 border-b pb-2">
                   <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
@@ -91,8 +100,8 @@ const LyyliDemo: React.FC = () => {
                   <div className="bg-muted p-3 rounded-lg max-w-[80%]">
                     <p>I've drafted a Slack message based on your meeting memo. Here's the suggestion:</p>
                     <div className="mt-2 p-3 bg-white border rounded-md">
-                      <p className="font-medium">:sparkles: Exciting News! :rocket:</p>
-                      <p className="mt-2">Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! :chart_with_upwards_trend:</p>
+                      <p className="font-medium">✨ Exciting News! 🚀</p>
+                      <p className="mt-2">Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! 📈</p>
                       <p className="mt-2">This feature includes:</p>
                       <ul className="list-disc ml-6 mt-1">
                         <li>Real-time data visualization</li>
@@ -101,32 +110,28 @@ const LyyliDemo: React.FC = () => {
                       </ul>
                       <p className="mt-2">Can't wait for you all to try it out!</p>
                     </div>
-                    <p className="mt-2 text-sm text-muted-foreground">This message follows your company's casual but professional tone of voice. Would you like to add a screenshot of the new feature?</p>
+                    <p className="mt-2 text-sm text-muted-foreground">This message follows your company's casual but professional tone of voice. Would you like to add a screenshot of the new feature? 🖼️</p>
                   </div>
                   
                   <div className="flex justify-end">
                     <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-                      <p>This looks perfect! Yes, please add the screenshot and publish it to Slack right away.</p>
+                      <p>This looks perfect! Yes, please add the screenshot and publish it to Slack right away. 👍</p>
                     </div>
                   </div>
                   
                   <div className="bg-muted p-3 rounded-lg max-w-[80%]">
                     <div className="flex items-center space-x-2">
                       <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                      <span>Adding screenshot and preparing to publish...</span>
+                      <span>Adding screenshot and preparing to publish... 🔄</span>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="flex justify-end">
-                <Button onClick={nextStep}>See final step <Image className="ml-2" /></Button>
               </div>
             </div>
           )}
           
           {currentStep === 3 && (
-            <div className="space-y-4">
+            <div className="space-y-4 animate-fade-in">
               <div className="bg-[#4A154B] text-white p-4 rounded-t-lg">
                 <div className="flex items-center">
                   <svg viewBox="0 0 54 54" className="w-6 h-6 mr-2">
@@ -152,8 +157,8 @@ const LyyliDemo: React.FC = () => {
                       <span className="ml-2 text-xs text-gray-400">11:45 AM</span>
                     </div>
                     <div className="mt-1">
-                      <p className="font-medium">:sparkles: Exciting News! :rocket:</p>
-                      <p className="mt-2">Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! :chart_with_upwards_trend:</p>
+                      <p className="font-medium">✨ Exciting News! 🚀</p>
+                      <p className="mt-2">Hey team! We're thrilled to announce that our new analytics dashboard will be launching next Tuesday! 📈</p>
                       <p className="mt-2">This feature includes:</p>
                       <ul className="list-disc ml-6 mt-1">
                         <li>Real-time data visualization</li>
@@ -190,8 +195,9 @@ const LyyliDemo: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex justify-end">
-                <Button onClick={() => setIsOpen(false)}>Close demo <Check className="ml-2" /></Button>
+              <div className="bg-gradient-to-r from-primary/80 to-primary p-4 text-white rounded-lg mt-6 text-center">
+                <h3 className="text-lg font-semibold mb-2">Lyyli.ai - Communication Automation</h3>
+                <p>Content creation and publishing simplified for enterprise teams</p>
               </div>
             </div>
           )}
