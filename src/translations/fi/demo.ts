@@ -19,12 +19,27 @@ export const demo = {
     description: 'Käytä Lyyliä suoraan Slackista – ei tarvetta vaihtaa sovellusta',
     commandPlaceholder: 'kirjoita /lyyli [tehtäväsi]',
     teamsFallback: 'Toimii myös Microsoft Teamsissa',
-    aiAssistant: 'Lyyli AI'
+    aiAssistant: 'Lyyli AI',
+    messageTitle: 'Slack-integraatio',
+    messageIntro: 'Käytä Lyyliä suoraan Slackista – ei tarvetta vaihtaa sovellusta',
+    messageFeatures: 'Tärkeimmät ominaisuudet:',
+    feature1: 'Luo sisältöä hetkessä',
+    feature2: 'Jaa tiimisi kanssa',
+    feature3: 'Automaattinen muotoilu',
+    messageOutro: 'Kokeile tänään!',
+    publishedBy: 'Julkaissut Lyyli AI',
+    footer: {
+      title: 'Valmis tehostamaan työnkulkuasi?',
+      subtitle: 'Aloita ilmainen kokeilu tänään'
+    }
   },
   close: 'Sulje',
   generating: 'Generoidaan...',
   readyToReplaceTitle: 'Valmis korvaamaan aikaa vievät viestintätehtävät?',
   readyToReplaceButton: 'Aloita ilmainen kokeilu',
+  pause: 'Tauko',
+  resume: 'Jatka',
+  seeHowItWorks: 'Katso miten se toimii',
   chatMessages: {
     welcome: 'Hei! Miten voin auttaa viestinnässäsi tänään?',
     userPrompt: 'Tarvitsemme sisäisen tiedotteen uudesta kestävän kehityksen aloitteestamme',

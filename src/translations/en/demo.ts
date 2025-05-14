@@ -19,12 +19,27 @@ export const demo = {
     description: 'Use Lyyli directly from Slack - no need to switch applications',
     commandPlaceholder: 'type /lyyli [your task]',
     teamsFallback: 'Also works with Microsoft Teams',
-    aiAssistant: 'Lyyli AI'
+    aiAssistant: 'Lyyli AI',
+    messageTitle: 'Slack Integration',
+    messageIntro: 'Use Lyyli directly from Slack - no need to switch applications',
+    messageFeatures: 'Key features:',
+    feature1: 'Generate content instantly',
+    feature2: 'Share with your team',
+    feature3: 'Automatic formatting',
+    messageOutro: 'Try it today!',
+    publishedBy: 'Published by Lyyli AI',
+    footer: {
+      title: 'Ready to streamline your workflow?',
+      subtitle: 'Start your free trial today'
+    }
   },
   close: 'Close',
   generating: 'Generating...',
   readyToReplaceTitle: 'Ready to replace time-consuming communication tasks?',
   readyToReplaceButton: 'Start free trial',
+  pause: 'Pause',
+  resume: 'Resume',
+  seeHowItWorks: 'See how it works',
   chatMessages: {
     welcome: 'Hi! How can I help with your communications today?',
     userPrompt: 'We need an internal announcement about our new sustainability initiative',

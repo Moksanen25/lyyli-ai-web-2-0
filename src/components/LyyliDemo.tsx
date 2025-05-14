@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import DemoDialog from './lyyli-demo/DemoDialog';
@@ -10,11 +10,20 @@ const LyyliDemo: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useLanguage();
   
+  // Reset animation state when component mounts
+  useEffect(() => {
+    return () => {
+      // Clean up animation state when component unmounts
+      setAnimationPhase(0);
+      setIsLoading(false);
+      setIsOpen(false);
+    };
+  }, []);
+  
   const handleOpen = () => {
-    setIsOpen(true);
-    setIsLoading(true);
-    // Reset animation when dialog opens
-    setAnimationPhase(0);
+    setAnimationPhase(0); // Reset animation phase first
+    setIsLoading(true);   // Set loading state
+    setIsOpen(true);      // Then open dialog
   };
   
   return (

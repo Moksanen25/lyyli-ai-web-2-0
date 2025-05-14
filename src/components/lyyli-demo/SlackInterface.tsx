@@ -10,6 +10,17 @@ interface SlackInterfaceProps {
 const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
   const { t } = useLanguage();
   
+  // Safely access translation with fallback
+  const safeTranslation = (key: string, fallback: string) => {
+    try {
+      const value = t(key);
+      return value || fallback;
+    } catch (error) {
+      console.warn(`Translation missing for key: ${key}`);
+      return fallback;
+    }
+  };
+  
   return (
     <div className="h-full flex flex-col">
       <div className="bg-[#4A154B] text-white p-4">
@@ -33,17 +44,16 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
           <div className="bg-primary rounded-sm w-8 h-8 flex items-center justify-center text-white font-semibold flex-shrink-0">L</div>
           <div className="ml-2">
             <div className="flex items-center">
-              <span className="font-medium">{t('demo.slackIntegration.aiAssistant')}</span>
+              <span className="font-medium">{safeTranslation('demo.slackIntegration.aiAssistant', 'Lyyli AI')}</span>
               <span className="ml-2 text-xs text-gray-400">11:45 AM</span>
             </div>
             <div className="mt-1">
-              <p className="font-medium">✨ {t('demo.slackIntegration.messageTitle')} 🚀</p>
-              <p className="mt-2">{t('demo.slackIntegration.messageIntro')} 📈</p>
-              <p className="mt-2">{t('demo.slackIntegration.messageFeatures')}</p>
+              <p className="font-medium">✨ {safeTranslation('demo.slackIntegration.title', 'Slack Integration')} 🚀</p>
+              <p className="mt-2">{safeTranslation('demo.slackIntegration.description', 'Use Lyyli directly from Slack - no need to switch applications')} 📈</p>
+              <p className="mt-2">{safeTranslation('demo.generatedContent.header', '🌱 NEW SUSTAINABILITY INITIATIVE - ACTIONS START NEXT WEEK')}</p>
               <ul className="list-disc ml-6 mt-1">
-                <li>{t('demo.slackIntegration.feature1')}</li>
-                <li>{t('demo.slackIntegration.feature2')}</li>
-                <li>{t('demo.slackIntegration.feature3')}</li>
+                <li>{safeTranslation('demo.slackIntegration.commandPlaceholder', 'type /lyyli [your task]')}</li>
+                <li>{safeTranslation('demo.slackIntegration.teamsFallback', 'Also works with Microsoft Teams')}</li>
               </ul>
               <div className="mt-3 border border-gray-700 rounded-md overflow-hidden">
                 <div className="bg-gray-800 p-2 text-xs">analytics-dashboard.png</div>
@@ -59,11 +69,11 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
                   </div>
                 </div>
               </div>
-              <p className="mt-2">{t('demo.slackIntegration.messageOutro')}</p>
+              <p className="mt-2">{safeTranslation('demo.generatedContent.teamReaction', '15 people reacted to this message 👍')}</p>
             </div>
             
             <div className="mt-2 flex items-center text-xs text-gray-400">
-              <span className="flex items-center"><Check className="w-3 h-3 mr-1" /> {t('demo.slackIntegration.publishedBy')}</span>
+              <span className="flex items-center"><Check className="w-3 h-3 mr-1" /> Published</span>
             </div>
           </div>
         </div>
@@ -77,8 +87,8 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
       
       {animationPhase >= 8 && (
         <div className="bg-gradient-to-r from-primary/80 to-primary p-4 text-white text-center animate-fade-in">
-          <h3 className="text-lg font-semibold mb-2">{t('demo.slackIntegration.footer.title')}</h3>
-          <p>{t('demo.slackIntegration.footer.subtitle')}</p>
+          <h3 className="text-lg font-semibold mb-2">{safeTranslation('demo.readyToReplaceTitle', 'Ready to replace time-consuming communication tasks?')}</h3>
+          <p>{safeTranslation('demo.readyToReplaceButton', 'Start free trial')}</p>
         </div>
       )}
     </div>

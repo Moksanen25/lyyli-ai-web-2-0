@@ -46,11 +46,24 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   useEffect(() => {
     if (!isOpen) {
       setAnimationPhase(0);
+      setIsPaused(false); // Reset pause state when dialog closes
     }
   }, [isOpen, setAnimationPhase]);
+
+  // Safety check to prevent render issues
+  if (!isOpen && animationPhase === 0) {
+    return null;
+  }
   
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={(open) => {
+      if (!open) {
+        // Add a slight delay before closing to avoid animation glitches
+        setTimeout(() => setIsOpen(false), 100);
+      } else {
+        setIsOpen(true);
+      }
+    }}>
       <DialogContent 
         className="p-0 overflow-hidden" 
         style={{ 
@@ -104,7 +117,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
                   <p className="text-sm text-muted-foreground">
-                    {t('demo.generating')}
+                    {t('demo.generating') || "Generating..."}
                   </p>
                 </div>
               </div>
