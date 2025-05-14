@@ -1,5 +1,5 @@
 
-import React, { ErrorBoundary } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
@@ -12,7 +12,65 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 
-// Error fallback component
+// Error boundary class implementation
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode; fallback: React.ComponentType<{ error: Error; componentName: string }> },
+  { hasError: boolean; error: Error | null }
+> {
+  constructor(props: { children: React.ReactNode; fallback: React.ComponentType<{ error: Error; componentName: string }> }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error(`Component error: ${error.message}`, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError && this.state.error) {
+      const FallbackComponent = this.props.fallback;
+      return <FallbackComponent error={this.state.error} componentName={this.props.componentName || 'component'} />;
+    }
+    return this.props.children;
+  }
+}
+
+// Add componentName property to the ErrorBoundary props
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+  fallback: React.ComponentType<{ error: Error; componentName: string }>;
+  componentName: string;
+}
+
+// Correctly typed error boundary wrapper component
+class NamedErrorBoundary extends React.Component<ErrorBoundaryProps, { hasError: boolean; error: Error | null }> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error(`${this.props.componentName} error:`, error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError && this.state.error) {
+      const FallbackComponent = this.props.fallback;
+      return <FallbackComponent error={this.state.error} componentName={this.props.componentName} />;
+    }
+    return this.props.children;
+  }
+}
+
+// Error fallback component with correct typing
 const SectionErrorFallback = ({ error, componentName }: { error: Error; componentName: string }) => (
   <div className="py-16 text-center">
     <p className="text-red-500">Unable to display {componentName}.</p>
@@ -24,7 +82,7 @@ const SectionErrorFallback = ({ error, componentName }: { error: Error; componen
   </div>
 );
 
-// Section wrapper with error handling
+// Section wrapper with error handling using our custom ErrorBoundary
 const SafeSection = ({ 
   children, 
   name 
@@ -34,9 +92,9 @@ const SafeSection = ({
 }) => {
   return (
     <React.Suspense fallback={<div className="p-8 text-center">Loading {name}...</div>}>
-      <ErrorBoundary fallback={<SectionErrorFallback componentName={name} />}>
+      <NamedErrorBoundary fallback={SectionErrorFallback} componentName={name}>
         {children}
-      </ErrorBoundary>
+      </NamedErrorBoundary>
     </React.Suspense>
   );
 };
