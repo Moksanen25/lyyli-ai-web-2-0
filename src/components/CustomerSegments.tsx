@@ -14,11 +14,11 @@ const CustomerSegments: React.FC = () => {
   const segments = useSegmentsData();
 
   return (
-    <section className="py-16 md:py-28 bg-muted/20">
+    <section className="py-16 md:py-32 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeader />
         {segments.length > 0 && (
-          <div className="mt-10 mb-6">
+          <div className="mt-12 mb-8">
             <DesktopTabs segments={segments} />
             <MobileCards segments={segments} />
           </div>
