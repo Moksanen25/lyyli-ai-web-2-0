@@ -101,11 +101,9 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Trust badges */}
+            {/* Trust badges - Removed ISO 27001, GDPR Compliant, and SOC2 Certified */}
             <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white py-2 px-4 rounded-full shadow-lg flex items-center space-x-3">
-              <img src="https://img.shields.io/badge/ISO-27001-blue" alt="ISO 27001" className="h-5" />
-              <img src="https://img.shields.io/badge/GDPR-Compliant-green" alt="GDPR Compliant" className="h-5" />
-              <img src="https://img.shields.io/badge/SOC2-Certified-purple" alt="SOC2 Certified" className="h-5" />
+              {/* Badges removed */}
             </div>
             
             {/* Decorative elements */}
