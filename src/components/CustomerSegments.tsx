@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
 import SectionHeader from './customer-segments/SectionHeader';
 import DesktopTabs from './customer-segments/DesktopTabs';
@@ -14,15 +14,18 @@ const CustomerSegments: React.FC = () => {
   // Get segment data
   const segments = useSegmentsData();
   
+  // Create a memoized copy of segments to prevent unnecessary re-renders
+  const memoizedSegments = useMemo(() => segments, [segments]);
+  
   // Set initial state with a default empty value
   const [activeSegmentId, setActiveSegmentId] = useState<string>('');
   
   // Only set the activeSegmentId once when segments are loaded and it's not set yet
   useEffect(() => {
-    if (segments.length > 0 && !activeSegmentId) {
-      setActiveSegmentId(segments[0]?.id);
+    if (memoizedSegments.length > 0 && !activeSegmentId) {
+      setActiveSegmentId(memoizedSegments[0]?.id || '');
     }
-  }, [segments, activeSegmentId]);
+  }, [memoizedSegments, activeSegmentId]);
 
   // Handler for switching segments
   const handleSegmentChange = (id: string) => {
@@ -31,22 +34,23 @@ const CustomerSegments: React.FC = () => {
     }
   };
 
+  // Ensure we have valid data before rendering the component
+  const shouldRenderContent = memoizedSegments.length > 0 && activeSegmentId;
+
   return (
-    <section className="py-16 md:py-32 bg-muted/20">
+    <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeader />
         
-        {segments.length > 0 && activeSegmentId && (
+        {shouldRenderContent && (
           <div className="mt-16 mb-12">
             <DesktopTabs 
-              key="desktop-tabs"
-              segments={segments} 
+              segments={memoizedSegments} 
               activeSegmentId={activeSegmentId}
               onSegmentChange={handleSegmentChange}
             />
             <MobileCards 
-              key="mobile-cards"
-              segments={segments} 
+              segments={memoizedSegments} 
             />
           </div>
         )}
