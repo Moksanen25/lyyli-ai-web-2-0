@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
 import SectionHeader from './customer-segments/SectionHeader';
 import DesktopTabs from './customer-segments/DesktopTabs';
@@ -12,10 +12,20 @@ import SegmentCTA from './customer-segments/SegmentCTA';
  */
 const CustomerSegments: React.FC = () => {
   const segments = useSegmentsData();
-  const [activeSegmentId, setActiveSegmentId] = useState(segments[0]?.id || '');
+  // Use state with a more stable approach - set initial value once and maintain it
+  const [activeSegmentId, setActiveSegmentId] = useState('');
+  
+  // Set initial active ID once when segments are loaded
+  useEffect(() => {
+    if (segments.length > 0 && !activeSegmentId) {
+      setActiveSegmentId(segments[0]?.id || '');
+    }
+  }, [segments, activeSegmentId]);
 
   const handleSegmentChange = (id: string) => {
-    setActiveSegmentId(id);
+    if (id) {
+      setActiveSegmentId(id);
+    }
   };
 
   return (

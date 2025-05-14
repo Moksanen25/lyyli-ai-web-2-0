@@ -40,18 +40,12 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
             {segments.map(segment => (
               <TabsTrigger 
-                key={segment.id} 
+                key={`tab-trigger-${segment.id}`}
                 value={segment.id} 
-                className={`px-6 py-5 transition-all duration-300 ${
-                  validActiveId === segment.id 
-                    ? 'bg-primary/10 text-primary transform scale-105 shadow-sm' 
-                    : 'hover:bg-muted'
-                }`}
+                className="px-6 py-5"
               >
                 <div className="flex flex-col items-center">
-                  <span className={`flex mb-2 transition-transform duration-300 ${
-                    validActiveId === segment.id ? 'scale-110' : ''
-                  }`}>
+                  <span className="flex mb-2">
                     {segment.icon}
                   </span>
                   <span className="text-sm sm:text-base mt-1 whitespace-nowrap font-medium">
@@ -63,12 +57,11 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
           </TabsList>
         </div>
 
-        <div className="mt-8 relative">
+        <div className="mt-8">
           {segments.map(segment => (
             <TabsContent 
-              key={segment.id} 
+              key={`tab-content-${segment.id}`}
               value={segment.id}
-              className="transition-opacity duration-300"
             >
               <SegmentItem segment={segment} />
             </TabsContent>
