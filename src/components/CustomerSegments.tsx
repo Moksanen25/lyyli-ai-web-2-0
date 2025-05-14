@@ -5,6 +5,7 @@ import SectionHeader from './customer-segments/SectionHeader';
 import DesktopTabs from './customer-segments/DesktopTabs';
 import MobileCards from './customer-segments/MobileCards';
 import SegmentCTA from './customer-segments/SegmentCTA';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * CustomerSegments displays industry-specific solutions using a tabbed interface on desktop
@@ -12,6 +13,7 @@ import SegmentCTA from './customer-segments/SegmentCTA';
  */
 const CustomerSegments: React.FC = () => {
   console.log('CustomerSegments component rendering');
+  const { t } = useLanguage();
   
   try {
     // Get segment data with error handling
@@ -61,7 +63,7 @@ const CustomerSegments: React.FC = () => {
           <div className="container mx-auto px-4 md:px-6">
             <SectionHeader />
             <div className="text-center py-10">
-              <p>Segment data is currently loading. Please check back later.</p>
+              <p>{t('customerSegments.noSegmentsAvailable', 'Segment data is currently loading. Please check back later.')}</p>
             </div>
             <SegmentCTA />
           </div>
@@ -74,8 +76,8 @@ const CustomerSegments: React.FC = () => {
       return (
         <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl font-bold text-red-600">Unable to load customer segments</h2>
-            <p className="mt-4">There was an error loading this section. Please try refreshing the page.</p>
+            <h2 className="text-2xl font-bold text-red-600">{t('customerSegments.errorTitle', 'Unable to load customer segments')}</h2>
+            <p className="mt-4">{t('customerSegments.errorMessage', 'There was an error loading this section. Please try refreshing the page.')}</p>
           </div>
         </section>
       );
@@ -101,7 +103,7 @@ const CustomerSegments: React.FC = () => {
                 </div>
               ) : (
                 <div className="text-center py-10">
-                  <p>No customer segments available at this time.</p>
+                  <p>{t('customerSegments.noSegmentsAvailable', 'No customer segments available at this time.')}</p>
                 </div>
               )}
             </>

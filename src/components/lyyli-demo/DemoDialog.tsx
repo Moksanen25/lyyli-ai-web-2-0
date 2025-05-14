@@ -42,6 +42,13 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
     setIsPaused(!isPaused);
   };
   
+  // Clean up function when dialog closes
+  useEffect(() => {
+    if (!isOpen) {
+      setAnimationPhase(0);
+    }
+  }, [isOpen, setAnimationPhase]);
+  
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent 
@@ -82,8 +89,8 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               onClick={togglePause}
               className="ml-2"
               title={isPaused 
-                ? t('demo.step1.title')
-                : t('demo.step2.title')
+                ? t('demo.resume', 'Resume')
+                : t('demo.pause', 'Pause')
               }
               disabled={isLoading}
             >

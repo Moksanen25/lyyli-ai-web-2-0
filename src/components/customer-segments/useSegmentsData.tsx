@@ -14,7 +14,7 @@ import { ensureArray } from './utils';
 
 export const useSegmentsData = (): SegmentData[] => {
   console.log('useSegmentsData hook called');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const iconSize = { width: 28, height: 28 };
   
@@ -38,7 +38,7 @@ export const useSegmentsData = (): SegmentData[] => {
         const translationKey = translationKeyMap[id] || id;
         const segmentTranslationBase = `customerSegments.${translationKey}`;
         
-        console.log(`Looking for translations using key: ${segmentTranslationBase}`);
+        console.log(`Looking for translations using key: ${segmentTranslationBase} in language: ${language}`);
         
         const name = t(`${segmentTranslationBase}.name`) || id;
         const description = t(`${segmentTranslationBase}.description`) || '';
