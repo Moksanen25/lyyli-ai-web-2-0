@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
@@ -21,9 +20,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Debug information
-  console.log('Current location path:', location.pathname);
-  
   // Determine language from path or localStorage
   const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' as SupportedLanguage : null;
   const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
@@ -32,7 +28,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
   
   // Debug information
-  console.log('Initial language selected:', language);
+  console.log('Initial render - Current path:', location.pathname);
+  console.log('Initial render - Selected language:', language);
 
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
@@ -52,35 +49,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         });
       }
     });
-  };
-
-  // Custom setLanguage function to handle both state and URL updates
-  const setLanguage = (newLanguage: SupportedLanguage) => {
-    console.log('Setting language to:', newLanguage);
-    setLanguageState(newLanguage);
-    localStorage.setItem('language', newLanguage);
-    
-    // Update URL based on language
-    const currentPath = location.pathname;
-    let newPath = currentPath;
-    
-    if (newLanguage === 'fi') {
-      // Add /fi prefix if not already there
-      if (!currentPath.startsWith('/fi')) {
-        newPath = `/fi${currentPath}`;
-      }
-    } else {
-      // Remove /fi prefix if it's there
-      if (currentPath.startsWith('/fi')) {
-        newPath = currentPath.substring(3);
-      }
-    }
-    
-    // Only navigate if the path changed
-    if (newPath !== currentPath) {
-      console.log('Navigating to:', newPath);
-      navigate(newPath, { replace: true }); // Use replace to avoid adding to history stack
-    }
   };
 
   // Translation function
@@ -107,26 +75,49 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
-  // Sync URL with language state on initial load and when language changes
-  useEffect(() => {
-    console.log('Setting up initial path based on language', language, location.pathname);
+  // Custom setLanguage function to handle both state and URL updates
+  const setLanguage = (newLanguage: SupportedLanguage) => {
+    console.log('Setting language to:', newLanguage);
+    setLanguageState(newLanguage);
+    localStorage.setItem('language', newLanguage);
     
-    // Delay execution to ensure proper initialization
-    setTimeout(() => {
-      if (language === 'fi' && !location.pathname.startsWith('/fi')) {
-        console.log('Redirecting to Finnish path');
-        navigate(`/fi${location.pathname}`, { replace: true });
-      } else if (language === 'en' && location.pathname.startsWith('/fi')) {
-        console.log('Redirecting to English path');
-        navigate(location.pathname.substring(3), { replace: true });
+    // Update URL based on language
+    const currentPath = location.pathname;
+    let newPath = currentPath;
+    
+    if (newLanguage === 'fi') {
+      // Add /fi prefix if not already there
+      if (!currentPath.startsWith('/fi')) {
+        newPath = `/fi${currentPath}`;
       }
-    }, 0);
+    } else {
+      // Remove /fi prefix if it's there
+      if (currentPath.startsWith('/fi')) {
+        newPath = currentPath.substring(3) || '/';
+        if (newPath === '') newPath = '/';
+      }
+    }
+    
+    // Only navigate if the path changed
+    if (newPath !== currentPath) {
+      console.log('Navigating to:', newPath);
+      navigate(newPath, { replace: true }); // Use replace to avoid adding to history stack
+    }
+  };
+
+  // Sync URL with language state on mount only - not on language changes to prevent loops
+  useEffect(() => {
+    console.log('Language context mounted - Syncing URL if needed');
+    
+    // No automatic path changes on language provider mount to prevent loops
+    // We'll only update localStorage to keep track of the language
+    localStorage.setItem('language', language);
     
     // Verify translations in development mode
     if (import.meta.env.DEV) {
       verifyLanguageCompleteness();
     }
-  }, [language]);
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, verifyLanguageCompleteness }}>
