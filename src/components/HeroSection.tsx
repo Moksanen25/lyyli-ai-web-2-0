@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Shield, Database, MessageSquare } from 'lucide-react';
 import TrustIndicators from '@/components/TrustIndicators';
+import LyyliDemo from '@/components/LyyliDemo';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -17,10 +18,10 @@ const HeroSection: React.FC = () => {
             <span className="ml-3 text-sm text-muted-foreground">Trusted by Fortune 500 companies</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            AI-powered communication automation
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary/80">
-            Transform your internal and external communications with AI that speaks in your authentic brand voice
+            {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a href="https://lyyli.vercel.app/">
@@ -28,12 +29,7 @@ const HeroSection: React.FC = () => {
                 {t('hero.cta')}
               </Button>
             </a>
-            <Button 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg"
-            >
-              {t('hero.secondaryCta')}
-            </Button>
+            <LyyliDemo />
           </div>
           
           {/* Enterprise Trust Indicators */}
