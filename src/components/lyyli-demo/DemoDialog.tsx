@@ -89,8 +89,8 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               onClick={togglePause}
               className="ml-2"
               title={isPaused 
-                ? t('demo.resume', 'Resume')
-                : t('demo.pause', 'Pause')
+                ? t('demo.resume')
+                : t('demo.pause')
               }
               disabled={isLoading}
             >

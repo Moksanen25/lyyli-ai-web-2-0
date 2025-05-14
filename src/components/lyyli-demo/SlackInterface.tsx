@@ -33,17 +33,17 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
           <div className="bg-primary rounded-sm w-8 h-8 flex items-center justify-center text-white font-semibold flex-shrink-0">L</div>
           <div className="ml-2">
             <div className="flex items-center">
-              <span className="font-medium">{t('demo.slackIntegration.aiAssistant', 'Lyyli Bot')}</span>
+              <span className="font-medium">{t('demo.slackIntegration.aiAssistant')}</span>
               <span className="ml-2 text-xs text-gray-400">11:45 AM</span>
             </div>
             <div className="mt-1">
-              <p className="font-medium">✨ {t('demo.slackIntegration.messageTitle', 'Exciting News!')} 🚀</p>
-              <p className="mt-2">{t('demo.slackIntegration.messageIntro', 'Hey team! We\'re thrilled to announce that our new analytics dashboard will be launching next Tuesday!')} 📈</p>
-              <p className="mt-2">{t('demo.slackIntegration.messageFeatures', 'This feature includes:')}</p>
+              <p className="font-medium">✨ {t('demo.slackIntegration.messageTitle')} 🚀</p>
+              <p className="mt-2">{t('demo.slackIntegration.messageIntro')} 📈</p>
+              <p className="mt-2">{t('demo.slackIntegration.messageFeatures')}</p>
               <ul className="list-disc ml-6 mt-1">
-                <li>{t('demo.slackIntegration.feature1', 'Real-time data visualization')}</li>
-                <li>{t('demo.slackIntegration.feature2', 'Custom report generation')}</li>
-                <li>{t('demo.slackIntegration.feature3', 'Improved export options')}</li>
+                <li>{t('demo.slackIntegration.feature1')}</li>
+                <li>{t('demo.slackIntegration.feature2')}</li>
+                <li>{t('demo.slackIntegration.feature3')}</li>
               </ul>
               <div className="mt-3 border border-gray-700 rounded-md overflow-hidden">
                 <div className="bg-gray-800 p-2 text-xs">analytics-dashboard.png</div>
@@ -59,11 +59,11 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
                   </div>
                 </div>
               </div>
-              <p className="mt-2">{t('demo.slackIntegration.messageOutro', 'Can\'t wait for you all to try it out!')}</p>
+              <p className="mt-2">{t('demo.slackIntegration.messageOutro')}</p>
             </div>
             
             <div className="mt-2 flex items-center text-xs text-gray-400">
-              <span className="flex items-center"><Check className="w-3 h-3 mr-1" /> {t('demo.slackIntegration.publishedBy', 'Published by Lyyli.ai')}</span>
+              <span className="flex items-center"><Check className="w-3 h-3 mr-1" /> {t('demo.slackIntegration.publishedBy')}</span>
             </div>
           </div>
         </div>
@@ -77,8 +77,8 @@ const SlackInterface: React.FC<SlackInterfaceProps> = ({ animationPhase }) => {
       
       {animationPhase >= 8 && (
         <div className="bg-gradient-to-r from-primary/80 to-primary p-4 text-white text-center animate-fade-in">
-          <h3 className="text-lg font-semibold mb-2">{t('demo.slackIntegration.footer.title', 'Lyyli.ai - Communication Automation')}</h3>
-          <p>{t('demo.slackIntegration.footer.subtitle', 'Content creation and publishing simplified for enterprise teams')}</p>
+          <h3 className="text-lg font-semibold mb-2">{t('demo.slackIntegration.footer.title')}</h3>
+          <p>{t('demo.slackIntegration.footer.subtitle')}</p>
         </div>
       )}
     </div>
