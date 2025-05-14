@@ -24,7 +24,6 @@ export const useSegmentsData = (): SegmentData[] => {
     // Safely create a segment object with fallbacks for missing translations
     const createSegment = (id: string, iconComponent: React.ReactNode): SegmentData => {
       try {
-        // Fix: Use kebab case in the ID but camelCase in translation keys
         // The mapping between segment IDs and translation keys
         const translationKeyMap: Record<string, string> = {
           'tech-smes': 'techSMEs',

@@ -24,7 +24,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {/* Initial assistant message */}
         {animationPhase >= 1 && (
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-            <p>{t('demo.assistantGreeting')}</p>
+            <p>{t('demo.chatMessages.welcome')}</p>
           </div>
         )}
         
@@ -32,7 +32,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {animationPhase >= 2 && (
           <div className="flex justify-end animate-fade-in">
             <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-              <p>{t('demo.userResponse')}</p>
+              <p>{t('demo.chatMessages.userPrompt')}</p>
             </div>
           </div>
         )}
@@ -42,7 +42,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-              <span>{t('demo.creatingDraft')}</span>
+              <span>{t('demo.generating')}</span>
             </div>
           </div>
         )}
@@ -50,19 +50,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {/* Assistant suggestion */}
         {animationPhase >= 4 && (
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-            <p>{t('demo.assistantSuggestion')}</p>
-            <div className="mt-2 p-3 bg-white border rounded-md">
-              <p className="font-medium">{t('demo.draftTitle')}</p>
-              <p className="mt-2">{t('demo.draftContent')}</p>
-              <p className="mt-2">{t('demo.draftFeatures')}</p>
-              <ul className="list-disc ml-6 mt-1">
-                <li>{t('demo.draftFeature1')}</li>
-                <li>{t('demo.draftFeature2')}</li>
-                <li>{t('demo.draftFeature3')}</li>
-              </ul>
-              <p className="mt-2">{t('demo.draftClosing')}</p>
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground">{t('demo.draftNote')}</p>
+            <p>{t('demo.chatMessages.aiThinking')}</p>
           </div>
         )}
         
@@ -70,7 +58,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {animationPhase >= 5 && (
           <div className="flex justify-end animate-fade-in">
             <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-              <p>{t('demo.userApproval')}</p>
+              <p>{t('demo.chatMessages.userAnswer')}</p>
             </div>
           </div>
         )}
@@ -78,9 +66,13 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         {/* Preparing to publish */}
         {animationPhase >= 6 && (
           <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-              <span>{t('demo.publishing')}</span>
+            <p>{t('demo.chatMessages.aiResponse')}</p>
+            <div className="mt-3 p-3 bg-white border rounded-md">
+              <p className="font-medium">{t('demo.generatedContent.header')}</p>
+              <div className="mt-2 whitespace-pre-line">
+                {t('demo.generatedContent.body')}
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{t('demo.generatedContent.teamReaction')}</p>
             </div>
           </div>
         )}

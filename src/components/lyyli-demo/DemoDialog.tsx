@@ -64,14 +64,14 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
             <div className="flex-1">
               <DialogTitle className="text-center text-base md:text-lg">
                 {animationPhase < 7 
-                  ? t('demo.dialogTitle')
-                  : t('demo.publishedTitle')
+                  ? t('demo.title')
+                  : t('demo.readyToReplaceTitle')
                 }
               </DialogTitle>
               <DialogDescription className="text-center text-xs md:text-sm text-muted-foreground">
                 {animationPhase < 7 
-                  ? t('demo.dialogDescription')
-                  : t('demo.publishedDescription')
+                  ? t('demo.subtitle')
+                  : ''
                 }
               </DialogDescription>
             </div>
@@ -82,8 +82,8 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
               onClick={togglePause}
               className="ml-2"
               title={isPaused 
-                ? t('demo.resumeAnimation')
-                : t('demo.pauseAnimation')
+                ? t('demo.step1.title')
+                : t('demo.step2.title')
               }
               disabled={isLoading}
             >
@@ -97,7 +97,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
                 <div className="flex flex-col items-center space-y-4">
                   <Loader2 className="h-8 w-8 md:h-10 md:w-10 animate-spin text-primary" />
                   <p className="text-sm text-muted-foreground">
-                    {t('demo.initializingDemo')}
+                    {t('demo.generating')}
                   </p>
                 </div>
               </div>
