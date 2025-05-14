@@ -1,50 +1,22 @@
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from '@/components/ui/use-toast';
 
 const Waitlist: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { t } = useLanguage();
 
-  const handleJoinWaitlist = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || !email.includes('@')) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid email address",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // Here you would typically integrate with your waitlist system
-      // For now, we'll simulate success after a brief delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      toast({
-        title: "Success!",
-        description: "You've been added to our waitlist. We'll notify you when we launch!",
-      });
-      
-      setEmail('');
-    } catch (error) {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  useEffect(() => {
+    // Create script element for HubSpot form
+    const script = document.createElement('script');
+    script.src = 'https://js-eu1.hsforms.net/forms/embed/146205702.js';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Clean up on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -68,25 +40,8 @@ const Waitlist: React.FC = () => {
             We're building the next generation AI-powered content management platform. Join our waitlist to be the first to know when we launch.
           </p>
           
-          <form onSubmit={handleJoinWaitlist} className="space-y-4">
-            <div>
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full"
-              />
-            </div>
-            
-            <Button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="w-full py-6"
-            >
-              {isSubmitting ? "Adding you..." : "Join Waitlist"}
-            </Button>
-          </form>
+          {/* HubSpot Form */}
+          <div className="hs-form-frame" data-region="eu1" data-form-id="f337eade-e814-4038-b2aa-908dcf612cce" data-portal-id="146205702"></div>
         </div>
       </main>
 
