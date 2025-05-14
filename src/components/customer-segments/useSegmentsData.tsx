@@ -24,7 +24,23 @@ export const useSegmentsData = (): SegmentData[] => {
     // Safely create a segment object with fallbacks for missing translations
     const createSegment = (id: string, iconComponent: React.ReactNode): SegmentData => {
       try {
-        const segmentTranslationBase = `customerSegments.${id}`;
+        // Fix: Use kebab case in the ID but camelCase in translation keys
+        // The mapping between segment IDs and translation keys
+        const translationKeyMap: Record<string, string> = {
+          'tech-smes': 'techSMEs',
+          'consulting': 'consulting',
+          'nonprofits': 'nonprofits',
+          'education': 'education',
+          'creative': 'creative',
+          'sports': 'sports'
+        };
+        
+        // Get the correct translation key for this segment
+        const translationKey = translationKeyMap[id] || id;
+        const segmentTranslationBase = `customerSegments.${translationKey}`;
+        
+        console.log(`Looking for translations using key: ${segmentTranslationBase}`);
+        
         const name = t(`${segmentTranslationBase}.name`) || id;
         const description = t(`${segmentTranslationBase}.description`) || '';
         const painPoints = ensureArray(t(`${segmentTranslationBase}.painPoints`));
