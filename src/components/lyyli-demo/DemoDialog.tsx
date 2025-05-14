@@ -1,7 +1,8 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Play, Pause } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
 import SlackInterface from './SlackInterface';
 import AnimationController from './AnimationController';
@@ -24,6 +25,7 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
   setIsLoading
 }) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
@@ -31,6 +33,10 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [animationPhase]);
+  
+  const togglePause = () => {
+    setIsPaused(!isPaused);
+  };
   
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -40,15 +46,29 @@ const DemoDialog: React.FC<DemoDialogProps> = ({
           animationPhase={animationPhase}
           setAnimationPhase={setAnimationPhase}
           setIsLoading={setIsLoading}
+          isPaused={isPaused}
         />
         <div className="flex flex-col h-full">
-          <DialogHeader className="p-4 border-b bg-background">
-            <DialogTitle className="text-center">
-              {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
-            </DialogTitle>
-            <DialogDescription className="text-center text-sm text-muted-foreground">
-              {animationPhase < 7 ? "Creating content with AI" : "Publishing to communication channels"}
-            </DialogDescription>
+          <DialogHeader className="p-4 border-b bg-background flex flex-row justify-between items-center">
+            <div className="flex-1">
+              <DialogTitle className="text-center">
+                {animationPhase < 7 ? "Lyyli.ai Content Assistant" : "Content Published"}
+              </DialogTitle>
+              <DialogDescription className="text-center text-sm text-muted-foreground">
+                {animationPhase < 7 ? "Creating content with AI" : "Publishing to communication channels"}
+              </DialogDescription>
+            </div>
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={togglePause}
+              className="ml-2"
+              title={isPaused ? "Resume animation" : "Pause animation"}
+              disabled={isLoading}
+            >
+              {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+            </Button>
           </DialogHeader>
           
           <div className="flex-grow relative overflow-hidden">
