@@ -1,13 +1,13 @@
 
 export const customerSegments = {
-  title: 'Communication Solutions for Every Industry',
+  title: 'Communication solutions for every industry',
   subtitle: 'Our AI-powered platform transforms how organizations handle internal and external communication, automating content production while maintaining your unique voice and brand consistency.',
-  tailoredSolutions: 'Tailored Solutions',
-  bookDemoButton: 'Book Industry-Specific Demo',
-  learnMoreButton: 'Learn More',
-  viewComparisonButton: 'View Feature Comparison',
+  tailoredSolutions: 'Tailored solutions',
+  bookDemoButton: 'Book industry-specific demo',
+  learnMoreButton: 'Learn more',
+  viewComparisonButton: 'View feature comparison',
   techSMEs: {
-    name: 'Tech-Savvy SMEs',
+    name: 'Tech-savvy SMEs',
     description: 'For tech companies with 30-300 employees managing distributed teams and heavy communication needs.',
     painPoints: [
       'Communication silos between departments',
@@ -23,7 +23,7 @@ export const customerSegments = {
     author: 'CTO, Software Development Company'
   },
   consulting: {
-    name: 'Consulting Firms',
+    name: 'Consulting firms',
     description: 'For advisory businesses translating expertise into clear, professional client communications.',
     painPoints: [
       'Manual content creation bottlenecks',
@@ -39,7 +39,7 @@ export const customerSegments = {
     author: 'Partner, Management Consulting Firm'
   },
   nonprofits: {
-    name: 'Non-Profits & Associations',
+    name: 'Non-profits & associations',
     description: 'For mission-driven organizations stretching limited resources to maximize impact.',
     painPoints: [
       'Struggles with continuous content production',
@@ -55,7 +55,7 @@ export const customerSegments = {
     author: 'Communications Director, International NGO'
   },
   education: {
-    name: 'Educational Institutions',
+    name: 'Educational institutions',
     description: 'For universities and research organizations bridging academic and public communication.',
     painPoints: [
       'Inefficient internal communication processes',
@@ -71,7 +71,7 @@ export const customerSegments = {
     author: 'Dean of Communications, Research University'
   },
   creative: {
-    name: 'Creative Firms',
+    name: 'Creative firms',
     description: 'For design and media companies where brand voice and visual consistency are paramount.',
     painPoints: [
       'Time-intensive content planning processes',
@@ -87,7 +87,7 @@ export const customerSegments = {
     author: 'Creative Director, Design Agency'
   },
   sports: {
-    name: 'Sports Organizations',
+    name: 'Sports organizations',
     description: 'For teams and federations balancing community engagement with professional communications.',
     painPoints: [
       'Fragmented communication tools and processes',
@@ -102,13 +102,13 @@ export const customerSegments = {
     quote: 'We\'ve transformed how we communicate with fans and sponsors with half the effort and twice the engagement.',
     author: 'Marketing Manager, Professional Sports Club'
   },
-  successStory: 'Success Story',
-  keyFeatures: 'Key Platform Features:',
-  challenges: 'Common Challenges:',
-  solutions: 'Our Solutions:',
-  voiceAI: 'Voice Consistent AI',
-  slackIntegration: 'Slack Integration',
-  contentTemplates: 'Content Templates',
-  teamsIntegration: 'Teams Integration',
+  successStory: 'Success story',
+  keyFeatures: 'Key platform features:',
+  challenges: 'Common challenges:',
+  solutions: 'Our solutions:',
+  voiceAI: 'Voice consistent AI',
+  slackIntegration: 'Slack integration',
+  contentTemplates: 'Content templates',
+  teamsIntegration: 'Teams integration',
   closingText: 'Whether you\'re a growing tech company, established consultancy, or educational institution, our AI communication platform adapts to your unique needs and voice.'
 };

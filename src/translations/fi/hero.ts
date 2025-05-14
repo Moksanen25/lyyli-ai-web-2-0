@@ -8,7 +8,7 @@ export const hero = {
   trustedBy: 'Fortune 500 -yritysten luottama',
   badges: {
     security: 'Yritystason tietoturva',
-    uptime: '99.9% Käytettävyystakuu',
+    uptime: '99.9% käytettävyystakuu',
     support: 'Tuki 24/7'
   },
 };

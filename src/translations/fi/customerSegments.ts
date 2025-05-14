@@ -1,13 +1,13 @@
 
 export const customerSegments = {
-  title: 'Viestintäratkaisuja Jokaiselle Toimialalle',
+  title: 'Viestintäratkaisuja jokaiselle toimialalle',
   subtitle: 'Tekoälypohjainen alustamme mullistaa organisaatioiden sisäisen ja ulkoisen viestinnän automaatiolla, joka ylläpitää brändin ääntä ja johdonmukaisuutta.',
-  tailoredSolutions: 'Räätälöidyt Ratkaisut',
-  bookDemoButton: 'Varaa Toimialakohtainen Esittely',
-  learnMoreButton: 'Lue Lisää',
-  viewComparisonButton: 'Katso Ominaisuusvertailu',
+  tailoredSolutions: 'Räätälöidyt ratkaisut',
+  bookDemoButton: 'Varaa toimialakohtainen esittely',
+  learnMoreButton: 'Lue lisää',
+  viewComparisonButton: 'Katso ominaisuusvertailu',
   techSMEs: {
-    name: 'Teknologiaorientoituneet PK-yritykset',
+    name: 'Teknologiaorientoituneet pk-yritykset',
     description: 'Teknologiayrityksille, joissa on 30-300 työntekijää ja hajautetut tiimit sekä runsaat viestintätarpeet.',
     painPoints: [
       'Viestintäsiilot osastojen välillä',

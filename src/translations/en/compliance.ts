@@ -1,8 +1,8 @@
 
 export const compliance = {
-  title: "Enterprise-Grade Security & Compliance",
+  title: "Enterprise-grade security & compliance",
   badges: {
-    gdpr: "GDPR Compliant",
-    uptime: "99.9% Uptime SLA"
+    gdpr: "GDPR compliant",
+    uptime: "99.9% uptime SLA"
   }
 };
