@@ -1,7 +1,7 @@
 
 export const hero = {
-  title: 'Tekoälyavusteinen viestinnän asiantuntijasi',
-  subtitle: 'Automatisoi viestintäsi Lyyli.ai:n avulla',
-  cta: 'Aloita nyt',
+  title: 'Tekoälyä käyttävä viestinnän automaatioalusta',
+  subtitle: 'Virtaviivaista sisällöntuotantoa Lyylin avulla',
+  cta: 'Aloita',
   secondaryCta: 'Katso miten se toimii',
 };

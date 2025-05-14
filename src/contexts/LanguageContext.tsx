@@ -43,15 +43,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     Object.keys(languages).forEach(lang => {
       const result = verifyTranslations(lang as SupportedLanguage);
       if (!result.isComplete) {
+        console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
+        
         toast({
           title: `Translation issues in ${result.language.toUpperCase()}`,
           description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
           variant: "destructive",
           duration: 10000,
         });
-        
-        // Log all missing keys to console for developers
-        console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
       }
     });
   };
@@ -107,11 +106,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         // If the key doesn't exist, return the key itself and show warning in dev mode
         if (import.meta.env.DEV) {
           console.warn(`Translation key not found: ${key} in language: ${language}`);
-          toast({
-            title: "Missing translation",
-            description: `Key "${key}" is missing in language "${language}"`,
-            variant: "destructive",
-          });
         }
         return key;
       }
