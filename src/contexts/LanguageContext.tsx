@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { languages, SupportedLanguage, TranslationsType } from '../translations';
+import { languages, SupportedLanguage } from '../translations';
 import { verifyTranslations } from '@/utils/translationUtils';
 import { toast } from '@/components/ui/use-toast';
 
@@ -21,6 +21,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const navigate = useNavigate();
   const location = useLocation();
   
+  console.log('Current location path:', location.pathname);
+  
   // Try to get the saved language from localStorage, default to 'en'
   const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') as SupportedLanguage : null;
   // Check if path starts with /fi to determine language
@@ -28,6 +30,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   
   // Use path language first, then saved language, then default to 'en'
   const [language, setLanguageState] = useState<SupportedLanguage>(pathLanguage || savedLanguage || 'en');
+
+  console.log('Current language:', language);
 
   // Verify translations are complete when language changes
   useEffect(() => {
@@ -57,6 +61,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Custom setLanguage function to handle both state and URL updates
   const setLanguage = (newLanguage: SupportedLanguage) => {
+    console.log('Setting language to:', newLanguage);
     setLanguageState(newLanguage);
     localStorage.setItem('language', newLanguage);
     
@@ -78,12 +83,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     
     // Only navigate if the path changed
     if (newPath !== currentPath) {
+      console.log('Navigating to:', newPath);
       navigate(newPath);
     }
   };
 
   // Update URL on initial load if needed
   useEffect(() => {
+    console.log('Initial language and path check:', language, location.pathname);
     if (language === 'fi' && !location.pathname.startsWith('/fi')) {
       navigate(`/fi${location.pathname}`);
     } else if (language === 'en' && location.pathname.startsWith('/fi')) {
