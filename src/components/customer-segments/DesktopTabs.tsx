@@ -12,20 +12,20 @@ interface DesktopTabsProps {
 const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
   const isMobile = useIsMobile();
   
-  // On truly small devices (under 640px), don't show this component at all
-  if (typeof window !== 'undefined' && window.innerWidth < 640) {
+  // Don't render this component at all on truly small devices
+  if (isMobile) {
     return null;
   }
 
   return (
     <div className="hidden sm:block">
-      <Tabs defaultValue="tech-smes" className="max-w-5xl mx-auto">
+      <Tabs defaultValue={segments[0]?.id || ""} className="max-w-5xl mx-auto">
         <div className="flex justify-center mb-8 overflow-x-auto pb-2">
           <TabsList className="bg-background">
             {segments.map(segment => (
               <TabsTrigger key={segment.id} value={segment.id} className="px-3 sm:px-4 py-2">
                 <div className="flex flex-col items-center">
-                  <span className={isMobile ? "hidden" : "flex"}>
+                  <span className="flex">
                     {segment.icon}
                   </span>
                   <span className="text-xs sm:text-sm mt-1 whitespace-nowrap">{segment.name}</span>
