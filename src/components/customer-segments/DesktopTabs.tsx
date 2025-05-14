@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SegmentItem from './SegmentItem';
 import type { SegmentData } from './SegmentItem';
@@ -7,28 +7,34 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 interface DesktopTabsProps {
   segments: SegmentData[];
+  activeSegmentId: string;
+  onSegmentChange: (id: string) => void;
 }
 
-const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
+const DesktopTabs: React.FC<DesktopTabsProps> = ({ 
+  segments, 
+  activeSegmentId, 
+  onSegmentChange 
+}) => {
   const isMobile = useIsMobile();
-  const [activeTab, setActiveTab] = useState(segments[0]?.id || "");
   
   // Don't render this component at all on truly small devices
   if (isMobile) {
     return null;
   }
 
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-  };
+  // Ensure we have a valid active segment ID
+  const validActiveId = segments.some(s => s.id === activeSegmentId) 
+    ? activeSegmentId 
+    : segments[0]?.id || "";
 
   return (
     <div className="hidden sm:block">
       <Tabs 
-        defaultValue={segments[0]?.id || ""} 
+        defaultValue={validActiveId}
+        value={validActiveId}
+        onValueChange={onSegmentChange}
         className="w-full max-w-6xl mx-auto"
-        onValueChange={handleTabChange}
-        value={activeTab}
       >
         <div className="flex justify-center mb-12 overflow-x-auto pb-4">
           <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
@@ -37,14 +43,14 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
                 key={segment.id} 
                 value={segment.id} 
                 className={`px-6 py-5 transition-all duration-300 ${
-                  activeTab === segment.id 
+                  validActiveId === segment.id 
                     ? 'bg-primary/10 text-primary transform scale-105 shadow-sm' 
                     : 'hover:bg-muted'
                 }`}
               >
                 <div className="flex flex-col items-center">
                   <span className={`flex mb-2 transition-transform duration-300 ${
-                    activeTab === segment.id ? 'scale-110' : ''
+                    validActiveId === segment.id ? 'scale-110' : ''
                   }`}>
                     {segment.icon}
                   </span>
@@ -61,12 +67,8 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
           {segments.map(segment => (
             <TabsContent 
               key={segment.id} 
-              value={segment.id} 
-              className={`transition-all duration-300 ${
-                activeTab === segment.id 
-                  ? 'opacity-100' 
-                  : 'opacity-0 hidden'
-              }`}
+              value={segment.id}
+              className="transition-opacity duration-300"
             >
               <SegmentItem segment={segment} />
             </TabsContent>

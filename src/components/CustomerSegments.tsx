@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
 import SectionHeader from './customer-segments/SectionHeader';
 import DesktopTabs from './customer-segments/DesktopTabs';
@@ -12,6 +12,11 @@ import SegmentCTA from './customer-segments/SegmentCTA';
  */
 const CustomerSegments: React.FC = () => {
   const segments = useSegmentsData();
+  const [activeSegmentId, setActiveSegmentId] = useState(segments[0]?.id || '');
+
+  const handleSegmentChange = (id: string) => {
+    setActiveSegmentId(id);
+  };
 
   return (
     <section className="py-16 md:py-32 bg-muted/20">
@@ -19,7 +24,11 @@ const CustomerSegments: React.FC = () => {
         <SectionHeader />
         {segments.length > 0 && (
           <div className="mt-16 mb-12">
-            <DesktopTabs segments={segments} />
+            <DesktopTabs 
+              segments={segments} 
+              activeSegmentId={activeSegmentId}
+              onSegmentChange={handleSegmentChange}
+            />
             <MobileCards segments={segments} />
           </div>
         )}
