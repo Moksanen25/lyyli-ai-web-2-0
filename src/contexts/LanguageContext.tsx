@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
@@ -20,6 +21,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const navigate = useNavigate();
   const location = useLocation();
   
+  // Debug information to track initial render and context mounting
+  console.log('LanguageContext rendering, current path:', location.pathname);
+  
   // Determine language from path or localStorage
   const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' as SupportedLanguage : null;
   const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
@@ -28,34 +32,49 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
   
   // Debug information
-  console.log('Initial render - Current path:', location.pathname);
-  console.log('Initial render - Selected language:', language);
-
+  console.log('Selected language:', language);
+  
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
-    // Only run in development
-    if (!import.meta.env.DEV) return;
-    
-    Object.keys(languages).forEach(lang => {
-      const result = verifyTranslations(lang as SupportedLanguage);
-      if (!result.isComplete) {
-        console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
-        
-        toast({
-          title: `Translation issues in ${result.language.toUpperCase()}`,
-          description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
-          variant: "destructive",
-          duration: 10000,
-        });
-      }
-    });
+    try {
+      // Only run in development
+      if (!import.meta.env.DEV) return;
+      
+      Object.keys(languages).forEach(lang => {
+        const result = verifyTranslations(lang as SupportedLanguage);
+        if (!result.isComplete) {
+          console.warn(`Missing translations in ${result.language}:`, result.missingKeys);
+          
+          toast({
+            title: `Translation issues in ${result.language.toUpperCase()}`,
+            description: `Missing ${result.missingKeys.length} keys. First few: ${result.missingKeys.slice(0, 3).join(', ')}...`,
+            variant: "destructive",
+            duration: 10000,
+          });
+        }
+      });
+    } catch (error) {
+      console.error('Error in verifyLanguageCompleteness:', error);
+    }
   };
 
   // Translation function
   const t = (key: string): string => {
     try {
+      if (!key) {
+        console.warn('Empty translation key provided');
+        return '';
+      }
+      
       const keys = key.split('.');
       let value: any = languages[language];
+      
+      if (!value) {
+        console.error(`Language not found: ${language}`);
+        // Fallback to English
+        value = languages.en;
+        if (!value) return key;
+      }
       
       for (const k of keys) {
         if (value && value[k] !== undefined) {
@@ -81,41 +100,49 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLanguageState(newLanguage);
     localStorage.setItem('language', newLanguage);
     
-    // Update URL based on language
-    const currentPath = location.pathname;
-    let newPath = currentPath;
-    
-    if (newLanguage === 'fi') {
-      // Add /fi prefix if not already there
-      if (!currentPath.startsWith('/fi')) {
-        newPath = `/fi${currentPath}`;
+    try {
+      // Update URL based on language
+      const currentPath = location.pathname;
+      let newPath = currentPath;
+      
+      if (newLanguage === 'fi') {
+        // Add /fi prefix if not already there
+        if (!currentPath.startsWith('/fi')) {
+          newPath = `/fi${currentPath}`;
+          if (newPath === '/fi/') newPath = '/fi';
+        }
+      } else {
+        // Remove /fi prefix if it's there
+        if (currentPath.startsWith('/fi')) {
+          newPath = currentPath.substring(3) || '/';
+          if (newPath === '') newPath = '/';
+        }
       }
-    } else {
-      // Remove /fi prefix if it's there
-      if (currentPath.startsWith('/fi')) {
-        newPath = currentPath.substring(3) || '/';
-        if (newPath === '') newPath = '/';
+      
+      // Only navigate if the path changed
+      if (newPath !== currentPath) {
+        console.log('Navigating to:', newPath);
+        navigate(newPath);
       }
-    }
-    
-    // Only navigate if the path changed
-    if (newPath !== currentPath) {
-      console.log('Navigating to:', newPath);
-      navigate(newPath, { replace: true }); // Use replace to avoid adding to history stack
+    } catch (error) {
+      console.error('Error updating URL for language change:', error);
     }
   };
 
-  // Sync URL with language state on mount only - not on language changes to prevent loops
+  // Effect to handle initial language setting
   useEffect(() => {
-    console.log('Language context mounted - Syncing URL if needed');
+    console.log('LanguageContext effect running');
     
-    // No automatic path changes on language provider mount to prevent loops
-    // We'll only update localStorage to keep track of the language
+    // Store language in localStorage
     localStorage.setItem('language', language);
     
-    // Verify translations in development mode
+    // Verify translations only in development mode
     if (import.meta.env.DEV) {
-      verifyLanguageCompleteness();
+      try {
+        verifyLanguageCompleteness();
+      } catch (error) {
+        console.error('Error verifying translations:', error);
+      }
     }
   }, []);
 
