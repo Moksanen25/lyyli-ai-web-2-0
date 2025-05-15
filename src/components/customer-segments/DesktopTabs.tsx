@@ -34,8 +34,8 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
         onValueChange={onSegmentChange}
         className="w-full max-w-6xl mx-auto"
       >
-        <div className="flex justify-center mb-12 overflow-x-auto pb-4">
-          <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl">
+        <div className="flex justify-center mb-12 overflow-x-auto pb-4 w-full">
+          <TabsList className="bg-background/80 p-2 space-x-3 shadow-sm rounded-xl w-auto min-w-fit">
             {segments.map(segment => (
               <TabsTrigger 
                 key={segment.id || `tab-${Math.random().toString(36).substr(2, 9)}`} 
