@@ -35,18 +35,18 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
         className="w-full max-w-6xl mx-auto"
       >
         <div className="flex justify-center mb-12 w-full">
-          <TabsList className="flex flex-wrap justify-center gap-2">
+          <TabsList className="flex flex-nowrap justify-center max-w-full overflow-x-auto py-2 px-4 gap-2 bg-transparent">
             {segments.map(segment => (
               <TabsTrigger 
                 key={segment.id || `tab-${Math.random().toString(36).substr(2, 9)}`} 
                 value={segment.id} 
-                className="px-4 py-4"
+                className="px-4 py-4 whitespace-nowrap flex-shrink-0"
               >
                 <div className="flex flex-col items-center">
                   <span className="flex mb-2">
                     {segment.icon}
                   </span>
-                  <span className="text-sm sm:text-base mt-1 whitespace-nowrap font-medium">
+                  <span className="text-sm sm:text-base mt-1 font-medium">
                     {segment.name}
                   </span>
                 </div>
