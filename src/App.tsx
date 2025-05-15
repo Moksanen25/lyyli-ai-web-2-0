@@ -9,6 +9,8 @@ import Pricing from '@/pages/Pricing';
 import CaseStudies from '@/pages/CaseStudies';
 import NotFound from '@/pages/NotFound';
 import Waitlist from '@/pages/Waitlist';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import CookiePolicy from '@/pages/CookiePolicy';
 import FloatingChat from '@/components/chat/FloatingChat';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/LanguageContext';
@@ -34,6 +36,8 @@ function AppRoutes() {
       <Route path="/full/features" element={<Features />} />
       <Route path="/full/pricing" element={<Pricing />} />
       <Route path="/full/case-studies" element={<CaseStudies />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/cookies" element={<CookiePolicy />} />
       
       {/* Finnish routes */}
       <Route path="/fi" element={<Navigate to="/fi/full" replace />} />
@@ -44,6 +48,8 @@ function AppRoutes() {
       <Route path="/fi/full/pricing" element={<Pricing />} />
       <Route path="/fi/full/case-studies" element={<CaseStudies />} />
       <Route path="/fi/waitlist" element={<Waitlist />} />
+      <Route path="/fi/privacy" element={<PrivacyPolicy />} />
+      <Route path="/fi/cookies" element={<CookiePolicy />} />
       
       {/* Explicit waitlist route */}
       <Route path="/waitlist" element={<Waitlist />} />
