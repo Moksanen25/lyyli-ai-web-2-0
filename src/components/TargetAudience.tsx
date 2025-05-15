@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -109,13 +108,13 @@ const TargetAudience = () => {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              <TabsList className="bg-transparent flex flex-wrap justify-center gap-2">
+            <div className="mb-8 w-full">
+              <TabsList className="w-full flex justify-center overflow-x-auto">
                 {audiences.map((audience) => (
                   <TabsTrigger 
                     key={audience.id}
                     value={audience.id} 
-                    className="px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white"
+                    className="px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white flex-shrink-0"
                   >
                     {language === 'en' ? audience.titleEn : audience.titleFi}
                   </TabsTrigger>
