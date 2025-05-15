@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const AboutHero = () => {
   const { t } = useLanguage();
@@ -12,11 +13,13 @@ const AboutHero = () => {
         {t('about.hero.description')}
       </p>
       <div className="relative h-80 md:h-96 w-full max-w-5xl mx-auto rounded-xl overflow-hidden">
-        <img 
-          src="/placeholder.svg" 
-          alt={t('about.hero.imageAlt')} 
-          className="w-full h-full object-cover"
-        />
+        <AspectRatio ratio={16/9}>
+          <img 
+            src="/images/features-dashboard.jpg" 
+            alt={t('about.hero.imageAlt')} 
+            className="w-full h-full object-cover"
+          />
+        </AspectRatio>
       </div>
     </div>
   );
