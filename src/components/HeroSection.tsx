@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -6,18 +5,17 @@ import { Shield, Database, MessageSquare } from 'lucide-react';
 import TrustIndicators from '@/components/TrustIndicators';
 import LyyliDemo from '@/components/LyyliDemo';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const HeroSection: React.FC = () => {
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const isMobile = useIsMobile();
-
-  return (
-    <section className="pt-16 pb-10 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
+  return <section className="pt-16 pb-10 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
       <div className="container-padding container mx-auto flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in text-center lg:text-left">
           <div className="flex items-center justify-center lg:justify-start mb-4 flex-wrap gap-2">
             <span className="bg-primary/10 text-primary text-xs md:text-sm font-semibold py-1 px-3 rounded-full">{t('hero.enterpriseReady') || 'Enterprise Ready'}</span>
-            <span className="text-xs md:text-sm text-muted-foreground">{t('hero.trustedBy') || 'Trusted by Fortune 500 companies'}</span>
+            
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             {t('hero.title')}
@@ -36,23 +34,16 @@ const HeroSection: React.FC = () => {
           
           {/* Enterprise Trust Indicators - Hide on small mobile screens */}
           <div className="mt-8 md:mt-10">
-            <TrustIndicators 
-              indicators={[
-                {
-                  icon: <Shield className="h-6 w-6 text-primary" />,
-                  label: t('hero.badges.security') || "Enterprise Security"
-                },
-                {
-                  icon: <Database className="h-6 w-6 text-primary" />,
-                  label: t('hero.badges.uptime') || "99.9% Uptime SLA"
-                },
-                {
-                  icon: <MessageSquare className="h-6 w-6 text-primary" />,
-                  label: t('hero.badges.support') || "24/7 Support"
-                }
-              ]}
-              className={isMobile ? "scale-90 origin-center" : ""} 
-            />
+            <TrustIndicators indicators={[{
+            icon: <Shield className="h-6 w-6 text-primary" />,
+            label: t('hero.badges.security') || "Enterprise Security"
+          }, {
+            icon: <Database className="h-6 w-6 text-primary" />,
+            label: t('hero.badges.uptime') || "99.9% Uptime SLA"
+          }, {
+            icon: <MessageSquare className="h-6 w-6 text-primary" />,
+            label: t('hero.badges.support') || "24/7 Support"
+          }]} className={isMobile ? "scale-90 origin-center" : ""} />
           </div>
         </div>
 
@@ -105,11 +96,7 @@ const HeroSection: React.FC = () => {
               </div>
               
               <div className="mt-4 flex items-center border-t border-gray-200 pt-3">
-                <input 
-                  type="text" 
-                  placeholder="Type your message..." 
-                  className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                />
+                <input type="text" placeholder="Type your message..." className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary" />
                 <button className="ml-2 bg-primary text-white rounded-full p-2">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -145,8 +132,6 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
