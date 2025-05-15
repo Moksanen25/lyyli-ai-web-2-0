@@ -1,7 +1,7 @@
 
 export const hero = {
   title: 'When communication matters but time runs out',
-  subtitle: 'Streamline content production with Lyyli',
+  subtitle: 'Lyyli takes care of it for you.',
   cta: 'Get started',
   secondaryCta: 'See how it works',
   enterpriseReady: 'Enterprise ready',

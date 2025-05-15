@@ -1,7 +1,7 @@
 
 export const hero = {
   title: 'Kun viestintä on tärkeää, mutta aika ei riitä',
-  subtitle: 'Virtaviivaista sisällöntuotantoa Lyylin avulla',
+  subtitle: 'Lyyli viestii puolestasi.',
   cta: 'Aloita',
   secondaryCta: 'Katso miten se toimii',
   enterpriseReady: 'Yrityskäyttöön valmis',
