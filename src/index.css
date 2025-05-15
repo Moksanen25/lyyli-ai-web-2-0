@@ -71,6 +71,16 @@
   [role="button"] {
     @apply touch-manipulation;
   }
+  
+  /* Global focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary/70;
+  }
+  
+  /* Skip to content link for keyboard users */
+  .skip-to-content {
+    @apply absolute left-0 -top-12 bg-primary text-white p-3 transition-all focus:top-0 z-[100];
+  }
 }
 
 @layer components {
@@ -84,11 +94,11 @@
 
   /* Mobile optimized spacing classes */
   .mobile-section-padding {
-    @apply py-10 md:py-16 lg:py-24;
+    @apply py-8 md:py-12 lg:py-24;
   }
 
   .mobile-section-spacing {
-    @apply space-y-6 md:space-y-8 lg:space-y-10;
+    @apply space-y-4 md:space-y-6 lg:space-y-10;
   }
   
   /* Improved mobile card styles */
@@ -98,11 +108,33 @@
   
   /* Mobile specific text classes */
   .mobile-heading {
-    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+    @apply text-xl md:text-3xl lg:text-4xl font-bold;
   }
   
   .mobile-subheading {
-    @apply text-lg md:text-xl font-medium;
+    @apply text-base md:text-xl font-medium;
+  }
+  
+  /* Accessible form fields */
+  .form-control {
+    @apply mb-4;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium mb-1;
+  }
+  
+  .form-input {
+    @apply w-full p-2 border rounded focus:ring-2 focus:ring-primary/50 focus:border-primary transition;
+    min-height: 44px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Visually hidden but accessible by screen readers */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
   }
 }
 
@@ -121,5 +153,39 @@
   
   .nav-link {
     @apply py-2;
+  }
+  
+  /* Fix for dropdowns on mobile */
+  [role="listbox"],
+  [role="menu"] {
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Improve image loading experience */
+  img {
+    @apply transition-opacity duration-300;
+    opacity: 0;
+  }
+  
+  img.loaded {
+    opacity: 1;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  a {
+    text-decoration: underline;
   }
 }

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -16,11 +17,20 @@ const FeatureHero = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   
-  // Product showcase images
+  // Product showcase images with descriptive alt texts
   const showcaseImages = [
-    "/images/features-dashboard.jpg", // Original image path
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop", // Dashboard analytics
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"  // Business collaboration
+    {
+      src: "/images/features-dashboard.jpg",
+      alt: "Lyyli dashboard user interface with content analytics"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+      alt: "Business analytics dashboard with charts and graphs"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
+      alt: "Team collaboration on business documents"
+    }
   ];
   
   // Auto-rotate carousel
@@ -30,104 +40,121 @@ const FeatureHero = () => {
     }, 5000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [showcaseImages.length]);
   
   return (
-    <div className="bg-gradient-to-b from-primary/10 to-background pt-24 pb-20 px-4">
+    <div className="bg-gradient-to-b from-primary/10 to-background pt-24 pb-12 md:pb-20 px-4">
       <div className="container mx-auto">
-        <div className="flex items-center justify-center mb-6">
-          <div className="bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full">Yritysratkaisut</div>
+        <div className="flex items-center justify-center mb-4 md:mb-6">
+          <div className="bg-primary/10 text-primary text-xs sm:text-sm font-semibold py-1 px-3 rounded-full">{t('features.enterpriseReady', 'Yritysratkaisut')}</div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="text-left animate-fade-in">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+          <div className="text-left animate-fade-in order-2 lg:order-1">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
               {t('features.pageHero.title')}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8">
               {t('features.pageHero.description')}
             </p>
             
             {/* Enterprise value props */}
-            <div className="mb-8 space-y-4">
+            <div className="mb-6 md:mb-8 space-y-3 md:space-y-4">
               <div className="flex items-start">
-                <div className="bg-primary/10 p-2 rounded-full mr-3">
-                  <Shield className="h-5 w-5 text-primary" />
+                <div className="bg-primary/10 p-1.5 md:p-2 rounded-full mr-2 md:mr-3 flex-shrink-0">
+                  <Shield className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Yritystason tietoturva</h3>
-                  <p className="text-sm text-muted-foreground">ISO 27001 -sertifioitu edistyneellä tietosuojalla</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.securityTitle', 'Yritystason tietoturva')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.securityDesc', 'ISO 27001 -sertifioitu edistyneellä tietosuojalla')}</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-primary/10 p-2 rounded-full mr-3">
-                  <Users className="h-5 w-5 text-primary" />
+                <div className="bg-primary/10 p-1.5 md:p-2 rounded-full mr-2 md:mr-3 flex-shrink-0">
+                  <Users className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Oma yhteyshenkilö</h3>
-                  <p className="text-sm text-muted-foreground">Oma tiimisi käyttöönottoa ja tukea varten</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.supportTitle', 'Oma yhteyshenkilö')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.supportDesc', 'Oma tiimisi käyttöönottoa ja tukea varten')}</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-primary/10 p-2 rounded-full mr-3">
-                  <Layers className="h-5 w-5 text-primary" />
+                <div className="bg-primary/10 p-1.5 md:p-2 rounded-full mr-2 md:mr-3 flex-shrink-0">
+                  <Layers className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Räätälöidyt integraatiot</h3>
-                  <p className="text-sm text-muted-foreground">Saumaton integraatio yritysympäristöösi</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.integrationsTitle', 'Räätälöidyt integraatiot')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.integrationsDesc', 'Saumaton integraatio yritysympäristöösi')}</p>
                 </div>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Button 
-                className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
-                onClick={() => navigate('/pricing')}
+                className="bg-primary hover:bg-primary/90 px-3 py-2 text-sm md:text-base"
+                onClick={() => navigate('/full/pricing')}
               >
                 {t('features.pageHero.primaryCta')}
               </Button>
               <Button 
                 variant="outline"
-                className="border-primary text-primary h-10 px-4 py-2"
-                onClick={() => navigate('/contact')}
+                className="border-primary text-primary px-3 py-2 text-sm md:text-base"
+                onClick={() => navigate('/full/contact')}
               >
                 {t('features.pageHero.secondaryCta')}
               </Button>
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative order-1 lg:order-2 mb-6 lg:mb-0">
             <Carousel className="w-full">
               <CarouselContent>
                 {showcaseImages.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="relative min-h-[300px] lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
+                    <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
                       <img 
-                        src={image}
-                        alt={`${t('features.pageHero.imageAlt')} ${index + 1}`}
+                        src={image.src}
+                        alt={image.alt}
                         className="w-full h-full object-cover transition-opacity duration-500"
+                        loading={index === 0 ? "eager" : "lazy"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                       
                       {/* Enterprise use case labels */}
                       <div className="absolute bottom-4 left-4 right-4">
-                        <div className="bg-white/90 rounded-lg px-4 py-3">
-                          <h3 className="font-medium text-lg">{index === 0 ? 'Yrityshallinta' : index === 1 ? 'Kehittynyt analytiikka' : 'Tiimin yhteistyö'}</h3>
-                          <p className="text-sm text-muted-foreground">{index === 0 ? 'Mukautettavissa organisaatiollesi' : index === 1 ? 'Datapohjaisia näkemyksiä johdolle' : 'Saumattomat tiimityönkulut'}</p>
+                        <div className="bg-white/90 rounded-lg px-3 py-2 md:px-4 md:py-3">
+                          <h3 className="font-medium text-base md:text-lg">
+                            {index === 0 
+                              ? t('features.showcase.title1', 'Yrityshallinta') 
+                              : index === 1 
+                                ? t('features.showcase.title2', 'Kehittynyt analytiikka') 
+                                : t('features.showcase.title3', 'Tiimin yhteistyö')
+                            }
+                          </h3>
+                          <p className="text-xs md:text-sm text-muted-foreground">
+                            {index === 0 
+                              ? t('features.showcase.desc1', 'Mukautettavissa organisaatiollesi') 
+                              : index === 1 
+                                ? t('features.showcase.desc2', 'Datapohjaisia näkemyksiä johdolle') 
+                                : t('features.showcase.desc3', 'Saumattomat tiimityönkulut')
+                            }
+                          </p>
                         </div>
                       </div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <div className="hidden md:block">
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </div>
             </Carousel>
             
-            {/* Image indicators */}
-            <div className="flex justify-center mt-4">
+            {/* Image indicators - improved for accessibility */}
+            <div className="flex justify-center mt-4" role="tablist" aria-label="Image carousel navigation">
               {showcaseImages.map((_, index) => (
                 <button
                   key={index}
@@ -135,7 +162,9 @@ const FeatureHero = () => {
                   className={`w-2 h-2 rounded-full mx-1 ${
                     activeIndex === index ? "bg-primary" : "bg-gray-400"
                   }`}
-                  aria-label={`Go to image ${index + 1}`}
+                  aria-label={`View image ${index + 1}`}
+                  aria-selected={activeIndex === index}
+                  role="tab"
                 />
               ))}
             </div>

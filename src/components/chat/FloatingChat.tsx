@@ -31,20 +31,28 @@ const FloatingChat = () => {
   }, [isMobile]);
 
   return (
-    <div className={`fixed z-50 transition-all duration-300 ${
-      showButton ? 'bottom-4 opacity-100' : 'bottom-[-80px] opacity-0'
-    } right-4`}>
+    <div 
+      className={`fixed z-50 transition-all duration-300 ${
+        showButton ? 'bottom-4 opacity-100' : 'bottom-[-80px] opacity-0'
+      } right-4`}
+      aria-live="polite"
+    >
       {isMobile ? (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
             <Button 
               size="icon" 
               className="h-12 w-12 rounded-full shadow-lg"
+              aria-label={t('chat.openChat', 'Open chat')}
             >
-              <MessageCircle />
+              <MessageCircle aria-hidden="true" />
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-md p-0 w-[calc(100vw-32px)]" style={{ height: "80vh" }}>
+          <DialogContent 
+            className="sm:max-w-md p-0 w-[calc(100vw-32px)]" 
+            style={{ height: "80vh" }}
+            aria-label={t('chat.chatPanel', 'Chat panel')}
+          >
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
                 <h2 className="font-semibold">{t('chat.title')}</h2>
@@ -52,8 +60,9 @@ const FloatingChat = () => {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsOpen(false)}
+                  aria-label={t('chat.closeChat', 'Close chat')}
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </div>
               <div className="flex-grow overflow-hidden">
@@ -63,10 +72,12 @@ const FloatingChat = () => {
           </DialogContent>
         </Dialog>
       ) : (
-        <div className={`transition-all duration-300 ${isOpen 
-          ? 'w-96 h-[600px] bg-card rounded-lg shadow-xl border'
-          : 'w-12 h-12'
-        }`}>
+        <div 
+          className={`transition-all duration-300 ${isOpen 
+            ? 'w-96 h-[600px] bg-card rounded-lg shadow-xl border'
+            : 'w-12 h-12'
+          }`}
+        >
           {isOpen ? (
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
@@ -75,8 +86,9 @@ const FloatingChat = () => {
                   variant="ghost" 
                   size="icon"
                   onClick={() => setIsOpen(false)}
+                  aria-label={t('chat.closeChat', 'Close chat')}
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </div>
               <div className="flex-grow overflow-hidden">
@@ -88,8 +100,9 @@ const FloatingChat = () => {
               size="icon" 
               className="h-12 w-12 rounded-full shadow-lg"
               onClick={() => setIsOpen(true)}
+              aria-label={t('chat.openChat', 'Open chat')}
             >
-              <MessageCircle />
+              <MessageCircle aria-hidden="true" />
             </Button>
           )}
         </div>

@@ -16,12 +16,17 @@ const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
   }
   
   return (
-    <div className="sm:hidden space-y-6 py-4">
-      {segments.map((segment) => (
-        <SegmentCard 
-          key={segment.id || `segment-${Math.random().toString(36).substr(2, 9)}`} 
-          segment={segment} 
-        />
+    <div 
+      className="sm:hidden space-y-6 py-4 px-4" 
+      aria-label="Customer segments for mobile devices"
+    >
+      {segments.map((segment, index) => (
+        <div key={segment.id || `mobile-segment-${index}`}>
+          <h3 className="sr-only">{segment.name}</h3>
+          <SegmentCard 
+            segment={segment} 
+          />
+        </div>
       ))}
     </div>
   );

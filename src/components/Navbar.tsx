@@ -59,10 +59,12 @@ const Navbar: React.FC = () => {
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white card-shadow py-2' : 'bg-transparent py-4'
       } ${visible ? 'translate-y-0' : '-translate-y-full'}`}
+      aria-label="Main navigation"
+      role="navigation"
     >
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/full" className="flex items-center">
+        <Link to="/full" className="flex items-center" aria-label="Lyyli home page">
           <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
         </Link>
 
@@ -98,63 +100,69 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden flex items-center">
           <LanguageSwitcher />
           <button
-            className="ml-4 text-primary p-2 focus:outline-none"
+            className="ml-4 text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? t('nav.closeMenu', 'Close menu') : t('nav.openMenu', 'Open menu')}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu - Full Screen Overlay */}
-      {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto pt-16">
-          <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
-            <Link 
-              to="/full/features" 
-              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
+      <div 
+        id="mobile-menu"
+        className={`lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto pt-16 transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
+          <Link 
+            to="/full/features" 
+            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.features')}
+          </Link>
+          <Link 
+            to="/full/pricing" 
+            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.pricing')}
+          </Link>
+          <Link 
+            to="/full/about" 
+            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.about')}
+          </Link>
+          <Link 
+            to="/full/contact" 
+            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.contact')}
+          </Link>
+          <div className="py-4">
+            <a 
+              href="https://lyyli.vercel.app/"
+              className="text-primary hover:text-primary-light transition-colors py-3 text-lg block mb-4"
             >
-              {t('nav.features')}
-            </Link>
-            <Link 
-              to="/full/pricing" 
-              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.pricing')}
-            </Link>
-            <Link 
-              to="/full/about" 
-              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.about')}
-            </Link>
-            <Link 
-              to="/full/contact" 
-              className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.contact')}
-            </Link>
-            <div className="py-4">
-              <a 
-                href="https://lyyli.vercel.app/"
-                className="text-primary hover:text-primary-light transition-colors py-3 text-lg block mb-4"
-              >
-                {t('nav.login')}
-              </a>
-              <a href="https://lyyli.vercel.app/">
-                <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
-                  {t('nav.signup')}
-                </Button>
-              </a>
-            </div>
+              {t('nav.login')}
+            </a>
+            <a href="https://lyyli.vercel.app/">
+              <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
+                {t('nav.signup')}
+              </Button>
+            </a>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
