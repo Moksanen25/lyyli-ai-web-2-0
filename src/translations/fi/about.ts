@@ -1,4 +1,3 @@
-
 export const about = {
   hero: {
     title: 'Tietoa Lyylistä',
@@ -9,19 +8,19 @@ export const about = {
     title: 'Matkamme',
     founded: {
       title: 'Yritys Perustettu',
-      description: 'Lyyli perustettiin Mikko Oksasen ja Veikko Laitisen toimesta visiolla muuttaa viestintätyönkulkuja tekoälyn avulla.'
+      description: 'Content AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.'
+    },
+    investor: {
+      title: 'Ensimmäinen Sijoittaja',
+      description: 'Ensimmäinen sijoittaja, suomalainen perheyritys Expion Oy liittyi mukaan tarinaan.'
     },
     launch: {
-      title: 'Ensimmäisen Tuotteen Julkaisu',
-      description: 'Lanseerasimme tekoälypohjaisen viestinnän automaatiojärjestelmän auttamaan yrityksiä virtaviivaistamaan sisällöntuotantoprosessejaan.'
+      title: 'Lanseeraus',
+      description: 'Ensimmäisen kaupallisen version myynti alkaa Suomessa.'
     },
-    partnerships: {
-      title: 'Ensimmäiset Merkittävät Kumppanuudet',
-      description: 'Solmimme keskeisiä kumppanuuksia laajentaaksemme alustamme ominaisuuksia ja tavoittaaksemme lisää asiakkaita.'
-    },
-    future: {
-      title: 'Tulevaisuuden Näkymät',
-      description: 'Suunnittelemme tarjontamme ja tiimimme laajentamista palvellaksemme kasvavaa asiakaskuntaamme entistä paremmin.'
+    international: {
+      title: 'Maailmanvalloitus',
+      description: 'Kansainvälinen myynti Euroopassa käynnistetään.'
     }
   },
   mission: {

@@ -1,22 +1,39 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ExternalLink } from 'lucide-react';
 
 interface TimelineItemProps {
-  year: string;
+  date: string;
   title: string;
   description: string;
+  link?: {
+    url: string;
+    text: string;
+  };
 }
 
-const TimelineItem: React.FC<TimelineItemProps> = ({ year, title, description }) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({ date, title, description, link }) => {
   return (
     <div className="relative pb-12 pl-8 border-l-2 border-primary/20 last:border-l-transparent last:pb-0">
       <div className="absolute left-0 -translate-x-1/2 -top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
         <div className="w-2 h-2 rounded-full bg-white"></div>
       </div>
-      <div className="text-sm font-medium text-primary mb-2">{year}</div>
+      <div className="text-sm font-medium text-primary mb-2">{date}</div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+      <p className="text-muted-foreground">
+        {description}
+        {link && (
+          <a 
+            href={link.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center ml-1 text-primary hover:underline"
+          >
+            {link.text} <ExternalLink className="h-3 w-3 ml-1" />
+          </a>
+        )}
+      </p>
     </div>
   );
 };
@@ -26,24 +43,28 @@ const CompanyTimeline = () => {
 
   const timelineItems: TimelineItemProps[] = [
     {
-      year: "2023",
+      date: "04/2025",
       title: t('about.timeline.founded.title'),
       description: t('about.timeline.founded.description')
     },
     {
-      year: "2024",
+      date: "06/2025",
+      title: t('about.timeline.investor.title'),
+      description: t('about.timeline.investor.description'),
+      link: {
+        url: "https://www.expion.fi",
+        text: "Expion Oy"
+      }
+    },
+    {
+      date: "08/2025",
       title: t('about.timeline.launch.title'),
       description: t('about.timeline.launch.description')
     },
     {
-      year: "2024",
-      title: t('about.timeline.partnerships.title'),
-      description: t('about.timeline.partnerships.description')
-    },
-    {
-      year: "2025",
-      title: t('about.timeline.future.title'),
-      description: t('about.timeline.future.description')
+      date: "12/2025",
+      title: t('about.timeline.international.title'),
+      description: t('about.timeline.international.description')
     }
   ];
   
@@ -54,9 +75,10 @@ const CompanyTimeline = () => {
         {timelineItems.map((item, index) => (
           <TimelineItem 
             key={index}
-            year={item.year}
+            date={item.date}
             title={item.title}
             description={item.description}
+            link={item.link}
           />
         ))}
       </div>

@@ -1,4 +1,3 @@
-
 export const about = {
   hero: {
     title: 'About Lyyli',
@@ -9,19 +8,19 @@ export const about = {
     title: 'Our Journey',
     founded: {
       title: 'Company Founded',
-      description: 'Lyyli was founded by Mikko Oksanen and Veikko Laitinen with a vision to transform communication workflows through AI.'
+      description: 'Content AI Oy (brand name "Lyyli.ai") was founded by Mikko and Veikko.'
+    },
+    investor: {
+      title: 'First Investor',
+      description: 'First investor, a finnish family office Expion Oy joined the story.'
     },
     launch: {
-      title: 'First Product Launch',
-      description: 'We launched our AI-powered communication automation platform to help businesses streamline their content creation process.'
+      title: 'Launch',
+      description: 'Sales of the first commercial version begins in Finland.'
     },
-    partnerships: {
-      title: 'First Major Partnerships',
-      description: 'Established key partnerships to expand our platform\'s capabilities and reach more customers.'
-    },
-    future: {
-      title: 'Looking Forward',
-      description: 'Planning to expand our offerings and team to better serve our growing customer base.'
+    international: {
+      title: 'World Conquering',
+      description: 'International sales in Europe are launched.'
     }
   },
   mission: {
