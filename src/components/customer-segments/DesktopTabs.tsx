@@ -35,7 +35,7 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({
         className="w-full max-w-6xl mx-auto"
       >
         <div className="flex justify-center mb-12 w-full">
-          <TabsList className="bg-background/80 p-2 shadow-sm rounded-xl w-auto flex flex-wrap justify-center gap-2">
+          <TabsList className="flex flex-wrap justify-center gap-2">
             {segments.map(segment => (
               <TabsTrigger 
                 key={segment.id || `tab-${Math.random().toString(36).substr(2, 9)}`} 
