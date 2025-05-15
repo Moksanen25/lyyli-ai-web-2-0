@@ -1,6 +1,6 @@
 
 export const hero = {
-  title: 'AI-powered communication automation platform',
+  title: 'When communication matters but time runs out',
   subtitle: 'Streamline content production with Lyyli',
   cta: 'Get started',
   secondaryCta: 'See how it works',

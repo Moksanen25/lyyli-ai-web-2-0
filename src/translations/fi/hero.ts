@@ -1,6 +1,6 @@
 
 export const hero = {
-  title: 'Tekoälyä käyttävä viestinnän automaatioalusta',
+  title: 'Kun viestintä on tärkeää, mutta aika ei riitä',
   subtitle: 'Virtaviivaista sisällöntuotantoa Lyylin avulla',
   cta: 'Aloita',
   secondaryCta: 'Katso miten se toimii',
