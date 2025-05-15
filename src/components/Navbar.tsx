@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
           <button
             className="ml-4 text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? t('nav.closeMenu', 'Close menu') : t('nav.openMenu', 'Open menu')}
+            aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
           >

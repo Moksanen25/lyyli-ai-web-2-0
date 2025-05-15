@@ -43,7 +43,7 @@ const FloatingChat = () => {
             <Button 
               size="icon" 
               className="h-12 w-12 rounded-full shadow-lg"
-              aria-label={t('chat.openChat', 'Open chat')}
+              aria-label={t('chat.openChat')}
             >
               <MessageCircle aria-hidden="true" />
             </Button>
@@ -51,7 +51,7 @@ const FloatingChat = () => {
           <DialogContent 
             className="sm:max-w-md p-0 w-[calc(100vw-32px)]" 
             style={{ height: "80vh" }}
-            aria-label={t('chat.chatPanel', 'Chat panel')}
+            aria-label={t('chat.chatPanel')}
           >
             <div className="h-full flex flex-col">
               <div className="p-4 border-b flex justify-between items-center">
@@ -60,7 +60,7 @@ const FloatingChat = () => {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsOpen(false)}
-                  aria-label={t('chat.closeChat', 'Close chat')}
+                  aria-label={t('chat.closeChat')}
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
@@ -86,7 +86,7 @@ const FloatingChat = () => {
                   variant="ghost" 
                   size="icon"
                   onClick={() => setIsOpen(false)}
-                  aria-label={t('chat.closeChat', 'Close chat')}
+                  aria-label={t('chat.closeChat')}
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
@@ -100,7 +100,7 @@ const FloatingChat = () => {
               size="icon" 
               className="h-12 w-12 rounded-full shadow-lg"
               onClick={() => setIsOpen(true)}
-              aria-label={t('chat.openChat', 'Open chat')}
+              aria-label={t('chat.openChat')}
             >
               <MessageCircle aria-hidden="true" />
             </Button>

@@ -46,7 +46,7 @@ const FeatureHero = () => {
     <div className="bg-gradient-to-b from-primary/10 to-background pt-24 pb-12 md:pb-20 px-4">
       <div className="container mx-auto">
         <div className="flex items-center justify-center mb-4 md:mb-6">
-          <div className="bg-primary/10 text-primary text-xs sm:text-sm font-semibold py-1 px-3 rounded-full">{t('features.enterpriseReady', 'Yritysratkaisut')}</div>
+          <div className="bg-primary/10 text-primary text-xs sm:text-sm font-semibold py-1 px-3 rounded-full">{t('features.enterpriseReady')}</div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
@@ -65,8 +65,8 @@ const FeatureHero = () => {
                   <Shield className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-sm md:text-base">{t('features.securityTitle', 'Yritystason tietoturva')}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.securityDesc', 'ISO 27001 -sertifioitu edistyneellä tietosuojalla')}</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.securityTitle')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.securityDesc')}</p>
                 </div>
               </div>
               
@@ -75,8 +75,8 @@ const FeatureHero = () => {
                   <Users className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-sm md:text-base">{t('features.supportTitle', 'Oma yhteyshenkilö')}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.supportDesc', 'Oma tiimisi käyttöönottoa ja tukea varten')}</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.supportTitle')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.supportDesc')}</p>
                 </div>
               </div>
               
@@ -85,8 +85,8 @@ const FeatureHero = () => {
                   <Layers className="h-4 w-4 md:h-5 md:w-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-sm md:text-base">{t('features.integrationsTitle', 'Räätälöidyt integraatiot')}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.integrationsDesc', 'Saumaton integraatio yritysympäristöösi')}</p>
+                  <h3 className="font-medium text-sm md:text-base">{t('features.integrationsTitle')}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{t('features.integrationsDesc')}</p>
                 </div>
               </div>
             </div>
@@ -127,18 +127,18 @@ const FeatureHero = () => {
                         <div className="bg-white/90 rounded-lg px-3 py-2 md:px-4 md:py-3">
                           <h3 className="font-medium text-base md:text-lg">
                             {index === 0 
-                              ? t('features.showcase.title1', 'Yrityshallinta') 
+                              ? t('features.showcase.title1') 
                               : index === 1 
-                                ? t('features.showcase.title2', 'Kehittynyt analytiikka') 
-                                : t('features.showcase.title3', 'Tiimin yhteistyö')
+                                ? t('features.showcase.title2') 
+                                : t('features.showcase.title3')
                             }
                           </h3>
                           <p className="text-xs md:text-sm text-muted-foreground">
                             {index === 0 
-                              ? t('features.showcase.desc1', 'Mukautettavissa organisaatiollesi') 
+                              ? t('features.showcase.desc1') 
                               : index === 1 
-                                ? t('features.showcase.desc2', 'Datapohjaisia näkemyksiä johdolle') 
-                                : t('features.showcase.desc3', 'Saumattomat tiimityönkulut')
+                                ? t('features.showcase.desc2') 
+                                : t('features.showcase.desc3')
                             }
                           </p>
                         </div>

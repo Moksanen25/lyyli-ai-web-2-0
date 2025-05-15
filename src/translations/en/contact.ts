@@ -5,5 +5,9 @@ export const contact = {
   information: 'Contact Information',
   role: 'Sales and networks',
   call: 'Call',
-  email: 'Email'
+  email: 'Email',
+  phoneAriaLabel: 'Call Mikko',
+  emailAriaLabel: 'Email Mikko',
+  whatsappAriaLabel: 'Contact Mikko on WhatsApp',
+  chatAriaLabel: 'Live chat interface'
 };

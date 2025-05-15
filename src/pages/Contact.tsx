@@ -50,7 +50,7 @@ const Contact = () => {
                   <a 
                     href="tel:+358409619224" 
                     className="flex items-center gap-2 hover:text-primary transition-colors"
-                    aria-label={t('contact.phoneAriaLabel', 'Call Mikko')}
+                    aria-label={t('contact.phoneAriaLabel')}
                   >
                     <Phone className="w-5 h-5" aria-hidden="true" />
                     <span>+358 40 961 9224</span>
@@ -59,7 +59,7 @@ const Contact = () => {
                   <a 
                     href="mailto:mikko.oksanen@lyyli.ai"
                     className="flex items-center gap-2 hover:text-primary transition-colors"
-                    aria-label={t('contact.emailAriaLabel', 'Email Mikko')}
+                    aria-label={t('contact.emailAriaLabel')}
                   >
                     <Mail className="w-5 h-5" aria-hidden="true" />
                     <span>mikko.oksanen@lyyli.ai</span>
@@ -70,7 +70,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-primary transition-colors"
-                    aria-label={t('contact.whatsappAriaLabel', 'Contact Mikko on WhatsApp')}
+                    aria-label={t('contact.whatsappAriaLabel')}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
                       <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
@@ -116,7 +116,7 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="border rounded-lg shadow-sm overflow-hidden h-[350px] md:h-[500px] lg:h-[600px]" aria-label={t('contact.chatAriaLabel', 'Live chat interface')}>
+            <div className="border rounded-lg shadow-sm overflow-hidden h-[350px] md:h-[500px] lg:h-[600px]" aria-label={t('contact.chatAriaLabel')}>
               <ChatInterface />
             </div>
           </div>
@@ -128,6 +128,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-// Import the Helmet component
-import { Helmet } from 'react-helmet';

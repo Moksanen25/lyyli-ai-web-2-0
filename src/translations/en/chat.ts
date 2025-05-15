@@ -8,5 +8,8 @@ export const chat = {
     title: 'Error',
     initThread: 'Failed to initialize chat. Please try again.',
     sendMessage: 'Failed to send message. Please try again.'
-  }
+  },
+  openChat: 'Open chat',
+  closeChat: 'Close chat',
+  chatPanel: 'Chat panel'
 };

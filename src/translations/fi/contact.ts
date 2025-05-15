@@ -5,5 +5,9 @@ export const contact = {
   information: 'Yhteystiedot',
   role: 'Myynti ja verkostot',
   call: 'Soita',
-  email: 'Sähköposti'
+  email: 'Sähköposti',
+  phoneAriaLabel: 'Soita Mikolle',
+  emailAriaLabel: 'Lähetä sähköpostia Mikolle',
+  whatsappAriaLabel: 'Ota yhteyttä Mikkoon WhatsAppilla',
+  chatAriaLabel: 'Live-chatin käyttöliittymä'
 };

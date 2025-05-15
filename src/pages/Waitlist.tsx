@@ -4,6 +4,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 const Waitlist: React.FC = () => {
   const { t, language } = useLanguage();
@@ -175,9 +177,3 @@ const Waitlist: React.FC = () => {
 };
 
 export default Waitlist;
-
-// Import the necessary components
-import { Link } from 'react-router-dom';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { Helmet } from 'react-helmet';
-
