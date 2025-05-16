@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet';
@@ -15,9 +14,11 @@ const PrivacyPolicy: React.FC = () => {
     <>
       <Helmet>
         <title>{pageTitle}</title>
-        <meta name="description" content={language === 'fi' 
-          ? 'Lyylin tietosuojakäytäntö kertoo, miten keräämme, käytämme ja suojaamme henkilötietojasi.' 
-          : 'Lyyli privacy policy explains how we collect, use, and protect your personal information.'} />
+        <meta name="description" content={
+          language === 'fi' 
+            ? 'Lyylin tietosuojakäytäntö kertoo, miten keräämme, käytämme ja suojaamme henkilötietojasi.' 
+            : 'Lyyli privacy policy explains how we collect, use, and protect your personal information.'
+        } />
       </Helmet>
       
       <Navbar />
@@ -185,7 +186,7 @@ const PrivacyPolicy: React.FC = () => {
             <p className="mt-4">
               {language === 'fi'
                 ? 'Jotkut palveluntarjoajistamme saattavat sijaita EU/ETA-alueen ulkopuolella. Kun siirrämme henkilötietojasi EU/ETA-alueen ulkopuolelle, varmistamme, että siirto tapahtuu asianmukaisten suojatoimien avulla, kuten EU:n komission hyväksymien vakiosopimuslausekkeiden tai Privacy Shield -järjestelyn kautta.'
-                : 'Some of our service providers may be located outside the EU/EEA. When we transfer your personal data outside the EU/EEA, we ensure that the transfer takes place with appropriate safeguards, such as through the EU Commission's Standard Contractual Clauses or the Privacy Shield arrangement.'}
+                : 'Some of our service providers may be located outside the EU/EEA. When we transfer your personal data outside the EU/EEA, we ensure that the transfer takes place with appropriate safeguards, such as through the EU Commission\'s Standard Contractual Clauses or the Privacy Shield arrangement.'}
             </p>
             
             <h2 className="text-2xl font-semibold mt-8 mb-3">
