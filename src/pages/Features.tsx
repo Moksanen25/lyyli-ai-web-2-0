@@ -40,6 +40,9 @@ const Features = () => {
     { id: 'sports', title: t('features.customerSegments.segments.sports.title') }
   ];
 
+  // Placeholder for segment navigation to prevent content jumps
+  const navHeight = '101px'; // Approximate height of the navigation bar
+
   // Show the segment navigation after scrolling past the general features
   useEffect(() => {
     const handleScroll = () => {
@@ -70,6 +73,9 @@ const Features = () => {
         {/* General Features */}
         <FeatureDetails />
         <IntegrationShowcase />
+        
+        {/* Placeholder div to prevent content jumps when the navigation appears */}
+        <div style={{ height: showSegmentNav ? '0px' : navHeight, transition: 'height 0.2s ease' }} aria-hidden="true" />
         
         {/* Customer Segments Navigation (conditionally shown) */}
         {showSegmentNav && <SegmentNavigation segments={segments} />}
