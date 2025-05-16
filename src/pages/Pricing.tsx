@@ -9,6 +9,8 @@ import PricingHeader from '@/components/pricing/PricingHeader';
 import PricingCard from '@/components/pricing/PricingCard';
 import FeatureComparison from '@/components/pricing/FeatureComparison';
 import PricingFAQ from '@/components/pricing/PricingFAQ';
+import ComplianceBadges from '@/components/ComplianceBadges';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Define pricing data
 interface Feature {
@@ -20,7 +22,7 @@ interface Feature {
 
 interface PricingTier {
   name: string;
-  monthly: number;
+  monthly: number | null;
   description: string;
   primaryFeatures: string[];
   secondaryFeatures?: string[];
@@ -33,6 +35,7 @@ const PricingPage = () => {
   const { t } = useLanguage();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showFullComparison, setShowFullComparison] = useState(false);
+  const isMobile = useIsMobile();
   
   // Define discount rate for yearly billing
   const yearlyDiscountRate = 0.8; // 20% discount
@@ -116,14 +119,14 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="container-padding py-12 md:py-24 flex-grow animate-fade-in">
+      <div className="container-padding py-8 md:py-16 lg:py-24 flex-grow animate-fade-in">
         <PricingHeader 
           billingPeriod={billingPeriod} 
           setBillingPeriod={setBillingPeriod} 
         />
         
         {/* Main pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {pricingTiers.map((tier) => (
             <PricingCard
               key={tier.name}
@@ -135,12 +138,13 @@ const PricingPage = () => {
         </div>
         
         {/* Toggle for detailed comparison */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 md:mt-12 text-center">
           <Button 
             variant="outline" 
             onClick={() => setShowFullComparison(!showFullComparison)}
+            className="w-full sm:w-auto"
           >
-            {showFullComparison ? 'Hide' : 'Show'} Full Feature Comparison
+            {showFullComparison ? t('pricing.hideComparison') : t('pricing.showComparison')}
           </Button>
         </div>
         
@@ -149,6 +153,9 @@ const PricingPage = () => {
           comparisonFeatures={comparisonFeatures}
           showFullComparison={showFullComparison}
         />
+        
+        {/* Compliance badges */}
+        <ComplianceBadges className="my-8 md:my-12" />
         
         {/* FAQ teaser */}
         <PricingFAQ />

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { X, Settings } from 'lucide-react';
@@ -30,25 +30,65 @@ const CookieConsent: React.FC = () => {
     marketing: false,
   });
   
+  // Memoized function to reduce re-renders
+  const saveSettings = useCallback((newSettings: CookieSettings) => {
+    try {
+      localStorage.setItem('cookie-consent', JSON.stringify(newSettings));
+      setSettings(newSettings);
+      setVisible(false);
+      setSettingsOpen(false);
+      
+      // Update dataLayer for GTM/GA4
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'cookieConsentUpdate',
+          cookieConsent: {
+            analytics: newSettings.analytics,
+            marketing: newSettings.marketing,
+          },
+        });
+      }
+      
+      // Clear Datafast Analytics cookies if analytics not accepted
+      if (!newSettings.analytics) {
+        clearDatafastCookies();
+      }
+      
+      // Clear HubSpot cookies if marketing not accepted
+      if (!newSettings.marketing) {
+        clearHubspotCookies();
+      }
+    } catch (error) {
+      console.error('Error saving cookie preferences:', error);
+    }
+  }, []);
+  
   useEffect(() => {
     // Check if user has already accepted cookies
-    const cookieConsent = localStorage.getItem('cookie-consent');
-    
-    if (cookieConsent) {
-      try {
-        const savedSettings = JSON.parse(cookieConsent);
-        setSettings(savedSettings);
-      } catch (e) {
-        // If parsing fails, show the banner again
-        setVisible(true);
-      }
-    } else {
-      // Show cookie banner after a short delay if no consent is stored
-      const timer = setTimeout(() => {
-        setVisible(true);
-      }, 1000);
+    try {
+      const cookieConsent = localStorage.getItem('cookie-consent');
       
-      return () => clearTimeout(timer);
+      if (cookieConsent) {
+        try {
+          const savedSettings = JSON.parse(cookieConsent);
+          setSettings(savedSettings);
+        } catch (e) {
+          // If parsing fails, show the banner again
+          console.error('Error parsing stored cookie consent:', e);
+          setVisible(true);
+        }
+      } else {
+        // Show cookie banner after a short delay if no consent is stored
+        const timer = setTimeout(() => {
+          setVisible(true);
+        }, 1000);
+        
+        return () => clearTimeout(timer);
+      }
+    } catch (error) {
+      // If localStorage access fails (e.g., in private browsing mode)
+      console.error('Error accessing localStorage:', error);
+      setVisible(true);
     }
     
     // Listen for the openCookieSettings event
@@ -62,34 +102,6 @@ const CookieConsent: React.FC = () => {
       window.removeEventListener('openCookieSettings', handleOpenSettings);
     };
   }, []);
-  
-  const saveSettings = (newSettings: CookieSettings) => {
-    localStorage.setItem('cookie-consent', JSON.stringify(newSettings));
-    setSettings(newSettings);
-    setVisible(false);
-    setSettingsOpen(false);
-    
-    // Update dataLayer for GTM/GA4
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'cookieConsentUpdate',
-        cookieConsent: {
-          analytics: newSettings.analytics,
-          marketing: newSettings.marketing,
-        },
-      });
-    }
-    
-    // Clear Datafast Analytics cookies if analytics not accepted
-    if (!newSettings.analytics) {
-      clearDatafastCookies();
-    }
-    
-    // Clear HubSpot cookies if marketing not accepted
-    if (!newSettings.marketing) {
-      clearHubspotCookies();
-    }
-  };
   
   const acceptAll = () => {
     const allSettings = {
@@ -162,10 +174,10 @@ const CookieConsent: React.FC = () => {
                   </Link>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2 md:flex-shrink-0">
+              <div className="flex flex-col sm:flex-row gap-2 md:flex-shrink-0 w-full sm:w-auto">
                 <Button 
                   variant="outline" 
-                  className="border-primary text-primary hover:bg-primary/10"
+                  className="border-primary text-primary hover:bg-primary/10 w-full sm:w-auto"
                   onClick={acceptEssential}
                   aria-label={t('cookieBanner.essential')}
                 >
@@ -173,7 +185,7 @@ const CookieConsent: React.FC = () => {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-primary text-primary hover:bg-primary/10"
+                  className="border-primary text-primary hover:bg-primary/10 w-full sm:w-auto"
                   onClick={openSettings}
                   aria-label={t('cookieBanner.aria.settings')}
                 >
@@ -181,7 +193,7 @@ const CookieConsent: React.FC = () => {
                   {t('cookieBanner.settings')}
                 </Button>
                 <Button 
-                  className="bg-primary hover:bg-primary/90 text-white"
+                  className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto"
                   onClick={acceptAll}
                   aria-label={t('cookieBanner.accept')}
                 >
@@ -275,13 +287,13 @@ const CookieConsent: React.FC = () => {
             <Button 
               variant="outline" 
               onClick={acceptEssential}
-              className="sm:order-1"
+              className="sm:order-1 w-full sm:w-auto"
             >
               {t('cookieBanner.essential')}
             </Button>
             <Button 
               onClick={() => saveSettings(settings)}
-              className="sm:order-2"
+              className="sm:order-2 w-full sm:w-auto"
             >
               {t('cookieBanner.save')}
             </Button>
