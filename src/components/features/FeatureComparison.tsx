@@ -92,7 +92,7 @@ const FeatureComparison = () => {
         <div className="text-center mt-10">
           <Button 
             size="lg" 
-            onClick={() => navigate('/pricing')}
+            onClick={() => navigate('/full/pricing')}
             className="animate-fade-in"
           >
             {t('features.comparison.cta')}

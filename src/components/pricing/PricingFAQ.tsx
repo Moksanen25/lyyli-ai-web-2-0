@@ -13,8 +13,8 @@ const PricingFAQ: React.FC = () => {
       <h3 className="text-2xl font-bold mb-3">{t('pricing.faqTitle')}</h3>
       <p className="mb-4">{t('pricing.faqText')}</p>
       <div className="flex justify-center gap-4">
-        <Button variant="outline" onClick={() => navigate('/faq')}>{t('pricing.faqButton')}</Button>
-        <Button onClick={() => navigate('/contact')}>{t('pricing.contactButton')}</Button>
+        <Button variant="outline" onClick={() => navigate('/full/faq')}>{t('pricing.faqButton')}</Button>
+        <Button onClick={() => navigate('/full/contact')}>{t('pricing.contactButton')}</Button>
       </div>
     </div>
   );
