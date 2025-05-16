@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
+
 const TargetAudience = () => {
   const {
     t,
@@ -67,11 +69,91 @@ const TargetAudience = () => {
     descriptionEn: "Lyyli helps keep fans and sponsors in the loop with continuous, automated communication.",
     descriptionFi: "Lyyli auttaa pitämään kannattajat ja sponsorit mukana automaattisen, jatkuvan viestinnän avulla."
   }];
+
   const handleBookDemo = () => {
     setShowDemoDialog(true);
   };
 
   // Render desktop tabs or mobile accordion based on screen size
-  return;
+  return (
+    <section className="py-12 bg-slate-50">
+      <div className="container max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+          {language === 'en' ? 'Who benefits from Lyyli?' : 'Kuka hyötyy Lyylista?'}
+        </h2>
+        
+        {isMobile ? (
+          // Mobile view with accordion
+          <Accordion type="single" collapsible className="w-full">
+            {audiences.map((audience) => (
+              <AccordionItem key={audience.id} value={audience.id}>
+                <AccordionTrigger className="text-lg font-semibold">
+                  {language === 'en' ? audience.titleEn : audience.titleFi}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-2">
+                    <h4 className="font-medium text-primary">
+                      {language === 'en' ? audience.subtitleEn : audience.subtitleFi}
+                    </h4>
+                    <p className="text-gray-600">
+                      {language === 'en' ? audience.descriptionEn : audience.descriptionFi}
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        ) : (
+          // Desktop view with tabs
+          <Tabs 
+            value={activeTab} 
+            onValueChange={setActiveTab}
+            className="w-full space-y-6"
+          >
+            <TabsList className="grid grid-cols-3 lg:grid-cols-6 mb-6">
+              {audiences.map((audience) => (
+                <TabsTrigger 
+                  key={audience.id} 
+                  value={audience.id}
+                  className="text-sm whitespace-normal h-auto py-2"
+                >
+                  {language === 'en' ? audience.titleEn : audience.titleFi}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            
+            {audiences.map((audience) => (
+              <TabsContent key={audience.id} value={audience.id}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{language === 'en' ? audience.titleEn : audience.titleFi}</CardTitle>
+                    <CardDescription className="text-lg text-primary font-medium">
+                      {language === 'en' ? audience.subtitleEn : audience.subtitleFi}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">
+                      {language === 'en' ? audience.descriptionEn : audience.descriptionFi}
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            ))}
+          </Tabs>
+        )}
+        
+        <div className="mt-10 text-center">
+          <Button onClick={handleBookDemo} size="lg">
+            {t('common.bookDemo')}
+          </Button>
+        </div>
+        
+        {showDemoDialog && (
+          <BookDemoDialog open={showDemoDialog} onOpenChange={setShowDemoDialog} />
+        )}
+      </div>
+    </section>
+  );
 };
+
 export default TargetAudience;
