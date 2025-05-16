@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -12,7 +11,7 @@ const HeroSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="pt-16 pb-10 md:pt-32 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
+    <section className="pt-24 pb-10 md:pt-40 md:pb-24 bg-gradient-to-br from-secondary/80 to-white">
       <div className="container-padding container mx-auto flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-fade-in text-center lg:text-left">
           {/* Enterprise Ready label removed for mobile, kept for desktop */}
