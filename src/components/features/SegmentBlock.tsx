@@ -10,7 +10,7 @@ interface SegmentBlockProps {
   id: string;
   title: string;
   tagline: string;
-  description: string[];
+  description: string | string[];
   caseStudy?: {
     quote: string;
     author: string;
@@ -30,6 +30,9 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
 }) => {
   const { t } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
+  
+  // Process description to ensure it's always an array
+  const descriptionArray = Array.isArray(description) ? description : [description];
 
   return (
     <section id={id} className="py-16 md:py-24 scroll-mt-20">
@@ -40,7 +43,7 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
             <h2 className="text-2xl md:text-3xl font-bold mb-3">{title}</h2>
             <p className="text-xl font-light text-primary/80 mb-6">{tagline}</p>
             
-            {description.map((paragraph, idx) => (
+            {descriptionArray.map((paragraph, idx) => (
               <p key={idx} className="mb-4 text-muted-foreground">{paragraph}</p>
             ))}
             
