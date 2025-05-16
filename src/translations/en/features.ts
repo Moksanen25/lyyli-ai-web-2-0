@@ -103,7 +103,11 @@ export const features = {
     title2: 'Advanced Analytics',
     desc2: 'Data-driven insights for leadership',
     title3: 'Team Collaboration',
-    desc3: 'Seamless team workflows'
+    desc3: 'Seamless team workflows',
+    title4: 'Digital Workspace',
+    desc4: 'Modern tools for the modern workforce',
+    title5: 'Connected Communication',
+    desc5: 'Bridging teams across platforms'
   },
   customerSegments: {
     navigation: 'Solution by industry',

@@ -102,7 +102,11 @@ export const features = {
     title2: 'Edistynyt analytiikka',
     desc2: 'Dataohjatut oivallukset johdolle',
     title3: 'Tiimin yhteistyö',
-    desc3: 'Saumattomat tiimin työnkulut'
+    desc3: 'Saumattomat tiimin työnkulut',
+    title4: 'Digitaalinen työtila',
+    desc4: 'Modernit työkalut nykyaikaiselle työvoimalle',
+    title5: 'Yhdistetty viestintä',
+    desc5: 'Tiimien yhdistäminen eri alustoilla'
   },
   customerSegments: {
     navigation: 'Ratkaisu toimialalle',
