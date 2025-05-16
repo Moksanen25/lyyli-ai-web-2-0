@@ -70,22 +70,22 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
-          <Link to="/full/features" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/features" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.features')}
           </Link>
-          <Link to="/full/pricing" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/pricing" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.pricing')}
           </Link>
-          <Link to="/full/about" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/about" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.about')}
           </Link>
-          <Link to="/full/contact" className="text-primary hover:text-primary-light transition-colors">
+          <Link to="/full/contact" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
           <a 
             href="https://lyyli.vercel.app/" 
-            className="text-primary hover:text-primary-light transition-colors"
+            className="text-primary hover:text-primary/80 transition-colors"
           >
             {t('nav.login')}
           </a>
@@ -122,28 +122,28 @@ const Navbar: React.FC = () => {
         <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
           <Link 
             to="/full/features" 
-            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.features')}
           </Link>
           <Link 
             to="/full/pricing" 
-            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.pricing')}
           </Link>
           <Link 
             to="/full/about" 
-            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.about')}
           </Link>
           <Link 
             to="/full/contact" 
-            className="text-primary hover:text-primary-light transition-colors py-3 text-lg border-b border-gray-100"
+            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.contact')}
@@ -151,7 +151,7 @@ const Navbar: React.FC = () => {
           <div className="py-4">
             <a 
               href="https://lyyli.vercel.app/"
-              className="text-primary hover:text-primary-light transition-colors py-3 text-lg block mb-4"
+              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block mb-4"
             >
               {t('nav.login')}
             </a>

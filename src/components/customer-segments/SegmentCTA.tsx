@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import BookDemoDialog from '@/components/BookDemoDialog';
+import { Link } from 'react-router-dom';
 
 const SegmentCTA: React.FC = () => {
   const { t } = useLanguage();
@@ -20,9 +21,11 @@ const SegmentCTA: React.FC = () => {
         >
           {t('common.bookDemo')}
         </Button>
-        <Button variant="outline" className="border-primary text-primary h-10 px-4 py-2">
-          {t('customerSegments.viewComparisonButton')}
-        </Button>
+        <Link to="/full/features">
+          <Button variant="outline" className="border-primary text-primary h-10 px-4 py-2">
+            {t('customerSegments.viewComparisonButton')}
+          </Button>
+        </Link>
       </div>
       
       {/* Demo Booking Dialog */}
