@@ -18,7 +18,7 @@ const SegmentCTA: React.FC = () => {
           className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
           onClick={() => setShowDemoDialog(true)}
         >
-          {t('customerSegments.bookDemoButton')}
+          {t('common.bookDemo')}
         </Button>
         <Button variant="outline" className="border-primary text-primary h-10 px-4 py-2">
           {t('customerSegments.viewComparisonButton')}
