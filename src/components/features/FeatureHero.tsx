@@ -17,7 +17,7 @@ const FeatureHero = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   
-  // Product showcase images with descriptive alt texts
+  // Enhanced product showcase images with descriptive alt texts
   const showcaseImages = [
     {
       src: "/images/features-dashboard.jpg",
@@ -28,12 +28,20 @@ const FeatureHero = () => {
       alt: "Business analytics dashboard with charts and graphs"
     },
     {
+      src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2000&auto=format&fit=crop",
+      alt: "Computer code on screen showing development environment"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2000&auto=format&fit=crop",
+      alt: "Modern laptop with programming interface"
+    },
+    {
       src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
       alt: "Team collaboration on business documents"
     }
   ];
   
-  // Auto-rotate carousel
+  // Auto-rotate carousel with improved timing
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % showcaseImages.length);
@@ -113,7 +121,7 @@ const FeatureHero = () => {
               <CarouselContent>
                 {showcaseImages.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
+                    <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px] rounded-xl overflow-hidden shadow-xl">
                       <img 
                         src={image.src}
                         alt={image.alt}
@@ -124,21 +132,29 @@ const FeatureHero = () => {
                       
                       {/* Enterprise use case labels */}
                       <div className="absolute bottom-4 left-4 right-4">
-                        <div className="bg-white/90 rounded-lg px-3 py-2 md:px-4 md:py-3">
+                        <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 md:px-4 md:py-3">
                           <h3 className="font-medium text-base md:text-lg">
                             {index === 0 
                               ? t('features.showcase.title1') 
                               : index === 1 
-                                ? t('features.showcase.title2') 
-                                : t('features.showcase.title3')
+                                ? t('features.showcase.title2')
+                                : index === 2
+                                  ? t('features.showcase.title3')
+                                  : index === 3
+                                    ? t('features.showcase.title4')
+                                    : t('features.showcase.title5')
                             }
                           </h3>
                           <p className="text-xs md:text-sm text-muted-foreground">
                             {index === 0 
                               ? t('features.showcase.desc1') 
                               : index === 1 
-                                ? t('features.showcase.desc2') 
-                                : t('features.showcase.desc3')
+                                ? t('features.showcase.desc2')
+                                : index === 2
+                                  ? t('features.showcase.desc3')
+                                  : index === 3
+                                    ? t('features.showcase.desc4')
+                                    : t('features.showcase.desc5')
                             }
                           </p>
                         </div>
@@ -159,8 +175,8 @@ const FeatureHero = () => {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2 h-2 rounded-full mx-1 ${
-                    activeIndex === index ? "bg-primary" : "bg-gray-400"
+                  className={`w-2 h-2 rounded-full mx-1 transition-all ${
+                    activeIndex === index ? "bg-primary w-4" : "bg-gray-400"
                   }`}
                   aria-label={`View image ${index + 1}`}
                   aria-selected={activeIndex === index}
