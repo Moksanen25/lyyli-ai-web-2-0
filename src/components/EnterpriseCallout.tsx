@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
@@ -91,7 +90,7 @@ const EnterpriseCallout: React.FC = () => {
       </div>
 
       {/* Enterprise Demo Dialog */}
-      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
+      <BookDemoDialog open={showDemoDialog} onOpenChange={setShowDemoDialog} />
     </section>
   );
 };

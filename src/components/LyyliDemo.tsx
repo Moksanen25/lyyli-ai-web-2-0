@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -77,7 +76,7 @@ const LyyliDemo: React.FC = () => {
         setIsLoading={setIsLoading}
       />
       
-      <BookDemoDialog isOpen={showBooking} setIsOpen={setShowBooking} />
+      <BookDemoDialog open={showBooking} onOpenChange={setShowBooking} />
     </ErrorBoundary>
   );
 };

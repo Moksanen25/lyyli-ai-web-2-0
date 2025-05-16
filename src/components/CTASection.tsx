@@ -32,7 +32,7 @@ const CTASection: React.FC = () => {
       </div>
       
       {/* Demo Dialog */}
-      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
+      <BookDemoDialog open={showDemoDialog} onOpenChange={setShowDemoDialog} />
     </section>
   );
 };

@@ -65,13 +65,13 @@ const FeaturesSection: React.FC = () => {
             className="bg-primary hover:bg-primary/90"
             onClick={() => setShowDemoDialog(true)}
           >
-            {t('features.demoButton') || 'Book a Demo'}
+            {t('common.bookDemo')}
           </Button>
         </div>
       </div>
       
       {/* Demo Dialog */}
-      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
+      <BookDemoDialog open={showDemoDialog} onOpenChange={setShowDemoDialog} />
     </section>
   );
 };
