@@ -100,7 +100,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.tech.quote'),
             author: t('features.customerSegments.segments.tech.author')
           }}
-          image="/images/features-dashboard.jpg"
+          image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
           icon="tech"
         />
         
@@ -114,7 +114,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.consulting.quote'),
             author: t('features.customerSegments.segments.consulting.author')
           }}
-          image="/images/features-consulting.jpg"
+          image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
           icon="consulting"
           reverse={true}
         />
@@ -129,7 +129,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.nonprofit.quote'),
             author: t('features.customerSegments.segments.nonprofit.author')
           }}
-          image="/images/features-nonprofit.jpg"
+          image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=800"
           icon="nonprofit"
         />
         
@@ -143,7 +143,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.education.quote'),
             author: t('features.customerSegments.segments.education.author')
           }}
-          image="/images/features-education.jpg"
+          image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800"
           icon="education"
           reverse={true}
         />
@@ -158,7 +158,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.creative.quote'),
             author: t('features.customerSegments.segments.creative.author')
           }}
-          image="/images/features-creative.jpg"
+          image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
           icon="creative"
         />
         
@@ -172,7 +172,7 @@ const Features = () => {
             quote: t('features.customerSegments.segments.sports.quote'),
             author: t('features.customerSegments.segments.sports.author')
           }}
-          image="/images/features-sports.jpg"
+          image="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800"
           icon="sports"
           reverse={true}
         />
