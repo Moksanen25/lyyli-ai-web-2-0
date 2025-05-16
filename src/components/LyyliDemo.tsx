@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import DemoDialog from './lyyli-demo/DemoDialog';
+import BookDemoDialog from '@/components/BookDemoDialog';
 import { ErrorBoundary } from './ui/error-boundary';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 
 const LyyliDemo: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { safeT } = useSafeTranslation();
@@ -21,6 +23,7 @@ const LyyliDemo: React.FC = () => {
       setAnimationPhase(0);
       setIsLoading(false);
       setIsOpen(false);
+      setShowBooking(false);
     };
   }, []);
   
@@ -41,16 +44,29 @@ const LyyliDemo: React.FC = () => {
       setIsLoading(false);
     }, 300);
   };
+
+  const handleBookDemo = () => {
+    setShowBooking(true);
+  };
   
   return (
     <ErrorBoundary>
-      <Button 
-        variant="outline" 
-        className="border-primary text-primary hover:bg-primary/10 h-10 px-4 py-2"
-        onClick={handleOpen}
-      >
-        {safeT('hero.secondaryCta', { fallback: 'See how it works' })}
-      </Button>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Button 
+          variant="outline" 
+          className="border-primary text-primary hover:bg-primary/10 h-10 px-4 py-2"
+          onClick={handleOpen}
+        >
+          {safeT('hero.secondaryCta', { fallback: 'See how it works' })}
+        </Button>
+        
+        <Button
+          className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
+          onClick={handleBookDemo}
+        >
+          {safeT('hero.primaryCta', { fallback: 'Book a demo' })}
+        </Button>
+      </div>
       
       <DemoDialog 
         isOpen={isOpen}
@@ -60,6 +76,8 @@ const LyyliDemo: React.FC = () => {
         isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
+      
+      <BookDemoDialog isOpen={showBooking} setIsOpen={setShowBooking} />
     </ErrorBoundary>
   );
 };

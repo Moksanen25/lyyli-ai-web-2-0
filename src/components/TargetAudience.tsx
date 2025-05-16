@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from '@/hooks/use-mobile';
+import BookDemoDialog from '@/components/BookDemoDialog';
 
 const TargetAudience = () => {
   const {
@@ -15,6 +17,7 @@ const TargetAudience = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState("tech-smes");
+  const [showDemoDialog, setShowDemoDialog] = useState(false);
 
   // Target audience data with translations for both languages
   const audiences = [{
@@ -68,7 +71,7 @@ const TargetAudience = () => {
   }];
 
   const handleBookDemo = () => {
-    navigate('/waitlist');
+    setShowDemoDialog(true);
   };
 
   // Render desktop tabs or mobile accordion based on screen size
@@ -146,6 +149,9 @@ const TargetAudience = () => {
             ))}
           </Tabs>
         )}
+
+        {/* Demo Dialog */}
+        <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
       </div>
     </section>
   );

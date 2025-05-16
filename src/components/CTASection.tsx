@@ -1,10 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import BookDemoDialog from '@/components/BookDemoDialog';
 
 const CTASection: React.FC = () => {
   const { t } = useLanguage();
+  const [showDemoDialog, setShowDemoDialog] = useState(false);
 
   return (
     <section className="py-16 md:py-24 bg-primary text-white">
@@ -14,11 +16,12 @@ const CTASection: React.FC = () => {
           <p className="text-xl mb-8 text-white/80">
             {t('cta.subtitle')}
           </p>
-          <a href="https://lyyli.vercel.app/">
-            <Button className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg">
-              {t('cta.button')}
-            </Button>
-          </a>
+          <Button 
+            className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg"
+            onClick={() => setShowDemoDialog(true)}
+          >
+            {t('cta.button')}
+          </Button>
           
           {/* Decorative elements */}
           <div className="mt-12 relative">
@@ -27,6 +30,9 @@ const CTASection: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Demo Dialog */}
+      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
     </section>
   );
 };

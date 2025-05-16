@@ -1,15 +1,18 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Shield, Users, Database, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import BookDemoDialog from '@/components/BookDemoDialog';
 
 const EnterpriseCallout: React.FC = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const [showDemoDialog, setShowDemoDialog] = useState(false);
   
   const enterpriseFeatures = [
     {
@@ -36,6 +39,10 @@ const EnterpriseCallout: React.FC = () => {
 
   // For mobile, only show first 2 features to keep it focused
   const displayedFeatures = isMobile ? enterpriseFeatures.slice(0, 2) : enterpriseFeatures;
+
+  const handleConsultation = () => {
+    setShowDemoDialog(true);
+  };
 
   return (
     <section className="py-12 md:py-24 bg-gradient-to-br from-primary/5 to-background">
@@ -73,7 +80,7 @@ const EnterpriseCallout: React.FC = () => {
           <Button 
             size={isMobile ? "default" : "lg"} 
             className="bg-primary hover:bg-primary/90"
-            onClick={() => navigate('/contact')}
+            onClick={handleConsultation}
           >
             Schedule Enterprise Consultation
           </Button>
@@ -82,6 +89,9 @@ const EnterpriseCallout: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* Enterprise Demo Dialog */}
+      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
     </section>
   );
 };

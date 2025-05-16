@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Users, BookOpen, Search } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import BookDemoDialog from '@/components/BookDemoDialog';
 
 const FeaturesSection: React.FC = () => {
   const { t } = useLanguage();
+  const [showDemoDialog, setShowDemoDialog] = useState(false);
   
   const features = [
     {
@@ -56,7 +59,19 @@ const FeaturesSection: React.FC = () => {
             </Card>
           ))}
         </div>
+        
+        <div className="text-center mt-12">
+          <Button 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => setShowDemoDialog(true)}
+          >
+            {t('features.demoButton', 'Book a Demo')}
+          </Button>
+        </div>
       </div>
+      
+      {/* Demo Dialog */}
+      <BookDemoDialog isOpen={showDemoDialog} setIsOpen={setShowDemoDialog} />
     </section>
   );
 };
