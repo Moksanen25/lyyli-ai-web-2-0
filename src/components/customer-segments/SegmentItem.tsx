@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ensureArray } from './utils';
@@ -90,7 +89,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
             </ul>
           </div>
 
-          <Button className="bg-primary hover:bg-primary/90 mt-2 px-6 py-2 h-auto text-base">{t('customerSegments.bookDemoButton')}</Button>
+          {/* Button has been removed as requested */}
         </div>
 
         <div className="bg-white p-8 rounded-xl shadow-md">
