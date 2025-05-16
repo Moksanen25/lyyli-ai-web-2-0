@@ -43,7 +43,7 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({ comparisonFeature
 
   return (
     <div className="mt-8 rounded-lg border bg-card shadow-sm p-1 overflow-hidden max-w-6xl mx-auto">
-      <ScrollArea className={isMobile ? "h-[400px]" : "h-[500px]"} orientation={isMobile ? "horizontal" : "vertical"}>
+      <ScrollArea className={isMobile ? "h-[400px]" : "h-[500px]"}>
         <div className={isMobile ? "min-w-[640px]" : ""}>
           <Table>
             <TableCaption>Complete feature comparison across all plans</TableCaption>
