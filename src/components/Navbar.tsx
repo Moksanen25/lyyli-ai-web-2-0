@@ -114,13 +114,15 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu - Full Screen Overlay */}
       <div 
         id="mobile-menu"
-        className={`lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto transition-all duration-300 ${
-          isMenuOpen ? 'top-0 opacity-100' : 'top-[-100%] opacity-0'
+        className={`lg:hidden fixed inset-x-0 bg-white z-50 transition-all duration-300 ${
+          isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}
         style={{
-          height: isMenuOpen ? '100%' : '0',
-          paddingTop: '5rem',
-          visibility: isMenuOpen ? 'visible' : 'hidden'
+          top: 0,
+          bottom: 0,
+          position: 'fixed',
+          display: isMenuOpen ? 'block' : 'none',
+          paddingTop: '5rem'
         }}
         aria-hidden={!isMenuOpen}
       >
