@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -19,13 +18,6 @@ const FeatureHero = () => {
   
   // Customer segment showcase images with descriptions and links
   const showcaseImages = [
-    {
-      src: "/images/features-dashboard.jpg",
-      alt: "Lyyli dashboard user interface with content analytics",
-      segment: null,
-      title: t('features.showcase.title1'),
-      desc: t('features.showcase.desc1')
-    },
     {
       src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
       alt: "Tech company team meeting and using digital tools",
