@@ -17,6 +17,9 @@ export const pricing = {
     name: 'Professional',
     description: 'Everything you need for a growing business with multiple needs.',
     cta: 'Start Free Trial',
+    price: '599',
+    yearlyPrice: '5751',
+    savings: '1437'
   },
   enterprise: {
     name: 'Enterprise',

@@ -17,6 +17,9 @@ export const pricing = {
     name: 'Ammattilais',
     description: 'Kaikki mitä tarvitset kasvavalle yritykselle, jolla on useita tarpeita.',
     cta: 'Aloita Ilmainen Kokeilu',
+    price: '599',
+    yearlyPrice: '5751',
+    savings: '1437'
   },
   enterprise: {
     name: 'Yritys',

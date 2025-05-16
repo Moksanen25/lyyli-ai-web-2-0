@@ -56,7 +56,7 @@ const PricingPage = () => {
     },
     {
       name: 'Professional',
-      monthly: 499,
+      monthly: 599,
       description: 'Everything you need for a growing business with multiple needs.',
       primaryFeatures: [
         'Everything in Starter',
