@@ -65,7 +65,7 @@ const FeaturesSection: React.FC = () => {
             className="bg-primary hover:bg-primary/90"
             onClick={() => setShowDemoDialog(true)}
           >
-            {t('features.demoButton', 'Book a Demo')}
+            {t('features.demoButton') || 'Book a Demo'}
           </Button>
         </div>
       </div>
