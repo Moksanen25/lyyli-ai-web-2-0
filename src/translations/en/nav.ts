@@ -7,4 +7,6 @@ export const nav = {
   login: 'Log In',
   signup: 'Sign Up',
   about: 'About',
+  openMenu: 'Open menu',
+  closeMenu: 'Close menu',
 };

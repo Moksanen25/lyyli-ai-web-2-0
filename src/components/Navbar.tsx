@@ -64,22 +64,22 @@ const Navbar: React.FC = () => {
     >
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/full" className="flex items-center" aria-label="Lyyli home page">
+        <Link to="/" className="flex items-center" aria-label="Lyyli home page">
           <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
-          <Link to="/full/features" className="text-primary hover:text-primary/80 transition-colors">
+          <Link to="/features" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.features')}
           </Link>
-          <Link to="/full/pricing" className="text-primary hover:text-primary/80 transition-colors">
+          <Link to="/pricing" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.pricing')}
           </Link>
-          <Link to="/full/about" className="text-primary hover:text-primary/80 transition-colors">
+          <Link to="/about" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.about')}
           </Link>
-          <Link to="/full/contact" className="text-primary hover:text-primary/80 transition-colors">
+          <Link to="/contact" className="text-primary hover:text-primary/80 transition-colors">
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
@@ -114,35 +114,40 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu - Full Screen Overlay */}
       <div 
         id="mobile-menu"
-        className={`lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto pt-16 transition-opacity duration-300 ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto transition-all duration-300 ${
+          isMenuOpen ? 'top-0 opacity-100' : 'top-[-100%] opacity-0'
         }`}
+        style={{
+          height: isMenuOpen ? '100%' : '0',
+          paddingTop: '5rem',
+          visibility: isMenuOpen ? 'visible' : 'hidden'
+        }}
         aria-hidden={!isMenuOpen}
       >
         <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
           <Link 
-            to="/full/features" 
+            to="/features" 
             className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.features')}
           </Link>
           <Link 
-            to="/full/pricing" 
+            to="/pricing" 
             className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.pricing')}
           </Link>
           <Link 
-            to="/full/about" 
+            to="/about" 
             className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.about')}
           </Link>
           <Link 
-            to="/full/contact" 
+            to="/contact" 
             className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
             onClick={() => setIsMenuOpen(false)}
           >

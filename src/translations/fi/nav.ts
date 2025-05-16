@@ -7,4 +7,6 @@ export const nav = {
   login: 'Kirjaudu',
   signup: 'Rekisteröidy',
   about: 'Tietoa meistä',
+  openMenu: 'Avaa valikko',
+  closeMenu: 'Sulje valikko',
 };
