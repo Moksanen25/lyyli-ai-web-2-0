@@ -54,109 +54,141 @@ const Navbar: React.FC = () => {
     };
   }, [isMenuOpen, isMobile]);
 
+  // Close menu when switching to desktop view
+  useEffect(() => {
+    if (!isMobile && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [isMobile, isMenuOpen]);
+
   return (
-    <nav 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white card-shadow py-2' : 'bg-transparent py-4'
-      } ${visible ? 'translate-y-0' : '-translate-y-full'}`}
-      aria-label="Main navigation"
-      role="navigation"
-    >
-      <div className="container-padding container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center" aria-label="Lyyli home page">
-          <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
-        </Link>
+    <>
+      <nav 
+        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-white card-shadow py-2' : 'bg-transparent py-4'
+        } ${visible ? 'translate-y-0' : '-translate-y-full'}`}
+        aria-label="Main navigation"
+        role="navigation"
+      >
+        <div className="container-padding container mx-auto flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center" aria-label="Lyyli home page">
+            <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-8">
-          <Link to="/features" className="text-primary hover:text-primary/80 transition-colors">
-            {t('nav.features')}
-          </Link>
-          <Link to="/pricing" className="text-primary hover:text-primary/80 transition-colors">
-            {t('nav.pricing')}
-          </Link>
-          <Link to="/about" className="text-primary hover:text-primary/80 transition-colors">
-            {t('nav.about')}
-          </Link>
-          <Link to="/contact" className="text-primary hover:text-primary/80 transition-colors">
-            {t('nav.contact')}
-          </Link>
-          <LanguageSwitcher />
-          <a 
-            href="https://lyyli.vercel.app/" 
-            className="text-primary hover:text-primary/80 transition-colors"
-          >
-            {t('nav.login')}
-          </a>
-          <a href="https://lyyli.vercel.app/">
-            <Button className="bg-primary hover:bg-primary/90 text-white">
-              {t('nav.signup')}
-            </Button>
-          </a>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            <Link to="/features" className="text-primary hover:text-primary/80 transition-colors">
+              {t('nav.features')}
+            </Link>
+            <Link to="/pricing" className="text-primary hover:text-primary/80 transition-colors">
+              {t('nav.pricing')}
+            </Link>
+            <Link to="/about" className="text-primary hover:text-primary/80 transition-colors">
+              {t('nav.about')}
+            </Link>
+            <Link to="/contact" className="text-primary hover:text-primary/80 transition-colors">
+              {t('nav.contact')}
+            </Link>
+            <LanguageSwitcher />
+            <a 
+              href="https://lyyli.vercel.app/" 
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              {t('nav.login')}
+            </a>
+            <a href="https://lyyli.vercel.app/">
+              <Button className="bg-primary hover:bg-primary/90 text-white">
+                {t('nav.signup')}
+              </Button>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center">
+            <LanguageSwitcher />
+            <button
+              className="ml-4 text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+            >
+              {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            </button>
+          </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center">
-          <LanguageSwitcher />
-          <button
-            className="ml-4 text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded"
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu - Fixed Overlay */}
+      {/* Mobile Menu - Separate from nav to ensure proper stacking */}
       {isMenuOpen && (
         <div 
           id="mobile-menu"
-          className="lg:hidden fixed inset-0 bg-white z-40 overflow-y-auto"
-          aria-hidden={!isMenuOpen}
+          className="lg:hidden fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-white z-[100] overflow-y-auto"
+          style={{
+            position: 'fixed',
+            display: 'block'
+          }}
         >
-          <div className="container-padding container mx-auto py-20">
-            <Link 
-              to="/features" 
-              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.features')}
-            </Link>
-            <Link 
-              to="/pricing" 
-              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.pricing')}
-            </Link>
-            <Link 
-              to="/about" 
-              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.about')}
-            </Link>
-            <Link 
-              to="/contact" 
-              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.contact')}
-            </Link>
-            <div className="py-4">
+          <div className="container-padding container mx-auto pt-24 pb-8">
+            {/* Close button at the top */}
+            <div className="absolute top-4 right-4">
+              <button
+                className="text-primary p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={t('nav.closeMenu')}
+              >
+                <X size={24} aria-hidden="true" />
+              </button>
+            </div>
+
+            {/* Mobile Navigation Links */}
+            <div className="flex flex-col space-y-3">
+              <Link 
+                to="/features" 
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.features')}
+              </Link>
+              <Link 
+                to="/pricing" 
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.pricing')}
+              </Link>
+              <Link 
+                to="/about" 
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.about')}
+              </Link>
+              <Link 
+                to="/contact" 
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.contact')}
+              </Link>
+            </div>
+
+            {/* Login and Signup */}
+            <div className="py-6 space-y-4">
               <a 
                 href="https://lyyli.vercel.app/"
-                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block mb-4"
+                className="text-primary hover:text-primary/80 transition-colors py-2 text-lg block"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.login')}
               </a>
-              <a href="https://lyyli.vercel.app/" onClick={() => setIsMenuOpen(false)}>
-                <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
+              <a 
+                href="https://lyyli.vercel.app/" 
+                onClick={() => setIsMenuOpen(false)}
+                className="block"
+              >
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full py-4 text-lg">
                   {t('nav.signup')}
                 </Button>
               </a>
@@ -164,7 +196,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
