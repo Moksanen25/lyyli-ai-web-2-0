@@ -13,14 +13,6 @@ import CTASection from '@/components/CTASection';
 import ComplianceBadges from '@/components/ComplianceBadges';
 import SegmentBlock from '@/components/features/SegmentBlock';
 import SegmentNavigation from '@/components/features/SegmentNavigation';
-import { 
-  Building, 
-  Briefcase, 
-  Handshake, 
-  School, 
-  Lightbulb, 
-  Flag 
-} from 'lucide-react';
 
 /**
  * Features page component
@@ -103,6 +95,7 @@ const Features = () => {
             author: t('features.customerSegments.segments.tech.author')
           }}
           image="/images/features-dashboard.jpg"
+          icon="tech"
         />
         
         {/* Consulting Segment */}
@@ -115,6 +108,8 @@ const Features = () => {
             quote: t('features.customerSegments.segments.consulting.quote'),
             author: t('features.customerSegments.segments.consulting.author')
           }}
+          image="/images/features-consulting.jpg"
+          icon="consulting"
           reverse={true}
         />
         
@@ -128,6 +123,8 @@ const Features = () => {
             quote: t('features.customerSegments.segments.nonprofit.quote'),
             author: t('features.customerSegments.segments.nonprofit.author')
           }}
+          image="/images/features-nonprofit.jpg"
+          icon="nonprofit"
         />
         
         {/* Education Segment */}
@@ -140,6 +137,8 @@ const Features = () => {
             quote: t('features.customerSegments.segments.education.quote'),
             author: t('features.customerSegments.segments.education.author')
           }}
+          image="/images/features-education.jpg"
+          icon="education"
           reverse={true}
         />
         
@@ -153,6 +152,8 @@ const Features = () => {
             quote: t('features.customerSegments.segments.creative.quote'),
             author: t('features.customerSegments.segments.creative.author')
           }}
+          image="/images/features-creative.jpg"
+          icon="creative"
         />
         
         {/* Sports Segment */}
@@ -165,6 +166,8 @@ const Features = () => {
             quote: t('features.customerSegments.segments.sports.quote'),
             author: t('features.customerSegments.segments.sports.author')
           }}
+          image="/images/features-sports.jpg"
+          icon="sports"
           reverse={true}
         />
         

@@ -5,6 +5,15 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import BookDemoDialog from '@/components/BookDemoDialog';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { 
+  Building, 
+  Briefcase, 
+  Handshake, 
+  School, 
+  Lightbulb, 
+  Flag 
+} from 'lucide-react';
 
 interface SegmentBlockProps {
   id: string;
@@ -16,6 +25,7 @@ interface SegmentBlockProps {
     author: string;
   };
   image?: string;
+  icon?: 'tech' | 'consulting' | 'nonprofit' | 'education' | 'creative' | 'sports';
   reverse?: boolean;
 }
 
@@ -26,6 +36,7 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
   description,
   caseStudy,
   image,
+  icon,
   reverse = false,
 }) => {
   const { t } = useLanguage();
@@ -33,6 +44,26 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
   
   // Process description to ensure it's always an array
   const descriptionArray = Array.isArray(description) ? description : [description];
+
+  // Helper function to render the appropriate icon
+  const renderIcon = () => {
+    switch (icon) {
+      case 'tech':
+        return <Building size={48} className="text-primary" />;
+      case 'consulting':
+        return <Briefcase size={48} className="text-primary" />;
+      case 'nonprofit':
+        return <Handshake size={48} className="text-primary" />;
+      case 'education':
+        return <School size={48} className="text-primary" />;
+      case 'creative':
+        return <Lightbulb size={48} className="text-primary" />;
+      case 'sports':
+        return <Flag size={48} className="text-primary" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section id={id} className="py-16 md:py-24 scroll-mt-20">
@@ -64,17 +95,24 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
             </Button>
           </div>
           
-          {/* Image */}
+          {/* Image or Icon Visualization */}
           <div className="flex-1">
-            <div className="rounded-lg overflow-hidden shadow-lg aspect-video bg-primary/10 flex items-center justify-center">
+            <AspectRatio ratio={16 / 9}>
               {image ? (
-                <img src={image} alt={title} className="w-full h-auto" />
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-full object-cover rounded-lg shadow-lg" 
+                />
               ) : (
-                <div className="text-primary/50 text-lg">
-                  {title} visualization
+                <div className="w-full h-full rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 flex flex-col items-center justify-center">
+                  {renderIcon()}
+                  <div className="mt-4 text-primary/80 text-lg font-medium">
+                    {title}
+                  </div>
                 </div>
               )}
-            </div>
+            </AspectRatio>
           </div>
         </div>
       </div>
