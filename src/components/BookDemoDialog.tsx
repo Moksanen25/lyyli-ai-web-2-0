@@ -4,16 +4,16 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BookDemoDialogProps {
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-const BookDemoDialog: React.FC<BookDemoDialogProps> = ({ isOpen, setIsOpen }) => {
+const BookDemoDialog: React.FC<BookDemoDialogProps> = ({ open, onOpenChange }) => {
   const { t, language } = useLanguage();
   
   // Load HubSpot meetings script when the dialog opens
   useEffect(() => {
-    if (isOpen) {
+    if (open) {
       // Clear any existing script to avoid duplicates
       const existingScript = document.getElementById('hs-meetings-embed');
       if (existingScript) {
@@ -29,10 +29,10 @@ const BookDemoDialog: React.FC<BookDemoDialogProps> = ({ isOpen, setIsOpen }) =>
       script.defer = true;
       document.body.appendChild(script);
     }
-  }, [isOpen]);
+  }, [open]);
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl p-0 overflow-hidden">
         <DialogHeader className="p-6 pb-0">
           <DialogTitle className="text-2xl font-playfair">
