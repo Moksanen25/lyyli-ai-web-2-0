@@ -111,65 +111,59 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - Full Screen Overlay */}
-      <div 
-        id="mobile-menu"
-        className={`lg:hidden fixed inset-x-0 bg-white z-50 transition-all duration-300 ${
-          isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        }`}
-        style={{
-          top: 0,
-          bottom: 0,
-          position: 'fixed',
-          display: isMenuOpen ? 'block' : 'none',
-          paddingTop: '5rem'
-        }}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="container-padding container mx-auto py-6 flex flex-col space-y-6">
-          <Link 
-            to="/features" 
-            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.features')}
-          </Link>
-          <Link 
-            to="/pricing" 
-            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.pricing')}
-          </Link>
-          <Link 
-            to="/about" 
-            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.about')}
-          </Link>
-          <Link 
-            to="/contact" 
-            className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.contact')}
-          </Link>
-          <div className="py-4">
-            <a 
-              href="https://lyyli.vercel.app/"
-              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block mb-4"
+      {/* Mobile Menu - Fixed Overlay */}
+      {isMenuOpen && (
+        <div 
+          id="mobile-menu"
+          className="lg:hidden fixed inset-0 bg-white z-40 overflow-y-auto"
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="container-padding container mx-auto py-20">
+            <Link 
+              to="/features" 
+              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
             >
-              {t('nav.login')}
-            </a>
-            <a href="https://lyyli.vercel.app/">
-              <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
-                {t('nav.signup')}
-              </Button>
-            </a>
+              {t('nav.features')}
+            </Link>
+            <Link 
+              to="/pricing" 
+              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.pricing')}
+            </Link>
+            <Link 
+              to="/about" 
+              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.about')}
+            </Link>
+            <Link 
+              to="/contact" 
+              className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.contact')}
+            </Link>
+            <div className="py-4">
+              <a 
+                href="https://lyyli.vercel.app/"
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg block mb-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.login')}
+              </a>
+              <a href="https://lyyli.vercel.app/" onClick={() => setIsMenuOpen(false)}>
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full py-6 text-lg">
+                  {t('nav.signup')}
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
