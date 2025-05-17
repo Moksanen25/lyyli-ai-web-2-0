@@ -23,13 +23,16 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   };
   
   useEffect(() => {
-    console.log('BlogContent mounted/updated with:', {
-      postTitle: post.title,
+    console.log('BlogContent: Mounted/updated with:', {
       postId: post.id,
-      postLanguage: post.language || 'generic',
+      postTitle: post.title,
+      postLanguage: post.language || 'default',
       currentLanguage: language
     });
-  }, [post, language]);
+  }, [post.id, post.title, post.language, language]);
+  
+  // Determine text direction for RTL languages if needed in the future
+  // const isRTL = language === 'ar' || language === 'he';
   
   return (
     <article className="max-w-3xl mx-auto">
@@ -41,7 +44,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
         {post.tags.map((tag, index) => (
-          <Badge key={index} variant="outline">
+          <Badge key={`${tag}-${index}`} variant="outline">
             {safeT(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
           </Badge>
         ))}

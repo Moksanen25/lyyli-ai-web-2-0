@@ -20,7 +20,9 @@ export const blog = {
     nonprofits: 'Nonprofits',
     education: 'Education',
     creative: 'Creative Agencies',
-    sports: 'Sports Organizations'
+    creativeagencies: 'Creative Agencies',
+    sports: 'Sports Organizations',
+    sportsorganizations: 'Sports Organizations'
   },
   ctaTitle: 'Want to see how Lyyli can help your organization?',
   ctaSubtitle: 'Book a demo to see how our AI communication platform works for your specific needs',
