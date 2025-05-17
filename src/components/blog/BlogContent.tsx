@@ -12,13 +12,18 @@ interface BlogContentProps {
 }
 
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const publishDate = new Date(post.publishDate);
+  
+  // Get the correct blog URL based on the current language
+  const getBlogUrl = () => {
+    return language === 'fi' ? '/fi/full/blog' : '/full/blog';
+  };
   
   return (
     <article className="max-w-3xl mx-auto">
       {/* Back to blog link */}
-      <Link to="/blog" className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
+      <Link to={getBlogUrl()} className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
         <ChevronLeft className="h-4 w-4 mr-1" /> {t('blog.backToBlog')}
       </Link>
       

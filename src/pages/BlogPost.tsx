@@ -7,20 +7,27 @@ import { blogPosts } from '@/data/blogData';
 import BlogContent from '@/components/blog/BlogContent';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import BlogCTA from '@/components/blog/BlogCTA';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { language } = useLanguage();
   
   // Find the post with matching slug
   const post = useMemo(() => {
     return blogPosts.find(p => p.slug === slug);
   }, [slug]);
   
+  // Get the correct blog URL for redirects
+  const getBlogUrl = () => {
+    return language === 'fi' ? '/fi/full/blog' : '/full/blog';
+  };
+  
   // Redirect if post not found
   useEffect(() => {
     if (!post) {
-      navigate('/blog', { replace: true });
+      navigate(getBlogUrl(), { replace: true });
     }
   }, [post, navigate]);
   
