@@ -8,6 +8,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
+import { blogTranslations } from '@/components/blog/TranslatedContent';
 
 interface FeaturedPostProps {
   post: BlogPost;
@@ -23,6 +24,12 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
     return language === 'fi' ? `/fi/full/blog/${post.slug}` : `/full/blog/${post.slug}`;
   };
   
+  // Get translated title and excerpt if available
+  const translationKey = `${post.slug}-${language}`;
+  const translation = language === 'fi' ? blogTranslations[translationKey] : null;
+  const title = translation?.title || post.title;
+  const excerpt = translation?.excerpt || post.excerpt;
+  
   return (
     <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -31,7 +38,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
           {post.featuredImage.startsWith('http') ? (
             <img 
               src={post.featuredImage} 
-              alt={post.title}
+              alt={title}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -60,11 +67,11 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
           </div>
           
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {post.title}
+            {title}
           </h2>
           
           <p className="text-muted-foreground mb-6">
-            {post.excerpt}
+            {excerpt}
           </p>
           
           <div className="flex items-center mb-6">

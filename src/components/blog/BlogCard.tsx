@@ -8,6 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { FileImage } from 'lucide-react';
 import type { BlogPost } from '@/data/blogData';
+import { blogTranslations } from '@/components/blog/TranslatedContent';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -24,6 +25,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
     return language === 'fi' ? `/fi/full/blog/${post.slug}` : `/full/blog/${post.slug}`;
   };
   
+  // Get translated title and excerpt if available
+  const translationKey = `${post.slug}-${language}`;
+  const translation = language === 'fi' ? blogTranslations[translationKey] : null;
+  const title = translation?.title || post.title;
+  const excerpt = translation?.excerpt || post.excerpt;
+  
   return (
     <Card 
       className={`overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col ${
@@ -37,7 +44,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
             {post.featuredImage.startsWith('http') ? (
               <img 
                 src={post.featuredImage} 
-                alt={post.title}
+                alt={title}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -66,11 +73,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
             </div>
             
             <h3 className={`${featured ? 'text-xl' : 'text-lg'} font-semibold mb-2 line-clamp-2`}>
-              {post.title}
+              {title}
             </h3>
             
             <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-              {post.excerpt}
+              {excerpt}
             </p>
             
             <div className="mt-auto flex items-center">
