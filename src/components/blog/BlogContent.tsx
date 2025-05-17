@@ -14,7 +14,7 @@ interface BlogContentProps {
 
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   const { language } = useLanguage();
-  const { safeT } = useSafeTranslation();
+  const { safeT, blogT } = useSafeTranslation();
   const publishDate = new Date(post.publishDate);
   
   // Get the correct blog URL based on the current language
@@ -27,7 +27,8 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       postId: post.id,
       postTitle: post.title,
       postLanguage: post.language || 'default',
-      currentLanguage: language
+      currentLanguage: language,
+      isFinnishMode: language === 'fi'
     });
   }, [post.id, post.title, post.language, language]);
   

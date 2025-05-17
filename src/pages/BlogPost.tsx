@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -14,7 +15,7 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { language } = useLanguage();
-  const { safeT } = useSafeTranslation();
+  const { safeT, blogT } = useSafeTranslation();
   const [currentPost, setCurrentPost] = useState<typeof blogPosts[0] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   
