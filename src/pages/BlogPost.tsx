@@ -14,16 +14,20 @@ const BlogPost: React.FC = () => {
   const navigate = useNavigate();
   const { language } = useLanguage();
   
-  // Find the post with matching slug
+  // Find the post with matching slug and language
   const post = useMemo(() => {
-    // Check first if there's a language-specific version of the post (with the same slug)
-    return blogPosts.find(p => {
-      // For each post, check if it matches the current language and slug
-      return p.slug === slug && p.language === language;
-    }) || 
-    // Fallback to any post with matching slug if no language-specific version found
-    blogPosts.find(p => p.slug === slug);
-  }, [slug, language]); // Add language as dependency to refresh when language changes
+    // First try to find a direct match for both slug and language
+    let matchingPost = blogPosts.find(p => 
+      p.slug === slug && (p.language === language || !p.language)
+    );
+    
+    // If no match, fall back to any post with the same slug
+    if (!matchingPost) {
+      matchingPost = blogPosts.find(p => p.slug === slug);
+    }
+    
+    return matchingPost;
+  }, [slug, language]); // Refresh when language changes
   
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {

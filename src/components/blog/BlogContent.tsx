@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, FileImage } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 
 interface BlogContentProps {
@@ -12,7 +13,8 @@ interface BlogContentProps {
 }
 
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
+  const { safeT } = useSafeTranslation();
   const publishDate = new Date(post.publishDate);
   
   // Get the correct blog URL based on the current language
@@ -24,14 +26,14 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     <article className="max-w-3xl mx-auto">
       {/* Back to blog link */}
       <Link to={getBlogUrl()} className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
-        <ChevronLeft className="h-4 w-4 mr-1" /> {t('blog.backToBlog')}
+        <ChevronLeft className="h-4 w-4 mr-1" /> {safeT('blog.backToBlog')}
       </Link>
       
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
         {post.tags.map((tag, index) => (
           <Badge key={index} variant="outline">
-            {t(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
+            {safeT(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
           </Badge>
         ))}
       </div>
@@ -49,7 +51,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         <div>
           <p className="font-medium">{post.author.name}</p>
           <p className="text-sm text-muted-foreground">
-            {post.author.title} • {t('blog.publishedOn')} {format(publishDate, 'MMMM d, yyyy')} • {post.readTime} {t('blog.minuteRead')}
+            {post.author.title} • {safeT('blog.publishedOn')} {format(publishDate, 'MMMM d, yyyy')} • {post.readTime} {safeT('blog.minuteRead')}
           </p>
         </div>
       </div>
@@ -77,7 +79,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       
       {/* Share */}
       <div className="border-t border-b py-6 my-10">
-        <p className="font-medium mb-3">{t('blog.sharePost')}</p>
+        <p className="font-medium mb-3">{safeT('blog.sharePost')}</p>
         <div className="flex space-x-4">
           {/* Placeholder for social share buttons */}
           <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center cursor-pointer hover:bg-blue-200">
@@ -104,7 +106,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           </div>
         </div>
         <p className="text-muted-foreground">
-          {t('blog.authorBio')}
+          {safeT('blog.authorBio')}
         </p>
       </div>
     </article>
