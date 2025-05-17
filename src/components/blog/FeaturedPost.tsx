@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -13,8 +12,13 @@ interface FeaturedPostProps {
 }
 
 const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const publishDate = new Date(post.publishDate);
+  
+  // Get the correct blog post URL based on language
+  const getBlogPostUrl = () => {
+    return language === 'fi' ? `/fi/full/blog/${post.slug}` : `/full/blog/${post.slug}`;
+  };
   
   return (
     <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
@@ -65,7 +69,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
             </div>
           </div>
           
-          <Link to={`/blog/${post.slug}`}>
+          <Link to={getBlogPostUrl()}>
             <Button className="flex items-center">
               {t('blog.readMore')} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

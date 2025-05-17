@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,8 +13,13 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const publishDate = new Date(post.publishDate);
+  
+  // Get the correct blog post URL based on language
+  const getBlogPostUrl = () => {
+    return language === 'fi' ? `/fi/full/blog/${post.slug}` : `/full/blog/${post.slug}`;
+  };
   
   return (
     <Card 
@@ -23,7 +27,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
         featured ? 'bg-secondary/10' : 'bg-white'
       }`}
     >
-      <Link to={`/blog/${post.slug}`} className="flex-grow flex flex-col">
+      <Link to={getBlogPostUrl()} className="flex-grow flex flex-col">
         <CardContent className="p-0 flex flex-col h-full">
           {/* Image area with tags */}
           <div className="relative bg-primary/5 h-48 overflow-hidden">
