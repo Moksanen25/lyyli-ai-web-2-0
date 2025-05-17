@@ -15,10 +15,18 @@ const BlogList: React.FC = () => {
   const { safeT } = useSafeTranslation();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   
-  // Filter posts based on language preference
+  // Filter posts based on language preference - allow all posts to be visible in Finnish
   const languageFilteredPosts = useMemo(() => {
-    // Get posts for current language or language-agnostic posts
-    return blogPosts.filter(post => !post.language || post.language === language);
+    console.log('Filtering posts for language:', language);
+    console.log('Total posts available:', blogPosts.length);
+    
+    if (language === 'fi') {
+      // For Finnish, show all posts as they'll be translated through UI
+      return blogPosts;
+    } else {
+      // For English, filter out Finnish-specific posts
+      return blogPosts.filter(post => !post.language || post.language === 'en');
+    }
   }, [language]);
   
   // Get all unique tags

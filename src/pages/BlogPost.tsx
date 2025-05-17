@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -35,9 +34,9 @@ const BlogPost: React.FC = () => {
       return;
     }
     
-    // Find appropriate post for the current language and slug
+    // Find post regardless of language
     const findPost = () => {
-      // Get all posts with the matching slug (different language versions)
+      // Get all posts with the matching slug
       const postsWithSlug = blogPosts.filter(p => p.slug === slug);
       
       if (postsWithSlug.length === 0) {
@@ -56,25 +55,27 @@ const BlogPost: React.FC = () => {
       console.log(`Found ${postsWithSlug.length} posts with slug ${slug}:`, 
         postsWithSlug.map(p => `${p.id} (${p.language || 'default'})`));
       
-      // Try to find exact language match
-      const exactLanguageMatch = postsWithSlug.find(p => p.language === language);
+      // Try to find post based on language preference:
+      // 1. First try exact match by language
+      // 2. Then try language-agnostic post
+      // 3. Finally fall back to any available post
       
-      if (exactLanguageMatch) {
-        console.log(`Found exact language match (${language}):`, exactLanguageMatch.id);
-        return exactLanguageMatch;
+      // In Finnish mode, we don't need to be strict - show all posts
+      if (language === 'fi') {
+        // Prioritize Finnish posts if available
+        const fiPost = postsWithSlug.find(p => p.language === 'fi');
+        if (fiPost) return fiPost;
+        
+        // Otherwise show any post (will be translated by UI)
+        return postsWithSlug[0];
+      } else {
+        // In English mode, prioritize English posts
+        const enPost = postsWithSlug.find(p => !p.language || p.language === 'en');
+        if (enPost) return enPost;
+        
+        // Fall back to any post if needed
+        return postsWithSlug[0];
       }
-      
-      // Try to find generic post (no language)
-      const genericPost = postsWithSlug.find(p => !p.language);
-      
-      if (genericPost) {
-        console.log('Found generic post:', genericPost.id);
-        return genericPost;
-      }
-      
-      // Last resort: use first available post
-      console.log('Using first available post:', postsWithSlug[0].id);
-      return postsWithSlug[0];
     };
     
     const foundPost = findPost();
