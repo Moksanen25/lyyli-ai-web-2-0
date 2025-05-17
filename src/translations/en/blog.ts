@@ -12,9 +12,9 @@ export const blog = {
   tags: {
     news: 'News',
     blog: 'Blog',
-    caseStudy: 'Case Study',
-    successStory: 'Success Story',
-    techSMEs: 'Tech SMEs',
+    casestudy: 'Case Study',
+    successstory: 'Success Story',
+    techsmes: 'Tech SMEs',
     consulting: 'Consulting',
     nonprofits: 'Nonprofits',
     education: 'Education',

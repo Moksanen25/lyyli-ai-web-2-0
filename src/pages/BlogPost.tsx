@@ -29,7 +29,7 @@ const BlogPost: React.FC = () => {
     if (!post) {
       navigate(getBlogUrl(), { replace: true });
     }
-  }, [post, navigate]);
+  }, [post, navigate, getBlogUrl]);
   
   // If post is still loading or not found
   if (!post) {

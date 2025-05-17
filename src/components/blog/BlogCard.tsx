@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { FileImage } from 'lucide-react';
 import type { BlogPost } from '@/data/blogData';
 
 interface BlogCardProps {
@@ -25,7 +26,18 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
       <Link to={`/blog/${post.slug}`} className="flex-grow flex flex-col">
         <CardContent className="p-0 flex flex-col h-full">
           {/* Image area with tags */}
-          <div className="relative bg-primary/5 p-5 flex items-center justify-center h-48">
+          <div className="relative bg-primary/5 h-48 overflow-hidden">
+            {post.featuredImage.startsWith('http') ? (
+              <img 
+                src={post.featuredImage} 
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <FileImage className="h-12 w-12 text-muted-foreground" />
+              </div>
+            )}
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
               {post.tags.slice(0, 2).map((tag, index) => (
                 <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
@@ -33,7 +45,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
                 </Badge>
               ))}
             </div>
-            <div className="text-lg font-bold">{post.featuredImage}</div> {/* Placeholder for actual image */}
           </div>
           
           {/* Content area */}

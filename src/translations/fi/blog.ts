@@ -12,9 +12,9 @@ export const blog = {
   tags: {
     news: 'Uutiset',
     blog: 'Blogi',
-    caseStudy: 'Tapaustutkimus',
-    successStory: 'Menestystarina',
-    techSMEs: 'Teknologiayritykset',
+    casestudy: 'Tapaustutkimus',
+    successstory: 'Menestystarina',
+    techsmes: 'Teknologiayritykset',
     consulting: 'Konsultointi',
     nonprofits: 'Järjestöt',
     education: 'Koulutus',

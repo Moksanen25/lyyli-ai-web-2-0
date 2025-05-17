@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileImage } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { BlogPost } from '@/data/blogData';
@@ -20,7 +20,18 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
     <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Featured image */}
-        <div className="relative h-56 lg:h-auto flex items-center justify-center bg-primary/10 p-6">
+        <div className="relative h-56 lg:h-auto overflow-hidden">
+          {post.featuredImage.startsWith('http') ? (
+            <img 
+              src={post.featuredImage} 
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="h-full w-full flex items-center justify-center bg-primary/10 p-6">
+              <FileImage className="h-16 w-16 text-muted-foreground" />
+            </div>
+          )}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
             {post.tags.slice(0, 3).map((tag, index) => (
               <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
@@ -28,7 +39,6 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
               </Badge>
             ))}
           </div>
-          <div className="text-xl font-bold">{post.featuredImage}</div> {/* Placeholder for actual image */}
         </div>
         
         {/* Content */}

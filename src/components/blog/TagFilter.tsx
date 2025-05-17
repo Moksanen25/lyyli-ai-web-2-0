@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 interface TagFilterProps {
   tags: string[];
@@ -11,6 +12,7 @@ interface TagFilterProps {
 
 const TagFilter: React.FC<TagFilterProps> = ({ tags, selectedTag, onSelectTag }) => {
   const { t } = useLanguage();
+  const { safeT } = useSafeTranslation();
   
   return (
     <div className="mb-8 overflow-x-auto scrollbar-hide">
@@ -32,7 +34,7 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, selectedTag, onSelectTag })
             onClick={() => onSelectTag(tag)}
             className="whitespace-nowrap"
           >
-            {t(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
+            {safeT(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`, { fallback: tag })}
           </Button>
         ))}
       </div>
