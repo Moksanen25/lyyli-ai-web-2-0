@@ -45,7 +45,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
               const translatedTag = safeT(`blog.tags.${tagKey}`, { fallback: tag });
               
               return (
-                <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
+                <Badge key={`${tag}-${index}-${language}`} variant="secondary" className="bg-white/90 hover:bg-white">
                   {translatedTag}
                 </Badge>
               );

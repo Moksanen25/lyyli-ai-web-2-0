@@ -45,7 +45,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           const translatedTag = safeT(`blog.tags.${tagKey}`, { fallback: tag });
           
           return (
-            <Badge key={`${tag}-${index}`} variant="outline">
+            <Badge key={`${tag}-${index}-${language}`} variant="outline">
               {translatedTag}
             </Badge>
           );

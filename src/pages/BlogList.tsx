@@ -72,7 +72,12 @@ const BlogList: React.FC = () => {
         
         <div className="container mx-auto px-4 py-10">
           {/* Featured post - only show on "All" filter */}
-          {!selectedTag && featuredPost && <FeaturedPost post={featuredPost} />}
+          {!selectedTag && featuredPost && (
+            <FeaturedPost 
+              post={featuredPost} 
+              key={`featured-${featuredPost.id}-${language}`}
+            />
+          )}
           
           {/* Tag filtering */}
           <div className="mb-8">
@@ -81,13 +86,17 @@ const BlogList: React.FC = () => {
               tags={allTags} 
               selectedTag={selectedTag} 
               onSelectTag={setSelectedTag} 
+              key={`tagfilter-${language}`}
             />
           </div>
           
           {/* Post grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularPosts.map((post) => (
-              <BlogCard key={`${post.id}-${language}`} post={post} />
+              <BlogCard 
+                key={`${post.id}-${language}`} 
+                post={post} 
+              />
             ))}
           </div>
           
