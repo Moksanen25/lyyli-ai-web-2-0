@@ -9,6 +9,7 @@ export const blog = {
   publishedOn: 'Julkaistu',
   relatedPosts: 'Aiheeseen liittyvät artikkelit',
   caseStudy: 'Tapaustutkimus',
+  authorBio: 'Lyylin tiimin jäsen, joka on erikoistunut tekoälypohjaisiin viestintäratkaisuihin eri toimialojen organisaatioille.',
   tags: {
     news: 'Uutiset',
     blog: 'Blogi',

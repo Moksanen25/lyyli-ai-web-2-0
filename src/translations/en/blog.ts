@@ -9,6 +9,7 @@ export const blog = {
   publishedOn: 'Published on',
   relatedPosts: 'Related Posts',
   caseStudy: 'Case Study',
+  authorBio: 'Lyyli team member specializing in AI communication solutions for organizations across various industries.',
   tags: {
     news: 'News',
     blog: 'Blog',

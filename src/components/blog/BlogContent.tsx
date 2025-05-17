@@ -104,7 +104,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           </div>
         </div>
         <p className="text-muted-foreground">
-          Lyyli team member specializing in AI communication solutions for organizations across various industries.
+          {t('blog.authorBio')}
         </p>
       </div>
     </article>

@@ -16,8 +16,14 @@ const BlogPost: React.FC = () => {
   
   // Find the post with matching slug
   const post = useMemo(() => {
-    return blogPosts.find(p => p.slug === slug);
-  }, [slug]);
+    // Check first if there's a language-specific version of the post (with the same slug)
+    return blogPosts.find(p => {
+      // For each post, check if it matches the current language and slug
+      return p.slug === slug && (!p.language || p.language === language);
+    }) || 
+    // Fallback to any post with matching slug if no language-specific version found
+    blogPosts.find(p => p.slug === slug);
+  }, [slug, language]); // Add language as dependency to refresh when language changes
   
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {
