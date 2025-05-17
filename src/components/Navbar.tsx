@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -61,6 +61,11 @@ const Navbar: React.FC = () => {
     }
   }, [isMobile, isMenuOpen]);
 
+  // Get the correct blog URL based on the current language
+  const getBlogUrl = () => {
+    return language === 'fi' ? '/fi/full/blog' : '/full/blog';
+  };
+
   return (
     <>
       <nav 
@@ -84,7 +89,7 @@ const Navbar: React.FC = () => {
             <Link to="/pricing" className="text-primary hover:text-primary/80 transition-colors">
               {t('nav.pricing')}
             </Link>
-            <Link to="/blog" className="text-primary hover:text-primary/80 transition-colors">
+            <Link to={getBlogUrl()} className="text-primary hover:text-primary/80 transition-colors">
               {t('nav.blog')}
             </Link>
             <Link to="/about" className="text-primary hover:text-primary/80 transition-colors">
@@ -162,7 +167,7 @@ const Navbar: React.FC = () => {
                 {t('nav.pricing')}
               </Link>
               <Link 
-                to="/blog" 
+                to={getBlogUrl()} 
                 className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
