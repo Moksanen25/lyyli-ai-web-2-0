@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
@@ -62,7 +62,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           <img 
             src={post.featuredImage} 
             alt={post.title} 
-            className="w-full h-auto object-cover"
+            className="w-full h-full object-cover"
           />
         ) : (
           <div className="bg-primary/5 h-64 flex items-center justify-center">
