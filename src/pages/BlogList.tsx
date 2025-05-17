@@ -9,20 +9,21 @@ import FeaturedPost from '@/components/blog/FeaturedPost';
 import BlogCard from '@/components/blog/BlogCard';
 import TagFilter from '@/components/blog/TagFilter';
 import BlogCTA from '@/components/blog/BlogCTA';
+import { hasFinishTranslation } from '@/components/blog/TranslatedContent';
 
 const BlogList: React.FC = () => {
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   
-  // Filter posts based on language preference - allow all posts to be visible in Finnish
+  // Filter posts based on language preference and available translations
   const languageFilteredPosts = useMemo(() => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
     
     if (language === 'fi') {
-      // For Finnish, show all posts as they'll be translated through UI
-      return blogPosts;
+      // For Finnish, only show posts that have a Finnish translation
+      return blogPosts.filter(post => hasFinishTranslation(post.slug));
     } else {
       // For English, filter out Finnish-specific posts
       return blogPosts.filter(post => !post.language || post.language === 'en');
@@ -104,6 +105,14 @@ const BlogList: React.FC = () => {
           {regularPosts.length === 0 && (
             <div className="text-center py-16">
               <p className="text-muted-foreground">{safeT('blog.noFilteredResults')}</p>
+            </div>
+          )}
+          
+          {/* Add message for Finnish users about upcoming translations */}
+          {language === 'fi' && (
+            <div className="my-10 p-6 bg-primary/5 rounded-lg text-center">
+              <h3 className="text-xl font-medium mb-2">{safeT('blog.translationNotice.title', { fallback: 'Lisää käännöksiä tulossa' })}</h3>
+              <p className="text-muted-foreground">Vain käännetyt artikkelit ovat saatavilla tällä hetkellä. Lisää käännöksiä julkaistaan pian.</p>
             </div>
           )}
           

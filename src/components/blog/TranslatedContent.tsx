@@ -10,7 +10,7 @@ interface TranslatedContentProps {
 
 // Map of translations for blog content
 // Key format: post-slug-language
-const blogTranslations: Record<string, {
+export const blogTranslations: Record<string, {
   title?: string;
   content?: string;
   excerpt?: string;
@@ -137,6 +137,14 @@ const blogTranslations: Record<string, {
   }
   // Add more translations as needed
 };
+
+/**
+ * Helper function to check if a post has a Finnish translation
+ */
+export function hasFinishTranslation(postSlug: string): boolean {
+  const translationKey = `${postSlug}-fi`;
+  return translationKey in blogTranslations;
+}
 
 /**
  * A component that displays the Finnish translation for blog content
