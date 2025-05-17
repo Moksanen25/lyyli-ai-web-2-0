@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 import { FileImage } from 'lucide-react';
 import type { BlogPost } from '@/data/blogData';
 
@@ -13,7 +15,8 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
+  const { safeT } = useSafeTranslation();
   const publishDate = new Date(post.publishDate);
   
   // Get the correct blog post URL based on language
@@ -43,18 +46,23 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
               </div>
             )}
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-              {post.tags.slice(0, 2).map((tag, index) => (
-                <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
-                  {t(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
-                </Badge>
-              ))}
+              {post.tags.slice(0, 2).map((tag, index) => {
+                const tagKey = tag.toLowerCase().replace(/\s+/g, '');
+                const translatedTag = safeT(`blog.tags.${tagKey}`, { fallback: tag });
+                
+                return (
+                  <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
+                    {translatedTag}
+                  </Badge>
+                );
+              })}
             </div>
           </div>
           
           {/* Content area */}
           <div className="p-5 flex-grow flex flex-col">
             <div className="text-xs text-muted-foreground mb-2 flex items-center">
-              {formatDistanceToNow(publishDate, { addSuffix: true })} • {post.readTime} {t('blog.minuteRead')}
+              {formatDistanceToNow(publishDate, { addSuffix: true })} • {post.readTime} {safeT('blog.minuteRead')}
             </div>
             
             <h3 className={`${featured ? 'text-xl' : 'text-lg'} font-semibold mb-2 line-clamp-2`}>

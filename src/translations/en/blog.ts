@@ -28,5 +28,9 @@ export const blog = {
   ctaSubtitle: 'Book a demo to see how our AI communication platform works for your specific needs',
   ctaButton: 'Book a Demo',
   minuteRead: 'min read',
-  sharePost: 'Share this post:'
+  sharePost: 'Share this post:',
+  postNotFound: 'Post not found',
+  redirecting: 'Redirecting to blog list',
+  loading: 'Loading...',
+  noFilteredResults: 'No posts match the selected filter.'
 };

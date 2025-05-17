@@ -31,9 +31,6 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     });
   }, [post.id, post.title, post.language, language]);
   
-  // Determine text direction for RTL languages if needed in the future
-  // const isRTL = language === 'ar' || language === 'he';
-  
   return (
     <article className="max-w-3xl mx-auto">
       {/* Back to blog link */}
@@ -43,11 +40,16 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {post.tags.map((tag, index) => (
-          <Badge key={`${tag}-${index}`} variant="outline">
-            {safeT(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
-          </Badge>
-        ))}
+        {post.tags.map((tag, index) => {
+          const tagKey = tag.toLowerCase().replace(/\s+/g, '');
+          const translatedTag = safeT(`blog.tags.${tagKey}`, { fallback: tag });
+          
+          return (
+            <Badge key={`${tag}-${index}`} variant="outline">
+              {translatedTag}
+            </Badge>
+          );
+        })}
       </div>
       
       {/* Title */}

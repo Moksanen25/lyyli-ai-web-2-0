@@ -28,5 +28,9 @@ export const blog = {
   ctaSubtitle: 'Varaa demo nähdäksesi kuinka tekoälyviestintäalustamme toimii juuri sinun tarpeisiisi',
   ctaButton: 'Varaa Demo',
   minuteRead: 'min lukuaika',
-  sharePost: 'Jaa tämä artikkeli:'
+  sharePost: 'Jaa tämä artikkeli:',
+  postNotFound: 'Artikkelia ei löytynyt',
+  redirecting: 'Ohjataan takaisin blogiin',
+  loading: 'Ladataan...',
+  noFilteredResults: 'Yhtään artikkelia ei löytynyt valitulla suodattimella.'
 };
