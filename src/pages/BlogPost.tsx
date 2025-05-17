@@ -1,5 +1,4 @@
-
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,41 +12,55 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const [currentPostId, setCurrentPostId] = useState<string | null>(null);
   
   // Find the post with matching slug and language
-  const post = useMemo(() => {
+  useEffect(() => {
     console.log('Finding post for language:', language, 'and slug:', slug);
     
-    // First priority: find a post that matches both slug and current language
-    const languageMatch = blogPosts.find(p => 
-      p.slug === slug && p.language === language
-    );
+    // Function to find the appropriate post based on slug and language
+    const findPost = () => {
+      // First try: exact match for both slug and specified language
+      const exactMatch = blogPosts.find(p => 
+        p.slug === slug && p.language === language
+      );
+      
+      if (exactMatch) {
+        console.log('Found exact language match:', exactMatch.title);
+        setCurrentPostId(exactMatch.id);
+        return;
+      }
+      
+      // Second try: find a generic post (no language specified)
+      const genericMatch = blogPosts.find(p => 
+        p.slug === slug && !p.language
+      );
+      
+      if (genericMatch) {
+        console.log('Found generic match:', genericMatch.title);
+        setCurrentPostId(genericMatch.id);
+        return;
+      }
+      
+      // Last resort: any post with the matching slug
+      const anyMatch = blogPosts.find(p => p.slug === slug);
+      if (anyMatch) {
+        console.log('Found fallback match:', anyMatch.title);
+        setCurrentPostId(anyMatch.id);
+        return;
+      }
+      
+      console.log('No match found for slug:', slug);
+      setCurrentPostId(null);
+    };
     
-    if (languageMatch) {
-      console.log('Found language match:', languageMatch.title, 'language:', languageMatch.language);
-      return languageMatch;
-    }
-    
-    // Second priority: find a post with same slug but no specific language (generic)
-    const genericMatch = blogPosts.find(p => 
-      p.slug === slug && !p.language
-    );
-    
-    if (genericMatch) {
-      console.log('Found generic match:', genericMatch.title);
-      return genericMatch;
-    }
-    
-    // Last resort: any post with the same slug
-    const anyMatch = blogPosts.find(p => p.slug === slug);
-    if (anyMatch) {
-      console.log('Found fallback match:', anyMatch.title);
-      return anyMatch;
-    }
-    
-    console.log('No match found for slug:', slug);
-    return null;
-  }, [slug, language]); // Recalculate when language or slug changes
+    findPost();
+  }, [slug, language]); // Re-run when language or slug changes
+  
+  // Get the current post based on currentPostId
+  const post = currentPostId 
+    ? blogPosts.find(p => p.id === currentPostId) 
+    : null;
   
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {
@@ -56,10 +69,10 @@ const BlogPost: React.FC = () => {
   
   // Redirect if post not found
   useEffect(() => {
-    if (!post) {
+    if (slug && !post) {
       navigate(getBlogUrl(), { replace: true });
     }
-  }, [post, navigate, getBlogUrl]);
+  }, [post, navigate, slug]);
   
   // If post is still loading or not found
   if (!post) {
@@ -74,14 +87,35 @@ const BlogPost: React.FC = () => {
     );
   }
   
+  // Determine which content to show based on current language
+  const getLocalizedContent = () => {
+    // If the post's language matches current language, use it
+    if (post.language === language) {
+      return post;
+    }
+    
+    // Otherwise, try to find a translation of this post
+    const translatedVersion = blogPosts.find(p => 
+      p.slug === post.slug && p.language === language
+    );
+    
+    return translatedVersion || post; // Use translated version or fall back to current post
+  };
+  
+  const displayPost = getLocalizedContent();
+  console.log('Displaying post:', displayPost.title, 'in language:', displayPost.language || 'generic');
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <div className="container mx-auto px-4 pt-28 pb-16">
-          {/* Use language as part of the key to force re-render when language changes */}
-          <BlogContent post={post} key={`${post.id}-${language}`} />
-          <RelatedPosts currentPost={post} posts={blogPosts} />
+          {/* Include language and post ID in the key to force re-render when either changes */}
+          <BlogContent 
+            post={displayPost} 
+            key={`${displayPost.id}-${language}`} 
+          />
+          <RelatedPosts currentPost={displayPost} posts={blogPosts} />
           <BlogCTA />
         </div>
       </main>

@@ -22,8 +22,13 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     return language === 'fi' ? '/fi/full/blog' : '/full/blog';
   };
   
-  // Log for debugging
-  console.log('BlogContent rendering with language:', language, 'post language:', post.language);
+  // Debug logs
+  console.log('BlogContent rendering:', {
+    postTitle: post.title,
+    postLanguage: post.language || 'generic',
+    currentLanguage: language,
+    contentLength: post.content.length
+  });
   
   return (
     <article className="max-w-3xl mx-auto">
