@@ -16,13 +16,6 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
   const publishDate = new Date(post.publishDate);
-  const [renderedContent, setRenderedContent] = useState<string>(post.content);
-  
-  // Update rendered content when language or post changes
-  useEffect(() => {
-    console.log('BlogContent: Language changed to', language, 'or post changed');
-    setRenderedContent(post.content);
-  }, [language, post]);
   
   // Get the correct blog URL based on the current language
   const getBlogUrl = () => {
@@ -81,7 +74,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       {/* Content */}
       <div 
         className="prose prose-lg max-w-none mb-10 blog-content"
-        dangerouslySetInnerHTML={{ __html: renderedContent }}
+        dangerouslySetInnerHTML={{ __html: post.content }}
       />
       
       {/* Share */}

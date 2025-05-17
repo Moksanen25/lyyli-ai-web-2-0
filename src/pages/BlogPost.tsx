@@ -13,7 +13,7 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { language } = useLanguage();
-  const [previousLanguage, setPreviousLanguage] = useState(language);
+  const [postId, setPostId] = useState<string | null>(null);
   
   // Find the post with matching slug and language
   const post = useMemo(() => {
@@ -26,6 +26,7 @@ const BlogPost: React.FC = () => {
     
     if (exactMatch) {
       console.log('Found exact language match:', exactMatch.title);
+      setPostId(`${exactMatch.id}-${language}`);
       return exactMatch;
     }
     
@@ -36,6 +37,7 @@ const BlogPost: React.FC = () => {
     
     if (genericMatch) {
       console.log('Found generic match:', genericMatch.title);
+      setPostId(`${genericMatch.id}-${language}`);
       return genericMatch;
     }
     
@@ -44,20 +46,14 @@ const BlogPost: React.FC = () => {
     
     if (anyMatch) {
       console.log('Found fallback match:', anyMatch.title);
+      setPostId(`${anyMatch.id}-${language}`);
       return anyMatch;
     }
     
     console.log('No match found for slug:', slug);
+    setPostId(null);
     return null;
   }, [slug, language]); // Refresh when language or slug changes
-  
-  // Effect to handle language changes and force re-render when language changes
-  useEffect(() => {
-    if (language !== previousLanguage) {
-      console.log('Language changed from', previousLanguage, 'to', language);
-      setPreviousLanguage(language);
-    }
-  }, [language, previousLanguage]);
   
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {
@@ -89,7 +85,8 @@ const BlogPost: React.FC = () => {
       <Navbar />
       <main className="flex-grow">
         <div className="container mx-auto px-4 pt-28 pb-16">
-          <BlogContent post={post} key={`${post.id}-${language}`} />
+          {/* Key includes language to force re-render when language changes */}
+          <BlogContent post={post} key={postId} />
           <RelatedPosts currentPost={post} posts={blogPosts} />
           <BlogCTA />
         </div>
