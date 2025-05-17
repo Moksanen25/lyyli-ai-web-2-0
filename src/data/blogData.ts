@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -15,6 +14,7 @@ export interface BlogPost {
   featuredImage: string;
   tags: string[];
   isHighlighted?: boolean;
+  language?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -81,7 +81,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     featuredImage: "https://img.shields.io/badge/Case%20Study-Tech%20SME-blue",
     tags: ["Case Study", "Success Story", "Tech SMEs"],
-    isHighlighted: true
+    isHighlighted: true,
+    language: "en"
   },
   {
     id: "2",
@@ -145,7 +146,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-04-02",
     readTime: 7,
     featuredImage: "https://img.shields.io/badge/Tapaustutkimus-Konsultointi-purple",
-    tags: ["Case Study", "Success Story", "Consulting"]
+    tags: ["Case Study", "Success Story", "Consulting"],
+    language: "fi"
   },
   {
     id: "3",
@@ -210,7 +212,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-02-20",
     readTime: 6,
     featuredImage: "https://img.shields.io/badge/Case%20Study-Nonprofit-green",
-    tags: ["Case Study", "Success Story", "Nonprofits"]
+    tags: ["Case Study", "Success Story", "Nonprofits"],
+    language: "en"
   },
   {
     id: "4",
@@ -280,7 +283,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2024-12-10",
     readTime: 7,
     featuredImage: "https://img.shields.io/badge/Case%20Study-Education-orange",
-    tags: ["Case Study", "Education"]
+    tags: ["Case Study", "Education"],
+    language: "en"
   },
   {
     id: "5",
@@ -350,7 +354,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-01-18",
     readTime: 6,
     featuredImage: "https://img.shields.io/badge/Case%20Study-Creative-pink",
-    tags: ["Case Study", "Success Story", "Creative Agencies"]
+    tags: ["Case Study", "Success Story", "Creative Agencies"],
+    language: "en"
   },
   {
     id: "6",
@@ -422,7 +427,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-04-28",
     readTime: 6,
     featuredImage: "https://img.shields.io/badge/Case%20Study-Sports-red",
-    tags: ["Case Study", "Success Story", "Sports Organizations"]
+    tags: ["Case Study", "Success Story", "Sports Organizations"],
+    language: "en"
   },
   {
     id: "7",
@@ -480,7 +486,8 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-04-10",
     readTime: 4,
     featuredImage: "https://img.shields.io/badge/Product-Update-blue",
-    tags: ["News", "Blog"]
+    tags: ["News", "Blog"],
+    language: "en"
   },
   {
     id: "8",
@@ -540,6 +547,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-05-06",
     readTime: 4,
     featuredImage: "https://img.shields.io/badge/Product-Launch-purple",
-    tags: ["News"]
+    tags: ["News"],
+    language: "en"
   }
 ];

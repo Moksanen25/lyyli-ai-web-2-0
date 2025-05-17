@@ -19,7 +19,7 @@ const BlogPost: React.FC = () => {
     // Check first if there's a language-specific version of the post (with the same slug)
     return blogPosts.find(p => {
       // For each post, check if it matches the current language and slug
-      return p.slug === slug && (!p.language || p.language === language);
+      return p.slug === slug && p.language === language;
     }) || 
     // Fallback to any post with matching slug if no language-specific version found
     blogPosts.find(p => p.slug === slug);
