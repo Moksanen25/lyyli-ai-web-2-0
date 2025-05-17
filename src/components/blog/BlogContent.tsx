@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
@@ -22,13 +22,14 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     return language === 'fi' ? '/fi/full/blog' : '/full/blog';
   };
   
-  // Debug logs
-  console.log('BlogContent rendering:', {
-    postTitle: post.title,
-    postLanguage: post.language || 'generic',
-    currentLanguage: language,
-    contentLength: post.content.length
-  });
+  useEffect(() => {
+    console.log('BlogContent mounted/updated with:', {
+      postTitle: post.title,
+      postId: post.id,
+      postLanguage: post.language || 'generic',
+      currentLanguage: language
+    });
+  }, [post, language]);
   
   return (
     <article className="max-w-3xl mx-auto">

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -12,7 +13,7 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { language } = useLanguage();
-  const [currentPostId, setCurrentPostId] = useState<string | null>(null);
+  const [currentPost, setCurrentPost] = useState<typeof blogPosts[0] | null>(null);
   
   // Find the post with matching slug and language
   useEffect(() => {
@@ -20,14 +21,16 @@ const BlogPost: React.FC = () => {
     
     // Function to find the appropriate post based on slug and language
     const findPost = () => {
+      if (!slug) return;
+      
       // First try: exact match for both slug and specified language
       const exactMatch = blogPosts.find(p => 
         p.slug === slug && p.language === language
       );
       
       if (exactMatch) {
-        console.log('Found exact language match:', exactMatch.title);
-        setCurrentPostId(exactMatch.id);
+        console.log('Found exact language match:', exactMatch.title, 'language:', exactMatch.language);
+        setCurrentPost(exactMatch);
         return;
       }
       
@@ -38,7 +41,7 @@ const BlogPost: React.FC = () => {
       
       if (genericMatch) {
         console.log('Found generic match:', genericMatch.title);
-        setCurrentPostId(genericMatch.id);
+        setCurrentPost(genericMatch);
         return;
       }
       
@@ -46,21 +49,16 @@ const BlogPost: React.FC = () => {
       const anyMatch = blogPosts.find(p => p.slug === slug);
       if (anyMatch) {
         console.log('Found fallback match:', anyMatch.title);
-        setCurrentPostId(anyMatch.id);
+        setCurrentPost(anyMatch);
         return;
       }
       
       console.log('No match found for slug:', slug);
-      setCurrentPostId(null);
+      setCurrentPost(null);
     };
     
     findPost();
   }, [slug, language]); // Re-run when language or slug changes
-  
-  // Get the current post based on currentPostId
-  const post = currentPostId 
-    ? blogPosts.find(p => p.id === currentPostId) 
-    : null;
   
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {
@@ -69,13 +67,13 @@ const BlogPost: React.FC = () => {
   
   // Redirect if post not found
   useEffect(() => {
-    if (slug && !post) {
+    if (slug && !currentPost) {
       navigate(getBlogUrl(), { replace: true });
     }
-  }, [post, navigate, slug]);
+  }, [currentPost, navigate, slug, getBlogUrl]);
   
   // If post is still loading or not found
-  if (!post) {
+  if (!currentPost) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -87,35 +85,18 @@ const BlogPost: React.FC = () => {
     );
   }
   
-  // Determine which content to show based on current language
-  const getLocalizedContent = () => {
-    // If the post's language matches current language, use it
-    if (post.language === language) {
-      return post;
-    }
-    
-    // Otherwise, try to find a translation of this post
-    const translatedVersion = blogPosts.find(p => 
-      p.slug === post.slug && p.language === language
-    );
-    
-    return translatedVersion || post; // Use translated version or fall back to current post
-  };
-  
-  const displayPost = getLocalizedContent();
-  console.log('Displaying post:', displayPost.title, 'in language:', displayPost.language || 'generic');
+  console.log('Rendering post in BlogPost component:', currentPost.title, 'in language:', currentPost.language || 'generic');
   
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <div className="container mx-auto px-4 pt-28 pb-16">
-          {/* Include language and post ID in the key to force re-render when either changes */}
           <BlogContent 
-            post={displayPost} 
-            key={`${displayPost.id}-${language}`} 
+            post={currentPost} 
+            key={`${currentPost.id}-${language}`} 
           />
-          <RelatedPosts currentPost={displayPost} posts={blogPosts} />
+          <RelatedPosts currentPost={currentPost} posts={blogPosts} />
           <BlogCTA />
         </div>
       </main>
