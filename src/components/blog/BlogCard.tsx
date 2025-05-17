@@ -1,0 +1,69 @@
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { formatDistanceToNow } from 'date-fns';
+import { useLanguage } from '@/contexts/LanguageContext';
+import type { BlogPost } from '@/data/blogData';
+
+interface BlogCardProps {
+  post: BlogPost;
+  featured?: boolean;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
+  const { t } = useLanguage();
+  const publishDate = new Date(post.publishDate);
+  
+  return (
+    <Card 
+      className={`overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col ${
+        featured ? 'bg-secondary/10' : 'bg-white'
+      }`}
+    >
+      <Link to={`/blog/${post.slug}`} className="flex-grow flex flex-col">
+        <CardContent className="p-0 flex flex-col h-full">
+          {/* Image area with tags */}
+          <div className="relative bg-primary/5 p-5 flex items-center justify-center h-48">
+            <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+              {post.tags.slice(0, 2).map((tag, index) => (
+                <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
+                  {t(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
+                </Badge>
+              ))}
+            </div>
+            <div className="text-lg font-bold">{post.featuredImage}</div> {/* Placeholder for actual image */}
+          </div>
+          
+          {/* Content area */}
+          <div className="p-5 flex-grow flex flex-col">
+            <div className="text-xs text-muted-foreground mb-2 flex items-center">
+              {formatDistanceToNow(publishDate, { addSuffix: true })} • {post.readTime} {t('blog.minuteRead')}
+            </div>
+            
+            <h3 className={`${featured ? 'text-xl' : 'text-lg'} font-semibold mb-2 line-clamp-2`}>
+              {post.title}
+            </h3>
+            
+            <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+              {post.excerpt}
+            </p>
+            
+            <div className="mt-auto flex items-center">
+              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold mr-2">
+                {post.author.name.charAt(0)}
+              </div>
+              <div>
+                <p className="text-xs font-medium">{post.author.name}</p>
+                <p className="text-xs text-muted-foreground">{post.author.title}</p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Link>
+    </Card>
+  );
+};
+
+export default BlogCard;

@@ -15,6 +15,8 @@ import FloatingChat from '@/components/chat/FloatingChat';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import TranslationManager from '@/components/dev/TranslationManager';
+import BlogList from '@/pages/BlogList';
+import BlogPost from '@/pages/BlogPost';
 
 function AppRoutes() {
   const location = useLocation();
@@ -36,6 +38,8 @@ function AppRoutes() {
       <Route path="/full/features" element={<Features />} />
       <Route path="/full/pricing" element={<Pricing />} />
       <Route path="/full/case-studies" element={<CaseStudies />} />
+      <Route path="/full/blog" element={<BlogList />} />
+      <Route path="/full/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiePolicy />} />
       
@@ -47,6 +51,8 @@ function AppRoutes() {
       <Route path="/fi/full/features" element={<Features />} />
       <Route path="/fi/full/pricing" element={<Pricing />} />
       <Route path="/fi/full/case-studies" element={<CaseStudies />} />
+      <Route path="/fi/full/blog" element={<BlogList />} />
+      <Route path="/fi/full/blog/:slug" element={<BlogPost />} />
       <Route path="/fi/waitlist" element={<Waitlist />} />
       <Route path="/fi/privacy" element={<PrivacyPolicy />} />
       <Route path="/fi/cookies" element={<CookiePolicy />} />

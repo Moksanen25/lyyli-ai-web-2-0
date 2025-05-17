@@ -1,0 +1,69 @@
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ArrowRight } from 'lucide-react';
+import { formatDistanceToNow } from 'date-fns';
+import { useLanguage } from '@/contexts/LanguageContext';
+import type { BlogPost } from '@/data/blogData';
+
+interface FeaturedPostProps {
+  post: BlogPost;
+}
+
+const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
+  const { t } = useLanguage();
+  const publishDate = new Date(post.publishDate);
+  
+  return (
+    <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        {/* Featured image */}
+        <div className="relative h-56 lg:h-auto flex items-center justify-center bg-primary/10 p-6">
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            {post.tags.slice(0, 3).map((tag, index) => (
+              <Badge key={index} variant="secondary" className="bg-white/90 hover:bg-white">
+                {t(`blog.tags.${tag.toLowerCase().replace(/\s+/g, '')}`) || tag}
+              </Badge>
+            ))}
+          </div>
+          <div className="text-xl font-bold">{post.featuredImage}</div> {/* Placeholder for actual image */}
+        </div>
+        
+        {/* Content */}
+        <div className="p-6 lg:p-8">
+          <div className="text-sm text-muted-foreground mb-2 flex items-center">
+            {formatDistanceToNow(publishDate, { addSuffix: true })} • {post.readTime} {t('blog.minuteRead')}
+          </div>
+          
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            {post.title}
+          </h2>
+          
+          <p className="text-muted-foreground mb-6">
+            {post.excerpt}
+          </p>
+          
+          <div className="flex items-center mb-6">
+            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold mr-3">
+              {post.author.name.charAt(0)}
+            </div>
+            <div>
+              <p className="font-medium">{post.author.name}</p>
+              <p className="text-sm text-muted-foreground">{post.author.title}</p>
+            </div>
+          </div>
+          
+          <Link to={`/blog/${post.slug}`}>
+            <Button className="flex items-center">
+              {t('blog.readMore')} <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedPost;

@@ -84,6 +84,9 @@ const Navbar: React.FC = () => {
             <Link to="/pricing" className="text-primary hover:text-primary/80 transition-colors">
               {t('nav.pricing')}
             </Link>
+            <Link to="/blog" className="text-primary hover:text-primary/80 transition-colors">
+              {t('nav.blog')}
+            </Link>
             <Link to="/about" className="text-primary hover:text-primary/80 transition-colors">
               {t('nav.about')}
             </Link>
@@ -157,6 +160,13 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.pricing')}
+              </Link>
+              <Link 
+                to="/blog" 
+                className="text-primary hover:text-primary/80 transition-colors py-3 text-lg border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.blog')}
               </Link>
               <Link 
                 to="/about" 

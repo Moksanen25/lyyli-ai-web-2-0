@@ -16,6 +16,7 @@ import { caseStudies } from './caseStudies';
 import { demo } from './demo';
 import { compliance } from './compliance';
 import { common } from './common';
+import { blog } from './blog';
 
 export const fi = {
   nav,
@@ -34,5 +35,6 @@ export const fi = {
   caseStudies,
   demo,
   compliance,
-  common
+  common,
+  blog
 };

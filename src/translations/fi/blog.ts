@@ -1,0 +1,29 @@
+
+export const blog = {
+  title: 'Blogi & Uutiset',
+  subtitle: 'Näkemyksiä, tapaustutkimuksia ja uutisia Lyyliltä',
+  filterByTag: 'Suodata tagilla:',
+  allTags: 'Kaikki',
+  readMore: 'Lue lisää',
+  backToBlog: 'Takaisin blogiin',
+  publishedOn: 'Julkaistu',
+  relatedPosts: 'Aiheeseen liittyvät artikkelit',
+  caseStudy: 'Tapaustutkimus',
+  tags: {
+    news: 'Uutiset',
+    blog: 'Blogi',
+    caseStudy: 'Tapaustutkimus',
+    successStory: 'Menestystarina',
+    techSMEs: 'Teknologiayritykset',
+    consulting: 'Konsultointi',
+    nonprofits: 'Järjestöt',
+    education: 'Koulutus',
+    creative: 'Luovat toimistot',
+    sports: 'Urheiluseurat'
+  },
+  ctaTitle: 'Haluatko nähdä kuinka Lyyli voi auttaa organisaatiotasi?',
+  ctaSubtitle: 'Varaa demo nähdäksesi kuinka tekoälyviestintäalustamme toimii juuri sinun tarpeisiisi',
+  ctaButton: 'Varaa Demo',
+  minuteRead: 'min lukuaika',
+  sharePost: 'Jaa tämä artikkeli:'
+};
