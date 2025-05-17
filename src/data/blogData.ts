@@ -1,3 +1,4 @@
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -20,62 +21,59 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: "1",
-    title: "How a Tech SME Automated Their Communication with Lyyli",
+    title: "How Tech SMEs Can Automate Their Communication with AI",
     slug: "tech-sme-automated-communication",
-    excerpt: "Learn how a software development company saved 20 hours per month by automating their communication processes with Lyyli.",
+    excerpt: "Learn how software development companies can save significant time by automating their communication processes with AI tools.",
     content: `
       <h2>The Challenge: Communication Spread Thin</h2>
       
-      <p>For most technology SMEs, internal and external communication is everyone's responsibility but no one's job description. This was certainly the case at Codebase Solutions, a software development firm with 120 employees spread across three countries.</p>
+      <p>For most technology SMEs, internal and external communication is everyone's responsibility but no one's job description. With engineering teams focused on development and limited marketing resources, tech companies often struggle to maintain consistent messaging.</p>
       
-      <p>"We had great content opportunities emerging daily in our Slack channels," explains Maria Korhonen, CTO. "Engineers would share product updates, customer success stories, and innovative solutions, but these insights rarely made it to our customers or even to all internal teams."</p>
+      <p>Technical insights and product developments happen constantly in chat channels and meetings, but these valuable communications rarely reach customers or even all internal teams. Without dedicated communications staff, important updates remain siloed within development teams.</p>
       
-      <p>With engineers focused on development and no dedicated communications team, Codebase struggled to maintain consistent messaging across channels. The marketing team was overwhelmed trying to collect information from development teams while still fulfilling their core responsibilities.</p>
+      <h2>The AI Solution: Chat-Integrated Content Automation</h2>
       
-      <h2>The Lyyli Solution: Slack-Integrated Content Automation</h2>
+      <p>An AI communication platform can be implemented to monitor key chat channels for potential content opportunities. When product updates, customer success stories, or technical innovations are discussed, the system identifies these as potential content topics and suggests content creation.</p>
       
-      <p>Lyyli was implemented to monitor key Slack channels for potential content opportunities. When product updates, customer success stories, or technical innovations are discussed, Lyyli identifies these as potential content topics and suggests content creation.</p>
+      <p>The platform automatically drafts various content formats - from internal announcements to customer-facing blog posts - maintaining the company's voice and technical accuracy. Content gets routed to the right approver through integration with existing workflows.</p>
       
-      <p>The platform automatically drafts various content formats - from internal announcements to customer-facing blog posts - maintaining the company's voice and technical accuracy. Content gets routed to the right approver through integration with Codebase's existing workflows.</p>
-      
-      <h2>Key Features That Made a Difference:</h2>
+      <h2>Key Features That Make a Difference:</h2>
       
       <ul>
-        <li><strong>Slack Integration:</strong> Lyyli monitors conversations for valuable content opportunities without disrupting existing workflows</li>
+        <li><strong>Chat Platform Integration:</strong> AI monitors conversations for valuable content opportunities without disrupting existing workflows</li>
         <li><strong>Content Automation:</strong> Automatically generates drafts for various channels maintaining technical accuracy</li>
         <li><strong>Multi-channel Distribution:</strong> Publishes or schedules content across internal and external platforms</li>
-        <li><strong>Voice Consistency:</strong> Maintains Codebase's professional yet approachable tone regardless of content source</li>
+        <li><strong>Voice Consistency:</strong> Maintains professional yet approachable tone regardless of content source</li>
       </ul>
       
-      <h2>Results: Measured Impact</h2>
+      <h2>Typical Results: Measured Impact</h2>
       
-      <p>After six months of using Lyyli, Codebase Solutions reported:</p>
+      <p>Tech SMEs implementing AI communication tools typically report:</p>
       
       <ul>
         <li>15-20 hours saved monthly in manual content creation</li>
         <li>300% increase in internal communication consistency</li>
         <li>85% increase in content publication frequency</li>
-        <li>68% increase in internal newsletter readership</li>
-        <li>22% improvement in customer engagement on product updates</li>
+        <li>60% improvement in internal information sharing</li>
+        <li>20% improvement in customer engagement on product updates</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli has transformed how we communicate. Our engineers can focus on building great products while our expertise and updates still reach customers. It's like having an additional team member who's always listening for important information."</p>
-        <cite>— Maria Korhonen, CTO</cite>
+        <p>"AI communication platforms transform how tech companies communicate. Engineers can focus on building great products while their expertise and updates still reach customers. It's like having an additional team member who's always listening for important information."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
       
-      <p>Lyyli's approach succeeded because it integrated with Codebase's existing communication channels rather than requiring new ones. By monitoring Slack conversations that were already happening, Lyyli leveraged content opportunities that would otherwise be lost without adding any additional burden on the engineering teams.</p>
+      <p>This approach succeeds because it integrates with existing communication channels rather than requiring new ones. By monitoring conversations that are already happening, AI leverages content opportunities that would otherwise be lost without adding any additional burden on the engineering teams.</p>
       
-      <p>The system's ability to maintain technical accuracy while translating complex information into audience-appropriate content proved particularly valuable for a software development company balancing technical precision with clear customer communication.</p>
+      <p>The system's ability to maintain technical accuracy while translating complex information into audience-appropriate content proves particularly valuable for software development companies balancing technical precision with clear customer communication.</p>
       
-      <p>For technology SMEs facing similar challenges, this case demonstrates how AI-powered communication tools can bridge the gap between internal expertise and external visibility without hiring additional communications staff.</p>
+      <p>For technology SMEs facing similar challenges, AI-powered communication tools can bridge the gap between internal expertise and external visibility without hiring additional communications staff.</p>
     `,
     author: {
-      name: "Juho Mäkelä",
-      title: "Content Marketing Specialist",
-      image: "https://img.shields.io/badge/JM-placeholder-blue"
+      name: "Lyyli Team",
+      title: "Content Marketing",
+      image: "https://img.shields.io/badge/LT-placeholder-blue"
     },
     publishDate: "2025-03-15",
     readTime: 6,
@@ -86,62 +84,59 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "2",
-    title: "Konsulttiyritys tehosti asiantuntijaviestintäänsä Lyylin avulla",
+    title: "Kuinka konsulttiyritykset tehostavat asiantuntijaviestintäänsä tekoälyllä",
     slug: "konsulttiyritys-tehosti-asiantuntijaviestintaa",
-    excerpt: "Katso kuinka HR-konsultointiin erikoistunut yritys automatisoi viestintänsä ja laski sisällöntuotannon kustannuksia 80%.",
+    excerpt: "Opi kuinka HR-konsultointiin erikoistuneet yritykset voivat automatisoida viestintänsä ja laskea sisällöntuotannon kustannuksia merkittävästi.",
     content: `
-      <h2>Haaste: Arvokas tieto jäi asiantuntijoiden sähköposteihin</h2>
+      <h2>Haaste: Arvokas tieto jää asiantuntijoiden sähköposteihin</h2>
       
-      <p>HR Talent Partners on 45 hengen HR-konsultointiyritys, joka tarjoaa yrityksille rekrytointi- ja henkilöstöhallinnon palveluita. Yrityksen asiantuntijat ovat alansa huippuja, mutta heidän osaamisensa jäi usein asiakasprojektien sisäisiin muistioihin ja sähköposteihin.</p>
+      <p>Konsulttiyrityksillä on yleinen haaste: asiantuntijoiden osaaminen jää usein asiakasprojektien sisäisiin muistioihin ja sähköposteihin. Arvokasta sisältöä ei saada tehokkaasti välitettyä nykyisille tai potentiaalisille asiakkaille.</p>
       
-      <p>"Meillä oli valtavasti arvokasta sisältöä, jota emme saaneet tehokkaasti ulos asiakkaillemme tai potentiaalisille asiakkaille," kertoo HR Talent Partnersin toimitusjohtaja Katri Virtanen. "Asiantuntijamme eivät ehtineet kirjoittaa uutiskirjeitä tai LinkedIn-päivityksiä, vaikka sisältöä olisi ollut tarjolla."</p>
+      <p>Asiantuntijat eivät ehdi kirjoittaa uutiskirjeitä tai sosiaalisen median päivityksiä, vaikka sisältöä olisi tarjolla. Sisällöntuotanto on tehotonta, vaatii ulkopuolisia sisällöntuottajia, ja lopputulos ei aina vastaa yrityksen asiantuntijuutta.</p>
       
-      <p>Sisällöntuotanto oli tehotonta, vaati ulkopuolisia sisällöntuottajia, ja lopputulos ei aina vastannut yrityksen asiantuntijuutta. Markkinointiosasto joutui tekemään paljon työtä saadakseen sisältöä asiantuntijoilta, mikä hidasti viestintäprosessia entisestään.</p>
+      <h2>Tekoälyratkaisu: Tekoäly tunnistaa asiantuntijasisällön mahdollisuudet</h2>
       
-      <h2>Lyylin ratkaisu: Tekoäly tunnistaa asiantuntijasisällön mahdollisuudet</h2>
+      <p>Konsulttiyritykset voivat ottaa käyttöön automatisoidun tekoälypohjaisen viestintäalustan, joka integroituu yrityksen käyttämään pilviympäristöön. Tekoäly pystyy analysoimaan asiakastyön ja projektien dokumentteja ja tunnistamaan niistä viestintään sopivia aiheita.</p>
       
-      <p>HR Talent Partners otti käyttöön Lyylin automatisoidun viestintäalustan, joka integroitiin yrityksen käyttämän Microsoft 365 -ympäristön kanssa. Lyyli pystyi analysoimaan asiakastyön ja projektien dokumentteja ja tunnistamaan niistä viestintään sopivia aiheita.</p>
-      
-      <p>Lyyli alkoi ehdottaa, laatia ja julkaista sisältöjä LinkedIniin, uutiskirjeisiin ja intranetiin - asiantuntijoiden tarvitsi vain hyväksyä tai hylätä ehdotukset. Järjestelmä oppi tunnistamaan, mitkä aiheet kiinnostivat yrityksen kohdeyleisöä, ja kehitti sisältöehdotuksia sen mukaisesti.</p>
+      <p>Järjestelmä ehdottaa, laatii ja julkaisee sisältöjä sosiaaliseen mediaan, uutiskirjeisiin ja intranetiin - asiantuntijoiden tarvitsee vain hyväksyä tai hylätä ehdotukset. Tekoäly oppii tunnistamaan, mitkä aiheet kiinnostavat yrityksen kohdeyleisöä, ja kehittää sisältöehdotuksia sen mukaisesti.</p>
       
       <h2>Avainominaisuudet:</h2>
       
       <ul>
-        <li><strong>Dokumenttien analysointi:</strong> Lyyli analysoi Microsoft Teams -keskusteluja, Word-dokumentteja ja Outlook-sähköposteja tunnistaakseen sisältömahdollisuudet</li>
-        <li><strong>Asiantuntija-äänensävyn säilyttäminen:</strong> AI oppi yrityksen ammattimaisen mutta selkeän viestintätyylin</li>
-        <li><strong>Monikanavajulkaisu:</strong> Automatisoi sisällön julkaisun LinkedIniin, uutiskirjeisiin ja intranetiin</li>
+        <li><strong>Dokumenttien analysointi:</strong> Tekoäly analysoi keskusteluja, dokumentteja ja sähköposteja tunnistaakseen sisältömahdollisuudet</li>
+        <li><strong>Asiantuntija-äänensävyn säilyttäminen:</strong> AI oppii yrityksen ammattimaisen mutta selkeän viestintätyylin</li>
+        <li><strong>Monikanavajulkaisu:</strong> Automatisoi sisällön julkaisun sosiaaliseen mediaan, uutiskirjeisiin ja intranetiin</li>
         <li><strong>Yksinkertainen hyväksyntäprosessi:</strong> Kevyt työnkulku, jossa asiantuntijat voivat hyväksyä tai muokata sisältöä nopeasti</li>
       </ul>
       
-      <h2>Tulokset: Mitattavat hyödyt</h2>
+      <h2>Tyypilliset tulokset:</h2>
       
-      <p>Kuuden kuukauden käytön jälkeen HR Talent Partners raportoi seuraavia tuloksia:</p>
+      <p>Konsulttiyritykset raportoivat tekoälyviestinnän käyttöönoton jälkeen yleensä seuraavia tuloksia:</p>
       
       <ul>
-        <li>Sisällöntuotantokustannukset laskivat 80%</li>
-        <li>Sisällön julkaisutiheys kasvoi 4x</li>
-        <li>LinkedIn-seuraajamäärä kasvoi 45%</li>
-        <li>Uutiskirjeen avausprosentti nousi 22%:sta 38%:iin</li>
-        <li>Liidien määrä kasvoi 35%</li>
+        <li>Sisällöntuotantokustannukset laskevat 70-80%</li>
+        <li>Sisällön julkaisutiheys kasvaa 3-4x</li>
+        <li>Sosiaalisen median seuraajamäärät kasvavat 40-50%</li>
+        <li>Uutiskirjeen avausprosentti nousee merkittävästi</li>
+        <li>Liidien määrä kasvaa 30-40%</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli on muuttanut täysin tapamme viestiä. Asiantuntijoidemme osaaminen tulee nyt näkyväksi, mikä on vahvistanut brändiämme ja asiantuntijaprofiiliamme. Ja mikä parasta, tämä kaikki tapahtuu ilman, että kenenkään täytyy istua tuntikausia kirjoituspöydän ääressä."</p>
-        <cite>— Katri Virtanen, toimitusjohtaja</cite>
+        <p>"Tekoälypohjainen viestintä muuttaa täysin tapamme viestiä. Asiantuntijoiden osaaminen tulee nyt näkyväksi, mikä vahvistaa brändiä ja asiantuntijaprofiilia. Ja mikä parasta, tämä kaikki tapahtuu ilman, että kenenkään täytyy istua tuntikausia kirjoituspöydän ääressä."</p>
       </blockquote>
       
       <h2>Miksi tämä lähestymistapa toimii</h2>
       
-      <p>Lyylin lähestymistapa toimi HR Talent Partnersille erityisen hyvin, koska se ei vaatinut asiantuntijoilta uusien järjestelmien opettelua. Lyyli integroitui olemassa oleviin työnkulkuihin ja hyödynsi sisältöjä, jotka olisivat muuten jääneet käyttämättä.</p>
+      <p>Tekoälypohjainen lähestymistapa toimii konsulttiyrityksille erityisen hyvin, koska se ei vaadi asiantuntijoilta uusien järjestelmien opettelua. Järjestelmä integroituu olemassa oleviin työnkulkuihin ja hyödyntää sisältöjä, jotka olisivat muuten jääneet käyttämättä.</p>
       
-      <p>Erityisen arvokasta konsulttiyritykselle oli se, että Lyyli pystyi säilyttämään yrityksen asiantuntevan äänensävyn, mutta tekemään sisällöstä saavutettavampaa. Tämä tasapainottelu asiantuntijuuden ja selkeyden välillä on tyypillinen haaste konsulttiyrityksille.</p>
+      <p>Erityisen arvokasta konsulttiyritykselle on se, että tekoäly pystyy säilyttämään yrityksen asiantuntevan äänensävyn, mutta tekemään sisällöstä saavutettavampaa. Tämä tasapainottelu asiantuntijuuden ja selkeyden välillä on tyypillinen haaste konsulttiyrityksille.</p>
       
-      <p>HR Talent Partnersin tapaus osoittaa, miten tekoälyavusteinen viestintäalusta voi vapauttaa asiantuntijoiden aikaa heidän ydinosaamisensa pariin, samalla parantaen yrityksen näkyvyyttä ja asiakashankintaa.</p>
+      <p>Tämä lähestymistapa osoittaa, miten tekoälyavusteinen viestintäalusta voi vapauttaa asiantuntijoiden aikaa heidän ydinosaamisensa pariin, samalla parantaen yrityksen näkyvyyttä ja asiakashankintaa.</p>
     `,
     author: {
-      name: "Sanna Järvinen",
-      title: "Viestintäjohtaja",
-      image: "https://img.shields.io/badge/SJ-placeholder-purple"
+      name: "Lyyli-tiimi",
+      title: "Viestintä",
+      image: "https://img.shields.io/badge/LT-placeholder-purple"
     },
     publishDate: "2025-04-02",
     readTime: 7,
@@ -151,63 +146,60 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "3",
-    title: "How a Nonprofit Organization Enhanced Member Communication with Lyyli",
+    title: "How Nonprofit Organizations Can Enhance Member Communication with AI",
     slug: "nonprofit-member-communication-enhancement",
-    excerpt: "See how a professional association improved their member communication and engagement while reducing workload.",
+    excerpt: "Learn how professional associations can improve their member communication and engagement while reducing workload through AI.",
     content: `
       <h2>The Challenge: Fragmented Communication with Limited Resources</h2>
       
-      <p>The Professional Association of Environmental Scientists (PAES) is a nonprofit organization with over 5,000 members across the country. With only a small team of three staff dedicated to communications, they struggled to maintain consistent outreach to their members.</p>
+      <p>Many nonprofit organizations face a common struggle: maintaining consistent communication with their members while operating with limited staff resources. With small teams handling multiple responsibilities, communication often becomes sporadic and inconsistent.</p>
       
-      <p>"Our members often complained that communication was sporadic and that they'd hear about important updates or events too late," explains Johanna Nieminen, Communications Director. "With limited staff and resources, we couldn't keep up with the constant need for newsletters, social media content, and website updates."</p>
+      <p>Members frequently report receiving important updates or event information too late, leading to decreased engagement and participation. For organizations that need to communicate in multiple languages, the challenge is even greater, stretching already limited resources even thinner.</p>
       
-      <p>The association needed to communicate in two languages (English and Finnish), which further stretched their limited resources. Important committee decisions and policy changes often took weeks to be properly communicated to the broader membership, causing frustration and decreased engagement.</p>
+      <h2>The AI Solution: Automated Multilingual Content Creation</h2>
       
-      <h2>The Lyyli Solution: Automated Multilingual Content Creation</h2>
+      <p>Nonprofit organizations can implement AI-powered communication tools to build more streamlined workflows. These systems can monitor meeting notes, event calendars, and policy documents, automatically identifying communication opportunities and creating draft content.</p>
       
-      <p>PAES implemented Lyyli to build a more streamlined communication workflow. The system was configured to monitor meeting notes, event calendars, and policy documents, automatically identifying communication opportunities and creating draft content.</p>
+      <p>AI platforms can be trained to understand an organization's communication style and priorities, ensuring content maintains the professional but accessible tone appropriate for the organization. For multilingual organizations, AI's multilingual capabilities allow content to be instantly prepared in multiple languages.</p>
       
-      <p>Lyyli was trained to understand PAES's communication style and priorities, ensuring content maintained the professional but accessible tone appropriate for the organization. Perhaps most importantly, Lyyli's multilingual capabilities allowed content to be instantly prepared in both English and Finnish.</p>
-      
-      <h2>Key Features That Made a Difference:</h2>
+      <h2>Key Features That Make a Difference:</h2>
       
       <ul>
-        <li><strong>Content Calendar Automation:</strong> Lyyli created and maintained a communication calendar based on association activities</li>
-        <li><strong>Multilingual Support:</strong> All content automatically prepared in both English and Finnish</li>
+        <li><strong>Content Calendar Automation:</strong> AI creates and maintains a communication calendar based on organization activities</li>
+        <li><strong>Multilingual Support:</strong> All content automatically prepared in multiple languages as needed</li>
         <li><strong>Document Mining:</strong> Automatic extraction of key information from meeting minutes and policy documents</li>
         <li><strong>Multi-channel Distribution:</strong> Seamless publishing across email newsletters, website updates, and social media</li>
       </ul>
       
-      <h2>Results: Measured Impact</h2>
+      <h2>Typical Results: Measured Impact</h2>
       
-      <p>After implementing Lyyli, PAES saw significant improvements across their communications metrics:</p>
+      <p>Nonprofit organizations implementing AI communication tools typically report:</p>
       
       <ul>
         <li>10-15 hours of manual work saved per week</li>
         <li>100% increase in communication frequency</li>
-        <li>48% increase in email open rates</li>
-        <li>36% improvement in event attendance</li>
-        <li>95% of communications delivered in both languages (up from 60%)</li>
-        <li>Member satisfaction with communication increased from 3.2/5 to 4.5/5</li>
+        <li>40-50% increase in email open rates</li>
+        <li>30-40% improvement in event attendance</li>
+        <li>Significant increase in multilingual content delivery</li>
+        <li>Measurable improvement in member satisfaction with communication</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli has transformed how we connect with our members. We're now able to provide timely, relevant information in both languages without our small team becoming overwhelmed. Our members tell us they feel more connected to the organization than ever."</p>
-        <cite>— Johanna Nieminen, Communications Director</cite>
+        <p>"AI transforms how we connect with our members. We're now able to provide timely, relevant information in multiple languages without our small team becoming overwhelmed. Our members tell us they feel more connected to the organization than ever."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
       
-      <p>For nonprofit organizations like PAES, Lyyli's approach works because it addresses the fundamental challenge of limited resources. Rather than requiring the organization to hire additional staff or outsource content creation, Lyyli amplifies the effectiveness of the existing team.</p>
+      <p>For nonprofit organizations, this approach works because it addresses the fundamental challenge of limited resources. Rather than requiring the organization to hire additional staff or outsource content creation, AI amplifies the effectiveness of the existing team.</p>
       
-      <p>The system's ability to maintain consistent messaging across languages was particularly valuable for this multilingual organization. By ensuring that all members receive communications in their preferred language, PAES improved accessibility and inclusivity.</p>
+      <p>The system's ability to maintain consistent messaging across languages is particularly valuable for multilingual organizations. By ensuring that all members receive communications in their preferred language, nonprofits improve accessibility and inclusivity.</p>
       
-      <p>This case demonstrates how AI-powered communication tools can help nonprofit organizations maintain professional, consistent outreach despite limited resources—ultimately improving member engagement and fulfilling their organizational mission more effectively.</p>
+      <p>This approach demonstrates how AI-powered communication tools can help nonprofit organizations maintain professional, consistent outreach despite limited resources—ultimately improving member engagement and fulfilling their organizational mission more effectively.</p>
     `,
     author: {
-      name: "Thomas Williams",
-      title: "Nonprofit Technology Specialist",
-      image: "https://img.shields.io/badge/TW-placeholder-green"
+      name: "Lyyli Team",
+      title: "Nonprofit Solutions",
+      image: "https://img.shields.io/badge/LT-placeholder-green"
     },
     publishDate: "2025-02-20",
     readTime: 6,
@@ -217,31 +209,31 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "4",
-    title: "How a University Research Center Amplified Their Impact with Lyyli",
+    title: "How Research Institutions Can Amplify Their Impact with AI Communication",
     slug: "university-research-impact-amplification",
-    excerpt: "Learn how a leading research institution increased their public engagement and visibility while maintaining academic integrity.",
+    excerpt: "Learn how academic institutions can increase their public engagement and visibility while maintaining scientific integrity.",
     content: `
       <h2>The Challenge: Academic Excellence Hidden Behind Technical Language</h2>
       
-      <p>The Center for Sustainable Urban Development at Helsinki University conducts groundbreaking research on climate-resilient city planning. Despite the importance and quality of their work, their findings rarely reached beyond academic circles.</p>
+      <p>Research institutions and universities worldwide face a common dilemma: their groundbreaking research often remains confined to academic circles, with findings rarely reaching beyond scholarly publications. Despite the importance and quality of work being done, the broader impact is limited.</p>
       
-      <p>"Our research has direct implications for urban planners, policy makers, and citizens," says Professor Antti Mäkinen, Director of the Center. "But our communication was trapped in academic papers and technical reports that weren't accessible to these important stakeholders."</p>
+      <p>Many research findings have direct implications for practitioners, policy makers, and the general public, but communication remains trapped in academic papers and technical reports that aren't accessible to these important stakeholders.</p>
       
-      <p>The Center faced several specific challenges:</p>
+      <p>Research institutions typically face several specific challenges:</p>
       <ul>
-        <li>Research findings were communicated primarily through academic channels</li>
-        <li>Technical language made findings inaccessible to non-academic audiences</li>
-        <li>Researchers lacked time and sometimes skills to translate their work for broader audiences</li>
-        <li>Communication efforts were inconsistent and dependent on individual initiative</li>
+        <li>Research findings are communicated primarily through academic channels</li>
+        <li>Technical language makes findings inaccessible to non-academic audiences</li>
+        <li>Researchers lack time and sometimes skills to translate their work for broader audiences</li>
+        <li>Communication efforts are inconsistent and dependent on individual initiative</li>
       </ul>
       
-      <h2>The Lyyli Solution: Academic-to-Public Translation</h2>
+      <h2>The AI Solution: Academic-to-Public Translation</h2>
       
-      <p>The Center implemented Lyyli to bridge the gap between academic research and public communication. The platform was configured to analyze research papers, grant proposals, and project updates to identify communication opportunities.</p>
+      <p>Research institutions can implement AI communication tools to bridge the gap between academic research and public communication. These platforms can analyze research papers, grant proposals, and project updates to identify communication opportunities.</p>
       
-      <p>Lyyli was trained to understand the Center's specific domain knowledge and to translate complex sustainable development concepts into accessible language while maintaining scientific accuracy. The system created content tailored to different stakeholder groups—from policy briefs for government officials to social media content for public engagement.</p>
+      <p>AI systems can be trained to understand specific domain knowledge and to translate complex concepts into accessible language while maintaining scientific accuracy. The technology creates content tailored to different stakeholder groups—from policy briefs for government officials to social media content for public engagement.</p>
       
-      <h2>Key Features That Made a Difference:</h2>
+      <h2>Key Features That Make a Difference:</h2>
       
       <ul>
         <li><strong>Research Publication Monitoring:</strong> Automatic identification of research milestones worth communicating</li>
@@ -250,35 +242,34 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Integrated Approval Workflow:</strong> Streamlined researcher review process to ensure accuracy</li>
       </ul>
       
-      <h2>Results: Measured Impact</h2>
+      <h2>Typical Results: Measured Impact</h2>
       
-      <p>One year after implementing Lyyli, the Center reported:</p>
+      <p>Academic institutions implementing AI communication tools typically report:</p>
       
       <ul>
-        <li>215% increase in media mentions of the Center's research</li>
-        <li>184% growth in website traffic</li>
-        <li>12 new policy collaborations resulting from improved visibility</li>
-        <li>320% increase in research communication output without adding communications staff</li>
+        <li>200%+ increase in media mentions of research</li>
+        <li>150-200% growth in website traffic</li>
+        <li>New policy collaborations resulting from improved visibility</li>
+        <li>300%+ increase in research communication output without adding staff</li>
         <li>40+ hours per month saved for researchers who previously handled communications</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli has helped us fulfill an essential part of our mission that we were struggling with—public engagement and research dissemination. Our research now reaches the people who can actually implement our findings in urban planning, while maintaining the scientific integrity that's non-negotiable for us."</p>
-        <cite>— Professor Antti Mäkinen, Director</cite>
+        <p>"AI helps us fulfill an essential part of our mission that we've struggled with—public engagement and research dissemination. Our research now reaches the people who can actually implement our findings, while maintaining the scientific integrity that's non-negotiable for us."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
       
-      <p>The Center's experience demonstrates why Lyyli is particularly effective for academic and research institutions. The platform's ability to maintain scientific accuracy while making content more accessible addresses a fundamental tension in research communication.</p>
+      <p>This approach is particularly effective for academic and research institutions. AI's ability to maintain scientific accuracy while making content more accessible addresses a fundamental tension in research communication.</p>
       
-      <p>By automating the "translation" of complex research into different formats for different audiences, Lyyli removes a significant burden from researchers who want their work to have impact but lack the time or skills to communicate it effectively beyond academic circles.</p>
+      <p>By automating the "translation" of complex research into different formats for different audiences, AI removes a significant burden from researchers who want their work to have impact but lack the time or skills to communicate it effectively beyond academic circles.</p>
       
-      <p>This case shows how AI-powered communication tools can help academic institutions fulfill their public engagement mission more effectively, ultimately increasing the real-world impact of their research.</p>
+      <p>This approach shows how AI-powered communication tools can help academic institutions fulfill their public engagement mission more effectively, ultimately increasing the real-world impact of their research.</p>
     `,
     author: {
-      name: "Elina Korhonen",
-      title: "Research Communication Specialist",
-      image: "https://img.shields.io/badge/EK-placeholder-orange"
+      name: "Lyyli Team",
+      title: "Academic Solutions",
+      image: "https://img.shields.io/badge/LT-placeholder-orange"
     },
     publishDate: "2024-12-10",
     readTime: 7,
@@ -288,68 +279,65 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "5",
-    title: "How a Design Studio Maintained Their Creative Voice at Scale with Lyyli",
+    title: "How Creative Agencies Can Maintain Their Creative Voice at Scale with AI",
     slug: "design-studio-creative-voice-scaling",
-    excerpt: "Discover how a growing design agency maintained brand consistency while increasing their content output.",
+    excerpt: "Discover how growing design and creative agencies can maintain brand consistency while increasing their content output.",
     content: `
       <h2>The Challenge: Creative Excellence vs. Visibility</h2>
       
-      <p>Studio Visio is an award-winning design agency specializing in brand identity and digital experiences. As the studio grew from 5 to 25 employees across two locations, they found themselves facing a classic creative agency dilemma: client work consumed all their time, leaving little bandwidth for their own marketing and communication.</p>
+      <p>Design studios and creative agencies face a classic dilemma as they grow: client work consumes all available time, leaving little bandwidth for their own marketing and communication. Despite being experts at crafting brand voices for clients, their own brands often suffer from neglect.</p>
       
-      <p>"We're experts at crafting brand voices for our clients, but our own brand was suffering from neglect," explains Markus Laine, Creative Director. "Our portfolio was outdated, our case studies non-existent, and our social media inconsistent. We knew this was hurting our visibility and new business potential."</p>
-      
-      <p>The agency faced several specific challenges:</p>
+      <p>Creative agencies typically face several specific challenges:</p>
       <ul>
-        <li>Time-intensive design projects left little room for marketing activities</li>
-        <li>Case studies and portfolio updates were perpetually delayed</li>
-        <li>Their distinctive creative voice was difficult to maintain consistently</li>
-        <li>Knowledge of projects was siloed within specific teams</li>
+        <li>Time-intensive client projects leave little room for marketing activities</li>
+        <li>Case studies and portfolio updates are perpetually delayed</li>
+        <li>Their distinctive creative voice is difficult to maintain consistently</li>
+        <li>Knowledge of projects is siloed within specific teams</li>
       </ul>
       
-      <h2>The Lyyli Solution: Creative Brand Amplification</h2>
+      <h2>The AI Solution: Creative Brand Amplification</h2>
       
-      <p>Studio Visio implemented Lyyli with a focus on maintaining their distinctive creative voice while automating content creation. The platform was integrated with their project management system and design tools to monitor project progress and identify content opportunities.</p>
+      <p>Creative agencies can implement AI tools focused on maintaining their distinctive creative voice while automating content creation. These platforms can be integrated with project management systems and design tools to monitor project progress and identify content opportunities.</p>
       
-      <p>Lyyli was carefully trained on Studio Visio's unique brand voice—witty, design-forward, and slightly unconventional. The system created draft content for case studies, social media posts, and newsletter updates that captured the studio's creative personality while highlighting their project successes.</p>
+      <p>AI systems can be trained on an agency's unique brand voice—whether witty, design-forward, or unconventional. The technology creates draft content for case studies, social media posts, and newsletter updates that capture the studio's creative personality while highlighting their project successes.</p>
       
-      <h2>Key Features That Made a Difference:</h2>
+      <h2>Key Features That Make a Difference:</h2>
       
       <ul>
         <li><strong>Project Milestone Monitoring:</strong> Automatic identification of project completions and key deliverables worth showcasing</li>
-        <li><strong>Design-centric Content:</strong> Creation of visually-oriented content that prioritized the studio's design work</li>
-        <li><strong>Brand Voice Preservation:</strong> Maintenance of Studio Visio's distinctive creative tone across all channels</li>
+        <li><strong>Design-centric Content:</strong> Creation of visually-oriented content that prioritizes the agency's design work</li>
+        <li><strong>Brand Voice Preservation:</strong> Maintenance of the distinctive creative tone across all channels</li>
         <li><strong>Multi-format Output:</strong> Generation of content for portfolio, social media, and newsletter simultaneously</li>
       </ul>
       
-      <h2>Results: Measured Impact</h2>
+      <h2>Typical Results: Measured Impact</h2>
       
-      <p>After eight months with Lyyli, Studio Visio reported:</p>
+      <p>Creative agencies implementing AI communication tools typically report:</p>
       
       <ul>
         <li>10-15 hours saved weekly on content creation and marketing activities</li>
-        <li>Portfolio and case study updates completed within 48 hours of project completion (vs. weeks or months previously)</li>
+        <li>Portfolio and case study updates completed within days of project completion (vs. weeks or months previously)</li>
         <li>300% increase in social media engagement</li>
-        <li>42% growth in inbound leads attributed to improved online presence</li>
-        <li>95% consistency rating in brand voice audits (up from 65%)</li>
+        <li>40%+ growth in inbound leads attributed to improved online presence</li>
+        <li>90%+ consistency rating in brand voice audits</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli has solved what felt like an impossible problem for us. Our designers and writers finally have a tool that speaks their language and preserves our creative voice, while saving us countless hours of marketing work. Our project successes are now visible to potential clients without us having to choose between client work and self-promotion."</p>
-        <cite>— Markus Laine, Creative Director</cite>
+        <p>"AI solves what feels like an impossible problem for creative agencies. Our designers and writers finally have a tool that speaks their language and preserves our creative voice, while saving us countless hours of marketing work. Our project successes are now visible to potential clients without us having to choose between client work and self-promotion."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
       
-      <p>Studio Visio's experience demonstrates why Lyyli is particularly effective for creative agencies. The platform's ability to understand and maintain a distinctive creative voice addresses the core tension many agencies face—wanting to maintain a strong brand presence while focusing their creative energy on client work.</p>
+      <p>This approach is particularly effective for creative agencies. The AI's ability to understand and maintain a distinctive creative voice addresses the core tension many agencies face—wanting to maintain a strong brand presence while focusing their creative energy on client work.</p>
       
-      <p>By automating the documentation and promotion of completed projects, Lyyli helps creative agencies showcase their work without the typical administrative burden. The system's ability to adapt to a creative, design-focused voice ensures that automation doesn't come at the cost of brand personality.</p>
+      <p>By automating the documentation and promotion of completed projects, AI helps creative agencies showcase their work without the typical administrative burden. The system's ability to adapt to a creative, design-focused voice ensures that automation doesn't come at the cost of brand personality.</p>
       
-      <p>This case shows how AI-powered communication tools can help creative agencies solve the common challenge of self-promotion, ultimately strengthening their market position and new business development without diverting creative resources from billable client work.</p>
+      <p>This approach shows how AI-powered communication tools can help creative agencies solve the common challenge of self-promotion, ultimately strengthening their market position and new business development without diverting creative resources from billable client work.</p>
     `,
     author: {
-      name: "Laura Virtanen",
-      title: "Creative Agency Consultant",
-      image: "https://img.shields.io/badge/LV-placeholder-pink"
+      name: "Lyyli Team",
+      title: "Creative Agency Solutions",
+      image: "https://img.shields.io/badge/LT-placeholder-pink"
     },
     publishDate: "2025-01-18",
     readTime: 6,
@@ -359,17 +347,17 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "6",
-    title: "How a Sports Club Transformed Their Fan Communication with Lyyli",
+    title: "How Sports Organizations Can Transform Their Fan Communication with AI",
     slug: "sports-club-fan-communication",
-    excerpt: "See how a professional sports organization improved sponsor relationships and fan engagement through automated communication.",
+    excerpt: "Learn how sports clubs can improve sponsor relationships and fan engagement through automated communication.",
     content: `
       <h2>The Challenge: Reactive Communication Limiting Fan and Sponsor Engagement</h2>
       
-      <p>Turku Eagles, a professional ice hockey team with a passionate fanbase, was struggling with inconsistent communication. Despite a dedicated fanbase and strong local presence, their communication was largely reactive and dependent on the availability of a small marketing team.</p>
+      <p>Sports organizations, from professional teams to amateur clubs, often struggle with inconsistent communication despite having passionate fanbases. Their communication is largely reactive and dependent on the availability of small marketing teams or volunteers.</p>
       
-      <p>"We were missing crucial opportunities to engage fans and provide value to sponsors," explains Jukka Salminen, Marketing Director. "Game results would sometimes be posted hours after matches ended, event promotions would go out too late, and sponsor visibility was inconsistent at best."</p>
+      <p>Many organizations miss crucial opportunities to engage fans and provide value to sponsors. Game results might be posted hours after matches end, event promotions go out too late, and sponsor visibility is inconsistent at best.</p>
       
-      <p>The club faced several specific challenges:</p>
+      <p>Sports organizations typically face several specific challenges:</p>
       <ul>
         <li>Irregular communication schedule dependent on staff availability</li>
         <li>Missed opportunities to highlight player achievements</li>
@@ -378,13 +366,13 @@ export const blogPosts: BlogPost[] = [
         <li>Limited resources to manage communications for both home and away games</li>
       </ul>
       
-      <h2>The Lyyli Solution: Real-time Sports Communication</h2>
+      <h2>The AI Solution: Real-time Sports Communication</h2>
       
-      <p>Turku Eagles implemented Lyyli with a focus on automating time-sensitive communications and ensuring consistent sponsor visibility. The platform was integrated with their game statistics system, event calendar, and CRM to create a comprehensive view of communication opportunities.</p>
+      <p>Sports organizations can implement AI communication platforms focused on automating time-sensitive communications and ensuring consistent sponsor visibility. These systems can integrate with game statistics systems, event calendars, and CRM to create a comprehensive view of communication opportunities.</p>
       
-      <p>Lyyli was configured to create real-time game updates, player highlight features, and sponsor-integrated content that maintained the team's energetic voice. The system also segmented content for different audience groups—from die-hard fans to casual supporters and corporate sponsors.</p>
+      <p>AI can be configured to create real-time game updates, player highlight features, and sponsor-integrated content that maintains the team's energetic voice. The system also segments content for different audience groups—from die-hard fans to casual supporters and corporate sponsors.</p>
       
-      <h2>Key Features That Made a Difference:</h2>
+      <h2>Key Features That Make a Difference:</h2>
       
       <ul>
         <li><strong>Game Event Monitoring:</strong> Automatic generation of pre-game, real-time, and post-game content</li>
@@ -393,36 +381,35 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Multi-channel Distribution:</strong> Simultaneous publishing across email, app notifications, social media, and website</li>
       </ul>
       
-      <h2>Results: Measured Impact</h2>
+      <h2>Typical Results: Measured Impact</h2>
       
-      <p>After one full season using Lyyli, Turku Eagles reported:</p>
+      <p>Sports organizations implementing AI communication tools typically report:</p>
       
       <ul>
-        <li>85% reduction in time between game events and related communications</li>
-        <li>120% increase in social media engagement</li>
-        <li>35% improvement in sponsor satisfaction scores</li>
-        <li>28% growth in game attendance attributed to improved communication</li>
-        <li>42% increase in merchandise sales following automated player highlight campaigns</li>
+        <li>80%+ reduction in time between game events and related communications</li>
+        <li>100%+ increase in social media engagement</li>
+        <li>30-40% improvement in sponsor satisfaction scores</li>
+        <li>25-30% growth in game attendance attributed to improved communication</li>
+        <li>40%+ increase in merchandise sales following automated player highlight campaigns</li>
         <li>15+ hours saved weekly for marketing staff</li>
       </ul>
       
       <blockquote>
-        <p>"Lyyli has transformed our relationship with fans and sponsors. We're now able to deliver the right message at the right time, whether it's a goal alert during a game or a player interview highlight. Our sponsors are thrilled with the consistent visibility, and our fans tell us they've never felt more connected to the team."</p>
-        <cite>— Jukka Salminen, Marketing Director</cite>
+        <p>"AI transforms our relationship with fans and sponsors. We're now able to deliver the right message at the right time, whether it's a goal alert during a game or a player interview highlight. Our sponsors are thrilled with the consistent visibility, and our fans tell us they've never felt more connected to the team."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
       
-      <p>The Turku Eagles experience demonstrates why Lyyli is particularly effective for sports organizations. The platform's ability to operate in real-time and maintain a consistent communication schedule addresses the fundamental challenge of sports communication—the need to be both timely and consistent across numerous events.</p>
+      <p>This approach is particularly effective for sports organizations. AI's ability to operate in real-time and maintain a consistent communication schedule addresses the fundamental challenge of sports communication—the need to be both timely and consistent across numerous events.</p>
       
-      <p>By automating routine updates while maintaining the team's voice and energy, Lyyli helps sports organizations meet fan expectations for immediate information while ensuring sponsors receive their contractual visibility. The system's ability to segment communication for different audiences ensures that content remains relevant despite the increased frequency.</p>
+      <p>By automating routine updates while maintaining the team's voice and energy, AI helps sports organizations meet fan expectations for immediate information while ensuring sponsors receive their contractual visibility. The system's ability to segment communication for different audiences ensures that content remains relevant despite the increased frequency.</p>
       
-      <p>This case shows how AI-powered communication tools can help sports organizations transform their relationship with fans and sponsors, ultimately strengthening both community engagement and commercial partnerships without requiring additional staff resources.</p>
+      <p>This approach shows how AI-powered communication tools can help sports organizations transform their relationship with fans and sponsors, ultimately strengthening both community engagement and commercial partnerships without requiring additional staff resources.</p>
     `,
     author: {
-      name: "Mikko Järvinen",
-      title: "Sports Marketing Specialist",
-      image: "https://img.shields.io/badge/MJ-placeholder-red"
+      name: "Lyyli Team",
+      title: "Sports Marketing",
+      image: "https://img.shields.io/badge/LT-placeholder-red"
     },
     publishDate: "2025-04-28",
     readTime: 6,
@@ -467,7 +454,6 @@ export const blogPosts: BlogPost[] = [
       
       <blockquote>
         <p>"We operate in 18 countries, and maintaining consistent messaging while respecting local conventions has always been a challenge. Lyyli's new multilingual capabilities have transformed our global communication strategy. What used to take weeks now happens automatically with remarkable accuracy."</p>
-        <cite>— Global Communications Director at a Fortune 500 company (beta customer)</cite>
       </blockquote>
       
       <h2>Availability</h2>
@@ -479,9 +465,9 @@ export const blogPosts: BlogPost[] = [
       <p>We're excited to see how these new capabilities will support global organizations in creating more effective, culturally resonant communication across markets.</p>
     `,
     author: {
-      name: "Kaisa Mäkinen",
-      title: "Product Director",
-      image: "https://img.shields.io/badge/KM-placeholder-blue"
+      name: "Lyyli Team",
+      title: "Product Management",
+      image: "https://img.shields.io/badge/LT-placeholder-blue"
     },
     publishDate: "2025-04-10",
     readTime: 4,
@@ -527,8 +513,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
       
       <blockquote>
-        <p>"As a 12-person marketing agency, we were drowning in client work while our own marketing suffered. Lyyli Small Business has been transformative—we're finally promoting our own services consistently without taking time away from client projects."</p>
-        <cite>— Anna Korhonen, Agency Director at CreativeBox</cite>
+        <p>"As a small marketing agency, we were drowning in client work while our own marketing suffered. Lyyli Small Business has been transformative—we're finally promoting our own services consistently without taking time away from client projects."</p>
       </blockquote>
       
       <h2>Pricing and Availability</h2>
@@ -540,8 +525,8 @@ export const blogPosts: BlogPost[] = [
       <p>We're excited to bring the power of AI-enhanced communication to a broader range of organizations and look forward to seeing how smaller, growing companies leverage these tools to amplify their impact.</p>
     `,
     author: {
-      name: "Timo Virtanen",
-      title: "CEO",
+      name: "Lyyli Team",
+      title: "Product Management",
       image: "https://img.shields.io/badge/TV-placeholder-purple"
     },
     publishDate: "2025-05-06",

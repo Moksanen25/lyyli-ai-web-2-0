@@ -92,7 +92,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         </div>
       </div>
       
-      {/* Author bio */}
+      {/* Author info */}
       <div className="bg-secondary/10 p-6 rounded-lg mb-10">
         <div className="flex items-center mb-4">
           <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-lg font-semibold mr-4">
