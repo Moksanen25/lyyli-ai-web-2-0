@@ -7,6 +7,7 @@ import { ChevronLeft, FileImage } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
+import TranslatedContent from './TranslatedContent';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -56,44 +57,47 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         })}
       </div>
       
-      {/* Title - post title is not translated */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-4">
-        {post.title}
-      </h1>
-      
-      {/* Meta info - partially translated */}
-      <div className="flex items-center mb-8">
-        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold mr-3">
-          {post.author.name.charAt(0)}
-        </div>
-        <div>
-          <p className="font-medium">{post.author.name}</p>
-          <p className="text-sm text-muted-foreground">
-            {post.author.title} • {safeT('blog.publishedOn')} {format(publishDate, 'MMMM d, yyyy')} • {post.readTime} {safeT('blog.minuteRead')}
-          </p>
-        </div>
-      </div>
-      
-      {/* Featured image */}
-      <div className="rounded-lg h-auto overflow-hidden mb-8">
-        {post.featuredImage.startsWith('http') ? (
-          <img 
-            src={post.featuredImage} 
-            alt={post.title} 
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="bg-primary/5 h-64 flex items-center justify-center">
-            <FileImage className="h-16 w-16 text-muted-foreground" />
+      {/* Use TranslatedContent wrapper for the blog content */}
+      <TranslatedContent post={post}>
+        {/* Title - post title is not translated */}
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          {post.title}
+        </h1>
+        
+        {/* Meta info - partially translated */}
+        <div className="flex items-center mb-8">
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold mr-3">
+            {post.author.name.charAt(0)}
           </div>
-        )}
-      </div>
-      
-      {/* Content */}
-      <div 
-        className="prose prose-lg max-w-none mb-10 blog-content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+          <div>
+            <p className="font-medium">{post.author.name}</p>
+            <p className="text-sm text-muted-foreground">
+              {post.author.title} • {safeT('blog.publishedOn')} {format(publishDate, 'MMMM d, yyyy')} • {post.readTime} {safeT('blog.minuteRead')}
+            </p>
+          </div>
+        </div>
+        
+        {/* Featured image */}
+        <div className="rounded-lg h-auto overflow-hidden mb-8">
+          {post.featuredImage.startsWith('http') ? (
+            <img 
+              src={post.featuredImage} 
+              alt={post.title} 
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="bg-primary/5 h-64 flex items-center justify-center">
+              <FileImage className="h-16 w-16 text-muted-foreground" />
+            </div>
+          )}
+        </div>
+        
+        {/* Content */}
+        <div 
+          className="prose prose-lg max-w-none mb-10 blog-content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </TranslatedContent>
       
       {/* Share - translated */}
       <div className="border-t border-b py-6 my-10">

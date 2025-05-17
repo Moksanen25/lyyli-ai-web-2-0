@@ -32,5 +32,9 @@ export const blog = {
   postNotFound: 'Post not found',
   redirecting: 'Redirecting to blog list',
   loading: 'Loading...',
-  noFilteredResults: 'No posts match the selected filter.'
+  noFilteredResults: 'No posts match the selected filter.',
+  translationNotice: {
+    title: 'Automatic Translation',
+    description: 'This content has been automatically translated to Finnish. The original content is available by switching the site language to English.'
+  }
 };

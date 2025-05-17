@@ -32,5 +32,9 @@ export const blog = {
   postNotFound: 'Artikkelia ei löytynyt',
   redirecting: 'Ohjataan takaisin blogiin',
   loading: 'Ladataan...',
-  noFilteredResults: 'Yhtään artikkelia ei löytynyt valitulla suodattimella.'
+  noFilteredResults: 'Yhtään artikkelia ei löytynyt valitulla suodattimella.',
+  translationNotice: {
+    title: 'Automaattinen käännös',
+    description: 'Tämä sisältö on käännetty automaattisesti englanniksi. Alkuperäinen sisältö on saatavilla vaihtamalla sivuston kieli englanniksi.'
+  }
 };
