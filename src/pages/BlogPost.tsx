@@ -64,15 +64,23 @@ const BlogPost: React.FC = () => {
       if (language === 'fi') {
         // Prioritize Finnish posts if available
         const fiPost = postsWithSlug.find(p => p.language === 'fi');
-        if (fiPost) return fiPost;
+        if (fiPost) {
+          console.log('Found Finnish post:', fiPost.id);
+          return fiPost;
+        }
         
+        console.log('No Finnish post found, using first available post');
         // Otherwise show any post (will be translated by UI)
         return postsWithSlug[0];
       } else {
         // In English mode, prioritize English posts
         const enPost = postsWithSlug.find(p => !p.language || p.language === 'en');
-        if (enPost) return enPost;
+        if (enPost) {
+          console.log('Found English post:', enPost.id);
+          return enPost;
+        }
         
+        console.log('No English post found, using first available post');
         // Fall back to any post if needed
         return postsWithSlug[0];
       }

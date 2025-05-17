@@ -31,14 +31,17 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     });
   }, [post.id, post.title, post.language, language]);
   
+  // For UI elements, always use the safeT function to get translations
+  // The blog content itself stays in its original language (English or Finnish)
+  
   return (
     <article className="max-w-3xl mx-auto">
-      {/* Back to blog link */}
+      {/* Back to blog link - translated */}
       <Link to={getBlogUrl()} className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
         <ChevronLeft className="h-4 w-4 mr-1" /> {safeT('blog.backToBlog')}
       </Link>
       
-      {/* Tags */}
+      {/* Tags - translated */}
       <div className="flex flex-wrap gap-2 mb-4">
         {post.tags.map((tag, index) => {
           const tagKey = tag.toLowerCase().replace(/\s+/g, '');
@@ -52,12 +55,12 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         })}
       </div>
       
-      {/* Title */}
+      {/* Title - post title is not translated */}
       <h1 className="text-3xl md:text-4xl font-bold mb-4">
         {post.title}
       </h1>
       
-      {/* Meta info */}
+      {/* Meta info - partially translated */}
       <div className="flex items-center mb-8">
         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold mr-3">
           {post.author.name.charAt(0)}
@@ -91,7 +94,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
       
-      {/* Share */}
+      {/* Share - translated */}
       <div className="border-t border-b py-6 my-10">
         <p className="font-medium mb-3">{safeT('blog.sharePost')}</p>
         <div className="flex space-x-4">
@@ -108,7 +111,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         </div>
       </div>
       
-      {/* Author info */}
+      {/* Author info - partially translated */}
       <div className="bg-secondary/10 p-6 rounded-lg mb-10">
         <div className="flex items-center mb-4">
           <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-lg font-semibold mr-4">

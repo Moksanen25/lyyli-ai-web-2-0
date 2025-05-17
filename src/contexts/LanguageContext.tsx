@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
@@ -87,7 +86,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
-  // Translation function
+  // Translation function - ENHANCED WITH DEBUG LOGGING
   const t = (key: string): string => {
     try {
       if (!key) {
@@ -105,11 +104,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         if (!value) return key;
       }
       
+      // Debug for blog translations
+      if (keys[0] === 'blog' && import.meta.env.DEV) {
+        console.log(`Translation lookup for [${language}]: ${key}`);
+      }
+      
       for (const k of keys) {
         if (value && value[k] !== undefined) {
           value = value[k];
         } else {
-          console.warn(`Translation key not found: ${key} in language: ${language}`);
+          if (import.meta.env.DEV) {
+            console.warn(`Translation key not found: ${key} in language: ${language}`);
+          }
+          
           // Try to fallback to English for this key
           let enValue = languages.en;
           let found = true;
@@ -121,11 +128,26 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
               break;
             }
           }
-          return found && typeof enValue === 'string' ? enValue : key;
+          
+          const result = found && typeof enValue === 'string' ? enValue : key;
+          
+          // Debug for blog translations
+          if (keys[0] === 'blog' && import.meta.env.DEV) {
+            console.log(`Fallback translation for [${language}]: ${key} -> ${result}`);
+          }
+          
+          return result;
         }
       }
       
-      return typeof value === 'string' ? value : String(value);
+      const result = typeof value === 'string' ? value : String(value);
+      
+      // Debug for blog translations
+      if (keys[0] === 'blog' && import.meta.env.DEV) {
+        console.log(`Final translation for [${language}]: ${key} -> ${result}`);
+      }
+      
+      return result;
     } catch (error) {
       console.error(`Error translating key: ${key}`, error);
       return key;

@@ -20,18 +20,22 @@ export const useSafeTranslation = () => {
       
       // If we got a valid translation, return it
       if (translation && translation !== key) {
+        // If in debug mode, log successful translation
+        if ((options.debug || key.startsWith('blog.')) && import.meta.env.DEV) {
+          console.log(`[safeT] Successfully translated: ${key} -> "${translation}" (${language})`);
+        }
         return translation;
       }
       
       // Log missing translation in development
       if (import.meta.env.DEV || options.debug) {
-        console.warn(`Missing translation for key: "${key}" in language: ${language}`);
+        console.warn(`[safeT] Missing translation for key: "${key}" in language: ${language}`);
       }
       
       // Return fallback or key
       return options.fallback || translation || key;
     } catch (error) {
-      console.error(`Error translating key: "${key}"`, error);
+      console.error(`[safeT] Error translating key: "${key}"`, error);
       return options.fallback || key;
     }
   };
