@@ -46,7 +46,7 @@ const PricingPage = () => {
   const pageTitle = language === 'fi' ? 'Hinnoittelu - Lyyli.ai' : 'Pricing - Lyyli.ai';
   const pageDescription = language === 'fi'
     ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
-    : 'Clear pricing for Lyyli.ai's AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
+    : 'Clear pricing for Lyyli.ai\'s AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
   
   // Define pricing tiers
   const pricingTiers: PricingTier[] = [

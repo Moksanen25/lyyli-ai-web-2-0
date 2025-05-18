@@ -16,7 +16,7 @@ const Contact = () => {
   const pageTitle = language === 'fi' ? 'Ota yhteyttä - Lyyli.ai' : 'Contact Us - Lyyli.ai';
   const pageDescription = language === 'fi'
     ? 'Ota yhteyttä Lyyli.aiin tekoälyavusteisen viestinnän automaation asiantuntijoihin. Teemme viestinnästä helppoa, tuottavaa ja mitattavaa.'
-    : 'Contact Lyyli.ai's AI communication automation experts. We make communication easy, productive, and measurable for your business.';
+    : 'Contact Lyyli.ai\'s AI communication automation experts. We make communication easy, productive, and measurable for your business.';
     
   return (
     <div className="min-h-screen flex flex-col">
