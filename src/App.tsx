@@ -21,10 +21,17 @@ import BlogPost from '@/pages/BlogPost';
 function AppRoutes() {
   const location = useLocation();
   
-  // Debug routing
+  // Debug routing in development
   useEffect(() => {
-    console.log('Current route:', location.pathname);
+    if (import.meta.env.DEV) {
+      console.log('Current route:', location.pathname);
+    }
   }, [location]);
+
+  // Add scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <Routes>
@@ -67,7 +74,9 @@ function AppRoutes() {
 }
 
 function App() {
-  console.log('App component rendering');
+  if (import.meta.env.DEV) {
+    console.log('App component rendering');
+  }
   
   return (
     <LanguageProvider>

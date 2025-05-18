@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ChatInterface from '@/components/chat/ChatInterface';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone, Globe, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -13,10 +13,10 @@ const Contact = () => {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
   
-  const pageTitle = language === 'fi' ? 'Ota yhteyttä - Lyyli' : 'Contact Us - Lyyli';
+  const pageTitle = language === 'fi' ? 'Ota yhteyttä - Lyyli.ai' : 'Contact Us - Lyyli.ai';
   const pageDescription = language === 'fi'
-    ? 'Ota yhteyttä Lyyliin saadaksesi lisätietoja tai keskustellaksesi tekoälyavusteisesta sisällönhallintaratkaisusta.'
-    : 'Contact Lyyli for more information or to discuss our AI-powered content management solution.';
+    ? 'Ota yhteyttä Lyyli.aiin tekoälyavusteisen viestinnän automaation asiantuntijoihin. Teemme viestinnästä helppoa, tuottavaa ja mitattavaa.'
+    : 'Contact Lyyli.ai's AI communication automation experts. We make communication easy, productive, and measurable for your business.';
     
   return (
     <div className="min-h-screen flex flex-col">
@@ -25,8 +25,11 @@ const Contact = () => {
         <meta name="description" content={pageDescription} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
+        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}contact`} />
       </Helmet>
       
       <Navbar />
@@ -43,7 +46,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-medium text-lg">Mikko Oksanen</h3>
-                  <p className="text-muted-foreground">{language === 'fi' ? 'Toimitusjohtaja' : 'CEO'}</p>
+                  <p className="text-muted-foreground">{t('contact.role')}</p>
                 </div>
                 
                 <div className="flex flex-col space-y-3">
@@ -101,21 +104,21 @@ const Contact = () => {
                 </div>
                 
                 <div className="pt-4 flex flex-wrap gap-3">
-                  <Button asChild className={isMobile ? "flex-1 min-h-[44px]" : ""}>
+                  <Button asChild className={isMobile ? "flex-1 min-h-[44px] touch-manipulation" : ""}>
                     <a href="tel:+358409619224">
                       <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                       {isMobile ? "" : t('contact.call')}
                     </a>
                   </Button>
                   
-                  <Button variant="outline" asChild className={isMobile ? "flex-1 min-h-[44px]" : ""}>
+                  <Button variant="outline" asChild className={isMobile ? "flex-1 min-h-[44px] touch-manipulation" : ""}>
                     <a href="mailto:mikko@lyyli.ai">
                       <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
                       {isMobile ? "" : t('contact.email')}
                     </a>
                   </Button>
                   
-                  <Button variant="secondary" asChild className={isMobile ? "flex-1 min-h-[44px]" : ""}>
+                  <Button variant="secondary" asChild className={isMobile ? "flex-1 min-h-[44px] touch-manipulation" : ""}>
                     <a 
                       href="https://wa.me/358409619224"
                       target="_blank"
@@ -135,7 +138,15 @@ const Contact = () => {
             </div>
             
             <div className="border rounded-lg shadow-sm overflow-hidden h-[350px] md:h-[500px] lg:h-[600px]" aria-label={t('contact.chatAriaLabel')}>
-              <ChatInterface />
+              <div className="h-full flex flex-col">
+                <div className="bg-primary text-white p-3 flex items-center">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <span className="font-medium">{language === 'fi' ? 'Keskustele Lyylin kanssa' : 'Chat with Lyyli'}</span>
+                </div>
+                <div className="flex-grow">
+                  <ChatInterface />
+                </div>
+              </div>
             </div>
           </div>
         </div>

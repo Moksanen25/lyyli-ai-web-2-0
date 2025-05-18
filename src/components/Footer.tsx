@@ -1,18 +1,32 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Settings } from 'lucide-react';
+import { Settings, Calculator } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
+  const location = useLocation();
+  
+  // Function to determine if we're on the pricing page
+  const isOnPricingPage = location.pathname.includes('/pricing');
   
   // Function to open cookie settings dialog
   const openCookieSettings = () => {
     // Create and dispatch a custom event that the CookieConsent component will listen for
     const event = new CustomEvent('openCookieSettings');
     window.dispatchEvent(event);
+  };
+
+  // Function to scroll to ROI calculator if on pricing page, otherwise navigate to pricing page with ROI calculator anchor
+  const navigateToCalculator = () => {
+    if (isOnPricingPage) {
+      const calculator = document.getElementById('roi-calculator');
+      if (calculator) {
+        calculator.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -27,6 +41,14 @@ const Footer: React.FC = () => {
             <p className="text-primary/70 mb-4">
               AI-powered content management platform that transforms your content workflow.
             </p>
+            <Link
+              to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"}
+              onClick={navigateToCalculator}
+              className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2"
+            >
+              <Calculator className="h-4 w-4 mr-2" />
+              {language === 'fi' ? 'ROI Laskuri' : 'ROI Calculator'}
+            </Link>
           </div>
           
           {/* Product links */}
@@ -34,17 +56,17 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4">{t('footer.product')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/full/features" className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.features')}
                 </Link>
               </li>
               <li>
-                <Link to="/full/pricing" className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.pricing')}
                 </Link>
               </li>
               <li>
-                <Link to="/full/faq" className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/full/faq" : "/full/faq"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.faq')}
                 </Link>
               </li>
@@ -56,17 +78,17 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/full/about" className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.about')}
                 </Link>
               </li>
               <li>
-                <Link to="/full/careers" className="text-primary/70 hover:text-primary transition-colors">
-                  {t('footer.careers')}
+                <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-primary/70 hover:text-primary transition-colors">
+                  {t('footer.blog')}
                 </Link>
               </li>
               <li>
-                <Link to="/full/contact" className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.contact')}
                 </Link>
               </li>

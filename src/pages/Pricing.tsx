@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { CircleCheck, CircleDollarSign, ListCheck } from "lucide-react";
 import Navbar from '@/components/Navbar';
@@ -10,6 +11,7 @@ import PricingCard from '@/components/pricing/PricingCard';
 import FeatureComparison from '@/components/pricing/FeatureComparison';
 import PricingFAQ from '@/components/pricing/PricingFAQ';
 import ComplianceBadges from '@/components/ComplianceBadges';
+import ROICalculator from '@/components/ROICalculator';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 // Define pricing data
@@ -32,13 +34,19 @@ interface PricingTier {
 }
 
 const PricingPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showFullComparison, setShowFullComparison] = useState(false);
   const isMobile = useIsMobile();
   
   // Define discount rate for yearly billing
   const yearlyDiscountRate = 0.8; // 20% discount
+
+  // SEO metadata
+  const pageTitle = language === 'fi' ? 'Hinnoittelu - Lyyli.ai' : 'Pricing - Lyyli.ai';
+  const pageDescription = language === 'fi'
+    ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
+    : 'Clear pricing for Lyyli.ai's AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
   
   // Define pricing tiers
   const pricingTiers: PricingTier[] = [
@@ -118,6 +126,18 @@ const PricingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}pricing`} />
+      </Helmet>
+      
       <Navbar />
       <div className="container-padding py-8 md:py-16 lg:py-24 flex-grow animate-fade-in">
         <PricingHeader 
@@ -153,6 +173,11 @@ const PricingPage = () => {
           comparisonFeatures={comparisonFeatures}
           showFullComparison={showFullComparison}
         />
+
+        {/* ROI Calculator - Added back */}
+        <div id="roi-calculator" className="scroll-mt-24">
+          <ROICalculator />
+        </div>
         
         {/* Compliance badges */}
         <ComplianceBadges className="my-8 md:my-12" />

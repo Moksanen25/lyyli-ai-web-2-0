@@ -13,14 +13,15 @@ const PricingHeader: React.FC<PricingHeaderProps> = ({ billingPeriod, setBilling
   
   return (
     <div className="text-center mb-12">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{t('pricing.title')}</h1>
-      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" id="pricing-title">{t('pricing.title')}</h1>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
         {t('pricing.subtitle')}
       </p>
       
       <PricingToggle 
         billingPeriod={billingPeriod} 
         setBillingPeriod={setBillingPeriod} 
+        aria-labelledby="pricing-title"
       />
     </div>
   );
