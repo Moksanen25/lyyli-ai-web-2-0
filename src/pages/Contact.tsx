@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ChatInterface from '@/components/chat/ChatInterface';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -42,8 +42,8 @@ const Contact = () => {
               <h2 className="text-xl md:text-2xl font-semibold mb-4">{t('contact.information')}</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-medium text-lg">Mikko</h3>
-                  <p className="text-muted-foreground">{t('contact.role')}</p>
+                  <h3 className="font-medium text-lg">Mikko Oksanen</h3>
+                  <p className="text-muted-foreground">{language === 'fi' ? 'Toimitusjohtaja' : 'CEO'}</p>
                 </div>
                 
                 <div className="flex flex-col space-y-3">
@@ -57,12 +57,30 @@ const Contact = () => {
                   </a>
                   
                   <a 
-                    href="mailto:mikko.oksanen@lyyli.ai"
+                    href="mailto:mikko@lyyli.ai"
                     className="flex items-center gap-2 hover:text-primary transition-colors"
                     aria-label={t('contact.emailAriaLabel')}
                   >
                     <Mail className="w-5 h-5" aria-hidden="true" />
-                    <span>mikko.oksanen@lyyli.ai</span>
+                    <span>mikko@lyyli.ai</span>
+                  </a>
+                  
+                  <a 
+                    href="https://lyyli.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:text-primary transition-colors"
+                  >
+                    <Globe className="w-5 h-5" aria-hidden="true" />
+                    <span>www.lyyli.ai</span>
+                  </a>
+                  
+                  <a 
+                    href="mailto:hello@lyyli.ai"
+                    className="flex items-center gap-2 hover:text-primary transition-colors"
+                  >
+                    <Mail className="w-5 h-5" aria-hidden="true" />
+                    <span>hello@lyyli.ai</span>
                   </a>
                   
                   <a 
@@ -91,7 +109,7 @@ const Contact = () => {
                   </Button>
                   
                   <Button variant="outline" asChild className={isMobile ? "flex-1 min-h-[44px]" : ""}>
-                    <a href="mailto:mikko.oksanen@lyyli.ai">
+                    <a href="mailto:mikko@lyyli.ai">
                       <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
                       {isMobile ? "" : t('contact.email')}
                     </a>

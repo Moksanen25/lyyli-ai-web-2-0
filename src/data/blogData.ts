@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -419,120 +418,119 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "7",
-    title: "Introducing Advanced Multilingual Support in Lyyli Enterprise",
-    slug: "advanced-multilingual-support-enterprise",
-    excerpt: "New features enable seamless communication across 24 languages with automated translation and cultural adaptation.",
+    title: "Content AI Oy Established – Lyyli.ai Redefines Communication Automation for Microbusinesses",
+    slug: "content-ai-established-lyyli-redefines-communication",
+    excerpt: "A new era of AI-powered communication begins today. Content AI Oy has been founded to develop and commercialize next-generation communication tools.",
     content: `
-      <h2>Expanding Global Communication Capabilities</h2>
+      <h2>Founders and First Investor</h2>
       
-      <p>We're excited to announce a major update to Lyyli Enterprise that significantly expands our multilingual communication capabilities. Starting next month, Lyyli Enterprise customers will have access to advanced translation and cultural adaptation features across 24 languages.</p>
+      <p>Content AI Oy was founded by Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) and Veikko Laitinen (Aimaster Oy), two experienced professionals with backgrounds in AI, communication, and small business growth. The company's first investor is Expion Oy, supporting Content AI's mission to bring intelligent communication tools within reach of every microenterprise in Europe.</p>
       
-      <p>This update responds to the growing need for global organizations to communicate effectively across language barriers while maintaining consistent brand voice and messaging.</p>
+      <h2>Lyyli.ai – Let AI Handle Your Communications</h2>
       
-      <h2>Key New Features:</h2>
+      <p>Lyyli.ai is designed especially for European microbusinesses with diverse communication needs and limited resources. The platform enables professional, consistent communication without the need for an in-house team, freeing up valuable time for core business activities.</p>
       
-      <ul>
-        <li><strong>Expanded Language Support:</strong> From 8 to 24 languages, including all major European languages, Japanese, Chinese, Korean, Arabic, and more</li>
-        <li><strong>Cultural Adaptation Engine:</strong> Beyond translation, content is adapted for cultural relevance and local conventions</li>
-        <li><strong>Multilingual Workflow:</strong> Create content in one language and instantly adapt it for multiple markets</li>
-        <li><strong>Voice Consistency:</strong> Maintains your unique brand voice across all languages</li>
-        <li><strong>Local Regulatory Compliance:</strong> Built-in checks for region-specific communication requirements</li>
-      </ul>
+      <p>Lyyli automates the entire communication process — from ideation and content creation to approval and publishing. At its core is an AI assistant that monitors internal and external communications, identifies content opportunities, and suggests tailored messages for different channels. The assistant learns from the organization's tone and objectives, producing ready-to-publish content and distributing it either with user approval or fully autonomously.</p>
       
-      <h2>What This Means For Enterprise Users</h2>
+      <h2>A Unique End-to-End Communication Solution</h2>
       
-      <p>This expansion enables global organizations to maintain consistent communication across all markets while respecting local language and cultural expectations. The system's ability to not just translate but culturally adapt content saves significant time and resources compared to traditional localization approaches.</p>
-      
-      <p>Early beta testing with selected customers has shown impressive results:</p>
+      <p>Lyyli.ai stands out by covering the entire communication workflow, not just fragments. Where other tools focus on content creation or social media scheduling, Lyyli automates the full pipeline. Key features include:</p>
       
       <ul>
-        <li>80% reduction in time-to-market for multilingual content</li>
-        <li>92% accuracy in cultural adaptation compared to human localization experts</li>
-        <li>65% cost reduction versus traditional localization services</li>
-        <li>4.8/5 average rating from in-country reviewers for quality and cultural appropriateness</li>
+        <li>Integrations with major communication and publishing platforms (e.g. Slack, LinkedIn, Teams)</li>
+        <li>AI-generated content suggestions based on real company interactions</li>
+        <li>An intuitive interface for training, managing, and reviewing content</li>
+        <li>Automated scheduling, editing, and publishing workflows</li>
+        <li>A self-learning AI engine that adapts to each company's voice and goals</li>
       </ul>
       
-      <blockquote>
-        <p>"We operate in 18 countries, and maintaining consistent messaging while respecting local conventions has always been a challenge. Lyyli's new multilingual capabilities have transformed our global communication strategy. What used to take weeks now happens automatically with remarkable accuracy."</p>
-      </blockquote>
+      <p>Lyyli turns communication into a productive, measurable business function.</p>
       
-      <h2>Availability</h2>
+      <h2>Looking Ahead</h2>
       
-      <p>The expanded multilingual features will be available to all Lyyli Enterprise customers starting May 15, 2025, at no additional cost. Enterprise Plus customers will receive early access beginning May 1.</p>
+      <p>The first version of Lyyli.ai is now available to Finnish and European microbusinesses. The service will continue to evolve based on user feedback and expand internationally. The goal: to become the leading communication automation platform for microenterprises across Europe and beyond.</p>
       
-      <p>Existing customers can schedule a walkthrough of the new features with their account representative. New customers interested in Lyyli Enterprise can contact our sales team for a demonstration focused on multilingual capabilities.</p>
+      <h2>For more information:</h2>
       
-      <p>We're excited to see how these new capabilities will support global organizations in creating more effective, culturally resonant communication across markets.</p>
+      <p>
+        Mikko Oksanen, CEO<br>
+        📧 mikko@lyyli.ai<br>
+        📞 +358 40 961 9224
+      </p>
+      
+      <p>
+        🌐 www.lyyli.ai<br>
+        📩 hello@lyyli.ai
+      </p>
     `,
     author: {
       name: "Lyyli Team",
-      title: "Product Management",
+      title: "Communications",
       image: "https://img.shields.io/badge/LT-placeholder-blue"
     },
-    publishDate: "2025-04-10",
+    publishDate: "2025-05-15",
     readTime: 4,
-    featuredImage: "https://img.shields.io/badge/Product-Update-blue",
-    tags: ["News", "Blog"],
+    featuredImage: "https://img.shields.io/badge/News-Company-blue",
+    tags: ["News"],
+    isHighlighted: true,
     language: "en"
   },
   {
     id: "8",
-    title: "Introducing Lyyli Small Business - Enterprise-grade AI Communication for Growing Companies",
-    slug: "introducing-lyyli-small-business",
-    excerpt: "Our new offering brings powerful AI communication tools to businesses with 5-50 employees at an accessible price point.",
+    title: "Content AI Oy on perustettu – Lyyli.ai mullistaa viestinnän automaation mikroyrityksille",
+    slug: "content-ai-perustettu-lyyli-viestintaautomaatio",
+    excerpt: "Tekoälyn uusi aikakausi viestinnässä alkaa nyt. Uunituore Content AI Oy on perustettu kehittämään ja kaupallistamaan uuden sukupolven viestintätyökaluja.",
     content: `
-      <h2>Democratizing AI-Powered Communication</h2>
+      <h2>Perustajat ja ensimmäinen sijoittaja</h2>
       
-      <p>Today, we're thrilled to announce the launch of Lyyli Small Business—a new offering designed specifically for growing companies with 5-50 employees. This new tier makes our enterprise-grade AI communication tools accessible to smaller organizations at a price point that works for their budgets.</p>
+      <p>Content AI Oy:n perustajat ovat Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) ja Veikko Laitinen (Aimaster Oy). Heidän taustansa yhdistävät vahvan osaamisen tekoälystä, viestinnästä ja pk-yritysten liiketoiminnasta. Yhtiön ensimmäiseksi sijoittajaksi on lähtenyt Expion Oy, joka uskoo Content AI:n visioon älykkäästä, automatisoidusta viestinnästä eurooppalaisille mikroyrityksille.</p>
       
-      <p>Since launching Lyyli Enterprise two years ago, we've received consistent feedback that smaller organizations face many of the same communication challenges as large enterprises, but need solutions scaled to their size and resources. Lyyli Small Business is our response to that need.</p>
+      <h2>Lyyli.ai – Tekoäly joka hoitaa viestinnän puolestasi</h2>
       
-      <h2>Right-sized Features, Powerful Results</h2>
+      <p>Lyyli.ai on suunniteltu erityisesti eurooppalaisille mikroyrityksille, joilla on moninaisia viestintätarpeita mutta rajalliset resurssit. Palvelu vapauttaa aikaa ja mahdollistaa ammattimaisen viestinnän ilman omaa viestintätiimiä.</p>
       
-      <p>Lyyli Small Business includes core features of our Enterprise platform, carefully adapted for smaller teams:</p>
+      <p>Lyyli yhdistää sisällön ideoinnin, tuottamisen, hyväksymisen ja julkaisemisen saumattomaksi prosessiksi – täysin automatisoidusti. Tekoälybotti seuraa organisaation sisäistä ja ulkoista viestintää, tunnistaa tarpeet ja ehdottaa sopivia sisältöjä eri kanaviin. Botti oppii organisaation tyylistä ja tavoitteista, tuottaa valmiita julkaisuja ja julkaisee ne automaattisesti käyttäjän hyväksynnällä tai täysin itsenäisesti.</p>
       
-      <ul>
-        <li><strong>AI Content Creation:</strong> Generate professional content that maintains your unique brand voice</li>
-        <li><strong>Multi-channel Publishing:</strong> Distribute content across email, social, web, and internal channels</li>
-        <li><strong>Up to 3 Integrations:</strong> Connect with the tools your team already uses (Slack, Teams, Google Workspace, etc.)</li>
-        <li><strong>Simple Approval Workflows:</strong> Streamlined content review process designed for smaller teams</li>
-        <li><strong>2 Language Support:</strong> Communicate in two languages with intelligent adaptation</li>
-      </ul>
+      <h2>Ainutlaatuinen kokonaisratkaisu viestintään</h2>
       
-      <p>This focused feature set delivers the most impactful capabilities without the complexity that smaller teams don't need.</p>
-      
-      <h2>Early Adopter Results</h2>
-      
-      <p>We've been testing Lyyli Small Business with selected companies over the past three months. The results speak volumes about the impact on their communication effectiveness:</p>
+      <p>Lyyli erottautuu markkinoilla kokonaisvaltaisella lähestymistavallaan. Siinä missä monet työkalut keskittyvät yksittäisiin osa-alueisiin, Lyyli automatisoi koko viestintäprosessin. Alustan ydinominaisuudet:</p>
       
       <ul>
-        <li>Average of 15 hours saved per week on content creation and publishing</li>
-        <li>3.5x increase in content output without adding headcount</li>
-        <li>85% improvement in brand consistency across channels</li>
-        <li>64% of users reported being able to reach new audiences previously not addressed</li>
+        <li>Integraatiot suosituimpiin viestintä- ja julkaisualustoihin (esim. Slack, LinkedIn, Teams)</li>
+        <li>Automaattinen sisältöehdotusten generaattori organisaation viestinnän perusteella</li>
+        <li>Käyttöliittymä sisällön hallintaan, kouluttamiseen ja valvontaan</li>
+        <li>Julkaisujen ajastus, muokkaus ja monitorointi</li>
+        <li>Itseoppiva tekoäly, joka mukautuu yrityksen viestintätyyliin ja tavoitteisiin</li>
       </ul>
       
-      <blockquote>
-        <p>"As a small marketing agency, we were drowning in client work while our own marketing suffered. Lyyli Small Business has been transformative—we're finally promoting our own services consistently without taking time away from client projects."</p>
-      </blockquote>
+      <p>Lyyli ei vain tehosta viestintää – se muuttaa sen aidosti tuottavaksi osaksi liiketoimintaa.</p>
       
-      <h2>Pricing and Availability</h2>
+      <h2>Tulevaisuuden suunta</h2>
       
-      <p>Lyyli Small Business is available starting today at €450/month for organizations with up to 25 users, and €650/month for organizations with 26-50 users. Both options include all features listed above plus our standard onboarding and support.</p>
+      <p>Lyyli.ai:n ensimmäinen versio on nyt käytettävissä suomalaisille ja eurooppalaisille mikroyrityksille. Seuraavassa vaiheessa palvelua kehitetään edelleen asiakaspalautteen perusteella ja laajennetaan kansainvälisesti. Tavoitteena on rakentaa johtava viestinnän automaatioalusta mikroyritysten tarpeisiin Euroopassa ja sen ulkopuolella.</p>
       
-      <p>For organizations ready to get started, we're offering a special launch promotion: sign up before June 30 and receive a 20% discount for the first year plus extended onboarding support.</p>
+      <h2>Lisätiedot:</h2>
       
-      <p>We're excited to bring the power of AI-enhanced communication to a broader range of organizations and look forward to seeing how smaller, growing companies leverage these tools to amplify their impact.</p>
+      <p>
+        Mikko Oksanen, toimitusjohtaja<br>
+        📧 mikko@lyyli.ai<br>
+        📞 +358 40 961 9224
+      </p>
+      
+      <p>
+        🌐 www.lyyli.ai<br>
+        📩 hello@lyyli.ai
+      </p>
     `,
     author: {
-      name: "Lyyli Team",
-      title: "Product Management",
-      image: "https://img.shields.io/badge/TV-placeholder-purple"
+      name: "Lyyli-tiimi",
+      title: "Viestintä",
+      image: "https://img.shields.io/badge/LT-placeholder-blue"
     },
-    publishDate: "2025-05-06",
+    publishDate: "2025-05-15",
     readTime: 4,
-    featuredImage: "https://img.shields.io/badge/Product-Launch-purple",
+    featuredImage: "https://img.shields.io/badge/Uutiset-Yritys-blue",
     tags: ["News"],
-    language: "en"
+    language: "fi"
   }
 ];

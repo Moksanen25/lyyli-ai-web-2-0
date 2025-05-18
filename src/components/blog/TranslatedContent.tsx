@@ -134,6 +134,100 @@ export const blogTranslations: Record<string, {
       
       <p>Tämä osoittaa, kuinka tekoälyllä voi rakentaa vaikuttavaa, resurssitehokasta viestintää, joka vahvistaa fanien yhteyttä seuraan ja kasvattaa kaupallista arvoa ilman lisähenkilöstöä.</p>
     `
+  },
+  // English translation for the Finnish content-ai post
+  'content-ai-perustettu-lyyli-viestintaautomaatio-en': {
+    title: 'Content AI Oy Established – Lyyli.ai Redefines Communication Automation for Microbusinesses',
+    excerpt: 'A new era of AI-powered communication begins today. Content AI Oy has been founded to develop and commercialize next-generation communication tools.',
+    content: `
+      <h2>Founders and First Investor</h2>
+      
+      <p>Content AI Oy was founded by Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) and Veikko Laitinen (Aimaster Oy), two experienced professionals with backgrounds in AI, communication, and small business growth. The company's first investor is Expion Oy, supporting Content AI's mission to bring intelligent communication tools within reach of every microenterprise in Europe.</p>
+      
+      <h2>Lyyli.ai – Let AI Handle Your Communications</h2>
+      
+      <p>Lyyli.ai is designed especially for European microbusinesses with diverse communication needs and limited resources. The platform enables professional, consistent communication without the need for an in-house team, freeing up valuable time for core business activities.</p>
+      
+      <p>Lyyli automates the entire communication process — from ideation and content creation to approval and publishing. At its core is an AI assistant that monitors internal and external communications, identifies content opportunities, and suggests tailored messages for different channels. The assistant learns from the organization's tone and objectives, producing ready-to-publish content and distributing it either with user approval or fully autonomously.</p>
+      
+      <h2>A Unique End-to-End Communication Solution</h2>
+      
+      <p>Lyyli.ai stands out by covering the entire communication workflow, not just fragments. Where other tools focus on content creation or social media scheduling, Lyyli automates the full pipeline. Key features include:</p>
+      
+      <ul>
+        <li>Integrations with major communication and publishing platforms (e.g. Slack, LinkedIn, Teams)</li>
+        <li>AI-generated content suggestions based on real company interactions</li>
+        <li>An intuitive interface for training, managing, and reviewing content</li>
+        <li>Automated scheduling, editing, and publishing workflows</li>
+        <li>A self-learning AI engine that adapts to each company's voice and goals</li>
+      </ul>
+      
+      <p>Lyyli turns communication into a productive, measurable business function.</p>
+      
+      <h2>Looking Ahead</h2>
+      
+      <p>The first version of Lyyli.ai is now available to Finnish and European microbusinesses. The service will continue to evolve based on user feedback and expand internationally. The goal: to become the leading communication automation platform for microenterprises across Europe and beyond.</p>
+      
+      <h2>For more information:</h2>
+      
+      <p>
+        Mikko Oksanen, CEO<br>
+        📧 mikko@lyyli.ai<br>
+        📞 +358 40 961 9224
+      </p>
+      
+      <p>
+        🌐 www.lyyli.ai<br>
+        📩 hello@lyyli.ai
+      </p>
+    `
+  },
+  // Finnish translation for the English content-ai post
+  'content-ai-established-lyyli-redefines-communication-fi': {
+    title: 'Content AI Oy on perustetty – Lyyli.ai mullistaa viestinnän automaation mikroyrityksille',
+    excerpt: 'Tekoälyn uusi aikakausi viestinnässä alkaa nyt. Uunituore Content AI Oy on perustettu kehittämään ja kaupallistamaan uuden sukupolven viestintätyökaluja.',
+    content: `
+      <h2>Perustajat ja ensimmäinen sijoittaja</h2>
+      
+      <p>Content AI Oy:n perustajat ovat Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) ja Veikko Laitinen (Aimaster Oy). Heidän taustansa yhdistävät vahvan osaamisen tekoälystä, viestinnästä ja pk-yritysten liiketoiminnasta. Yhtiön ensimmäiseksi sijoittajaksi on lähtenyt Expion Oy, joka uskoo Content AI:n visioon älykkäästä, automatisoidusta viestinnästä eurooppalaisille mikroyrityksille.</p>
+      
+      <h2>Lyyli.ai – Tekoäly joka hoitaa viestinnän puolestasi</h2>
+      
+      <p>Lyyli.ai on suunniteltu erityisesti eurooppalaisille mikroyrityksille, joilla on moninaisia viestintätarpeita mutta rajalliset resurssit. Palvelu vapauttaa aikaa ja mahdollistaa ammattimaisen viestinnän ilman omaa viestintätiimiä.</p>
+      
+      <p>Lyyli yhdistää sisällön ideoinnin, tuottamisen, hyväksymisen ja julkaisemisen saumattomaksi prosessiksi – täysin automatisoidusti. Tekoälybotti seuraa organisaation sisäistä ja ulkoista viestintää, tunnistaa tarpeet ja ehdottaa sopivia sisältöjä eri kanaviin. Botti oppii organisaation tyylistä ja tavoitteista, tuottaa valmiita julkaisuja ja julkaisee ne automaattisesti käyttäjän hyväksynnällä tai täysin itsenäisesti.</p>
+      
+      <h2>Ainutlaatuinen kokonaisratkaisu viestintään</h2>
+      
+      <p>Lyyli erottautuu markkinoilla kokonaisvaltaisella lähestymistavallaan. Siinä missä monet työkalut keskittyvät yksittäisiin osa-alueisiin, Lyyli automatisoi koko viestintäprosessin. Alustan ydinominaisuudet:</p>
+      
+      <ul>
+        <li>Integraatiot suosituimpiin viestintä- ja julkaisualustoihin (esim. Slack, LinkedIn, Teams)</li>
+        <li>Automaattinen sisältöehdotusten generaattori organisaation viestinnän perusteella</li>
+        <li>Käyttöliittymä sisällön hallintaan, kouluttamiseen ja valvontaan</li>
+        <li>Julkaisujen ajastus, muokkaus ja monitorointi</li>
+        <li>Itseoppiva tekoäly, joka mukautuu yrityksen viestintätyyliin ja tavoitteisiin</li>
+      </ul>
+      
+      <p>Lyyli ei vain tehosta viestintää – se muuttaa sen aidosti tuottavaksi osaksi liiketoimintaa.</p>
+      
+      <h2>Tulevaisuuden suunta</h2>
+      
+      <p>Lyyli.ai:n ensimmäinen versio on nyt käytettävissä suomalaisille ja eurooppalaisille mikroyrityksille. Seuraavassa vaiheessa palvelua kehitetään edelleen asiakaspalautteen perusteella ja laajennetaan kansainvälisesti. Tavoitteena on rakentaa johtava viestinnän automaatioalusta mikroyritysten tarpeisiin Euroopassa ja sen ulkopuolella.</p>
+      
+      <h2>Lisätiedot:</h2>
+      
+      <p>
+        Mikko Oksanen, toimitusjohtaja<br>
+        📧 mikko@lyyli.ai<br>
+        📞 +358 40 961 9224
+      </p>
+      
+      <p>
+        🌐 www.lyyli.ai<br>
+        📩 hello@lyyli.ai
+      </p>
+    `
   }
   // Add more translations as needed
 };
