@@ -3,7 +3,7 @@ export const nav = {
   features: 'Ominaisuudet',
   pricing: 'Hinnoittelu',
   faq: 'UKK',
-  contact: 'Yhteystiedots',
+  contact: 'Yhteystiedot',
   login: 'Kirjaudu',
   signup: 'Rekisteröidy',
   about: 'Tietoa meistä',
