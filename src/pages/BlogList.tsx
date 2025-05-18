@@ -80,7 +80,7 @@ const BlogList: React.FC = () => {
             />
           )}
           
-          {/* Tag filtering */}
+          {/* Tag filtering - UPDATED TEXT HERE */}
           <div className="mb-8">
             <h2 className="text-lg font-medium mb-4">{safeT('blog.filterByTag')}:</h2>
             <TagFilter 

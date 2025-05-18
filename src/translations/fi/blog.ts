@@ -2,7 +2,7 @@
 export const blog = {
   title: 'Blogi & Uutiset',
   subtitle: 'Näkemyksiä, tapaustutkimuksia ja uutisia Lyyliltä',
-  filterByTag: 'Suodata tagilla:',
+  filterByTag: 'Suodata',
   allTags: 'Kaikki',
   readMore: 'Lue lisää',
   backToBlog: 'Takaisin blogiin',

@@ -2,7 +2,7 @@
 export const blog = {
   title: 'Blog & News',
   subtitle: 'Insights, case studies, and news from Lyyli',
-  filterByTag: 'Filter by tag:',
+  filterByTag: 'Filter',
   allTags: 'All',
   readMore: 'Read more',
   backToBlog: 'Back to Blog',
