@@ -49,7 +49,7 @@ const CaseStudies: React.FC = () => {
       <div className="container-padding container mx-auto">
         <div className="text-center mb-10 md:mb-16 animate-fade-in">
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
-            {language === 'fi' ? 'Menestystarinat' : 'Success Stories'}
+            {safeT('caseStudies.sectionLabel', { fallback: language === 'fi' ? 'Menestystarinat' : 'Success Stories' })}
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-4">{safeT('caseStudies.title')}</h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -75,19 +75,19 @@ const CaseStudies: React.FC = () => {
                 <div className="space-y-3 mb-6 flex-grow">
                   <div>
                     <p className="text-sm font-semibold">
-                      {language === 'fi' ? 'Haaste:' : 'Challenge:'}
+                      {safeT('caseStudies.challengeLabel', { fallback: language === 'fi' ? 'Haaste:' : 'Challenge:' })}
                     </p>
                     <p className="text-sm text-muted-foreground">{study.challenge}</p>
                   </div>
                   <div>
                     <p className="text-sm font-semibold">
-                      {language === 'fi' ? 'Ratkaisu:' : 'Solution:'}
+                      {safeT('caseStudies.solutionLabel', { fallback: language === 'fi' ? 'Ratkaisu:' : 'Solution:' })}
                     </p>
                     <p className="text-sm text-muted-foreground">{study.solution}</p>
                   </div>
                   <div>
                     <p className="text-sm font-semibold">
-                      {language === 'fi' ? 'Tulokset:' : 'Results:'}
+                      {safeT('caseStudies.resultsLabel', { fallback: language === 'fi' ? 'Tulokset:' : 'Results:' })}
                     </p>
                     <p className="text-sm text-muted-foreground">{study.results}</p>
                   </div>
@@ -109,7 +109,7 @@ const CaseStudies: React.FC = () => {
               className="mt-4" 
               onClick={() => navigate('/case-studies')}
             >
-              {language === 'fi' ? 'Näytä kaikki tapaustutkimukset' : 'See All Case Studies'} <ArrowRight className="h-4 w-4 ml-1" />
+              {safeT('caseStudies.seeAll', { fallback: language === 'fi' ? 'Näytä kaikki tapaustutkimukset' : 'See All Case Studies' })} <ArrowRight className="h-4 w-4 ml-1" />
             </Button>
           </div>
         )}

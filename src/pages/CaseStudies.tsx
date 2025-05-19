@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,94 +14,106 @@ const CaseStudies = () => {
   const { safeT } = useSafeTranslation();
   
   const industries = [
-    language === 'fi' ? "Rahoitus" : "Finance",
-    language === 'fi' ? "Teknologia" : "Technology",
-    language === 'fi' ? "Terveydenhuolto" : "Healthcare",
-    language === 'fi' ? "Valmistus" : "Manufacturing",
-    language === 'fi' ? "Vähittäiskauppa" : "Retail",
-    language === 'fi' ? "Asiantuntijapalvelut" : "Professional Services"
+    safeT('caseStudies.industries.finance', { fallback: language === 'fi' ? "Rahoitus" : "Finance" }),
+    safeT('caseStudies.industries.technology', { fallback: language === 'fi' ? "Teknologia" : "Technology" }),
+    safeT('caseStudies.industries.healthcare', { fallback: language === 'fi' ? "Terveydenhuolto" : "Healthcare" }),
+    safeT('caseStudies.industries.manufacturing', { fallback: language === 'fi' ? "Valmistus" : "Manufacturing" }),
+    safeT('caseStudies.industries.retail', { fallback: language === 'fi' ? "Vähittäiskauppa" : "Retail" }),
+    safeT('caseStudies.industries.professional', { fallback: language === 'fi' ? "Asiantuntijapalvelut" : "Professional Services" })
   ];
   
   const caseStudies = [
     {
-      title: language === 'fi' ? "Global Financial Corp: Tekoälyllä tehostettu sisällön muutos" : "Global Financial Corp: AI-Powered Content Transformation",
+      title: safeT('caseStudies.globalFinancial.title', { 
+        fallback: language === 'fi' ? "Global Financial Corp: Tekoälyllä tehostettu sisällön muutos" : "Global Financial Corp: AI-Powered Content Transformation"
+      }),
       company: safeT('caseStudies.globalFinancial.company'),
       industry: safeT('caseStudies.globalFinancial.industry'),
       logo: "https://img.shields.io/badge/GFC-Financial-blue",
-      description: language === 'fi' 
-        ? "Kuinka Fortune 500 -rahoituslaitos uudisti sisällöntuotantonsa ja saavutti 72% nopeamman tuotannon 45% kustannussäästöillä."
-        : "How a Fortune 500 financial institution revolutionized their content operations and achieved 72% faster production with 45% cost savings.",
+      description: safeT('caseStudies.globalFinancial.description', {
+        fallback: language === 'fi' 
+          ? "Kuinka Fortune 500 -rahoituslaitos uudisti sisällöntuotantonsa ja saavutti 72% nopeamman tuotannon 45% kustannussäästöillä."
+          : "How a Fortune 500 financial institution revolutionized their content operations and achieved 72% faster production with 45% cost savings."
+      }),
       metrics: [
         { 
-          label: language === 'fi' ? "Sisällöntuotannon nopeus" : "Content Production Speed", 
+          label: safeT('caseStudies.metrics.contentSpeed', { fallback: language === 'fi' ? "Sisällöntuotannon nopeus" : "Content Production Speed" }), 
           value: "+72%" 
         },
         { 
-          label: language === 'fi' ? "Kustannussäästöt" : "Cost Savings", 
+          label: safeT('caseStudies.metrics.costSavings', { fallback: language === 'fi' ? "Kustannussäästöt" : "Cost Savings" }), 
           value: "45%" 
         },
         { 
-          label: language === 'fi' ? "Markkinoilletuloaika" : "Time-to-Market", 
+          label: safeT('caseStudies.metrics.timeToMarket', { fallback: language === 'fi' ? "Markkinoilletuloaika" : "Time-to-Market" }), 
           value: "-60%" 
         },
         { 
-          label: language === 'fi' ? "Sisällön sitoutuminen" : "Content Engagement", 
+          label: safeT('caseStudies.metrics.contentEngagement', { fallback: language === 'fi' ? "Sisällön sitoutuminen" : "Content Engagement" }), 
           value: "+28%" 
         }
       ],
       detailed: true
     },
     {
-      title: language === 'fi' ? "TechNova: Globaalin sisällöntuotannon skaalaaminen" : "TechNova: Scaling Global Content Operations",
+      title: safeT('caseStudies.techNova.title', {
+        fallback: language === 'fi' ? "TechNova: Globaalin sisällöntuotannon skaalaaminen" : "TechNova: Scaling Global Content Operations"
+      }),
       company: safeT('caseStudies.techNova.company'),
       industry: safeT('caseStudies.techNova.industry'),
       logo: "https://img.shields.io/badge/TechNova-Systems-purple",
-      description: language === 'fi'
-        ? "Kuinka tämä monikansallinen teknologiajohtaja yhdisti sisällön 12 tuotelinjan ja 30 globaalin markkinan välillä säilyttäen yhtenäisen brändiään."
-        : "How this multinational tech leader unified content across 12 product lines and 30 global markets while maintaining consistent brand voice.",
+      description: safeT('caseStudies.techNova.description', {
+        fallback: language === 'fi'
+          ? "Kuinka tämä monikansallinen teknologiajohtaja yhdisti sisällön 12 tuotelinjan ja 30 globaalin markkinan välillä säilyttäen yhtenäisen brändiään."
+          : "How this multinational tech leader unified content across 12 product lines and 30 global markets while maintaining consistent brand voice."
+      }),
       metrics: [
         { 
-          label: language === 'fi' ? "Sisällöntuotanto" : "Content Output", 
+          label: safeT('caseStudies.metrics.contentOutput', { fallback: language === 'fi' ? "Sisällöntuotanto" : "Content Output" }), 
           value: "3x" 
         },
         { 
-          label: language === 'fi' ? "Markkinakattavuus" : "Market Coverage", 
+          label: safeT('caseStudies.metrics.marketCoverage', { fallback: language === 'fi' ? "Markkinakattavuus" : "Market Coverage" }), 
           value: "100%" 
         },
         { 
-          label: language === 'fi' ? "Lokalisointiaika" : "Localization Time", 
+          label: safeT('caseStudies.metrics.localizationTime', { fallback: language === 'fi' ? "Lokalisointiaika" : "Localization Time" }), 
           value: "-80%" 
         },
         { 
-          label: language === 'fi' ? "Sisällön uudelleenkäyttö" : "Content Reuse", 
+          label: safeT('caseStudies.metrics.contentReuse', { fallback: language === 'fi' ? "Sisällön uudelleenkäyttö" : "Content Reuse" }), 
           value: "+65%" 
         }
       ],
       detailed: true
     },
     {
-      title: language === 'fi' ? "HealthFirst: Terveydenhuollon vaatimustenmukainen viestintä" : "HealthFirst: Compliant Healthcare Communications",
+      title: safeT('caseStudies.healthFirst.title', {
+        fallback: language === 'fi' ? "HealthFirst: Terveydenhuollon vaatimustenmukainen viestintä" : "HealthFirst: Compliant Healthcare Communications"
+      }),
       company: safeT('caseStudies.healthFirst.company'),
       industry: safeT('caseStudies.healthFirst.industry'),
       logo: "https://img.shields.io/badge/HealthFirst-Network-green",
-      description: language === 'fi'
-        ? "Kuinka tämä terveydenhuollon tarjoaja ylläpiti tiukkaa vaatimustenmukaisuutta nopeuttaen samalla potilasviestintää verkostossaan."
-        : "How this healthcare provider maintained strict compliance while accelerating patient communications across their network.",
+      description: safeT('caseStudies.healthFirst.description', {
+        fallback: language === 'fi'
+          ? "Kuinka tämä terveydenhuollon tarjoaja ylläpiti tiukkaa vaatimustenmukaisuutta nopeuttaen samalla potilasviestintää verkostossaan."
+          : "How this healthcare provider maintained strict compliance while accelerating patient communications across their network."
+      }),
       metrics: [
         { 
-          label: language === 'fi' ? "Vaatimustenmukaisuusaste" : "Compliance Rate", 
+          label: safeT('caseStudies.metrics.complianceRate', { fallback: language === 'fi' ? "Vaatimustenmukaisuusaste" : "Compliance Rate" }), 
           value: "99.8%" 
         },
         { 
-          label: language === 'fi' ? "Hyväksyntäsyklit" : "Approval Cycles", 
+          label: safeT('caseStudies.metrics.approvalCycles', { fallback: language === 'fi' ? "Hyväksyntäsyklit" : "Approval Cycles" }), 
           value: "-60%" 
         },
         { 
-          label: language === 'fi' ? "Potilastyytyväisyys" : "Patient Satisfaction", 
+          label: safeT('caseStudies.metrics.patientSatisfaction', { fallback: language === 'fi' ? "Potilastyytyväisyys" : "Patient Satisfaction" }), 
           value: "+42%" 
         },
         { 
-          label: language === 'fi' ? "Sisällön jakelu" : "Content Distribution", 
+          label: safeT('caseStudies.metrics.contentDistribution', { fallback: language === 'fi' ? "Sisällön jakelu" : "Content Distribution" }), 
           value: "5x" 
         }
       ],
@@ -156,12 +169,14 @@ const CaseStudies = () => {
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {language === 'fi' ? 'Yritysten menestystarinat' : 'Enterprise Success Stories'}
+                {safeT('caseStudies.pageTitle', { fallback: language === 'fi' ? 'Yritysten menestystarinat' : 'Enterprise Success Stories' })}
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                {language === 'fi' 
-                  ? 'Tutustu, kuinka johtavat yritykset eri toimialoilla ovat muuttaneet toimintaansa alustamme avulla.'
-                  : 'Discover how leading enterprises across industries have transformed their operations with our platform.'}
+                {safeT('caseStudies.pageSubtitle', { 
+                  fallback: language === 'fi' 
+                    ? 'Tutustu, kuinka johtavat yritykset eri toimialoilla ovat muuttaneet toimintaansa alustamme avulla.'
+                    : 'Discover how leading enterprises across industries have transformed their operations with our platform.'
+                })}
               </p>
             </div>
           </div>
@@ -171,10 +186,10 @@ const CaseStudies = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-wrap items-center gap-2 mb-8">
             <span className="text-sm font-medium mr-2">
-              {language === 'fi' ? 'Suodata toimialan mukaan:' : 'Filter by industry:'}
+              {safeT('caseStudies.filterByIndustry', { fallback: language === 'fi' ? 'Suodata toimialan mukaan:' : 'Filter by industry:' })}
             </span>
             <Button variant="outline" size="sm" className="bg-primary/10">
-              {language === 'fi' ? 'Kaikki' : 'All'}
+              {safeT('caseStudies.allIndustries', { fallback: language === 'fi' ? 'Kaikki' : 'All' })}
             </Button>
             {industries.map((industry, index) => (
               <Button key={index} variant="outline" size="sm">{industry}</Button>
@@ -192,11 +207,11 @@ const CaseStudies = () => {
                     <p className="text-sm text-primary/70 mb-4">{study.industry}</p>
                     <div className="mt-auto space-y-4">
                       <Button className="w-full">
-                        {language === 'fi' ? 'Lue koko tapaustutkimus' : 'Read Full Case Study'}
+                        {safeT('caseStudies.readFullCaseStudy', { fallback: language === 'fi' ? 'Lue koko tapaustutkimus' : 'Read Full Case Study' })}
                       </Button>
                       <Button variant="outline" className="w-full flex items-center justify-center">
                         <Download className="h-4 w-4 mr-2" /> 
-                        {language === 'fi' ? 'Lataa PDF' : 'Download PDF'}
+                        {safeT('caseStudies.downloadPdf', { fallback: language === 'fi' ? 'Lataa PDF' : 'Download PDF' })}
                       </Button>
                     </div>
                   </div>
@@ -215,28 +230,36 @@ const CaseStudies = () => {
                     
                     <div className="mt-6">
                       <h4 className="font-semibold mb-2">
-                        {language === 'fi' ? 'Keskeiset tulokset:' : 'Key Outcomes:'}
+                        {safeT('caseStudies.keyOutcomes', { fallback: language === 'fi' ? 'Keskeiset tulokset:' : 'Key Outcomes:' })}
                       </h4>
                       <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
                         <li>
-                          {language === 'fi' 
-                            ? 'Sujuvoitettu työnkulku osastojen välillä' 
-                            : 'Streamlined workflow across departments'}
+                          {safeT('caseStudies.outcomes.workflow', { 
+                            fallback: language === 'fi' 
+                              ? 'Sujuvoitettu työnkulku osastojen välillä' 
+                              : 'Streamlined workflow across departments'
+                          })}
                         </li>
                         <li>
-                          {language === 'fi' 
-                            ? 'Poistettu sisällön pullonkaulat' 
-                            : 'Eliminated content bottlenecks'}
+                          {safeT('caseStudies.outcomes.bottlenecks', { 
+                            fallback: language === 'fi' 
+                              ? 'Poistettu sisällön pullonkaulat' 
+                              : 'Eliminated content bottlenecks'
+                          })}
                         </li>
                         <li>
-                          {language === 'fi' 
-                            ? 'Parannettu toimintojen välistä yhteistyötä' 
-                            : 'Improved cross-functional collaboration'}
+                          {safeT('caseStudies.outcomes.collaboration', { 
+                            fallback: language === 'fi' 
+                              ? 'Parannettu toimintojen välistä yhteistyötä' 
+                              : 'Improved cross-functional collaboration'
+                          })}
                         </li>
                         <li>
-                          {language === 'fi' 
-                            ? 'Tehostettu vaatimustenmukaisuutta ja hallintotapaa' 
-                            : 'Enhanced compliance and governance'}
+                          {safeT('caseStudies.outcomes.compliance', { 
+                            fallback: language === 'fi' 
+                              ? 'Tehostettu vaatimustenmukaisuutta ja hallintotapaa' 
+                              : 'Enhanced compliance and governance'
+                          })}
                         </li>
                       </ul>
                     </div>
@@ -248,7 +271,7 @@ const CaseStudies = () => {
           
           {/* More Case Studies */}
           <h2 className="text-2xl font-bold mb-6">
-            {language === 'fi' ? 'Lisää menestystarinoita' : 'More Success Stories'}
+            {safeT('caseStudies.moreSuccessStories', { fallback: language === 'fi' ? 'Lisää menestystarinoita' : 'More Success Stories' })}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {caseStudies.slice(3).map((study, index) => (
@@ -260,7 +283,7 @@ const CaseStudies = () => {
                   <p className="text-sm text-muted-foreground mb-6">{study.description}</p>
                   
                   <button className="text-primary flex items-center text-sm font-medium mt-4">
-                    {language === 'fi' ? 'Katso tapaustutkimus' : 'View Case Study'} <ArrowRight className="h-4 w-4 ml-1" />
+                    {safeT('caseStudies.viewCaseStudy', { fallback: language === 'fi' ? 'Katso tapaustutkimus' : 'View Case Study' })} <ArrowRight className="h-4 w-4 ml-1" />
                   </button>
                 </CardContent>
               </Card>

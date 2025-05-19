@@ -28,25 +28,33 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   // If we're in Finnish mode but there's no translation, display a notice
   const showTranslationNotice = language === 'fi' && !translation;
   
+  // Debug translation lookup
+  console.log(`TranslatedContent: Looking for translation for slug ${post.slug} in language ${language}`);
+  console.log(`TranslatedContent: Translation found: ${!!translation}`);
+  if (translation) {
+    console.log(`TranslatedContent: Found title: ${translation.title}`);
+  }
+  
   // Modify the children to replace content with translations when available
   const modifiedChildren = useMemo(() => {
     if (language === 'fi' && translation) {
       // Clone the children and modify specific elements
       return React.Children.map(children, child => {
-        if (React.isValidElement(child)) {
-          // Replace the title if translation exists
-          if (child.type === 'h1' && translation.title) {
-            return React.cloneElement(child, {}, translation.title);
-          }
-          
-          // Replace content if translation exists
-          if (child.props?.dangerouslySetInnerHTML && translation.content) {
-            // Use proper type assertion to tell TypeScript this is an HTMLDivElement
-            return React.cloneElement(child as React.ReactElement<React.HTMLAttributes<HTMLDivElement>>, {
-              dangerouslySetInnerHTML: { __html: translation.content }
-            });
-          }
+        if (!React.isValidElement(child)) return child;
+        
+        // Replace the title if translation exists
+        if (child.type === 'h1' && translation.title) {
+          return React.cloneElement(child, {}, translation.title);
         }
+        
+        // Replace content if translation exists
+        if (child.props?.dangerouslySetInnerHTML && translation.content) {
+          // Use proper type assertion to tell TypeScript this is an HTMLDivElement
+          return React.cloneElement(child as React.ReactElement<React.HTMLAttributes<HTMLDivElement>>, {
+            dangerouslySetInnerHTML: { __html: translation.content }
+          });
+        }
+        
         return child;
       });
     }
