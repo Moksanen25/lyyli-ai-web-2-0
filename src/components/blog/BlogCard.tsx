@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -30,10 +31,13 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
   const title = translation?.title || post.title;
   const excerpt = translation?.excerpt || post.excerpt;
   
+  // Add a visual indicator for translated posts in Finnish mode
+  const hasTranslation = language === 'fi' && !!translation;
+  
   return (
     <Card 
       className={`overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col ${
-        featured ? 'bg-secondary/10' : 'bg-white'
+        featured ? 'bg-secondary/10' : hasTranslation ? 'bg-primary/5' : 'bg-white'
       }`}
     >
       <Link to={getBlogPostUrl()} className="flex-grow flex flex-col">
@@ -62,6 +66,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
                   </Badge>
                 );
               })}
+              {/* Add badge for translated content */}
+              {hasTranslation && (
+                <Badge className="bg-primary text-primary-foreground">
+                  {safeT('blog.translated', { fallback: 'Käännetty' })}
+                </Badge>
+              )}
             </div>
           </div>
           

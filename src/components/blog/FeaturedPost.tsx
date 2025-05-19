@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -29,6 +30,9 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
   const title = translation?.title || post.title;
   const excerpt = translation?.excerpt || post.excerpt;
   
+  // Add a visual indicator for translated posts in Finnish mode
+  const hasTranslation = language === 'fi' && !!translation;
+  
   return (
     <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -56,6 +60,12 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
                 </Badge>
               );
             })}
+            {/* Add badge for translated content */}
+            {hasTranslation && (
+              <Badge className="bg-primary text-primary-foreground">
+                {safeT('blog.translated', { fallback: 'Käännetty' })}
+              </Badge>
+            )}
           </div>
         </div>
         

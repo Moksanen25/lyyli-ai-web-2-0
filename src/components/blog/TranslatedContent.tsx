@@ -28,6 +28,31 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   // If we're in Finnish mode but there's no translation, display a notice
   const showTranslationNotice = language === 'fi' && !translation;
   
+  // Modify the children to replace content with translations when available
+  const modifiedChildren = useMemo(() => {
+    if (language === 'fi' && translation) {
+      // Clone the children and modify specific elements
+      return React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          // Replace the title if translation exists
+          if (child.type === 'h1' && translation.title) {
+            return React.cloneElement(child, {}, translation.title);
+          }
+          
+          // Replace content if translation exists
+          if (child.props?.dangerouslySetInnerHTML && translation.content) {
+            return React.cloneElement(child, {
+              dangerouslySetInnerHTML: { __html: translation.content }
+            });
+          }
+        }
+        return child;
+      });
+    }
+    
+    return children;
+  }, [children, language, translation]);
+  
   return (
     <div className={translation ? "translated-content" : "original-content"}>
       {showTranslationNotice && (
@@ -41,7 +66,7 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
           </AlertDescription>
         </Alert>
       )}
-      {children}
+      {modifiedChildren}
     </div>
   );
 };

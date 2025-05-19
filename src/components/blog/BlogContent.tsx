@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
@@ -7,6 +8,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import TranslatedContent from './TranslatedContent';
+import { blogTranslations } from './blogTranslations';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -14,7 +16,7 @@ interface BlogContentProps {
 
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   const { language } = useLanguage();
-  const { safeT, blogT } = useSafeTranslation();
+  const { safeT } = useSafeTranslation();
   const publishDate = new Date(post.publishDate);
   
   // Get the correct blog URL based on the current language
@@ -22,18 +24,24 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
     return language === 'fi' ? '/fi/full/blog' : '/full/blog';
   };
   
+  // Check if we have a translation for this post
+  const translationKey = `${post.slug}-${language}`;
+  const translation = language === 'fi' ? blogTranslations[translationKey] : null;
+  
+  // Use translated title/content when available
+  const title = translation?.title || post.title;
+  const content = translation?.content || post.content;
+  
   useEffect(() => {
     console.log('BlogContent: Mounted/updated with:', {
       postId: post.id,
       postTitle: post.title,
       postLanguage: post.language || 'default',
       currentLanguage: language,
+      hasTranslation: !!translation,
       isFinnishMode: language === 'fi'
     });
-  }, [post.id, post.title, post.language, language]);
-  
-  // For UI elements, always use the safeT function to get translations
-  // The blog content itself stays in its original language (English or Finnish)
+  }, [post.id, post.title, post.language, language, translation]);
   
   return (
     <article className="max-w-3xl mx-auto">
@@ -58,9 +66,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       
       {/* Use TranslatedContent wrapper for the blog content */}
       <TranslatedContent post={post}>
-        {/* Title - post title is not translated */}
+        {/* Title - use translated title if available */}
         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          {post.title}
+          {title}
         </h1>
         
         {/* Meta info - partially translated */}
@@ -81,7 +89,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           {post.featuredImage.startsWith('http') ? (
             <img 
               src={post.featuredImage} 
-              alt={post.title} 
+              alt={title} 
               className="w-full h-full object-cover"
             />
           ) : (
@@ -91,10 +99,10 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           )}
         </div>
         
-        {/* Content */}
+        {/* Content - use translated content if available */}
         <div 
           className="prose prose-lg max-w-none mb-10 blog-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       </TranslatedContent>
       
