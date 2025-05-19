@@ -1,8 +1,6 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import TargetAudience from '@/components/TargetAudience';
 import UseCase from '@/components/UseCase';
 import FeaturesSection from '@/components/FeaturesSection';
 import CustomerSegments from '@/components/CustomerSegments';
@@ -105,12 +103,11 @@ const SafeSection = ({
  * Main landing page component
  * Structure:
  * 1. Hero section (primary message)
- * 2. Target audience section
- * 3. Trust indicators (compliance badges)
- * 4. Main content (features, customer segments, use cases)
- * 5. Enterprise-specific content
- * 6. Call to action
- * 7. Footer and cookie consent
+ * 2. Trust indicators (compliance badges)
+ * 3. Main content (features, customer segments, use cases)
+ * 4. Enterprise-specific content
+ * 5. Call to action
+ * 6. Footer and cookie consent
  */
 const Index = () => {
   console.log('Index page rendering');
@@ -122,11 +119,6 @@ const Index = () => {
         {/* Primary messaging */}
         <SafeSection name="Hero Section">
           <HeroSection />
-        </SafeSection>
-        
-        {/* Target audience section - NEW */}
-        <SafeSection name="Target Audience">
-          <TargetAudience />
         </SafeSection>
         
         <SafeSection name="Compliance Badges">
