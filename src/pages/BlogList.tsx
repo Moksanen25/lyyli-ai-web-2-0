@@ -112,16 +112,6 @@ const BlogList: React.FC = () => {
             </div>
           )}
           
-          {/* Only show translation in-progress message if there are untranslated posts */}
-          {language === 'fi' && blogPosts.length > languageFilteredPosts.length && (
-            <div className="my-10 p-6 bg-primary/5 rounded-lg text-center">
-              <h3 className="text-xl font-medium mb-2">{safeT('blog.translationNotice.title', { fallback: 'Lisää käännöksiä tulossa' })}</h3>
-              <p className="text-muted-foreground">
-                {safeT('blog.translationNotice.description', { fallback: 'Vain osa artikkeleista on käännetty suomeksi. Lisää käännöksiä julkaistaan pian.' })}
-              </p>
-            </div>
-          )}
-          
           {/* CTA */}
           <BlogCTA />
         </div>

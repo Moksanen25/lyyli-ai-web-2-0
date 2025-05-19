@@ -25,9 +25,8 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
     return null;
   }, [post.slug, language]);
   
-  // Only show translation notice if we're in Finnish mode but there's no translation
-  // AND the post is not originally in Finnish
-  const showTranslationNotice = language === 'fi' && !translation && post.language !== 'fi';
+  // Don't show any translation notice - removing this feature entirely as requested
+  // Now the component just handles translation replacement without warnings
   
   // Modify the children to replace content with translations when available
   const modifiedChildren = useMemo(() => {
@@ -58,17 +57,6 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   
   return (
     <div className={translation ? "translated-content" : "original-content"}>
-      {showTranslationNotice && (
-        <Alert className="mb-6 bg-primary/5 border-primary/10">
-          <Info className="h-4 w-4 text-primary" />
-          <AlertTitle>
-            {safeT('blog.translationNotice.title', { fallback: 'Automaattinen käännös' })}
-          </AlertTitle>
-          <AlertDescription>
-            {safeT('blog.translationNotice.description', { fallback: 'Tätä sisältöä ei ole vielä käännetty suomeksi. Näet sisällön alkuperäisellä kielellä.' })}
-          </AlertDescription>
-        </Alert>
-      )}
       {modifiedChildren}
     </div>
   );
