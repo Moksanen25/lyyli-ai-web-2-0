@@ -1,18 +1,10 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
-
-// Define the SegmentData type for use in other components
-export interface SegmentData {
-  id: string;
-  title: string;
-  description: string;
-  features: string[];
-  icon?: React.ReactNode;
-  cta?: string;
-  image?: string;
-}
+import { type SegmentData } from './useSegmentsData';
 
 interface SegmentItemProps {
   segment: SegmentData;
@@ -22,36 +14,80 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t } = useLanguage();
   
   return (
-    <div className="flex flex-col md:flex-row items-center bg-card rounded-xl shadow-sm overflow-hidden">
-      {/* Image */}
-      <div className="md:w-1/2">
-        <img 
-          src={segment.image || "https://via.placeholder.com/600x400"} 
-          alt={segment.title} 
-          className="w-full h-48 md:h-full object-cover" 
-        />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="space-y-6">
+        <h3 className="text-2xl font-bold">{segment.name}</h3>
+        
+        {segment.description && (
+          <p className="text-muted-foreground text-lg">{segment.description}</p>
+        )}
+        
+        <div className="space-y-4">
+          {segment.painPoints && segment.painPoints.length > 0 && (
+            <div>
+              <h4 className="text-lg font-medium mb-2">{t('customerSegments.challenges')}:</h4>
+              <ul className="space-y-2">
+                {segment.painPoints.map((point, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="mr-2 text-red-500 font-bold">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {segment.solutions && segment.solutions.length > 0 && (
+            <div>
+              <h4 className="text-lg font-medium mb-2">{t('customerSegments.solutions')}:</h4>
+              <ul className="space-y-2">
+                {segment.solutions.map((solution, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="mr-2 text-green-500 font-bold">•</span>
+                    <span>{solution}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        
+        <Link to={segment.caseStudyUrl || `/full/case-studies?segment=${segment.id}`}>
+          <Button className="mt-4">
+            {t('customerSegments.readCaseStudy')}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
       </div>
       
-      {/* Content */}
-      <div className="p-6 md:w-1/2">
-        <h3 className="text-xl font-bold mb-2">{segment.title}</h3>
-        <p className="text-muted-foreground mb-4">{segment.description}</p>
-        
-        {/* Features */}
-        <ul className="list-disc pl-5 mb-4 text-sm text-muted-foreground">
-          {segment.features.map((feature, index) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
-        
-        {/* CTA Button */}
-        <Button asChild variant="secondary">
-          <a href={`#${segment.id}`} className="flex items-center">
-            {segment.cta || t('customerSegments.learnMore')}
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </a>
-        </Button>
-      </div>
+      {segment.image && (
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <img 
+            src={segment.image} 
+            alt={segment.name}
+            className="object-cover w-full h-full"
+          />
+        </div>
+      )}
+      
+      {segment.testimonial && (
+        <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 md:col-span-2 mt-4">
+          <blockquote className="text-lg italic mb-4">"{segment.testimonial.quote}"</blockquote>
+          <div className="flex items-center gap-3">
+            {segment.testimonial.avatar && (
+              <img 
+                src={segment.testimonial.avatar} 
+                alt={segment.testimonial.author}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+            )}
+            <div>
+              <div className="font-medium">{segment.testimonial.author}</div>
+              <div className="text-sm text-muted-foreground">{segment.testimonial.company}</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

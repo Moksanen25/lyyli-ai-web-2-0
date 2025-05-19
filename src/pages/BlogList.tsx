@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,7 +8,7 @@ import FeaturedPost from '@/components/blog/FeaturedPost';
 import BlogCard from '@/components/blog/BlogCard';
 import TagFilter from '@/components/blog/TagFilter';
 import BlogCTA from '@/components/blog/BlogCTA';
-import { hasFinishTranslation } from '@/components/blog/TranslatedContent';
+import { hasFinishTranslation } from '@/components/blog/blogTranslations';
 
 const BlogList: React.FC = () => {
   const { language } = useLanguage();

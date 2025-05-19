@@ -1,29 +1,30 @@
 
-import React from 'react';
-import { Input, type InputProps } from './input';
+import * as React from "react";
+import { Input } from "./input";
+import { cn } from "@/lib/utils";
 
-export interface PhoneInputProps extends Omit<InputProps, 'type'> {
+export interface PhoneInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   countryCode?: string;
 }
 
 const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-  ({ countryCode = '+1', className, ...props }, ref) => {
+  ({ className, countryCode = "+1", ...props }, ref) => {
     return (
-      <div className="flex">
-        <div className="flex items-center px-3 border border-r-0 rounded-l-md border-input bg-muted text-muted-foreground">
+      <div className="flex items-center">
+        <span className="inline-flex h-10 items-center rounded-l-md border border-r-0 border-input bg-muted px-3 text-sm text-muted-foreground">
           {countryCode}
-        </div>
+        </span>
         <Input
+          className={cn("rounded-l-none", className)}
           type="tel"
-          className={`rounded-l-none ${className}`}
-          {...props}
           ref={ref}
+          {...props}
         />
       </div>
     );
   }
 );
 
-PhoneInput.displayName = 'PhoneInput';
+PhoneInput.displayName = "PhoneInput";
 
 export { PhoneInput };

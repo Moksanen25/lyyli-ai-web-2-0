@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
-import type { SegmentData } from './SegmentItem';
-import { ensureArray } from './utils';
+import { type SegmentData } from './useSegmentsData';
 
 interface SegmentCardProps {
   segment: SegmentData;
@@ -13,43 +14,53 @@ interface SegmentCardProps {
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t } = useLanguage();
   
-  // Ensure painPoints and solutions are always arrays
-  const painPoints = ensureArray(segment.painPoints);
-  const solutions = ensureArray(segment.solutions);
-  
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="bg-primary/5 flex flex-row items-center gap-3">
-        {segment.icon}
-        <div>
-          <CardTitle>{segment.name}</CardTitle>
-          <CardDescription className="mt-1">{segment.description}</CardDescription>
-        </div>
+    <Card className="h-full flex flex-col border-none shadow-md hover:shadow-lg transition-shadow">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-xl font-semibold">{segment.name}</CardTitle>
+        {segment.icon && <div className="w-8 h-8 text-primary">{segment.icon}</div>}
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="flex-grow flex flex-col">
         <div className="mb-4">
-          <h4 className="font-semibold text-sm text-primary mb-2">{t('customerSegments.challenges')}</h4>
-          <ul className="space-y-1 text-sm">
-            {painPoints.map((point, idx) => (
-              <li key={idx} className="flex items-start">
-                <span className="text-primary mr-1">•</span> {point}
-              </li>
-            ))}
-          </ul>
+          {segment.description && <p className="text-muted-foreground">{segment.description}</p>}
         </div>
         
-        <div className="mb-5">
-          <h4 className="font-semibold text-sm text-primary mb-2">{t('customerSegments.solutions')}</h4>
-          <ul className="space-y-1 text-sm">
-            {solutions.map((solution, idx) => (
-              <li key={idx} className="flex items-start">
-                <span className="text-primary mr-1">•</span> {solution}
-              </li>
-            ))}
-          </ul>
+        <div className="space-y-4 flex-grow">
+          {segment.painPoints && segment.painPoints.length > 0 && (
+            <div>
+              <h4 className="font-medium mb-2">{t('customerSegments.challenges')}:</h4>
+              <ul className="space-y-1">
+                {segment.painPoints.slice(0, 3).map((point, i) => (
+                  <li key={i} className="text-sm text-muted-foreground flex items-start">
+                    <span className="mr-2 text-red-500">•</span> {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {segment.solutions && segment.solutions.length > 0 && (
+            <div>
+              <h4 className="font-medium mb-2">{t('customerSegments.solutions')}:</h4>
+              <ul className="space-y-1">
+                {segment.solutions.slice(0, 3).map((solution, i) => (
+                  <li key={i} className="text-sm text-muted-foreground flex items-start">
+                    <span className="mr-2 text-green-500">•</span> {solution}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-
-        <Button size="sm" className="w-full mt-2">{t('customerSegments.learnMoreButton')}</Button>
+        
+        <div className="mt-auto pt-4">
+          <Link to={segment.caseStudyUrl || `/full/case-studies?segment=${segment.id}`}>
+            <Button variant="ghost" className="w-full justify-between">
+              {t('customerSegments.learnMore')}
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );
