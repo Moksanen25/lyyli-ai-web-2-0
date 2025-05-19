@@ -1,8 +1,15 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
 import { verifyTranslations } from '@/utils/translationUtils';
 import { toast } from '@/components/ui/use-toast';
+import { 
+  getBrowserLanguage, 
+  findTranslationValue, 
+  getPathLanguage,
+  getUpdatedPath
+} from '@/utils/languageUtils';
 
 // Type for our context
 type LanguageContextType = {
@@ -15,18 +22,6 @@ type LanguageContextType = {
 // Create the context
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Get browser language and check if we support it
-const getBrowserLanguage = (): SupportedLanguage => {
-  try {
-    const browserLang = navigator.language.split('-')[0].toLowerCase();
-    // Currently we only support 'en' and 'fi'
-    return browserLang === 'fi' ? 'fi' : 'en';
-  } catch (error) {
-    console.error('Error detecting browser language:', error);
-    return 'en'; // Default to English
-  }
-};
-
 // Provider component
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
@@ -36,7 +31,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   console.log('LanguageContext rendering, current path:', location.pathname);
   
   // Determine language from path, localStorage, or browser
-  const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' as SupportedLanguage : null;
+  const pathLanguage = getPathLanguage(location.pathname);
   const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
   
   // Use browser language if no explicit preference has been set yet
@@ -56,15 +51,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Update URL if needed based on current language
     try {
       const currentPath = location.pathname;
+      const newPath = getUpdatedPath(currentPath, language);
       
-      if (language === 'fi' && !currentPath.startsWith('/fi')) {
-        // Need to add /fi prefix
-        const newPath = `/fi${currentPath}`;
-        console.log('Updating path to:', newPath);
-        navigate(newPath, { replace: true });
-      } else if (language === 'en' && currentPath.startsWith('/fi')) {
-        // Need to remove /fi prefix
-        const newPath = currentPath.substring(3) || '/';
+      if (newPath) {
         console.log('Updating path to:', newPath);
         navigate(newPath, { replace: true });
       }
@@ -110,7 +99,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
-  // Translation function - ENHANCED WITH DEBUG LOGGING
+  // Translation function
   const t = (key: string): string => {
     try {
       if (!key) {
@@ -133,42 +122,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         console.log(`Translation lookup for [${language}]: ${key}`);
       }
       
-      for (const k of keys) {
-        if (value && value[k] !== undefined) {
-          value = value[k];
-        } else {
-          if (import.meta.env.DEV) {
-            console.warn(`Translation key not found: ${key} in language: ${language}`);
-          }
-          
-          // Try to fallback to English for this key
-          let enValue = languages.en;
-          let found = true;
-          for (const enKey of keys) {
-            if (enValue && enValue[enKey] !== undefined) {
-              enValue = enValue[enKey];
-            } else {
-              found = false;
-              break;
-            }
-          }
-          
-          const result = found && typeof enValue === 'string' ? enValue : key;
-          
-          // Debug for blog translations
-          if (keys[0] === 'blog' && import.meta.env.DEV) {
-            console.log(`Fallback translation for [${language}]: ${key} -> ${result}`);
-          }
-          
-          return result;
-        }
+      // Use utility function to find translation
+      const translatedValue = findTranslationValue(value, keys);
+      
+      if (translatedValue !== null) {
+        return translatedValue;
       }
       
-      const result = typeof value === 'string' ? value : String(value);
+      // Fallback to English
+      const enValue = findTranslationValue(languages.en, keys);
+      const result = enValue !== null ? enValue : key;
       
       // Debug for blog translations
       if (keys[0] === 'blog' && import.meta.env.DEV) {
-        console.log(`Final translation for [${language}]: ${key} -> ${result}`);
+        console.log(`Fallback translation for [${language}]: ${key} -> ${result}`);
       }
       
       return result;

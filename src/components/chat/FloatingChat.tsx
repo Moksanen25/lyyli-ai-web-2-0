@@ -30,6 +30,10 @@ const FloatingChat = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
 
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+  };
+
   return (
     <div 
       className={`fixed z-50 transition-all duration-300 ${
@@ -38,7 +42,7 @@ const FloatingChat = () => {
       aria-live="polite"
     >
       {isMobile ? (
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <Dialog open={isOpen} onOpenChange={handleOpenChange}>
           <DialogTrigger asChild>
             <Button 
               size="icon" 
