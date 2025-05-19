@@ -1,6 +1,9 @@
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const PrivacyPolicy: React.FC = () => {
   const { language } = useLanguage();

@@ -1,7 +1,8 @@
+
 import React, { useMemo } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import type { BlogPost } from '@/data/blogData';
-import { blogTranslations } from '@/components/blog/TranslatedContent';
+import { blogTranslations } from './blogTranslations';
 
 interface TranslatedContentProps {
   post: BlogPost;
@@ -35,12 +36,6 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
       {children}
     </div>
   );
-};
-
-// Helper function to check if a Finnish translation exists
-export const hasFinishTranslation = (slug: string): boolean => {
-  const translationKey = `${slug}-fi`;
-  return !!blogTranslations[translationKey];
 };
 
 export default TranslatedContent;

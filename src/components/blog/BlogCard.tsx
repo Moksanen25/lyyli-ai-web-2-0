@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,7 +7,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { FileImage } from 'lucide-react';
 import type { BlogPost } from '@/data/blogData';
-import { blogTranslations } from '@/components/blog/TranslatedContent';
+import { blogTranslations } from './blogTranslations';
 
 interface BlogCardProps {
   post: BlogPost;

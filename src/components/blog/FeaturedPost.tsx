@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
-import { blogTranslations } from '@/components/blog/TranslatedContent';
+import { blogTranslations } from './blogTranslations';
 
 interface FeaturedPostProps {
   post: BlogPost;

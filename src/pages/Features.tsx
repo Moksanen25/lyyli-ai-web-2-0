@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/hooks/useLanguage';
 import FeatureHero from '@/components/features/FeatureHero';
+import ComplianceBadges from '@/components/ComplianceBadges';
+import FeatureDetails from '@/components/features/FeatureDetails';
+import IntegrationShowcase from '@/components/features/IntegrationShowcase';
+import SegmentNavigation from '@/components/features/SegmentNavigation';
+import SegmentBlock from '@/components/features/SegmentBlock';
+import CustomerQuotes from '@/components/features/CustomerQuotes';
+import FeatureComparison from '@/components/features/FeatureComparison';
+import FeatureFAQ from '@/components/features/FeatureFAQ';
+import CTASection from '@/components/CTASection';
 
 /**
  * Features page component
