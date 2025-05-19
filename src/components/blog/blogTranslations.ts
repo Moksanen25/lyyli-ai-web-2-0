@@ -20,7 +20,7 @@ export const blogTranslations: Record<string, { title?: string; excerpt?: string
   'nonprofit-outreach-case-fi': {
     title: 'Voittoa tavoittelematon järjestö laajentaa tavoittavuuttaan',
     excerpt: 'Miten pienempi järjestö käyttää Lyylin työkaluja tehokkaasti rajallisilla resursseilla.',
-    content: '<p>Voittoa tavoittelematon järjestö keskittyi laajentamaan tavoittavuuttaan rajallisilla resursseilla. Lyylin avulla järjestö pystyi automatisoimaan viestintäprosessejaan ja keskittymään tärkeimpiin tehtäviinsä.</p><p>Manuaalisen työn vähentäminen johti merkittäviin aikasäästöihin ja mahdollisti järjestön keskittyä ydintoimintaansa.</p>'
+    content: '<p>Voittoa tavoittelematon järjestö keskittyi laajentamaan tavoittavuuttaan rajallisilla resursseilla. Lyylin avulla järjestö pystyi automatisoimaan viestintäprosessejaan ja keskittymään tärkeimpiin tehtäviinsä.</p><p>Manuaalisen työn vähentäminen johti merkittäviin aikasäästöihin ja mahdollisti järjestön keskittyä ydintoimintaansa.</p><p>Järjestö hyödynsi erityisesti seuraavia Lyylin ominaisuuksia:</p><ul><li>Automaattiset viestintätyönkulut</li><li>Ajastetut kampanjat</li><li>Personoitu viestintä eri sidosryhmille</li></ul><p>"Pienellä tiimillämme ei ollut aikaisemmin mahdollisuutta toteuttaa näin laaja-alaista viestintää. Lyylin ansiosta pystymme nyt viestimään säännöllisesti kaikille sidosryhmillemme," kertoo järjestön viestintävastaava.</p><p>Tulokset olivat merkittäviä:</p><ul><li>45% kasvu tapahtumien osallistujamäärissä</li><li>60% vähemmän aikaa käytetty viestinnän rutiinitehtäviin</li><li>28% suurempi lahjoitusten määrä vuosineljänneksellä</li></ul>'
   },
   
   // Content AI news translation

@@ -25,8 +25,9 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
     return null;
   }, [post.slug, language]);
   
-  // If we're in Finnish mode but there's no translation, display a notice
-  const showTranslationNotice = language === 'fi' && !translation;
+  // Only show translation notice if we're in Finnish mode but there's no translation
+  // AND the post is not originally in Finnish
+  const showTranslationNotice = language === 'fi' && !translation && post.language !== 'fi';
   
   // Modify the children to replace content with translations when available
   const modifiedChildren = useMemo(() => {

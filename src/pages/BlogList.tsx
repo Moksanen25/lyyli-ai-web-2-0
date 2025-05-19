@@ -21,11 +21,10 @@ const BlogList: React.FC = () => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
     
-    // In Finnish mode, show all posts that have translations AND posts with Finnish language
+    // In Finnish mode, show only posts that either:
+    // 1. Have a Finnish translation
+    // 2. Are explicitly marked as Finnish language
     if (language === 'fi') {
-      // Return posts that either:
-      // 1. Have a Finnish translation
-      // 2. Are explicitly marked as Finnish language
       return blogPosts.filter(post => 
         hasFinishTranslation(post.slug) || post.language === 'fi'
       );
@@ -113,8 +112,8 @@ const BlogList: React.FC = () => {
             </div>
           )}
           
-          {/* Add message for Finnish users about upcoming translations */}
-          {language === 'fi' && (
+          {/* Only show translation in-progress message if there are untranslated posts */}
+          {language === 'fi' && blogPosts.length > languageFilteredPosts.length && (
             <div className="my-10 p-6 bg-primary/5 rounded-lg text-center">
               <h3 className="text-xl font-medium mb-2">{safeT('blog.translationNotice.title', { fallback: 'Lisää käännöksiä tulossa' })}</h3>
               <p className="text-muted-foreground">
