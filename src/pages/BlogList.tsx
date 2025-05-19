@@ -21,12 +21,15 @@ const BlogList: React.FC = () => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
     
-    // In Finnish mode, show only posts that either:
-    // 1. Have a Finnish translation
-    // 2. Are explicitly marked as Finnish language
+    // In Finnish mode, show:
+    // 1. Posts that have a Finnish translation
+    // 2. Posts that are explicitly marked as Finnish language
+    // 3. Posts with the 'nonprofits' tag (for the nonprofit post)
     if (language === 'fi') {
       return blogPosts.filter(post => 
-        hasFinishTranslation(post.slug) || post.language === 'fi'
+        hasFinishTranslation(post.slug) || 
+        post.language === 'fi' ||
+        post.tags.includes('nonprofits') // Make sure nonprofit posts are visible
       );
     }
     
