@@ -50,7 +50,6 @@ export const pricing = {
     custom: 'Räätälöity',
     unlimited: 'Rajoittamaton',
     oneAiAgent: 'Yksi tekoäly-agentti',
-    // Removing duplicate webApp key which is causing the error
     webAppAccess: 'Web-sovelluksen käyttö',
     upToThreeIntegrations: 'Jopa 3 integraatiota',
     singleUser: 'Yksi käyttäjätili',
@@ -80,4 +79,8 @@ export const pricing = {
     subtitle: 'Valitse yrityksesi tarpeisiin sopiva paketti. Kaikki paketit sisältävät keskeisen tekoälytoiminnallisuuden.'
   },
   comparisonCaption: 'Täydellinen ominaisuusvertailu kaikista paketeista',
+  comparison: {
+    title: 'Ominaisuusvertailu',
+    subtitle: 'Vertaa ominaisuuksia kaikissa paketeissa löytääksesi yrityksellesi sopivan paketin'
+  }
 };

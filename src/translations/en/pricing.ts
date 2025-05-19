@@ -50,7 +50,6 @@ export const pricing = {
     custom: 'Custom',
     unlimited: 'Unlimited',
     oneAiAgent: 'One AI agent',
-    // Removing duplicate webApp key which is causing the error
     webAppAccess: 'Web app access',
     upToThreeIntegrations: 'Up to 3 integrations',
     singleUser: 'Single user account',
@@ -80,4 +79,8 @@ export const pricing = {
     subtitle: 'Choose the plan that works best for your business needs. All plans include our core AI functionality.'
   },
   comparisonCaption: 'Complete feature comparison across all plans',
+  comparison: {
+    title: 'Feature Comparison',
+    subtitle: 'Compare features across all plans to find the right fit for your business'
+  }
 };

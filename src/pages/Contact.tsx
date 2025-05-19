@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
@@ -36,7 +37,9 @@ const Contact = () => {
       </Helmet>
       
       <Navbar />
-      <div className="container-padding pt-20 md:pt-24 pb-12 flex-grow animate-fade-in">
+      
+      {/* Added padding-top to prevent content from being cut off */}
+      <div className="container-padding pt-32 md:pt-36 pb-12 flex-grow animate-fade-in">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6 text-center">{t('contact.title')}</h1>
           <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 text-center px-4">

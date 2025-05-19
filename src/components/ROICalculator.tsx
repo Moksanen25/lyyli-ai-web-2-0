@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 
@@ -28,9 +29,9 @@ const ROICalculator = () => {
     <section className="py-16 md:py-24 bg-secondary/50">
       <div className="container-padding container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">{t('roi.title')}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t('calculator.title')}</h2>
           <p className="text-primary/80 text-lg max-w-2xl mx-auto">
-            {t('roi.subtitle')}
+            {t('calculator.subtitle')}
           </p>
         </div>
 
@@ -38,7 +39,7 @@ const ROICalculator = () => {
           {/* Input Section */}
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-primary/80">{t('roi.employees')}</label>
+              <label className="block text-sm font-medium text-primary/80">{t('calculator.employees')}</label>
               <input
                 type="number"
                 value={employees}
@@ -47,7 +48,7 @@ const ROICalculator = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-primary/80">{t('roi.avgSalary')}</label>
+              <label className="block text-sm font-medium text-primary/80">{t('calculator.avgSalary')}</label>
               <input
                 type="number"
                 value={avgSalary}
@@ -56,7 +57,7 @@ const ROICalculator = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-primary/80">{t('roi.timeSpent')}</label>
+              <label className="block text-sm font-medium text-primary/80">{t('calculator.timeSpent')}</label>
               <input
                 type="number"
                 value={timeSpent}
@@ -65,7 +66,7 @@ const ROICalculator = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-primary/80">{t('roi.lyyliCost')}</label>
+              <label className="block text-sm font-medium text-primary/80">{t('calculator.lyyliCost')}</label>
               <input
                 type="number"
                 value={lyyliCost}
@@ -78,15 +79,15 @@ const ROICalculator = () => {
           {/* Output Section */}
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-primary/90">{t('roi.totalSalaryCost')}</h3>
+              <h3 className="text-lg font-semibold text-primary/90">{t('calculator.totalSalaryCost')}</h3>
               <p className="text-2xl">{timeCost}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-primary/90">{t('roi.potentialSavings')}</h3>
+              <h3 className="text-lg font-semibold text-primary/90">{t('calculator.potentialSavings')}</h3>
               <p className="text-2xl">{savings}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-primary/90">{t('roi.roi')}</h3>
+              <h3 className="text-lg font-semibold text-primary/90">{t('calculator.roi')}</h3>
               <p className="text-2xl">{roi}%</p>
             </div>
           </div>

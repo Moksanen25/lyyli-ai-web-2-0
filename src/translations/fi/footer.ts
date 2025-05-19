@@ -6,6 +6,7 @@ export const footer = {
   features: 'Ominaisuudet',
   pricing: 'Hinnoittelu',
   faq: 'UKK',
+  blog: 'Blogi',
   about: 'Tietoa Meistä',
   careers: 'Urat',
   contact: 'Yhteystiedot',

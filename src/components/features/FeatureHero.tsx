@@ -4,6 +4,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface FeatureHeroProps {
   title?: string;
@@ -85,14 +86,11 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
           </div>
           
           <div className="hidden lg:block">
-            <img 
+            <ImageWithFallback
               src={image} 
               alt={displayTitle}
               className="rounded-lg shadow-lg object-cover w-full max-h-[500px]"
-              onError={(e) => {
-                console.error("Image failed to load:", e.currentTarget.src);
-                e.currentTarget.src = "/placeholder.svg";
-              }}
+              fallbackSrc="/placeholder.svg"
             />
           </div>
         </div>

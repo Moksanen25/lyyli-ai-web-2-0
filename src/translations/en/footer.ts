@@ -6,6 +6,7 @@ export const footer = {
   features: 'Features',
   pricing: 'Pricing',
   faq: 'FAQ',
+  blog: 'Blog',
   about: 'About Us',
   careers: 'Careers',
   contact: 'Contact',

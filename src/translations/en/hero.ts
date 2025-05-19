@@ -9,6 +9,9 @@ export const hero = {
   badges: {
     security: 'Enterprise-grade security',
     uptime: '99.9% uptime SLA',
-    support: '24/7 support'
+    support: '24/7 support',
+    securityDescription: 'All your data is encrypted and secured with enterprise-grade protection',
+    uptimeDescription: 'We guarantee 99.9% uptime with our robust infrastructure',
+    supportDescription: 'Our support team is available 24/7 to help you with any issues'
   },
 };

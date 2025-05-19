@@ -2,6 +2,7 @@
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 const AboutHero = () => {
   const { t } = useLanguage();
@@ -14,14 +15,11 @@ const AboutHero = () => {
       </p>
       <div className="relative max-w-5xl mx-auto rounded-xl overflow-hidden px-4 md:px-0">
         <AspectRatio ratio={16/9} className="bg-gray-100">
-          <img 
+          <ImageWithFallback 
             src="/images/features-dashboard.jpg" 
             alt={t('about.hero.imageAlt') || "Lyyli platform dashboard interface showing various content management features"} 
             className="w-full h-full object-cover"
-            onError={(e) => {
-              console.error("Image failed to load:", e.currentTarget.src);
-              e.currentTarget.src = "/placeholder.svg";
-            }}
+            fallbackSrc="/placeholder.svg"
           />
         </AspectRatio>
       </div>

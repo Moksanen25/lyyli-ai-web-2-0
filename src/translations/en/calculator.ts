@@ -12,4 +12,11 @@ export const calculator = {
   small: 'Small',
   medium: 'Medium',
   large: 'Large',
+  // Adding missing translations
+  employees: 'Number of Employees',
+  avgSalary: 'Average Salary',
+  timeSpent: 'Time Spent on Communication (%)',
+  lyyliCost: 'Annual Lyyli Cost',
+  totalSalaryCost: 'Total Communication Cost',
+  potentialSavings: 'Potential Annual Savings',
 };
