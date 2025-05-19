@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -7,11 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
+
 const TargetAudience = () => {
-  const {
-    t,
-    language
-  } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState("tech-smes");
@@ -67,11 +66,94 @@ const TargetAudience = () => {
     descriptionEn: "Lyyli helps keep fans and sponsors in the loop with continuous, automated communication.",
     descriptionFi: "Lyyli auttaa pitämään kannattajat ja sponsorit mukana automaattisen, jatkuvan viestinnän avulla."
   }];
+
   const handleBookDemo = () => {
     setShowDemoDialog(true);
   };
 
-  // Render different UI based on screen size
-  return;
+  // Return JSX content based on screen size
+  return (
+    <section className="bg-gray-50 py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {language === 'fi' ? 'Kuka hyötyy Lyylista?' : 'Who benefits from Lyyli?'}
+          </h2>
+        </div>
+
+        {isMobile ? (
+          // Mobile view: Accordion
+          <Accordion type="single" collapsible className="w-full">
+            {audiences.map((audience) => (
+              <AccordionItem key={audience.id} value={audience.id}>
+                <AccordionTrigger className="text-left">
+                  <div>
+                    <h3 className="font-semibold text-lg">
+                      {language === 'fi' ? audience.titleFi : audience.titleEn}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {language === 'fi' ? audience.subtitleFi : audience.subtitleEn}
+                    </p>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="mb-4">
+                    {language === 'fi' ? audience.descriptionFi : audience.descriptionEn}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    onClick={handleBookDemo}
+                    className="w-full"
+                  >
+                    {language === 'fi' ? 'Varaa demo' : 'Book a demo'}
+                  </Button>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        ) : (
+          // Desktop view: Tabs
+          <div>
+            <Tabs defaultValue="tech-smes" value={activeTab} onValueChange={setActiveTab} className="max-w-5xl mx-auto">
+              <TabsList className="mb-6 flex flex-wrap justify-center">
+                {audiences.map((audience) => (
+                  <TabsTrigger key={audience.id} value={audience.id} className="mb-2">
+                    {language === 'fi' ? audience.titleFi : audience.titleEn}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              
+              {audiences.map((audience) => (
+                <TabsContent key={audience.id} value={audience.id}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>{language === 'fi' ? audience.titleFi : audience.titleEn}</CardTitle>
+                      <CardDescription>{language === 'fi' ? audience.subtitleFi : audience.subtitleEn}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-6 text-lg">
+                        {language === 'fi' ? audience.descriptionFi : audience.descriptionEn}
+                      </p>
+                      <Button onClick={handleBookDemo}>
+                        {language === 'fi' ? 'Varaa demo' : 'Book a demo'}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+        )}
+        
+        {showDemoDialog && (
+          <BookDemoDialog 
+            open={showDemoDialog} 
+            onOpenChange={setShowDemoDialog} 
+          />
+        )}
+      </div>
+    </section>
+  );
 };
+
 export default TargetAudience;

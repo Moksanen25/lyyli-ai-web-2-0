@@ -17,6 +17,7 @@ import { demo } from './demo';
 import { compliance } from './compliance';
 import { common } from './common';
 import { blog } from './blog';
+import { targetAudience } from './targetAudience';
 
 export const fi = {
   nav,
@@ -36,5 +37,6 @@ export const fi = {
   demo,
   compliance,
   common,
-  blog
+  blog,
+  targetAudience
 };
