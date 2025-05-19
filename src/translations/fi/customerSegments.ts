@@ -29,58 +29,102 @@ export const customerSegments = {
   noSegmentsAvailable: 'Ei toimialasegmenttejä saatavilla',
   closingText: 'Etkö ole varma, mikä ratkaisu sopii tarpeisiisi? Ota yhteyttä henkilökohtaista konsultaatiota varten.',
   viewComparisonButton: 'Katso Ominaisuuksien Vertailu',
-  segments: {
-    tech: {
-      title: 'Teknologiayritykset',
-      description: 'Virtaviivaista teknistä viestintää ja tuotepäivityksiä',
-      tagline: 'Virtaviivaista teknistä viestintää',
-      quote: 'Lyyli auttoi meitä vähentämään dokumentointiin käytettyä aikaa 60 % ja samalla parantamaan teknisen sisällön laatua ja yhdenmukaisuutta.',
-      author: 'Maria T., CTO, DevStack',
-      features: [
-        'API-dokumentaation tuottaminen',
-        'Teknisten muutoslokien automatisointi',
-        'Kehittäjäyhteisön hallinta'
-      ]
-    },
-    consulting: {
-      title: 'Konsultointiyritykset',
-      description: 'Paranna asiakasviestintää ja projektin päivityksiä',
-      tagline: 'Paranna asiakasviestintää',
-      quote: 'Olemme nähneet 40 % parannuksen asiakkaiden sitoutumisessa sen jälkeen, kun otimme Lyylin käyttöön asiakasviestintäohjelmaamme.',
-      author: 'James W., Managing Partner, Insight Consulting',
-      features: [
-        'Asiakkaille suunnatut raportit',
-        'Ammattimaiset projektipäivitykset',
-        'Tarjousautomaatio'
-      ]
-    },
-    nonprofit: {
-      title: 'Voittoa tavoittelemattomat järjestöt',
-      tagline: 'Vahvista missiotasi',
-      description: 'Järjestöjen on luotava tunneyhteys tukijoihinsa. Lyyli auttaa luomaan vaikuttavaa lahjoittajaviestintää, vapaaehtoisten sitoutumismateriaaleja ja tietoisuuskampanjoita, jotka edistävät missiotasi rajoitetuilla resursseilla.',
-      quote: 'Lyylin avulla voimme luoda vaikuttavia kampanjamateriaaleja minuuteissa päivien sijaan, mikä mahdollistaa keskittymisen missioomme.',
-      author: 'Sarah L., Viestintäjohtaja, Global Hope Initiative'
-    },
-    education: {
-      title: 'Koulutusinstituutiot',
-      tagline: 'Yhdistä koko yhteisösi',
-      description: 'Koulut ja yliopistot tasapainoilevat opiskelijoiden, vanhempien, alumnien ja henkilökunnan kanssa. Lyyli auttaa luomaan johdonmukaisen viestinnän osastojen välillä ja samalla personoimaan viestintää eri yleisöille.',
-      quote: 'Lyyli on muuttanut tapaamme viestiä monipuolisen yhteisömme kanssa, säästäen aikaa ja tehden viesteistämme relevantimpia kullekin kohdeyleisölle.',
-      author: 'Dr. Robert Chen, Viestintädekaani, Westfield University'
-    },
-    creative: {
-      title: 'Luovat alat',
-      tagline: 'Esittele luova visiosi',
-      description: 'Luovat ammattilaiset tarvitsevat kykyä viestiä ainutlaatuista visiotaan. Lyyli auttaa suunnittelutoimistoja, toimistoja ja taiteilijoita luomaan vaikuttavia portfoliokuvauksia, projektiehdotuksia ja asiakasesityksiä, jotka voittavat uutta liiketoimintaa.',
-      quote: 'Tekoäly ymmärtää luovaa kieltä tavalla, joka on todella vaikuttavaa. On kuin meillä olisi oma copywriter palveluksessa.',
-      author: 'Emma D., Luova johtaja, Design Forward'
-    },
-    sports: {
-      title: 'Urheilu ja virkistys',
-      tagline: 'Sitouta faneja ja osallistujia',
-      description: 'Urheiluorganisaatioiden on pidettävä jäsenet, pelaajat ja fanit sitoutuneina. Lyyli auttaa luomaan jännittäviä tapahtumapromootioita, jäsenviestintää ja sponsorointimateriaaleja, jotka rakentavat yhteisöllisyyttä ja kannustavat osallistumaan.',
-      quote: 'Olemme nähneet 35 % lisäyksen tapahtumien osallistujamäärissä sen jälkeen kun aloimme käyttää Lyyliä viestinnän virtaviivaistamiseen jäsenille.',
-      author: 'Mark J., Viestintäpäällikkö, Metropolitan Sports League'
-    }
+  errorTitle: 'Ongelma segmenttien lataamisessa',
+  errorMessage: 'Pahoittelemme, tietojen lataamisessa ilmeni ongelma. Kokeile päivittää sivu.',
+  techSMEs: {
+    name: 'Teknologiayritykset',
+    description: 'Virtaviivaista teknistä viestintää ja tuotepäivityksiä',
+    painPoints: [
+      'Tuotepäivitysten kommunikointi useille sidosryhmille',
+      'Teknisen dokumentaation ylläpito ja päivitys',
+      'Viestinnän johdonmukaisuus kanavien välillä'
+    ],
+    solutions: [
+      'Automatisoitu viestintätyönkulku tuotepäivityksille',
+      'Integroitu dokumentaation hallinta',
+      'Yhtenäinen viestintäalusta kaikille kanaville'
+    ],
+    quote: 'Lyyli auttoi meitä vähentämään dokumentointiin käytettyä aikaa 60 % ja samalla parantamaan teknisen sisällön laatua ja yhdenmukaisuutta.',
+    author: 'Maria T., CTO, DevStack'
+  },
+  consulting: {
+    name: 'Konsultointiyritykset',
+    description: 'Paranna asiakasviestintää ja projektin päivityksiä',
+    painPoints: [
+      'Useiden asiakasprojektien viestinnän koordinointi',
+      'Asiakasraporttien ja esitysten luomisen tehokkuus',
+      'Brändimukautus eri asiakasprojekteissa'
+    ],
+    solutions: [
+      'Asiakaskohtaiset viestintäportaalit',
+      'Automatisoitu raportointityönkulku',
+      'Dynaaminen brändäystyökalu'
+    ],
+    quote: 'Olemme nähneet 40 % parannuksen asiakkaiden sitoutumisessa sen jälkeen, kun otimme Lyylin käyttöön asiakasviestintäohjelmaamme.',
+    author: 'James W., Managing Partner, Insight Consulting'
+  },
+  nonprofits: {
+    name: 'Voittoa tavoittelemattomat järjestöt',
+    description: 'Tehosta lahjoittajaviestintää ja vapaaehtoisohjelmia',
+    painPoints: [
+      'Rajalliset resurssit vaikuttavan viestinnän luomiseen',
+      'Eri sidosryhmien (lahjoittajat, vapaaehtoiset, edunsaajat) tavoittaminen',
+      'Kampanjasisällön hallinta rajallisella henkilöstöllä'
+    ],
+    solutions: [
+      'Tehokkaat viestintäpohjat eri sidosryhmille',
+      'Automatisoitu kampanjatyönkulku rajallisille resursseille',
+      'Integroitu lahjoittajien sitoutumisen seuranta'
+    ],
+    quote: 'Lyylin avulla voimme luoda vaikuttavia kampanjamateriaaleja minuuteissa päivien sijaan, mikä mahdollistaa keskittymisen missioomme.',
+    author: 'Sarah L., Viestintäjohtaja, Global Hope Initiative'
+  },
+  education: {
+    name: 'Koulutusinstituutiot',
+    description: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta tehokkaalla viestinnällä',
+    painPoints: [
+      'Yhtenäisen viestinnän ylläpitäminen eri osastojen välillä',
+      'Useiden kohderyhmien tavoittaminen oikealla äänensävyllä',
+      'Säännöllisten tiedotteiden ja päivitysten tehokas hallinta'
+    ],
+    solutions: [
+      'Integroitu viestintähallintajärjestelmä kaikille osastoille',
+      'Kohdennetut viestintätyökalut eri yleisöille',
+      'Automatisoitu aikataulutus ja julkaisut'
+    ],
+    quote: 'Lyyli on muuttanut tapaamme viestiä monipuolisen yhteisömme kanssa, säästäen aikaa ja tehden viesteistämme relevantimpia kullekin kohdeyleisölle.',
+    author: 'Dr. Robert Chen, Viestintädekaani, Westfield University'
+  },
+  creative: {
+    name: 'Luovat alat',
+    description: 'Esittele luova työ ammattimaisesti ja voita uusia asiakkaita',
+    painPoints: [
+      'Ainutlaatuisen brändivision välittäminen',
+      'Portfolio- ja projektiesitysten luominen',
+      'Asiakasviestinnän personointi tehokkaasti'
+    ],
+    solutions: [
+      'Visuaalisia elementtejä korostava viestintäalusta',
+      'Dynaaminen portfolioesitystyökalu',
+      'Asiakaskohtaiset viestintämallit'
+    ],
+    quote: 'Tekoäly ymmärtää luovaa kieltä tavalla, joka on todella vaikuttavaa. On kuin meillä olisi oma copywriter palveluksessa.',
+    author: 'Emma D., Luova johtaja, Design Forward'
+  },
+  sports: {
+    name: 'Urheiluorganisaatiot',
+    description: 'Sitouta fanit, jäsenet ja sponsorit tehokkaalla viestinnällä',
+    painPoints: [
+      'Fanien ja jäsenten pitäminen ajan tasalla ja sitoutuneina',
+      'Tapahtumien ja toiminnan tehokas mainostaminen',
+      'Sponsorisopimusten arvon maksimointi'
+    ],
+    solutions: [
+      'Automatisoitu fani- ja jäsenviestintäjärjestelmä',
+      'Integroitu tapahtumien markkinointityökalu',
+      'Sponsorien näkyvyyden tehostaminen'
+    ],
+    quote: 'Olemme nähneet 35 % lisäyksen tapahtumien osallistujamäärissä sen jälkeen kun aloimme käyttää Lyyliä viestinnän virtaviivaistamiseen jäsenille.',
+    author: 'Mark J., Viestintäpäällikkö, Metropolitan Sports League'
   }
 };

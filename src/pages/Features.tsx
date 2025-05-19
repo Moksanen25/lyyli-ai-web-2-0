@@ -23,12 +23,12 @@ const Features = () => {
 
   // Setup segments data for navigation
   const segments = [
-    { id: 'tech-smes', title: t('features.customerSegments.segments.tech.title') },
-    { id: 'consulting', title: t('features.customerSegments.segments.consulting.title') },
-    { id: 'nonprofit', title: t('features.customerSegments.segments.nonprofit.title') },
-    { id: 'education', title: t('features.customerSegments.segments.education.title') },
-    { id: 'creative', title: t('features.customerSegments.segments.creative.title') },
-    { id: 'sports', title: t('features.customerSegments.segments.sports.title') }
+    { id: 'tech-smes', title: t('customerSegments.techSMEs.name') },
+    { id: 'consulting', title: t('customerSegments.consulting.name') },
+    { id: 'nonprofit', title: t('customerSegments.nonprofits.name') },
+    { id: 'education', title: t('customerSegments.education.name') },
+    { id: 'creative', title: t('customerSegments.creative.name') },
+    { id: 'sports', title: t('customerSegments.sports.name') }
   ];
 
   // Placeholder for segment navigation to prevent content jumps
@@ -74,9 +74,9 @@ const Features = () => {
         {/* Customer Segments Section */}
         <section id="customer-segments" className="py-16 bg-primary/5">
           <div className="container-padding container mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('features.customerSegments.title')}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('customerSegments.title')}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('features.customerSegments.subtitle')}
+              {t('customerSegments.subtitle')}
             </p>
           </div>
         </section>
@@ -84,12 +84,12 @@ const Features = () => {
         {/* Tech SMEs Segment */}
         <SegmentBlock 
           id="tech-smes"
-          title={t('features.customerSegments.segments.tech.title')}
-          tagline={t('features.customerSegments.segments.tech.tagline')}
-          description={t('features.customerSegments.segments.tech.description')}
+          title={t('customerSegments.techSMEs.name')}
+          tagline={t('customerSegments.techSMEs.description')}
+          description={t('customerSegments.techSMEs.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.tech.quote'),
-            author: t('features.customerSegments.segments.tech.author')
+            quote: t('customerSegments.techSMEs.quote'),
+            author: t('customerSegments.techSMEs.author')
           }}
           image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
           icon="tech"
@@ -98,12 +98,12 @@ const Features = () => {
         {/* Consulting Segment */}
         <SegmentBlock 
           id="consulting"
-          title={t('features.customerSegments.segments.consulting.title')}
-          tagline={t('features.customerSegments.segments.consulting.tagline')}
-          description={t('features.customerSegments.segments.consulting.description')}
+          title={t('customerSegments.consulting.name')}
+          tagline={t('customerSegments.consulting.description')}
+          description={t('customerSegments.consulting.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.consulting.quote'),
-            author: t('features.customerSegments.segments.consulting.author')
+            quote: t('customerSegments.consulting.quote'),
+            author: t('customerSegments.consulting.author')
           }}
           image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
           icon="consulting"
@@ -113,12 +113,12 @@ const Features = () => {
         {/* Nonprofit Segment */}
         <SegmentBlock 
           id="nonprofit"
-          title={t('features.customerSegments.segments.nonprofit.title')}
-          tagline={t('features.customerSegments.segments.nonprofit.tagline')}
-          description={t('features.customerSegments.segments.nonprofit.description')}
+          title={t('customerSegments.nonprofits.name')}
+          tagline={t('customerSegments.nonprofits.description')}
+          description={t('customerSegments.nonprofits.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.nonprofit.quote'),
-            author: t('features.customerSegments.segments.nonprofit.author')
+            quote: t('customerSegments.nonprofits.quote'),
+            author: t('customerSegments.nonprofits.author')
           }}
           image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=800"
           icon="nonprofit"
@@ -127,12 +127,12 @@ const Features = () => {
         {/* Education Segment */}
         <SegmentBlock 
           id="education"
-          title={t('features.customerSegments.segments.education.title')}
-          tagline={t('features.customerSegments.segments.education.tagline')}
-          description={t('features.customerSegments.segments.education.description')}
+          title={t('customerSegments.education.name')}
+          tagline={t('customerSegments.education.description')}
+          description={t('customerSegments.education.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.education.quote'),
-            author: t('features.customerSegments.segments.education.author')
+            quote: t('customerSegments.education.quote'),
+            author: t('customerSegments.education.author')
           }}
           image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800"
           icon="education"
@@ -142,12 +142,12 @@ const Features = () => {
         {/* Creative Segment */}
         <SegmentBlock 
           id="creative"
-          title={t('features.customerSegments.segments.creative.title')}
-          tagline={t('features.customerSegments.segments.creative.tagline')}
-          description={t('features.customerSegments.segments.creative.description')}
+          title={t('customerSegments.creative.name')}
+          tagline={t('customerSegments.creative.description')}
+          description={t('customerSegments.creative.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.creative.quote'),
-            author: t('features.customerSegments.segments.creative.author')
+            quote: t('customerSegments.creative.quote'),
+            author: t('customerSegments.creative.author')
           }}
           image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
           icon="creative"
@@ -156,12 +156,12 @@ const Features = () => {
         {/* Sports Segment */}
         <SegmentBlock 
           id="sports"
-          title={t('features.customerSegments.segments.sports.title')}
-          tagline={t('features.customerSegments.segments.sports.tagline')}
-          description={t('features.customerSegments.segments.sports.description')}
+          title={t('customerSegments.sports.name')}
+          tagline={t('customerSegments.sports.description')}
+          description={t('customerSegments.sports.description')}
           caseStudy={{
-            quote: t('features.customerSegments.segments.sports.quote'),
-            author: t('features.customerSegments.segments.sports.author')
+            quote: t('customerSegments.sports.quote'),
+            author: t('customerSegments.sports.author')
           }}
           image="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800"
           icon="sports"

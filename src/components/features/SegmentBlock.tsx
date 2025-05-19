@@ -79,7 +79,7 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
               <p key={idx} className="mb-4 text-muted-foreground">{paragraph}</p>
             ))}
             
-            {caseStudy && (
+            {caseStudy && caseStudy.quote && (
               <Card className="mt-8 bg-primary/5 border-none">
                 <CardContent className="p-6">
                   <p className="italic mb-4">"{caseStudy.quote}"</p>

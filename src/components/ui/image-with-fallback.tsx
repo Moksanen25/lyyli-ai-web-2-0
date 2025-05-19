@@ -33,9 +33,13 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     }
   };
 
+  // Ensure src is a valid string and not a translation key
+  const displaySrc = typeof imgSrc === 'string' && !imgSrc.includes('customerSegments.') ? 
+    imgSrc : fallbackSrc;
+
   return (
     <img
-      src={imgSrc}
+      src={displaySrc}
       alt={alt}
       onError={handleError}
       className={cn(

@@ -8,6 +8,10 @@ import TeamSection from '@/components/about/TeamSection';
 import MissionSection from '@/components/about/MissionSection';
 import CompanyTimeline from '@/components/about/CompanyTimeline';
 
+/**
+ * About page component
+ * Displays company information, mission, team and timeline
+ */
 const About = () => {
   const { t } = useLanguage();
   

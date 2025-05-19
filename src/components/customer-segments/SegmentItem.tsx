@@ -34,6 +34,11 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
     ? (language === 'fi' ? `/fi${segment.caseStudyUrl}` : segment.caseStudyUrl)
     : (language === 'fi' ? `/fi/full/case-studies?segment=${segment.id}` : `/full/case-studies?segment=${segment.id}`);
   
+  // Ensure we're using a valid image URL or fallback
+  const imageUrl = segment.image && typeof segment.image === 'string' && !segment.image.includes('customerSegments.') 
+    ? segment.image 
+    : '/placeholder.svg';
+  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div className="space-y-6">
@@ -81,25 +86,23 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         </Link>
       </div>
       
-      {segment.image && (
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-          <ImageWithFallback 
-            src={segment.image} 
-            alt={name}
-            fallbackSrc="/placeholder.svg"
-            className="object-cover w-full h-full"
-          />
-        </div>
-      )}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+        <ImageWithFallback 
+          src={imageUrl} 
+          alt={name}
+          fallbackSrc="/placeholder.svg"
+          className="object-cover w-full h-full"
+        />
+      </div>
       
-      {testimonial && (
+      {testimonial && testimonial.quote && (
         <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 md:col-span-2 mt-4">
           <blockquote className="text-lg italic mb-4">"{testimonial.quote}"</blockquote>
           <div className="flex items-center gap-3">
             {testimonial.avatar && (
               <ImageWithFallback
                 src={testimonial.avatar} 
-                alt={testimonial.author}
+                alt={testimonial.author || ''}
                 fallbackSrc="/placeholder.svg"
                 className="w-10 h-10 rounded-full object-cover"
               />
