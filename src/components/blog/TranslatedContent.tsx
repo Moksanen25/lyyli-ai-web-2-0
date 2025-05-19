@@ -41,7 +41,8 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
           
           // Replace content if translation exists
           if (child.props?.dangerouslySetInnerHTML && translation.content) {
-            return React.cloneElement(child, {
+            // Use proper type assertion to tell TypeScript this is an HTMLDivElement
+            return React.cloneElement(child as React.ReactElement<React.HTMLAttributes<HTMLDivElement>>, {
               dangerouslySetInnerHTML: { __html: translation.content }
             });
           }
