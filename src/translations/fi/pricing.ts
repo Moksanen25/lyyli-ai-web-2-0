@@ -8,6 +8,7 @@ export const pricing = {
   savePerYear: 'Säästä {amount}€ vuodessa',
   perMonth: '/kuukausi',
   perYear: '/vuosi',
+  custom: 'Räätälöity',
   starter: {
     name: 'Aloitus',
     description: 'Täydellinen pienille ja keskisuurille yrityksille, jotka ovat vasta aloittamassa.',
@@ -27,6 +28,9 @@ export const pricing = {
     cta: 'Ota Yhteyttä',
   },
   features: {
+    feature: 'Ominaisuus',
+    included: 'Sisältyy',
+    notIncluded: 'Ei sisälly',
     agents: 'Tekoäly-agentit',
     users: 'Käyttäjätilit',
     integrations: 'Integraatiot',
@@ -54,4 +58,5 @@ export const pricing = {
     title: 'Selkeä, läpinäkyvä hinnoittelu',
     subtitle: 'Valitse yrityksesi tarpeisiin sopiva paketti. Kaikki paketit sisältävät keskeisen tekoälytoiminnallisuuden.'
   },
+  comparisonCaption: 'Täydellinen ominaisuusvertailu kaikista paketeista',
 };

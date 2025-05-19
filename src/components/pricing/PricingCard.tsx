@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Check } from "lucide-react";
 import { Separator } from '@/components/ui/separator';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PricingCardProps {
   name: string;
@@ -39,6 +40,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   yearlyDiscountRate
 }) => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   
   // Calculate yearly price based on monthly with discount
   const getYearlyPrice = (monthlyPrice: number) => {
@@ -71,15 +73,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 }
               </span>
               <span className="text-sm ml-1">
-                /{billingPeriod === 'monthly' ? 'month' : 'year'}
+                /{billingPeriod === 'monthly' ? t('pricing.perMonth') : t('pricing.perYear')}
               </span>
             </div>
           ) : (
-            <span className="text-3xl font-bold">Custom</span>
+            <span className="text-3xl font-bold">{t('pricing.custom')}</span>
           )}
           {billingPeriod === 'yearly' && monthly !== null && (
             <div className="text-xs mt-1">
-              Save {calculateSavings(monthly)}€ per year
+              {t('pricing.savePerYear', { amount: calculateSavings(monthly) })}
             </div>
           )}
         </div>

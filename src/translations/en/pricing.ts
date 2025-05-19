@@ -8,6 +8,7 @@ export const pricing = {
   savePerYear: 'Save {amount}€ per year',
   perMonth: '/month',
   perYear: '/year',
+  custom: 'Custom',
   starter: {
     name: 'Starter',
     description: 'Perfect for small and medium enterprises just getting started.',
@@ -27,6 +28,9 @@ export const pricing = {
     cta: 'Contact Us',
   },
   features: {
+    feature: 'Feature',
+    included: 'Included',
+    notIncluded: 'Not included',
     agents: 'AI Agents',
     users: 'User Accounts',
     integrations: 'Integrations',
@@ -50,4 +54,5 @@ export const pricing = {
   faqText: 'Visit our FAQ page or contact us for more information about our plans.',
   faqButton: 'View FAQ',
   contactButton: 'Contact Sales',
+  comparisonCaption: 'Complete feature comparison across all plans',
 };

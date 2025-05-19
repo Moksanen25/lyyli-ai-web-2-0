@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Check, X } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Feature {
@@ -27,6 +28,7 @@ interface FeatureComparisonProps {
 
 const FeatureComparison: React.FC<FeatureComparisonProps> = ({ comparisonFeatures, showFullComparison }) => {
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
   
   // Render check or X based on boolean value
   const renderCheckOrX = (value: boolean | string) => {
@@ -35,8 +37,8 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({ comparisonFeature
     }
     
     return value ? 
-      <Check className="h-5 w-5 text-primary" aria-label="Included" /> :
-      <X className="h-5 w-5 text-muted-foreground" aria-label="Not included" />;
+      <Check className="h-5 w-5 text-primary" aria-label={t('pricing.features.included')} /> :
+      <X className="h-5 w-5 text-muted-foreground" aria-label={t('pricing.features.notIncluded')} />;
   };
 
   if (!showFullComparison) return null;
@@ -46,19 +48,19 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({ comparisonFeature
       <ScrollArea className={isMobile ? "h-[400px]" : "h-[500px]"}>
         <div className={isMobile ? "min-w-[640px]" : ""}>
           <Table>
-            <TableCaption>Complete feature comparison across all plans</TableCaption>
+            <TableCaption>{t('pricing.comparisonCaption')}</TableCaption>
             <TableHeader className="sticky top-0 bg-card z-10">
               <TableRow>
-                <TableHead className="w-[300px]">Feature</TableHead>
-                <TableHead className="text-center">Starter</TableHead>
-                <TableHead className="text-center">Professional</TableHead>
-                <TableHead className="text-center">Enterprise</TableHead>
+                <TableHead className="w-[300px]">{t('pricing.features.feature')}</TableHead>
+                <TableHead className="text-center">{t('pricing.starter.name')}</TableHead>
+                <TableHead className="text-center">{t('pricing.professional.name')}</TableHead>
+                <TableHead className="text-center">{t('pricing.enterprise.name')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {comparisonFeatures.map((feature) => (
                 <TableRow key={feature.name}>
-                  <TableCell className="font-medium">{feature.name}</TableCell>
+                  <TableCell className="font-medium">{t(`pricing.features.${feature.name}`)}</TableCell>
                   <TableCell className="text-center">{renderCheckOrX(feature.starter)}</TableCell>
                   <TableCell className="text-center">{renderCheckOrX(feature.professional)}</TableCell>
                   <TableCell className="text-center">{renderCheckOrX(feature.enterprise)}</TableCell>
