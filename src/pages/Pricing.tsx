@@ -65,7 +65,7 @@ const PricingPage = () => {
       description: t('pricing.starter.description'),
       primaryFeatures: [
         translateFeature('oneAiAgent'),
-        translateFeature('webApp'),
+        translateFeature('webAppAccess'),  // Changed from webApp to webAppAccess
         translateFeature('upToThreeIntegrations'),
         translateFeature('singleUser'),
         translateFeature('basicSupport')

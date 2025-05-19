@@ -50,7 +50,8 @@ export const pricing = {
     custom: 'Custom',
     unlimited: 'Unlimited',
     oneAiAgent: 'One AI agent',
-    webApp: 'Web app access',
+    // Removing duplicate webApp key which is causing the error
+    webAppAccess: 'Web app access',
     upToThreeIntegrations: 'Up to 3 integrations',
     singleUser: 'Single user account',
     basicSupport: 'Basic support',

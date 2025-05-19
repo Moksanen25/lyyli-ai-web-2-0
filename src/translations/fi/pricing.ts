@@ -50,7 +50,8 @@ export const pricing = {
     custom: 'Räätälöity',
     unlimited: 'Rajoittamaton',
     oneAiAgent: 'Yksi tekoäly-agentti',
-    webApp: 'Web-sovelluksen käyttö',
+    // Removing duplicate webApp key which is causing the error
+    webAppAccess: 'Web-sovelluksen käyttö',
     upToThreeIntegrations: 'Jopa 3 integraatiota',
     singleUser: 'Yksi käyttäjätili',
     basicSupport: 'Perustuki',
