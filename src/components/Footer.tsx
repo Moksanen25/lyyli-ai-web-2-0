@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link, useLocation } from 'react-router-dom';
@@ -34,8 +35,12 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo and description */}
           <div>
-            <Link to="/" className="inline-block mb-4">
-              <div className="text-2xl font-playfair font-bold text-primary">Lyyli</div>
+            <Link to={language === 'fi' ? "/fi/full" : "/full"} className="inline-block mb-4">
+              <img 
+                src="/lovable-uploads/867523a0-ef9e-4a27-9074-d89008a4956d.png" 
+                alt="Lyyli.ai" 
+                className="h-10 mb-3"
+              />
             </Link>
             <p className="text-primary/70 mb-4">
               AI-powered content management platform that transforms your content workflow.

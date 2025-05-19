@@ -42,8 +42,12 @@ const Navbar: React.FC = () => {
     <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to={language === 'fi' ? "/fi/full" : "/full"} className="text-2xl font-playfair font-bold text-primary">
-          Lyyli
+        <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
+          <img 
+            src="/lovable-uploads/fd667a60-689d-4fe3-8640-743a06927c39.png" 
+            alt="Lyyli.ai" 
+            className="h-10"
+          />
         </Link>
         
         {/* Desktop Navigation */}
@@ -76,8 +80,12 @@ const Navbar: React.FC = () => {
           <SheetContent side="right" className="w-full sm:w-64">
             <div className="grid gap-4 py-4">
               <div className="justify-between flex items-center">
-                <Link to={language === 'fi' ? "/fi/full" : "/full"} className="text-lg font-semibold">
-                  Lyyli
+                <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
+                  <img 
+                    src="/lovable-uploads/fd667a60-689d-4fe3-8640-743a06927c39.png" 
+                    alt="Lyyli.ai" 
+                    className="h-8"
+                  />
                 </Link>
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                   <X className="h-5 w-5" />
