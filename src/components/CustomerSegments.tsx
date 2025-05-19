@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
 import SectionHeader from './customer-segments/SectionHeader';
@@ -16,7 +17,7 @@ const CustomerSegments: React.FC = () => {
   
   try {
     // Get segment data with error handling
-    const segments = useSegmentsData();
+    const { segments } = useSegmentsData();
     const [activeSegmentId, setActiveSegmentId] = useState<string>('');
     const [isLoaded, setIsLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
@@ -25,7 +26,7 @@ const CustomerSegments: React.FC = () => {
     useEffect(() => {
       try {
         console.log('CustomerSegments useEffect running', { 
-          segments: segments?.length || 0, 
+          segmentsCount: segments?.length || 0, 
           activeSegmentId 
         });
         
@@ -91,14 +92,12 @@ const CustomerSegments: React.FC = () => {
             <>
               {segments && segments.length > 0 ? (
                 <div className="mt-16 mb-12">
-                  <DesktopTabs 
-                    segments={segments} 
-                    activeSegmentId={activeSegmentId || segments[0]?.id || ''}
-                    onSegmentChange={handleSegmentChange}
-                  />
-                  <MobileCards 
-                    segments={segments} 
-                  />
+                  <div className="hidden md:block">
+                    <DesktopTabs segments={segments} />
+                  </div>
+                  <div className="md:hidden">
+                    <MobileCards segments={segments} />
+                  </div>
                 </div>
               ) : (
                 <div className="text-center py-10">
