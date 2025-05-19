@@ -18,6 +18,10 @@ const AboutHero = () => {
             src="/images/features-dashboard.jpg" 
             alt={t('about.hero.imageAlt') || "Lyyli platform dashboard interface showing various content management features"} 
             className="w-full h-full object-cover"
+            onError={(e) => {
+              console.error("Image failed to load:", e.currentTarget.src);
+              e.currentTarget.src = "/placeholder.svg";
+            }}
           />
         </AspectRatio>
       </div>

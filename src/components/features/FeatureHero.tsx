@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
@@ -88,6 +89,10 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
               src={image} 
               alt={displayTitle}
               className="rounded-lg shadow-lg object-cover w-full max-h-[500px]"
+              onError={(e) => {
+                console.error("Image failed to load:", e.currentTarget.src);
+                e.currentTarget.src = "/placeholder.svg";
+              }}
             />
           </div>
         </div>

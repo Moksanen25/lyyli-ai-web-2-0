@@ -41,6 +41,7 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
 }) => {
   const { t } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
+  const [imageError, setImageError] = useState(false);
   
   // Process description to ensure it's always an array
   const descriptionArray = Array.isArray(description) ? description : [description];
@@ -98,11 +99,15 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
           {/* Image or Icon Visualization */}
           <div className="flex-1">
             <AspectRatio ratio={16 / 9}>
-              {image ? (
+              {image && !imageError ? (
                 <img 
                   src={image} 
                   alt={title} 
                   className="w-full h-full object-cover rounded-lg shadow-lg" 
+                  onError={(e) => {
+                    console.error("Image failed to load:", e.currentTarget.src);
+                    setImageError(true);
+                  }}
                 />
               ) : (
                 <div className="w-full h-full rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 flex flex-col items-center justify-center">
