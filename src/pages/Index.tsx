@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -6,7 +7,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import CustomerSegments from '@/components/CustomerSegments';
 import EnterpriseCallout from '@/components/EnterpriseCallout';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import CaseStudies from '@/components/CaseStudies';
+import BlogCarousel from '@/components/blog/BlogCarousel';
 import ComplianceBadges from '@/components/ComplianceBadges';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
@@ -148,8 +149,8 @@ const Index = () => {
           <TestimonialsSection />
         </SafeSection>
         
-        <SafeSection name="Case Studies">
-          <CaseStudies />
+        <SafeSection name="Blog Posts">
+          <BlogCarousel />
         </SafeSection>
         
         {/* Final conversion point */}
