@@ -1,5 +1,5 @@
 
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 
 // Define proper SegmentData interface
