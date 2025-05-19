@@ -10,6 +10,7 @@ export const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage, verifyLanguageCompleteness } = useLanguage();
 
   const toggleLanguage = () => {
+    console.log('Switching language from', language, 'to', language === 'en' ? 'fi' : 'en');
     setLanguage(language === 'en' ? 'fi' : 'en');
   };
 
@@ -59,3 +60,5 @@ const VerifyIcon = ({ className }: { className?: string }) => (
     <path d="m9 12 2 2 4-4"></path>
   </svg>
 );
+
+export default LanguageSwitcher;

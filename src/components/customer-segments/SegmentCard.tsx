@@ -56,7 +56,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         <div className="mt-auto pt-4">
           <Link to={segment.caseStudyUrl || `/full/case-studies?segment=${segment.id}`}>
             <Button variant="ghost" className="w-full justify-between">
-              {t('customerSegments.learnMore')}
+              {t('customerSegments.learnMoreButton')}
               <ChevronRight className="h-4 w-4" />
             </Button>
           </Link>

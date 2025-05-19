@@ -6,6 +6,17 @@ export const customerSegments = {
   bookDemoButton: 'Varaa toimialakohtainen esittely',
   learnMoreButton: 'Lue lisää',
   viewComparisonButton: 'Katso ominaisuusvertailu',
+  readCaseStudy: 'Lue tapaustutkimus',
+  previous: 'Edellinen',
+  next: 'Seuraava',
+  goToSlide: 'Siirry diaan',
+  challenges: 'Yleiset haasteet',
+  solutions: 'Ratkaisumme',
+  noSegmentsAvailable: 'Asiakassegmenttejä ei ole saatavilla',
+  errorTitle: 'Virhe asiakassegmenttien lataamisessa',
+  errorMessage: 'Asiakassegmenttien lataamisessa tapahtui virhe. Yritä päivittää sivu.',
+  closingText: 'Olipa kyseessä kasvava teknologiayritys, vakiintunut konsultointiyritys tai oppilaitos, tekoälyviestintäalustamme mukautuu ainutlaatuisiin tarpeisiisi ja ääneesi.',
+  
   techSMEs: {
     name: 'Teknologiaorientoituneet pk-yritykset',
     description: 'Teknologiayrityksille, joissa on 30-300 työntekijää ja hajautetut tiimit sekä runsaat viestintätarpeet.',
@@ -104,11 +115,8 @@ export const customerSegments = {
   },
   successStory: 'Menestystarina',
   keyFeatures: 'Keskeiset alustan ominaisuudet:',
-  challenges: 'Yleiset haasteet:',
-  solutions: 'Ratkaisumme:',
   voiceAI: 'Ääniohjattu tekoäly',
   slackIntegration: 'Slack-integraatio',
   contentTemplates: 'Sisältömallit',
-  teamsIntegration: 'Teams-integraatio',
-  closingText: 'Olipa kyseessä kasvava teknologiayritys, vakiintunut konsultointiyritys tai oppilaitos, tekoälyviestintäalustamme mukautuu ainutlaatuisiin tarpeisiisi ja ääneesi.'
+  teamsIntegration: 'Teams-integraatio'
 };

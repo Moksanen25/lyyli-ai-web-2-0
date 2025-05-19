@@ -6,6 +6,17 @@ export const customerSegments = {
   bookDemoButton: 'Book industry-specific demo',
   learnMoreButton: 'Learn more',
   viewComparisonButton: 'View feature comparison',
+  readCaseStudy: 'Read case study',
+  previous: 'Previous',
+  next: 'Next',
+  goToSlide: 'Go to slide',
+  challenges: 'Common challenges',
+  solutions: 'Our solutions',
+  noSegmentsAvailable: 'No customer segments available',
+  errorTitle: 'Error loading customer segments',
+  errorMessage: 'There was an error loading the customer segments. Please try refreshing the page.',
+  closingText: 'Whether you\'re a growing tech company, established consultancy, or educational institution, our AI communication platform adapts to your unique needs and voice.',
+  
   techSMEs: {
     name: 'Tech-savvy SMEs',
     description: 'For tech companies with 30-300 employees managing distributed teams and heavy communication needs.',
@@ -104,11 +115,8 @@ export const customerSegments = {
   },
   successStory: 'Success story',
   keyFeatures: 'Key platform features:',
-  challenges: 'Common challenges:',
-  solutions: 'Our solutions:',
   voiceAI: 'Voice consistent AI',
   slackIntegration: 'Slack integration',
   contentTemplates: 'Content templates',
-  teamsIntegration: 'Teams integration',
-  closingText: 'Whether you\'re a growing tech company, established consultancy, or educational institution, our AI communication platform adapts to your unique needs and voice.'
+  teamsIntegration: 'Teams integration'
 };
