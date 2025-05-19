@@ -17,23 +17,23 @@ const EnterpriseCallout: React.FC = () => {
   const enterpriseFeatures = [
     {
       icon: <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: 'Enterprise Security',
-      description: 'ISO 27001 certified with SOC2 compliance and advanced data encryption'
+      title: t('features.enterpriseReady'),
+      description: t('features.securityDesc')
     },
     {
       icon: <Users className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: 'Dedicated Support',
-      description: 'White-glove onboarding and 24/7 priority support with SLA guarantees'
+      title: t('features.supportTitle'),
+      description: t('features.supportDesc')
     },
     {
       icon: <Database className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: 'Advanced Analytics',
-      description: 'Deep insights with custom reporting and executive dashboards'
+      title: t('features.additionalFeatures.ai.title'),
+      description: t('features.additionalFeatures.ai.description')
     },
     {
       icon: <Layers className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: 'Custom Integration',
-      description: 'Seamless integration with your existing enterprise tech stack'
+      title: t('features.integrationsTitle'),
+      description: t('features.integrationsDesc')
     }
   ];
 
@@ -49,13 +49,13 @@ const EnterpriseCallout: React.FC = () => {
       <div className="container-padding container mx-auto">
         <div className="text-center mb-10 md:mb-16 animate-fade-in">
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
-            Enterprise Solutions
+            {t('features.enterpriseReady')}
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">Built for Enterprise Scale</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('features.pageHero.title')}</h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {isMobile 
-              ? 'Powerful solutions built for enterprise needs and requirements.'
-              : 'Powerful solutions designed specifically for large organizations with complex needs and demanding requirements.'}
+              ? t('features.pageHero.description')
+              : t('features.pageHero.description')}
           </p>
         </div>
         
@@ -82,10 +82,10 @@ const EnterpriseCallout: React.FC = () => {
             className="bg-primary hover:bg-primary/90"
             onClick={handleConsultation}
           >
-            Schedule Enterprise Consultation
+            {t('common.bookDemo')}
           </Button>
           <p className="mt-4 text-sm text-muted-foreground">
-            Learn how we can tailor our solution to your organization's specific needs.
+            {t('demo.description')}
           </p>
         </div>
       </div>

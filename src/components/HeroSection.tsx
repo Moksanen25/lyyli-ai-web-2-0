@@ -37,19 +37,19 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <Shield className="h-8 w-8 text-primary mb-3" />
             <h3 className="text-xl font-semibold mb-2">{t('hero.badges.security')}</h3>
-            <p className="text-muted-foreground">{t('hero.badges.securityDescription') || t('hero.badges.security')}</p>
+            <p className="text-muted-foreground">{t('hero.badges.securityDescription')}</p>
           </div>
           
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <Database className="h-8 w-8 text-primary mb-3" />
             <h3 className="text-xl font-semibold mb-2">{t('hero.badges.uptime')}</h3>
-            <p className="text-muted-foreground">{t('hero.badges.uptimeDescription') || t('hero.badges.uptime')}</p>
+            <p className="text-muted-foreground">{t('hero.badges.uptimeDescription')}</p>
           </div>
           
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <MessageSquare className="h-8 w-8 text-primary mb-3" />
             <h3 className="text-xl font-semibold mb-2">{t('hero.badges.support')}</h3>
-            <p className="text-muted-foreground">{t('hero.badges.supportDescription') || t('hero.badges.support')}</p>
+            <p className="text-muted-foreground">{t('hero.badges.supportDescription')}</p>
           </div>
         </div>
       </div>

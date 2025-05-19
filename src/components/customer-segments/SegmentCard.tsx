@@ -14,6 +14,9 @@ interface SegmentCardProps {
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t, language } = useLanguage();
   
+  // Debug segment data
+  console.log(`SegmentCard rendering for segment: ${segment.id}, language: ${language}`, segment);
+  
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
     ? (language === 'fi' ? `/fi${segment.caseStudyUrl}` : segment.caseStudyUrl)

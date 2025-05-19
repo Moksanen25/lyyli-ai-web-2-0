@@ -39,7 +39,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
   
   // Debug information
-  console.log('Selected language:', language);
+  console.log('Selected language:', language, 'Path language:', pathLanguage, 'Path:', location.pathname);
 
   // Effect to update path when language changes
   useEffect(() => {
