@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -109,7 +110,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <CardFooter>
         <Button 
           className="w-full" 
-          variant={accent ? "secondary" : "primary"}
+          variant={accent ? "secondary" : "default"}
           onClick={handleCtaClick}
         >
           {getPrice() !== t('pricing.contactUs') && billingPeriod === 'yearly' ? t('pricing.perYear') : null}
