@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,13 +21,9 @@ const BlogList: React.FC = () => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
     
-    if (language === 'fi') {
-      // For Finnish, only show posts that have a Finnish translation
-      return blogPosts.filter(post => hasFinishTranslation(post.slug));
-    } else {
-      // For English, filter out Finnish-specific posts
-      return blogPosts.filter(post => !post.language || post.language === 'en');
-    }
+    // In Finnish mode, show all posts (regardless of translation status)
+    // This ensures all content is accessible in Finnish mode
+    return blogPosts;
   }, [language]);
   
   // Get all unique tags
@@ -79,7 +76,7 @@ const BlogList: React.FC = () => {
             />
           )}
           
-          {/* Tag filtering - UPDATED TEXT HERE */}
+          {/* Tag filtering */}
           <div className="mb-8">
             <h2 className="text-lg font-medium mb-4">{safeT('blog.filterByTag')}:</h2>
             <TagFilter 
@@ -111,7 +108,9 @@ const BlogList: React.FC = () => {
           {language === 'fi' && (
             <div className="my-10 p-6 bg-primary/5 rounded-lg text-center">
               <h3 className="text-xl font-medium mb-2">{safeT('blog.translationNotice.title', { fallback: 'Lisää käännöksiä tulossa' })}</h3>
-              <p className="text-muted-foreground">Vain käännetyt artikkelit ovat saatavilla tällä hetkellä. Lisää käännöksiä julkaistaan pian.</p>
+              <p className="text-muted-foreground">
+                {safeT('blog.translationNotice.description', { fallback: 'Vain osa artikkeleista on käännetty suomeksi. Lisää käännöksiä julkaistaan pian.' })}
+              </p>
             </div>
           )}
           

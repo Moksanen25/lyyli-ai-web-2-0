@@ -1,8 +1,11 @@
 
 import React, { useMemo } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from './blogTranslations';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Info } from 'lucide-react';
 
 interface TranslatedContentProps {
   post: BlogPost;
@@ -11,6 +14,7 @@ interface TranslatedContentProps {
 
 const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children }) => {
   const { language } = useLanguage();
+  const { safeT } = useSafeTranslation();
   
   // Memoize the translation lookup
   const translation = useMemo(() => {
@@ -21,18 +25,22 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
     return null;
   }, [post.slug, language]);
   
-  // If there's a translation, render the content with the translated content
-  if (translation) {
-    return (
-      <div className="translated-content">
-        {children}
-      </div>
-    );
-  }
+  // If we're in Finnish mode but there's no translation, display a notice
+  const showTranslationNotice = language === 'fi' && !translation;
   
-  // If there's no translation, just render the original content
   return (
-    <div className="original-content">
+    <div className={translation ? "translated-content" : "original-content"}>
+      {showTranslationNotice && (
+        <Alert className="mb-6 bg-primary/5 border-primary/10">
+          <Info className="h-4 w-4 text-primary" />
+          <AlertTitle>
+            {safeT('blog.translationNotice.title', { fallback: 'Automaattinen käännös' })}
+          </AlertTitle>
+          <AlertDescription>
+            {safeT('blog.translationNotice.description', { fallback: 'Tämä sisältö on käännetty automaattisesti englanniksi. Alkuperäinen sisältö on saatavilla vaihtamalla sivuston kieli englanniksi.' })}
+          </AlertDescription>
+        </Alert>
+      )}
       {children}
     </div>
   );
