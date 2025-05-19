@@ -1,21 +1,19 @@
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
 import { verifyTranslations } from '@/utils/translationUtils';
 import { toast } from '@/components/ui/use-toast';
 import { 
   getBrowserLanguage, 
-  findTranslationValue, 
   getPathLanguage,
   getUpdatedPath
 } from '@/utils/languageUtils';
 
-// Type for our context
+// Type for our context (simplified, no longer includes translation function)
 type LanguageContextType = {
   language: SupportedLanguage;
   setLanguage: (language: SupportedLanguage) => void;
-  t: (key: string) => string;
   verifyLanguageCompleteness: () => void;
 };
 
@@ -99,52 +97,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
-  // Translation function
-  const t = (key: string): string => {
-    try {
-      if (!key) {
-        console.warn('Empty translation key provided');
-        return '';
-      }
-      
-      const keys = key.split('.');
-      let value: any = languages[language];
-      
-      if (!value) {
-        console.error(`Language not found: ${language}`);
-        // Fallback to English
-        value = languages.en;
-        if (!value) return key;
-      }
-      
-      // Debug for blog translations
-      if (keys[0] === 'blog' && import.meta.env.DEV) {
-        console.log(`Translation lookup for [${language}]: ${key}`);
-      }
-      
-      // Use utility function to find translation
-      const translatedValue = findTranslationValue(value, keys);
-      
-      if (translatedValue !== null) {
-        return translatedValue;
-      }
-      
-      // Fallback to English
-      const enValue = findTranslationValue(languages.en, keys);
-      const result = enValue !== null ? enValue : key;
-      
-      // Debug for blog translations
-      if (keys[0] === 'blog' && import.meta.env.DEV) {
-        console.log(`Fallback translation for [${language}]: ${key} -> ${result}`);
-      }
-      
-      return result;
-    } catch (error) {
-      console.error(`Error translating key: ${key}`, error);
-      return key;
-    }
-  };
-
   // Custom setLanguage function to handle both state and URL updates
   const setLanguage = (newLanguage: SupportedLanguage) => {
     console.log('Setting language to:', newLanguage);
@@ -152,20 +104,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, verifyLanguageCompleteness }}>
+    <LanguageContext.Provider value={{ 
+      language, 
+      setLanguage, 
+      verifyLanguageCompleteness 
+    }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-// Custom hook to use the language context
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
-
-// For backwards compatibility, also export the languages
+// Export the languages for backwards compatibility
 export { languages };

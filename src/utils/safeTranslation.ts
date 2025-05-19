@@ -1,5 +1,5 @@
 
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 type SafeTranslationOptions = {
   debug?: boolean;
@@ -13,7 +13,7 @@ type SafeTranslationOptions = {
  * to prevent UI crashes due to missing translation keys
  */
 export const useSafeTranslation = () => {
-  const { t, language } = useLanguage();
+  const { t, language } = useTranslation();
 
   const safeT = (key: string, options: SafeTranslationOptions = {}) => {
     try {

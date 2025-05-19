@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 
 // Only show in development mode

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/components/ui/use-toast';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useIsMobile } from '@/hooks/use-mobile';
 import ChatMessage from './ChatMessage';
 import { useChatThread } from '@/hooks/use-chat-thread';
@@ -17,7 +17,7 @@ interface Message {
 }
 
 const ChatInterface = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   const [messages, setMessages] = useState<Message[]>([
     { 
