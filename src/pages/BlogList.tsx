@@ -21,9 +21,18 @@ const BlogList: React.FC = () => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
     
-    // In Finnish mode, show all posts (regardless of translation status)
-    // This ensures all content is accessible in Finnish mode
-    return blogPosts;
+    // In Finnish mode, show all posts that have translations AND posts with Finnish language
+    if (language === 'fi') {
+      // Return posts that either:
+      // 1. Have a Finnish translation
+      // 2. Are explicitly marked as Finnish language
+      return blogPosts.filter(post => 
+        hasFinishTranslation(post.slug) || post.language === 'fi'
+      );
+    }
+    
+    // In English mode, show all non-Finnish posts
+    return blogPosts.filter(post => !post.language || post.language === 'en');
   }, [language]);
   
   // Get all unique tags

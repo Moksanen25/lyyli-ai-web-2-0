@@ -28,13 +28,6 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   // If we're in Finnish mode but there's no translation, display a notice
   const showTranslationNotice = language === 'fi' && !translation;
   
-  // Debug translation lookup
-  console.log(`TranslatedContent: Looking for translation for slug ${post.slug} in language ${language}`);
-  console.log(`TranslatedContent: Translation found: ${!!translation}`);
-  if (translation) {
-    console.log(`TranslatedContent: Found title: ${translation.title}`);
-  }
-  
   // Modify the children to replace content with translations when available
   const modifiedChildren = useMemo(() => {
     if (language === 'fi' && translation) {
@@ -49,7 +42,7 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
         
         // Replace content if translation exists
         if (child.props?.dangerouslySetInnerHTML && translation.content) {
-          // Use proper type assertion to tell TypeScript this is an HTMLDivElement
+          // Properly type the element for dangerouslySetInnerHTML
           return React.cloneElement(child as React.ReactElement<React.HTMLAttributes<HTMLDivElement>>, {
             dangerouslySetInnerHTML: { __html: translation.content }
           });
@@ -71,7 +64,7 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
             {safeT('blog.translationNotice.title', { fallback: 'Automaattinen käännös' })}
           </AlertTitle>
           <AlertDescription>
-            {safeT('blog.translationNotice.description', { fallback: 'Tämä sisältö on käännetty automaattisesti englanniksi. Alkuperäinen sisältö on saatavilla vaihtamalla sivuston kieli englanniksi.' })}
+            {safeT('blog.translationNotice.description', { fallback: 'Tätä sisältöä ei ole vielä käännetty suomeksi. Näet sisällön alkuperäisellä kielellä.' })}
           </AlertDescription>
         </Alert>
       )}

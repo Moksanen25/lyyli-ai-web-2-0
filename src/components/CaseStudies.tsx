@@ -14,29 +14,30 @@ const CaseStudies: React.FC = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   
+  // Create case studies with proper translation handling
   const caseStudies = [
     {
-      company: safeT('caseStudies.globalFinancial.company'),
-      industry: safeT('caseStudies.globalFinancial.industry'),
-      challenge: safeT('caseStudies.globalFinancial.challenge'),
-      solution: safeT('caseStudies.globalFinancial.solution'),
-      results: safeT('caseStudies.globalFinancial.results'),
+      company: safeT('caseStudies.globalFinancial.company', { fallback: 'Global Financial Corp' }),
+      industry: safeT('caseStudies.globalFinancial.industry', { fallback: 'Finance' }),
+      challenge: safeT('caseStudies.globalFinancial.challenge', { fallback: 'Legacy content management systems causing workflow bottlenecks' }),
+      solution: safeT('caseStudies.globalFinancial.solution', { fallback: 'AI-powered content automation with custom integration' }),
+      results: safeT('caseStudies.globalFinancial.results', { fallback: '72% faster content production and 45% cost savings' }),
       logo: "https://img.shields.io/badge/GFC-Financial-blue"
     },
     {
-      company: safeT('caseStudies.techNova.company'),
-      industry: safeT('caseStudies.techNova.industry'),
-      challenge: safeT('caseStudies.techNova.challenge'),
-      solution: safeT('caseStudies.techNova.solution'),
-      results: safeT('caseStudies.techNova.results'),
+      company: safeT('caseStudies.techNova.company', { fallback: 'TechNova Systems' }),
+      industry: safeT('caseStudies.techNova.industry', { fallback: 'Technology' }),
+      challenge: safeT('caseStudies.techNova.challenge', { fallback: 'Scaling content across 12 product lines and 30 global markets' }),
+      solution: safeT('caseStudies.techNova.solution', { fallback: 'Centralized content hub with localization automation' }),
+      results: safeT('caseStudies.techNova.results', { fallback: '3x increase in content output with consistent brand voice' }),
       logo: "https://img.shields.io/badge/TechNova-Systems-purple"
     },
     {
-      company: safeT('caseStudies.healthFirst.company'),
-      industry: safeT('caseStudies.healthFirst.industry'),
-      challenge: safeT('caseStudies.healthFirst.challenge'),
-      solution: safeT('caseStudies.healthFirst.solution'),
-      results: safeT('caseStudies.healthFirst.results'),
+      company: safeT('caseStudies.healthFirst.company', { fallback: 'HealthFirst Network' }),
+      industry: safeT('caseStudies.healthFirst.industry', { fallback: 'Healthcare' }),
+      challenge: safeT('caseStudies.healthFirst.challenge', { fallback: 'Maintaining compliance while accelerating patient communications' }),
+      solution: safeT('caseStudies.healthFirst.solution', { fallback: 'Compliance-first AI content workflow with approval automation' }),
+      results: safeT('caseStudies.healthFirst.results', { fallback: '99.8% compliance rate with 60% faster approval cycles' }),
       logo: "https://img.shields.io/badge/HealthFirst-Network-green"
     }
   ];
@@ -51,9 +52,9 @@ const CaseStudies: React.FC = () => {
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
             {safeT('caseStudies.sectionLabel', { fallback: language === 'fi' ? 'Menestystarinat' : 'Success Stories' })}
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">{safeT('caseStudies.title')}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{safeT('caseStudies.title', { fallback: 'Enterprise Case Studies' })}</h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {safeT('caseStudies.subtitle')}
+            {safeT('caseStudies.subtitle', { fallback: 'See how leading organizations transformed their operations with our enterprise solutions.' })}
           </p>
         </div>
         
@@ -94,7 +95,7 @@ const CaseStudies: React.FC = () => {
                 </div>
                 
                 <button className="text-primary flex items-center text-sm font-medium mt-auto">
-                  {safeT('caseStudies.readFullCase')} <ArrowRight className="h-4 w-4 ml-1" />
+                  {safeT('caseStudies.readFullCase', { fallback: language === 'fi' ? 'Lue koko tapaustutkimus' : 'Read Full Case Study' })} <ArrowRight className="h-4 w-4 ml-1" />
                 </button>
               </CardContent>
             </Card>
