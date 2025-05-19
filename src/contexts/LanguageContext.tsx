@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { languages, SupportedLanguage } from '../translations';
@@ -53,35 +52,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       
       if (newPath) {
         console.log('Updating path to:', newPath);
+        // Use replace: true to avoid adding to browser history
         navigate(newPath, { replace: true });
       }
     } catch (error) {
       console.error('Error updating URL for language change:', error);
     }
   }, [language, location.pathname, navigate]);
-  
-  // Initial language detection and URL update on first load
-  useEffect(() => {
-    // Only execute on initial page load
-    if (!savedLanguage && !pathLanguage) {
-      console.log('Initial language detection:', browserLanguage);
-      setLanguageState(browserLanguage);
-    }
-    
-    // Check if we're on Finnish path but language state isn't Finnish
-    if (pathLanguage === 'fi' && language !== 'fi') {
-      console.log('Path indicates Finnish but state is not Finnish, updating state');
-      setLanguageState('fi');
-    }
-    
-    // Check if we're not on Finnish path but language state is Finnish
-    if (!pathLanguage && language === 'fi') {
-      console.log('State indicates Finnish but path is not Finnish, updating path');
-      const newPath = `/fi${location.pathname}`;
-      navigate(newPath, { replace: true });
-    }
-  }, [pathLanguage, savedLanguage, browserLanguage, language, location.pathname, navigate]);
-  
+
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
     try {
@@ -110,10 +88,28 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
-  // Custom setLanguage function to handle both state and URL updates
+  // Custom setLanguage function that forces path update immediately
   const setLanguage = (newLanguage: SupportedLanguage) => {
     console.log('Setting language to:', newLanguage);
+    
+    // Update language in state
     setLanguageState(newLanguage);
+    
+    // Immediately update the URL to match the new language preference
+    // This helps ensure the navigation happens correctly
+    const currentPath = location.pathname;
+    let newPath: string | null = null;
+    
+    if (newLanguage === 'fi' && !currentPath.startsWith('/fi')) {
+      newPath = `/fi${currentPath}`;
+    } else if (newLanguage === 'en' && currentPath.startsWith('/fi')) {
+      newPath = currentPath.substring(3) || '/';
+    }
+    
+    if (newPath) {
+      console.log('Immediately updating path to:', newPath);
+      navigate(newPath, { replace: true });
+    }
   };
 
   return (

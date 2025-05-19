@@ -33,7 +33,7 @@ export const findTranslationValue = (
 
 // Extract language path segment from URL
 export const getPathLanguage = (pathname: string): SupportedLanguage | null => {
-  return pathname.startsWith('/fi') ? 'fi' : null;
+  return pathname.startsWith('/fi/') || pathname === '/fi' ? 'fi' : null;
 };
 
 // Update path based on language
@@ -41,12 +41,18 @@ export const getUpdatedPath = (
   currentPath: string,
   language: SupportedLanguage
 ): string | null => {
-  if (language === 'fi' && !currentPath.startsWith('/fi')) {
+  if (language === 'fi' && !(currentPath.startsWith('/fi/'))) {
     // Need to add /fi prefix
+    if (currentPath === '/') {
+      return '/fi';
+    }
     return `/fi${currentPath}`;
-  } else if (language === 'en' && currentPath.startsWith('/fi')) {
+  } else if (language === 'en' && currentPath.startsWith('/fi/')) {
     // Need to remove /fi prefix
     return currentPath.substring(3) || '/';
+  } else if (language === 'en' && currentPath === '/fi') {
+    // Handle root Finnish path
+    return '/';
   }
   
   return null; // No change needed
