@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -7,7 +6,7 @@ import { blogPosts } from '@/data/blogData';
 import BlogContent from '@/components/blog/BlogContent';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import BlogCTA from '@/components/blog/BlogCTA';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { toast } from '@/components/ui/use-toast';
 

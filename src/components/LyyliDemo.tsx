@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import DemoDialog from './lyyli-demo/DemoDialog';
 import BookDemoDialog from '@/components/BookDemoDialog';
 import { ErrorBoundary } from './ui/error-boundary';

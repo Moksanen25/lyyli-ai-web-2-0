@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import ChatInterface from './ChatInterface';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);

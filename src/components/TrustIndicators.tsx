@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Shield, Database, MessageSquare } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface TrustIndicatorProps {
   indicators?: Array<{

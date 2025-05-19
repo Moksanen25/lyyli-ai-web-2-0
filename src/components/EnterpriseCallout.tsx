@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { Shield, Users, Database, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';

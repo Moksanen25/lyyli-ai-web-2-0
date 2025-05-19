@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const AboutHero = () => {

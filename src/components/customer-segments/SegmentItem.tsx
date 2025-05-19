@@ -1,8 +1,6 @@
-
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useLanguage } from '@/contexts/LanguageContext';
-import { ensureArray } from './utils';
+import { Card } from '@/components/ui/card';
+import { useLanguage } from '@/hooks/useLanguage';
 
 export interface SegmentQuote {
   text: string;
