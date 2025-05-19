@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/components/ui/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
   createThread,
   getThreadId,
@@ -23,6 +23,7 @@ interface Message {
 
 const ChatInterface = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: 'assistant', 
@@ -156,6 +157,11 @@ const ChatInterface = () => {
     }
   };
 
+  const formatMessageContent = (content: string) => {
+    // Split long words/URLs to prevent layout breaking
+    return content.replace(/(\S{30})/g, '$1\u200B');
+  };
+
   return (
     <div className="h-full flex flex-col">
       <ScrollArea className="flex-grow p-4 h-[calc(100%-80px)]">
@@ -166,13 +172,18 @@ const ChatInterface = () => {
               className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div 
-                className={`max-w-[80%] rounded-lg p-3 ${
+                className={`max-w-[85%] ${isMobile ? 'break-words' : ''} rounded-lg p-3 ${
                   message.role === 'user'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted'
                 }`}
+                style={{ 
+                  overflowWrap: 'break-word', 
+                  wordBreak: 'break-word',
+                  hyphens: 'auto'
+                }}
               >
-                <p>{message.content}</p>
+                <p>{formatMessageContent(message.content)}</p>
                 <p className="text-xs opacity-70 mt-1">
                   {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </p>

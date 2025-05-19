@@ -50,11 +50,15 @@ const FloatingChat = () => {
           </DialogTrigger>
           <DialogContent 
             className="sm:max-w-md p-0 w-[calc(100vw-32px)]" 
-            style={{ height: "80vh" }}
+            style={{ 
+              height: "80vh",
+              maxHeight: "80vh",
+              overscrollBehavior: "contain"
+            }}
             aria-label={t('chat.chatPanel')}
           >
-            <div className="h-full flex flex-col">
-              <div className="p-4 border-b flex justify-between items-center">
+            <div className="h-full flex flex-col overflow-hidden">
+              <div className="p-4 border-b flex justify-between items-center shrink-0">
                 <h2 className="font-semibold">{t('chat.title')}</h2>
                 <Button 
                   variant="ghost" 

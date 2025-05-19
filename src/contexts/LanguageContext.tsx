@@ -15,6 +15,18 @@ type LanguageContextType = {
 // Create the context
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Get browser language and check if we support it
+const getBrowserLanguage = (): SupportedLanguage => {
+  try {
+    const browserLang = navigator.language.split('-')[0].toLowerCase();
+    // Currently we only support 'en' and 'fi'
+    return browserLang === 'fi' ? 'fi' : 'en';
+  } catch (error) {
+    console.error('Error detecting browser language:', error);
+    return 'en'; // Default to English
+  }
+};
+
 // Provider component
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
@@ -23,10 +35,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // Debug information to track initial render and context mounting
   console.log('LanguageContext rendering, current path:', location.pathname);
   
-  // Determine language from path or localStorage
+  // Determine language from path, localStorage, or browser
   const pathLanguage = location.pathname.startsWith('/fi') ? 'fi' as SupportedLanguage : null;
   const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
-  const initialLanguage = pathLanguage || savedLanguage || 'en';
+  
+  // Use browser language if no explicit preference has been set yet
+  const browserLanguage = getBrowserLanguage();
+  const initialLanguage = pathLanguage || savedLanguage || browserLanguage;
   
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
   
@@ -57,6 +72,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       console.error('Error updating URL for language change:', error);
     }
   }, [language, location.pathname, navigate]);
+  
+  // Initial language detection and URL update on first load
+  useEffect(() => {
+    // Only execute on initial page load
+    if (!savedLanguage && !pathLanguage) {
+      console.log('Initial language detection:', browserLanguage);
+      setLanguageState(browserLanguage);
+    }
+  }, []);
   
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {

@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { ErrorBoundary } from '@/components/ui/error-boundary';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ChatInterfaceProps {
   animationPhase: number;
@@ -10,6 +11,7 @@ interface ChatInterfaceProps {
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatContainerRef }) => {
   const { safeT } = useSafeTranslation();
+  const isMobile = useIsMobile();
   
   // Safely get translations with fallbacks
   const welcomeMessage = safeT('demo.chatMessages.welcome', { 
@@ -47,6 +49,13 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
   const generatingText = safeT('demo.generating', { 
     fallback: 'Generating...' 
   });
+
+  // Function to handle long text for mobile displays
+  const formatMessageContent = (content: string) => {
+    if (!isMobile) return content;
+    // Split long words/URLs to prevent layout breaking
+    return content.replace(/(\S{30})/g, '$1\u200B');
+  };
   
   return (
     <ErrorBoundary>
@@ -62,23 +71,33 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         <div className="space-y-3">
           {/* Initial assistant message */}
           {animationPhase >= 1 && (
-            <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-              <p>{welcomeMessage}</p>
+            <div className="bg-muted p-3 rounded-lg max-w-[85%] break-words animate-fade-in"
+                 style={{ 
+                   overflowWrap: 'break-word',
+                   wordBreak: 'break-word',
+                   hyphens: 'auto'
+                 }}>
+              <p>{formatMessageContent(welcomeMessage)}</p>
             </div>
           )}
           
           {/* User response */}
           {animationPhase >= 2 && (
             <div className="flex justify-end animate-fade-in">
-              <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-                <p>{userPrompt}</p>
+              <div className="bg-primary/10 p-3 rounded-lg max-w-[85%] break-words"
+                   style={{ 
+                     overflowWrap: 'break-word',
+                     wordBreak: 'break-word',
+                     hyphens: 'auto'
+                   }}>
+                <p>{formatMessageContent(userPrompt)}</p>
               </div>
             </div>
           )}
           
           {/* Assistant typing */}
           {animationPhase >= 3 && animationPhase < 4 && (
-            <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
+            <div className="bg-muted p-3 rounded-lg max-w-[85%] animate-fade-in">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                 <span>{generatingText}</span>
@@ -88,30 +107,50 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
           
           {/* Assistant suggestion */}
           {animationPhase >= 4 && (
-            <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-              <p>{aiThinking}</p>
+            <div className="bg-muted p-3 rounded-lg max-w-[85%] break-words animate-fade-in"
+                 style={{ 
+                   overflowWrap: 'break-word',
+                   wordBreak: 'break-word',
+                   hyphens: 'auto'
+                 }}>
+              <p>{formatMessageContent(aiThinking)}</p>
             </div>
           )}
           
           {/* User approval */}
           {animationPhase >= 5 && (
             <div className="flex justify-end animate-fade-in">
-              <div className="bg-primary/10 p-3 rounded-lg max-w-[80%]">
-                <p>{userAnswer}</p>
+              <div className="bg-primary/10 p-3 rounded-lg max-w-[85%] break-words"
+                   style={{ 
+                     overflowWrap: 'break-word',
+                     wordBreak: 'break-word',
+                     hyphens: 'auto'
+                   }}>
+                <p>{formatMessageContent(userAnswer)}</p>
               </div>
             </div>
           )}
           
           {/* Preparing to publish */}
           {animationPhase >= 6 && (
-            <div className="bg-muted p-3 rounded-lg max-w-[80%] animate-fade-in">
-              <p>{aiResponse}</p>
+            <div className="bg-muted p-3 rounded-lg max-w-[85%] break-words animate-fade-in"
+                 style={{ 
+                   overflowWrap: 'break-word',
+                   wordBreak: 'break-word',
+                   hyphens: 'auto'
+                 }}>
+              <p>{formatMessageContent(aiResponse)}</p>
               <div className="mt-3 p-3 bg-white border rounded-md">
-                <p className="font-medium">{contentHeader}</p>
-                <div className="mt-2 whitespace-pre-line">
-                  {contentBody}
+                <p className="font-medium">{formatMessageContent(contentHeader)}</p>
+                <div className="mt-2 whitespace-pre-line break-words"
+                     style={{ 
+                       overflowWrap: 'break-word',
+                       wordBreak: 'break-word',
+                       hyphens: 'auto'
+                     }}>
+                  {formatMessageContent(contentBody)}
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">{teamReaction}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{formatMessageContent(teamReaction)}</p>
               </div>
             </div>
           )}
