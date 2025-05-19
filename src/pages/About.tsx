@@ -14,7 +14,7 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="container-padding py-12 md:py-24 flex-grow animate-fade-in">
+      <div className="container-padding py-20 md:py-28 flex-grow animate-fade-in mt-16">
         <AboutHero />
         <MissionSection />
         <TeamSection />

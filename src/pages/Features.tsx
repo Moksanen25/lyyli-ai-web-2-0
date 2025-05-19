@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -15,15 +16,6 @@ import CTASection from '@/components/CTASection';
 
 /**
  * Features page component
- * Structure:
- * 1. Hero section (overview of features)
- * 2. Trust indicators (compliance badges)
- * 3. Detailed feature information
- * 4. Integration showcase 
- * 5. Customer segments (with anchor links)
- * 6. Customer quotes
- * 7. Comparison and FAQ
- * 8. Call to action
  */
 const Features = () => {
   const { t } = useLanguage();
@@ -65,8 +57,8 @@ const Features = () => {
         
         {/* Trust Indicators */}
         <ComplianceBadges 
-          title="Enterprise-Ready Technology"
-          description="Our platform meets the highest security and compliance standards"
+          title={t('compliance.title')}
+          description={t('compliance.subtitle') || "Our platform meets the highest security and compliance standards"}
         />
         
         {/* General Features */}

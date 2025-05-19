@@ -41,7 +41,7 @@ export const getUpdatedPath = (
   currentPath: string,
   language: SupportedLanguage
 ): string | null => {
-  if (language === 'fi' && !(currentPath.startsWith('/fi/'))) {
+  if (language === 'fi' && !(currentPath.startsWith('/fi'))) {
     // Need to add /fi prefix
     if (currentPath === '/') {
       return '/fi';

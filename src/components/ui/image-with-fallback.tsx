@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
-import { getFallbackImageUrl } from '@/utils/imageUtils';
 
 interface ImageWithFallbackProps {
   src: string;
@@ -28,7 +27,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
   const handleError = () => {
     if (!hasError) {
-      console.warn(`Image failed to load: ${imgSrc}, falling back to: ${fallbackSrc}`);
+      console.log(`Image failed to load: ${src}, using fallback: ${fallbackSrc}`);
       setImgSrc(fallbackSrc);
       setHasError(true);
     }

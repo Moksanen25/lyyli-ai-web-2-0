@@ -15,17 +15,19 @@ interface SegmentCardProps {
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t, language } = useLanguage();
   
-  // Get the actual translated values instead of just keys
-  const name = t(segment.name);
-  const description = t(segment.description || '');
-  const painPoints = segment.painPoints?.map(point => t(point)) || [];
-  const solutions = segment.solutions?.map(solution => t(solution)) || [];
+  // Get the actual translated values
+  const name = segment.name ? t(segment.name) : '';
+  const description = segment.description ? t(segment.description) : '';
+  
+  // Handle potentially undefined arrays safely
+  const painPoints = segment.painPoints?.map(point => (point ? t(point) : '')) || [];
+  const solutions = segment.solutions?.map(solution => (solution ? t(solution) : '')) || [];
   
   // Testimonial translations if present
   const testimonial = segment.testimonial ? {
     ...segment.testimonial,
-    quote: t(segment.testimonial.quote || ''),
-    author: t(segment.testimonial.author || '')
+    quote: segment.testimonial.quote ? t(segment.testimonial.quote) : '',
+    author: segment.testimonial.author ? t(segment.testimonial.author) : ''
   } : null;
   
   // Construct proper URL based on current language

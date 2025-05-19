@@ -38,11 +38,6 @@ export const useTranslation = () => {
         if (!value) return key;
       }
       
-      // Debug for blog translations
-      if (keys[0] === 'blog' && import.meta.env.DEV) {
-        console.log(`Translation lookup for [${language}]: ${key}`);
-      }
-      
       // Use utility function to find translation
       const translatedValue = findTranslationValue(value, keys);
       
@@ -54,9 +49,9 @@ export const useTranslation = () => {
       const enValue = findTranslationValue(languages.en, keys);
       const result = enValue !== null ? enValue : key;
       
-      // Debug for blog translations
-      if (keys[0] === 'blog' && import.meta.env.DEV) {
-        console.log(`Fallback translation for [${language}]: ${key} -> ${result}`);
+      // Debug for missing translations in development
+      if (import.meta.env.DEV && enValue === null) {
+        console.warn(`Missing translation for key: ${key} in both ${language} and en languages`);
       }
       
       return result;

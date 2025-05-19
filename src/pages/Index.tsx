@@ -102,13 +102,6 @@ const SafeSection = ({
 
 /**
  * Main landing page component
- * Structure:
- * 1. Hero section (primary message)
- * 2. Trust indicators (compliance badges)
- * 3. Main content (features, customer segments, use cases)
- * 4. Enterprise-specific content
- * 5. Call to action
- * 6. Footer and cookie consent
  */
 const Index = () => {
   console.log('Index page rendering');
@@ -135,7 +128,7 @@ const Index = () => {
           <CustomerSegments />
         </SafeSection>
         
-        {/* How Lyyli works section - NEW */}
+        {/* How Lyyli works section */}
         <SafeSection name="Use Cases">
           <UseCase />
         </SafeSection>

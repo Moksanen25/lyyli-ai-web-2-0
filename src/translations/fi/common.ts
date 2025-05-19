@@ -1,4 +1,4 @@
 
 export const common = {
-  bookDemo: 'Varaa demo'
+  bookDemo: 'Varaa Demo'
 };
