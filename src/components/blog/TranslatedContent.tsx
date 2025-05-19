@@ -1,11 +1,9 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from './blogTranslations';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Info } from 'lucide-react';
 
 interface TranslatedContentProps {
   post: BlogPost;
@@ -16,6 +14,26 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
   
+  // Debug the translation lookup
+  useEffect(() => {
+    if (language === 'fi') {
+      const translationKey = `${post.slug}-${language}`;
+      console.log('Looking for translation with key:', translationKey);
+      console.log('Translation available:', !!blogTranslations[translationKey]);
+      
+      // Special debug for nonprofit post
+      if (post.id === "3") {
+        console.log('Nonprofit post translation check:', {
+          id: post.id,
+          slug: post.slug,
+          title: post.title,
+          hasTranslation: !!blogTranslations[translationKey],
+          translationTitle: blogTranslations[translationKey]?.title || 'No translation'
+        });
+      }
+    }
+  }, [post.id, post.slug, language]);
+  
   // Memoize the translation lookup
   const translation = useMemo(() => {
     if (language === 'fi') {
@@ -24,9 +42,6 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
     }
     return null;
   }, [post.slug, language]);
-  
-  // Don't show any translation notice - removing this feature entirely as requested
-  // Now the component just handles translation replacement without warnings
   
   // Modify the children to replace content with translations when available
   const modifiedChildren = useMemo(() => {

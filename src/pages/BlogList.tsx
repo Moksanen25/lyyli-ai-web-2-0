@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -22,26 +21,16 @@ const BlogList: React.FC = () => {
     console.log('Total posts available:', blogPosts.length);
     
     if (language === 'fi') {
-      // For debugging the nonprofit post visibility issue
-      const nonprofitPost = blogPosts.find(post => post.id === "3");
-      if (nonprofitPost) {
-        console.log('Nonprofit post tags:', nonprofitPost.tags);
-        console.log('Has Finnish translation:', hasFinishTranslation(nonprofitPost.slug));
-      }
-      
+      // Get all posts for Finnish, ensuring the nonprofit post is always included
       return blogPosts.filter(post => {
-        // For individual debugging of each post's filtering logic
+        // Always include post with ID 3 (nonprofit post)
         if (post.id === "3") {
-          const isVisible = hasFinishTranslation(post.slug) || 
-                           post.language === 'fi' || 
-                           post.tags.some(tag => tag.toLowerCase() === 'nonprofits');
-          console.log('Nonprofit post should be visible:', isVisible);
-          return true; // Force show the nonprofit post (id 3)
+          console.log("Including nonprofit post (ID: 3) in Finnish view");
+          return true;
         }
         
-        return hasFinishTranslation(post.slug) || 
-               post.language === 'fi' || 
-               post.tags.some(tag => tag.toLowerCase() === 'nonprofits');
+        // Regular filtering logic for other posts
+        return hasFinishTranslation(post.slug) || post.language === 'fi';
       });
     }
     
