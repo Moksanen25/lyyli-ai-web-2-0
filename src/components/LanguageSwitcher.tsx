@@ -3,6 +3,12 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // Only show verification button in development mode
 const isDev = import.meta.env.DEV;
@@ -10,9 +16,9 @@ const isDev = import.meta.env.DEV;
 export const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage, verifyLanguageCompleteness } = useLanguage();
 
-  const toggleLanguage = () => {
-    console.log('Switching language from', language, 'to', language === 'en' ? 'fi' : 'en');
-    setLanguage(language === 'en' ? 'fi' : 'en');
+  const handleLanguageChange = (newLanguage: 'en' | 'fi') => {
+    console.log('Switching language from', language, 'to', newLanguage);
+    setLanguage(newLanguage);
   };
 
   return (
@@ -30,15 +36,32 @@ export const LanguageSwitcher: React.FC = () => {
         </Button>
       )}
       
-      <button 
-        onClick={toggleLanguage}
-        className="flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-        aria-label={language === 'en' ? 'Switch to Finnish' : 'Vaihda englantiin'}
-      >
-        <span className={`${language === 'en' ? 'font-semibold' : ''} mr-1`}>EN</span>
-        <span className="mx-1">|</span>
-        <span className={`${language === 'fi' ? 'font-semibold' : ''} ml-1`}>FI</span>
-      </button>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <button 
+            className="flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            aria-label="Select language"
+          >
+            <span className={`${language === 'en' ? 'font-semibold' : ''} mr-1`}>EN</span>
+            <span className="mx-1">|</span>
+            <span className={`${language === 'fi' ? 'font-semibold' : ''} ml-1`}>FI</span>
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem 
+            onClick={() => handleLanguageChange('en')}
+            className={`${language === 'en' ? 'bg-primary/10 font-medium' : ''}`}
+          >
+            English
+          </DropdownMenuItem>
+          <DropdownMenuItem 
+            onClick={() => handleLanguageChange('fi')}
+            className={`${language === 'fi' ? 'bg-primary/10 font-medium' : ''}`}
+          >
+            Finnish
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };
