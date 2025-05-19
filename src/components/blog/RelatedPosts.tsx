@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import BlogCard from './BlogCard';
 import type { BlogPost } from '@/data/blogData';
 
