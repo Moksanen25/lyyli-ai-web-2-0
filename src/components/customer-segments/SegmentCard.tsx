@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
-import { type SegmentData } from './useSegmentsData';
+import { type SegmentData } from './types/segmentTypes';
 
 interface SegmentCardProps {
   segment: SegmentData;
