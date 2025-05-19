@@ -1,19 +1,16 @@
-
-import React from 'react';
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card';
+import React, { useState } from 'react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check } from "lucide-react";
-import { Separator } from '@/components/ui/separator';
-import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useSafeTranslation } from '@/utils/safeTranslation';
+import { Check } from 'lucide-react';
+import { TrialSignupDialog } from './TrialSignupDialog';
+import { EnterpriseDialog } from './EnterpriseDialog';
+import { WaitlistDialog } from './WaitlistDialog';
+import { useProPlan } from '@/hooks/use-pro-plan';
+import { useEnterprisePlan } from '@/hooks/use-enterprise-plan';
+import { useFreePlan } from '@/hooks/use-free-plan';
+import { useAnalytics } from '@/hooks/use-analytics';
+import { useLanguage } from '@/hooks/useLanguage';
+import { Badge } from '@/components/ui/badge';
 
 interface PricingCardProps {
   name: string;
@@ -38,103 +35,92 @@ const PricingCard: React.FC<PricingCardProps> = ({
   accent,
   icon,
   billingPeriod,
-  yearlyDiscountRate
+  yearlyDiscountRate,
 }) => {
-  const navigate = useNavigate();
+  const [openTrialDialog, setOpenTrialDialog] = useState(false);
+  const [openEnterpriseDialog, setOpenEnterpriseDialog] = useState(false);
+  const [openWaitlistDialog, setOpenWaitlistDialog] = useState(false);
+  const { isProPlan } = useProPlan();
+  const { isEnterprisePlan } = useEnterprisePlan();
+  const { isFreePlan } = useFreePlan();
+  const { track } = useAnalytics();
   const { t } = useLanguage();
-  const { pricingT } = useSafeTranslation();
   
-  // Calculate yearly price based on monthly with discount
-  const getYearlyPrice = (monthlyPrice: number) => {
-    return monthlyPrice * 12 * yearlyDiscountRate;
+  const monthlyPrice = monthly !== null ? monthly : undefined;
+  const yearlyPrice = monthly !== null ? Math.round(monthly * 12 * yearlyDiscountRate) : undefined;
+  
+  const getPrice = () => {
+    if (billingPeriod === 'monthly' && monthlyPrice !== undefined) {
+      return `€${monthlyPrice}`;
+    } else if (billingPeriod === 'yearly' && yearlyPrice !== undefined) {
+      return `€${yearlyPrice}`;
+    } else {
+      return t('pricing.contactUs');
+    }
   };
   
-  // Calculate savings
-  const calculateSavings = (monthlyPrice: number): string => {
-    const monthlyCost = monthlyPrice * 12;
-    const yearlyCost = getYearlyPrice(monthlyPrice);
-    const savings = monthlyCost - yearlyCost;
+  const handleCtaClick = () => {
+    track('pricing_cta_click', { plan: name });
     
-    return savings.toFixed(0);
+    if (name === 'Starter') {
+      setOpenTrialDialog(true);
+    } else if (name === 'Professional') {
+      setOpenWaitlistDialog(true);
+    } else if (name === 'Enterprise') {
+      setOpenEnterpriseDialog(true);
+    }
   };
-
-  // Translate the plan name and description based on the plan name
-  const translatedName = t(`pricing.${name.toLowerCase()}.name`) !== `pricing.${name.toLowerCase()}.name` 
-    ? t(`pricing.${name.toLowerCase()}.name`) 
-    : name;
-    
-  const translatedDescription = t(`pricing.${name.toLowerCase()}.description`) !== `pricing.${name.toLowerCase()}.description`
-    ? t(`pricing.${name.toLowerCase()}.description`) 
-    : description;
-    
-  const translatedCta = t(`pricing.${name.toLowerCase()}.cta`) !== `pricing.${name.toLowerCase()}.cta`
-    ? t(`pricing.${name.toLowerCase()}.cta`) 
-    : cta;
 
   return (
-    <Card className={`flex flex-col h-full ${accent ? 'bg-primary text-white shadow-lg' : 'bg-white'}`}>
-      <CardHeader>
+    <Card className={`border-none card-shadow ${accent ? 'bg-primary text-white' : 'bg-white'}`}>
+      <CardHeader className="space-y-2.5">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-xl">{translatedName}</CardTitle>
-          {icon}
+          <CardTitle className="text-2xl font-semibold">{name}</CardTitle>
+          <div className="rounded-full p-2 bg-secondary/20">
+            {icon}
+          </div>
         </div>
-        <div className="mt-4 mb-2">
-          {monthly !== null ? (
-            <div>
-              <span className="text-3xl font-bold">
-                {billingPeriod === 'monthly' 
-                  ? `${monthly}€` 
-                  : `${getYearlyPrice(monthly).toFixed(0)}€`
-                }
-              </span>
-              <span className="text-sm ml-1">
-                {billingPeriod === 'monthly' ? t('pricing.perMonth') : t('pricing.perYear')}
-              </span>
-            </div>
-          ) : (
-            <span className="text-3xl font-bold">{t('pricing.custom')}</span>
-          )}
-          {billingPeriod === 'yearly' && monthly !== null && (
-            <div className="text-xs mt-1">
-              {pricingT('savePerYear', { amount: calculateSavings(monthly) })}
-            </div>
-          )}
-        </div>
-        <CardDescription className={accent ? "text-white/80" : ""}>
-          {translatedDescription}
-        </CardDescription>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-grow">
+      <CardContent className="grid gap-4">
         <ul className="space-y-2">
-          {primaryFeatures.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2">
-              <Check className={`h-4 w-4 flex-shrink-0 ${accent ? 'text-white' : 'text-primary'}`} />
-              <span className="text-sm">{feature}</span>
+          {primaryFeatures.map((feature, i) => (
+            <li key={i} className="flex items-center gap-2">
+              <Check className="h-4 w-4" />
+              {feature}
             </li>
           ))}
-          {secondaryFeatures && secondaryFeatures.length > 0 && (
-            <>
-              <Separator className={`my-4 ${accent ? 'bg-white/20' : ''}`} />
-              {secondaryFeatures.map((feature, index) => (
-                <li key={`secondary-${index}`} className="flex items-center gap-2">
-                  <Check className={`h-4 w-4 flex-shrink-0 ${accent ? 'text-white' : 'text-primary'}`} />
-                  <span className="text-sm">{feature}</span>
+        </ul>
+        
+        {secondaryFeatures && (
+          <div className="mt-4">
+            <Badge variant="secondary" className="mb-2">{t('pricing.alsoIncluded')}</Badge>
+            <ul className="space-y-2">
+              {secondaryFeatures.map((feature, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <Check className="h-4 w-4" />
+                  {feature}
                 </li>
               ))}
-            </>
-          )}
-        </ul>
+            </ul>
+          </div>
+        )}
       </CardContent>
       <CardFooter>
         <Button 
-          className={`w-full ${accent 
-            ? 'bg-white text-primary hover:bg-white/90' 
-            : 'bg-primary text-white'}`}
-          onClick={() => navigate('/contact')}
+          className="w-full" 
+          variant={accent ? "secondary" : "primary"}
+          onClick={handleCtaClick}
         >
-          {translatedCta}
+          {getPrice() !== t('pricing.contactUs') && billingPeriod === 'yearly' ? t('pricing.perYear') : null}
+          {getPrice() !== t('pricing.contactUs') && billingPeriod === 'monthly' ? t('pricing.perMonth') : null}
+          {getPrice()}
         </Button>
       </CardFooter>
+      
+      <TrialSignupDialog open={openTrialDialog} onOpenChange={setOpenTrialDialog} />
+      <EnterpriseDialog open={openEnterpriseDialog} onOpenChange={setOpenEnterpriseDialog} />
+      <WaitlistDialog open={openWaitlistDialog} onOpenChange={setOpenWaitlistDialog} />
     </Card>
   );
 };

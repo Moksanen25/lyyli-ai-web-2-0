@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { blogPosts } from '@/data/blogData';
 import FeaturedPost from '@/components/blog/FeaturedPost';

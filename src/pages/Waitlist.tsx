@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { Helmet } from 'react-helmet';

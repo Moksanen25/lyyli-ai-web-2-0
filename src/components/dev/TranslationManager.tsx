@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { languages, SupportedLanguage } from '@/translations';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/hooks/useLanguage';
+import { languages, SupportedLanguage } from '@/translations';
 import {
   Dialog,
   DialogContent,

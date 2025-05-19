@@ -1,76 +1,84 @@
-
 import React from 'react';
-import { 
-  Table, 
-  TableBody, 
-  TableCaption, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
-} from "@/components/ui/table";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Check, HelpCircle, X } from 'lucide-react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Check, X } from "lucide-react";
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useIsMobile } from '@/hooks/use-mobile';
-
-interface Feature {
-  name: string;
-  starter: boolean | string;
-  professional: boolean | string;
-  enterprise: boolean | string;
-}
+import { useLanguage } from '@/hooks/useLanguage';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface FeatureComparisonProps {
-  comparisonFeatures: Feature[];
+  comparisonFeatures: {
+    name: string;
+    starter: boolean | string;
+    professional: boolean | string;
+    enterprise: boolean | string;
+  }[];
   showFullComparison: boolean;
 }
 
 const FeatureComparison: React.FC<FeatureComparisonProps> = ({ comparisonFeatures, showFullComparison }) => {
-  const isMobile = useIsMobile();
   const { t } = useLanguage();
-  
-  // Render check or X based on boolean value
-  const renderCheckOrX = (value: boolean | string) => {
-    if (typeof value === 'string') {
-      return <span className="text-sm">{value}</span>;
-    }
-    
-    return value ? 
-      <Check className="h-5 w-5 text-primary" aria-label={t('pricing.features.included')} /> :
-      <X className="h-5 w-5 text-muted-foreground" aria-label={t('pricing.features.notIncluded')} />;
-  };
-
-  if (!showFullComparison) return null;
 
   return (
-    <div className="mt-8 rounded-lg border bg-card shadow-sm p-1 overflow-hidden max-w-6xl mx-auto">
-      <ScrollArea className={isMobile ? "h-[400px]" : "h-[500px]"}>
-        <div className={isMobile ? "min-w-[640px]" : ""}>
-          <Table>
-            <TableCaption>{t('pricing.comparisonCaption')}</TableCaption>
-            <TableHeader className="sticky top-0 bg-card z-10">
+    <section className="py-12 md:py-16 bg-white">
+      <div className="container-padding container mx-auto">
+        <div className="text-center mb-10 md:mb-16 animate-fade-in">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('pricing.comparison.title')}</h2>
+          <p className="text-base md:text-xl text-primary/80 max-w-2xl mx-auto">
+            {t('pricing.comparison.subtitle')}
+          </p>
+        </div>
+
+        <ScrollArea className="w-full">
+          <Table className="min-w-[800px] md:min-w-[1200px] lg:min-w-[1400px]">
+            <TableHeader>
               <TableRow>
-                <TableHead className="w-[300px]">{t('pricing.features.feature')}</TableHead>
+                <TableHead className="w-[200px]">{t('pricing.feature')}</TableHead>
                 <TableHead className="text-center">{t('pricing.starter.name')}</TableHead>
                 <TableHead className="text-center">{t('pricing.professional.name')}</TableHead>
                 <TableHead className="text-center">{t('pricing.enterprise.name')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {comparisonFeatures.map((feature) => (
-                <TableRow key={feature.name}>
-                  <TableCell className="font-medium">{t(`pricing.features.${feature.name}`)}</TableCell>
-                  <TableCell className="text-center">{renderCheckOrX(feature.starter)}</TableCell>
-                  <TableCell className="text-center">{renderCheckOrX(feature.professional)}</TableCell>
-                  <TableCell className="text-center">{renderCheckOrX(feature.enterprise)}</TableCell>
+              {comparisonFeatures.map((feature, index) => (
+                <TableRow key={index}>
+                  <TableCell className="font-medium">{t(`pricing.features.${feature.name}`) || feature.name}</TableCell>
+                  <TableCell className="text-center">
+                    {typeof feature.starter === 'boolean' ? (
+                      feature.starter ? <Check className="mx-auto h-4 w-4" /> : <X className="mx-auto h-4 w-4" />
+                    ) : (
+                      feature.starter
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {typeof feature.professional === 'boolean' ? (
+                      feature.professional ? <Check className="mx-auto h-4 w-4" /> : <X className="mx-auto h-4 w-4" />
+                    ) : (
+                      feature.professional
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {typeof feature.enterprise === 'boolean' ? (
+                      feature.enterprise ? <Check className="mx-auto h-4 w-4" /> : <X className="mx-auto h-4 w-4" />
+                    ) : (
+                      feature.enterprise
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-        </div>
-      </ScrollArea>
-    </div>
+        </ScrollArea>
+      </div>
+    </section>
   );
 };
 

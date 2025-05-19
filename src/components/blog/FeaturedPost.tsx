@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, FileImage } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from '@/components/blog/TranslatedContent';

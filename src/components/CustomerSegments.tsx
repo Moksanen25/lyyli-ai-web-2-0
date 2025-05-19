@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
 import SectionHeader from './customer-segments/SectionHeader';
 import DesktopTabs from './customer-segments/DesktopTabs';
 import MobileCards from './customer-segments/MobileCards';
 import SegmentCTA from './customer-segments/SegmentCTA';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 
 /**
  * CustomerSegments displays industry-specific solutions using a tabbed interface on desktop

@@ -1,9 +1,8 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/hooks/useLanguage';
 import { ArrowRight, Download } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';

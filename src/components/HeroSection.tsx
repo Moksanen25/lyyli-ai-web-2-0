@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Shield, Database, MessageSquare } from 'lucide-react';
-import TrustIndicators from '@/components/TrustIndicators';
-import LyyliDemo from '@/components/LyyliDemo';
+import { useLanguage } from '@/hooks/useLanguage';
+import LyyliDemo from './LyyliDemo';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {

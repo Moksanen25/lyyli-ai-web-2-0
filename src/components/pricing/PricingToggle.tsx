@@ -1,39 +1,22 @@
-
 import React from 'react';
+import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { Badge } from '@/components/ui/badge';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 
-interface PricingToggleProps {
-  billingPeriod: 'monthly' | 'yearly';
-  setBillingPeriod: (period: 'monthly' | 'yearly') => void;
-  [key: string]: any; // For additional props
-}
-
-const PricingToggle: React.FC<PricingToggleProps> = ({ 
-  billingPeriod, 
-  setBillingPeriod,
-  ...props 
-}) => {
+const PricingToggle: React.FC<{ billingPeriod: 'monthly' | 'yearly'; setBillingPeriod: (period: 'monthly' | 'yearly') => void }> = ({ billingPeriod, setBillingPeriod }) => {
   const { t } = useLanguage();
   
   return (
-    <div className="flex items-center justify-center mt-8 mb-4 space-x-4" {...props}>
-      <span className={`text-sm font-medium ${billingPeriod === 'monthly' ? 'text-primary' : 'text-muted-foreground'}`}>
-        {t('pricing.monthly')}
-      </span>
+    <div className="flex items-center justify-center space-x-2">
+      <span className="text-sm text-muted-foreground">{t('pricing.monthly')}</span>
       <Switch 
-        checked={billingPeriod === 'yearly'} 
+        id="billing-period"
+        checked={billingPeriod === 'yearly'}
         onCheckedChange={(checked) => setBillingPeriod(checked ? 'yearly' : 'monthly')}
       />
-      <span className="flex items-center text-sm font-medium">
-        <span className={billingPeriod === 'yearly' ? 'text-primary' : 'text-muted-foreground'}>{t('pricing.yearly')}</span>
-        {billingPeriod === 'yearly' && (
-          <Badge variant="outline" className="ml-2 bg-accent text-accent-foreground">
-            {t('pricing.save')} 20%
-          </Badge>
-        )}
-      </span>
+      <Label htmlFor="billing-period" className="text-sm text-muted-foreground">
+        {t('pricing.yearly')}
+      </Label>
     </div>
   );
 };

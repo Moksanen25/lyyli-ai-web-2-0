@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/useLanguage';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { CircleCheck, CircleDollarSign, ListCheck } from "lucide-react";
