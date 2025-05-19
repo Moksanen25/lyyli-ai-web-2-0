@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -8,9 +7,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
-
 const TargetAudience = () => {
-  const { t, language } = useLanguage();
+  const {
+    t,
+    language
+  } = useLanguage();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState("tech-smes");
@@ -66,102 +67,11 @@ const TargetAudience = () => {
     descriptionEn: "Lyyli helps keep fans and sponsors in the loop with continuous, automated communication.",
     descriptionFi: "Lyyli auttaa pitämään kannattajat ja sponsorit mukana automaattisen, jatkuvan viestinnän avulla."
   }];
-
   const handleBookDemo = () => {
     setShowDemoDialog(true);
   };
 
   // Render different UI based on screen size
-  return (
-    <section className="bg-muted/30 py-16 md:py-24">
-      <div className="container-padding">
-        <div className="max-w-4xl mx-auto mb-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {t('targetAudience.title')}
-          </h2>
-        </div>
-        
-        {isMobile ? (
-          // Mobile accordion view
-          <Accordion type="single" collapsible className="w-full mb-8">
-            {audiences.map((audience) => (
-              <AccordionItem key={audience.id} value={audience.id}>
-                <AccordionTrigger className="text-left px-4 py-3">
-                  <div className="flex flex-col items-start">
-                    <h3 className="text-lg font-semibold">
-                      {language === 'fi' ? audience.titleFi : audience.titleEn}
-                    </h3>
-                    <p className="text-sm text-muted-foreground font-normal">
-                      {language === 'fi' ? audience.subtitleFi : audience.subtitleEn}
-                    </p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4">
-                  <p className="mb-4">
-                    {language === 'fi' ? audience.descriptionFi : audience.descriptionEn}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        ) : (
-          // Desktop tabs view
-          <Tabs 
-            defaultValue="tech-smes" 
-            value={activeTab}
-            onValueChange={setActiveTab}
-            className="w-full mb-8"
-          >
-            <div className="flex justify-center mb-6">
-              <TabsList className="grid grid-cols-3 md:grid-cols-6">
-                {audiences.map((audience) => (
-                  <TabsTrigger 
-                    key={audience.id} 
-                    value={audience.id}
-                    className="px-4 py-2"
-                  >
-                    {language === 'fi' ? audience.titleFi.split(' ')[0] : audience.titleEn.split(' ')[0]}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-            
-            {audiences.map((audience) => (
-              <TabsContent key={audience.id} value={audience.id}>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>{language === 'fi' ? audience.titleFi : audience.titleEn}</CardTitle>
-                    <CardDescription>{language === 'fi' ? audience.subtitleFi : audience.subtitleEn}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{language === 'fi' ? audience.descriptionFi : audience.descriptionEn}</p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
-          </Tabs>
-        )}
-        
-        <div className="flex justify-center">
-          <Button 
-            variant="default" 
-            size="lg" 
-            onClick={handleBookDemo}
-            className="rounded-full px-8"
-          >
-            {t('targetAudience.bookDemo')}
-          </Button>
-        </div>
-        
-        {showDemoDialog && (
-          <BookDemoDialog
-            open={showDemoDialog} 
-            onOpenChange={setShowDemoDialog}
-          />
-        )}
-      </div>
-    </section>
-  );
+  return;
 };
-
 export default TargetAudience;
