@@ -1,6 +1,6 @@
 
 export const blog = {
-  title: 'Blog & News',
+  title: 'News and articles',
   subtitle: 'Insights, case studies, and news from Lyyli',
   filterByTag: 'Filter',
   allTags: 'All',

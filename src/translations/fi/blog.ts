@@ -1,6 +1,6 @@
 
 export const blog = {
-  title: 'Blogi & Uutiset',
+  title: 'Uutiset ja artikkelit',
   subtitle: 'Näkemyksiä, tapaustutkimuksia ja uutisia Lyyliltä',
   filterByTag: 'Suodata',
   allTags: 'Kaikki',
