@@ -2,8 +2,9 @@
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
 
-// Only show in development mode
+// Only show verification button in development mode
 const isDev = import.meta.env.DEV;
 
 export const LanguageSwitcher: React.FC = () => {
@@ -24,7 +25,7 @@ export const LanguageSwitcher: React.FC = () => {
           onClick={verifyLanguageCompleteness}
           title="Verify all translations are complete"
         >
-          <VerifyIcon className="h-4 w-4 mr-1" />
+          <Check className="h-4 w-4 mr-1" />
           Verify
         </Button>
       )}
@@ -41,24 +42,5 @@ export const LanguageSwitcher: React.FC = () => {
     </div>
   );
 };
-
-// Simple verify icon component
-const VerifyIcon = ({ className }: { className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-    <path d="m9 12 2 2 4-4"></path>
-  </svg>
-);
 
 export default LanguageSwitcher;
