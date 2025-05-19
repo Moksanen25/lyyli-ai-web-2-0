@@ -13,6 +13,7 @@ import PricingFAQ from '@/components/pricing/PricingFAQ';
 import ComplianceBadges from '@/components/ComplianceBadges';
 import ROICalculator from '@/components/ROICalculator';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 // Define pricing data
 interface Feature {
@@ -35,6 +36,7 @@ interface PricingTier {
 
 const PricingPage = () => {
   const { t, language } = useLanguage();
+  const { pricingT } = useSafeTranslation();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showFullComparison, setShowFullComparison] = useState(false);
   const isMobile = useIsMobile();
@@ -48,57 +50,64 @@ const PricingPage = () => {
     ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
     : 'Clear pricing for Lyyli.ai\'s AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
   
-  // Define pricing tiers
+  // Get translated features
+  const translateFeature = (featureKey: string) => {
+    return t(`pricing.features.${featureKey}`) !== `pricing.features.${featureKey}` 
+      ? t(`pricing.features.${featureKey}`) 
+      : featureKey;
+  };
+  
+  // Define pricing tiers with translations
   const pricingTiers: PricingTier[] = [
     {
       name: 'Starter',
       monthly: 199,
-      description: 'Perfect for small and medium enterprises just getting started.',
+      description: t('pricing.starter.description'),
       primaryFeatures: [
-        'One AI agent',
-        'Web app access',
-        'Up to 3 integrations',
-        'Single user account',
-        'Basic support'
+        translateFeature('oneAiAgent'),
+        translateFeature('webApp'),
+        translateFeature('upToThreeIntegrations'),
+        translateFeature('singleUser'),
+        translateFeature('basicSupport')
       ],
-      cta: 'Get Started',
+      cta: t('pricing.starter.cta'),
       accent: false,
       icon: <CircleDollarSign className="h-8 w-8 text-primary/80" />
     },
     {
       name: 'Professional',
       monthly: 599,
-      description: 'Everything you need for a growing business with multiple needs.',
+      description: t('pricing.professional.description'),
       primaryFeatures: [
-        'Everything in Starter',
-        'Native Slack & Teams apps',
-        'AI image creation (50/month)',
-        'Up to 6 integrations',
-        'Three user accounts',
-        'Priority support'
+        translateFeature('everythingInStarter'),
+        translateFeature('slackTeams'),
+        translateFeature('aiImageCreation'),
+        translateFeature('upToSixIntegrations'),
+        translateFeature('threeUsers'),
+        translateFeature('prioritySupport')
       ],
       secondaryFeatures: [
-        'Additional images at 0.35€ each',
-        'Advanced analytics',
-        'Custom workflows'
+        translateFeature('additionalImagesCost'),
+        translateFeature('advancedAnalytics'),
+        translateFeature('customWorkflows')
       ],
-      cta: 'Start Free Trial',
+      cta: t('pricing.professional.cta'),
       accent: true,
       icon: <ListCheck className="h-8 w-8 text-white" />
     },
     {
       name: 'Enterprise',
       monthly: null,
-      description: 'Custom solutions for large organizations with advanced requirements.',
+      description: t('pricing.enterprise.description'),
       primaryFeatures: [
-        'Everything in Professional',
-        'Unlimited integrations',
-        'Custom AI image allocation',
-        'Unlimited user accounts',
-        'Dedicated account manager',
-        'Custom onboarding'
+        translateFeature('everythingInPro'),
+        translateFeature('unlimitedIntegrations'),
+        translateFeature('customAiImages'),
+        translateFeature('unlimitedUsers'),
+        translateFeature('dedicatedAccount'),
+        translateFeature('customOnboarding')
       ],
-      cta: 'Contact Us',
+      cta: t('pricing.enterprise.cta'),
       accent: false,
       icon: <CircleCheck className="h-8 w-8 text-primary/80" />
     }
@@ -106,22 +115,22 @@ const PricingPage = () => {
   
   // Define comparison features for the detailed table
   const comparisonFeatures: Feature[] = [
-    { name: 'AI Agents', starter: '1', professional: '1', enterprise: 'Custom' },
-    { name: 'User Accounts', starter: '1', professional: '3', enterprise: 'Unlimited' },
-    { name: 'Integrations', starter: '3', professional: '6', enterprise: 'Unlimited' },
-    { name: 'Web App Access', starter: true, professional: true, enterprise: true },
-    { name: 'Slack Integration', starter: false, professional: true, enterprise: true },
-    { name: 'Teams Integration', starter: false, professional: true, enterprise: true },
-    { name: 'AI Image Creation', starter: false, professional: '50/month', enterprise: 'Custom' },
-    { name: 'Additional Images Cost', starter: 'N/A', professional: '0.35€', enterprise: 'Custom' },
-    { name: 'Custom Workflows', starter: false, professional: true, enterprise: true },
-    { name: 'API Access', starter: false, professional: false, enterprise: true },
-    { name: 'White Labeling', starter: false, professional: false, enterprise: true },
-    { name: 'Advanced Analytics', starter: false, professional: true, enterprise: true },
-    { name: 'Priority Support', starter: false, professional: true, enterprise: true },
-    { name: 'Dedicated Account Manager', starter: false, professional: false, enterprise: true },
-    { name: 'Custom Onboarding', starter: false, professional: false, enterprise: true },
-    { name: 'SLA', starter: false, professional: false, enterprise: true },
+    { name: 'agents', starter: '1', professional: '1', enterprise: t('pricing.features.custom') },
+    { name: 'users', starter: '1', professional: '3', enterprise: t('pricing.features.unlimited') },
+    { name: 'integrations', starter: '3', professional: '6', enterprise: t('pricing.features.unlimited') },
+    { name: 'webApp', starter: true, professional: true, enterprise: true },
+    { name: 'slack', starter: false, professional: true, enterprise: true },
+    { name: 'teams', starter: false, professional: true, enterprise: true },
+    { name: 'images', starter: false, professional: '50/month', enterprise: t('pricing.features.custom') },
+    { name: 'additionalImages', starter: 'N/A', professional: '0.35€', enterprise: t('pricing.features.custom') },
+    { name: 'workflows', starter: false, professional: true, enterprise: true },
+    { name: 'api', starter: false, professional: false, enterprise: true },
+    { name: 'whiteLabel', starter: false, professional: false, enterprise: true },
+    { name: 'analytics', starter: false, professional: true, enterprise: true },
+    { name: 'prioritySupport', starter: false, professional: true, enterprise: true },
+    { name: 'accountManager', starter: false, professional: false, enterprise: true },
+    { name: 'customOnboarding', starter: false, professional: false, enterprise: true },
+    { name: 'sla', starter: false, professional: false, enterprise: true },
   ];
 
   return (

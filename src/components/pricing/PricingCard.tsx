@@ -58,11 +58,24 @@ const PricingCard: React.FC<PricingCardProps> = ({
     return savings.toFixed(0);
   };
 
+  // Translate the plan name and description based on the plan name
+  const translatedName = t(`pricing.${name.toLowerCase()}.name`) !== `pricing.${name.toLowerCase()}.name` 
+    ? t(`pricing.${name.toLowerCase()}.name`) 
+    : name;
+    
+  const translatedDescription = t(`pricing.${name.toLowerCase()}.description`) !== `pricing.${name.toLowerCase()}.description`
+    ? t(`pricing.${name.toLowerCase()}.description`) 
+    : description;
+    
+  const translatedCta = t(`pricing.${name.toLowerCase()}.cta`) !== `pricing.${name.toLowerCase()}.cta`
+    ? t(`pricing.${name.toLowerCase()}.cta`) 
+    : cta;
+
   return (
     <Card className={`flex flex-col h-full ${accent ? 'bg-primary text-white shadow-lg' : 'bg-white'}`}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-xl">{name}</CardTitle>
+          <CardTitle className="text-xl">{translatedName}</CardTitle>
           {icon}
         </div>
         <div className="mt-4 mb-2">
@@ -88,7 +101,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           )}
         </div>
         <CardDescription className={accent ? "text-white/80" : ""}>
-          {description}
+          {translatedDescription}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
@@ -119,7 +132,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             : 'bg-primary text-white'}`}
           onClick={() => navigate('/contact')}
         >
-          {cta}
+          {translatedCta}
         </Button>
       </CardFooter>
     </Card>
