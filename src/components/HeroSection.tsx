@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -20,12 +21,12 @@ const HeroSection: React.FC = () => {
         <div className="flex justify-center space-x-4 mb-12 animate-fade-in">
           <Link to="/pricing">
             <Button size="lg">
-              {t('hero.primaryCTA')}
+              {t('hero.cta')}
             </Button>
           </Link>
           <Link to="/contact">
             <Button variant="outline" size="lg">
-              {t('hero.secondaryCTA')}
+              {t('hero.secondaryCta')}
             </Button>
           </Link>
         </div>
@@ -35,20 +36,20 @@ const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto animate-fade-in">
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <Shield className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{t('hero.trust.securityTitle')}</h3>
-            <p className="text-muted-foreground">{t('hero.trust.securityDescription')}</p>
+            <h3 className="text-xl font-semibold mb-2">{t('hero.badges.security')}</h3>
+            <p className="text-muted-foreground">{t('hero.badges.securityDescription') || t('hero.badges.security')}</p>
           </div>
           
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <Database className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{t('hero.trust.dataTitle')}</h3>
-            <p className="text-muted-foreground">{t('hero.trust.dataDescription')}</p>
+            <h3 className="text-xl font-semibold mb-2">{t('hero.badges.uptime')}</h3>
+            <p className="text-muted-foreground">{t('hero.badges.uptimeDescription') || t('hero.badges.uptime')}</p>
           </div>
           
           <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
             <MessageSquare className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{t('hero.trust.supportTitle')}</h3>
-            <p className="text-muted-foreground">{t('hero.trust.supportDescription')}</p>
+            <h3 className="text-xl font-semibold mb-2">{t('hero.badges.support')}</h3>
+            <p className="text-muted-foreground">{t('hero.badges.supportDescription') || t('hero.badges.support')}</p>
           </div>
         </div>
       </div>
@@ -57,4 +58,3 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
-

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -28,30 +29,39 @@ const Navbar: React.FC = () => {
     closeMenu();
   }, [location.pathname]);
 
+  // Debug the navigation keys
+  console.log("Navigation translations:", { 
+    features: t('nav.features'),
+    pricing: t('nav.pricing'),
+    about: t('nav.about'),
+    blog: t('nav.blog'),
+    contact: t('nav.contact')
+  });
+
   return (
     <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-playfair font-bold text-primary">
+        <Link to={language === 'fi' ? "/fi/full" : "/full"} className="text-2xl font-playfair font-bold text-primary">
           Lyyli
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-primary/70 hover:text-primary transition-colors">
-            {t('navbar.features')}
+            {t('nav.features')}
           </Link>
           <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-primary/70 hover:text-primary transition-colors">
-            {t('navbar.pricing')}
+            {t('nav.pricing')}
           </Link>
           <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-primary/70 hover:text-primary transition-colors">
-            {t('navbar.about')}
+            {t('nav.about')}
           </Link>
           <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-primary/70 hover:text-primary transition-colors">
-            {t('navbar.blog')}
+            {t('nav.blog')}
           </Link>
           <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-primary/70 hover:text-primary transition-colors">
-            {t('navbar.contact')}
+            {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
         </nav>
@@ -66,7 +76,7 @@ const Navbar: React.FC = () => {
           <SheetContent side="right" className="w-full sm:w-64">
             <div className="grid gap-4 py-4">
               <div className="justify-between flex items-center">
-                <Link to="/" className="text-lg font-semibold">
+                <Link to={language === 'fi' ? "/fi/full" : "/full"} className="text-lg font-semibold">
                   Lyyli
                 </Link>
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
@@ -74,19 +84,19 @@ const Navbar: React.FC = () => {
                 </Button>
               </div>
               <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-sm font-medium leading-none hover:underline">
-                {t('navbar.features')}
+                {t('nav.features')}
               </Link>
               <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-sm font-medium leading-none hover:underline">
-                {t('navbar.pricing')}
+                {t('nav.pricing')}
               </Link>
               <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-sm font-medium leading-none hover:underline">
-                {t('navbar.about')}
+                {t('nav.about')}
               </Link>
               <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-sm font-medium leading-none hover:underline">
-                {t('navbar.blog')}
+                {t('nav.blog')}
               </Link>
               <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-sm font-medium leading-none hover:underline">
-                {t('navbar.contact')}
+                {t('nav.contact')}
               </Link>
               <LanguageSwitcher />
             </div>

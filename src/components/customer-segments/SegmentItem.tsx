@@ -11,7 +11,12 @@ interface SegmentItemProps {
 }
 
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  // Construct proper URL based on current language
+  const caseStudyUrl = segment.caseStudyUrl 
+    ? (language === 'fi' ? `/fi${segment.caseStudyUrl}` : segment.caseStudyUrl)
+    : (language === 'fi' ? `/fi/full/case-studies?segment=${segment.id}` : `/full/case-studies?segment=${segment.id}`);
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -52,7 +57,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           )}
         </div>
         
-        <Link to={segment.caseStudyUrl || `/full/case-studies?segment=${segment.id}`}>
+        <Link to={caseStudyUrl}>
           <Button className="mt-4">
             {t('customerSegments.readCaseStudy')}
             <ArrowRight className="ml-2 h-4 w-4" />

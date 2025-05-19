@@ -14,6 +14,9 @@ const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   
+  // Debug the segments
+  console.log("MobileCards segments:", segments);
+  
   const handlePrevious = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : segments.length - 1));
   };
@@ -21,6 +24,15 @@ const MobileCards: React.FC<MobileCardsProps> = ({ segments }) => {
   const handleNext = () => {
     setActiveIndex((prev) => (prev < segments.length - 1 ? prev + 1 : 0));
   };
+  
+  if (!segments || segments.length === 0) {
+    console.log("No segments available for MobileCards");
+    return (
+      <div className="text-center py-8">
+        <p>{t('customerSegments.noSegmentsAvailable')}</p>
+      </div>
+    );
+  }
   
   return (
     <div className="relative">

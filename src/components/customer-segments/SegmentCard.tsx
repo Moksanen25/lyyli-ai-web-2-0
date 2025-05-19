@@ -12,7 +12,12 @@ interface SegmentCardProps {
 }
 
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  // Construct proper URL based on current language
+  const caseStudyUrl = segment.caseStudyUrl 
+    ? (language === 'fi' ? `/fi${segment.caseStudyUrl}` : segment.caseStudyUrl)
+    : (language === 'fi' ? `/fi/full/case-studies?segment=${segment.id}` : `/full/case-studies?segment=${segment.id}`);
   
   return (
     <Card className="h-full flex flex-col border-none shadow-md hover:shadow-lg transition-shadow">
@@ -54,7 +59,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         </div>
         
         <div className="mt-auto pt-4">
-          <Link to={segment.caseStudyUrl || `/full/case-studies?segment=${segment.id}`}>
+          <Link to={caseStudyUrl}>
             <Button variant="ghost" className="w-full justify-between">
               {t('customerSegments.learnMoreButton')}
               <ChevronRight className="h-4 w-4" />

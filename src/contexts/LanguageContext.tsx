@@ -10,7 +10,7 @@ import {
   getUpdatedPath
 } from '@/utils/languageUtils';
 
-// Type for our context (simplified, no longer includes translation function)
+// Type for our context
 type LanguageContextType = {
   language: SupportedLanguage;
   setLanguage: (language: SupportedLanguage) => void;
@@ -67,7 +67,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       console.log('Initial language detection:', browserLanguage);
       setLanguageState(browserLanguage);
     }
-  }, []);
+    
+    // Check if we're on Finnish path but language state isn't Finnish
+    if (pathLanguage === 'fi' && language !== 'fi') {
+      console.log('Path indicates Finnish but state is not Finnish, updating state');
+      setLanguageState('fi');
+    }
+    
+    // Check if we're not on Finnish path but language state is Finnish
+    if (!pathLanguage && language === 'fi') {
+      console.log('State indicates Finnish but path is not Finnish, updating path');
+      const newPath = `/fi${location.pathname}`;
+      navigate(newPath, { replace: true });
+    }
+  }, [pathLanguage, savedLanguage, browserLanguage, language, location.pathname, navigate]);
   
   // Function to verify language completeness
   const verifyLanguageCompleteness = () => {
