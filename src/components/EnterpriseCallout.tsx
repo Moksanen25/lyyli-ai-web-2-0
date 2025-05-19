@@ -7,9 +7,11 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 const EnterpriseCallout: React.FC = () => {
   const { t } = useLanguage();
+  const { featuresT } = useSafeTranslation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
@@ -17,23 +19,23 @@ const EnterpriseCallout: React.FC = () => {
   const enterpriseFeatures = [
     {
       icon: <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: t('features.enterpriseReady'),
-      description: t('features.securityDesc')
+      title: featuresT('enterpriseReady'),
+      description: featuresT('securityDesc')
     },
     {
       icon: <Users className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: t('features.supportTitle'),
-      description: t('features.supportDesc')
+      title: featuresT('supportTitle'),
+      description: featuresT('supportDesc')
     },
     {
       icon: <Database className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: t('features.additionalFeatures.ai.title'),
-      description: t('features.additionalFeatures.ai.description')
+      title: featuresT('additionalFeatures.ai.title'),
+      description: featuresT('additionalFeatures.ai.description')
     },
     {
       icon: <Layers className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: t('features.integrationsTitle'),
-      description: t('features.integrationsDesc')
+      title: featuresT('integrationsTitle'),
+      description: featuresT('integrationsDesc')
     }
   ];
 
@@ -49,13 +51,11 @@ const EnterpriseCallout: React.FC = () => {
       <div className="container-padding container mx-auto">
         <div className="text-center mb-10 md:mb-16 animate-fade-in">
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
-            {t('features.enterpriseReady')}
+            {featuresT('enterpriseReady')}
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('features.pageHero.title')}</h2>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {isMobile 
-              ? t('features.pageHero.description')
-              : t('features.pageHero.description')}
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{featuresT('pageHero.title')}</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {featuresT('pageHero.description')}
           </p>
         </div>
         

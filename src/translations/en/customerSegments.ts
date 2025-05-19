@@ -19,6 +19,16 @@ export const customerSegments = {
   ctaTitle: 'Find the Perfect Solution',
   ctaText: 'Explore how Lyyli can adapt to your specific industry requirements',
   ctaButton: 'Book a Demo',
+  challenges: 'Challenges',
+  solutions: 'Solutions',
+  readCaseStudy: 'Read Case Study',
+  learnMoreButton: 'Learn More',
+  previous: 'Previous',
+  next: 'Next',
+  goToSlide: 'Go to slide',
+  noSegmentsAvailable: 'No industry segments available',
+  closingText: 'Not sure which solution fits your needs? Contact us for a personalized consultation.',
+  viewComparisonButton: 'View Features Comparison',
   segments: {
     tech: {
       title: 'Technology Companies',

@@ -24,6 +24,9 @@ export const useSafeTranslation = () => {
       // Special handling for blog and pricing content
       const isBlogRelated = key.startsWith('blog.');
       const isPricingRelated = key.startsWith('pricing.');
+      const isHeroRelated = key.startsWith('hero.');
+      const isFeatureRelated = key.startsWith('features.');
+      const isCalculatorRelated = key.startsWith('calculator.');
       
       // Get translation or empty string if undefined
       let translation = t(key) || '';
@@ -38,14 +41,14 @@ export const useSafeTranslation = () => {
       // If we got a valid translation, return it
       if (translation && translation !== key) {
         // If in debug mode, log successful translation
-        if ((options.debug || isBlogRelated || isPricingRelated) && import.meta.env.DEV) {
+        if ((options.debug || isBlogRelated || isPricingRelated || isHeroRelated || isFeatureRelated || isCalculatorRelated) && import.meta.env.DEV) {
           console.log(`[safeT] Successfully translated: ${key} -> "${translation}" (${currentLanguage})`);
         }
         return translation;
       }
       
       // Enhanced logging for specific content types
-      if ((isBlogRelated || isPricingRelated) && import.meta.env.DEV) {
+      if ((isBlogRelated || isPricingRelated || isHeroRelated || isFeatureRelated || isCalculatorRelated) && import.meta.env.DEV) {
         console.warn(`[safeT] Missing translation: "${key}" in language: ${currentLanguage}`);
         
         // For Finnish content specifically, let's log what we're getting
@@ -92,10 +95,43 @@ export const useSafeTranslation = () => {
     });
   };
 
+  /**
+   * Special function for hero content
+   */
+  const heroT = (key: string, options: SafeTranslationOptions = {}) => {
+    return safeT(`hero.${key}`, {
+      ...options,
+      debug: true
+    });
+  };
+
+  /**
+   * Special function for features content
+   */
+  const featuresT = (key: string, options: SafeTranslationOptions = {}) => {
+    return safeT(`features.${key}`, {
+      ...options,
+      debug: true
+    });
+  };
+
+  /**
+   * Special function for calculator content
+   */
+  const calculatorT = (key: string, options: SafeTranslationOptions = {}) => {
+    return safeT(`calculator.${key}`, {
+      ...options,
+      debug: true
+    });
+  };
+
   return { 
     safeT, 
     blogT,
     pricingT,
+    heroT,
+    featuresT,
+    calculatorT,
     t, 
     language,
     isFinish: language === 'fi'

@@ -19,6 +19,16 @@ export const customerSegments = {
   ctaTitle: 'Löydä Täydellinen Ratkaisu',
   ctaText: 'Tutustu, miten Lyyli voi mukautua toimialasi erityisvaatimuksiin',
   ctaButton: 'Varaa Demo',
+  challenges: 'Haasteet',
+  solutions: 'Ratkaisut',
+  readCaseStudy: 'Lue Tapaustutkimus',
+  learnMoreButton: 'Lue Lisää',
+  previous: 'Edellinen',
+  next: 'Seuraava',
+  goToSlide: 'Siirry diaan',
+  noSegmentsAvailable: 'Ei toimialasegmenttejä saatavilla',
+  closingText: 'Etkö ole varma, mikä ratkaisu sopii tarpeisiisi? Ota yhteyttä henkilökohtaista konsultaatiota varten.',
+  viewComparisonButton: 'Katso Ominaisuuksien Vertailu',
   segments: {
     tech: {
       title: 'Teknologiayritykset',

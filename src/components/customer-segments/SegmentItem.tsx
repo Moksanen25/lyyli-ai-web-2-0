@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { type SegmentData } from './useSegmentsData';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface SegmentItemProps {
   segment: SegmentData;
@@ -12,6 +13,19 @@ interface SegmentItemProps {
 
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t, language } = useLanguage();
+  
+  // Get the actual translated values instead of just keys
+  const name = t(segment.name);
+  const description = t(segment.description || '');
+  const painPoints = segment.painPoints?.map(point => t(point)) || [];
+  const solutions = segment.solutions?.map(solution => t(solution)) || [];
+  
+  // Testimonial translations if present
+  const testimonial = segment.testimonial ? {
+    ...segment.testimonial,
+    quote: t(segment.testimonial.quote || ''),
+    author: t(segment.testimonial.author || '')
+  } : null;
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
@@ -21,18 +35,18 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div className="space-y-6">
-        <h3 className="text-2xl font-bold">{segment.name}</h3>
+        <h3 className="text-2xl font-bold">{name}</h3>
         
-        {segment.description && (
-          <p className="text-muted-foreground text-lg">{segment.description}</p>
+        {description && (
+          <p className="text-muted-foreground text-lg">{description}</p>
         )}
         
         <div className="space-y-4">
-          {segment.painPoints && segment.painPoints.length > 0 && (
+          {painPoints && painPoints.length > 0 && (
             <div>
               <h4 className="text-lg font-medium mb-2">{t('customerSegments.challenges')}:</h4>
               <ul className="space-y-2">
-                {segment.painPoints.map((point, i) => (
+                {painPoints.map((point, i) => (
                   <li key={i} className="flex items-start">
                     <span className="mr-2 text-red-500 font-bold">•</span>
                     <span>{point}</span>
@@ -42,11 +56,11 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
             </div>
           )}
           
-          {segment.solutions && segment.solutions.length > 0 && (
+          {solutions && solutions.length > 0 && (
             <div>
               <h4 className="text-lg font-medium mb-2">{t('customerSegments.solutions')}:</h4>
               <ul className="space-y-2">
-                {segment.solutions.map((solution, i) => (
+                {solutions.map((solution, i) => (
                   <li key={i} className="flex items-start">
                     <span className="mr-2 text-green-500 font-bold">•</span>
                     <span>{solution}</span>
@@ -67,28 +81,30 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
       
       {segment.image && (
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-          <img 
+          <ImageWithFallback 
             src={segment.image} 
-            alt={segment.name}
+            alt={name}
+            fallbackSrc="/placeholder.svg"
             className="object-cover w-full h-full"
           />
         </div>
       )}
       
-      {segment.testimonial && (
+      {testimonial && (
         <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 md:col-span-2 mt-4">
-          <blockquote className="text-lg italic mb-4">"{segment.testimonial.quote}"</blockquote>
+          <blockquote className="text-lg italic mb-4">"{testimonial.quote}"</blockquote>
           <div className="flex items-center gap-3">
-            {segment.testimonial.avatar && (
-              <img 
-                src={segment.testimonial.avatar} 
-                alt={segment.testimonial.author}
+            {testimonial.avatar && (
+              <ImageWithFallback
+                src={testimonial.avatar} 
+                alt={testimonial.author}
+                fallbackSrc="/placeholder.svg"
                 className="w-10 h-10 rounded-full object-cover"
               />
             )}
             <div>
-              <div className="font-medium">{segment.testimonial.author}</div>
-              <div className="text-sm text-muted-foreground">{segment.testimonial.company}</div>
+              <div className="font-medium">{testimonial.author}</div>
+              <div className="text-sm text-muted-foreground">{testimonial.company}</div>
             </div>
           </div>
         </div>

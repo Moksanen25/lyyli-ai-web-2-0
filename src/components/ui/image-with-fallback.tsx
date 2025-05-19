@@ -27,7 +27,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   const [hasError, setHasError] = useState<boolean>(false);
 
   const handleError = () => {
-    if (imgSrc !== fallbackSrc) {
+    if (!hasError) {
       console.warn(`Image failed to load: ${imgSrc}, falling back to: ${fallbackSrc}`);
       setImgSrc(fallbackSrc);
       setHasError(true);
@@ -46,7 +46,11 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       )}
       width={width}
       height={height}
-      style={style}
+      style={{
+        objectFit: 'cover',
+        ...style
+      }}
+      loading="lazy"
       {...props}
     />
   );

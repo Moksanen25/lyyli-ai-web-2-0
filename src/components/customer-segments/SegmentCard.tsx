@@ -6,6 +6,7 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { type SegmentData } from './types/segmentTypes';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface SegmentCardProps {
   segment: SegmentData;
@@ -14,8 +15,18 @@ interface SegmentCardProps {
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t, language } = useLanguage();
   
-  // Debug segment data
-  console.log(`SegmentCard rendering for segment: ${segment.id}, language: ${language}`, segment);
+  // Get the actual translated values instead of just keys
+  const name = t(segment.name);
+  const description = t(segment.description || '');
+  const painPoints = segment.painPoints?.map(point => t(point)) || [];
+  const solutions = segment.solutions?.map(solution => t(solution)) || [];
+  
+  // Testimonial translations if present
+  const testimonial = segment.testimonial ? {
+    ...segment.testimonial,
+    quote: t(segment.testimonial.quote || ''),
+    author: t(segment.testimonial.author || '')
+  } : null;
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
@@ -25,20 +36,20 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   return (
     <Card className="h-full flex flex-col border-none shadow-md hover:shadow-lg transition-shadow">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-xl font-semibold">{segment.name}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{name}</CardTitle>
         {segment.icon && <div className="w-8 h-8 text-primary">{segment.icon}</div>}
       </CardHeader>
       <CardContent className="flex-grow flex flex-col">
         <div className="mb-4">
-          {segment.description && <p className="text-muted-foreground">{segment.description}</p>}
+          {description && <p className="text-muted-foreground">{description}</p>}
         </div>
         
         <div className="space-y-4 flex-grow">
-          {segment.painPoints && segment.painPoints.length > 0 && (
+          {painPoints && painPoints.length > 0 && (
             <div>
               <h4 className="font-medium mb-2">{t('customerSegments.challenges')}:</h4>
               <ul className="space-y-1">
-                {segment.painPoints.slice(0, 3).map((point, i) => (
+                {painPoints.slice(0, 3).map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start">
                     <span className="mr-2 text-red-500">•</span> {point}
                   </li>
@@ -47,11 +58,11 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
             </div>
           )}
           
-          {segment.solutions && segment.solutions.length > 0 && (
+          {solutions && solutions.length > 0 && (
             <div>
               <h4 className="font-medium mb-2">{t('customerSegments.solutions')}:</h4>
               <ul className="space-y-1">
-                {segment.solutions.slice(0, 3).map((solution, i) => (
+                {solutions.slice(0, 3).map((solution, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start">
                     <span className="mr-2 text-green-500">•</span> {solution}
                   </li>
