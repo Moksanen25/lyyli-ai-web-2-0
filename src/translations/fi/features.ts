@@ -98,6 +98,7 @@ export const features = {
   customerSegments: {
     title: 'Ratkaisu jokaiselle toimialalle',
     subtitle: 'Lyyli mukautuu toimialasi erityistarpeisiin, oletpa sitten teknologia-, konsultointi-, koulutus- tai muulla alalla',
+    navigation: 'Selaa toimialaratkaisuja',
     segments: {
       tech: {
         title: 'Teknologiayritykset',

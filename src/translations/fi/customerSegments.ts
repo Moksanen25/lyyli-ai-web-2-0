@@ -31,6 +31,7 @@ export const customerSegments = {
   viewComparisonButton: 'Katso Ominaisuuksien Vertailu',
   errorTitle: 'Ongelma segmenttien lataamisessa',
   errorMessage: 'Pahoittelemme, tietojen lataamisessa ilmeni ongelma. Kokeile päivittää sivu.',
+  navigation: 'Selaa toimialaratkaisuja',
   segments: {
     tech: {
       title: 'Teknologiayritykset',
