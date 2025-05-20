@@ -4,7 +4,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Slack, Globe, MessageSquare } from 'lucide-react';
 
 const IntegrationShowcase = () => {
-  const { t, safeTr, featuresT } = useLanguage();
+  const { featuresT } = useLanguage();
   
   // Get translations with improved reliability
   const title = featuresT('integrations.title');
