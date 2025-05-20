@@ -3,13 +3,13 @@ import { useSafeTranslationBase } from './safeTranslationBase';
 import { SafeTranslationOptions } from './types';
 
 /**
- * Hook for features-specific translation functionality
+ * Hook for features translation with namespace handling
  */
 export const useFeaturesTranslation = () => {
-  const { safeT, t, language } = useSafeTranslationBase();
+  const { safeT, t } = useSafeTranslationBase();
   
   /**
-   * Special function for features content with improved namespace handling
+   * Special function for features translations
    */
   const featuresT = (key: string, options: SafeTranslationOptions = {}) => {
     // If key already has features prefix, don't add it again
@@ -24,5 +24,5 @@ export const useFeaturesTranslation = () => {
     });
   };
   
-  return { featuresT, t, language };
+  return { featuresT, t };
 };
