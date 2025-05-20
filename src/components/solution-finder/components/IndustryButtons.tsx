@@ -5,9 +5,12 @@ import { industryOptions } from '../data/industryOptions';
 
 interface IndustryButtonsProps {
   onSelectIndustry: (industry: string) => void;
+  isVisible: boolean;
 }
 
-const IndustryButtons: React.FC<IndustryButtonsProps> = ({ onSelectIndustry }) => {
+const IndustryButtons: React.FC<IndustryButtonsProps> = ({ onSelectIndustry, isVisible }) => {
+  if (!isVisible) return null;
+  
   return (
     <div className="flex flex-wrap gap-2 mb-3">
       {industryOptions.map((option) => (

@@ -9,10 +9,13 @@ import ChatMessages from './components/ChatMessages';
 import IndustryButtons from './components/IndustryButtons';
 import ChatForm from './components/ChatForm';
 import ChatToggle from './components/ChatToggle';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const SolutionFinderChat: React.FC = () => {
   const { featuresT } = useSafeTranslation();
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [showIndustryButtons, setShowIndustryButtons] = useState(true);
+  const isMobile = useIsMobile();
   
   const {
     messages,
@@ -56,6 +59,12 @@ const SolutionFinderChat: React.FC = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  // Modified industry selection handler to also hide the buttons
+  const handleIndustryButtonClick = (industry: string) => {
+    handleIndustrySelection(industry);
+    setShowIndustryButtons(false);
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       {/* Mobile toggle button */}
@@ -65,13 +74,16 @@ const SolutionFinderChat: React.FC = () => {
       />
 
       <div className={`md:flex ${isChatOpen ? 'block' : 'hidden md:block'}`}>
-        <Card className="flex-1 border h-[500px] max-h-[500px] flex flex-col">
+        <Card className={`flex-1 border flex flex-col ${isMobile ? 'h-[70vh]' : 'h-[500px] max-h-[500px]'}`}>
           <ChatHeader />
           
           <ChatMessages messages={messages} />
           
           <div className="p-3 border-t">
-            <IndustryButtons onSelectIndustry={handleIndustrySelection} />
+            <IndustryButtons 
+              onSelectIndustry={handleIndustryButtonClick} 
+              isVisible={showIndustryButtons}
+            />
             
             <ChatForm
               inputMessage={inputMessage}
