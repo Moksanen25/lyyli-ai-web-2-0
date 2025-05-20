@@ -173,7 +173,7 @@ USER MESSAGE: ${userMessage}
       </div>
 
       <div className={`md:flex ${isChatOpen ? 'block' : 'hidden md:block'}`}>
-        <Card className="flex-1 border h-[500px] flex flex-col">
+        <Card className="flex-1 border h-[500px] max-h-[500px] flex flex-col">
           <div className="p-3 border-b bg-muted/40 flex items-center">
             <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
             <span className="ml-2 font-medium">
@@ -181,7 +181,7 @@ USER MESSAGE: ${userMessage}
             </span>
           </div>
           
-          <ScrollArea className="flex-grow p-4">
+          <ScrollArea className="flex-grow p-4 overflow-auto" type="always">
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <ChatMessage

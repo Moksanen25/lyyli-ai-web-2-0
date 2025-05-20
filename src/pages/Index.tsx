@@ -1,9 +1,9 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import UseCase from '@/components/UseCase';
 import FeaturesSection from '@/components/FeaturesSection';
-import CustomerSegments from '@/components/CustomerSegments';
 import EnterpriseCallout from '@/components/EnterpriseCallout';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import BlogCarousel from '@/components/blog/BlogCarousel';
@@ -135,7 +135,7 @@ const Index = () => {
           <FeaturesSection />
         </SafeSection>
         
-        {/* Solution Finder Chat - NEW */}
+        {/* Solution Finder Chat - Fix height to prevent scroll issues */}
         <SafeSection name="Solution Finder">
           <section id="solution-finder" className="py-16 bg-primary/5">
             <div className="container-padding container mx-auto text-center mb-10">
