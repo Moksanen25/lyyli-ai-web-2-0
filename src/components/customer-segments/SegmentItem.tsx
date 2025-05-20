@@ -12,22 +12,18 @@ interface SegmentItemProps {
 }
 
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
-  const { t, language } = useLanguage();
+  const { t, language, customerSegmentsT } = useLanguage();
   
-  // Get the actual translated values safely
-  const name = segment.name ? t(segment.name) : '';
-  const description = segment.description ? t(segment.description) : '';
+  // Get the segment name and description safely
+  const name = segment.name || '';
+  const description = segment.description || '';
   
   // Handle potentially undefined arrays safely
-  const painPoints = segment.painPoints?.map(point => (point ? t(point) : '')) || [];
-  const solutions = segment.solutions?.map(solution => (solution ? t(solution) : '')) || [];
+  const painPoints = segment.painPoints || [];
+  const solutions = segment.solutions || [];
   
   // Testimonial translations if present
-  const testimonial = segment.testimonial ? {
-    ...segment.testimonial,
-    quote: segment.testimonial.quote ? t(segment.testimonial.quote) : '',
-    author: segment.testimonial.author ? t(segment.testimonial.author) : ''
-  } : null;
+  const testimonial = segment.testimonial || null;
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
@@ -35,12 +31,12 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
     : (language === 'fi' ? `/fi/full/case-studies?segment=${segment.id}` : `/full/case-studies?segment=${segment.id}`);
   
   // Ensure we're using a valid image URL or fallback
-  const imageUrl = segment.image && typeof segment.image === 'string' && !segment.image.includes('customerSegments.') 
+  const imageUrl = segment.image && typeof segment.image === 'string' && !segment.image.includes('customerSegments') 
     ? segment.image 
     : '/placeholder.svg';
   
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
       <div className="space-y-6">
         <h3 className="text-2xl font-bold">{name}</h3>
         
@@ -51,7 +47,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         <div className="space-y-4">
           {painPoints && painPoints.length > 0 && (
             <div>
-              <h4 className="text-lg font-medium mb-2">{t('customerSegments.challenges')}:</h4>
+              <h4 className="text-lg font-medium mb-2">{customerSegmentsT('challenges') || 'Challenges'}:</h4>
               <ul className="space-y-2">
                 {painPoints.map((point, i) => (
                   <li key={i} className="flex items-start">
@@ -65,7 +61,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           
           {solutions && solutions.length > 0 && (
             <div>
-              <h4 className="text-lg font-medium mb-2">{t('customerSegments.solutions')}:</h4>
+              <h4 className="text-lg font-medium mb-2">{customerSegmentsT('solutions') || 'Solutions'}:</h4>
               <ul className="space-y-2">
                 {solutions.map((solution, i) => (
                   <li key={i} className="flex items-start">
@@ -80,7 +76,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         
         <Link to={caseStudyUrl}>
           <Button className="mt-4">
-            {t('customerSegments.readCaseStudy')}
+            {customerSegmentsT('readCaseStudy') || 'Read Case Study'}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>

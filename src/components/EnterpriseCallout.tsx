@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,11 +6,9 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
-import { useSafeTranslation } from '@/utils/safeTranslation';
 
 const EnterpriseCallout: React.FC = () => {
   const { t } = useLanguage();
-  const { featuresT } = useSafeTranslation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
@@ -19,23 +16,23 @@ const EnterpriseCallout: React.FC = () => {
   const enterpriseFeatures = [
     {
       icon: <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: featuresT('enterpriseReady'),
-      description: featuresT('securityDesc')
+      title: t('features.enterpriseReady') || "Enterprise Security",
+      description: t('features.securityDesc') || "Built with enterprise-grade security and compliance"
     },
     {
       icon: <Users className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: featuresT('supportTitle'),
-      description: featuresT('supportDesc')
+      title: t('features.supportTitle') || "Dedicated Support",
+      description: t('features.supportDesc') || "Get priority support with dedicated account management"
     },
     {
       icon: <Database className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: featuresT('additionalFeatures.ai.title'),
-      description: featuresT('additionalFeatures.ai.description')
+      title: t('features.additionalFeatures.ai.title') || "Advanced AI",
+      description: t('features.additionalFeatures.ai.description') || "Access to our most powerful AI models"
     },
     {
       icon: <Layers className="h-8 w-8 md:h-10 md:w-10 text-primary" />,
-      title: featuresT('integrationsTitle'),
-      description: featuresT('integrationsDesc')
+      title: t('features.integrationsTitle') || "Custom Integrations",
+      description: t('features.integrationsDesc') || "Connect with your existing enterprise tools"
     }
   ];
 
@@ -51,11 +48,11 @@ const EnterpriseCallout: React.FC = () => {
       <div className="container-padding container mx-auto">
         <div className="text-center mb-10 md:mb-16 animate-fade-in">
           <div className="inline-block bg-primary/10 text-primary text-sm font-semibold py-1 px-3 rounded-full mb-3">
-            {featuresT('enterpriseReady')}
+            {t('features.enterpriseReady') || "Enterprise Ready"}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{featuresT('pageHero.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('features.pageHero.title') || "Enterprise-Grade Solutions"}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {featuresT('pageHero.description')}
+            {t('features.pageHero.description') || "Get the advanced features, security, and support your organization needs"}
           </p>
         </div>
         
@@ -85,7 +82,7 @@ const EnterpriseCallout: React.FC = () => {
             {t('common.bookDemo')}
           </Button>
           <p className="mt-4 text-sm text-muted-foreground">
-            {t('demo.description')}
+            {t('demo.description') || "Schedule a consultation with our team to learn how we can help your organization"}
           </p>
         </div>
       </div>

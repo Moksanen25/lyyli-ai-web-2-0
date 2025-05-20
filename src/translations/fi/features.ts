@@ -18,6 +18,18 @@ export const features = {
     title: 'Kehittynyt analytiikka',
     description: 'Mittaa viestintäsi vaikutusta'
   },
+  enterpriseReady: 'Yrityskäyttöön valmis',
+  securityDesc: 'Rakennettu yritystason tietoturvalla ja säännöstenmukaisuudella',
+  supportTitle: 'Omistautunut tuki',
+  supportDesc: 'Saat prioriteettitukea ja omistautuneen tilin hallinnan',
+  integrationsTitle: 'Mukautetut integraatiot',
+  integrationsDesc: 'Yhdistä olemassa oleviin yritystyökaluihin',
+  additionalFeatures: {
+    ai: {
+      title: 'Kehittynyt tekoäly',
+      description: 'Pääsy tehokkaimpiin tekoälymalleihin'
+    }
+  },
   hero: {
     title: 'Ominaisuudet, jotka tuottavat tuloksia',
     subtitle: 'Viestintätyökalut',
@@ -25,9 +37,14 @@ export const features = {
     primaryCta: 'Aloita',
     secondaryCta: 'Katso hinnoittelu',
   },
+  pageHero: {
+    title: 'Yritystasoisia ratkaisuja',
+    description: 'Saat organisaatiosi tarvitsemat kehittyneet ominaisuudet, tietoturvan ja tuen'
+  },
   customerSegments: {
     title: 'Toimialakohtaiset ratkaisut',
     subtitle: 'Katso, miten Lyyli mukautuu toimialasi ainutlaatuisiin viestintätarpeisiin',
+    navigation: 'Selaa toimialoja',
     segments: {
       tech: {
         title: 'Teknologia ja ohjelmistot',

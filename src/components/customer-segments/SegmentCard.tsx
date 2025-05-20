@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
-import { type SegmentData } from './types/segmentTypes';
+import { type SegmentData } from './useSegmentsData';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface SegmentCardProps {
@@ -13,22 +13,13 @@ interface SegmentCardProps {
 }
 
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
-  const { t, language } = useLanguage();
+  const { t, language, customerSegmentsT } = useLanguage();
   
-  // Get the actual translated values
-  const name = segment.name ? t(segment.name) : '';
-  const description = segment.description ? t(segment.description) : '';
-  
-  // Handle potentially undefined arrays safely
-  const painPoints = segment.painPoints?.map(point => (point ? t(point) : '')) || [];
-  const solutions = segment.solutions?.map(solution => (solution ? t(solution) : '')) || [];
-  
-  // Testimonial translations if present
-  const testimonial = segment.testimonial ? {
-    ...segment.testimonial,
-    quote: segment.testimonial.quote ? t(segment.testimonial.quote) : '',
-    author: segment.testimonial.author ? t(segment.testimonial.author) : ''
-  } : null;
+  // Get the segment properties directly
+  const name = segment.name || '';
+  const description = segment.description || '';
+  const painPoints = segment.painPoints || [];
+  const solutions = segment.solutions || [];
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
@@ -49,7 +40,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         <div className="space-y-4 flex-grow">
           {painPoints && painPoints.length > 0 && (
             <div>
-              <h4 className="font-medium mb-2">{t('customerSegments.challenges')}:</h4>
+              <h4 className="font-medium mb-2">{customerSegmentsT('challenges') || 'Challenges'}:</h4>
               <ul className="space-y-1">
                 {painPoints.slice(0, 3).map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start">
@@ -62,7 +53,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
           
           {solutions && solutions.length > 0 && (
             <div>
-              <h4 className="font-medium mb-2">{t('customerSegments.solutions')}:</h4>
+              <h4 className="font-medium mb-2">{customerSegmentsT('solutions') || 'Solutions'}:</h4>
               <ul className="space-y-1">
                 {solutions.slice(0, 3).map((solution, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start">
@@ -77,7 +68,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         <div className="mt-auto pt-4">
           <Link to={caseStudyUrl}>
             <Button variant="ghost" className="w-full justify-between">
-              {t('customerSegments.learnMoreButton')}
+              {customerSegmentsT('learnMoreButton') || 'Learn More'}
               <ChevronRight className="h-4 w-4" />
             </Button>
           </Link>

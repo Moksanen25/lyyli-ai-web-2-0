@@ -17,7 +17,15 @@ export const useLanguage = () => {
   
   // Use the enhanced translation hooks
   const { t, language } = useTranslation();
-  const safeTranslations = useSafeTranslation();
+  const { 
+    safeT, 
+    blogT, 
+    pricingT, 
+    heroT, 
+    featuresT, 
+    calculatorT,
+    customerSegmentsT 
+  } = useSafeTranslation();
   
   // Debug function to help diagnose translation issues
   const debugTranslation = (key: string): void => {
@@ -39,7 +47,13 @@ export const useLanguage = () => {
     ...context,
     t,
     language,
-    ...safeTranslations,
+    safeT,
+    blogT,
+    pricingT,
+    heroT,
+    featuresT,
+    calculatorT,
+    customerSegmentsT,
     debugTranslation,
     // Helper flag for Finnish language
     isFinnish: language === 'fi'

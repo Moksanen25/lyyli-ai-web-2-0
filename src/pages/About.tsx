@@ -13,8 +13,8 @@ import CompanyTimeline from '@/components/about/CompanyTimeline';
  * Displays company information, mission, team and timeline
  */
 const About = () => {
-  const { t } = useLanguage();
-  
+  // We have the t function available but we don't need to use it here
+  // as the child components will handle their own translations
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

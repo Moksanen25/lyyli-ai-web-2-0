@@ -33,14 +33,19 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     }
   };
 
-  // Ensure src is a valid string and not a translation key
-  const displaySrc = typeof imgSrc === 'string' && !imgSrc.includes('customerSegments.') ? 
-    imgSrc : fallbackSrc;
+  // Safety check: ensure we have a valid src and it's not a translation key
+  const isSrcValid = typeof imgSrc === 'string' && 
+    !imgSrc.includes('.') && 
+    !imgSrc.includes('customerSegments.') && 
+    !imgSrc.includes(' ');
+    
+  // Use a display source that's guaranteed to be valid
+  const displaySrc = isSrcValid ? imgSrc : fallbackSrc;
 
   return (
     <img
       src={displaySrc}
-      alt={alt}
+      alt={alt || 'Image'}
       onError={handleError}
       className={cn(
         "transition-opacity duration-300",

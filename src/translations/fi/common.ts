@@ -32,5 +32,7 @@ export const common = {
   showMore: 'Näytä lisää',
   showLess: 'Näytä vähemmän',
   required: 'Pakollinen',
-  optional: 'Valinnainen'
+  optional: 'Valinnainen',
+  errorTitle: 'Tapahtui virhe',
+  errorMessage: 'Pahoittelemme, jokin meni pieleen. Yritä uudelleen.'
 };
