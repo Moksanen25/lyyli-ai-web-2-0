@@ -14,39 +14,25 @@ interface SegmentItemProps {
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t, language, customerSegmentsT } = useLanguage();
   
-  // Translate directly here instead of passing keys
-  const name = t(segment.name) || segment.name;
-  const description = t(segment.description || '') || segment.description || '';
+  // Handle potentially undefined arrays safely
+  const painPoints = (segment.painPoints || []);
+  const solutions = (segment.solutions || []);
   
-  // Handle potentially undefined arrays safely and translate each item
-  const painPoints = (segment.painPoints || []).map(point => t(point) || point);
-  const solutions = (segment.solutions || []).map(solution => t(solution) || solution);
-  
-  // Testimonial translations if present
-  const testimonial = segment.testimonial ? {
-    ...segment.testimonial,
-    quote: t(segment.testimonial.quote) || segment.testimonial.quote,
-    author: t(segment.testimonial.author) || segment.testimonial.author,
-    company: segment.testimonial.company
-  } : null;
+  // Testimonial data
+  const testimonial = segment.testimonial;
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 
     ? (language === 'fi' ? `/fi${segment.caseStudyUrl}` : segment.caseStudyUrl)
     : (language === 'fi' ? `/fi/full/case-studies?segment=${segment.id}` : `/full/case-studies?segment=${segment.id}`);
   
-  // Ensure we're using a valid image URL or fallback
-  const imageUrl = segment.image && typeof segment.image === 'string' && !segment.image.includes('customerSegments') 
-    ? segment.image 
-    : '/placeholder.svg';
-  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
       <div className="space-y-6">
-        <h3 className="text-2xl font-bold">{name}</h3>
+        <h3 className="text-2xl font-bold">{segment.name}</h3>
         
-        {description && (
-          <p className="text-muted-foreground text-lg">{description}</p>
+        {segment.description && (
+          <p className="text-muted-foreground text-lg">{segment.description}</p>
         )}
         
         <div className="space-y-4">
@@ -89,9 +75,9 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
       
       <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
         <ImageWithFallback 
-          src={imageUrl} 
-          alt={name}
-          fallbackSrc="/placeholder.svg"
+          src={segment.image || ''} 
+          alt={segment.name}
+          fallbackSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
           className="object-cover w-full h-full"
         />
       </div>
@@ -100,14 +86,9 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
         <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 md:col-span-2 mt-4">
           <blockquote className="text-lg italic mb-4">"{testimonial.quote}"</blockquote>
           <div className="flex items-center gap-3">
-            {testimonial.avatar && (
-              <ImageWithFallback
-                src={testimonial.avatar} 
-                alt={testimonial.author || ''}
-                fallbackSrc="/placeholder.svg"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-            )}
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              {testimonial.author?.charAt(0) || '?'}
+            </div>
             <div>
               <div className="font-medium">{testimonial.author}</div>
               <div className="text-sm text-muted-foreground">{testimonial.company || ''}</div>
