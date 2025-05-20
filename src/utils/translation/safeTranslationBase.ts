@@ -1,13 +1,7 @@
 
 import { useTranslation } from '@/hooks/useTranslation';
 import { languages } from '@/translations';
-
-type SafeTranslationOptions = {
-  debug?: boolean;
-  fallback?: string;
-  forceLanguage?: 'en' | 'fi';
-  interpolation?: Record<string, string | number>;
-}
+import { SafeTranslationOptions } from './types';
 
 /**
  * Base safe translation function with multiple fallback strategies
