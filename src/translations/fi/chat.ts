@@ -11,5 +11,9 @@ export const chat = {
   },
   openChat: 'Avaa chat',
   closeChat: 'Sulje chat',
-  chatPanel: 'Chat-paneeli'
+  chatPanel: 'Chat-paneeli',
+  caseStudy: {
+    view: 'Katso Tapaustutkimus',
+    moreInfo: 'Lue Lisää'
+  }
 };

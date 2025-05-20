@@ -11,5 +11,9 @@ export const chat = {
   },
   openChat: 'Open chat',
   closeChat: 'Close chat',
-  chatPanel: 'Chat panel'
+  chatPanel: 'Chat panel',
+  caseStudy: {
+    view: 'View Case Study',
+    moreInfo: 'Learn More'
+  }
 };

@@ -32,30 +32,42 @@ export function useSolutionChat() {
     },
     onMessageReceived: (content) => {
       // Parse and look for special commands in the AI's response
-      const processedContent = processAIResponse(content);
+      const processedResponses = processAIResponse(content);
       
-      setMessages(prev => [
-        ...prev, 
-        { 
-          role: 'assistant', 
-          content: processedContent, 
-          timestamp: new Date() 
-        }
-      ]);
+      // Add each processed response as a separate message
+      processedResponses.forEach(processedContent => {
+        setMessages(prev => [
+          ...prev, 
+          { 
+            role: 'assistant', 
+            content: processedContent, 
+            timestamp: new Date() 
+          }
+        ]);
+      });
+      
       setIsLoading(false);
     }
   });
 
-  // Process AI response to check for special commands
-  const processAIResponse = (content: string): string => {
+  // Process AI response to check for special commands and split into multiple messages
+  const processAIResponse = (content: string): string[] => {
     // Check if the response contains a command to open the demo dialog
     if (content.includes("[[OPEN_DEMO]]")) {
-      // Schedule the dialog to open after a small delay
-      setTimeout(() => setShowDemoDialog(true), 500);
-      // Remove the command from the displayed message
-      return content.replace("[[OPEN_DEMO]]", "");
+      // Only open the dialog if the user explicitly requested it
+      if (content.includes("[[USER_CONFIRMED_DEMO]]")) {
+        setTimeout(() => setShowDemoDialog(true), 500);
+      }
+      // Remove the commands from the displayed message
+      content = content.replace("[[OPEN_DEMO]]", "").replace("[[USER_CONFIRMED_DEMO]]", "");
     }
-    return content;
+    
+    // Split the response into separate "speech bubbles" using the [[NEXT_MESSAGE]] delimiter
+    if (content.includes("[[NEXT_MESSAGE]]")) {
+      return content.split("[[NEXT_MESSAGE]]").map(msg => msg.trim());
+    }
+    
+    return [content];
   };
 
   // Create an enhanced prompt with context for the AI
@@ -67,9 +79,13 @@ INSTRUCTIONS:
 - You are Lyyli AI, an assistant specialized in helping users find the right solution for their industry.
 - Respond in a friendly, helpful voice.
 - Your goal is to guide users toward booking a demo or signing up.
-- If they ask about a specific industry (tech, consulting, nonprofit, education, creative, sports), provide relevant challenges and solutions.
-- If they seem interested or ask about next steps, suggest booking a demo by saying "Would you like to schedule a demo to see how we can help?" and include [[OPEN_DEMO]] in your response.
-- Keep responses concise (1-3 paragraphs).
+- IMPORTANT: Break up your responses into multiple chat bubbles using [[NEXT_MESSAGE]] between each section.
+- Use clear headers and short paragraphs to make your responses more readable.
+- If they ask about a specific industry (tech, consulting, nonprofit, education, creative, sports), provide relevant challenges and solutions in a structured format.
+- When appropriate, refer to relevant case studies or blog posts that might help them.
+- Always ask if they'd like to know more or have other questions before suggesting a demo.
+- ONLY include [[OPEN_DEMO]] in your response if the user has EXPLICITLY said "yes" to booking a demo AND include [[USER_CONFIRMED_DEMO]] as well.
+- Keep each message section concise (1-2 paragraphs).
 - If they ask questions outside the scope of Lyyli's services, acknowledge their question and steer the conversation back to how Lyyli can help.
 
 USER MESSAGE: ${userMessage}
