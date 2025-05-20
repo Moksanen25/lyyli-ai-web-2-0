@@ -43,6 +43,17 @@ export const features = {
     title: 'Advanced Analytics',
     description: 'Measure the impact of your communication'
   },
+  quotes: {
+    title: 'What Our Customers Say',
+    quote1: 'Lyyli has transformed how we communicate with our clients. The AI content generation alone has saved our team countless hours every week.',
+    author1: 'Jennifer Martinez',
+    role1: 'Marketing Director',
+    feature1: 'AI Content Generation',
+    quote2: 'The collaboration features have made our remote team feel like we\'re all in the same room. Our productivity has increased by 40% since implementation.',
+    author2: 'Michael Johnson',
+    role2: 'Operations Manager',
+    feature2: 'Team Collaboration'
+  },
   comparison: {
     title: 'Feature Comparison',
     description: 'Compare our features to find the best plan for your needs',
