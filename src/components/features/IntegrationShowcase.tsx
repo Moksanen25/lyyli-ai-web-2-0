@@ -4,23 +4,27 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Slack, Globe, MessageSquare } from 'lucide-react';
 
 const IntegrationShowcase = () => {
-  const { t } = useLanguage();
+  const { t, safeTr } = useLanguage();
+  
+  // Get translations with fallbacks
+  const title = safeTr('features.integrations.title', 'Integrations');
+  const description = safeTr('features.integrations.description', 'Connect Lyyli to your favorite tools');
   
   const integrations = [
     {
       icon: <Slack className="h-12 w-12 text-[#4A154B]" />,
       name: "Slack",
-      description: t('features.integrations.slack')
+      description: safeTr('features.integrations.slack', 'Send and receive messages directly from Slack')
     },
     {
       icon: <MessageSquare className="h-12 w-12 text-[#6264A7]" />,
       name: "Microsoft Teams",
-      description: t('features.integrations.teams')
+      description: safeTr('features.integrations.teams', 'Seamless integration with Microsoft Teams workflows')
     },
     {
       icon: <Globe className="h-12 w-12 text-primary" />,
       name: "API",
-      description: t('features.integrations.api')
+      description: safeTr('features.integrations.api', 'Build custom integrations with our API')
     }
   ];
   
@@ -29,10 +33,10 @@ const IntegrationShowcase = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {t('features.integrations.title')}
+            {title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('features.integrations.description')}
+            {description}
           </p>
         </div>
         

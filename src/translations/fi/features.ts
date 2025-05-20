@@ -24,6 +24,13 @@ export const features = {
   supportDesc: 'Saat prioriteettitukea ja omistautuneen tilin hallinnan',
   integrationsTitle: 'Mukautetut integraatiot',
   integrationsDesc: 'Yhdistä olemassa oleviin yritystyökaluihin',
+  integrations: {
+    title: 'Integraatiot',
+    description: 'Yhdistä Lyyli suosikkityökaluihisi',
+    slack: 'Lähetä ja vastaanota viestejä suoraan Slackistä',
+    teams: 'Saumaton integraatio Microsoft Teams -työnkulkuihin',
+    api: 'Rakenna mukautettuja integraatioita API:mme avulla'
+  },
   mainFeatures: {
     title: 'Ydinominaisuudet'
   },

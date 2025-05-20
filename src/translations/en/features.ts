@@ -18,6 +18,13 @@ export const features = {
     title: 'Advanced Analytics',
     description: 'Measure the impact of your communication'
   },
+  integrations: {
+    title: 'Integrations',
+    description: 'Connect Lyyli to your favorite tools',
+    slack: 'Send and receive messages directly from Slack',
+    teams: 'Seamless integration with Microsoft Teams workflows',
+    api: 'Build custom integrations with our API'
+  },
   hero: {
     title: 'Features that Drive Results',
     subtitle: 'Communication Tools',
