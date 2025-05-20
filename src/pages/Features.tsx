@@ -11,7 +11,6 @@ import CustomerQuotes from '@/components/features/CustomerQuotes';
 import FeatureComparison from '@/components/features/FeatureComparison';
 import FeatureFAQ from '@/components/features/FeatureFAQ';
 import CTASection from '@/components/CTASection';
-import SolutionFinderChat from '@/components/solution-finder/SolutionFinderChat';
 
 /**
  * Features page component
@@ -26,15 +25,6 @@ const Features = () => {
       verifyLanguageCompleteness?.();
     }
   }, [language, verifyLanguageCompleteness]);
-  
-  // Get safe translations with fallbacks for solution finder section
-  const solutionsTitle = featuresT('solutionFinder.sectionTitle', { 
-    fallback: 'Find the Perfect Solution for Your Industry' 
-  });
-  
-  const solutionsDescription = featuresT('solutionFinder.sectionDescription', { 
-    fallback: 'Chat with our AI assistant to discover how Lyyli can help solve your specific industry challenges.' 
-  });
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -52,18 +42,6 @@ const Features = () => {
         {/* General Features */}
         <FeatureDetails />
         <IntegrationShowcase />
-        
-        {/* NEW: Solution Finder Chat Section (replacing the Customer Segments section) */}
-        <section id="solution-finder" className="py-16 bg-primary/5">
-          <div className="container-padding container mx-auto text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{solutionsTitle}</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{solutionsDescription}</p>
-          </div>
-          
-          <div className="container-padding container mx-auto">
-            <SolutionFinderChat />
-          </div>
-        </section>
         
         {/* Customer Quotes */}
         <CustomerQuotes />

@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Loader2, Link, MessageSquare } from 'lucide-react';
+import { Send, Loader2, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -95,7 +95,7 @@ const SolutionFinderChat: React.FC = () => {
     ]);
   }, [featuresT]);
 
-  // Scroll to bottom of chat when messages change
+  // Scroll to bottom of chat when messages change, but properly contained within the scroll area
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -155,6 +155,26 @@ USER MESSAGE: ${userMessage}
     setIsChatOpen(!isChatOpen);
   };
 
+  // Fix for scroll jamming - prevent scroll events from propagating outside the chat container
+  const handleScrollAreaWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const scrollArea = e.currentTarget;
+    const isAtBottom = scrollArea.scrollHeight - scrollArea.scrollTop - scrollArea.clientHeight < 1;
+    const isAtTop = scrollArea.scrollTop === 0;
+    
+    if (
+      (isAtTop && e.deltaY < 0) || // At top and scrolling up
+      (isAtBottom && e.deltaY > 0) // At bottom and scrolling down
+    ) {
+      // Let the page scroll
+      return;
+    }
+    
+    // For all other cases within the scroll area, prevent propagation
+    if (scrollArea.contains(e.target as Node)) {
+      e.stopPropagation();
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       {/* Mobile toggle button */}
@@ -181,7 +201,11 @@ USER MESSAGE: ${userMessage}
             </span>
           </div>
           
-          <ScrollArea className="flex-grow p-4 overflow-auto" type="always">
+          <ScrollArea 
+            className="flex-grow p-4 overflow-auto" 
+            type="always"
+            onWheel={handleScrollAreaWheel}
+          >
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <ChatMessage
