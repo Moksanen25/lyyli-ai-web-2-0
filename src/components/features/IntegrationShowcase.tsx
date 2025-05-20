@@ -4,27 +4,27 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Slack, Globe, MessageSquare } from 'lucide-react';
 
 const IntegrationShowcase = () => {
-  const { t, safeTr } = useLanguage();
+  const { t, safeTr, featuresT } = useLanguage();
   
-  // Get translations with fallbacks
-  const title = safeTr('features.integrations.title', 'Integrations');
-  const description = safeTr('features.integrations.description', 'Connect Lyyli to your favorite tools');
+  // Get translations with improved reliability
+  const title = featuresT('integrations.title');
+  const description = featuresT('integrations.description');
   
   const integrations = [
     {
       icon: <Slack className="h-12 w-12 text-[#4A154B]" />,
       name: "Slack",
-      description: safeTr('features.integrations.slack', 'Send and receive messages directly from Slack')
+      description: featuresT('integrations.slack')
     },
     {
       icon: <MessageSquare className="h-12 w-12 text-[#6264A7]" />,
       name: "Microsoft Teams",
-      description: safeTr('features.integrations.teams', 'Seamless integration with Microsoft Teams workflows')
+      description: featuresT('integrations.teams')
     },
     {
       icon: <Globe className="h-12 w-12 text-primary" />,
       name: "API",
-      description: safeTr('features.integrations.api', 'Build custom integrations with our API')
+      description: featuresT('integrations.api')
     }
   ];
   

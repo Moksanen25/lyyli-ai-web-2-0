@@ -4,68 +4,50 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { BookOpen, Users, Calendar, PieChart, Wand, Layers, Network } from 'lucide-react';
 
 const FeatureDetails = () => {
-  const { t, safeTr, featuresT } = useLanguage();
+  const { featuresT } = useLanguage();
   
-  // Use enhanced translation helpers for better fallback
-  const getFeatureTranslation = (key: string, defaultValue: string): string => {
-    // Try multiple paths to get the translation
-    const directTranslation = t(`features.${key}`);
-    if (directTranslation && directTranslation !== `features.${key}`) {
-      return directTranslation;
-    }
-    
-    // Try with featuresT helper
-    const featureTranslation = featuresT(key);
-    if (featureTranslation && !featureTranslation.includes('features.')) {
-      return featureTranslation;
-    }
-    
-    // Last resort fallback
-    return safeTr(`features.${key}`, defaultValue);
-  };
-  
-  // Get main feature section title with fallback
-  const mainFeaturesTitle = getFeatureTranslation('mainFeatures.title', 'Core Features');
-  const additionalFeaturesTitle = getFeatureTranslation('additionalFeatures.title', 'Additional Features');
+  // Main feature section titles
+  const mainFeaturesTitle = featuresT('mainFeatures.title');
+  const additionalFeaturesTitle = featuresT('additionalFeatures.title');
   
   const mainFeatures = [
     {
       icon: <BookOpen className="h-10 w-10 text-primary" />,
-      title: getFeatureTranslation('feature1.title', 'AI Content Generation'),
-      description: getFeatureTranslation('feature1.description', 'Create professional content in seconds'),
+      title: featuresT('feature1.title'),
+      description: featuresT('feature1.description'),
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
-      title: getFeatureTranslation('feature2.title', 'Team Collaboration'),
-      description: getFeatureTranslation('feature2.description', 'Work seamlessly with your entire team'),
+      title: featuresT('feature2.title'),
+      description: featuresT('feature2.description'),
     },
     {
       icon: <Calendar className="h-10 w-10 text-primary" />,
-      title: getFeatureTranslation('feature3.title', 'Scheduling & Automation'),
-      description: getFeatureTranslation('feature3.description', 'Set it and forget it with smart scheduling'),
+      title: featuresT('feature3.title'),
+      description: featuresT('feature3.description'),
     },
     {
       icon: <PieChart className="h-10 w-10 text-primary" />,
-      title: getFeatureTranslation('feature4.title', 'Advanced Analytics'),
-      description: getFeatureTranslation('feature4.description', 'Measure the impact of your communication'),
+      title: featuresT('feature4.title'),
+      description: featuresT('feature4.description'),
     },
   ];
 
   const additionalFeatures = [
     {
       icon: <Wand className="h-8 w-8 text-primary" />,
-      title: getFeatureTranslation('additionalFeatures.ai.title', 'Advanced AI'),
-      description: getFeatureTranslation('additionalFeatures.ai.description', 'Access to the most powerful AI models'),
+      title: featuresT('additionalFeatures.ai.title'),
+      description: featuresT('additionalFeatures.ai.description'),
     },
     {
       icon: <Layers className="h-8 w-8 text-primary" />,
-      title: getFeatureTranslation('additionalFeatures.workflow.title', 'Workflow Automation'),
-      description: getFeatureTranslation('additionalFeatures.workflow.description', 'Automate repetitive tasks'),
+      title: featuresT('additionalFeatures.workflow.title'),
+      description: featuresT('additionalFeatures.workflow.description'),
     },
     {
       icon: <Network className="h-8 w-8 text-primary" />,
-      title: getFeatureTranslation('additionalFeatures.integration.title', 'Custom Integrations'),
-      description: getFeatureTranslation('additionalFeatures.integration.description', 'Connect with your existing business tools'),
+      title: featuresT('additionalFeatures.integration.title'),
+      description: featuresT('additionalFeatures.integration.description'),
     },
   ];
   

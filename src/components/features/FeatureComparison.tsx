@@ -6,26 +6,12 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 const FeatureComparison = () => {
-  const { t, safeTr } = useLanguage();
+  const { featuresT } = useLanguage();
   const navigate = useNavigate();
   
-  // Use safeTr to ensure we always have a fallback
+  // Use featuresT to get translations with proper namespace handling
   const getFeatureText = (key: string): string => {
-    const directTranslation = t(`features.comparison.${key}`);
-    
-    // If direct translation works, use it
-    if (directTranslation && directTranslation !== `features.comparison.${key}`) {
-      return directTranslation;
-    }
-    
-    // Try pricing features path as fallback
-    const pricingTranslation = t(`pricing.features.${key}`);
-    if (pricingTranslation && pricingTranslation !== `pricing.features.${key}`) {
-      return pricingTranslation;
-    }
-    
-    // Last resort fallback
-    return safeTr(`features.comparison.${key}`, key);
+    return featuresT(`comparison.${key}`);
   };
   
   const planFeatures = [
@@ -39,13 +25,13 @@ const FeatureComparison = () => {
       feature: getFeatureText('userAccounts'),
       starter: '1',
       professional: '3',
-      enterprise: getFeatureText('unlimited'),
+      enterprise: getFeatureText('custom'),
     },
     {
       feature: getFeatureText('integrations'),
       starter: '3',
       professional: '6',
-      enterprise: getFeatureText('unlimited'),
+      enterprise: getFeatureText('custom'),
     },
     {
       feature: getFeatureText('images'),
@@ -61,11 +47,11 @@ const FeatureComparison = () => {
     },
   ];
   
-  // Get translated titles with fallbacks
-  const comparisonTitle = safeTr('features.comparison.title', 'Feature Comparison');
-  const comparisonDescription = safeTr('features.comparison.description', 'Compare our features to find the best plan for your needs');
-  const featureColumnLabel = safeTr('features.comparison.feature', 'Feature');
-  const ctaText = safeTr('features.comparison.cta', 'View Full Pricing');
+  // Get translated titles and labels
+  const comparisonTitle = featuresT('comparison.title');
+  const comparisonDescription = featuresT('comparison.description');
+  const featureColumnLabel = featuresT('comparison.feature');
+  const ctaText = featuresT('comparison.cta');
   
   return (
     <div className="bg-muted py-16 md:py-24 px-4">
@@ -84,9 +70,9 @@ const FeatureComparison = () => {
             <thead>
               <tr className="border-b">
                 <th className="p-4 text-left">{featureColumnLabel}</th>
-                <th className="p-4 text-center">{safeTr('pricing.starter.name', 'Starter')}</th>
-                <th className="p-4 text-center">{safeTr('pricing.professional.name', 'Professional')}</th>
-                <th className="p-4 text-center">{safeTr('pricing.enterprise.name', 'Enterprise')}</th>
+                <th className="p-4 text-center">{featuresT('pricing.starter.name', { namespace: 'pricing' })}</th>
+                <th className="p-4 text-center">{featuresT('pricing.professional.name', { namespace: 'pricing' })}</th>
+                <th className="p-4 text-center">{featuresT('pricing.enterprise.name', { namespace: 'pricing' })}</th>
               </tr>
             </thead>
             <tbody>
@@ -95,17 +81,17 @@ const FeatureComparison = () => {
                   <td className="p-4 font-medium">{item.feature}</td>
                   <td className="p-4 text-center">
                     {typeof item.starter === 'boolean' ? 
-                      (item.starter ? <Check className="h-5 w-5 text-primary mx-auto" /> : '-') : 
+                      (item.starter ? <Check className="h-5 w-5 text-primary mx-auto" aria-label={featuresT('pricing.features.included')} /> : '-') : 
                       item.starter}
                   </td>
                   <td className="p-4 text-center">
                     {typeof item.professional === 'boolean' ? 
-                      (item.professional ? <Check className="h-5 w-5 text-primary mx-auto" /> : '-') : 
+                      (item.professional ? <Check className="h-5 w-5 text-primary mx-auto" aria-label={featuresT('pricing.features.included')} /> : '-') : 
                       item.professional}
                   </td>
                   <td className="p-4 text-center">
                     {typeof item.enterprise === 'boolean' ? 
-                      (item.enterprise ? <Check className="h-5 w-5 text-primary mx-auto" /> : '-') : 
+                      (item.enterprise ? <Check className="h-5 w-5 text-primary mx-auto" aria-label={featuresT('pricing.features.included')} /> : '-') : 
                       item.enterprise}
                   </td>
                 </tr>

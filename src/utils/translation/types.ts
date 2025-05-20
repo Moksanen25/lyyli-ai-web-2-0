@@ -7,4 +7,5 @@ export type SafeTranslationOptions = {
   fallback?: string;
   forceLanguage?: 'en' | 'fi';
   interpolation?: Record<string, string | number>;
+  namespace?: string;
 }

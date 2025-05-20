@@ -1,7 +1,25 @@
 
 export const features = {
-  title: 'Core Features',
-  subtitle: 'Built to streamline your communication workflows',
+  title: 'Features',
+  subtitle: 'Everything you need for effective communication',
+  mainFeatures: {
+    title: 'Core Features'
+  },
+  additionalFeatures: {
+    title: 'Additional Features',
+    ai: {
+      title: 'Advanced AI',
+      description: 'Access to the most powerful AI models'
+    },
+    workflow: {
+      title: 'Workflow Automation',
+      description: 'Automate repetitive tasks'
+    },
+    integration: {
+      title: 'Custom Integrations',
+      description: 'Connect with your existing business tools'
+    }
+  },
   feature1: {
     title: 'AI Content Generation',
     description: 'Create professional content in seconds'
@@ -18,6 +36,13 @@ export const features = {
     title: 'Advanced Analytics',
     description: 'Measure the impact of your communication'
   },
+  comparison: {
+    title: 'Feature Comparison',
+    description: 'Compare our features to find the best plan for your needs',
+    feature: 'Feature',
+    cta: 'View Full Pricing',
+    custom: 'Custom'
+  },
   integrations: {
     title: 'Integrations',
     description: 'Connect Lyyli to your favorite tools',
@@ -25,58 +50,51 @@ export const features = {
     teams: 'Seamless integration with Microsoft Teams workflows',
     api: 'Build custom integrations with our API'
   },
-  hero: {
-    title: 'Features that Drive Results',
-    subtitle: 'Communication Tools',
-    description: 'Our comprehensive suite of AI-powered communication tools helps you create, manage, and optimize your content across all channels.',
-    primaryCta: 'Get Started',
-    secondaryCta: 'View Pricing',
-  },
   customerSegments: {
-    title: 'Industry-Specific Solutions',
-    subtitle: 'See how Lyyli adapts to your industry\'s unique communication needs',
+    title: 'Solutions for Every Industry',
+    subtitle: "Lyyli adapts to your specific industry needs, whether you're in tech, consulting, education, or beyond",
     segments: {
       tech: {
-        title: 'Technology & Software',
-        tagline: 'Streamline technical communications',
-        description: 'Technical teams need precision and clarity. Lyyli helps software companies create better documentation, release notes, and technical marketing materials that speak directly to developers and technical users.',
-        quote: 'Lyyli helped us reduce our documentation time by 60% while improving quality and consistency across our technical content.',
-        author: 'Maria T., CTO at DevStack'
+        title: 'Technology Companies',
+        tagline: 'Accelerate product releases and marketing communications',
+        description: 'With Lyyli, tech companies can streamline communication workflows and speed up content production.',
+        quote: 'Lyyli has helped us create consistent product documentation and marketing content 70% faster.',
+        author: 'John Smith, Product Manager'
       },
       consulting: {
-        title: 'Consulting & Professional Services',
-        tagline: 'Elevate client communications',
-        description: 'Consulting firms rely on clear, professional communication. Lyyli helps create compelling proposals, regular client updates, and professional reports that showcase your expertise and maintain client trust.',
-        quote: 'We\'ve seen a 40% improvement in client engagement since implementing Lyyli for our client communications program.',
-        author: 'James W., Managing Partner at Insight Consulting'
+        title: 'Consulting',
+        tagline: 'Enhance expert communication efficiency',
+        description: 'Consulting firms can produce professional client communications and analytical reports faster.',
+        quote: 'Lyyli has completely transformed our client reporting process, saving our experts hours each week.',
+        author: 'Sarah Johnson, Consulting Director'
       },
       nonprofit: {
         title: 'Nonprofit Organizations',
-        tagline: 'Amplify your mission',
-        description: 'Nonprofits need to connect emotionally with supporters. Lyyli helps create impactful donor communications, volunteer engagement materials, and awareness campaigns that advance your mission with limited resources.',
-        quote: 'With Lyyli, we can create compelling campaign materials in minutes instead of days, allowing us to focus on our mission.',
-        author: 'Sarah L., Communications Director at Global Hope Initiative'
+        tagline: 'Maximize impact with limited resources',
+        description: 'Nonprofit organizations can reach more supporters and communicate more effectively with limited budgets.',
+        quote: 'With Lyyli, our small team can produce communications that rival much larger organizations.',
+        author: 'Michael Brown, Organization Director'
       },
       education: {
-        title: 'Educational Institutions',
-        tagline: 'Connect your entire community',
-        description: 'Schools and universities juggle communication with students, parents, alumni and staff. Lyyli helps create consistent messaging across departments while personalizing communications for different audiences.',
-        quote: 'Lyyli has transformed how we communicate with our diverse community, saving time while making our messages more relevant to each audience.',
-        author: 'Dr. Robert Chen, Dean of Communications at Westfield University'
+        title: 'Education',
+        tagline: 'Engage learners with better communication',
+        description: 'Educational institutions can create learner-centered content and streamline student and parent communications.',
+        quote: 'Lyyli has allowed us to personalize student communications in ways we never thought possible.',
+        author: 'Emily Chen, Academic Director'
       },
       creative: {
         title: 'Creative Industries',
-        tagline: 'Showcase your creative vision',
-        description: 'Creative professionals need to communicate their unique vision. Lyyli helps design studios, agencies and artists create compelling portfolio descriptions, project proposals, and client presentations that win new business.',
-        quote: 'The AI understands creative language in a way that\'s truly impressive. It\'s like having a dedicated copywriter on staff.',
-        author: 'Emma D., Creative Director at Design Forward'
+        tagline: 'Free up creative time with automation',
+        description: 'Creative industry professionals can automate routine communications and focus on valuable creative work.',
+        quote: 'Lyyli handles the routine stuff so we can focus on what we do best - creativity.',
+        author: 'David Wilson, Creative Director'
       },
       sports: {
-        title: 'Sports & Recreation',
-        tagline: 'Engage fans and participants',
-        description: 'Sports organizations need to keep members, players and fans engaged. Lyyli helps create exciting event promotions, membership communications, and sponsorship materials that build community and drive participation.',
-        quote: 'We\'ve seen a 35% increase in event attendance since using Lyyli to streamline our communications to members.',
-        author: 'Mark J., Communications Manager at Metropolitan Sports League'
+        title: 'Sports Organizations',
+        tagline: 'Engage fans and members effectively',
+        description: 'Sports organizations can improve fan engagement and member communications with intelligent communication tools.',
+        quote: 'We\'ve seen a 40% increase in event attendance thanks to Lyyli\'s personalized messaging.',
+        author: 'Robert Taylor, Marketing Director'
       }
     }
   }
