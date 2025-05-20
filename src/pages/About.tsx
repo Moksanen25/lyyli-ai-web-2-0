@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,10 +13,18 @@ import CompanyTimeline from '@/components/about/CompanyTimeline';
  * Displays company information, mission, team and timeline
  */
 const About = () => {
-  const { t, language } = useLanguage();
+  const { language, verifyLanguageCompleteness } = useLanguage();
   
   // Add console log for debugging
   console.log('About page rendering with language:', language);
+  
+  // Verify translations on mount in development mode
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      console.log('Verifying translations completeness on About page mount');
+      verifyLanguageCompleteness?.();
+    }
+  }, [language, verifyLanguageCompleteness]);
   
   return (
     <div className="min-h-screen flex flex-col">

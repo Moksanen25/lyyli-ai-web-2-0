@@ -33,12 +33,13 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     }
   };
 
-  // Safety check: ensure we have a valid src that's not a translation key
+  // Safety checks for invalid image sources
   const isSrcValid = typeof imgSrc === 'string' && 
     !imgSrc.startsWith('customerSegments.') && 
-    !imgSrc.startsWith('segments.') && 
-    !imgSrc.includes('.') && 
-    !imgSrc.includes(' ');
+    !imgSrc.startsWith('segments.') &&
+    !imgSrc.startsWith('features.') &&
+    !imgSrc.includes('{{') &&
+    !imgSrc.includes('}}');
     
   // Use a display source that's guaranteed to be valid
   const displaySrc = (isSrcValid && imgSrc) ? imgSrc : fallbackSrc;

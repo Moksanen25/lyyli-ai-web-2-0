@@ -18,17 +18,47 @@ import CTASection from '@/components/CTASection';
  * Features page component
  */
 const Features = () => {
-  const { t } = useLanguage();
+  const { t, safeTr, language, verifyLanguageCompleteness } = useLanguage();
   const [showSegmentNav, setShowSegmentNav] = useState(false);
 
-  // Setup segments data for navigation
+  // Check translations on mount
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      console.log('Features page mounted, language:', language);
+      verifyLanguageCompleteness?.();
+    }
+  }, [language, verifyLanguageCompleteness]);
+
+  // Setup segments data with reliable translations
+  const getTranslatedSegment = (id: string, defaultName: string) => {
+    // Try multiple translation paths for maximum reliability
+    let title = t(`customerSegments.${id}.name`);
+    
+    // If that didn't work, try other paths
+    if (title === `customerSegments.${id}.name`) {
+      title = t(`features.customerSegments.segments.${id}.title`);
+    }
+    
+    // If that still didn't work, try direct key
+    if (title.includes('features.customerSegments')) {
+      title = t(`customerSegments.segments.${id}.title`);
+    }
+    
+    // If all else fails, use the provided default
+    if (title.includes('customerSegments') || title.includes('features')) {
+      title = defaultName;
+    }
+    
+    return { id, title };
+  };
+
   const segments = [
-    { id: 'tech-smes', title: t('customerSegments.techSMEs.name') || 'Technology Companies' },
-    { id: 'consulting', title: t('customerSegments.consulting.name') || 'Consulting' },
-    { id: 'nonprofit', title: t('customerSegments.nonprofits.name') || 'Nonprofit' },
-    { id: 'education', title: t('customerSegments.education.name') || 'Education' },
-    { id: 'creative', title: t('customerSegments.creative.name') || 'Creative Industries' },
-    { id: 'sports', title: t('customerSegments.sports.name') || 'Sports Organizations' }
+    getTranslatedSegment('tech', 'Technology Companies'),
+    getTranslatedSegment('consulting', 'Consulting'),
+    getTranslatedSegment('nonprofit', 'Nonprofit'),
+    getTranslatedSegment('education', 'Education'),
+    getTranslatedSegment('creative', 'Creative Industries'),
+    getTranslatedSegment('sports', 'Sports Organizations')
   ];
 
   // Placeholder for segment navigation to prevent content jumps
@@ -48,6 +78,13 @@ const Features = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
+  // Get safe translations with fallbacks for segment section
+  const segmentsTitle = safeTr('customerSegments.title', 'Solutions for Every Industry');
+  const segmentsSubtitle = safeTr(
+    'customerSegments.subtitle', 
+    "Lyyli adapts to your specific industry needs, whether you're in tech, consulting, education, or beyond"
+  );
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -57,8 +94,8 @@ const Features = () => {
         
         {/* Trust Indicators */}
         <ComplianceBadges 
-          title={t('compliance.title') || "Compliance and Security"}
-          description={t('compliance.subtitle') || "Our platform meets the highest security and compliance standards"}
+          title={safeTr('compliance.title', "Compliance and Security")}
+          description={safeTr('compliance.subtitle', "Our platform meets the highest security and compliance standards")}
         />
         
         {/* General Features */}
@@ -74,99 +111,32 @@ const Features = () => {
         {/* Customer Segments Section */}
         <section id="customer-segments" className="py-16 bg-primary/5">
           <div className="container-padding container mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('customerSegments.title') || 'Solutions for Every Industry'}</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('customerSegments.subtitle') || 'Lyyli adapts to your specific industry needs, whether you\'re in tech, consulting, education, or beyond'}
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{segmentsTitle}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{segmentsSubtitle}</p>
           </div>
         </section>
         
-        {/* Tech SMEs Segment */}
-        <SegmentBlock 
-          id="tech-smes"
-          title={t('customerSegments.techSMEs.name') || 'Technology Companies'}
-          tagline={t('customerSegments.techSMEs.description') || 'Streamline technical communication'}
-          description={t('customerSegments.techSMEs.description') || 'Streamline technical communication and product updates'}
-          caseStudy={{
-            quote: t('customerSegments.techSMEs.quote') || 'Lyyli helped us reduce documentation time by 60% while improving quality',
-            author: t('customerSegments.techSMEs.author') || 'Maria T., CTO, DevStack'
-          }}
-          image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
-          icon="tech"
-        />
-        
-        {/* Consulting Segment */}
-        <SegmentBlock 
-          id="consulting"
-          title={t('customerSegments.consulting.name') || 'Consulting Firms'}
-          tagline={t('customerSegments.consulting.description') || 'Enhance client communication'}
-          description={t('customerSegments.consulting.description') || 'Enhance client communication and project updates'}
-          caseStudy={{
-            quote: t('customerSegments.consulting.quote') || 'We\'ve seen a 40% improvement in client engagement',
-            author: t('customerSegments.consulting.author') || 'James W., Managing Partner, Insight Consulting'
-          }}
-          image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
-          icon="consulting"
-          reverse={true}
-        />
-        
-        {/* Nonprofit Segment */}
-        <SegmentBlock 
-          id="nonprofit"
-          title={t('customerSegments.nonprofits.name') || 'Nonprofit Organizations'}
-          tagline={t('customerSegments.nonprofits.description') || 'Streamline donor communication'}
-          description={t('customerSegments.nonprofits.description') || 'Streamline donor communication and volunteer programs'}
-          caseStudy={{
-            quote: t('customerSegments.nonprofits.quote') || 'With Lyyli, we can create impactful campaign materials in minutes',
-            author: t('customerSegments.nonprofits.author') || 'Sarah L., Communications Director, Global Hope Initiative'
-          }}
-          image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=800"
-          icon="nonprofit"
-        />
-        
-        {/* Education Segment */}
-        <SegmentBlock 
-          id="education"
-          title={t('customerSegments.education.name') || 'Educational Institutions'}
-          tagline={t('customerSegments.education.description') || 'Connect with your educational community'}
-          description={t('customerSegments.education.description') || 'Connect students, parents and faculty with effective communication'}
-          caseStudy={{
-            quote: t('customerSegments.education.quote') || 'Lyyli has transformed how we communicate with our diverse community',
-            author: t('customerSegments.education.author') || 'Dr. Robert Chen, Dean of Communications, Westfield University'
-          }}
-          image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800"
-          icon="education"
-          reverse={true}
-        />
-        
-        {/* Creative Segment */}
-        <SegmentBlock 
-          id="creative"
-          title={t('customerSegments.creative.name') || 'Creative Industries'}
-          tagline={t('customerSegments.creative.description') || 'Showcase your creative work professionally'}
-          description={t('customerSegments.creative.description') || 'Showcase your creative work professionally and win new clients'}
-          caseStudy={{
-            quote: t('customerSegments.creative.quote') || 'The AI understands creative language in a way that\'s truly impressive',
-            author: t('customerSegments.creative.author') || 'Emma D., Creative Director, Design Forward'
-          }}
-          image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
-          icon="creative"
-        />
-        
-        {/* Sports Segment */}
-        <SegmentBlock 
-          id="sports"
-          title={t('customerSegments.sports.name') || 'Sports Organizations'}
-          tagline={t('customerSegments.sports.description') || 'Engage your sports community'}
-          description={t('customerSegments.sports.description') || 'Engage fans, members and sponsors with effective communication'}
-          caseStudy={{
-            quote: t('customerSegments.sports.quote') || 'We\'ve seen a 35% increase in event attendance since streamlining our communication',
-            author: t('customerSegments.sports.author') || 'Mark J., Communications Manager, Metropolitan Sports League'
-          }}
-          image="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800"
-          icon="sports"
-          reverse={true}
-        />
+        {/* Render each segment block with safe translations */}
+        {segments.map((segment, index) => (
+          <SegmentBlock 
+            key={segment.id}
+            id={segment.id}
+            title={segment.title}
+            tagline={safeTr(`customerSegments.${segment.id}.tagline`, '') || 
+                    safeTr(`features.customerSegments.segments.${segment.id}.tagline`, '')}
+            description={safeTr(`customerSegments.${segment.id}.description`, '') || 
+                        safeTr(`features.customerSegments.segments.${segment.id}.description`, '')}
+            caseStudy={{
+              quote: safeTr(`customerSegments.${segment.id}.quote`, '') || 
+                    safeTr(`features.customerSegments.segments.${segment.id}.quote`, ''),
+              author: safeTr(`customerSegments.${segment.id}.author`, '') || 
+                     safeTr(`features.customerSegments.segments.${segment.id}.author`, '')
+            }}
+            image={`https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800`}
+            icon={segment.id}
+            reverse={index % 2 === 1}
+          />
+        ))}
         
         {/* Customer Quotes */}
         <CustomerQuotes />

@@ -7,21 +7,21 @@ import { Button } from '@/components/ui/button';
 import BookDemoDialog from '@/components/BookDemoDialog';
 
 const FeaturesSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, featuresT, safeTr } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
   
-  // Make sure we have default text if translations fail
-  const featureTitle1 = t('features.feature1.title') || 'AI Content Generation';
-  const featureDesc1 = t('features.feature1.description') || 'Create professional content in seconds';
+  // Use both featuresT and safeTr for maximum safety
+  const featureTitle1 = featuresT('feature1.title', { fallback: 'AI Content Generation' });
+  const featureDesc1 = featuresT('feature1.description', { fallback: 'Create professional content in seconds' });
   
-  const featureTitle2 = t('features.feature2.title') || 'Team Collaboration';
-  const featureDesc2 = t('features.feature2.description') || 'Work seamlessly with your entire team';
+  const featureTitle2 = featuresT('feature2.title', { fallback: 'Team Collaboration' });
+  const featureDesc2 = featuresT('feature2.description', { fallback: 'Work seamlessly with your entire team' });
   
-  const featureTitle3 = t('features.feature3.title') || 'Scheduling & Automation';
-  const featureDesc3 = t('features.feature3.description') || 'Set it and forget it with smart scheduling';
+  const featureTitle3 = featuresT('feature3.title', { fallback: 'Scheduling & Automation' });
+  const featureDesc3 = featuresT('feature3.description', { fallback: 'Set it and forget it with smart scheduling' });
   
-  const featureTitle4 = t('features.feature4.title') || 'Advanced Analytics';
-  const featureDesc4 = t('features.feature4.description') || 'Measure the impact of your communication';
+  const featureTitle4 = featuresT('feature4.title', { fallback: 'Advanced Analytics' });
+  const featureDesc4 = featuresT('feature4.description', { fallback: 'Measure the impact of your communication' });
   
   const features = [
     {
@@ -45,14 +45,18 @@ const FeaturesSection: React.FC = () => {
       description: featureDesc4,
     },
   ];
+  
+  // Get a features section title with fallback
+  const featuresTitle = safeTr('features.title', 'Core Features');
+  const featuresSubtitle = safeTr('features.subtitle', 'Built to streamline your communication workflows');
 
   return (
     <section className="py-16 md:py-24 bg-white" id="features">
       <div className="container-padding container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('features.title') || 'Core Features'}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{featuresTitle}</h2>
           <p className="text-xl text-primary/80 max-w-2xl mx-auto">
-            {t('features.subtitle') || 'Built to streamline your communication workflows'}
+            {featuresSubtitle}
           </p>
         </div>
         
@@ -78,7 +82,7 @@ const FeaturesSection: React.FC = () => {
             className="bg-primary hover:bg-primary/90"
             onClick={() => setShowDemoDialog(true)}
           >
-            {t('common.bookDemo') || 'Book a Demo'}
+            {safeTr('common.bookDemo', 'Book a Demo')}
           </Button>
         </div>
       </div>

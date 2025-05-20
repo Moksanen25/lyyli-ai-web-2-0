@@ -13,22 +13,27 @@ export const getBrowserLanguage = (): SupportedLanguage => {
   }
 };
 
-// Function to find translation value by key
+// Function to safely find translation value by key
 export const findTranslationValue = (
   obj: any, 
   keys: string[], 
   index: number = 0
 ): string | null => {
-  if (!obj || index >= keys.length) {
-    return typeof obj === 'string' ? obj : null;
-  }
-  
-  const key = keys[index];
-  if (obj[key] === undefined) {
+  try {
+    if (!obj || index >= keys.length) {
+      return typeof obj === 'string' ? obj : null;
+    }
+    
+    const key = keys[index];
+    if (obj[key] === undefined) {
+      return null;
+    }
+    
+    return findTranslationValue(obj[key], keys, index + 1);
+  } catch (error) {
+    console.error(`Error finding translation value for keys: ${keys.join('.')}`, error);
     return null;
   }
-  
-  return findTranslationValue(obj[key], keys, index + 1);
 };
 
 // Extract language path segment from URL
@@ -56,4 +61,27 @@ export const getUpdatedPath = (
   }
   
   return null; // No change needed
+};
+
+// Safe way to get a nested translation object
+export const getNestedTranslation = (obj: any, path: string): any => {
+  if (!obj || !path) return null;
+  
+  try {
+    const keys = path.split('.');
+    let result = obj;
+    
+    for (const key of keys) {
+      if (result && typeof result === 'object' && key in result) {
+        result = result[key];
+      } else {
+        return null;
+      }
+    }
+    
+    return result;
+  } catch (error) {
+    console.error(`Error accessing nested translation path: ${path}`, error);
+    return null;
+  }
 };
