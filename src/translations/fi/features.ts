@@ -24,10 +24,22 @@ export const features = {
   supportDesc: 'Saat prioriteettitukea ja omistautuneen tilin hallinnan',
   integrationsTitle: 'Mukautetut integraatiot',
   integrationsDesc: 'Yhdistä olemassa oleviin yritystyökaluihin',
+  mainFeatures: {
+    title: 'Ydinominaisuudet'
+  },
   additionalFeatures: {
+    title: 'Lisäominaisuudet',
     ai: {
       title: 'Kehittynyt tekoäly',
       description: 'Pääsy tehokkaimpiin tekoälymalleihin'
+    },
+    workflow: {
+      title: 'Työnkulun automatisointi',
+      description: 'Automatisoi toistuvat tehtävät'
+    },
+    integration: {
+      title: 'Mukautetut integraatiot',
+      description: 'Yhdistä olemassa oleviin yritystyökaluihin'
     }
   },
   hero: {

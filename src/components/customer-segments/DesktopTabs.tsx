@@ -24,14 +24,14 @@ const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
           <TabsTrigger 
             key={segment.id} 
             value={segment.id}
-            className="flex flex-col gap-2 py-3 px-1 h-auto min-h-[4rem] whitespace-normal"
+            className="flex flex-col gap-2 py-3 px-2 h-auto min-h-[4rem] whitespace-normal text-[0.85rem]"
           >
             {segment.icon && (
               <div className="text-muted-foreground">
                 {segment.icon}
               </div>
             )}
-            <span className="text-center text-xs md:text-sm line-clamp-2">{segment.name}</span>
+            <span className="text-center line-clamp-2">{segment.name}</span>
           </TabsTrigger>
         ))}
       </TabsList>

@@ -75,9 +75,9 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
               <TableCell className="text-center">
                 {typeof feature.starter === 'boolean' ? (
                   feature.starter ? (
-                    <Check className="h-5 w-5 text-green-500 mx-auto" title={includedText} />
+                    <Check className="h-5 w-5 text-green-500 mx-auto" aria-label={includedText} />
                   ) : (
-                    <X className="h-5 w-5 text-muted-foreground mx-auto" title={notIncludedText} />
+                    <X className="h-5 w-5 text-muted-foreground mx-auto" aria-label={notIncludedText} />
                   )
                 ) : (
                   <span>{feature.starter}</span>
@@ -86,9 +86,9 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
               <TableCell className="text-center">
                 {typeof feature.professional === 'boolean' ? (
                   feature.professional ? (
-                    <Check className="h-5 w-5 text-green-500 mx-auto" title={includedText} />
+                    <Check className="h-5 w-5 text-green-500 mx-auto" aria-label={includedText} />
                   ) : (
-                    <X className="h-5 w-5 text-muted-foreground mx-auto" title={notIncludedText} />
+                    <X className="h-5 w-5 text-muted-foreground mx-auto" aria-label={notIncludedText} />
                   )
                 ) : (
                   <span>{feature.professional}</span>
@@ -97,9 +97,9 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
               <TableCell className="text-center">
                 {typeof feature.enterprise === 'boolean' ? (
                   feature.enterprise ? (
-                    <Check className="h-5 w-5 text-green-500 mx-auto" title={includedText} />
+                    <Check className="h-5 w-5 text-green-500 mx-auto" aria-label={includedText} />
                   ) : (
-                    <X className="h-5 w-5 text-muted-foreground mx-auto" title={notIncludedText} />
+                    <X className="h-5 w-5 text-muted-foreground mx-auto" aria-label={notIncludedText} />
                   )
                 ) : (
                   <span>{feature.enterprise}</span>

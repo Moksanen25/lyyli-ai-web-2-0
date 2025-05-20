@@ -4,46 +4,68 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { BookOpen, Users, Calendar, PieChart, Wand, Layers, Network } from 'lucide-react';
 
 const FeatureDetails = () => {
-  const { t } = useLanguage();
+  const { t, safeTr, featuresT } = useLanguage();
+  
+  // Use enhanced translation helpers for better fallback
+  const getFeatureTranslation = (key: string, defaultValue: string): string => {
+    // Try multiple paths to get the translation
+    const directTranslation = t(`features.${key}`);
+    if (directTranslation && directTranslation !== `features.${key}`) {
+      return directTranslation;
+    }
+    
+    // Try with featuresT helper
+    const featureTranslation = featuresT(key);
+    if (featureTranslation && !featureTranslation.includes('features.')) {
+      return featureTranslation;
+    }
+    
+    // Last resort fallback
+    return safeTr(`features.${key}`, defaultValue);
+  };
+  
+  // Get main feature section title with fallback
+  const mainFeaturesTitle = getFeatureTranslation('mainFeatures.title', 'Core Features');
+  const additionalFeaturesTitle = getFeatureTranslation('additionalFeatures.title', 'Additional Features');
   
   const mainFeatures = [
     {
       icon: <BookOpen className="h-10 w-10 text-primary" />,
-      title: t('features.feature1.title'),
-      description: t('features.feature1.description'),
+      title: getFeatureTranslation('feature1.title', 'AI Content Generation'),
+      description: getFeatureTranslation('feature1.description', 'Create professional content in seconds'),
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
-      title: t('features.feature2.title'),
-      description: t('features.feature2.description'),
+      title: getFeatureTranslation('feature2.title', 'Team Collaboration'),
+      description: getFeatureTranslation('feature2.description', 'Work seamlessly with your entire team'),
     },
     {
       icon: <Calendar className="h-10 w-10 text-primary" />,
-      title: t('features.feature3.title'),
-      description: t('features.feature3.description'),
+      title: getFeatureTranslation('feature3.title', 'Scheduling & Automation'),
+      description: getFeatureTranslation('feature3.description', 'Set it and forget it with smart scheduling'),
     },
     {
       icon: <PieChart className="h-10 w-10 text-primary" />,
-      title: t('features.feature4.title'),
-      description: t('features.feature4.description'),
+      title: getFeatureTranslation('feature4.title', 'Advanced Analytics'),
+      description: getFeatureTranslation('feature4.description', 'Measure the impact of your communication'),
     },
   ];
 
   const additionalFeatures = [
     {
       icon: <Wand className="h-8 w-8 text-primary" />,
-      title: t('features.additionalFeatures.ai.title'),
-      description: t('features.additionalFeatures.ai.description'),
+      title: getFeatureTranslation('additionalFeatures.ai.title', 'Advanced AI'),
+      description: getFeatureTranslation('additionalFeatures.ai.description', 'Access to the most powerful AI models'),
     },
     {
       icon: <Layers className="h-8 w-8 text-primary" />,
-      title: t('features.additionalFeatures.workflow.title'),
-      description: t('features.additionalFeatures.workflow.description'),
+      title: getFeatureTranslation('additionalFeatures.workflow.title', 'Workflow Automation'),
+      description: getFeatureTranslation('additionalFeatures.workflow.description', 'Automate repetitive tasks'),
     },
     {
       icon: <Network className="h-8 w-8 text-primary" />,
-      title: t('features.additionalFeatures.integration.title'),
-      description: t('features.additionalFeatures.integration.description'),
+      title: getFeatureTranslation('additionalFeatures.integration.title', 'Custom Integrations'),
+      description: getFeatureTranslation('additionalFeatures.integration.description', 'Connect with your existing business tools'),
     },
   ];
   
@@ -53,7 +75,7 @@ const FeatureDetails = () => {
         {/* Main Features Section */}
         <div className="mb-20">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            {t('features.mainFeatures.title')}
+            {mainFeaturesTitle}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -76,7 +98,7 @@ const FeatureDetails = () => {
         {/* Additional Features Section */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            {t('features.additionalFeatures.title')}
+            {additionalFeaturesTitle}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
