@@ -2,6 +2,13 @@
 export const features = {
   title: 'Features',
   subtitle: 'Everything you need for effective communication',
+  hero: {
+    title: 'Powerful communication for modern business',
+    subtitle: 'Next-generation communication tools',
+    description: 'Lyyli provides all the tools you need for effective and professional communication in today\'s business environment.',
+    primaryCta: 'Get started for free',
+    secondaryCta: 'Book a demo'
+  },
   mainFeatures: {
     title: 'Core Features'
   },
@@ -41,7 +48,12 @@ export const features = {
     description: 'Compare our features to find the best plan for your needs',
     feature: 'Feature',
     cta: 'View Full Pricing',
-    custom: 'Custom'
+    custom: 'Custom',
+    aiAgents: 'AI Agents',
+    userAccounts: 'User Accounts',
+    integrations: 'Integrations',
+    images: 'Images',
+    workflows: 'Workflows'
   },
   integrations: {
     title: 'Integrations',
@@ -50,9 +62,32 @@ export const features = {
     teams: 'Seamless integration with Microsoft Teams workflows',
     api: 'Build custom integrations with our API'
   },
+  faq: {
+    title: 'Frequently Asked Questions',
+    question1: 'What does Lyyli do?',
+    answer1: 'Lyyli is an intelligent communication platform that helps you create, manage, and share professional content efficiently with AI assistance.',
+    question2: 'How does pricing work?',
+    answer2: 'We offer three pricing models: Starter, Professional, and Enterprise. Each model offers different features for different needs. You can compare them on our pricing page.',
+    question3: 'Is Lyyli GDPR compliant?',
+    answer3: 'Yes, Lyyli is fully GDPR compliant and processes all data according to EU data protection legislation.',
+    question4: 'Can I use Lyyli on mobile devices?',
+    answer4: 'Yes, Lyyli is designed to work seamlessly on both desktop and mobile environments. You can use the service on any device with an internet connection.'
+  },
+  pricing: {
+    starter: {
+      name: 'Starter'
+    },
+    professional: {
+      name: 'Professional'
+    },
+    enterprise: {
+      name: 'Enterprise'
+    }
+  },
   customerSegments: {
     title: 'Solutions for Every Industry',
     subtitle: "Lyyli adapts to your specific industry needs, whether you're in tech, consulting, education, or beyond",
+    navigation: 'Browse industry solutions',
     segments: {
       tech: {
         title: 'Technology Companies',
