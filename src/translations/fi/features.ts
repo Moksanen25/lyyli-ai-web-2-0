@@ -48,7 +48,12 @@ export const features = {
     description: 'Vertaile ominaisuuksiamme löytääksesi tarpeisiisi sopivan suunnitelman',
     feature: 'Ominaisuus',
     cta: 'Näytä täysi hinnoittelu',
-    custom: 'Mukautettu'
+    custom: 'Mukautettu',
+    aiAgents: 'Tekoälyagentit',
+    userAccounts: 'Käyttäjätilit',
+    integrations: 'Integraatiot',
+    images: 'Kuvat',
+    workflows: 'Työnkulut'
   },
   integrations: {
     title: 'Integraatiot',
@@ -78,13 +83,6 @@ export const features = {
     enterprise: {
       name: 'Yritys'
     }
-  },
-  comparison: {
-    aiAgents: 'Tekoälyagentit',
-    userAccounts: 'Käyttäjätilit',
-    integrations: 'Integraatiot',
-    images: 'Kuvat',
-    workflows: 'Työnkulut'
   },
   faq: {
     title: 'Usein kysytyt kysymykset',
