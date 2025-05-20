@@ -14,6 +14,9 @@ import FeatureComparison from '@/components/features/FeatureComparison';
 import FeatureFAQ from '@/components/features/FeatureFAQ';
 import CTASection from '@/components/CTASection';
 
+// Define the segment type to match expected values
+type SegmentType = "tech" | "consulting" | "nonprofit" | "education" | "creative" | "sports";
+
 /**
  * Features page component
  */
@@ -30,7 +33,7 @@ const Features = () => {
   }, [language, verifyLanguageCompleteness]);
 
   // Setup segments data with reliable translations
-  const getTranslatedSegment = (id: string, defaultName: string) => {
+  const getTranslatedSegment = (id: SegmentType, defaultName: string) => {
     // Try multiple translation paths for maximum reliability
     let title = t(`customerSegments.${id}.name`);
     
@@ -52,13 +55,14 @@ const Features = () => {
     return { id, title };
   };
 
+  // Define segments with properly typed segment IDs
   const segments = [
-    getTranslatedSegment('tech', 'Technology Companies'),
-    getTranslatedSegment('consulting', 'Consulting'),
-    getTranslatedSegment('nonprofit', 'Nonprofit'),
-    getTranslatedSegment('education', 'Education'),
-    getTranslatedSegment('creative', 'Creative Industries'),
-    getTranslatedSegment('sports', 'Sports Organizations')
+    getTranslatedSegment("tech", 'Technology Companies'),
+    getTranslatedSegment("consulting", 'Consulting'),
+    getTranslatedSegment("nonprofit", 'Nonprofit'),
+    getTranslatedSegment("education", 'Education'),
+    getTranslatedSegment("creative", 'Creative Industries'),
+    getTranslatedSegment("sports", 'Sports Organizations')
   ];
 
   // Placeholder for segment navigation to prevent content jumps
@@ -120,7 +124,7 @@ const Features = () => {
         {segments.map((segment, index) => (
           <SegmentBlock 
             key={segment.id}
-            id={segment.id}
+            id={segment.id as SegmentType}
             title={segment.title}
             tagline={safeTr(`customerSegments.${segment.id}.tagline`, '') || 
                     safeTr(`features.customerSegments.segments.${segment.id}.tagline`, '')}
@@ -133,7 +137,7 @@ const Features = () => {
                      safeTr(`features.customerSegments.segments.${segment.id}.author`, '')
             }}
             image={`https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800`}
-            icon={segment.id}
+            icon={segment.id as SegmentType}
             reverse={index % 2 === 1}
           />
         ))}
