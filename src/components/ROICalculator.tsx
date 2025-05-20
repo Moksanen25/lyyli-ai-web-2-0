@@ -17,8 +17,8 @@ const ROICalculator = () => {
     const roi = ((savings - lyyliCost) / lyyliCost) * 100;
 
     return {
-      timeCost: timeCost.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-      savings: savings.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+      timeCost: timeCost.toLocaleString('en-US', { style: 'currency', currency: 'EUR' }),
+      savings: savings.toLocaleString('en-US', { style: 'currency', currency: 'EUR' }),
       roi: roi.toFixed(2),
     };
   };

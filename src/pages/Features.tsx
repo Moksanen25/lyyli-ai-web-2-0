@@ -21,7 +21,7 @@ type SegmentType = "tech" | "consulting" | "nonprofit" | "education" | "creative
  * Features page component
  */
 const Features = () => {
-  const { t, safeTr, language, verifyLanguageCompleteness } = useLanguage();
+  const { t, safeTr, featuresT, customerSegmentsT, language, verifyLanguageCompleteness } = useLanguage();
   const [showSegmentNav, setShowSegmentNav] = useState(false);
 
   // Check translations on mount
@@ -34,21 +34,21 @@ const Features = () => {
 
   // Setup segments data with reliable translations
   const getTranslatedSegment = (id: SegmentType, defaultName: string) => {
-    // Try multiple translation paths for maximum reliability
-    let title = t(`customerSegments.${id}.name`);
+    // First try features path
+    let title = featuresT(`customerSegments.segments.${id}.title`);
     
-    // If that didn't work, try other paths
-    if (title === `customerSegments.${id}.name`) {
+    // If that didn't work, try direct path
+    if (!title || title === `customerSegments.segments.${id}.title` || title.includes('features.')) {
+      title = customerSegmentsT(`segments.${id}.title`);
+    }
+    
+    // If that still didn't work, try direct customerSegments path 
+    if (!title || title.includes('customerSegments.') || title.includes('segments.')) {
       title = t(`features.customerSegments.segments.${id}.title`);
     }
     
-    // If that still didn't work, try direct key
-    if (title.includes('features.customerSegments')) {
-      title = t(`customerSegments.segments.${id}.title`);
-    }
-    
     // If all else fails, use the provided default
-    if (title.includes('customerSegments') || title.includes('features')) {
+    if (!title || title.includes('customerSegments') || title.includes('features') || title.includes('segments')) {
       title = defaultName;
     }
     
@@ -83,8 +83,8 @@ const Features = () => {
   }, []);
   
   // Get safe translations with fallbacks for segment section
-  const segmentsTitle = safeTr('customerSegments.title', 'Solutions for Every Industry');
-  const segmentsSubtitle = safeTr(
+  const segmentsTitle = featuresT('customerSegments.title') || safeTr('customerSegments.title', 'Solutions for Every Industry');
+  const segmentsSubtitle = featuresT('customerSegments.subtitle') || safeTr(
     'customerSegments.subtitle', 
     "Lyyli adapts to your specific industry needs, whether you're in tech, consulting, education, or beyond"
   );
@@ -121,26 +121,45 @@ const Features = () => {
         </section>
         
         {/* Render each segment block with safe translations */}
-        {segments.map((segment, index) => (
-          <SegmentBlock 
-            key={segment.id}
-            id={segment.id as SegmentType}
-            title={segment.title}
-            tagline={safeTr(`customerSegments.${segment.id}.tagline`, '') || 
-                    safeTr(`features.customerSegments.segments.${segment.id}.tagline`, '')}
-            description={safeTr(`customerSegments.${segment.id}.description`, '') || 
-                        safeTr(`features.customerSegments.segments.${segment.id}.description`, '')}
-            caseStudy={{
-              quote: safeTr(`customerSegments.${segment.id}.quote`, '') || 
-                    safeTr(`features.customerSegments.segments.${segment.id}.quote`, ''),
-              author: safeTr(`customerSegments.${segment.id}.author`, '') || 
-                     safeTr(`features.customerSegments.segments.${segment.id}.author`, '')
-            }}
-            image={`https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800`}
-            icon={segment.id as SegmentType}
-            reverse={index % 2 === 1}
-          />
-        ))}
+        {segments.map((segment, index) => {
+          // Get translations for this specific segment with multiple fallbacks
+          const tagline = featuresT(`customerSegments.segments.${segment.id}.tagline`) || 
+                          customerSegmentsT(`segments.${segment.id}.tagline`) || 
+                          safeTr(`customerSegments.${segment.id}.tagline`, '') || 
+                          safeTr(`features.customerSegments.segments.${segment.id}.tagline`, '');
+          
+          const description = featuresT(`customerSegments.segments.${segment.id}.description`) || 
+                              customerSegmentsT(`segments.${segment.id}.description`) || 
+                              safeTr(`customerSegments.${segment.id}.description`, '') || 
+                              safeTr(`features.customerSegments.segments.${segment.id}.description`, '');
+          
+          const quote = featuresT(`customerSegments.segments.${segment.id}.quote`) || 
+                        customerSegmentsT(`segments.${segment.id}.quote`) || 
+                        safeTr(`customerSegments.${segment.id}.quote`, '') || 
+                        safeTr(`features.customerSegments.segments.${segment.id}.quote`, '');
+          
+          const author = featuresT(`customerSegments.segments.${segment.id}.author`) || 
+                         customerSegmentsT(`segments.${segment.id}.author`) || 
+                         safeTr(`customerSegments.${segment.id}.author`, '') || 
+                         safeTr(`features.customerSegments.segments.${segment.id}.author`, '');
+                  
+          return (
+            <SegmentBlock 
+              key={segment.id}
+              id={segment.id as SegmentType}
+              title={segment.title}
+              tagline={tagline}
+              description={description}
+              caseStudy={{
+                quote: quote,
+                author: author
+              }}
+              image={`https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800`}
+              icon={segment.id as SegmentType}
+              reverse={index % 2 === 1}
+            />
+          );
+        })}
         
         {/* Customer Quotes */}
         <CustomerQuotes />
