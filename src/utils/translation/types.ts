@@ -1,8 +1,5 @@
 
-/**
- * Options for safe translation functions
- */
-export type SafeTranslationOptions = {
+export interface SafeTranslationOptions {
   debug?: boolean;
   fallback?: string;
   forceLanguage?: 'en' | 'fi';

@@ -1,4 +1,3 @@
-
 export const features = {
   title: 'Features',
   subtitle: 'Everything you need for effective communication',
@@ -93,6 +92,91 @@ export const features = {
     },
     enterprise: {
       name: 'Enterprise'
+    }
+  },
+  // New section for our solution finder chat
+  solutionFinder: {
+    sectionTitle: 'Find the Perfect Solution for Your Industry',
+    sectionDescription: 'Chat with our AI assistant to discover how Lyyli can help solve your specific industry challenges.',
+    title: 'Lyyli Industry Advisor',
+    welcomeMessage: "Hi there! I'm Lyyli, your assistant for finding the perfect solution for your industry. What type of organization are you from? You can select one of the options below or tell me about your organization.",
+    inputPlaceholder: "Ask about your industry...",
+    openChat: "Open industry advisor",
+    closeChat: "Close industry advisor",
+    bookDemo: "Book a Demo",
+    segmentInfo: {
+      tech: {
+        challenges: [
+          "Managing complex product release communications",
+          "Maintaining consistent technical documentation",
+          "Coordinating communications across distributed teams"
+        ],
+        solutions: [
+          "Automated release note generation",
+          "AI-assisted technical documentation",
+          "Centralized communication platform"
+        ]
+      },
+      consulting: {
+        challenges: [
+          "Creating consistent client-facing communications",
+          "Maintaining brand voice across different consultants",
+          "Efficiently producing professional reports"
+        ],
+        solutions: [
+          "Templatized client communications",
+          "AI-powered brand voice consistency",
+          "Automated report generation"
+        ]
+      },
+      nonprofit: {
+        challenges: [
+          "Limited resources for communication activities",
+          "Reaching diverse stakeholder groups effectively",
+          "Creating compelling fundraising messages"
+        ],
+        solutions: [
+          "Efficient communication workflows for small teams",
+          "Targeted messaging for different audiences",
+          "AI-assisted fundraising content"
+        ]
+      },
+      education: {
+        challenges: [
+          "Communicating with students, parents, and faculty",
+          "Managing communications across departments",
+          "Creating engaging educational content"
+        ],
+        solutions: [
+          "Audience-specific communication channels",
+          "Centralized communications management",
+          "AI-enhanced educational content"
+        ]
+      },
+      creative: {
+        challenges: [
+          "Presenting creative work professionally",
+          "Managing client communications during projects",
+          "Maintaining consistent brand voice"
+        ],
+        solutions: [
+          "Professional presentation templates",
+          "Streamlined client communication workflows",
+          "Brand voice consistency tools"
+        ]
+      },
+      sports: {
+        challenges: [
+          "Engaging fans and members effectively",
+          "Coordinating communications across the organization",
+          "Creating compelling event promotions"
+        ],
+        solutions: [
+          "Automated fan engagement tools",
+          "Centralized communication platform",
+          "AI-assisted event promotion"
+        ]
+      }
     }
   },
   customerSegments: {

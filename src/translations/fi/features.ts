@@ -1,21 +1,20 @@
-
 export const features = {
   title: 'Ominaisuudet',
   subtitle: 'Kaikki mitä tarvitset tehokkaaseen viestintään',
   hero: {
-    title: 'Tehokas viestintä moderniin liiketoimintaan',
-    subtitle: 'Uuden sukupolven viestintätyökalut',
+    title: 'Tehokasta viestintää moderniin liiketoimintaan',
+    subtitle: 'Seuraavan sukupolven viestintätyökalut',
     description: 'Lyyli tarjoaa kaikki työkalut, joita tarvitset tehokkaaseen ja ammattimaiseen viestintään nykypäivän liiketoimintaympäristössä.',
     primaryCta: 'Aloita ilmaiseksi',
-    secondaryCta: 'Varaa esittely'
+    secondaryCta: 'Varaa demo'
   },
   mainFeatures: {
-    title: 'Ydinominaisuudet'
+    title: 'Pääominaisuudet'
   },
   additionalFeatures: {
     title: 'Lisäominaisuudet',
     ai: {
-      title: 'Edistynyt tekoäly',
+      title: 'Edistyksellinen tekoäly',
       description: 'Pääsy tehokkaimpiin tekoälymalleihin'
     },
     workflow: {
@@ -23,31 +22,42 @@ export const features = {
       description: 'Automatisoi toistuvat tehtävät'
     },
     integration: {
-      title: 'Räätälöidyt integraatiot',
-      description: 'Yhdistä olemassa oleviin liiketoimintatyökaluihin'
+      title: 'Mukautetut integraatiot',
+      description: 'Yhdistä olemassa oleviin liiketoimintatyökaluihisi'
     }
   },
   feature1: {
-    title: 'Tekoälysisällön luominen',
+    title: 'Tekoälyn sisällöntuotanto',
     description: 'Luo ammattimaista sisältöä sekunneissa'
   },
   feature2: {
-    title: 'Tiimityöskentely',
+    title: 'Tiimiyhteistyö',
     description: 'Työskentele saumattomasti koko tiimisi kanssa'
   },
   feature3: {
     title: 'Aikataulutus ja automatisointi',
-    description: 'Aseta ja unohda älykkään aikataulutuksen avulla'
+    description: 'Aseta se ja unohda se älykkään aikataulutuksen avulla'
   },
   feature4: {
     title: 'Edistynyt analytiikka',
-    description: 'Mittaa viestintäsi vaikutusta'
+    description: 'Mittaa viestinnän vaikutusta'
+  },
+  quotes: {
+    title: 'Mitä asiakkaamme sanovat',
+    quote1: 'Lyyli on muuttanut tapaamme kommunikoida asiakkaidemme kanssa. Pelkästään tekoälyn sisällöntuotanto on säästänyt tiimiltämme lukemattomia tunteja joka viikko.',
+    author1: 'Jennifer Martinez',
+    role1: 'Markkinointijohtaja',
+    feature1: 'Tekoälyn sisällöntuotanto',
+    quote2: 'Yhteistyöominaisuudet ovat saaneet etätiimimme tuntemaan, että olemme kaikki samassa huoneessa. Tuottavuutemme on kasvanut 40 % käyttöönoton jälkeen.',
+    author2: 'Michael Johnson',
+    role2: 'Toiminnanjohtaja',
+    feature2: 'Tiimiyhteistyö'
   },
   comparison: {
-    title: 'Ominaisuusvertailu',
-    description: 'Vertaile ominaisuuksiamme löytääksesi tarpeisiisi sopivan suunnitelman',
+    title: 'Ominaisuuksien vertailu',
+    description: 'Vertaile ominaisuuksiamme löytääksesi parhaan suunnitelman tarpeisiisi',
     feature: 'Ominaisuus',
-    cta: 'Näytä täysi hinnoittelu',
+    cta: 'Katso koko hinnoittelu',
     custom: 'Mukautettu',
     aiAgents: 'Tekoälyagentit',
     userAccounts: 'Käyttäjätilit',
@@ -59,23 +69,23 @@ export const features = {
     title: 'Integraatiot',
     description: 'Yhdistä Lyyli suosikkityökaluihisi',
     slack: 'Lähetä ja vastaanota viestejä suoraan Slackista',
-    teams: 'Saumaton integraatio Microsoft Teams -työnkulkuihin',
+    teams: 'Saumaton integrointi Microsoft Teams -työnkulkuihin',
     api: 'Rakenna mukautettuja integraatioita API:mme avulla'
   },
-  quotes: {
-    title: 'Mitä asiakkaamme sanovat',
-    quote1: 'Lyylin ansiosta viestintätiimimme on 3x tuottavampi. Suosittelemme lämpimästi.',
-    author1: 'Matti Meikäläinen',
-    role1: 'Markkinointijohtaja, TechFirm Oy',
-    feature1: 'TEHOKKUUS',
-    quote2: 'Olemme säästäneet aikaa ja resursseja Lyylin avulla. Sisällöntuotantomme on nyt huomattavasti tehokkaampaa.',
-    author2: 'Laura Virtanen',
-    role2: 'Viestintäjohtaja, Big Corp Finland',
-    feature2: 'SÄÄSTÖT'
+  faq: {
+    title: 'Usein kysytyt kysymykset',
+    question1: 'Mitä Lyyli tekee?',
+    answer1: 'Lyyli on älykäs viestintäalusta, jonka avulla voit luoda, hallita ja jakaa ammattimaista sisältöä tehokkaasti tekoälyn avulla.',
+    question2: 'Miten hinnoittelu toimii?',
+    answer2: 'Tarjoamme kolme hinnoittelumallia: Starter, Professional ja Enterprise. Jokainen malli tarjoaa erilaisia ominaisuuksia erilaisiin tarpeisiin. Voit verrata niitä hinnoittelusivullamme.',
+    question3: 'Onko Lyyli GDPR-yhteensopiva?',
+    answer3: 'Kyllä, Lyyli on täysin GDPR-yhteensopiva ja käsittelee kaikki tiedot EU:n tietosuojalainsäädännön mukaisesti.',
+    question4: 'Voinko käyttää Lyyliä mobiililaitteilla?',
+    answer4: 'Kyllä, Lyyli on suunniteltu toimimaan saumattomasti sekä työpöytä- että mobiiliympäristöissä. Voit käyttää palvelua millä tahansa laitteella, jossa on internetyhteys.'
   },
   pricing: {
     starter: {
-      name: 'Aloittaja'
+      name: 'Aloittelija'
     },
     professional: {
       name: 'Ammattilainen'
@@ -84,63 +94,220 @@ export const features = {
       name: 'Yritys'
     }
   },
-  faq: {
-    title: 'Usein kysytyt kysymykset',
-    question1: 'Mitä Lyyli tekee?',
-    answer1: 'Lyyli on älykäs viestintäalusta, joka auttaa luomaan, hallinnoimaan ja jakamaan ammattimaista sisältöä tehokkaasti tekoälyn avulla.',
-    question2: 'Miten hinnoittelu toimii?',
-    answer2: 'Tarjoamme kolme hinnoittelumallia: Aloittaja, Ammattilainen ja Yritys. Jokainen malli tarjoaa erilaisia ominaisuuksia eri tarpeisiin. Voit vertailla niitä hinnoittelusivullamme.',
-    question3: 'Onko Lyyli GDPR-yhteensopiva?',
-    answer3: 'Kyllä, Lyyli on täysin GDPR-yhteensopiva ja käsittelemme kaikkea dataa EU:n tietosuojalainsäädännön mukaisesti.',
-    question4: 'Voiko Lyyliä käyttää mobiililaitteella?',
-    answer4: 'Kyllä, Lyyli on suunniteltu toimimaan saumattomasti sekä työpöytä- että mobiiliympäristöissä. Voit käyttää palvelua missä tahansa laitteessa, jossa on verkkoyhteys.'
+  // New section for solution finder
+  solutionFinder: {
+    sectionTitle: 'Löydä täydellinen ratkaisu toimialallesi',
+    sectionDescription: 'Keskustele tekoälyavustajamme kanssa löytääksesi, miten Lyyli voi ratkaista toimialasi erityiset haasteet.',
+    title: 'Lyylin Toimiala-avustaja',
+    welcomeMessage: "Hei! Olen Lyyli, avustajasi sopivan toimialaratkaisun löytämiseen. Minkä tyyppisestä organisaatiosta olet? Voit valita yhden alla olevista vaihtoehdoista tai kertoa organisaatiostasi.",
+    inputPlaceholder: "Kysy toimialastasi...",
+    openChat: "Avaa toimiala-avustaja",
+    closeChat: "Sulje toimiala-avustaja",
+    bookDemo: "Varaa demo",
+    segmentInfo: {
+      tech: {
+        challenges: [
+          "Monimutkaisten tuotejulkaisuviestien hallinta",
+          "Yhdenmukaisen teknisen dokumentaation ylläpito",
+          "Viestinnän koordinointi hajautettujen tiimien välillä"
+        ],
+        solutions: [
+          "Automatisoitu julkaisuilmoitusten luonti",
+          "Tekoälyavusteinen tekninen dokumentointi",
+          "Keskitetty viestintäalusta"
+        ]
+      },
+      consulting: {
+        challenges: [
+          "Yhdenmukaisen asiakasviestinnän luominen",
+          "Brändiäänen ylläpitäminen eri konsulttien välillä",
+          "Ammattimaisten raporttien tehokas tuottaminen"
+        ],
+        solutions: [
+          "Mallipohjaiset asiakasviestinnät",
+          "Tekoäly-pohjainen brändiäänen johdonmukaisuus",
+          "Automatisoitu raporttien luonti"
+        ]
+      },
+      nonprofit: {
+        challenges: [
+          "Rajallisten resurssien käyttö viestintätoiminnoissa",
+          "Erilaisten sidosryhmien tavoittaminen tehokkaasti",
+          "Vaikuttavien varainhankintaviestien luominen"
+        ],
+        solutions: [
+          "Tehokkaat viestintätyönkulut pienille tiimeille",
+          "Kohdistetut viestit eri yleisöille",
+          "Tekoälyavusteinen varainhankintasisältö"
+        ]
+      },
+      education: {
+        challenges: [
+          "Viestintä opiskelijoiden, vanhempien ja henkilökunnan kanssa",
+          "Viestinnän hallinta eri osastojen välillä",
+          "Mielenkiintoisen opetussisällön luominen"
+        ],
+        solutions: [
+          "Yleisökohtaiset viestintäkanavat",
+          "Keskitetty viestinnän hallinta",
+          "Tekoälyavusteinen opetussisältö"
+        ]
+      },
+      creative: {
+        challenges: [
+          "Luovan työn ammattimainen esittäminen",
+          "Asiakasviestinnän hallinta projektien aikana",
+          "Yhdenmukaisen brändiäänen ylläpitäminen"
+        ],
+        solutions: [
+          "Ammattimaiset esitysmallipohjat",
+          "Virtaviivaiset asiakasviestinnän työnkulut",
+          "Brändiäänen johdonmukaisuustyökalut"
+        ]
+      },
+      sports: {
+        challenges: [
+          "Fanien ja jäsenten tehokas sitouttaminen",
+          "Viestinnän koordinointi organisaation sisällä",
+          "Vaikuttavien tapahtumamarkkinointien luominen"
+        ],
+        solutions: [
+          "Automatisoidut faniviestintätyökalut",
+          "Keskitetty viestintäalusta",
+          "Tekoälyavusteinen tapahtumamarkkinointi"
+        ]
+      }
+    }
   },
   customerSegments: {
-    title: 'Ratkaisu jokaiselle toimialalle',
-    subtitle: 'Lyyli mukautuu toimialasi erityistarpeisiin, oletpa sitten teknologia-, konsultointi-, koulutus- tai muulla alalla',
+    title: 'Ratkaisuja Jokaiselle Toimialalle',
+    subtitle: 'Lyyli mukautuu toimialasi tarpeisiin, olitpa sitten teknologia-, konsultointi-, koulutus- tai muulla alalla',
+    tailoredSolutions: 'Räätälöidyt Ratkaisut',
+    readMore: 'Lue Lisää',
+    techTitle: 'Teknologia & Ohjelmistot',
+    techDesc: 'Optimoitu viestintä nopeatempoisille teknologiayrityksille',
+    consultingTitle: 'Konsultointi',
+    consultingDesc: 'Virtaviivaista asiakasviestintää ja toimituksia',
+    nonprofitTitle: 'Voittoa Tavoittelemattomat',
+    nonprofitDesc: 'Sitouta lahjoittajia ja vapaaehtoisia tehokkaasti',
+    educationTitle: 'Koulutus',
+    educationDesc: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta',
+    creativeTitle: 'Luovat Alat',
+    creativeDesc: 'Esittele luova työsi ammattimaisesti',
+    sportsTitle: 'Urheiluorganisaatiot',
+    sportsDesc: 'Pidä fanit ja jäsenet ajan tasalla ja sitoutuneina',
+    ctaTitle: 'Löydä Täydellinen Ratkaisu',
+    ctaText: 'Tutustu, miten Lyyli voi mukautua toimialasi erityisvaatimuksiin',
+    ctaButton: 'Varaa Demo',
+    challenges: 'Haasteet',
+    solutions: 'Ratkaisut',
+    readCaseStudy: 'Lue Tapaustutkimus',
+    learnMoreButton: 'Lue Lisää',
+    previous: 'Edellinen',
+    next: 'Seuraava',
+    goToSlide: 'Siirry diaan',
+    noSegmentsAvailable: 'Ei toimialasegmenttejä saatavilla',
+    closingText: 'Etkö ole varma, mikä ratkaisu sopii tarpeisiisi? Ota yhteyttä henkilökohtaista konsultaatiota varten.',
+    viewComparisonButton: 'Katso Ominaisuuksien Vertailu',
+    errorTitle: 'Ongelma segmenttien lataamisessa',
+    errorMessage: 'Pahoittelemme, tietojen lataamisessa ilmeni ongelma. Kokeile päivittää sivu.',
     navigation: 'Selaa toimialaratkaisuja',
     segments: {
       tech: {
         title: 'Teknologiayritykset',
-        tagline: 'Nopeuta tuotejulkaisuja ja markkinointiviestintää',
-        description: 'Lyylin avulla teknologiayritykset voivat tehostaa viestintätyönkulkuja ja nopeuttaa sisällöntuotantoa.',
-        quote: 'Lyyli on auttanut meitä luomaan johdonmukaista tuotedokumentaatiota ja markkinointisisältöä 70% nopeammin.',
-        author: 'Marko Virtanen, Tuotepäällikkö'
+        description: 'Virtaviivaista teknistä viestintää ja tuotepäivityksiä',
+        painPoints: [
+          'Tuotepäivitysten kommunikointi useille sidosryhmille',
+          'Teknisen dokumentaation ylläpito ja päivitys',
+          'Viestinnän johdonmukaisuus kanavien välillä'
+        ],
+        solutions: [
+          'Automatisoitu viestintätyönkulku tuotepäivityksille',
+          'Integroitu dokumentaation hallinta',
+          'Yhtenäinen viestintäalusta kaikille kanaville'
+        ],
+        quote: 'Lyyli auttoi meitä vähentämään dokumentointiin käytettyä aikaa 60 % ja samalla parantamaan teknisen sisällön laatua ja yhdenmukaisuutta.',
+        author: 'Maria T., CTO, DevStack'
       },
       consulting: {
-        title: 'Konsultointi',
-        tagline: 'Paranna asiantuntijaviestinnän tehokkuutta',
-        description: 'Konsultointiyritykset voivat tuottaa ammattimaista asiakasviestintää ja analyyttisiä raportteja nopeammin.',
-        quote: 'Lyyli on muuttanut asiakasraporttien luomisprosessimme täysin, säästäen asiantuntijoillemme tunteja viikossa.',
-        author: 'Liisa Mäkinen, Konsultointijohtaja'
+        title: 'Konsultointiyritykset',
+        description: 'Paranna asiakasviestintää ja projektin päivityksiä',
+        painPoints: [
+          'Useiden asiakasprojektien viestinnän koordinointi',
+          'Asiakasraporttien ja esitysten luomisen tehokkuus',
+          'Brändimukautus eri asiakasprojekteissa'
+        ],
+        solutions: [
+          'Asiakaskohtaiset viestintäportaalit',
+          'Automatisoitu raportointityönkulku',
+          'Dynaaminen brändäystyökalu'
+        ],
+        quote: 'Olemme nähneet 40 % parannuksen asiakkaiden sitoutumisessa sen jälkeen, kun otimme Lyylin käyttöön asiakasviestintäohjelmaamme.',
+        author: 'James W., Managing Partner, Insight Consulting'
       },
       nonprofit: {
         title: 'Voittoa tavoittelemattomat järjestöt',
-        tagline: 'Maksimoi vaikutus rajallisilla resursseilla',
-        description: 'Voittoa tavoittelemattomat järjestöt voivat tavoittaa enemmän tukijoita ja viestittää tehokkaammin rajoitetulla budjetilla.',
-        quote: 'Lyylin ansiosta pieni tiimimme voi tuottaa viestintää, joka kilpailee paljon suurempien organisaatioiden kanssa.',
-        author: 'Jaakko Korhonen, Järjestön johtaja'
+        description: 'Tehosta lahjoittajaviestintää ja vapaaehtoisohjelmia',
+        painPoints: [
+          'Rajalliset resurssit vaikuttavan viestinnän luomiseen',
+          'Eri sidosryhmien (lahjoittajat, vapaaehtoiset, edunsaajat) tavoittaminen',
+          'Kampanjasisällön hallinta rajallisella henkilöstöllä'
+        ],
+        solutions: [
+          'Tehokkaat viestintäpohjat eri sidosryhmille',
+          'Automatisoitu kampanjatyönkulku rajallisille resursseille',
+          'Integroitu lahjoittajien sitoutumisen seuranta'
+        ],
+        quote: 'Lyylin avulla voimme luoda vaikuttavia kampanjamateriaaleja minuuteissa päivien sijaan, mikä mahdollistaa keskittymisen missioomme.',
+        author: 'Sarah L., Viestintäjohtaja, Global Hope Initiative'
       },
       education: {
-        title: 'Koulutus',
-        tagline: 'Sitouta oppijoita paremmalla viestinnällä',
-        description: 'Oppilaitokset voivat luoda oppijakeskeistä sisältöä ja tehostaa opiskelijoiden ja vanhempien viestintää.',
-        quote: 'Lyylin avulla olemme voineet personoida opiskelijaviestintää ennennäkemättömällä tavalla.',
-        author: 'Kaisa Nieminen, Opintopäällikkö'
+        title: 'Koulutusinstituutiot',
+        description: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta tehokkaalla viestinnällä',
+        painPoints: [
+          'Yhtenäisen viestinnän ylläpitäminen eri osastojen välillä',
+          'Useiden kohderyhmien tavoittaminen oikealla äänensävyllä',
+          'Säännöllisten tiedotteiden ja päivitysten tehokas hallinta'
+        ],
+        solutions: [
+          'Integroitu viestintähallintajärjestelmä kaikille osastoille',
+          'Kohdennetut viestintätyökalut eri yleisöille',
+          'Automatisoitu aikataulutus ja julkaisut'
+        ],
+        quote: 'Lyyli on muuttanut tapaamme viestiä monipuolisen yhteisömme kanssa, säästäen aikaa ja tehden viesteistämme relevantimpia kullekin kohdeyleisölle.',
+        author: 'Dr. Robert Chen, Viestintädekaani, Westfield University'
       },
       creative: {
         title: 'Luovat alat',
-        tagline: 'Vapauta luovaa aikaa automatisoinnilla',
-        description: 'Luovien alojen toimijat voivat automatisoida rutiiniviestintää ja keskittyä arvokkaaseen luovaan työhön.',
-        quote: 'Lyyli hoitaa rutiinityöt, joten voimme keskittyä siihen, missä olemme parhaita - luovuuteen.',
-        author: 'Pekka Lahtinen, Luova johtaja'
+        description: 'Esittele luova työ ammattimaisesti ja voita uusia asiakkaita',
+        painPoints: [
+          'Ainutlaatuisen brändivision välittäminen',
+          'Portfolio- ja projektiesitysten luominen',
+          'Asiakasviestinnän personointi tehokkaasti'
+        ],
+        solutions: [
+          'Visuaalisia elementtejä korostava viestintäalusta',
+          'Dynaaminen portfolioesitystyökalu',
+          'Asiakaskohtaiset viestintämallit'
+        ],
+        quote: 'Tekoäly ymmärtää luovaa kieltä tavalla, joka on todella vaikuttavaa. On kuin meillä olisi oma copywriter palveluksessa.',
+        author: 'Emma D., Luova johtaja, Design Forward'
       },
       sports: {
         title: 'Urheiluorganisaatiot',
-        tagline: 'Sitouta faneja ja jäseniä tehokkaasti',
-        description: 'Urheiluorganisaatiot voivat parantaa fanien sitoutumista ja jäsenviestintää älykkäillä viestintätyökaluilla.',
-        quote: 'Olemme nähneet 40% kasvun tapahtumien osallistujamäärissä Lyylin henkilökohtaisten viestien ansiosta.',
-        author: 'Antti Järvinen, Markkinointijohtaja'
+        description: 'Sitouta fanit, jäsenet ja sponsorit tehokkaalla viestinnällä',
+        painPoints: [
+          'Fanien ja jäsenten pitäminen ajan tasalla ja sitoutuneina',
+          'Tapahtumien ja toiminnan tehokas mainostaminen',
+          'Sponsorisopimusten arvon maksimointi'
+        ],
+        solutions: [
+          'Automatisoitu fani- ja jäsenviestintäjärjestelmä',
+          'Integroitu tapahtumien markkinointityökalu',
+          'Sponsorien näkyvyyden tehostaminen'
+        ],
+        quote: 'Olemme nähneet 35 % lisäyksen tapahtumien osallistujamäärissä sen jälkeen kun aloimme käyttää Lyyliä viestinnän virtaviivaistamiseen jäsenille.',
+        author: 'Mark J., Viestintäpäällikkö, Metropolitan Sports League'
       }
     }
   }
