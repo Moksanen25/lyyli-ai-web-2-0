@@ -119,8 +119,20 @@ USER MESSAGE: ${userMessage}
 
   const handleIndustrySelection = (industry: string) => {
     const message = `Tell me about solutions for ${industry}`;
-    setInputMessage(message);
-    handleSendMessage();
+    
+    // Add user message to chat immediately
+    const userMessage: ChatMessage = {
+      role: 'user',
+      content: message,
+      timestamp: new Date()
+    };
+    
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+    
+    // Create a context-enhanced prompt and send it directly
+    const enhancedPrompt = createEnhancedPrompt(message);
+    sendMessage(enhancedPrompt);
   };
 
   return {

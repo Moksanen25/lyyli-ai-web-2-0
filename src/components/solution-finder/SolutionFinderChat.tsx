@@ -59,10 +59,13 @@ const SolutionFinderChat: React.FC = () => {
     setIsChatOpen(!isChatOpen);
   };
 
-  // Modified industry selection handler to also hide the buttons
+  // Modified industry selection handler to immediately start the chat process
   const handleIndustryButtonClick = (industry: string) => {
-    handleIndustrySelection(industry);
+    // Hide the industry buttons immediately
     setShowIndustryButtons(false);
+    
+    // Directly submit the industry selection to start the chat process
+    handleIndustrySelection(industry);
   };
 
   return (
