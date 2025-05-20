@@ -13,7 +13,9 @@ import { useLanguage } from '@/hooks/useLanguage';
  */
 const CustomerSegments: React.FC = () => {
   console.log('CustomerSegments component rendering');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  console.log('CustomerSegments using language:', language);
   
   try {
     // Get segment data with error handling
@@ -21,6 +23,12 @@ const CustomerSegments: React.FC = () => {
     const [activeSegmentId, setActiveSegmentId] = useState<string>('');
     const [isLoaded, setIsLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
+    
+    // Log segments for debugging
+    console.log('Retrieved segments:', segments ? segments.length : 0);
+    if (segments && segments.length > 0) {
+      console.log('First segment:', segments[0].name);
+    }
     
     // Initialize with safer logic
     useEffect(() => {
@@ -63,7 +71,7 @@ const CustomerSegments: React.FC = () => {
           <div className="container mx-auto px-4 md:px-6">
             <SectionHeader />
             <div className="text-center py-10">
-              <p>{t('customerSegments.noSegmentsAvailable')}</p>
+              <p>{t('customerSegments.noSegmentsAvailable') || 'No industry segments available'}</p>
             </div>
             <SegmentCTA />
           </div>
@@ -76,8 +84,8 @@ const CustomerSegments: React.FC = () => {
       return (
         <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl font-bold text-red-600">{t('customerSegments.errorTitle')}</h2>
-            <p className="mt-4">{t('customerSegments.errorMessage')}</p>
+            <h2 className="text-2xl font-bold text-red-600">{t('customerSegments.errorTitle') || 'Error loading segments'}</h2>
+            <p className="mt-4">{t('customerSegments.errorMessage') || 'There was an error loading the segment data. Please try again.'}</p>
           </div>
         </section>
       );
@@ -101,7 +109,7 @@ const CustomerSegments: React.FC = () => {
                 </div>
               ) : (
                 <div className="text-center py-10">
-                  <p>{t('customerSegments.noSegmentsAvailable')}</p>
+                  <p>{t('customerSegments.noSegmentsAvailable') || 'No industry segments available'}</p>
                 </div>
               )}
             </>

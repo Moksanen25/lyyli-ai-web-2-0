@@ -14,16 +14,21 @@ interface SegmentItemProps {
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
   const { t, language, customerSegmentsT } = useLanguage();
   
-  // Get the segment name and description safely
-  const name = segment.name || '';
-  const description = segment.description || '';
+  // Translate directly here instead of passing keys
+  const name = t(segment.name) || segment.name;
+  const description = t(segment.description || '') || segment.description || '';
   
-  // Handle potentially undefined arrays safely
-  const painPoints = segment.painPoints || [];
-  const solutions = segment.solutions || [];
+  // Handle potentially undefined arrays safely and translate each item
+  const painPoints = (segment.painPoints || []).map(point => t(point) || point);
+  const solutions = (segment.solutions || []).map(solution => t(solution) || solution);
   
   // Testimonial translations if present
-  const testimonial = segment.testimonial || null;
+  const testimonial = segment.testimonial ? {
+    ...segment.testimonial,
+    quote: t(segment.testimonial.quote) || segment.testimonial.quote,
+    author: t(segment.testimonial.author) || segment.testimonial.author,
+    company: segment.testimonial.company
+  } : null;
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 

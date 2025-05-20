@@ -15,11 +15,13 @@ interface SegmentCardProps {
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t, language, customerSegmentsT } = useLanguage();
   
-  // Get the segment properties directly
-  const name = segment.name || '';
-  const description = segment.description || '';
-  const painPoints = segment.painPoints || [];
-  const solutions = segment.solutions || [];
+  // Directly translate the keys
+  const name = t(segment.name) || segment.name;
+  const description = t(segment.description || '') || segment.description || '';
+  
+  // Translate the pain points and solutions
+  const painPoints = (segment.painPoints || []).map(point => t(point) || point);
+  const solutions = (segment.solutions || []).map(solution => t(solution) || solution);
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 

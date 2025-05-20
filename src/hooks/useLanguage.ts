@@ -1,4 +1,3 @@
-
 import { useContext } from 'react';
 import { LanguageContext } from '@/contexts/LanguageContext';
 import { useTranslation } from './useTranslation';
@@ -43,6 +42,22 @@ export const useLanguage = () => {
     }
   };
   
+  // Helper function to translate a customer segment key
+  const translateSegmentKey = (key: string): string => {
+    if (!key) return '';
+    try {
+      // If the key is already a full path, use t directly
+      if (key.includes('.')) {
+        return t(key) || key;
+      }
+      // Otherwise, assume it's a customer segment key and prefix it
+      return t(`customerSegments.${key}`) || key;
+    } catch (error) {
+      console.error(`Error translating segment key: ${key}`, error);
+      return key;
+    }
+  };
+  
   return {
     ...context,
     t,
@@ -55,6 +70,7 @@ export const useLanguage = () => {
     calculatorT,
     customerSegmentsT,
     debugTranslation,
+    translateSegmentKey,
     // Helper flag for Finnish language
     isFinnish: language === 'fi'
   };
