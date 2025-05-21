@@ -8,6 +8,7 @@ import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { checkImageExists } from '@/utils/imageUtils';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const HeroSection: React.FC = () => {
   const { heroT } = useLanguage();
@@ -22,9 +23,17 @@ const HeroSection: React.FC = () => {
   useEffect(() => {
     // Debug logging to verify the image is loading
     console.log("Current logo URL:", logoUrl);
+    
+    // Test image loading
     const img = new Image();
-    img.onload = () => console.log("Logo image loaded successfully!");
-    img.onerror = () => console.error("Logo failed to load from URL:", logoUrl);
+    img.onload = () => {
+      console.log("Logo image loaded successfully!");
+      setIsLoading(false);
+    };
+    img.onerror = (e) => {
+      console.error("Logo failed to load from URL:", logoUrl, e);
+      setIsLoading(false);
+    };
     img.src = logoUrl;
   }, []);
   
@@ -37,15 +46,19 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo with the new image */}
+        {/* Mobile logo with direct img tag for debugging */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <div className="w-64 h-64 flex items-center justify-center bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm">
-              <ImageWithFallback 
+            <div className="w-64 h-64 flex items-center justify-center bg-white border border-gray-200 rounded-md overflow-hidden shadow-md">
+              {/* Use direct img tag first to debug */}
+              <img 
                 src={logoUrl}
                 alt="Lyyli.ai Logo"
                 className="max-w-full max-h-full object-contain p-4"
-                fallbackSrc="/placeholder.svg"
+                onError={(e) => {
+                  console.error('Logo failed to load with direct img tag');
+                  e.currentTarget.src = "/placeholder.svg";
+                }}
               />
             </div>
           </div>
