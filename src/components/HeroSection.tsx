@@ -16,8 +16,8 @@ const HeroSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
   
-  // Use the newly uploaded logo image
-  const logoUrl = "/lovable-uploads/44fa6463-d95a-4e0f-9f9b-ef63cff6c74e.png";
+  // Use the newly uploaded image for the logo
+  const logoUrl = "/lovable-uploads/23629d4a-0f73-4fba-bcd6-d1026b76211b.png";
   
   useEffect(() => {
     // Debug logging to verify the image is loading
@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
         {/* Mobile logo with the new image */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <div className="w-48 h-48 bg-white flex items-center justify-center border border-gray-200 p-3 rounded-md overflow-hidden">
+            <div className="w-64 h-64 bg-white flex items-center justify-center border border-gray-200 p-3 rounded-md overflow-hidden shadow-sm">
               <img 
                 src={logoUrl}
                 alt="Lyyli.ai Logo"
