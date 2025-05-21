@@ -9,24 +9,24 @@ import {
 } from "@/components/ui/accordion";
 
 const FeatureFAQ = () => {
-  const { t } = useLanguage();
+  const { featuresT } = useLanguage();
   
   const faqs = [
     {
-      question: t('features.faq.question1'),
-      answer: t('features.faq.answer1'),
+      question: featuresT('faq.question1'),
+      answer: featuresT('faq.answer1'),
     },
     {
-      question: t('features.faq.question2'),
-      answer: t('features.faq.answer2'),
+      question: featuresT('faq.question2'),
+      answer: featuresT('faq.answer2'),
     },
     {
-      question: t('features.faq.question3'),
-      answer: t('features.faq.answer3'),
+      question: featuresT('faq.question3'),
+      answer: featuresT('faq.answer3'),
     },
     {
-      question: t('features.faq.question4'),
-      answer: t('features.faq.answer4'),
+      question: featuresT('faq.question4'),
+      answer: featuresT('faq.answer4'),
     }
   ];
   
@@ -34,7 +34,7 @@ const FeatureFAQ = () => {
     <div className="py-16 px-4 bg-muted/50">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
-          {t('features.faq.title')}
+          {featuresT('faq.title')}
         </h2>
         
         <Accordion type="single" collapsible className="w-full bg-card rounded-xl shadow-sm">
