@@ -4,21 +4,23 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import ChatMessage from '@/components/chat/ChatMessage';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { ChatMessage as ChatMessageType } from '../hooks/useSolutionChat';
+import { Loader2 } from 'lucide-react';
 
 interface ChatMessagesProps {
   messages: ChatMessageType[];
+  isTyping?: boolean;
 }
 
-const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => {
+const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   
-  // Scroll to bottom of chat when messages change
+  // Scroll to bottom of chat when messages change or typing state changes
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages]);
+  }, [messages, isTyping]);
   
   // Fix for scroll jamming - prevent scroll events from propagating outside the chat container
   const handleScrollAreaWheel = (e: React.WheelEvent<HTMLDivElement>) => {
@@ -56,6 +58,16 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => {
             isMobile={isMobile}
           />
         ))}
+        
+        {isTyping && (
+          <div className="flex justify-start">
+            <div className="bg-muted rounded-lg p-3 flex items-center space-x-2">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span className="text-sm">Kirjoittaa...</span>
+            </div>
+          </div>
+        )}
+        
         <div ref={scrollRef} />
       </div>
     </ScrollArea>

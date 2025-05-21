@@ -24,6 +24,7 @@ const SolutionFinderChat: React.FC = () => {
     messages,
     inputMessage,
     isLoading,
+    isTyping,
     showDemoDialog,
     setInputMessage,
     setShowDemoDialog,
@@ -83,7 +84,10 @@ const SolutionFinderChat: React.FC = () => {
         <Card className={`flex-1 border flex flex-col ${isMobile ? 'h-[70vh]' : 'h-[500px] max-h-[500px]'}`}>
           <ChatHeader />
           
-          <ChatMessages messages={messages} />
+          <ChatMessages 
+            messages={messages} 
+            isTyping={isTyping} 
+          />
           
           <div className="p-3 border-t">
             <IndustryButtons 

@@ -22,6 +22,7 @@ export function useSolutionChat() {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showDemoDialog, setShowDemoDialog] = useState(false);
+  const [isTyping, setIsTyping] = useState(false); // New state to track typing animation
 
   // Use the existing chat thread logic for OpenAI integration
   const { sendMessage } = useChatThread({
@@ -37,21 +38,49 @@ export function useSolutionChat() {
       // Parse and look for special commands in the AI's response
       const processedResponses = processAIResponse(content);
       
-      // Add each processed response as a separate message
-      processedResponses.forEach(processedContent => {
+      // Add a typing indicator before starting the message stream
+      setIsTyping(true);
+      
+      // Show messages gradually with a delay between each one
+      displayMessagesWithDelay(processedResponses);
+    }
+  });
+
+  // New function to display messages with a delay
+  const displayMessagesWithDelay = (messageContents: string[]) => {
+    // Base delay between messages in milliseconds
+    const baseDelay = 1000; 
+    // Additional delay per character (simulates typing speed)
+    const charDelay = 0.02;
+    
+    let cumulativeDelay = 0;
+    
+    messageContents.forEach((content, index) => {
+      // Calculate delay based on previous message length
+      const prevContentLength = index > 0 ? messageContents[index-1].length : 0;
+      const typingDelay = prevContentLength * charDelay;
+      
+      // Add increasing delay for each message: base delay + typing simulation
+      cumulativeDelay += baseDelay + Math.min(typingDelay, 1500); // Cap typing delay at 1.5s max
+      
+      setTimeout(() => {
         setMessages(prev => [
           ...prev, 
           { 
             role: 'assistant', 
-            content: processedContent, 
+            content: content, 
             timestamp: new Date() 
           }
         ]);
-      });
-      
-      setIsLoading(false);
-    }
-  });
+        
+        // If this is the last message, set typing to false
+        if (index === messageContents.length - 1) {
+          setIsTyping(false);
+          setIsLoading(false);
+        }
+      }, cumulativeDelay);
+    });
+  };
 
   // Process AI response to check for special commands and split into multiple messages
   const processAIResponse = (content: string): string[] => {
@@ -152,6 +181,7 @@ USER MESSAGE: ${userMessage}
     messages,
     inputMessage,
     isLoading,
+    isTyping,
     showDemoDialog,
     setInputMessage,
     setShowDemoDialog,
