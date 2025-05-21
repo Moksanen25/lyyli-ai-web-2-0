@@ -5,15 +5,11 @@ import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { SupportedLanguage } from '@/translations';
+import { ChatMessage, UseSolutionChatReturn } from './types';
+import { processAIResponse, createEnhancedPrompt } from '../utils/aiResponseUtils';
+import { displayMessagesWithDelay } from '../utils/chatDisplayUtils';
 
-// Define message type
-export interface ChatMessage {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-  timestamp: Date;
-}
-
-export function useSolutionChat() {
+export function useSolutionChat(): UseSolutionChatReturn {
   const { t } = useTranslation();
   const { customerSegmentsT } = useSafeTranslation();
   const { toast } = useToast();
@@ -22,7 +18,7 @@ export function useSolutionChat() {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showDemoDialog, setShowDemoDialog] = useState(false);
-  const [isTyping, setIsTyping] = useState(false); // New state to track typing animation
+  const [isTyping, setIsTyping] = useState(false);
 
   // Use the existing chat thread logic for OpenAI integration
   const { sendMessage } = useChatThread({
@@ -36,6 +32,11 @@ export function useSolutionChat() {
       setIsTyping(false);
     },
     onMessageReceived: (content) => {
+      // Check if the response contains a command to open the demo dialog
+      if (content.includes("[[OPEN_DEMO]]") && content.includes("[[USER_CONFIRMED_DEMO]]")) {
+        setTimeout(() => setShowDemoDialog(true), 1500);
+      }
+      
       // Parse and look for special commands in the AI's response
       const processedResponses = processAIResponse(content);
       
@@ -43,115 +44,25 @@ export function useSolutionChat() {
       setIsTyping(true);
       
       // Show messages gradually with a delay between each one
-      displayMessagesWithDelay(processedResponses);
-    }
-  });
-
-  // Process AI response to check for special commands and split into multiple messages
-  const processAIResponse = (content: string): string[] => {
-    // Check if the response contains a command to open the demo dialog
-    if (content.includes("[[OPEN_DEMO]]")) {
-      // Only open the dialog if the user explicitly requested it
-      if (content.includes("[[USER_CONFIRMED_DEMO]]")) {
-        setTimeout(() => setShowDemoDialog(true), 1500);
-      }
-      // Remove the commands from the displayed message
-      content = content.replace("[[OPEN_DEMO]]", "").replace("[[USER_CONFIRMED_DEMO]]", "");
-    }
-    
-    let messages: string[] = [];
-    
-    // Split the response into separate "speech bubbles" using the [[NEXT_MESSAGE]] delimiter
-    if (content.includes("[[NEXT_MESSAGE]]")) {
-      // Split by delimiter and filter out empty messages
-      messages = content
-        .split("[[NEXT_MESSAGE]]")
-        .map(msg => msg.trim())
-        .filter(msg => msg.length > 0);
-    } else {
-      // Split by sentences for better readability (max 2 sentences per bubble)
-      // Use regex to match sentence endings (periods, question marks, exclamation points followed by space or line break)
-      const sentences = content.match(/[^.!?]+[.!?]+(\s|$)/g) || [content];
-      
-      if (sentences.length > 1) {
-        // Group sentences into chunks of 1-2 sentences
-        for (let i = 0; i < sentences.length; i += 2) {
-          if (i + 1 < sentences.length) {
-            // Two sentences
-            messages.push((sentences[i] + sentences[i + 1]).trim());
-          } else {
-            // Just one sentence left
-            messages.push(sentences[i].trim());
-          }
-        }
-      } else {
-        messages = [content];
-      }
-    }
-    
-    return messages;
-  };
-
-  // New function to display messages with a delay
-  const displayMessagesWithDelay = (messageContents: string[]) => {
-    // Increased base delay between messages for better reading pace (2 seconds)
-    const baseDelay = 2000; 
-    // Additional delay per character (simulates typing speed)
-    const charDelay = 0.05;
-    
-    let cumulativeDelay = 0;
-    
-    messageContents.forEach((content, index) => {
-      // Calculate delay based on previous message length
-      const prevContentLength = index > 0 ? messageContents[index-1].length : 0;
-      const typingDelay = prevContentLength * charDelay;
-      
-      // Add increasing delay for each message: base delay + typing simulation
-      cumulativeDelay += baseDelay + Math.min(typingDelay, 1000); // Cap typing delay at 1s max
-      
-      setTimeout(() => {
-        setMessages(prev => [
-          ...prev, 
-          { 
-            role: 'assistant', 
-            content: content, 
-            timestamp: new Date() 
-          }
-        ]);
-        
-        // If this is the last message, set typing to false
-        if (index === messageContents.length - 1) {
+      displayMessagesWithDelay(
+        processedResponses,
+        (content) => {
+          setMessages(prev => [
+            ...prev, 
+            { 
+              role: 'assistant', 
+              content, 
+              timestamp: new Date() 
+            }
+          ]);
+        },
+        () => {
           setIsTyping(false);
           setIsLoading(false);
         }
-      }, cumulativeDelay);
-    });
-  };
-
-  // Create an enhanced prompt with context for the AI
-  const createEnhancedPrompt = (userMessage: string, languageCode: SupportedLanguage = 'en') => {
-    return `
-USER CONTEXT: The user is on the Features page looking at industry-specific solutions.
-USER LANGUAGE: ${languageCode.toUpperCase()} (${languageCode === 'fi' ? 'Finnish' : 'English'})
-
-INSTRUCTIONS: 
-- You are Lyyli AI, an assistant specialized in helping users find the right solution for their industry.
-- IMPORTANT: RESPOND IN ${languageCode === 'fi' ? 'FINNISH' : 'ENGLISH'} LANGUAGE.
-- Respond in a friendly, helpful voice.
-- Your goal is to guide users toward booking a demo or signing up.
-- IMPORTANT: Break up your responses into multiple chat bubbles using [[NEXT_MESSAGE]] between each section.
-- Keep each message bubble VERY SHORT - maximum 1-2 sentences per bubble.
-- Use frequent [[NEXT_MESSAGE]] markers to create a conversational flow.
-- Use clear headers and short paragraphs to make your responses more readable.
-- If they ask about a specific industry (tech, consulting, nonprofit, education, creative, sports), provide relevant challenges and solutions in a structured format.
-- When appropriate, refer to relevant case studies or blog posts that might help them.
-- Always ask if they'd like to know more or have other questions before suggesting a demo.
-- ONLY include [[OPEN_DEMO]] in your response if the user has EXPLICITLY said "yes" to booking a demo AND include [[USER_CONFIRMED_DEMO]] as well.
-- If they ask questions outside the scope of Lyyli's services, acknowledge their question and steer the conversation back to how Lyyli can help.
-
-USER MESSAGE: ${userMessage}
-`;
-  };
+      );
+    }
+  });
 
   const handleSendMessage = async (e?: React.FormEvent) => {
     if (e) {
@@ -183,7 +94,11 @@ USER MESSAGE: ${userMessage}
     sendMessage(enhancedPrompt);
   };
 
-  const handleIndustrySelection = (industryLabel: string, industryId?: string, language: SupportedLanguage = 'en') => {
+  const handleIndustrySelection = (
+    industryLabel: string, 
+    industryId?: string, 
+    language: SupportedLanguage = 'en'
+  ) => {
     // If we have an industry ID, use it to get the translated name
     const translatedIndustry = industryId ? 
       customerSegmentsT(`segments.${industryId}.title`, { fallback: industryLabel }) : 
@@ -222,3 +137,6 @@ USER MESSAGE: ${userMessage}
     handleIndustrySelection
   };
 }
+
+// Re-export the types for easier imports elsewhere
+export { ChatMessage } from './types';

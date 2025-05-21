@@ -1,9 +1,8 @@
-
 import React, { useRef, useEffect } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import ChatMessage from '@/components/chat/ChatMessage';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ChatMessage as ChatMessageType } from '../hooks/useSolutionChat';
+import { ChatMessage as ChatMessageType } from '../hooks/types';
 
 interface ChatMessagesProps {
   messages: ChatMessageType[];
