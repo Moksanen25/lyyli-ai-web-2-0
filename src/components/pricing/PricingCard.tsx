@@ -52,9 +52,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
   
   const getPrice = () => {
     if (billingPeriod === 'monthly' && monthlyPrice !== undefined) {
-      return `${monthlyPrice}€`;
+      return `${monthlyPrice} €`;
     } else if (billingPeriod === 'yearly' && yearlyPrice !== undefined) {
-      return `${yearlyPrice}€`;
+      return `${yearlyPrice} €`;
     } else {
       return t('pricing.contactUs');
     }
