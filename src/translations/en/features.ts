@@ -101,7 +101,21 @@ export const features = {
     userAccounts: "User Accounts",
     integrations: "Integrations",
     images: "AI Image Generation",
-    workflows: "Custom Workflows"
+    workflows: "Custom Workflows",
+    imagesPerMonth: "50 per month"
+  },
+  
+  // Pricing plan names for feature page
+  pricing: {
+    starter: {
+      name: "Starter"
+    },
+    professional: {
+      name: "Professional"
+    },
+    enterprise: {
+      name: "Enterprise"
+    }
   },
   
   // FAQ section

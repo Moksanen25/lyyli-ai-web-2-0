@@ -103,7 +103,21 @@ export const features = {
     userAccounts: "Käyttäjätilit",
     integrations: "Integraatiot",
     images: "Tekoälykuvien luonti",
-    workflows: "Mukautetut työnkulut"
+    workflows: "Mukautetut työnkulut",
+    imagesPerMonth: "50 kuukaudessa"
+  },
+  
+  // Pricing plan names for feature page
+  pricing: {
+    starter: {
+      name: "Aloitus"
+    },
+    professional: {
+      name: "Ammattilais"
+    },
+    enterprise: {
+      name: "Yritys"
+    }
   },
   
   // FAQ section

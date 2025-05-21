@@ -6,13 +6,13 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { usePricingTranslations } from './pricingUtils';
 
 export const usePricingData = () => {
-  const { t } = useLanguage();
+  const { t, featuresT } = useLanguage();
   const { translateFeature } = usePricingTranslations();
   
   // Define pricing tiers with translations
   const pricingTiers: PricingTier[] = [
     {
-      name: 'Starter',
+      name: t('pricing.starter.name'),
       monthly: 199,
       description: t('pricing.starter.description'),
       primaryFeatures: [
@@ -27,7 +27,7 @@ export const usePricingData = () => {
       icon: <CircleDollarSign className="h-8 w-8 text-primary/80" />
     },
     {
-      name: 'Professional',
+      name: t('pricing.professional.name'),
       monthly: 599,
       description: t('pricing.professional.description'),
       primaryFeatures: [
@@ -48,7 +48,7 @@ export const usePricingData = () => {
       icon: <ListCheck className="h-8 w-8 text-white" />
     },
     {
-      name: 'Enterprise',
+      name: t('pricing.enterprise.name'),
       monthly: null,
       description: t('pricing.enterprise.description'),
       primaryFeatures: [
@@ -73,7 +73,7 @@ export const usePricingData = () => {
     { name: 'webApp', starter: true, professional: true, enterprise: true },
     { name: 'slack', starter: false, professional: true, enterprise: true },
     { name: 'teams', starter: false, professional: true, enterprise: true },
-    { name: 'images', starter: false, professional: '50/month', enterprise: t('pricing.features.custom') },
+    { name: 'images', starter: false, professional: featuresT('comparison.imagesPerMonth'), enterprise: t('pricing.features.custom') },
     { name: 'additionalImages', starter: 'N/A', professional: '0.35€', enterprise: t('pricing.features.custom') },
     { name: 'workflows', starter: false, professional: true, enterprise: true },
     { name: 'api', starter: false, professional: false, enterprise: true },
