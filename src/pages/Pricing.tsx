@@ -28,7 +28,7 @@ const PricingPage = () => {
   // Define discount rate for yearly billing
   const yearlyDiscountRate = 0.8; // 20% discount
 
-  // SEO metadata
+  // Enhanced SEO metadata with more descriptive content
   const pageTitle = language === 'fi' ? 'Hinnoittelu - Lyyli.ai' : 'Pricing - Lyyli.ai';
   const pageDescription = language === 'fi'
     ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
@@ -45,6 +45,7 @@ const PricingPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}pricing`} />
       </Helmet>
       
@@ -55,7 +56,7 @@ const PricingPage = () => {
           setBillingPeriod={setBillingPeriod} 
         />
         
-        {/* Main pricing cards */}
+        {/* Main pricing cards - improved responsiveness */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {pricingTiers.map((tier) => (
             <PricingCard
@@ -67,12 +68,12 @@ const PricingPage = () => {
           ))}
         </div>
         
-        {/* Toggle for detailed comparison */}
-        <div className="mt-8 md:mt-12 text-center">
+        {/* Toggle for detailed comparison - better mobile padding */}
+        <div className="mt-8 md:mt-12 text-center px-2 sm:px-0">
           <Button 
             variant="outline" 
             onClick={() => setShowFullComparison(!showFullComparison)}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto min-h-[44px] touch-manipulation"
           >
             {showFullComparison ? t('pricing.hideComparison') : t('pricing.showComparison')}
           </Button>
@@ -84,8 +85,8 @@ const PricingPage = () => {
           showFullComparison={showFullComparison}
         />
 
-        {/* ROI Calculator */}
-        <div id="roi-calculator" className="scroll-mt-24">
+        {/* ROI Calculator with proper scroll margin for anchor links */}
+        <div id="roi-calculator" className="scroll-mt-24 pt-4 md:pt-0">
           <ROICalculator />
         </div>
         
