@@ -138,5 +138,7 @@ export function useSolutionChat(): UseSolutionChatReturn {
   };
 }
 
-// Re-export the types for easier imports elsewhere
-export { ChatMessage } from './types';
+// Fix the re-export to use 'export type' instead of just 'export'
+// This is required when the TypeScript 'isolatedModules' option is enabled
+export type { ChatMessage } from './types';
+
