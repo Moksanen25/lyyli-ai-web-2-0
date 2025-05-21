@@ -34,9 +34,18 @@ const Navbar: React.FC = () => {
   
   return (
     <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
-      <div className="container-padding container mx-auto flex items-center justify-end">
-        {/* Mobile Navigation */}
-        <div className="flex md:hidden items-center">
+      <div className="container-padding container mx-auto flex items-center justify-between">
+        {/* Logo - Shown on both mobile and desktop */}
+        <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
+          <img 
+            src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
+            alt="Lyyli.ai"
+            className="h-10 w-auto"
+          />
+        </Link>
+
+        {/* Mobile Navigation - Push to right */}
+        <div className="flex md:hidden items-center ml-auto">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -72,14 +81,7 @@ const Navbar: React.FC = () => {
         </div>
         
         {/* Desktop Navigation - hidden on mobile */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center mr-auto">
-            <img 
-              src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
-              alt="Lyyli.ai"
-              className="h-10 w-auto"
-            />
-          </Link>
+        <nav className="hidden md:flex items-center space-x-6 ml-auto">
           <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-primary/70 hover:text-primary transition-colors">
             {t('nav.features')}
           </Link>
