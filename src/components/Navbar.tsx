@@ -100,8 +100,9 @@ const Navbar: React.FC = () => {
                         alt="Lyyli.ai"
                         className="h-full w-auto"
                         fallbackSrc="/placeholder.svg"
-                        width={100}
-                        height={30}
+                        width={80}
+                        height={24}
+                        style={{ maxWidth: '80px', display: 'block' }}
                       />
                     </div>
                   </Link>

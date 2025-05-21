@@ -58,6 +58,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       height={height}
       style={{
         objectFit: 'cover',
+        maxWidth: '100%',
         ...style
       }}
       loading="lazy"
