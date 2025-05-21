@@ -31,6 +31,7 @@ export const pricing = {
     feature: 'Feature',
     included: 'Included',
     notIncluded: 'Not included',
+    alsoIncluded: 'Also included',
     agents: 'AI Agents',
     users: 'User Accounts',
     integrations: 'Integrations',

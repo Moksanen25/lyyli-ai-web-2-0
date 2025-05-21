@@ -31,6 +31,7 @@ export const pricing = {
     feature: 'Ominaisuus',
     included: 'Sisältyy',
     notIncluded: 'Ei sisälly',
+    alsoIncluded: 'Sisältyy myös',
     agents: 'Tekoäly-agentit',
     users: 'Käyttäjätilit',
     integrations: 'Integraatiot',
