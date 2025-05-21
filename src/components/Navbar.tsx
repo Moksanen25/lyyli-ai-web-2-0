@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
@@ -38,9 +40,10 @@ const Navbar: React.FC = () => {
     blog: t('nav.blog'),
     contact: t('nav.contact')
   });
+  
   return <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - Always visible on both mobile and desktop */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
           <img alt="Lyyli.ai" className="h-14" src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png" />
         </Link>
@@ -104,4 +107,5 @@ const Navbar: React.FC = () => {
       </div>
     </header>;
 };
+
 export default Navbar;
