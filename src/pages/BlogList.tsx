@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,11 +10,13 @@ import BlogCard from '@/components/blog/BlogCard';
 import TagFilter from '@/components/blog/TagFilter';
 import BlogCTA from '@/components/blog/BlogCTA';
 import { hasFinishTranslation } from '@/components/blog/blogTranslations';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const BlogList: React.FC = () => {
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const isMobile = useIsMobile();
   
   // Filter posts based on language preference and available translations
   const languageFilteredPosts = useMemo(() => {
@@ -88,16 +91,18 @@ const BlogList: React.FC = () => {
             />
           )}
           
-          {/* Tag filtering */}
-          <div className="mb-8">
-            <h2 className="text-lg font-medium mb-4">{safeT('blog.filterByTag')}:</h2>
-            <TagFilter 
-              tags={allTags} 
-              selectedTag={selectedTag} 
-              onSelectTag={setSelectedTag} 
-              key={`tagfilter-${language}`}
-            />
-          </div>
+          {/* Tag filtering - hide the heading on mobile too */}
+          {!isMobile && (
+            <div className="mb-8">
+              <h2 className="text-lg font-medium mb-4">{safeT('blog.filterByTag')}:</h2>
+              <TagFilter 
+                tags={allTags} 
+                selectedTag={selectedTag} 
+                onSelectTag={setSelectedTag} 
+                key={`tagfilter-${language}`}
+              />
+            </div>
+          )}
           
           {/* Post grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

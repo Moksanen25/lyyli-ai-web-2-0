@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface TagFilterProps {
   tags: string[];
@@ -13,6 +14,12 @@ interface TagFilterProps {
 const TagFilter: React.FC<TagFilterProps> = ({ tags, selectedTag, onSelectTag }) => {
   const { t } = useLanguage();
   const { safeT } = useSafeTranslation();
+  const isMobile = useIsMobile();
+  
+  // Hide filter component on mobile
+  if (isMobile) {
+    return null;
+  }
   
   return (
     <div className="mb-8 overflow-x-auto scrollbar-hide">
