@@ -10,6 +10,7 @@ import IndustryButtons from './components/IndustryButtons';
 import ChatForm from './components/ChatForm';
 import ChatToggle from './components/ChatToggle';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { industryOptions } from './data/industryOptions';
 
 const SolutionFinderChat: React.FC = () => {
   const { featuresT } = useSafeTranslation();
@@ -61,11 +62,15 @@ const SolutionFinderChat: React.FC = () => {
 
   // Modified industry selection handler to immediately start the chat process
   const handleIndustryButtonClick = (industry: string) => {
+    // Find the industry ID based on the label
+    const industryOption = industryOptions.find(option => option.label === industry);
+    
     // Hide the industry buttons immediately
     setShowIndustryButtons(false);
     
     // Directly submit the industry selection to start the chat process
-    handleIndustrySelection(industry);
+    // Pass both the display label and the ID for proper tracking
+    handleIndustrySelection(industry, industryOption?.id);
   };
 
   return (

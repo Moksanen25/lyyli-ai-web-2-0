@@ -36,6 +36,7 @@ export const customerSegments = {
     tech: {
       title: 'Teknologiayritykset',
       description: 'Virtaviivaista teknistä viestintää ja tuotepäivityksiä',
+      buttonLabel: 'Teknologiayritykset',
       painPoints: [
         'Tuotepäivitysten kommunikointi useille sidosryhmille',
         'Teknisen dokumentaation ylläpito ja päivitys',
@@ -52,6 +53,7 @@ export const customerSegments = {
     consulting: {
       title: 'Konsultointiyritykset',
       description: 'Paranna asiakasviestintää ja projektin päivityksiä',
+      buttonLabel: 'Konsultointi',
       painPoints: [
         'Useiden asiakasprojektien viestinnän koordinointi',
         'Asiakasraporttien ja esitysten luomisen tehokkuus',
@@ -68,6 +70,7 @@ export const customerSegments = {
     nonprofit: {
       title: 'Voittoa tavoittelemattomat järjestöt',
       description: 'Tehosta lahjoittajaviestintää ja vapaaehtoisohjelmia',
+      buttonLabel: 'Voittoa tavoittelemattomat järjestöt',
       painPoints: [
         'Rajalliset resurssit vaikuttavan viestinnän luomiseen',
         'Eri sidosryhmien (lahjoittajat, vapaaehtoiset, edunsaajat) tavoittaminen',
@@ -84,6 +87,7 @@ export const customerSegments = {
     education: {
       title: 'Koulutusinstituutiot',
       description: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta tehokkaalla viestinnällä',
+      buttonLabel: 'Koulutus',
       painPoints: [
         'Yhtenäisen viestinnän ylläpitäminen eri osastojen välillä',
         'Useiden kohderyhmien tavoittaminen oikealla äänensävyllä',
@@ -100,6 +104,7 @@ export const customerSegments = {
     creative: {
       title: 'Luovat alat',
       description: 'Esittele luova työ ammattimaisesti ja voita uusia asiakkaita',
+      buttonLabel: 'Luovat alat',
       painPoints: [
         'Ainutlaatuisen brändivision välittäminen',
         'Portfolio- ja projektiesitysten luominen',
@@ -116,6 +121,7 @@ export const customerSegments = {
     sports: {
       title: 'Urheiluorganisaatiot',
       description: 'Sitouta fanit, jäsenet ja sponsorit tehokkaalla viestinnällä',
+      buttonLabel: 'Urheiluorganisaatiot',
       painPoints: [
         'Fanien ja jäsenten pitäminen ajan tasalla ja sitoutuneina',
         'Tapahtumien ja toiminnan tehokas mainostaminen',

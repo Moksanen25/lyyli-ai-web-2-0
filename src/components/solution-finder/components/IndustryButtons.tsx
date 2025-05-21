@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { industryOptions } from '../data/industryOptions';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 interface IndustryButtonsProps {
   onSelectIndustry: (industry: string) => void;
@@ -9,6 +10,8 @@ interface IndustryButtonsProps {
 }
 
 const IndustryButtons: React.FC<IndustryButtonsProps> = ({ onSelectIndustry, isVisible }) => {
+  const { customerSegmentsT } = useSafeTranslation();
+  
   if (!isVisible) return null;
   
   return (
@@ -21,7 +24,7 @@ const IndustryButtons: React.FC<IndustryButtonsProps> = ({ onSelectIndustry, isV
           className="text-xs"
           onClick={() => onSelectIndustry(option.label)}
         >
-          {option.label}
+          {customerSegmentsT(`segments.${option.id}.buttonLabel`, { fallback: option.label })}
         </Button>
       ))}
     </div>

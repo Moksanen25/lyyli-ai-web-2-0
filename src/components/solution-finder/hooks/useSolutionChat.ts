@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useChatThread } from '@/hooks/use-chat-thread';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useSafeTranslation } from '@/utils/safeTranslation';
 
 // Define message type
 export interface ChatMessage {
@@ -13,6 +14,7 @@ export interface ChatMessage {
 
 export function useSolutionChat() {
   const { t } = useTranslation();
+  const { customerSegmentsT } = useSafeTranslation();
   const { toast } = useToast();
   
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -117,8 +119,13 @@ USER MESSAGE: ${userMessage}
     sendMessage(enhancedPrompt);
   };
 
-  const handleIndustrySelection = (industry: string) => {
-    const message = `Tell me about solutions for ${industry}`;
+  const handleIndustrySelection = (industryLabel: string, industryId?: string) => {
+    // If we have an industry ID, use it to get the translated name
+    const translatedIndustry = industryId ? 
+      customerSegmentsT(`segments.${industryId}.title`, { fallback: industryLabel }) : 
+      industryLabel;
+    
+    const message = `Tell me about solutions for ${translatedIndustry}`;
     
     // Add user message to chat immediately
     const userMessage: ChatMessage = {
