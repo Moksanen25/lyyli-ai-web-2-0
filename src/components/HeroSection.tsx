@@ -16,8 +16,8 @@ const HeroSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
   
-  // Use the uploaded image for the logo
-  const logoUrl = "/lovable-uploads/3c0e27dc-c300-42dc-9605-480b54e69917.png";
+  // Use the newly uploaded logo image
+  const logoUrl = "/lovable-uploads/44fa6463-d95a-4e0f-9f9b-ef63cff6c74e.png";
   
   useEffect(() => {
     // Debug logging to verify the image is loading
@@ -37,18 +37,17 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo - try with absolute URL */}
+        {/* Mobile logo with the new image */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <div className="w-40 h-40 bg-white flex items-center justify-center border border-gray-200 p-2 rounded-md overflow-hidden">
+            <div className="w-48 h-48 bg-white flex items-center justify-center border border-gray-200 p-3 rounded-md overflow-hidden">
               <img 
                 src={logoUrl}
                 alt="Lyyli.ai Logo"
                 className="max-w-full max-h-full object-contain"
                 onError={(e) => {
                   console.error('Logo failed to load, using fallback');
-                  // Try with an absolute path as fallback
-                  e.currentTarget.src = "https://placekitten.com/200/100";
+                  e.currentTarget.src = "/placeholder.svg";
                 }}
               />
             </div>
