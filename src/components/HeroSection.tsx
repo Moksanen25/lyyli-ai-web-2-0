@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Shield, Database, MessageSquare } from 'lucide-react';
-import TrustIndicators from './TrustIndicators';
 
 const HeroSection: React.FC = () => {
   const { heroT } = useLanguage();
@@ -31,26 +30,10 @@ const HeroSection: React.FC = () => {
           </Link>
         </div>
         
-        <TrustIndicators />
+        {/* TrustIndicators component removed from here */}
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto animate-fade-in">
-          <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
-            <Shield className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{heroT('badges.security')}</h3>
-            <p className="text-muted-foreground">{heroT('badges.securityDescription')}</p>
-          </div>
-          
-          <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
-            <Database className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{heroT('badges.uptime')}</h3>
-            <p className="text-muted-foreground">{heroT('badges.uptimeDescription')}</p>
-          </div>
-          
-          <div className="flex flex-col items-center justify-center bg-secondary/10 rounded-xl p-6">
-            <MessageSquare className="h-8 w-8 text-primary mb-3" />
-            <h3 className="text-xl font-semibold mb-2">{heroT('badges.support')}</h3>
-            <p className="text-muted-foreground">{heroT('badges.supportDescription')}</p>
-          </div>
+          {/* Trust indicator badges removed from here */}
         </div>
       </div>
     </section>
