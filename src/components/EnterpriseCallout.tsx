@@ -52,10 +52,10 @@ const EnterpriseCallout: React.FC = () => {
             {t('features.enterpriseReady') || "Enterprise Ready"}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {featuresT('pageHero.title') || "Enterprise-Grade Solutions"}
+            {featuresT('hero.title') || "Enterprise-Grade Solutions"}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {featuresT('pageHero.description') || "Get the advanced features, security, and support your organization needs"}
+            {featuresT('hero.description') || "Get the advanced features, security, and support your organization needs"}
           </p>
         </div>
         
