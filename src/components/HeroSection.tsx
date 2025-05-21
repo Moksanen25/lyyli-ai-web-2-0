@@ -1,13 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Shield, Database, MessageSquare } from 'lucide-react';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
-import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { checkImageExists } from '@/utils/imageUtils';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const HeroSection: React.FC = () => {
@@ -28,21 +26,17 @@ const HeroSection: React.FC = () => {
   };
   
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
-      <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo with optimized display */}
+    <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10 relative">
+      <div className="container-padding container mx-auto text-center relative z-10">
+        {/* Mobile logo with fixed z-index and transparent background */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <div className="w-64 h-64 flex items-center justify-center bg-white rounded-md overflow-hidden shadow-lg border border-gray-200">
+            <div className="w-64 h-64 flex items-center justify-center rounded-md overflow-hidden shadow-lg border border-gray-200 relative z-20 bg-transparent">
               <img 
                 src={logoUrl}
                 alt="Lyyli.ai Logo"
-                className="max-w-full max-h-full object-contain p-2"
+                className="max-w-[90%] max-h-[90%] object-contain"
                 style={{ display: 'block' }}
-                onError={(e) => {
-                  console.error('Logo failed to load');
-                  e.currentTarget.src = "/placeholder.svg";
-                }}
               />
             </div>
           </div>

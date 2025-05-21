@@ -50,14 +50,12 @@ const Navbar: React.FC = () => {
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Always visible on both mobile and desktop */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
-          <div className="h-8 md:h-10 flex items-center">
-            <ImageWithFallback
+          <div className="h-8 md:h-10 flex items-center relative z-20">
+            <img 
               src={logoUrl}
               alt="Lyyli.ai"
-              className="h-full w-auto"
-              fallbackSrc="/placeholder.svg"
-              width={120}
-              height={40}
+              className="h-full w-auto object-contain"
+              style={{ display: 'block' }}
             />
           </div>
         </Link>
@@ -94,16 +92,13 @@ const Navbar: React.FC = () => {
               <div className="grid gap-4 py-4">
                 <div className="justify-between flex items-center">
                   <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
-                    {/* Fix for mobile logo - explicitly set width and ensure it's visible */}
-                    <div className="h-8 w-auto flex items-center">
-                      <ImageWithFallback
+                    {/* Fix for mobile logo - explicitly set display and z-index */}
+                    <div className="h-8 w-auto flex items-center relative z-20">
+                      <img 
                         src={logoUrl}
                         alt="Lyyli.ai"
-                        className="h-full w-auto"
-                        fallbackSrc="/placeholder.svg"
-                        width={100}
-                        height={32}
-                        style={{ display: 'block', maxHeight: '32px' }}
+                        className="h-full w-auto object-contain"
+                        style={{ display: 'block' }}
                       />
                     </div>
                   </Link>
