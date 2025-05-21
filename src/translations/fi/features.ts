@@ -110,13 +110,13 @@ export const features = {
   // Pricing plan names for feature page
   pricing: {
     starter: {
-      name: "Aloitus"
+      name: "Starter"
     },
     professional: {
-      name: "Ammattilais"
+      name: "Professional"
     },
     enterprise: {
-      name: "Yritys"
+      name: "Enterprise"
     }
   },
   
@@ -133,3 +133,4 @@ export const features = {
     answer4: "Kaikki paketit sisältävät perustuen. Ammattilaispaketit tarjoavat etusijaisen tuen, kun taas Yritysasiakkaat saavat oman tilinhoitajan ja räätälöidyn käyttöönoton avustuksen."
   }
 };
+
