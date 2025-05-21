@@ -9,5 +9,6 @@ export const contact = {
   phoneAriaLabel: 'Soita Mikolle',
   emailAriaLabel: 'Lähetä sähköpostia Mikolle',
   whatsappAriaLabel: 'Ota yhteyttä Mikkoon WhatsAppilla',
-  chatAriaLabel: 'Live-chatin käyttöliittymä'
+  chatAriaLabel: 'Live-chatin käyttöliittymä',
+  vatNumber: 'Y-tunnus: 3537519-5'
 };

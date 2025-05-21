@@ -9,5 +9,6 @@ export const contact = {
   phoneAriaLabel: 'Call Mikko',
   emailAriaLabel: 'Email Mikko',
   whatsappAriaLabel: 'Contact Mikko on WhatsApp',
-  chatAriaLabel: 'Live chat interface'
+  chatAriaLabel: 'Live chat interface',
+  vatNumber: 'VAT: FI35375195'
 };

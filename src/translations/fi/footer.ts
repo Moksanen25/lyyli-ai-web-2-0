@@ -15,4 +15,5 @@ export const footer = {
   cookies: 'Evästekäytäntö',
   copyright: '© 2025 Lyyli. Kaikki oikeudet pidätetään.',
   description: 'Tekoälyllä toimiva sisällönhallintajärjestelmä, joka muuttaa sisällöntuotantoprosessisi.',
+  vatNumber: 'Y-tunnus: 3537519-5',
 };

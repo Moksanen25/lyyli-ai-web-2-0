@@ -15,4 +15,5 @@ export const footer = {
   cookies: 'Cookie Policy',
   copyright: '© 2025 Lyyli. All rights reserved.',
   description: 'AI-powered content management platform that transforms your content workflow.',
+  vatNumber: 'VAT: FI35375195',
 };

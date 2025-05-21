@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link, useLocation } from 'react-router-dom';
@@ -41,6 +42,9 @@ const Footer: React.FC = () => {
             </Link>
             <p className="text-primary/70 mb-4">
               {t('footer.description')}
+            </p>
+            <p className="text-primary/70 mb-4">
+              {t('footer.vatNumber')}
             </p>
             <Link to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"} onClick={navigateToCalculator} className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2">
               <Calculator className="h-4 w-4 mr-2" />
@@ -116,8 +120,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-200 pt-6 flex justify-center">
-          <div className="text-primary/70">{t('footer.copyright')}</div>
+        <div className="border-t border-gray-200 pt-6 flex flex-col items-center">
+          <div className="text-primary/70 mb-2">{t('footer.copyright')}</div>
+          <div className="text-primary/60 text-sm">{t('footer.vatNumber')}</div>
         </div>
       </div>
     </footer>;

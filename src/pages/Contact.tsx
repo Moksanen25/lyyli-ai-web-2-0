@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
@@ -106,6 +107,10 @@ const Contact = () => {
                     </svg>
                     <span>WhatsApp</span>
                   </a>
+                  
+                  <div className="text-sm text-muted-foreground">
+                    {t('contact.vatNumber')}
+                  </div>
                 </div>
                 
                 <div className="pt-4 flex flex-wrap gap-3">
