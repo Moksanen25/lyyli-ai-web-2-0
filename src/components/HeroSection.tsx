@@ -15,9 +15,6 @@ const HeroSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
   
-  // Use the existing logo URL that we know works
-  const logoUrl = "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png";
-  
   // Handle demo dialog
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
@@ -26,43 +23,21 @@ const HeroSection: React.FC = () => {
   };
   
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10 relative">
+    <section className="py-20 md:py-32 bg-background relative">
       <div className="container-padding container mx-auto text-center relative z-10">
-        {/* Mobile logo - ultra-simple approach without any extra containers */}
-        {isMobile && (
-          <div className="mb-8">
-            <img 
-              src={logoUrl}
-              alt="Lyyli.ai Logo"
-              className="mx-auto h-32 w-auto"
-            />
-          </div>
-        )}
-        
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-[#295045]">
           {heroT('title')}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
           {heroT('subtitle')}
         </p>
-        <div className="flex justify-center space-x-4 mb-12 animate-fade-in">
-          <a href="https://lyyli.vercel.app" target="_blank" rel="noopener noreferrer">
-            <Button size="lg">
-              {heroT('cta')}
-            </Button>
-          </a>
+        <div className="flex justify-center mb-12 animate-fade-in">
           <Button 
-            variant="outline" 
             size="lg" 
-            onClick={handleOpenDemo}
-            className="hidden md:inline-flex"
+            className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
           >
-            {heroT('secondaryCta')}
+            {heroT('cta')}
           </Button>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto animate-fade-in">
-          {/* Trust indicator badges removed from here */}
         </div>
       </div>
 
