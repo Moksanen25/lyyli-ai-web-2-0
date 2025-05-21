@@ -25,7 +25,7 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
   title,
   subtitle,
   description,
-  image = '/images/features-hero.jpg',
+  image = '/lovable-uploads/231657c8-4a3c-4f35-be49-658e5ac3688f.png',
   primaryCta,
   secondaryCta,
 }) => {
@@ -89,7 +89,7 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
             <ImageWithFallback
               src={image} 
               alt={displayTitle}
-              className="rounded-lg shadow-lg object-cover w-full max-h-[500px]"
+              className="rounded-lg shadow-lg object-contain w-full max-h-[500px]"
               fallbackSrc="/placeholder.svg"
             />
           </div>
