@@ -37,6 +37,7 @@ const HeroSection: React.FC = () => {
             variant="outline" 
             size="lg" 
             onClick={handleOpenDemo}
+            className="hidden md:inline-flex"
           >
             {heroT('secondaryCta')}
           </Button>
