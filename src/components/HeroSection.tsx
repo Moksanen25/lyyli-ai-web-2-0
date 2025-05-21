@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,7 @@ import { Shield, Database, MessageSquare } from 'lucide-react';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { checkImageExists } from '@/utils/imageUtils';
 
 const HeroSection: React.FC = () => {
   const { heroT } = useLanguage();
@@ -14,6 +15,21 @@ const HeroSection: React.FC = () => {
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
+  const [logoLoaded, setLogoLoaded] = useState(false);
+  
+  // Image URL for the logo
+  const logoUrl = "/lovable-uploads/9842a484-6e0e-494f-a949-2bb13488b181.png";
+  
+  // Debug the image URL
+  useEffect(() => {
+    console.log("Hero logo URL:", logoUrl);
+    
+    // Check if the image exists
+    checkImageExists(logoUrl).then(exists => {
+      console.log(`Logo image exists: ${exists}`);
+      setLogoLoaded(exists);
+    });
+  }, [logoUrl]);
   
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
@@ -28,12 +44,13 @@ const HeroSection: React.FC = () => {
         {isMobile && (
           <div className="mb-8 flex justify-center">
             <ImageWithFallback
-              src="/lovable-uploads/9842a484-6e0e-494f-a949-2bb13488b181.png"
+              src={logoUrl}
               alt="Lyyli.ai Logo"
               className="w-40 h-auto"
               fallbackSrc="/placeholder.svg"
               width={160}
               height={160}
+              style={{ display: 'block', maxHeight: '160px' }}
             />
           </div>
         )}
