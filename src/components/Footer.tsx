@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           {/* Logo and description */}
           <div>
             <Link to={language === 'fi' ? "/fi/full" : "/full"} className="inline-block mb-4">
-              <img alt="Lyyli.ai" className="h-10 mb-3" src="/lovable-uploads/f52bc771-8bbc-4f94-9f5a-84df3527a57b.png" />
+              <img alt="Lyyli.ai" className="h-10 mb-3" src="/lovable-uploads/a59c7aab-a457-41d3-a3ce-b2230ef1e41d.png" />
             </Link>
             <p className="text-primary/70 mb-4">
               AI-powered content management platform that transforms your content workflow.
