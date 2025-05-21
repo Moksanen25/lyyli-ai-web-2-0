@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Always visible on both mobile and desktop */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
-          <img alt="Lyyli.ai" className="h-14" src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png" />
+          <img alt="Lyyli.ai" className="h-10 md:h-14" src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png" />
         </Link>
         
         {/* Desktop Navigation */}
@@ -69,41 +69,43 @@ const Navbar: React.FC = () => {
         </nav>
         
         {/* Mobile Navigation */}
-        <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-full sm:w-64">
-            <div className="grid gap-4 py-4">
-              <div className="justify-between flex items-center">
-                <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
-                  <img src="/lovable-uploads/fd667a60-689d-4fe3-8640-743a06927c39.png" alt="Lyyli.ai" className="h-10" />
+        <div className="flex md:hidden items-center">
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full sm:w-64">
+              <div className="grid gap-4 py-4">
+                <div className="justify-between flex items-center">
+                  <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
+                    <img src="/lovable-uploads/fd667a60-689d-4fe3-8640-743a06927c39.png" alt="Lyyli.ai" className="h-10" />
+                  </Link>
+                  <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
+                <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-sm font-medium leading-none hover:underline">
+                  {t('nav.features')}
                 </Link>
-                <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
-                  <X className="h-5 w-5" />
-                </Button>
+                <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-sm font-medium leading-none hover:underline">
+                  {t('nav.pricing')}
+                </Link>
+                <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-sm font-medium leading-none hover:underline">
+                  {t('nav.about')}
+                </Link>
+                <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-sm font-medium leading-none hover:underline">
+                  {t('nav.blog')}
+                </Link>
+                <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-sm font-medium leading-none hover:underline">
+                  {t('nav.contact')}
+                </Link>
+                <LanguageSwitcher />
               </div>
-              <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-sm font-medium leading-none hover:underline">
-                {t('nav.features')}
-              </Link>
-              <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-sm font-medium leading-none hover:underline">
-                {t('nav.pricing')}
-              </Link>
-              <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-sm font-medium leading-none hover:underline">
-                {t('nav.about')}
-              </Link>
-              <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-sm font-medium leading-none hover:underline">
-                {t('nav.blog')}
-              </Link>
-              <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-sm font-medium leading-none hover:underline">
-                {t('nav.contact')}
-              </Link>
-              <LanguageSwitcher />
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>;
 };
