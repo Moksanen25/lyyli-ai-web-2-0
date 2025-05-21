@@ -4,7 +4,6 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import ChatMessage from '@/components/chat/ChatMessage';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { ChatMessage as ChatMessageType } from '../hooks/useSolutionChat';
-import { Loader2 } from 'lucide-react';
 
 interface ChatMessagesProps {
   messages: ChatMessageType[];
@@ -61,9 +60,10 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false 
         
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-muted rounded-lg p-3 flex items-center space-x-2">
-              <Loader2 className="h-4 w-4 animate-spin" />
-              <span className="text-sm">Kirjoittaa...</span>
+            <div className="bg-muted rounded-lg p-3 px-4 flex items-center space-x-1">
+              <span className="h-2 w-2 bg-gray-500 rounded-full animate-pulse"></span>
+              <span className="h-2 w-2 bg-gray-500 rounded-full animate-pulse delay-150"></span>
+              <span className="h-2 w-2 bg-gray-500 rounded-full animate-pulse delay-300"></span>
             </div>
           </div>
         )}
