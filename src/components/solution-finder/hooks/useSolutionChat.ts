@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useChatThread } from '@/hooks/use-chat-thread';
 import { useToast } from '@/hooks/use-toast';
@@ -141,4 +140,3 @@ export function useSolutionChat(): UseSolutionChatReturn {
 // Fix the re-export to use 'export type' instead of just 'export'
 // This is required when the TypeScript 'isolatedModules' option is enabled
 export type { ChatMessage } from './types';
-

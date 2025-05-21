@@ -4,6 +4,7 @@ import { useSafeTranslation } from '@/utils/safeTranslation';
 import { ErrorBoundary } from '@/components/ui/error-boundary';
 import { useIsMobile } from '@/hooks/use-mobile';
 import ChatMessage from '@/components/chat/ChatMessage';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface ChatInterfaceProps {
   animationPhase: number;
@@ -58,7 +59,16 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ animationPhase, chatConta
         className="bg-card p-4 h-full overflow-y-auto"
       >
         <div className="flex items-center mb-4 border-b pb-2">
-          <div className="bg-primary rounded-full w-8 h-8 flex items-center justify-center text-white font-semibold">L</div>
+          <div className="rounded-full w-8 h-8 flex items-center justify-center overflow-hidden">
+            <ImageWithFallback 
+              src="/lovable-uploads/13b5a3a7-e059-4fe1-ba7b-8173b2638f6e.png"
+              alt="Lyyli avatar"
+              width={32}
+              height={32}
+              className="w-full h-full object-cover"
+              fallbackSrc="/placeholder.svg"
+            />
+          </div>
           <span className="ml-2 font-medium">Lyyli Assistant</span>
         </div>
         
