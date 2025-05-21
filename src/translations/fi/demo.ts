@@ -40,6 +40,7 @@ export const demo = {
   pause: 'Tauko',
   resume: 'Jatka',
   seeHowItWorks: 'Katso miten se toimii',
+  description: 'Varaa ilmainen konsultaatio tiimimme kanssa saadaksesi tietoa siitä, miten voimme auttaa organisaatiotanne',
   chatMessages: {
     welcome: 'Hei! Miten voin auttaa viestinnässäsi tänään?',
     userPrompt: 'Tarvitsemme sisäisen tiedotteen uudesta kestävän kehityksen aloitteestamme',
