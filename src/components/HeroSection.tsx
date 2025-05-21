@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
   const [logoLoaded, setLogoLoaded] = useState(false);
   
   // Image URL for the logo
-  const logoUrl = "/lovable-uploads/9842a484-6e0e-494f-a949-2bb13488b181.png";
+  const logoUrl = "/lovable-uploads/742f48bc-10ea-41bc-a63e-62b14b607126.png";
   
   // Debug the image URL
   useEffect(() => {
