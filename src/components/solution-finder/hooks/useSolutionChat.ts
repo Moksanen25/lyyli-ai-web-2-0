@@ -4,6 +4,7 @@ import { useChatThread } from '@/hooks/use-chat-thread';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useSafeTranslation } from '@/utils/safeTranslation';
+import { SupportedLanguage } from '@/translations';
 
 // Define message type
 export interface ChatMessage {
@@ -73,12 +74,14 @@ export function useSolutionChat() {
   };
 
   // Create an enhanced prompt with context for the AI
-  const createEnhancedPrompt = (userMessage: string) => {
+  const createEnhancedPrompt = (userMessage: string, languageCode: SupportedLanguage = 'en') => {
     return `
 USER CONTEXT: The user is on the Features page looking at industry-specific solutions.
+USER LANGUAGE: ${languageCode.toUpperCase()} (${languageCode === 'fi' ? 'Finnish' : 'English'})
 
 INSTRUCTIONS: 
 - You are Lyyli AI, an assistant specialized in helping users find the right solution for their industry.
+- IMPORTANT: RESPOND IN ${languageCode === 'fi' ? 'FINNISH' : 'ENGLISH'} LANGUAGE.
 - Respond in a friendly, helpful voice.
 - Your goal is to guide users toward booking a demo or signing up.
 - IMPORTANT: Break up your responses into multiple chat bubbles using [[NEXT_MESSAGE]] between each section.
@@ -112,33 +115,36 @@ USER MESSAGE: ${userMessage}
     setInputMessage('');
     setIsLoading(true);
     
-    // Create a context-enhanced prompt
+    // Create a context-enhanced prompt, use default language (English)
     const enhancedPrompt = createEnhancedPrompt(inputMessage);
     
     // Send message using the extracted logic
     sendMessage(enhancedPrompt);
   };
 
-  const handleIndustrySelection = (industryLabel: string, industryId?: string) => {
+  const handleIndustrySelection = (industryLabel: string, industryId?: string, language: SupportedLanguage = 'en') => {
     // If we have an industry ID, use it to get the translated name
     const translatedIndustry = industryId ? 
       customerSegmentsT(`segments.${industryId}.title`, { fallback: industryLabel }) : 
       industryLabel;
     
-    const message = `Tell me about solutions for ${translatedIndustry}`;
+    // Create the message in the user's language
+    const messageText = language === 'fi'
+      ? `Kerro ratkaisuista ${translatedIndustry} alalle`
+      : `Tell me about solutions for ${translatedIndustry}`;
     
     // Add user message to chat immediately
     const userMessage: ChatMessage = {
       role: 'user',
-      content: message,
+      content: messageText,
       timestamp: new Date()
     };
     
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
     
-    // Create a context-enhanced prompt and send it directly
-    const enhancedPrompt = createEnhancedPrompt(message);
+    // Create a context-enhanced prompt with the specified language and send it directly
+    const enhancedPrompt = createEnhancedPrompt(messageText, language);
     sendMessage(enhancedPrompt);
   };
 

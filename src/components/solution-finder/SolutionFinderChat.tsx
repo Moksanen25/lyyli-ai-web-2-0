@@ -11,9 +11,11 @@ import ChatForm from './components/ChatForm';
 import ChatToggle from './components/ChatToggle';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { industryOptions } from './data/industryOptions';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const SolutionFinderChat: React.FC = () => {
   const { featuresT } = useSafeTranslation();
+  const { language } = useLanguage(); // Get current language
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [showIndustryButtons, setShowIndustryButtons] = useState(true);
   const isMobile = useIsMobile();
@@ -60,17 +62,13 @@ const SolutionFinderChat: React.FC = () => {
     setIsChatOpen(!isChatOpen);
   };
 
-  // Modified industry selection handler to immediately start the chat process
-  const handleIndustryButtonClick = (industry: string) => {
-    // Find the industry ID based on the label
-    const industryOption = industryOptions.find(option => option.label === industry);
-    
+  // Modified industry selection handler to immediately start the chat process in correct language
+  const handleIndustryButtonClick = (industry: string, industryId: string) => {
     // Hide the industry buttons immediately
     setShowIndustryButtons(false);
     
-    // Directly submit the industry selection to start the chat process
-    // Pass both the display label and the ID for proper tracking
-    handleIndustrySelection(industry, industryOption?.id);
+    // Directly submit the industry selection to start the chat process in current language
+    handleIndustrySelection(industry, industryId, language);
   };
 
   return (
@@ -91,6 +89,7 @@ const SolutionFinderChat: React.FC = () => {
             <IndustryButtons 
               onSelectIndustry={handleIndustryButtonClick} 
               isVisible={showIndustryButtons}
+              language={language}
             />
             
             <ChatForm
