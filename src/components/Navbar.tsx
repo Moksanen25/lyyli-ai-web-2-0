@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
-          <img alt="Lyyli.ai" className="h-14" src="/lovable-uploads/9bebcdaa-91f7-405e-a660-fb7aefd9d2f2.png" />
+          <img alt="Lyyli.ai" className="h-14" src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png" />
         </Link>
         
         {/* Desktop Navigation */}

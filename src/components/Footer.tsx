@@ -1,17 +1,18 @@
-
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Settings, Calculator } from 'lucide-react';
-
 const Footer: React.FC = () => {
-  const { t, language } = useLanguage();
+  const {
+    t,
+    language
+  } = useLanguage();
   const location = useLocation();
-  
+
   // Function to determine if we're on the pricing page
   const isOnPricingPage = location.pathname.includes('/pricing');
-  
+
   // Function to open cookie settings dialog
   const openCookieSettings = () => {
     // Create and dispatch a custom event that the CookieConsent component will listen for
@@ -24,32 +25,24 @@ const Footer: React.FC = () => {
     if (isOnPricingPage) {
       const calculator = document.getElementById('roi-calculator');
       if (calculator) {
-        calculator.scrollIntoView({ behavior: 'smooth' });
+        calculator.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }
   };
-
-  return (
-    <footer className="bg-white pt-16 pb-8">
+  return <footer className="bg-white pt-16 pb-8">
       <div className="container-padding container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo and description */}
           <div>
             <Link to={language === 'fi' ? "/fi/full" : "/full"} className="inline-block mb-4">
-              <img 
-                src="/lovable-uploads/867523a0-ef9e-4a27-9074-d89008a4956d.png" 
-                alt="Lyyli.ai" 
-                className="h-10 mb-3"
-              />
+              <img alt="Lyyli.ai" className="h-10 mb-3" src="/lovable-uploads/f52bc771-8bbc-4f94-9f5a-84df3527a57b.png" />
             </Link>
             <p className="text-primary/70 mb-4">
               AI-powered content management platform that transforms your content workflow.
             </p>
-            <Link
-              to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"}
-              onClick={navigateToCalculator}
-              className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2"
-            >
+            <Link to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"} onClick={navigateToCalculator} className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2">
               <Calculator className="h-4 w-4 mr-2" />
               {language === 'fi' ? 'ROI Laskuri' : 'ROI Calculator'}
             </Link>
@@ -114,11 +107,7 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Button 
-                  variant="link"
-                  onClick={openCookieSettings}
-                  className="p-0 h-auto text-primary/70 hover:text-primary transition-colors"
-                >
+                <Button variant="link" onClick={openCookieSettings} className="p-0 h-auto text-primary/70 hover:text-primary transition-colors">
                   <Settings className="h-3 w-3 mr-1 inline" />
                   {language === 'fi' ? 'Evästeasetukset' : 'Cookie Settings'}
                 </Button>
@@ -131,8 +120,6 @@ const Footer: React.FC = () => {
           <div className="text-primary/70">{t('footer.copyright')}</div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
