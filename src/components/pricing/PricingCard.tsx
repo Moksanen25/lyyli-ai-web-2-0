@@ -82,6 +82,22 @@ const PricingCard: React.FC<PricingCardProps> = ({
           </div>
         </div>
         <CardDescription>{description}</CardDescription>
+        
+        {/* Display price more prominently */}
+        {monthly !== null && (
+          <div className="mt-4 text-center">
+            <span className="text-3xl font-bold">{getPrice()}</span>
+            <span className="ml-1 text-sm">
+              {billingPeriod === 'yearly' ? t('pricing.perYear') : t('pricing.perMonth')}
+            </span>
+            
+            {billingPeriod === 'yearly' && (
+              <div className="mt-1 text-sm text-emerald-600 dark:text-emerald-400">
+                {t('pricing.save')} {Math.round((1 - yearlyDiscountRate) * 100)}%
+              </div>
+            )}
+          </div>
+        )}
       </CardHeader>
       <CardContent className="grid gap-4">
         <ul className="space-y-2">
@@ -114,13 +130,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
           onClick={handleCtaClick}
         >
           {cta}
-          <div className="ml-1">
-            {getPrice() !== t('pricing.contactUs') && (
-              <div className="text-sm">
-                {billingPeriod === 'yearly' ? t('pricing.perYear') : t('pricing.perMonth')}
-              </div>
-            )}
-          </div>
         </Button>
       </CardFooter>
       
