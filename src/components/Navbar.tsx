@@ -94,15 +94,16 @@ const Navbar: React.FC = () => {
               <div className="grid gap-4 py-4">
                 <div className="justify-between flex items-center">
                   <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
-                    <div className="h-6 flex items-center">
+                    {/* Fix for mobile logo - explicitly set width and ensure it's visible */}
+                    <div className="h-8 w-auto flex items-center">
                       <ImageWithFallback
                         src={logoUrl}
                         alt="Lyyli.ai"
                         className="h-full w-auto"
                         fallbackSrc="/placeholder.svg"
-                        width={80}
-                        height={24}
-                        style={{ maxWidth: '80px', display: 'block' }}
+                        width={100}
+                        height={32}
+                        style={{ display: 'block', maxHeight: '32px' }}
                       />
                     </div>
                   </Link>
