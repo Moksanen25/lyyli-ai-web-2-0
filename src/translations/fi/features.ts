@@ -23,6 +23,8 @@ export const features = {
   // Solution finder section
   solutionFinder: {
     sectionTitle: "Löydä täydellinen ratkaisu toimialallesi",
-    sectionDescription: "Keskustele tekoälyavustajamme kanssa selvittääksesi, miten Lyyli voi auttaa ratkaisemaan toimialasi erityishaasteet."
+    sectionDescription: "Keskustele tekoälyavustajamme kanssa selvittääksesi, miten Lyyli voi auttaa ratkaisemaan toimialasi erityishaasteet.",
+    title: "Lyyli toimiala-asiantuntija",
+    welcomeMessage: "Hei! Olen Lyyli, asiantuntija-avustajasi, joka auttaa löytämään täydellisen ratkaisun toimialallesi. Minkä tyyppisestä organisaatiosta olet? Voit valita yhden alla olevista vaihtoehdoista tai kertoa minulle organisaatiostasi."
   }
 };

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useChatThread } from '@/hooks/use-chat-thread';
 import { useToast } from '@/hooks/use-toast';
@@ -7,10 +8,12 @@ import { SupportedLanguage } from '@/translations';
 import { ChatMessage, UseSolutionChatReturn } from './types';
 import { processAIResponse, createEnhancedPrompt } from '../utils/aiResponseUtils';
 import { displayMessagesWithDelay } from '../utils/chatDisplayUtils';
+import { useLanguage } from '@/hooks/useLanguage';
 
 export function useSolutionChat(): UseSolutionChatReturn {
   const { t } = useTranslation();
   const { customerSegmentsT } = useSafeTranslation();
+  const { language } = useLanguage(); // Get the current language
   const { toast } = useToast();
   
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -86,8 +89,8 @@ export function useSolutionChat(): UseSolutionChatReturn {
     setIsLoading(true);
     setIsTyping(true); // Show typing indicator immediately
     
-    // Create a context-enhanced prompt, use default language (English)
-    const enhancedPrompt = createEnhancedPrompt(inputMessage);
+    // Create a context-enhanced prompt, use current language
+    const enhancedPrompt = createEnhancedPrompt(inputMessage, language);
     
     // Send message using the extracted logic
     sendMessage(enhancedPrompt);
@@ -96,7 +99,7 @@ export function useSolutionChat(): UseSolutionChatReturn {
   const handleIndustrySelection = (
     industryLabel: string, 
     industryId?: string, 
-    language: SupportedLanguage = 'en'
+    selectedLanguage: SupportedLanguage = language // Use current language by default
   ) => {
     // If we have an industry ID, use it to get the translated name
     const translatedIndustry = industryId ? 
@@ -104,7 +107,7 @@ export function useSolutionChat(): UseSolutionChatReturn {
       industryLabel;
     
     // Create the message in the user's language
-    const messageText = language === 'fi'
+    const messageText = selectedLanguage === 'fi'
       ? `Kerro ratkaisuista ${translatedIndustry} alalle`
       : `Tell me about solutions for ${translatedIndustry}`;
     
@@ -120,7 +123,7 @@ export function useSolutionChat(): UseSolutionChatReturn {
     setIsTyping(true); // Show typing indicator immediately
     
     // Create a context-enhanced prompt with the specified language and send it directly
-    const enhancedPrompt = createEnhancedPrompt(messageText, language);
+    const enhancedPrompt = createEnhancedPrompt(messageText, selectedLanguage);
     sendMessage(enhancedPrompt);
   };
 
