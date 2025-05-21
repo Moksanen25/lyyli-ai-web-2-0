@@ -4,7 +4,7 @@ export const hero = {
   subtitle: 'Lyyli takes care of it for you.',
   cta: 'Get started',
   secondaryCta: 'See how it works',
-  enterpriseReady: 'Enterprise ready',
+  enterpriseReady: 'Enterprise Ready',
   trustedBy: 'Trusted by Fortune 500',
   badges: {
     security: 'Enterprise-grade security',

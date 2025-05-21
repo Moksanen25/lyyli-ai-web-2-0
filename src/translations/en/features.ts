@@ -1,12 +1,28 @@
 
 export const features = {
+  // Common feature labels
+  enterpriseReady: "Enterprise Ready",
+  securityDesc: "Built with enterprise-grade security and compliance",
+  supportTitle: "Dedicated Support",
+  supportDesc: "Get priority support with dedicated account management",
+  additionalFeatures: {
+    ai: {
+      title: "Advanced AI",
+      description: "Access to our most powerful AI models"
+    }
+  },
+  integrationsTitle: "Custom Integrations",
+  integrationsDesc: "Connect with your existing enterprise tools",
+  
+  // Page hero section
+  pageHero: {
+    title: "Enterprise-Grade Solutions",
+    description: "Get the advanced features, security, and support your organization needs"
+  },
+  
+  // Solution finder section
   solutionFinder: {
-    sectionTitle: 'Find the Perfect Solution for Your Industry',
-    sectionDescription: 'Chat with our AI assistant to discover how Lyyli can help solve your specific industry challenges.',
-    welcomeMessage: "Hi there! I'm Lyyli, your assistant for finding the perfect solution for your industry.\n\n# How can I help you today?\n\nYou can select one of the industry options below or tell me about your organization's specific needs.",
-    inputPlaceholder: "Ask about your industry...",
-    title: "Lyyli Industry Advisor",
-    openChat: "Open industry advisor",
-    closeChat: "Close industry advisor"
+    sectionTitle: "Find the Perfect Solution for Your Industry",
+    sectionDescription: "Chat with our AI assistant to discover how Lyyli can help solve your specific industry challenges."
   }
 };
