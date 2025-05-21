@@ -5,12 +5,15 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Shield, Database, MessageSquare } from 'lucide-react';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {
   const { heroT } = useLanguage();
   const [showDemo, setShowDemo] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const isMobile = useIsMobile();
   
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
@@ -21,6 +24,20 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
+        {/* Mobile-only logo above the heading */}
+        {isMobile && (
+          <div className="mb-8 flex justify-center">
+            <ImageWithFallback
+              src="/lovable-uploads/9842a484-6e0e-494f-a949-2bb13488b181.png"
+              alt="Lyyli.ai Logo"
+              className="w-40 h-auto"
+              fallbackSrc="/placeholder.svg"
+              width={160}
+              height={160}
+            />
+          </div>
+        )}
+        
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
           {heroT('title')}
         </h1>
