@@ -40,17 +40,17 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile-only logo above the heading */}
+        {/* Mobile logo with improved rendering */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <ImageWithFallback
+            <img 
               src={logoUrl}
               alt="Lyyli.ai Logo"
               className="w-40 h-auto"
-              fallbackSrc="/placeholder.svg"
-              width={160}
-              height={160}
-              style={{ display: 'block', maxHeight: '160px' }}
+              style={{ 
+                display: 'block',
+                maxHeight: '160px'
+              }}
             />
           </div>
         )}
