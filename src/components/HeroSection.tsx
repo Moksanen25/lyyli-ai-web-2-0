@@ -15,21 +15,9 @@ const HeroSection: React.FC = () => {
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
-  const [logoLoaded, setLogoLoaded] = useState(false);
   
-  // Image URL for the logo
-  const logoUrl = "/lovable-uploads/742f48bc-10ea-41bc-a63e-62b14b607126.png";
-  
-  // Debug the image URL
-  useEffect(() => {
-    console.log("Hero logo URL:", logoUrl);
-    
-    // Check if the image exists
-    checkImageExists(logoUrl).then(exists => {
-      console.log(`Logo image exists: ${exists}`);
-      setLogoLoaded(exists);
-    });
-  }, [logoUrl]);
+  // Use a direct logo URL that's definitely accessible - important for mobile visibility
+  const logoUrl = "/placeholder.svg";
   
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
@@ -40,7 +28,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo with improved rendering */}
+        {/* Mobile logo - using direct img with reliable static image */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
             <img 
@@ -49,7 +37,14 @@ const HeroSection: React.FC = () => {
               className="w-40 h-auto"
               style={{ 
                 display: 'block',
-                maxHeight: '160px'
+                maxHeight: '160px',
+                border: '1px solid #eaeaea', // Light border for visibility
+                padding: '8px',              // Add some padding
+                backgroundColor: '#ffffff'   // Light background
+              }}
+              onError={(e) => {
+                console.error('Logo failed to load');
+                e.currentTarget.src = '/placeholder.svg'; // Fallback
               }}
             />
           </div>
