@@ -113,9 +113,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
           variant={accent ? "secondary" : "default"}
           onClick={handleCtaClick}
         >
-          {getPrice() !== t('pricing.contactUs') && billingPeriod === 'yearly' ? t('pricing.perYear') : null}
-          {getPrice() !== t('pricing.contactUs') && billingPeriod === 'monthly' ? t('pricing.perMonth') : null}
-          {getPrice()}
+          {cta}
+          <div className="ml-1">
+            {getPrice() !== t('pricing.contactUs') && (
+              <div className="text-sm">
+                {billingPeriod === 'yearly' ? t('pricing.perYear') : t('pricing.perMonth')}
+              </div>
+            )}
+          </div>
         </Button>
       </CardFooter>
       
