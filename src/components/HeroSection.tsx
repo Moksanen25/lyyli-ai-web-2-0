@@ -20,23 +20,7 @@ const HeroSection: React.FC = () => {
   // Use the existing logo URL that we know works
   const logoUrl = "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png";
   
-  useEffect(() => {
-    // Debug logging to verify the image is loading
-    console.log("Current logo URL:", logoUrl);
-    
-    // Test image loading
-    const img = new Image();
-    img.onload = () => {
-      console.log("Logo image loaded successfully!");
-      setIsLoading(false);
-    };
-    img.onerror = (e) => {
-      console.error("Logo failed to load from URL:", logoUrl, e);
-      setIsLoading(false);
-    };
-    img.src = logoUrl;
-  }, []);
-  
+  // Handle demo dialog
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
     setIsLoading(true);   // Start with loading state
@@ -46,17 +30,17 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo with direct img tag for debugging */}
+        {/* Mobile logo with optimized display */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <div className="w-64 h-64 flex items-center justify-center bg-white border border-gray-200 rounded-md overflow-hidden shadow-md">
-              {/* Use direct img tag first to debug */}
+            <div className="w-64 h-64 flex items-center justify-center bg-white rounded-md overflow-hidden shadow-lg border border-gray-200">
               <img 
                 src={logoUrl}
                 alt="Lyyli.ai Logo"
-                className="max-w-full max-h-full object-contain p-4"
+                className="max-w-full max-h-full object-contain p-2"
+                style={{ display: 'block' }}
                 onError={(e) => {
-                  console.error('Logo failed to load with direct img tag');
+                  console.error('Logo failed to load');
                   e.currentTarget.src = "/placeholder.svg";
                 }}
               />
