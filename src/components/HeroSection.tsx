@@ -18,11 +18,11 @@ const HeroSection: React.FC = () => {
           {heroT('subtitle')}
         </p>
         <div className="flex justify-center space-x-4 mb-12 animate-fade-in">
-          <Link to="/pricing">
+          <a href="https://lyyli.vercel.app" target="_blank" rel="noopener noreferrer">
             <Button size="lg">
               {heroT('cta')}
             </Button>
-          </Link>
+          </a>
           <Link to="/contact">
             <Button variant="outline" size="lg">
               {heroT('secondaryCta')}
