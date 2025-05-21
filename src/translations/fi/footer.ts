@@ -14,4 +14,5 @@ export const footer = {
   terms: 'Käyttöehdot',
   cookies: 'Evästekäytäntö',
   copyright: '© 2025 Lyyli. Kaikki oikeudet pidätetään.',
+  description: 'Tekoälyllä toimiva sisällönhallintajärjestelmä, joka muuttaa sisällöntuotantoprosessisi.',
 };

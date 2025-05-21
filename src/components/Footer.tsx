@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               <img alt="Lyyli.ai" className="h-10 mb-3" src="/lovable-uploads/a59c7aab-a457-41d3-a3ce-b2230ef1e41d.png" />
             </Link>
             <p className="text-primary/70 mb-4">
-              AI-powered content management platform that transforms your content workflow.
+              {t('footer.description')}
             </p>
             <Link to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"} onClick={navigateToCalculator} className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2">
               <Calculator className="h-4 w-4 mr-2" />
