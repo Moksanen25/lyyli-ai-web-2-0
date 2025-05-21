@@ -52,9 +52,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
   
   const getPrice = () => {
     if (billingPeriod === 'monthly' && monthlyPrice !== undefined) {
-      return `€${monthlyPrice}`;
+      return `${monthlyPrice}€`;
     } else if (billingPeriod === 'yearly' && yearlyPrice !== undefined) {
-      return `€${yearlyPrice}`;
+      return `${yearlyPrice}€`;
     } else {
       return t('pricing.contactUs');
     }
@@ -81,7 +81,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             {icon}
           </div>
         </div>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className={accent ? "text-white" : ""}>{description}</CardDescription>
         
         {/* Display price more prominently */}
         {monthly !== null && (
@@ -111,7 +111,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         
         {secondaryFeatures && (
           <div className="mt-4">
-            <Badge variant="secondary" className="mb-2">{t('pricing.alsoIncluded')}</Badge>
+            <Badge variant="secondary" className="mb-2">{t('pricing.features.alsoIncluded')}</Badge>
             <ul className="space-y-2">
               {secondaryFeatures.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
