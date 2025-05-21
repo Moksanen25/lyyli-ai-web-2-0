@@ -42,20 +42,24 @@ const Navbar: React.FC = () => {
     contact: t('nav.contact')
   });
   
+  // Define logo URL and add console log to debug
   const logoUrl = "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png";
+  console.log("Logo URL being used:", logoUrl);
   
   return <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Always visible on both mobile and desktop */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
-          <ImageWithFallback
-            src={logoUrl}
-            alt="Lyyli.ai"
-            className="h-8 w-auto md:h-10"
-            fallbackSrc="/placeholder.svg"
-            width={120}
-            height={40}
-          />
+          <div className="h-8 md:h-10 flex items-center">
+            <ImageWithFallback
+              src={logoUrl}
+              alt="Lyyli.ai"
+              className="h-full w-auto"
+              fallbackSrc="/placeholder.svg"
+              width={120}
+              height={40}
+            />
+          </div>
         </Link>
         
         {/* Desktop Navigation */}
@@ -90,14 +94,16 @@ const Navbar: React.FC = () => {
               <div className="grid gap-4 py-4">
                 <div className="justify-between flex items-center">
                   <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
-                    <ImageWithFallback
-                      src={logoUrl}
-                      alt="Lyyli.ai"
-                      className="h-6 w-auto"
-                      fallbackSrc="/placeholder.svg"
-                      width={100}
-                      height={30}
-                    />
+                    <div className="h-6 flex items-center">
+                      <ImageWithFallback
+                        src={logoUrl}
+                        alt="Lyyli.ai"
+                        className="h-full w-auto"
+                        fallbackSrc="/placeholder.svg"
+                        width={100}
+                        height={30}
+                      />
+                    </div>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                     <X className="h-5 w-5" />
