@@ -40,6 +40,7 @@ export const demo = {
   pause: 'Pause',
   resume: 'Resume',
   seeHowItWorks: 'See how it works',
+  description: 'Schedule a consultation with our team to learn how we can help your organization',
   chatMessages: {
     welcome: 'Hi! How can I help with your communications today?',
     userPrompt: 'We need an internal announcement about our new sustainability initiative',
