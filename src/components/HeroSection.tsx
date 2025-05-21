@@ -28,17 +28,14 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10 relative">
       <div className="container-padding container mx-auto text-center relative z-10">
-        {/* Mobile logo with fixed z-index and transparent background */}
+        {/* Mobile logo - ultra-simple approach without any extra containers */}
         {isMobile && (
-          <div className="mb-8 flex justify-center">
-            <div className="w-64 h-64 flex items-center justify-center rounded-md overflow-hidden shadow-lg border border-gray-200 relative z-20 bg-transparent">
-              <img 
-                src={logoUrl}
-                alt="Lyyli.ai Logo"
-                className="max-w-[90%] max-h-[90%] object-contain"
-                style={{ display: 'block' }}
-              />
-            </div>
+          <div className="mb-8">
+            <img 
+              src={logoUrl}
+              alt="Lyyli.ai Logo"
+              className="mx-auto h-32 w-auto"
+            />
           </div>
         )}
         

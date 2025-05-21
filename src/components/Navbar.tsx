@@ -7,7 +7,6 @@ import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,14 +49,11 @@ const Navbar: React.FC = () => {
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Always visible on both mobile and desktop */}
         <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center">
-          <div className="h-8 md:h-10 flex items-center relative z-20">
-            <img 
-              src={logoUrl}
-              alt="Lyyli.ai"
-              className="h-full w-auto object-contain"
-              style={{ display: 'block' }}
-            />
-          </div>
+          <img 
+            src={logoUrl}
+            alt="Lyyli.ai"
+            className="h-8 md:h-10 w-auto"
+          />
         </Link>
         
         {/* Desktop Navigation */}
@@ -92,15 +88,11 @@ const Navbar: React.FC = () => {
               <div className="grid gap-4 py-4">
                 <div className="justify-between flex items-center">
                   <Link to={language === 'fi' ? "/fi/full" : "/full"} className="flex items-center" onClick={closeMenu}>
-                    {/* Fix for mobile logo - explicitly set display and z-index */}
-                    <div className="h-8 w-auto flex items-center relative z-20">
-                      <img 
-                        src={logoUrl}
-                        alt="Lyyli.ai"
-                        className="h-full w-auto object-contain"
-                        style={{ display: 'block' }}
-                      />
-                    </div>
+                    <img 
+                      src={logoUrl}
+                      alt="Lyyli.ai"
+                      className="h-8 w-auto"
+                    />
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                     <X className="h-5 w-5" />
