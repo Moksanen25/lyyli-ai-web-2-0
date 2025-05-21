@@ -16,8 +16,17 @@ const HeroSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
   
-  // Use a direct logo URL that's definitely accessible - important for mobile visibility
-  const logoUrl = "/placeholder.svg";
+  // Use the uploaded image for the logo
+  const logoUrl = "/lovable-uploads/3c0e27dc-c300-42dc-9605-480b54e69917.png";
+  
+  useEffect(() => {
+    // Debug logging to verify the image is loading
+    console.log("Current logo URL:", logoUrl);
+    const img = new Image();
+    img.onload = () => console.log("Logo image loaded successfully!");
+    img.onerror = () => console.error("Logo failed to load from URL:", logoUrl);
+    img.src = logoUrl;
+  }, []);
   
   const handleOpenDemo = () => {
     setAnimationPhase(0); // Reset animation
@@ -28,25 +37,21 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/10">
       <div className="container-padding container mx-auto text-center">
-        {/* Mobile logo - using direct img with reliable static image */}
+        {/* Mobile logo - try with absolute URL */}
         {isMobile && (
           <div className="mb-8 flex justify-center">
-            <img 
-              src={logoUrl}
-              alt="Lyyli.ai Logo"
-              className="w-40 h-auto"
-              style={{ 
-                display: 'block',
-                maxHeight: '160px',
-                border: '1px solid #eaeaea', // Light border for visibility
-                padding: '8px',              // Add some padding
-                backgroundColor: '#ffffff'   // Light background
-              }}
-              onError={(e) => {
-                console.error('Logo failed to load');
-                e.currentTarget.src = '/placeholder.svg'; // Fallback
-              }}
-            />
+            <div className="w-40 h-40 bg-white flex items-center justify-center border border-gray-200 p-2 rounded-md overflow-hidden">
+              <img 
+                src={logoUrl}
+                alt="Lyyli.ai Logo"
+                className="max-w-full max-h-full object-contain"
+                onError={(e) => {
+                  console.error('Logo failed to load, using fallback');
+                  // Try with an absolute path as fallback
+                  e.currentTarget.src = "https://placekitten.com/200/100";
+                }}
+              />
+            </div>
           </div>
         )}
         
