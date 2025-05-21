@@ -13,11 +13,14 @@ interface ChatMessagesProps {
 const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
   
   // Scroll to bottom of chat when messages change or typing state changes
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+      // Use scrollIntoView with behavior: 'smooth' for a better user experience
+      // and block: 'end' to ensure we're scrolling to the bottom without moving the whole page
+      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }, [messages, isTyping]);
   
@@ -43,6 +46,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false 
   
   return (
     <ScrollArea 
+      ref={scrollAreaRef}
       className="flex-grow p-4 overflow-auto" 
       type="always"
       onWheel={handleScrollAreaWheel}
@@ -68,7 +72,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false 
           </div>
         )}
         
-        <div ref={scrollRef} />
+        <div ref={scrollRef} className="h-1" />
       </div>
     </ScrollArea>
   );
