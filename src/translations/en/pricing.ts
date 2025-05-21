@@ -83,5 +83,17 @@ export const pricing = {
   comparison: {
     title: 'Feature Comparison',
     subtitle: 'Compare features across all plans to find the right fit for your business'
+  },
+  faq: {
+    title: 'Frequently Asked Questions',
+    subtitle: 'Get answers to the most common questions about our pricing and plans',
+    question1: 'What happens when my trial period ends?',
+    answer1: 'When your trial ends, you can choose to upgrade to one of our paid plans to continue using the service. Your data will be preserved for 30 days if you don\'t upgrade immediately.',
+    question2: 'Can I switch between plans?',
+    answer2: 'Yes, you can upgrade or downgrade your plan at any time. If you upgrade, changes take effect immediately. If you downgrade, changes will take effect at the end of your current billing cycle.',
+    question3: 'Do you offer discounts for non-profits or educational institutions?',
+    answer3: 'Yes! We offer special pricing for non-profit organizations, educational institutions, and startups. Please contact our sales team for more information.',
+    question4: 'What payment methods do you accept?',
+    answer4: 'We accept all major credit cards, including Visa, Mastercard, and American Express. For Enterprise plans, we can also arrange invoicing and bank transfers.'
   }
 };

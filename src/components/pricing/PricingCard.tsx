@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -56,7 +55,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     } else if (billingPeriod === 'yearly' && yearlyPrice !== undefined) {
       return `${yearlyPrice} €`;
     } else {
-      return t('pricing.contactUs');
+      return t('pricing.custom');
     }
   };
   

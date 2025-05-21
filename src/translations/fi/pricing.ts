@@ -83,5 +83,17 @@ export const pricing = {
   comparison: {
     title: 'Ominaisuusvertailu',
     subtitle: 'Vertaa ominaisuuksia kaikissa paketeissa löytääksesi yrityksellesi sopivan paketin'
+  },
+  faq: {
+    title: 'Usein Kysytyt Kysymykset',
+    subtitle: 'Vastauksia yleisimpiin kysymyksiin hinnoittelustamme ja paketeistamme',
+    question1: 'Mitä tapahtuu, kun kokeilujakso päättyy?',
+    answer1: 'Kun kokeilujaksosi päättyy, voit päivittää johonkin maksulliseen pakettiin jatkaaksesi palvelun käyttöä. Tietosi säilytetään 30 päivän ajan, jos et päivitä välittömästi.',
+    question2: 'Voinko vaihtaa pakettia?',
+    answer2: 'Kyllä, voit päivittää tai alentaa pakettisi milloin tahansa. Jos päivität ylöspäin, muutokset tulevat voimaan välittömästi. Jos alennat pakettia, muutokset tulevat voimaan nykyisen laskutusjakson päättyessä.',
+    question3: 'Tarjoatteko alennuksia voittoa tavoittelemattomille järjestöille tai oppilaitoksille?',
+    answer3: 'Kyllä! Tarjoamme erikoishinnoittelua voittoa tavoittelemattomille järjestöille, oppilaitoksille ja startup-yrityksille. Ota yhteyttä myyntitiimiimme saadaksesi lisätietoja.',
+    question4: 'Mitä maksutapoja hyväksytte?',
+    answer4: 'Hyväksymme kaikki yleisimmät luottokortit, mukaan lukien Visa, Mastercard ja American Express. Yrityspaketille voimme järjestää myös laskutuksen ja pankkisiirrot.'
   }
 };

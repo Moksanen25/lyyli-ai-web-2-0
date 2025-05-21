@@ -1,11 +1,12 @@
+
 import React from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { useLanguage } from '@/hooks/useLanguage';
+} from "@/components/ui/accordion";
 
 const PricingFAQ = () => {
   const { t } = useLanguage();
