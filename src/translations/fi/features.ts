@@ -5,11 +5,9 @@ export const features = {
   securityDesc: "Rakennettu yritystason tietoturvalla ja vaatimustenmukaisuudella",
   supportTitle: "Oma tukitiimi",
   supportDesc: "Saat etusijalla olevan tuen oman tilin hallinnan kanssa",
-  additionalFeatures: {
-    ai: {
-      title: "Edistynyt tekoäly",
-      description: "Pääsy kehittyneimpiin tekoälymalleihimme"
-    }
+  additionalFeaturesAi: {
+    title: "Edistynyt tekoäly",
+    description: "Pääsy kehittyneimpiin tekoälymalleihimme"
   },
   integrationsTitle: "Mukautetut integraatiot",
   integrationsDesc: "Yhdistä olemassa oleviin yritysjärjestelmiisi",

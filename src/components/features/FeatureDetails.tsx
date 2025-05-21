@@ -36,8 +36,8 @@ const FeatureDetails = () => {
   const additionalFeatures = [
     {
       icon: <Wand className="h-8 w-8 text-primary" />,
-      title: featuresT('additionalFeatures.ai.title'),
-      description: featuresT('additionalFeatures.ai.description'),
+      title: featuresT('additionalFeaturesAi.title'),
+      description: featuresT('additionalFeaturesAi.description'),
     },
     {
       icon: <Layers className="h-8 w-8 text-primary" />,

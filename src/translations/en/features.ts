@@ -5,11 +5,9 @@ export const features = {
   securityDesc: "Built with enterprise-grade security and compliance",
   supportTitle: "Dedicated Support",
   supportDesc: "Get priority support with dedicated account management",
-  additionalFeatures: {
-    ai: {
-      title: "Advanced AI",
-      description: "Access to our most powerful AI models"
-    }
+  additionalFeaturesAi: {
+    title: "Advanced AI",
+    description: "Access to our most powerful AI models"
   },
   integrationsTitle: "Custom Integrations",
   integrationsDesc: "Connect with your existing enterprise tools",
