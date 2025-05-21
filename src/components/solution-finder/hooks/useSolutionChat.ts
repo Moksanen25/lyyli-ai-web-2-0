@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useChatThread } from '@/hooks/use-chat-thread';
 import { useToast } from '@/hooks/use-toast';
@@ -68,33 +69,20 @@ export function useSolutionChat() {
         .map(msg => msg.trim())
         .filter(msg => msg.length > 0);
     } else {
-      // If no delimiter, try to split by paragraphs for better readability
-      // First check if the content is long enough to be worth splitting
-      if (content.length > 150) {
-        // Split by double line breaks which often indicate paragraph breaks
-        const paragraphs = content.split(/\n\s*\n/);
-        
-        if (paragraphs.length > 1) {
-          // Group paragraphs into reasonable chunks (1-2 paragraphs per message)
-          let currentChunk = '';
-          
-          paragraphs.forEach((paragraph, index) => {
-            // If the current chunk plus this paragraph would be too long, start a new chunk
-            if (currentChunk.length + paragraph.length > 200 && currentChunk.length > 0) {
-              messages.push(currentChunk);
-              currentChunk = paragraph;
-            } else {
-              // Otherwise add this paragraph to the current chunk
-              currentChunk += (currentChunk.length ? '\n\n' : '') + paragraph;
-            }
-            
-            // Push the last chunk if we're at the end
-            if (index === paragraphs.length - 1 && currentChunk.length > 0) {
-              messages.push(currentChunk);
-            }
-          });
-        } else {
-          messages = [content];
+      // Split by sentences for better readability (max 2 sentences per bubble)
+      // Use regex to match sentence endings (periods, question marks, exclamation points followed by space or line break)
+      const sentences = content.match(/[^.!?]+[.!?]+(\s|$)/g) || [content];
+      
+      if (sentences.length > 1) {
+        // Group sentences into chunks of 1-2 sentences
+        for (let i = 0; i < sentences.length; i += 2) {
+          if (i + 1 < sentences.length) {
+            // Two sentences
+            messages.push((sentences[i] + sentences[i + 1]).trim());
+          } else {
+            // Just one sentence left
+            messages.push(sentences[i].trim());
+          }
         }
       } else {
         messages = [content];
@@ -106,8 +94,8 @@ export function useSolutionChat() {
 
   // New function to display messages with a delay
   const displayMessagesWithDelay = (messageContents: string[]) => {
-    // Base delay between messages in milliseconds (increased from previous value)
-    const baseDelay = 1500; 
+    // Increased base delay between messages for better reading pace (2 seconds)
+    const baseDelay = 2000; 
     // Additional delay per character (simulates typing speed)
     const charDelay = 0.05;
     
@@ -119,8 +107,7 @@ export function useSolutionChat() {
       const typingDelay = prevContentLength * charDelay;
       
       // Add increasing delay for each message: base delay + typing simulation
-      // Increasing the minimum delay between messages
-      cumulativeDelay += baseDelay + Math.min(typingDelay, 2500); // Cap typing delay at 2.5s max
+      cumulativeDelay += baseDelay + Math.min(typingDelay, 1000); // Cap typing delay at 1s max
       
       setTimeout(() => {
         setMessages(prev => [
@@ -152,9 +139,9 @@ INSTRUCTIONS:
 - IMPORTANT: RESPOND IN ${languageCode === 'fi' ? 'FINNISH' : 'ENGLISH'} LANGUAGE.
 - Respond in a friendly, helpful voice.
 - Your goal is to guide users toward booking a demo or signing up.
-- IMPORTANT: Break up your responses into multiple chat bubbles using [[NEXT_MESSAGE]] between each section. 
-- Short replies (1-2 sentences) should be in a single bubble, longer content should be split.
-- Keep each chat bubble concise - about 1-2 short paragraphs maximum.
+- IMPORTANT: Break up your responses into multiple chat bubbles using [[NEXT_MESSAGE]] between each section.
+- Keep each message bubble VERY SHORT - maximum 1-2 sentences per bubble.
+- Use frequent [[NEXT_MESSAGE]] markers to create a conversational flow.
 - Use clear headers and short paragraphs to make your responses more readable.
 - If they ask about a specific industry (tech, consulting, nonprofit, education, creative, sports), provide relevant challenges and solutions in a structured format.
 - When appropriate, refer to relevant case studies or blog posts that might help them.
@@ -167,7 +154,11 @@ USER MESSAGE: ${userMessage}
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+    if (e) {
+      e.preventDefault();
+      // Prevent default form submission behavior which can cause page scroll
+      e.stopPropagation();
+    }
     
     if (!inputMessage.trim()) {
       return;

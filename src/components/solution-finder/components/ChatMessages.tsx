@@ -18,9 +18,16 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false 
   // Scroll to bottom of chat when messages change or typing state changes
   useEffect(() => {
     if (scrollRef.current) {
-      // Use scrollIntoView with behavior: 'smooth' for a better user experience
-      // and block: 'end' to ensure we're scrolling to the bottom without moving the whole page
-      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      // Only scroll within the chat area, not the whole page
+      setTimeout(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'end',
+            inline: 'nearest'
+          });
+        }
+      }, 100);
     }
   }, [messages, isTyping]);
   
