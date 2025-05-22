@@ -5,7 +5,7 @@ import { useFeaturesTranslation } from './translation/featuresTranslation';
 import { useCustomerSegmentsTranslation } from './translation/customerSegmentsTranslation';
 import { useSpecialTranslations } from './translation/specialTranslations';
 import { useDebugTranslation } from './translation/debugTranslation';
-import { useSafeTrTranslation } from './translation/safeTrUtils';
+import { createSafeTrTranslation } from './translation/safeTrUtils';
 
 /**
  * Hook to safely access translations with fallbacks
@@ -21,7 +21,9 @@ export const useSafeTranslation = () => {
   const { customerSegmentsT, translateSegmentKey } = useCustomerSegmentsTranslation();
   const { pricingT, heroT, calculatorT } = useSpecialTranslations();
   const { debugTranslation } = useDebugTranslation();
-  const { safeTr } = useSafeTrTranslation();
+  
+  // Create safeTr using the factory function to avoid circular dependencies
+  const { safeTr } = createSafeTrTranslation(safeT);
   
   return { 
     safeT, 

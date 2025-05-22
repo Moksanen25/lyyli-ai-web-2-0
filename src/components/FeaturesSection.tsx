@@ -47,8 +47,8 @@ const FeaturesSection: React.FC = () => {
   ];
   
   // Get a features section title with fallback
-  const featuresTitle = safeTr('features.title', 'Core Features');
-  const featuresSubtitle = safeTr('features.subtitle', 'Built to streamline your communication workflows');
+  const featuresTitle = safeTr('features.title', {}, { fallback: 'Core Features' });
+  const featuresSubtitle = safeTr('features.subtitle', {}, { fallback: 'Built to streamline your communication workflows' });
 
   return (
     <section className="py-16 md:py-24 bg-white" id="features">
@@ -82,7 +82,7 @@ const FeaturesSection: React.FC = () => {
             className="bg-primary hover:bg-primary/90"
             onClick={() => setShowDemoDialog(true)}
           >
-            {safeTr('common.bookDemo', 'Book a Demo')}
+            {safeTr('common.bookDemo', {}, { fallback: 'Book a Demo' })}
           </Button>
         </div>
       </div>

@@ -1,10 +1,7 @@
 
-import { useLanguage } from '@/hooks/useLanguage';
 import { SafeTranslationOptions } from './types';
 
-export const useSafeTrTranslation = () => {
-  const { safeT } = useLanguage();
-  
+export const createSafeTrTranslation = (safeT: (key: string, options?: SafeTranslationOptions) => string) => {
   /**
    * Version of safeT that supports string interpolation
    * @param key Translation key
@@ -30,6 +27,20 @@ export const useSafeTrTranslation = () => {
       console.error(`Translation error in safeTr for key ${key}:`, e);
       return key;
     }
+  };
+  
+  return { safeTr };
+};
+
+/**
+ * This is just a placeholder hook to provide type definitions
+ * The actual implementation is in useSafeTranslation.ts to avoid circular dependencies
+ */
+export const useSafeTrTranslation = () => {
+  // This will be replaced by the actual implementation in the useSafeTranslation hook
+  const safeTr = (key: string, interpolation?: Record<string, string | number>, options?: SafeTranslationOptions): string => {
+    console.error('safeTr should not be called directly from useSafeTrTranslation');
+    return key;
   };
   
   return { safeTr };
