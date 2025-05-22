@@ -16,9 +16,9 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
   const { t, language, customerSegmentsT, safeTr } = useLanguage();
   
   // Use safe translations for UI elements with fallbacks
-  const challengesLabel = safeTr('customerSegments.challenges', 'Challenges');
-  const solutionsLabel = safeTr('customerSegments.solutions', 'Solutions');
-  const learnMoreButton = safeTr('customerSegments.learnMoreButton', 'Learn More');
+  const challengesLabel = safeTr('customerSegments.challenges', {}, { fallback: 'Challenges' });
+  const solutionsLabel = safeTr('customerSegments.solutions', {}, { fallback: 'Solutions' });
+  const learnMoreButton = safeTr('customerSegments.learnMoreButton', {}, { fallback: 'Learn More' });
   
   // Construct proper URL based on current language
   const caseStudyUrl = segment.caseStudyUrl 

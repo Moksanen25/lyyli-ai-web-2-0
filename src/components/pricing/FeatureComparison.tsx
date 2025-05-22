@@ -36,7 +36,7 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
     }
     
     // Last resort fallback
-    return safeTr(`pricing.features.${key}`, key);
+    return safeTr(`pricing.features.${key}`, {}, { fallback: key });
   };
   
   if (!showFullComparison) {
