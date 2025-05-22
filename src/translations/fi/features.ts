@@ -62,6 +62,10 @@ export const features = {
     integration: {
       title: "Saumattomat integraatiot",
       description: "Yhdistä olemassa oleviin työkaluihin ja alustoihin"
+    },
+    ai: {
+      title: "Edistynyt tekoäly",
+      description: "Pääsy kehittyneimpiin tekoälymalleihimme"
     }
   },
   
@@ -133,4 +137,3 @@ export const features = {
     answer4: "Kaikki paketit sisältävät perustuen. Ammattilaispaketit tarjoavat etusijaisen tuen, kun taas Yritysasiakkaat saavat oman tilinhoitajan ja räätälöidyn käyttöönoton avustuksen."
   }
 };
-

@@ -60,6 +60,10 @@ export const features = {
     integration: {
       title: "Seamless Integrations",
       description: "Connect with your existing tools and platforms"
+    },
+    ai: {
+      title: "Advanced AI",
+      description: "Access to our most powerful AI models"
     }
   },
   
