@@ -1,48 +1,36 @@
 
-import { useTranslation } from '@/hooks/useTranslation';
+import { useLanguage } from '@/hooks/useLanguage';
+import { SafeTranslationOptions } from './types';
 
-/**
- * Hook for the safeTr utility function
- */
 export const useSafeTrTranslation = () => {
-  const { t, language } = useTranslation();
+  const { safeT } = useLanguage();
   
-  // Safe translate function that never returns undefined or crashes
-  const safeTr = (key: string, defaultValue: string = ''): string => {
-    if (!key) return defaultValue;
-    
+  /**
+   * Version of safeT that supports string interpolation
+   * @param key Translation key
+   * @param options Translation options
+   * @returns Interpolated string
+   */
+  const safeTr = (key: string, interpolation?: Record<string, string | number>, options?: SafeTranslationOptions): string => {
     try {
-      const translated = t(key);
-      // If translation exists and isn't just returning the key itself
-      if (translated && translated !== key) {
-        return translated;
+      let translatedText = safeT(key, options);
+      
+      if (!interpolation) {
+        return translatedText;
       }
       
-      // Try with features prefix if it's a feature key
-      if (!key.startsWith('features.') && key.includes('.')) {
-        const featureKey = `features.${key}`;
-        const featureTranslated = t(featureKey);
-        if (featureTranslated && featureTranslated !== featureKey) {
-          return featureTranslated;
-        }
-      }
+      // Simple string template replacement
+      Object.entries(interpolation).forEach(([key, value]) => {
+        const placeholder = `{${key}}`;
+        translatedText = translatedText.replace(placeholder, String(value));
+      });
       
-      // Try with customerSegments prefix
-      if (!key.startsWith('customerSegments.')) {
-        const segmentKey = `customerSegments.${key}`;
-        const segmentTranslated = t(segmentKey);
-        if (segmentTranslated && segmentTranslated !== segmentKey) {
-          return segmentTranslated;
-        }
-      }
-      
-      // Finally return default or key as last resort
-      return defaultValue || key;
-    } catch (error) {
-      console.error(`Error in safeTr for key: ${key}`, error);
-      return defaultValue || key;
+      return translatedText;
+    } catch (e) {
+      console.error(`Translation error in safeTr for key ${key}:`, e);
+      return key;
     }
   };
   
-  return { safeTr, language };
+  return { safeTr };
 };
