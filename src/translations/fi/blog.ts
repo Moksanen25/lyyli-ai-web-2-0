@@ -22,7 +22,8 @@ export const blog = {
     creative: 'Luovat toimistot',
     creativeagencies: 'Luovat toimistot',
     sports: 'Urheiluseurat',
-    sportsorganizations: 'Urheiluseurat'
+    sportsorganizations: 'Urheiluseurat',
+    leadership: 'Johtajuus'
   },
   ctaTitle: 'Haluatko nähdä kuinka Lyyli voi auttaa organisaatiotasi?',
   ctaSubtitle: 'Varaa demo nähdäksesi kuinka tekoälyviestintäalustamme toimii juuri sinun tarpeisiisi',

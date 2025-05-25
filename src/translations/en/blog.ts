@@ -22,7 +22,8 @@ export const blog = {
     creative: 'Creative Agencies',
     creativeagencies: 'Creative Agencies',
     sports: 'Sports Organizations',
-    sportsorganizations: 'Sports Organizations'
+    sportsorganizations: 'Sports Organizations',
+    leadership: 'Leadership'
   },
   ctaTitle: 'Want to see how Lyyli can help your organization?',
   ctaSubtitle: 'Book a demo to see how our AI communication platform works for your specific needs',
