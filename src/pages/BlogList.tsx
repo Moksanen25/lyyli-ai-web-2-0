@@ -22,10 +22,11 @@ const BlogList: React.FC = () => {
   const languageFilteredPosts = useMemo(() => {
     console.log('Filtering posts for language:', language);
     console.log('Total posts available:', blogPosts.length);
+    console.log('All posts:', blogPosts.map(p => ({ id: p.id, slug: p.slug, title: p.title, language: p.language })));
     
     if (language === 'fi') {
       // Get all posts for Finnish, ensuring the nonprofit post is always included
-      return blogPosts.filter(post => {
+      const filteredPosts = blogPosts.filter(post => {
         // Always include post with ID 3 (nonprofit post)
         if (post.id === "3") {
           console.log("Including nonprofit post (ID: 3) in Finnish view");
@@ -33,8 +34,17 @@ const BlogList: React.FC = () => {
         }
         
         // Regular filtering logic for other posts
-        return hasFinishTranslation(post.slug) || post.language === 'fi';
+        const hasTranslation = hasFinishTranslation(post.slug);
+        const isFinnishPost = post.language === 'fi';
+        const shouldShow = hasTranslation || isFinnishPost;
+        
+        console.log(`Post ${post.slug}: hasTranslation=${hasTranslation}, isFinnishPost=${isFinnishPost}, shouldShow=${shouldShow}`);
+        
+        return shouldShow;
       });
+      
+      console.log('Finnish filtered posts:', filteredPosts.map(p => ({ id: p.id, slug: p.slug, title: p.title })));
+      return filteredPosts;
     }
     
     // In English mode, show all posts that don't have a specific non-English language
