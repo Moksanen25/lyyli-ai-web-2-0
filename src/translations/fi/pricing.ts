@@ -1,5 +1,5 @@
-
 export const pricing = {
+  tagline: 'Hinnoittelupaketit',
   title: 'Selkeä, läpinäkyvä hinnoittelu',
   subtitle: 'Valitse yrityksesi tarpeisiin sopiva paketti. Kaikki paketit sisältävät keskeisen tekoälytoiminnallisuuden.',
   monthly: 'Kuukausittain',

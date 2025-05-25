@@ -1,5 +1,5 @@
-
 export const pricing = {
+  tagline: 'Pricing Plans',
   title: 'Simple, Transparent Pricing',
   subtitle: 'Choose the plan that works best for your business needs. All plans include our core AI functionality.',
   monthly: 'Monthly',
