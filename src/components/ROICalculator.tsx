@@ -66,12 +66,12 @@ const ROICalculator = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {/* Input Section */}
-          <Card className="p-6 space-y-6">
-            <div className="space-y-6">
+          <Card className="p-8 space-y-8 h-fit">
+            <div className="space-y-8">
               {/* Communication Strategy Toggle */}
-              <div className="space-y-4 pt-2">
+              <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Briefcase className="h-5 w-5 text-primary" />
@@ -89,7 +89,7 @@ const ROICalculator = () => {
 
               {/* Conditional inputs based on strategy */}
               {usePartner ? (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div className="flex items-center gap-3">
                     <Euro className="h-5 w-5 text-primary" />
                     <Label className="text-base font-medium">{calculatorT('partnerFee')}</Label>
@@ -110,7 +110,7 @@ const ROICalculator = () => {
                 </div>
               ) : (
                 <>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <Users className="h-5 w-5 text-primary" />
                       <Label className="text-base font-medium">{calculatorT('commPersonnel')}</Label>
@@ -146,7 +146,7 @@ const ROICalculator = () => {
                       </Button>
                     </div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <Euro className="h-5 w-5 text-primary" />
                       <Label className="text-base font-medium">{calculatorT('avgSalary')}</Label>
@@ -172,43 +172,46 @@ const ROICalculator = () => {
 
           {/* Output Section */}
           <div className="space-y-6">
-            <Card className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-3 mb-3">
+            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
+              <div className="flex items-center gap-3 mb-4">
                 <Briefcase className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">
                   {usePartner ? calculatorT('annualPartnerCost') : calculatorT('annualStaffCost')}
                 </h3>
               </div>
-              <p className="text-2xl font-bold">{traditionalCost}</p>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-3xl font-bold mb-2">{traditionalCost}</p>
+              <p className="text-sm text-muted-foreground">
                 {usePartner 
                   ? calculatorT('partnerCostDesc') 
                   : safeTr('calculator.staffCostDesc', { count: hiredPersonnel })}
               </p>
             </Card>
-            <Card className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-3 mb-3">
+            
+            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
+              <div className="flex items-center gap-3 mb-4">
                 <Euro className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">{calculatorT('lyyliCost')}</h3>
               </div>
-              <p className="text-2xl font-bold">{lyyliCost}</p>
-              <p className="text-sm text-muted-foreground mt-2">{calculatorT('lyyliCostDesc')}</p>
+              <p className="text-3xl font-bold mb-2">{lyyliCost}</p>
+              <p className="text-sm text-muted-foreground">{calculatorT('lyyliCostDesc')}</p>
             </Card>
-            <Card className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-3 mb-3">
+            
+            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
+              <div className="flex items-center gap-3 mb-4">
                 <TrendingUp className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">{calculatorT('annualSavings')}</h3>
               </div>
-              <p className="text-2xl font-bold text-emerald-600">{savings}</p>
-              <p className="text-sm text-muted-foreground mt-2">{calculatorT('savingsDesc')}</p>
+              <p className="text-3xl font-bold text-emerald-600 mb-2">{savings}</p>
+              <p className="text-sm text-muted-foreground">{calculatorT('savingsDesc')}</p>
             </Card>
-            <Card className="bg-white p-6 rounded-lg shadow-md border-2 border-primary/20">
-              <div className="flex items-center gap-3 mb-3">
+            
+            <Card className="bg-white p-6 rounded-lg shadow-md border-2 border-primary/20 h-fit">
+              <div className="flex items-center gap-3 mb-4">
                 <TrendingUp className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">{calculatorT('roi')}</h3>
               </div>
-              <p className="text-3xl font-bold text-primary">{roi}%</p>
-              <p className="text-sm text-muted-foreground mt-2">{calculatorT('roiDesc')}</p>
+              <p className="text-4xl font-bold text-primary mb-2">{roi}%</p>
+              <p className="text-sm text-muted-foreground">{calculatorT('roiDesc')}</p>
             </Card>
           </div>
         </div>
