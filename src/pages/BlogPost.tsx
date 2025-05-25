@@ -44,7 +44,7 @@ const BlogPost: React.FC = () => {
       description,
       url: postUrl,
       image: currentPost.featuredImage,
-      keywords: 'internal communication, AI assistant, founder story, leadership, organizational culture'
+      keywords: 'organizational communication, communication burden, internal messaging, leadership support, AI writing assistant'
     };
   };
   

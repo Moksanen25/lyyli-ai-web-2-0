@@ -26,7 +26,7 @@ export const blogTranslations: Record<string, { title?: string; excerpt?: string
   'nonprofit-member-communication-enhancement-fi': {
     title: 'Miten voittoa tavoittelemattomat järjestöt voivat tehostaa jäsenviestintää tekoälyn avulla',
     excerpt: 'Tehokkaat strategiat järjestöjen jäsenviestinnän parantamiseksi tekoälytyökalujen avulla.',
-    content: '<p>Voittoa tavoittelemattomat järjestöt kohtaavat jatkuvasti haasteita rajallisilla resursseilla. Tekoäly tarjoaa uusia mahdollisuuksia tehostaa jäsenviestintää ja parantaa sitoutumista.</p><p>Tässä artikkelissa käsittelemme, miten järjestöt voivat hyödyntää tekoälyä automatisoituun ja personoituun viestintään.</p><h2>Jäsenviestinnän haasteet järjestöissä</h2><p>Järjestöillä on tyypillisesti rajalliset resurssit, mutta niiden täytyy pitää jäsenensä informoituina ja sitoutuneina. Tämä tasapainoilu vie usein arvokasta aikaa muilta tärkeiltä tehtäviltä.</p><p>Tutkimuksen mukaan jäsenet, jotka eivät saa säännöllistä ja merkityksellistä viestintää, uusivat jäsenyytensä 45% epätodennäköisemmin.</p><h2>Tekoäly apuna jäsenviestinnässä</h2><p>Tekoälypohjaiset viestintäratkaisut voivat auttaa järjestöjä monella tavalla:</p><ul><li>Automatisoitu sisällöntuotanto eri kanaviin</li><li>Personoidut viestit jäsenen kiinnostuksen mukaan</li><li>Viestinnän ajoitus optimaalisiin aikoihin</li><li>Automaattiset vastaukset yleisimpiin kysymyksiin</li></ul><h2>Tapaustutkimus: Paikallinen ympäristöjärjestö</h2><p>Eräs paikallinen ympäristöjärjestö otti käyttöön Lyylin tekoälypohjaisen viestintäalustan. Järjestö loi automatisoituja viestintäketjuja, jotka aktivoituivat tiettyjen jäsentapahtumien perusteella.</p><p>Tulokset olivat vaikuttavia:</p><ul><li>Jäsenten osallistuminen tapahtumiin nousi 37%</li><li>Uusiutuvien jäsenyyksien määrä kasvoi 29%</li><li>Vapaaehtoistyöhön ilmoittautuminen lisääntyi 42%</li></ul><p>Merkittävintä oli, että järjestön henkilöstö pystyi keskittymään strategiseen suunnitteluun rutiiniviestinnän sijaan.</p><h2>Kuinka aloittaa tekoälypohjainen jäsenviestintä</h2><ol><li>Analysoi nykyinen viestintäsi: tunnista toistuvat viestit ja prosessit</li><li>Segmentoi jäsenistösi kiinnostusten ja aktiivisuuden mukaan</li><li>Valitse sopiva tekoälypohjainen viestintäalusta</li><li>Aloita automatisoimalla yksinkertaiset, usein toistuvat viestit</li><li>Kerää palautetta ja optimoi prosesseja jatkuvasti</li></ol><p>Tekoälyn käyttöönotto ei vaadi suurta teknistä osaamista - monet alustat on suunniteltu helppokäyttöisiksi myös pienille organisaatioille.</p><h2>Tekoälyn eettiset näkökohdat järjestöviestinnässä</h2><p>On tärkeää muistaa, että järjestöissä henkilökohtainen yhteys jäseniin on erityisen tärkeää. Tekoäly tulisi nähdä työkaluna, joka vapauttaa aikaa aidolle vuorovaikutukselle, ei korvaa sitä.</p><p>Varmista, että viestintäsi säilyttää järjestösi äänen ja arvot, ja tarjoa aina mahdollisuus kommunikoida myös ihmisen kanssa.</p><h2>Yhteenveto</h2><p>Tekoälypohjainen viestintä tarjoaa järjestöille erinomaisen mahdollisuuden tehostaa jäsensuhteitaan rajallisilla resursseilla. Oikein toteutettuna se voi johtaa parempaan jäsenten sitoutumiseen, korkeampaan jäsenpysyvyyteen ja tehokkaampaan toimintaan - jättäen enemmän aikaa järjestön varsinaiseen tehtävään.</p>'
+    content: '<p>Voittoa tavoittelemattomat järjestöt kohtaavat jatkuvasti haasteita rajallisilla resursseilla. Tekoäly tarjoaa uusia mahdollisuuksia tehostaa jäsenviestintää ja parantaa sitoutumista.</p><p>Tässä artikkelissa käsittelemme, miten järjestöt voivat hyödyntää tekoälyä automatisoituun ja personoituun viestintään.</p><h2>Jäsenviestinnän haasteet järjestöissä</h2><p>Järjestöillä on tyypillisesti rajalliset resurssit, mutta niiden täytyy pitää jäsenensä informoituina ja sitoutuneina. Tämä tasapainoilu vie usein arvokasta aikaa muilta tärkeiltä tehtäviltä.</p><p>Tutkimuksen mukaan jäsenet, jotka eivät saa säännöllistä ja merkityksellistä viestintää, uusivat jäsenyytensä 45% epätodennäköisemmin.</p><h2>Tekoäly apuna jäsenviestinnässä</h2><p>Tekoälypohjaiset viestintäratkaisut voivat auttaa järjestöjä monella tavalla:</p><ul><li>Automatisoitu sisällöntuotanto eri kanaviin</li><li>Personoidut viestit jäsenen kiinnostuksen mukaan</li><li>Viestinnän ajoitus optimaalisiin aikoihin</li><li>Automaattiset vastaukset yleisimpiin kysymyksiin</li></ul><h2>Tapaustutkimus: Paikallinen ympäristöjärjestö</h2><p>Eräs paikallinen ympäristöjärjestö otti käyttöön Lyylin tekoälypohjaisen viestintäalustan. Järjestö loi automatisoituja viestintäketjuja, jotka aktivoituivat tiettyjen jäsentapahtumien perusteella.</p><p>Tulokset olivat vaikuttavia:</p><ul><li>Jäsenten osallistuminen tapahtumiin nousi 37%</li><li>Uusiutuvien jäsenyyksien määrä kasvoi 29%</li><li>Vapaaehtoistyöhön ilmoittautuminen lisääntyi 42%</li></ul><p>Merkittävintä oli, että järjestön henkilöstö pystyi keskittymään strategiseen suunnitteluun rutiiniviestinnän sijaan.</p><h2>Kuinka aloittaa tekoälypohjainen jäsenviestintä</h2><ol><li>Analysoi nykyinen viestintäsi: tunnista toistuvat viestit ja prosessit</li><li>Segmentoi jäsenistösi kiinnostusten ja aktiivisuuden mukaan</li><li>Valitse sopiva tekoälypohjainen viestintäalusta</li><li>Aloita automatisoimalla yksinkertaiset, usein toistuvat viestit</li><li>Kerää palautetta ja optimoi prosesseja jatkuvasti</li></ol><p>Tekoälyn käyttöönotto ei vaadi suurta teknistä osaamista - monet alustat on suunniteltu helppokäyttöisiksi myös pienille organisaatioille.</p><h2>Tekoälyn eettiset näkökohdat järjestöviestinnässä</h2><p>On tärkeää muistaa, että järjestöissä henkilökohtainen yhteys jäseniin on erityisen tärkeää. Tekoäly tulisi nähdä työkaluna, joka vapauttaa aikaa aidolle vuorovaikutukselle, ei korvaa sitä.</p><p>Varmista, että viestintäsi säilyttää järjestösi äänen ja arvot, ja tarjoa aina mahdollisuus kommunikoida myös ihmisen kanssa.</p><h2>Yhteenveto</h2><p>Tekoälypohjainen viestintä tarjoaa järjestöille erinomaisen mahdollisuuden tehostaa jäsensuhteitaan rajallisilla resursseilla. Oikein toteutettuna se voi johtaa parempaan jäsenpysyvyyteen, korkeampaan jäsenpysyvyyteen ja tehokkaampaan toimintaan - jättäen enemmän aikaa järjestön varsinaiseen tehtävään.</p>'
   },
   
   // Content AI news translation
@@ -46,7 +46,7 @@ export const blogTranslations: Record<string, { title?: string; excerpt?: string
   // Add translation for why-we-built-lyyli-missed-messages
   'why-we-built-lyyli-missed-messages-fi': {
     title: 'Miksi Lyyli syntyi: tarina viesteistä, jotka jäivät sanomatta',
-    excerpt: 'Henkilökohtainen kirjoitus siitä, miksi Lyyli.ai syntyi ja kuinka viestintä epäonnistuu – ei tarkoituksella, vaan tekemättä jättämisenä.',
+    excerpt: 'Henkilökohtainen kirjoitus viestinnän näkymättömästä taakasta – ja niistä, jotka kantavat sen vaikkei kukaan sitä heille antanut.',
     content: `<p>Se ei alkanut visiosta.<br>Se alkoi hiljaisuudesta.</p>
 
 <p>Olen viimeisen vuosikymmenen aikana työskennellyt kasvuyritysten, järjestöjen ja asiantuntijaorganisaatioiden johdon kanssa. Olen nähnyt, miten hyvät ideat menettävät vauhtinsa, koska niitä ei ehditty sanoittaa. Miten oikeat päätökset jäävät ilman jatkoa, koska kukaan ei ehtinyt viestiä niistä eteenpäin.</p>
@@ -80,7 +80,7 @@ Mutta tärkeintä: se muistuttaa siitä, mitä pitäisi sanoa — ennen kuin hil
 
 <h2>Kyse ei ole automaatiosta. Kyse on vastuunkannosta.</h2>
 
-<p>Emme rakentaneet Lyyliä sisällöntuottajille. Rakensimme sen ihmisille, jotka kantavat viestinnän vastuuta, mutta joilla ei ole aikaa tai työkaluja tehdä sitä hyvin. Toimitusjohtajille. Viestintävastaaville. Toiminnanjohtajille. Heille, jotka tietävät, että selkeys ratkaisee — ja että hiljaisuuskin viestii jotain.</p>
+<p>Emme rakentaneet Lyyliä sisällöntuotantokoneille. Rakensimme sen ihmisille, jotka kantavat viestinnän vastuuta, mutta joilla ei ole aikaa tai työkaluja tehdä sitä hyvin. Toimitusjohtajille. Viestintävastaaville. Toiminnanjohtajille. Heille, jotka tietävät, että selkeys ratkaisee — ja että hiljaisuuskin viestii jotain.</p>
 
 <p>Lyyli ei väitä olevansa ihminen. Mutta se auttaa ihmisiä tekemään sen, minkä he muutenkin haluaisivat: viestiä selkeästi, johdonmukaisesti ja oikeaan aikaan.</p>
 
@@ -88,6 +88,53 @@ Mutta tärkeintä: se muistuttaa siitä, mitä pitäisi sanoa — ennen kuin hil
 
 <p>Ei siksi, että viestintä olisi rikki.<br>
 Vaan siksi, että se on liian tärkeää jäädäkseen tekemättä.</p>`
+  },
+  
+  // Add new translation for who-lyyli-was-built-for-invisible-burden
+  'who-lyyli-was-built-for-invisible-burden-fi': {
+    title: 'Kenelle Lyyli on tehty: viestinnän näkymätön taakka',
+    excerpt: 'Blogikirjoitus viestinnän näkymättömästä taakasta – ja niistä, jotka kantavat sen vaikkei kukaan sitä heille antanut.',
+    content: `<p>Jokaisessa organisaatiossa on joku, joka kantaa viestintää – vaikka se ei olisikaan hänen työnkuvassaan.</p>
+
+<p>Joskus se on toimitusjohtaja, jonka odotetaan pitävän tiimi kartalla ja hallituksen ajan tasalla.<br>
+Joskus se on operatiivinen johtaja, joka huolehtii, ettei kukaan ylläty uudesta linjauksesta.<br>
+Joskus se on viestintävastaava, jonka vastuulla ovat kaikki ne sanat, joita ei ole vielä kirjoitettu.</p>
+
+<p>Ja usein se on he kaikki – ilman riittävää aikaa, tukea tai selkeyttä.</p>
+
+<h2>Viestintä on funktio. Mutta liian usein sitä kohdellaan harrastuksena.</h2>
+
+<p>En osaa laskea, kuinka monta kertaa olen kuullut lauseen:</p>
+
+<p><strong>"Me kyllä tiedetään, että meidän pitäisi viestiä enemmän – mutta ei meillä ole siihen resursseja."</strong></p>
+
+<p>Tosiasiassa he sanovat:</p>
+
+<p><strong>"Me tiedetään, että se on tärkeää – mutta me ei enää pystytä tekemään sitä kunnolla."</strong></p>
+
+<p>Pienissä ja keskisuurissa organisaatioissa viestintä on kaikkien vastuulla. Ja kun se on kaikkien vastuulla, siitä ei tule kenenkään selkeää tehtävää. Kunnes jokin menee pieleen. Kunnes jokin jää ilman tietoa. Kunnes hiljaisuus alkaa maksaa.</p>
+
+<p>Tätä varten me rakensimme Lyylin.</p>
+
+<h2>Lyyli kantaa osan taakasta – ja ylläpitää rytmin.</h2>
+
+<p>Lyyli ei ole sisällöntuotantokone. Se ei ole korvaamassa viestijöitä. Se on tukena niille, jotka jo tietävät mitä pitäisi sanoa – ja tarvitsevat vain apua sanomiseen.</p>
+
+<p>Lyyli huomaa, kun jokin on muuttunut. Se ehdottaa, mistä olisi hyvä kertoa. Se luonnostelee alun. Se muistuttaa, kirjoittaa oikealla sävyllä ja auttaa viestin julkaisemisessa.</p>
+
+<p><strong>Koska viestinnän suurin taakka ei ole se, että tietäisi mitä sanoa.<br>
+Vaan se, että varmistaa sen tulevan sanotuksi.</strong></p>
+
+<h2>Lyyli on niille, jotka tekevät jo muutenkin kaiken muun.</h2>
+
+<p>Jos olet se, joka pitää yrityksen koossa, kehittää tuotetta, vastaa asiakaspuheluihin, päivittää verkkosivut, hoitaa palkanlaskennan ja yrittää vielä ehtiä kirjoittaa tiedotteen – Lyyli on sinua varten.</p>
+
+<p>Jos vastaat siitä, miltä yrityksesi kuulostaa, mutta et koskaan ehdi miettiä sävyä – Lyyli on sinua varten.</p>
+
+<p>Jos tiedät, että viestintä on tärkeää – mutta tarvitset sen hoituvan 10 minuutissa eikä kolmessa tunnissa – Lyyli on sinua varten.</p>
+
+<p><strong>Koska viestinnän ei pitäisi nojata yksittäisiin sankaritekoihin.<br>
+Sen pitäisi nojata toimivaan rakenteeseen.</strong></p>`
   }
 };
 

@@ -1,3 +1,4 @@
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -19,55 +20,55 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "7",
-    title: "Why We Built Lyyli: A Story About Missed Messages",
-    slug: "why-we-built-lyyli-missed-messages",
-    excerpt: "A personal reflection on why we built Lyyli.ai and how communication fails — not by design, but by omission.",
-    content: `<p>It didn't start with a vision.<br>It started with silence.</p>
+    id: "10",
+    title: "Who Lyyli Was Built For: The Invisible Burden of Communication",
+    slug: "who-lyyli-was-built-for-invisible-burden",
+    excerpt: "A blog about the silent responsibility of communication — and who carries it when no one is officially responsible.",
+    content: `<p>In every organization, there's someone who carries communication — even when it's not in their job title.</p>
 
-<p>I've spent the past decade working with leaders in growing companies, nonprofits, and expert organizations. I've seen brilliant ideas lose momentum simply because no one had the time — or clarity — to communicate them. I've watched talented teams make good decisions, only to watch those decisions stall because no one followed up with a message.</p>
+<p>Sometimes it's the CEO, who's expected to keep the team aligned and the board informed.<br>
+Sometimes it's the operations manager, quietly making sure people aren't surprised by policy changes.<br>
+Sometimes it's the communications lead, who's responsible for all the words that haven't been written yet.</p>
 
-<p>And more than once, I've been the one who stayed silent.</p>
+<p>And often, it's all of them — without enough time, support, or clarity.</p>
 
-<p>Not because I didn't care. But because communication is heavy. It takes time, energy, context, and sometimes courage. And in the rhythm of real work, that can be too much to ask.</p>
+<h2>Communication is a function. But too often, it's treated like a hobby.</h2>
 
-<h2>Missed communication isn't just a glitch — it's a pattern.</h2>
+<p>I've lost count of the times I've heard someone say,</p>
 
-<p>"We should send something about this."<br>
-"I was supposed to write that yesterday."<br>
-"Let's talk about this next week."</p>
+<p><strong>"We know we should be communicating more — but we just don't have the capacity."</strong></p>
 
-<p>You hear these phrases in every team, in every industry. They sound like harmless postponements. But they add up — and what they add up to is uncertainty, confusion, disengagement.</p>
+<p>What they're really saying is:</p>
 
-<p>The cost of missed communication isn't only reputational. It's cultural. And it compounds.</p>
+<p><strong>"We know it matters, but we've run out of ways to make it happen."</strong></p>
 
-<p>So we decided to build something that would interrupt that pattern.</p>
+<p>In small and midsize organizations, communication is everyone's job. And because it's everyone's job, it becomes no one's responsibility. Until something breaks. Until someone doesn't get the memo. Until the silence becomes a problem.</p>
 
-<h2>Lyyli doesn't replace communication.<br>It makes sure communication happens.</h2>
+<p>This is who we built Lyyli for.</p>
 
-<p>Lyyli was born out of a simple premise: that communication should be a productive function in every organization — not a stressful afterthought.</p>
+<h2>Lyyli helps carry the load — and keep the rhythm.</h2>
 
-<p>It listens. It observes. It suggests. It drafts.<br>
-But most importantly, it reminds you of what should be said, before silence says something else.</p>
+<p>Lyyli is not a content generator. It's not here to replace communicators. It's here to support people who already know what should be said — and just need help saying it.</p>
 
-<p>With Lyyli, communication becomes rhythm, not reaction. A consistent part of your operating system, not a heroic task performed under pressure.</p>
+<p>Lyyli notices when something has changed. It suggests what might be worth sharing. It drafts a starting point. It sends reminders, writes in your tone, and makes publishing simple.</p>
 
-<p>It doesn't invent your message — it helps you deliver it.</p>
+<p><strong>Because the real burden in communication isn't knowing what to say.<br>
+It's making sure it gets said.</strong></p>
 
-<h2>This isn't about automation. It's about accountability.</h2>
+<h2>Lyyli works for those who do everything else, too.</h2>
 
-<p>We didn't build Lyyli for content creators. We built it for people who carry the burden of communication without the time or tools to do it well. CEOs. Communication leads. Nonprofit directors. Anyone who knows that clarity matters, and that silence has a cost.</p>
+<p>If you're the person holding the company together, building the product, answering client calls, updating the website, running payroll, and trying to write an update to your team — Lyyli is for you.</p>
 
-<p>Lyyli doesn't pretend to be human. But it helps humans do what they already want to do — speak clearly, consistently, and with intention.</p>
+<p>If you're responsible for what your company sounds like but rarely have the space to think about tone — Lyyli is for you.</p>
 
-<p>That's why we built it.</p>
+<p>If you know that communication matters — but need it to take 10 minutes, not 3 hours — Lyyli is for you.</p>
 
-<p>Not because communication is broken.<br>
-But because it's too important to leave undone.</p>`,
-    featuredImage: "https://images.unsplash.com/photo-1515378791036-0648a814c963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    publishDate: "2025-01-25",
+<p><strong>Because communication should not depend on heroic effort.<br>
+It should depend on good design.</strong></p>`,
+    featuredImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+    publishDate: "2025-01-26",
     readTime: 4,
-    tags: ["blog", "news"],
+    tags: ["blog", "leadership"],
     author: {
       name: "Mikko Oksanen",
       title: "Co-founder & CEO",
