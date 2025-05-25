@@ -9,6 +9,7 @@ import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import TranslatedContent from './TranslatedContent';
 import { blogTranslations } from './blogTranslations';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -42,6 +43,14 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       isFinnishMode: language === 'fi'
     });
   }, [post.id, post.title, post.language, language, translation]);
+  
+  // Check if the image URL is valid
+  const isValidImageUrl = (url: string) => {
+    return url && 
+           url.startsWith('http') && 
+           !url.includes('placeholder') &&
+           !url.includes('example.com');
+  };
   
   return (
     <article className="max-w-3xl mx-auto">
@@ -84,17 +93,21 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           </div>
         </div>
         
-        {/* Featured image */}
+        {/* Featured image with improved fallback */}
         <div className="rounded-lg h-auto overflow-hidden mb-8">
-          {post.featuredImage.startsWith('http') ? (
-            <img 
-              src={post.featuredImage} 
-              alt={title} 
-              className="w-full h-full object-cover"
+          {isValidImageUrl(post.featuredImage) ? (
+            <ImageWithFallback
+              src={post.featuredImage}
+              alt={title}
+              className="w-full h-64 md:h-80 object-cover"
+              fallbackSrc="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
             />
           ) : (
-            <div className="bg-primary/5 h-64 flex items-center justify-center">
-              <FileImage className="h-16 w-16 text-muted-foreground" />
+            <div className="bg-gradient-to-r from-primary/10 to-primary/5 h-64 md:h-80 flex items-center justify-center border border-primary/20 rounded-lg">
+              <div className="text-center">
+                <FileImage className="h-16 w-16 text-primary/40 mx-auto mb-4" />
+                <p className="text-primary/60 font-medium">{title}</p>
+              </div>
             </div>
           )}
         </div>

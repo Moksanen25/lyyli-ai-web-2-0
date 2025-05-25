@@ -9,6 +9,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from './blogTranslations';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface FeaturedPostProps {
   post: BlogPost;
@@ -33,20 +34,32 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
   // Add a visual indicator for translated posts in Finnish mode
   const hasTranslation = language === 'fi' && !!translation;
   
+  // Check if the image URL is valid
+  const isValidImageUrl = (url: string) => {
+    return url && 
+           url.startsWith('http') && 
+           !url.includes('placeholder') &&
+           !url.includes('example.com');
+  };
+  
   return (
     <div className="bg-primary/5 rounded-xl overflow-hidden shadow-lg mb-10">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Featured image */}
         <div className="relative h-56 lg:h-auto overflow-hidden">
-          {post.featuredImage.startsWith('http') ? (
-            <img 
-              src={post.featuredImage} 
+          {isValidImageUrl(post.featuredImage) ? (
+            <ImageWithFallback
+              src={post.featuredImage}
               alt={title}
               className="w-full h-full object-cover"
+              fallbackSrc="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center bg-primary/10 p-6">
-              <FileImage className="h-16 w-16 text-muted-foreground" />
+            <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 p-6">
+              <div className="text-center">
+                <FileImage className="h-16 w-16 text-primary/40 mx-auto mb-4" />
+                <p className="text-primary/60 font-medium text-sm">{title}</p>
+              </div>
             </div>
           )}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
