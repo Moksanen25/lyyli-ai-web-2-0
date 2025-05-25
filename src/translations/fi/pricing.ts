@@ -1,3 +1,4 @@
+
 export const pricing = {
   tagline: 'Hinnoittelupaketit',
   title: 'Selkeä, läpinäkyvä hinnoittelu',
@@ -10,12 +11,12 @@ export const pricing = {
   perYear: '/vuosi',
   custom: 'Räätälöity',
   starter: {
-    name: 'Aloitus',
+    name: 'Starter',
     description: 'Täydellinen pienille ja keskisuurille yrityksille, jotka ovat vasta aloittamassa.',
     cta: 'Aloita',
   },
   professional: {
-    name: 'Ammattilais',
+    name: 'Professional',
     description: 'Kaikki mitä tarvitset kasvavalle yritykselle, jolla on useita tarpeita.',
     cta: 'Aloita Ilmainen Kokeilu',
     price: '599',
@@ -23,7 +24,7 @@ export const pricing = {
     savings: '1437'
   },
   enterprise: {
-    name: 'Yritys',
+    name: 'Enterprise',
     description: 'Räätälöidyt ratkaisut suurille organisaatioille, joilla on edistyneet vaatimukset.',
     cta: 'Ota Yhteyttä',
   },
@@ -55,7 +56,7 @@ export const pricing = {
     upToThreeIntegrations: 'Jopa 3 integraatiota',
     singleUser: 'Yksi käyttäjätili',
     basicSupport: 'Perustuki',
-    everythingInStarter: 'Kaikki Aloituspaketista',
+    everythingInStarter: 'Kaikki Starter-paketista',
     slackTeams: 'Slack ja Teams -sovellukset',
     aiImageCreation: 'Tekoälykuvien luonti (50/kk)',
     upToSixIntegrations: 'Jopa 6 integraatiota',
@@ -63,7 +64,7 @@ export const pricing = {
     additionalImagesCost: 'Lisäkuvat 0,35€ kpl',
     advancedAnalytics: 'Kehittynyt analytiikka',
     customWorkflows: 'Mukautetut työnkulut',
-    everythingInPro: 'Kaikki Ammattilaispakettista',
+    everythingInPro: 'Kaikki Professional-paketista',
     unlimitedIntegrations: 'Rajoittamattomat integraatiot',
     customAiImages: 'Räätälöity tekoälykuvien määrä',
     unlimitedUsers: 'Rajoittamaton määrä käyttäjiä',

@@ -70,9 +70,9 @@ const FeatureComparison = () => {
             <thead>
               <tr className="border-b">
                 <th className="p-4 text-left">{featureColumnLabel}</th>
-                <th className="p-4 text-center">{featuresT('pricing.starter.name', { namespace: 'pricing' })}</th>
-                <th className="p-4 text-center">{featuresT('pricing.professional.name', { namespace: 'pricing' })}</th>
-                <th className="p-4 text-center">{featuresT('pricing.enterprise.name', { namespace: 'pricing' })}</th>
+                <th className="p-4 text-center">Starter</th>
+                <th className="p-4 text-center">Professional</th>
+                <th className="p-4 text-center">Enterprise</th>
               </tr>
             </thead>
             <tbody>

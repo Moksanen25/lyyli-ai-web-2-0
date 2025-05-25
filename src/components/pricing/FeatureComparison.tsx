@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Check, X } from 'lucide-react';
@@ -43,11 +42,8 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
     return null;
   }
 
-  // Get translated headers
+  // Get translated headers - keep plan names in English
   const featureText = getFeatureText('feature');
-  const starterPlan = t('pricing.starter.name');
-  const professionalPlan = t('pricing.professional.name');
-  const enterprisePlan = t('pricing.enterprise.name');
   const includedText = getFeatureText('included');
   const notIncludedText = getFeatureText('notIncluded');
   
@@ -63,9 +59,9 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
         <TableHeader>
           <TableRow className="bg-muted/60">
             <TableHead className="w-[40%] font-medium">{featureText}</TableHead>
-            <TableHead className="text-center">{starterPlan}</TableHead>
-            <TableHead className="text-center">{professionalPlan}</TableHead>
-            <TableHead className="text-center">{enterprisePlan}</TableHead>
+            <TableHead className="text-center">Starter</TableHead>
+            <TableHead className="text-center">Professional</TableHead>
+            <TableHead className="text-center">Enterprise</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

@@ -1,3 +1,4 @@
+
 export const pricing = {
   tagline: 'Pricing Plans',
   title: 'Simple, Transparent Pricing',
