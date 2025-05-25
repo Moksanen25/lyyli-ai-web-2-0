@@ -12,8 +12,7 @@ import { Button } from '@/components/ui/button';
 const ROICalculator = () => {
   const { calculatorT, language, safeTr } = useLanguage();
 
-  // Default state values
-  const [personnel, setPersonnel] = useState(50);
+  // Default state values (removed personnel state)
   const [commSalary, setCommSalary] = useState(3500);
   const [usePartner, setUsePartner] = useState(false);
   const [partnerFee, setPartnerFee] = useState(3000);
@@ -71,27 +70,6 @@ const ROICalculator = () => {
           {/* Input Section */}
           <Card className="p-6 space-y-6">
             <div className="space-y-6">
-              {/* Company Size Slider */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <Users className="h-5 w-5 text-primary" />
-                  <Label className="text-base font-medium">{calculatorT('employees')}</Label>
-                </div>
-                <Slider 
-                  value={[personnel]} 
-                  min={10} 
-                  max={500}
-                  step={10} 
-                  onValueChange={(value) => setPersonnel(value[0])}
-                  className="py-4"
-                />
-                <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>10</span>
-                  <span>500</span>
-                </div>
-                <div className="text-center font-medium">{personnel}</div>
-              </div>
-
               {/* Communication Strategy Toggle */}
               <div className="space-y-4 pt-2">
                 <div className="flex items-center justify-between">
@@ -233,6 +211,16 @@ const ROICalculator = () => {
               <p className="text-sm text-muted-foreground mt-2">{calculatorT('roiDesc')}</p>
             </Card>
           </div>
+        </div>
+
+        {/* Get Started CTA */}
+        <div className="text-center mt-12">
+          <Button size="lg" className="px-8 py-4 text-lg">
+            Get Started
+          </Button>
+          <p className="text-sm text-muted-foreground mt-2">
+            Start saving today with Lyyli.ai
+          </p>
         </div>
       </div>
     </section>

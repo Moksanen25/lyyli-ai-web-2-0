@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -75,6 +75,10 @@ const Navbar: React.FC = () => {
                   {t('nav.contact')}
                 </Link>
                 <LanguageSwitcher />
+                <Button variant="outline" className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  {t('nav.login')}
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
@@ -98,6 +102,10 @@ const Navbar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
+          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+            <LogIn className="h-4 w-4 mr-2" />
+            {t('nav.login')}
+          </Button>
         </nav>
       </div>
     </header>
