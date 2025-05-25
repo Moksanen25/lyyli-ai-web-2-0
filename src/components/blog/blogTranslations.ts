@@ -1,3 +1,4 @@
+
 // Store for blog content translations
 // Map of [slug]-[language] to translated content
 export const blogTranslations: Record<string, { title?: string; excerpt?: string; content?: string }> = {
@@ -43,7 +44,14 @@ export const blogTranslations: Record<string, { title?: string; excerpt?: string
     content: '<p>Urheiluseurat ympäri maailmaa kohtaavat jatkuvasti haasteen siitä, miten pitää fanit sitoutuneina ja tyytyväisinä. Tekoäly tarjoaa uusia mahdollisuuksia fanien tavoittamiseen personoidulla ja skaalautuvalla tavalla.</p><p>Tässä artikkelissa käsittelemme, miten urheiluseurat voivat hyödyntää tekoälyä faniviestinnässään ja luoda merkityksellisempiä yhteyksiä kannattajiinsa.</p><h2>Personoitu viestintä kaikille fanitasoille</h2><p>Tekoäly mahdollistaa viestinnän räätälöinnin eri fanitasoille, olipa kyseessä sitten satunnainen seuraaja tai intohimoinen kausikortin haltija. Järjestelmä voi oppia jokaisen fanin mieltymyksistä ja käyttäytymisestä ja lähettää heille merkityksellistä sisältöä oikeaan aikaan.</p><h2>Reaaliaikainen sitoutuminen ottelupäivinä</h2><p>Ottelupäivinä fanien sitoutuminen on huipussaan. Tekoälypohjaiset chatbotit voivat vastata tuhansiin kyselyihin samanaikaisesti, tarjoten tietoa pysäköinnistä, lipuista, ruoasta ja ottelun tilastotiedoista. Tämä parantaa fanien ottelukokemusta merkittävästi.</p><h2>Ennakoivat kampanjat ja tarjoukset</h2><p>Tekoäly voi tunnistaa malleja, jotka osoittavat milloin fani saattaa olla valmis ostamaan lippuja tai oheistuotteita. Tämän tiedon avulla seurat voivat lähettää kohdennettuja tarjouksia juuri oikealla hetkellä, mikä parantaa konversiota.</p><h2>Tapaustutkimus: Eurooppalainen jalkapalloseura</h2><p>Eräs johtava eurooppalainen jalkapalloseura otti käyttöön Lyylin tekoälyratkaisut faniviestinnässään. Tulokset olivat vaikuttavia:</p><ul><li>37% kasvu fanitapahtumien osallistujamäärissä</li><li>42% korkeampi avausprosentti sähköposteissa</li><li>28% nousu oheistuotemyynnissä</li><li>63% vähemmän kysymyksiä asiakaspalvelulle</li></ul><h2>Aloittaminen</h2><p>Jos haluat ottaa tekoälypohjaisen faniviestinnän käyttöön urheiluseurassasi, suosittelemme näitä askeleita:</p><ol><li>Kerää ja yhdistä fanidatasi yhteen paikkaan</li><li>Määrittele faniryhmät ja heidän viestintäpreferenssinsä</li><li>Valitse skaalautuva tekoälyalusta, joka integroituu olemassa oleviin järjestelmiisi</li><li>Aloita pienellä pilotilla ja laajenna onnistumisten perusteella</li></ol><p>Tekoäly on mullistamassa urheiluseurojen tapaa kommunikoida faniensa kanssa. Ne seurat, jotka omaksuvat nämä työkalut ensimmäisinä, tulevat saavuttamaan merkittävää kilpailuetua niin kentällä kuin sen ulkopuolellakin.</p>'
   },
   
-  // Add translation for why-we-built-lyyli-missed-messages
+  // Add English translation entry for why-we-built-lyyli-missed-messages to make it visible in English
+  'why-we-built-lyyli-missed-messages-en': {
+    title: 'Why We Built Lyyli: A Story About Missed Messages',
+    excerpt: 'A personal reflection on the invisible burden of communication — and those who carry it even though no one assigned it to them.',
+    content: '<p>It didn\'t start with a vision.<br>It started with silence.</p><p>Over the past decade, I\'ve worked with leadership teams at growth companies, nonprofits, and professional services organizations. I\'ve seen how good ideas lose momentum because they weren\'t articulated in time. How the right decisions get stuck because no one had the bandwidth to communicate them forward.</p><p>And more than once, I\'ve been the one who stayed quiet.</p><p>Not because I didn\'t care. But because communication is a burden. It requires time, context, focus — and sometimes courage. And in a busy world, it\'s often too much to ask.</p><h2>Forgetting to communicate isn\'t the exception. It\'s the pattern.</h2><p>"We should communicate something about this."<br>"I was supposed to write that yesterday."<br>"Let\'s talk about this next week."</p><p>You hear these phrases in every team, every organization, every leadership meeting. They\'re the sound of communication debt accumulating.</p><p>But here\'s what I\'ve learned: **The people who care most about communication are often the ones least equipped to handle its demands.**</p><p>They\'re usually already carrying the emotional labor of the organization. They\'re the ones checking in on team morale, remembering to follow up on decisions, making sure nothing falls through the cracks.</p><p>Adding "write a compelling update about our Q3 priorities" to their plate isn\'t sustainable. It\'s not fair. And it\'s certainly not scalable.</p><h2>The weight of unspoken words</h2><p>I remember a conversation with a nonprofit director last year. She was describing her weekly routine: Monday mornings spent trying to craft the "perfect" newsletter that would inspire donors, engage volunteers, and update board members — all while staying authentic to her organization\'s voice.</p><p>"By the time I finish writing," she said, "I\'ve lost three hours I should have spent on programs. But if I don\'t write it, our supporters drift away. It\'s impossible."</p><p>That conversation haunted me. Because it wasn\'t unique.</p><p>I\'ve heard similar stories from:</p><ul><li>**Startup founders** who know they should be updating investors but can\'t find the words that capture both their struggles and their optimism</li><li>**Department heads** who watch important initiatives lose support because they weren\'t communicated effectively</li><li>**Team leads** who see their people become disengaged because recognition and updates feel forced or generic</li></ul><p>Each person carrying the weight of words they haven\'t found yet.</p><h2>Communication as a luxury</h2><p>Good communication has become a luxury that only well-resourced organizations can afford. They have dedicated marketing teams, communication specialists, PR agencies.</p><p>Everyone else makes do with:</p><ul><li>Templates that feel impersonal</li><li>Updates that get skipped when deadlines loom</li><li>Messages that never quite capture what they meant to say</li></ul><p>But here\'s the thing: **the organizations that need effective communication most are often the ones with the least resources to create it.**</p><p>Nonprofits fighting for funding. Startups competing for talent. Professional services firms building trust with clients. These organizations succeed or fail based on their ability to connect with people. Yet they\'re the ones most likely to let communication slide when things get busy.</p><h2>The birth of an idea</h2><p>Lyyli wasn\'t born from a grand vision about the future of AI. It was born from frustration with a very human problem: **Why is it so hard to say what we mean?**</p><p>Why does writing a simple update feel overwhelming? Why do important messages get delayed or watered down? Why do the people who care most about communication often struggle with it most?</p><p>The answer isn\'t that people lack writing skills. It\'s that communication requires a specific kind of cognitive load that\'s difficult to sustain alongside everything else.</p><p>You need to:</p><ul><li>Hold your audience in mind</li><li>Organize complex information</li><li>Find the right tone</li><li>Overcome the blank page</li><li>Edit for clarity</li><li>Build in appropriate context</li></ul><p>When you\'re already managing competing priorities, tight deadlines, and stakeholder expectations, this additional load becomes the straw that breaks the camel\'s back.</p><h2>What if communication could be easier?</h2><p>The breakthrough came when I realized we weren\'t trying to replace human communication. We were trying to remove the barriers that prevent it from happening.</p><p>What if you could:</p><ul><li>Start with your key points and let AI help structure them into a compelling narrative?</li><li>Upload meeting notes and automatically generate stakeholder updates?</li><li>Draft multiple versions of a sensitive message to find the right tone?</li><li>Transform bullet points into polished communications that sound authentically like you?</li></ul><p>What if the part that feels hardest — getting from intention to expression — could become the easiest part?</p><h2>Communication debt is organizational debt</h2><p>Every message that doesn\'t get sent, every update that gets delayed, every important conversation that gets pushed to "next week" creates debt.</p><p>**Communication debt compounds.** Team members lose context. Stakeholders lose confidence. Good ideas lose momentum. And the people who care most about keeping everyone informed start to burn out from the pressure.</p><p>But unlike technical debt, communication debt is invisible until it becomes a crisis.</p><p>By then, you\'re not just catching up on messages — you\'re rebuilding trust, re-engaging audiences, and trying to recapture attention that\'s moved elsewhere.</p><h2>A tool, not a replacement</h2><p>Lyyli isn\'t trying to make communication automatic. It\'s trying to make it achievable.</p><p>Because the world doesn\'t need more generic, AI-generated content. It needs more human stories, authentic updates, and genuine connections — delivered consistently and sustainably.</p><p>The goal isn\'t to remove humans from communication. It\'s to remove the friction that prevents humans from communicating as much as they want to, as often as they should, and as effectively as they can.</p><h2>Why this matters now</h2><p>We\'re living in an age of communication overwhelm. People are bombarded with messages, notifications, and content. The solution isn\'t to add more noise — it\'s to make signal stronger.</p><p>**Authentic, timely, relevant communication has never been more valuable.** But it\'s also never been harder to create consistently.</p><p>Organizations that figure out how to communicate effectively and sustainably will build stronger relationships, clearer cultures, and more engaged communities.</p><p>Those that don\'t will watch their good intentions get lost in translation — or worse, never get translated at all.</p><h2>The messages we haven\'t sent</h2><p>I think about all the messages that never got sent. All the updates that got pushed to tomorrow. All the recognition that stayed in someone\'s head because finding the right words felt too hard.</p><p>I think about the nonprofit director spending Monday mornings wrestling with newsletters instead of changing the world.</p><p>I think about the startup founder with important news who keeps postponing the investor update because they can\'t find the right balance of honesty and optimism.</p><p>I think about the team lead who knows their people deserve recognition but struggles to move beyond "great job" because anything more feels forced.</p><p>**These aren\'t communication failures. They\'re capacity failures.**</p><p>And capacity failures are solvable.</p><h2>Our commitment</h2><p>Lyyli exists to bridge the gap between what organizations want to communicate and what they actually have the capacity to create.</p><p>We\'re building tools that amplify human intention rather than replace human voice. That help people say what they mean, when they mean to say it, in a way that genuinely connects with their audience.</p><p>Because every organization has important stories to tell. Every leader has insights worth sharing. Every team has accomplishments worth celebrating.</p><p>The only question is: **Will those messages find their way into the world, or will they join the countless others that never quite made it from intention to expression?**</p><p>That\'s the gap we\'re trying to close. One message at a time.</p><hr><p><em>If you\'ve ever felt the weight of unsent messages or the frustration of communication that feels too hard, you\'re not alone. And you\'re exactly who we built Lyyli for.</em></p>'
+  },
+  
+  // Add Finnish translation for why-we-built-lyyli-missed-messages
   'why-we-built-lyyli-missed-messages-fi': {
     title: 'Miksi Lyyli syntyi: tarina viesteistä, jotka jäivät sanomatta',
     excerpt: 'Henkilökohtainen kirjoitus viestinnän näkymättömästä taakasta – ja niistä, jotka kantavat sen vaikkei kukaan sitä heille antanut.',
@@ -61,85 +69,147 @@ export const blogTranslations: Record<string, { title?: string; excerpt?: string
 "Mun piti kirjoittaa se jo eilen."<br>
 "Puhutaan tästä ensi viikolla."</p>
 
-<p>Näitä lauseita kuulee jokaisessa tiimissä, jokaisella alalla. Ne kuulostavat harmittomilta. Mutta ne kasaantuvat – ja seurauksena on epäselvyyttä, väärinkäsityksiä ja välinpitämättömyyttä.</p>
+<p>Näitä lauseita kuulee jokaisessa tiimissä, jokaisessa organisaatiossa, jokaisessa johtoryhmän kokouksessa. Ne ovat viestintävelan kertymisen ääni.</p>
 
-<p>Viestinnän puute ei maksa vain brändille. Se maksaa kulttuurille. Ja se kertautuu.</p>
+<p>Mutta tässä on se, mitä olen oppinut: **Ne ihmiset, jotka välittävät viestinnästä eniten, ovat usein vähiten varustettuja käsittelemään sen vaatimuksia.**</p>
 
-<p>Siksi päätimme rakentaa työkalun, joka rikkoo tämän kaavan.</p>
+<p>He kantavat jo valmiiksi organisaation tunnetyötä. He kyselevät tiimin vointia, muistavat seurata päätöksiä, varmistavan ettei mikään putoa rattaiden välistä.</p>
 
-<h2>Lyyli ei korvaa viestintää.<br>Se varmistaa, että viestintä tapahtuu.</h2>
+<p>Sen päälle "kirjoita vaikuttava päivitys Q3 prioriteeteistamme" ei ole kestävää. Se ei ole reilua. Ja se ei todellakaan ole skaalautuvaa.</p>
 
-<p>Lyyli syntyi yksinkertaisesta ajatuksesta: viestinnän pitäisi olla tuottava osa jokaisen organisaation arkea — ei stressaava pakko.</p>
+<h2>Sanomattomien sanojen paino</h2>
 
-<p>Lyyli kuuntelee. Havaitsee. Ehdottaa. Kirjoittaa luonnoksia.<br>
-Mutta tärkeintä: se muistuttaa siitä, mitä pitäisi sanoa — ennen kuin hiljaisuus sanoo jotain muuta.</p>
+<p>Muistan keskustelun järjestöjohtajan kanssa viime vuonna. Hän kuvaili viikoittaista rutiiniaan: maanantaiaamut kuluivat "täydellisen" uutiskirjeen luonnosteluun, joka innostaisi lahjoittajia, sitouttaisi vapaaehtoisia ja informoisi hallituksen jäseniä — kaiken pitäen olla aitoa organisaation äänelle.</p>
 
-<p>Lyyli tuo viestintään rytmin, ei reaktiota. Se tekee viestinnästä säännöllistä, ei satunnaista sankaritekoa.</p>
+<p>"Kun saan kirjoituksen valmiiksi," hän sanoi, "olen menettänyt kolme tuntia, jotka olisi pitänyt käyttää ohjelmiin. Mutta jos en kirjoita sitä, tukijamme ajautuvat pois. Se on mahdotonta."</p>
 
-<p>Se ei keksi viestiä puolestasi – se auttaa viemään sen perille.</p>
+<p>Tuo keskustelu vaivasi minua. Koska se ei ollut ainutlaatuinen.</p>
 
-<h2>Kyse ei ole automaatiosta. Kyse on vastuunkannosta.</h2>
+<p>Olen kuullut samankaltaisia tarinoita:</p>
+<ul>
+<li><strong>Startup-perustajilta</strong> jotka tietävät että heidän tulisi päivittää sijoittajia, mutta eivät löydä sanoja jotka kuvaisivat sekä heidän haasteensa että optimisminsa</li>
+<li><strong>Osastopäälliköiltä</strong> jotka näkevät tärkeiden aloitteiden menettävän tukea, koska niitä ei viestitty tehokkaasti</li>
+<li><strong>Tiimin johtajilta</strong> jotka näkevät ihmistensä menettävän sitoutumista, koska tunnustus ja päivitykset tuntuvat pakotetuilta tai yleisiltä</li>
+</ul>
 
-<p>Emme rakentaneet Lyyliä sisällöntuotantokoneille. Rakensimme sen ihmisille, jotka kantavat viestinnän vastuuta, mutta joilla ei ole aikaa tai työkaluja tehdä sitä hyvin. Toimitusjohtajille. Viestintävastaaville. Toiminnanjohtajille. Heille, jotka tietävät, että selkeys ratkaisee — ja että hiljaisuuskin viestii jotain.</p>
+<p>Jokainen kantaa sanojen painoa, joita he eivät ole vielä löytäneet.</p>
 
-<p>Lyyli ei väitä olevansa ihminen. Mutta se auttaa ihmisiä tekemään sen, minkä he muutenkin haluaisivat: viestiä selkeästi, johdonmukaisesti ja oikeaan aikaan.</p>
+<h2>Viestintä ylellisyytenä</h2>
 
-<p>Siksi me tämän teimme.</p>
+<p>Hyvästä viestinnästä on tullut ylellisyys, johon vain hyvin resursoituneilla organisaatioilla on varaa. Heillä on omistettuja markkinointitiimejä, viestintäasiantuntijoita, PR-toimistoja.</p>
 
-<p>Ei siksi, että viestintä olisi rikki.<br>
-Vaan siksi, että se on liian tärkeää jäädäkseen tekemättä.</p>`
-  },
-  
-  // Add new translation for who-lyyli-was-built-for-invisible-burden
-  'who-lyyli-was-built-for-invisible-burden-fi': {
-    title: 'Kenelle Lyyli on tehty: viestinnän näkymätön taakka',
-    excerpt: 'Blogikirjoitus viestinnän näkymättömästä taakasta – ja niistä, jotka kantavat sen vaikkei kukaan sitä heille antanut.',
-    content: `<p>Jokaisessa organisaatiossa on joku, joka kantaa viestintää – vaikka se ei olisikaan hänen työnkuvassaan.</p>
+<p>Kaikki muut tulevat toimeen:</p>
+<ul>
+<li>Malleilla jotka tuntuvat persoonattomilta</li>
+<li>Päivityksillä jotka ohitetaan kun deadlinet lähestyvät</li>
+<li>Viesteillä jotka eivät koskaan oikein tavoita sitä mitä tarkoitettiin sanoa</li>
+</ul>
 
-<p>Joskus se on toimitusjohtaja, jonka odotetaan pitävän tiimi kartalla ja hallituksen ajan tasalla.<br>
-Joskus se on operatiivinen johtaja, joka huolehtii, ettei kukaan ylläty uudesta linjauksesta.<br>
-Joskus se on viestintävastaava, jonka vastuulla ovat kaikki ne sanat, joita ei ole vielä kirjoitettu.</p>
+<p>Mutta tässä on asia: **Organisaatiot jotka tarvitsevat tehokasta viestintää eniten, ovat usein niitä joilla on vähiten resursseja luoda sitä.**</p>
 
-<p>Ja usein se on he kaikki – ilman riittävää aikaa, tukea tai selkeyttä.</p>
+<p>Järjestöt taistelevat rahoituksesta. Startupit kilpailevat osaajista. Asiantuntijapalveluyritykset rakentavat luottamusta asiakkaiden kanssa. Nämä organisaatiot menestyvät tai epäonnistuvat kykynsä perusteella olla yhteydessä ihmisiin. Silti ne ovat todennäköisimmin niitä, jotka antavat viestinnän liukua kun asiat kiirehtyvät.</p>
 
-<h2>Viestintä on funktio. Mutta liian usein sitä kohdellaan harrastuksena.</h2>
+<h2>Idean syntymä</h2>
 
-<p>En osaa laskea, kuinka monta kertaa olen kuullut lauseen:</p>
+<p>Lyyli ei syntynyt suuresta visiosta tekoälyn tulevaisuudesta. Se syntyi turhautumisesta hyvin inhimilliseen ongelmaan: **Miksi on niin vaikeaa sanoa mitä tarkoitamme?**</p>
 
-<p><strong>"Me kyllä tiedetään, että meidän pitäisi viestiä enemmän – mutta ei meillä ole siihen resursseja."</strong></p>
+<p>Miksi yksinkertaisen päivityksen kirjoittaminen tuntuu ylivoimaiselta? Miksi tärkeät viestit viivästyvät tai laimentuvat? Miksi ihmiset jotka välittävät viestinnästä eniten, usein kamppailevat sen kanssa eniten?</p>
 
-<p>Tosiasiassa he sanovat:</p>
+<p>Vastaus ei ole se, että ihmisiltä puuttuu kirjoitustaitoja. Kyse on siitä, että viestintä vaatii tietynlaista kognitiivista kuormaa, jota on vaikea ylläpitää kaiken muun rinnalla.</p>
 
-<p><strong>"Me tiedetään, että se on tärkeää – mutta me ei enää pystytä tekemään sitä kunnolla."</strong></p>
+<p>Sinun täytyy:</p>
+<ul>
+<li>Pitää yleisösi mielessä</li>
+<li>Järjestää monimutkaisia tietoja</li>
+<li>Löytää oikea sävy</li>
+<li>Voittaa tyhjä sivu</li>
+<li>Editoida selkeyden vuoksi</li>
+<li>Rakentaa sopiva konteksti</li>
+</ul>
 
-<p>Pienissä ja keskisuurissa organisaatioissa viestintä on kaikkien vastuulla. Ja kun se on kaikkien vastuulla, siitä ei tule kenenkään selkeää tehtävää. Kunnes jokin menee pieleen. Kunnes jokin jää ilman tietoa. Kunnes hiljaisuus alkaa maksaa.</p>
+<p>Kun jo hallitset kilpailevia prioriteetteja, tiukkoja aikatauluja ja sidosryhmien odotuksia, tämä ylimääräinen kuorma muuttuu viimeiseksi pisaraksi joka saa kaiken romahtamaan.</p>
 
-<p>Tätä varten me rakensimme Lyylin.</p>
+<h2>Entä jos viestintä voisi olla helpompaa?</h2>
 
-<h2>Lyyli kantaa osan taakasta – ja ylläpitää rytmin.</h2>
+<p>Läpimurto tuli kun ymmärsin, ettemme yritä korvata inhimillistä viestintää. Yritimme poistaa esteet jotka estävät sitä tapahtumasta.</p>
 
-<p>Lyyli ei ole sisällöntuotantokone. Se ei ole korvaamassa viestijöitä. Se on tukena niille, jotka jo tietävät mitä pitäisi sanoa – ja tarvitsevat vain apua sanomiseen.</p>
+<p>Entä jos voisit:</p>
+<ul>
+<li>Aloittaa avainkohteistasi ja antaa tekoälyn auttaa jäsentämään ne kiinnostavaksi tarinaksi?</li>
+<li>Ladata kokouksien muistiinpanot ja automaattisesti luoda sidosryhmäpäivityksiä?</li>
+<li>Luonnostella useita versioita arkaluonteisesta viestistä löytääksesi oikean sävyn?</li>
+<li>Muuttaa luettelomerkit kiillotetuiksi viestinnöiksi jotka kuulostavat aidosti sinulta?</li>
+</ul>
 
-<p>Lyyli huomaa, kun jokin on muuttunut. Se ehdottaa, mistä olisi hyvä kertoa. Se luonnostelee alun. Se muistuttaa, kirjoittaa oikealla sävyllä ja auttaa viestin julkaisemisessa.</p>
+<p>Entä jos se osa joka tuntuu vaikeimmalta — siirtyminen aikomuksesta ilmaisuun — voisi tulla helpimmaksi osaksi?</p>
 
-<p><strong>Koska viestinnän suurin taakka ei ole se, että tietäisi mitä sanoa.<br>
-Vaan se, että varmistaa sen tulevan sanotuksi.</strong></p>
+<h2>Viestintävelka on organisaatiovelkaa</h2>
 
-<h2>Lyyli on niille, jotka tekevät jo muutenkin kaiken muun.</h2>
+<p>Jokainen viesti joka ei tule lähetetyksi, jokainen päivitys joka viivästyy, jokainen tärkeä keskustelu joka työnnetään "ensi viikolle" luo velkaa.</p>
 
-<p>Jos olet se, joka pitää yrityksen koossa, kehittää tuotetta, vastaa asiakaspuheluihin, päivittää verkkosivut, hoitaa palkanlaskennan ja yrittää vielä ehtiä kirjoittaa tiedotteen – Lyyli on sinua varten.</p>
+<p><strong>Viestintävelka kertyy korkoa.</strong> Tiimin jäsenet menettävät kontekstin. Sidosryhmät menettävät luottamusta. Hyvät ideat menettävät vauhtinsa. Ja ihmiset jotka välittävät eniten kaikkien informoinnista alkavat uupua paineesta.</p>
 
-<p>Jos vastaat siitä, miltä yrityksesi kuulostaa, mutta et koskaan ehdi miettiä sävyä – Lyyli on sinua varten.</p>
+<p>Mutta toisin kuin tekninen velka, viestintävelka on näkymätöntä kunnes siitä tulee kriisi.</p>
 
-<p>Jos tiedät, että viestintä on tärkeää – mutta tarvitset sen hoituvan 10 minuutissa eikä kolmessa tunnissa – Lyyli on sinua varten.</p>
+<p>Silloin et ole enää vain kurkinassa viesteissä — rakennat luottamusta uudelleen, sitouttamassa yleisöjä uudelleen ja yrittämässä napata takaisin huomion joka on siirtynyt muualle.</p>
 
-<p><strong>Koska viestinnän ei pitäisi nojata yksittäisiin sankaritekoihin.<br>
-Sen pitäisi nojata toimivaan rakenteeseen.</strong></p>`
+<h2>Työkalu, ei korvike</h2>
+
+<p>Lyyli ei yritä tehdä viestinnästä automaattista. Se yrittää tehdä siitä saavutettavaa.</p>
+
+<p>Koska maailma ei tarvitse lisää yleistä, tekoälyn tuottamaa sisältöä. Se tarvitsee lisää inhimillisiä tarinoita, aitoja päivityksiä ja aitoja yhteyksiä — toimitettuna johdonmukaisesti ja kestävästi.</p>
+
+<p>Tavoite ei ole poistaa ihmisiä viestinnästä. Se on poistaa kitka joka estää ihmisiä viestimästä niin paljon kuin he haluavat, niin usein kuin heidän pitäisi, ja niin tehokkaasti kuin he voivat.</p>
+
+<h2>Miksi tämä on tärkeää nyt</h2>
+
+<p>Elämme viestintäylihällytyksen aikaa. Ihmiset ovat pommitettu viesteillä, ilmoituksilla ja sisällöllä. Ratkaisu ei ole lisätä meteliä — se on tehdä signaalista vahvempaa.</p>
+
+<p><strong>Aidolla, oikea-aikaisella, relevantilla viestinnällä ei ole koskaan ollut niin suurta arvoa.</strong> Mutta se ei ole myöskään koskaan ollut vaikeampaa luoda johdonmukaisesti.</p>
+
+<p>Organisaatiot jotka keksivät miten viestiä tehokkaasti ja kestävästi rakentavat vahvempia suhteita, selkeämpiä kulttuureita ja sitoutuneempia yhteisöjä.</p>
+
+<p>Ne jotka eivät, tulevat katsomaan hyvien aikomustensa katoavan käännöksessä — tai pahempaa, ne eivät koskaan tule käännetyiksi ollenkaan.</p>
+
+<h2>Viestit joita emme ole lähettäneet</h2>
+
+<p>Ajattelen kaikkia viestejä joita ei koskaan lähetetty. Kaikkia päivityksiä joita työnnettiin huomiseen. Kaikkea tunnustusta joka jäi jonkun päähän koska oikeiden sanojen löytäminen tuntui liian vaikealta.</p>
+
+<p>Ajattelen järjestöjohtajaa joka viettää maanantaiaamuja taistelemassa uutiskirjeiden kanssa sen sijaan että muuttaisi maailmaa.</p>
+
+<p>Ajattelen startup-perustajaa jolla on tärkeitä uutisia ja joka jatkuvasti lykkää sijoittajapäivitystä koska ei löydä oikeaa tasapainoa rehellisyyden ja optimismin välillä.</p>
+
+<p>Ajattelen tiimin johtajaa joka tietää että hänen ihmisensä ansaitsevat tunnustusta mutta kamppailee siirtyäkseen "hyvää työtä" pidemmälle koska mikään muu tuntuu pakotetulta.</p>
+
+<p><strong>Nämä eivät ole viestinnän epäonnistumisia. Nämä ovat kapasiteetti-epäonnistumisia.</strong></p>
+
+<p>Ja kapasiteetti-epäonnistumiset ovat ratkaistavissa.</p>
+
+<h2>Sitoumuksemme</h2>
+
+<p>Lyyli on olemassa kuromassa umpeen kuilua sen väliltä mitä organisaatiot haluavat viestiä ja mitä heillä todellisuudessa on kapasiteettia luoda.</p>
+
+<p>Rakennamme työkaluja jotka vahvistavat inhimillistä tarkoitusta sen sijaan että korvaisivat inhimillistä ääntä. Jotka auttavat ihmisiä sanomaan mitä he tarkoittavat, silloin kun he tarkoittavat sen sanoa, tavalla joka aidosti yhdistää heidän yleisöönsä.</p>
+
+<p>Koska jokaisella organisaatiolla on tärkeitä tarinoita kerrottavana. Jokaisella johtajalla on jakamisen arvoisia näkemyksiä. Jokaisella tiimillä on juhlimisen arvoisia saavutuksia.</p>
+
+<p>Ainoa kysymys on: <strong>Löytävätkö nuo viestit tiensä maailmaan, vai liittyvätkö ne lukemattomiin muihin jotka eivät koskaan aivan päässeet aikomuksesta ilmaisuun?</strong></p>
+
+<p>Se on se kuilu jota yritämme kuroa umpeen. Yksi viesti kerrallaan.</p>
+
+<hr>
+
+<p><em>Jos olet koskaan tuntenut lähettämättömien viestien painoa tai viestinnän turhautumista joka tuntuu liian vaikealta, et ole yksin. Ja olet juuri se jolle Lyyli rakennettiin.</em></p>`
   }
 };
 
 // Helper function to check if a Finnish translation exists
 export const hasFinishTranslation = (slug: string): boolean => {
-  const translationKey = `${slug}-fi`;
-  return !!blogTranslations[translationKey];
+  return !!blogTranslations[`${slug}-fi`];
+};
+
+// Helper function to get translation for a specific language
+export const getBlogTranslation = (slug: string, language: 'fi' | 'en') => {
+  const key = `${slug}-${language}`;
+  return blogTranslations[key];
 };
