@@ -37,8 +37,29 @@ const BlogList: React.FC = () => {
       });
     }
     
-    // In English mode, show all non-Finnish posts
-    return blogPosts.filter(post => !post.language || post.language === 'en');
+    // In English mode, show all posts that don't have a specific non-English language
+    const filteredPosts = blogPosts.filter(post => {
+      // Show posts that have no language property (default to English) or explicitly English
+      const shouldShow = !post.language || post.language === 'en';
+      
+      // Debug the "Why We Built Lyyli" post specifically
+      if (post.slug === 'why-we-built-lyyli-missed-messages') {
+        console.log('Why We Built Lyyli post check:', {
+          id: post.id,
+          slug: post.slug,
+          title: post.title,
+          language: post.language,
+          shouldShow
+        });
+      }
+      
+      return shouldShow;
+    });
+    
+    console.log('English filtered posts count:', filteredPosts.length);
+    console.log('English filtered posts:', filteredPosts.map(p => ({ id: p.id, slug: p.slug, title: p.title })));
+    
+    return filteredPosts;
   }, [language]);
   
   // Get all unique tags
