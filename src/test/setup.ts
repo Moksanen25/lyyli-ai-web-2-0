@@ -12,21 +12,28 @@ afterEach(() => {
   cleanup();
 });
 
-// Mock IntersectionObserver
+// Mock IntersectionObserver with proper typing
 global.IntersectionObserver = class IntersectionObserver {
+  root: Element | null = null;
+  rootMargin: string = '';
+  thresholds: ReadonlyArray<number> = [];
+  
   constructor() {}
   disconnect() {}
   observe() {}
   unobserve() {}
-};
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+} as any;
 
-// Mock ResizeObserver
+// Mock ResizeObserver with proper typing
 global.ResizeObserver = class ResizeObserver {
   constructor() {}
   disconnect() {}
   observe() {}
   unobserve() {}
-};
+} as any;
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {

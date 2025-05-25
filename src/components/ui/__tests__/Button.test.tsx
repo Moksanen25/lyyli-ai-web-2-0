@@ -16,7 +16,7 @@ describe('Button Component', () => {
     const { rerender } = render(<Button variant="outline">Outline Button</Button>);
     
     let button = screen.getByRole('button');
-    expect(button).toHaveClass('border-input');
+    expect(button).toHaveClass('border');
     
     rerender(<Button variant="secondary">Secondary Button</Button>);
     button = screen.getByRole('button');

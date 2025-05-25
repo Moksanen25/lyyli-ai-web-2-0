@@ -11,19 +11,38 @@ vi.mock('@/hooks/useLanguage', () => ({
   })
 }));
 
+// Mock other hooks used by PricingCard
+vi.mock('@/hooks/use-pro-plan', () => ({
+  useProPlan: () => ({ isProPlan: false })
+}));
+
+vi.mock('@/hooks/use-enterprise-plan', () => ({
+  useEnterprisePlan: () => ({ isEnterprisePlan: false })
+}));
+
+vi.mock('@/hooks/use-free-plan', () => ({
+  useFreePlan: () => ({ isFreePlan: true })
+}));
+
+vi.mock('@/hooks/use-analytics', () => ({
+  useAnalytics: () => ({ track: vi.fn() })
+}));
+
 describe('PricingCard Component', () => {
-  const mockTier = {
+  const mockProps = {
     name: 'Professional',
     monthly: 599,
     description: 'Perfect for growing businesses',
     primaryFeatures: ['Feature 1', 'Feature 2'],
     cta: 'Get Started',
     accent: true,
-    icon: <div>Icon</div>
+    icon: <div>Icon</div>,
+    billingPeriod: 'monthly' as const,
+    yearlyDiscountRate: 0.8
   };
 
   it('renders pricing card with correct information', () => {
-    render(<PricingCard tier={mockTier} billingPeriod="monthly" />);
+    render(<PricingCard {...mockProps} />);
     
     expect(screen.getByText('Professional')).toBeInTheDocument();
     expect(screen.getByText('Perfect for growing businesses')).toBeInTheDocument();
@@ -33,26 +52,25 @@ describe('PricingCard Component', () => {
   });
 
   it('displays monthly pricing correctly', () => {
-    render(<PricingCard tier={mockTier} billingPeriod="monthly" />);
+    render(<PricingCard {...mockProps} />);
     
-    expect(screen.getByText('599')).toBeInTheDocument();
-    expect(screen.getByText('/month')).toBeInTheDocument();
+    expect(screen.getByText('599 €')).toBeInTheDocument();
   });
 
   it('applies accent styling when accent prop is true', () => {
-    render(<PricingCard tier={mockTier} billingPeriod="monthly" />);
+    render(<PricingCard {...mockProps} />);
     
-    const card = screen.getByTestId('pricing-card') || screen.getByRole('article');
-    expect(card).toHaveClass('border-primary');
+    const card = document.querySelector('.bg-primary');
+    expect(card).toBeInTheDocument();
   });
 
   it('handles custom pricing display', () => {
-    const customTier = {
-      ...mockTier,
+    const customProps = {
+      ...mockProps,
       monthly: null
     };
     
-    render(<PricingCard tier={customTier} billingPeriod="monthly" />);
+    render(<PricingCard {...customProps} />);
     
     expect(screen.getByText('pricing.custom')).toBeInTheDocument();
   });

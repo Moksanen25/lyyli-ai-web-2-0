@@ -85,3 +85,23 @@ export const getNestedTranslation = (obj: any, path: string): any => {
     return null;
   }
 };
+
+// Extract language from URL path
+export const getLanguageFromPath = (pathname: string): SupportedLanguage => {
+  if (pathname.startsWith('/fi/') || pathname === '/fi') {
+    return 'fi';
+  }
+  return 'en';
+};
+
+// Build localized path
+export const buildLocalizedPath = (path: string, language: SupportedLanguage): string => {
+  // Remove existing language prefix if present
+  const cleanPath = path.startsWith('/fi/') ? path.substring(3) : path === '/fi' ? '/' : path;
+  
+  if (language === 'fi') {
+    return cleanPath === '/' ? '/fi/' : `/fi${cleanPath}`;
+  }
+  
+  return cleanPath;
+};

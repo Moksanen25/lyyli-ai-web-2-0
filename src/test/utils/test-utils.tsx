@@ -1,6 +1,6 @@
 
 import React, { ReactElement } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { render, RenderOptions, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
@@ -20,6 +20,6 @@ const customRender = (
   options?: Omit<RenderOptions, 'wrapper'>,
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
-// Re-export everything
+// Re-export everything including screen and fireEvent
 export * from '@testing-library/react';
-export { customRender as render };
+export { customRender as render, screen, fireEvent };
