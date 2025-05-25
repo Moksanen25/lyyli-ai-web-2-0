@@ -19,6 +19,64 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "7",
+    title: "Why We Built Lyyli: A Story About Missed Messages",
+    slug: "why-we-built-lyyli-missed-messages",
+    excerpt: "A personal reflection on why we built Lyyli.ai and how communication fails — not by design, but by omission.",
+    content: `<p>It didn't start with a vision.<br>It started with silence.</p>
+
+<p>I've spent the past decade working with leaders in growing companies, nonprofits, and expert organizations. I've seen brilliant ideas lose momentum simply because no one had the time — or clarity — to communicate them. I've watched talented teams make good decisions, only to watch those decisions stall because no one followed up with a message.</p>
+
+<p>And more than once, I've been the one who stayed silent.</p>
+
+<p>Not because I didn't care. But because communication is heavy. It takes time, energy, context, and sometimes courage. And in the rhythm of real work, that can be too much to ask.</p>
+
+<h2>Missed communication isn't just a glitch — it's a pattern.</h2>
+
+<p>"We should send something about this."<br>
+"I was supposed to write that yesterday."<br>
+"Let's talk about this next week."</p>
+
+<p>You hear these phrases in every team, in every industry. They sound like harmless postponements. But they add up — and what they add up to is uncertainty, confusion, disengagement.</p>
+
+<p>The cost of missed communication isn't only reputational. It's cultural. And it compounds.</p>
+
+<p>So we decided to build something that would interrupt that pattern.</p>
+
+<h2>Lyyli doesn't replace communication.<br>It makes sure communication happens.</h2>
+
+<p>Lyyli was born out of a simple premise: that communication should be a productive function in every organization — not a stressful afterthought.</p>
+
+<p>It listens. It observes. It suggests. It drafts.<br>
+But most importantly, it reminds you of what should be said, before silence says something else.</p>
+
+<p>With Lyyli, communication becomes rhythm, not reaction. A consistent part of your operating system, not a heroic task performed under pressure.</p>
+
+<p>It doesn't invent your message — it helps you deliver it.</p>
+
+<h2>This isn't about automation. It's about accountability.</h2>
+
+<p>We didn't build Lyyli for content creators. We built it for people who carry the burden of communication without the time or tools to do it well. CEOs. Communication leads. Nonprofit directors. Anyone who knows that clarity matters, and that silence has a cost.</p>
+
+<p>Lyyli doesn't pretend to be human. But it helps humans do what they already want to do — speak clearly, consistently, and with intention.</p>
+
+<p>That's why we built it.</p>
+
+<p>Not because communication is broken.<br>
+But because it's too important to leave undone.</p>`,
+    featuredImage: "https://images.unsplash.com/photo-1515378791036-0648a814c963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    publishDate: "2025-01-25",
+    readTime: 4,
+    tags: ["blog", "news"],
+    author: {
+      name: "Mikko Oksanen",
+      title: "Co-founder & CEO",
+      avatar: "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
+    },
+    isHighlighted: true,
+    language: "en"
+  },
+  {
     id: "1",
     title: "How Tech SMEs Can Automate Their Communication with AI",
     slug: "tech-sme-automated-communication",

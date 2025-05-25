@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogData';
@@ -9,6 +10,7 @@ import BlogCTA from '@/components/blog/BlogCTA';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { toast } from '@/components/ui/use-toast';
+import { blogTranslations } from '@/components/blog/blogTranslations';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +23,28 @@ const BlogPost: React.FC = () => {
   // Get the correct blog URL for redirects
   const getBlogUrl = () => {
     return language === 'fi' ? '/fi/full/blog' : '/full/blog';
+  };
+  
+  // Get SEO metadata based on language and translation
+  const getSEOData = () => {
+    if (!currentPost) return null;
+    
+    const translationKey = `${currentPost.slug}-${language}`;
+    const translation = language === 'fi' ? blogTranslations[translationKey] : null;
+    
+    const title = translation?.title || currentPost.title;
+    const description = translation?.excerpt || currentPost.excerpt;
+    
+    const siteUrl = window.location.origin;
+    const postUrl = `${siteUrl}${language === 'fi' ? '/fi' : ''}/full/blog/${currentPost.slug}`;
+    
+    return {
+      title: `${title} | Lyyli.ai`,
+      description,
+      url: postUrl,
+      image: currentPost.featuredImage,
+      keywords: 'internal communication, AI assistant, founder story, leadership, organizational culture'
+    };
   };
   
   // Enhanced approach for finding posts based on language
@@ -115,6 +139,36 @@ const BlogPost: React.FC = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      {seoData && (
+        <Helmet>
+          <title>{seoData.title}</title>
+          <meta name="description" content={seoData.description} />
+          <meta name="keywords" content={seoData.keywords} />
+          
+          {/* Open Graph tags */}
+          <meta property="og:title" content={seoData.title} />
+          <meta property="og:description" content={seoData.description} />
+          <meta property="og:image" content={seoData.image} />
+          <meta property="og:url" content={seoData.url} />
+          <meta property="og:type" content="article" />
+          <meta property="og:site_name" content="Lyyli.ai" />
+          
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={seoData.title} />
+          <meta name="twitter:description" content={seoData.description} />
+          <meta name="twitter:image" content={seoData.image} />
+          
+          {/* Article specific tags */}
+          <meta property="article:author" content={currentPost?.author.name} />
+          <meta property="article:published_time" content={currentPost?.publishDate} />
+          <meta property="article:section" content="Blog" />
+          {currentPost?.tags.map(tag => (
+            <meta key={tag} property="article:tag" content={tag} />
+          ))}
+        </Helmet>
+      )}
+      
       <Navbar />
       <main className="flex-grow">
         <div className="container mx-auto px-4 pt-28 pb-16">
