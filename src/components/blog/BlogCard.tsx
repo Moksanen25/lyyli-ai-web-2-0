@@ -9,6 +9,7 @@ import { useSafeTranslation } from '@/utils/safeTranslation';
 import { FileImage } from 'lucide-react';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from './blogTranslations';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -34,6 +35,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
   // Add a visual indicator for translated posts in Finnish mode
   const hasTranslation = language === 'fi' && !!translation;
   
+  // Check if the image URL is valid
+  const isValidImageUrl = (url: string) => {
+    return url && 
+           url.startsWith('http') && 
+           !url.includes('placeholder') &&
+           !url.includes('example.com');
+  };
+  
   return (
     <Card 
       className={`overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col ${
@@ -44,15 +53,19 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
         <CardContent className="p-0 flex flex-col h-full">
           {/* Image area with tags */}
           <div className="relative bg-primary/5 h-48 overflow-hidden">
-            {post.featuredImage.startsWith('http') ? (
-              <img 
-                src={post.featuredImage} 
+            {isValidImageUrl(post.featuredImage) ? (
+              <ImageWithFallback
+                src={post.featuredImage}
                 alt={title}
                 className="w-full h-full object-cover"
+                fallbackSrc="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <FileImage className="h-12 w-12 text-muted-foreground" />
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+                <div className="text-center">
+                  <FileImage className="h-12 w-12 text-primary/40 mx-auto mb-2" />
+                  <p className="text-primary/60 font-medium text-sm px-4">{title}</p>
+                </div>
               </div>
             )}
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
