@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -136,6 +137,9 @@ const BlogPost: React.FC = () => {
   }
   
   console.log('BlogPost: Rendering post:', currentPost.id, 'title:', currentPost.title, 'language:', currentPost.language || 'default');
+  
+  // Get SEO data for the current post
+  const seoData = getSEOData();
   
   return (
     <div className="min-h-screen flex flex-col">

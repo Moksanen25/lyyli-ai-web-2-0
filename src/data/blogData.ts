@@ -71,7 +71,7 @@ But because it's too important to leave undone.</p>`,
     author: {
       name: "Mikko Oksanen",
       title: "Co-founder & CEO",
-      avatar: "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
+      image: "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
     },
     isHighlighted: true,
     language: "en"
@@ -153,7 +153,7 @@ But because it's too important to leave undone.</p>`,
       
       <h2>Tekoälyratkaisu: Tekoäly tunnistaa asiantuntijasisällön mahdollisuudet</h2>
       
-      <p>Konsulttiyritykset voivat ottaa käyttöön automatisoidun tekoälypohjaisen viestintäalustan, joka integroituu yrityksen käyttämään pilviympäristöön. Tekoäly pystyy analysoimaan asiakastyön ja projektien dokumentteja ja tunnistamaan niistä viestintään sopivia aiheita.</p>
+      <p>Konsulttiyritykset voivat ottaa käyttöön automatisoidun tekoälypohjaisen viestintäalustan, joka integoituu yrityksen käyttämään pilviympäristöön. Tekoäly pystyy analysoimaan asiakastyön ja projektien dokumentteja ja tunnistamaan niistä viestintään sopivia aiheita.</p>
       
       <p>Järjestelmä ehdottaa, laatii ja julkaisee sisältöjä sosiaaliseen mediaan, uutiskirjeisiin ja intranetiin - asiantuntijoiden tarvitsee vain hyväksyä tai hylätä ehdotukset. Tekoäly oppii tunnistamaan, mitkä aiheet kiinnostavat yrityksen kohdeyleisöä, ja kehittää sisältöehdotuksia sen mukaisesti.</p>
       
@@ -242,7 +242,7 @@ But because it's too important to leave undone.</p>`,
       </ul>
       
       <blockquote>
-        <p>"AI transforms how we connect with our members. We're now able to provide timely, relevant information in multiple languages without our small team becoming overwhelmed. Our members tell us they feel more connected to the organization than ever."</p>
+        <p>"AI transforms how we connect with our members. We're now able to provide timely, relevant information in multiple languages without our small team becoming overwhelmed. Our members tell us they've never felt more connected to the organization than ever."</p>
       </blockquote>
       
       <h2>Why This Approach Works</h2>
@@ -589,6 +589,64 @@ But because it's too important to leave undone.</p>`,
     readTime: 4,
     featuredImage: "https://img.shields.io/badge/Uutiset-Yritys-blue",
     tags: ["News"],
+    language: "fi"
+  },
+  {
+    id: "9",
+    title: "Miksi Lyyli syntyi: tarina viesteistä, jotka jäivät sanomatta",
+    slug: "miksi-lyyli-syntyi-tarina",
+    excerpt: "Henkilökohtainen kirjoitus siitä, miksi Lyyli.ai syntyi ja kuinka viestintä epäonnistuu – ei tarkoituksella, vaan tekemättä jättämisenä.",
+    content: `<p>Se ei alkanut visiosta.<br>Se alkoi hiljaisuudesta.</p>
+
+<p>Olen viimeisen vuosikymmenen aikana työskennellyt kasvuyritysten, järjestöjen ja asiantuntijaorganisaatioiden johdon kanssa. Olen nähnyt, miten hyvät ideat menettävät vauhtinsa, koska niitä ei ehditty sanoittaa. Miten oikeat päätökset jäävät ilman jatkoa, koska kukaan ei ehtinyt viestiä niistä eteenpäin.</p>
+
+<p>Ja enemmän kuin kerran, olen itse ollut se, joka vaikeni.</p>
+
+<p>Ei siksi, etten olisi välittänyt. Vaan siksi, että viestintä kuormittaa. Se vaatii aikaa, kontekstia, keskittymistä — ja joskus rohkeutta. Ja kiireisessä arjessa se on liikaa vaadittu.</p>
+
+<h2>Viestinnän unohtuminen ei ole poikkeus. Se on kaava.</h2>
+
+<p>"Meidän pitäisi viestiä tästä jotain."<br>
+"Mun piti kirjoittaa se jo eilen."<br>
+"Puhutaan tästä ensi viikolla."</p>
+
+<p>Näitä lauseita kuulee jokaisessa tiimissä, jokaisella alalla. Ne kuulostavat harmittomilta. Mutta ne kasaantuvat – ja seurauksena on epäselvyyttä, väärinkäsityksiä ja välinpitämättömyyttä.</p>
+
+<p>Viestinnän puute ei maksa vain brändille. Se maksaa kulttuurille. Ja se kertautuu.</p>
+
+<p>Siksi päätimme rakentaa työkalun, joka rikkoo tämän kaavan.</p>
+
+<h2>Lyyli ei korvaa viestintää.<br>Se varmistaa, että viestintä tapahtuu.</h2>
+
+<p>Lyyli syntyi yksinkertaisesta ajatuksesta: viestinnän pitäisi olla tuottava osa jokaisen organisaation arkea — ei stressaava pakko.</p>
+
+<p>Lyyli kuuntelee. Havaitsee. Ehdottaa. Kirjoittaa luonnoksia.<br>
+Mutta tärkeintä: se muistuttaa siitä, mitä pitäisi sanoa — ennen kuin hiljaisuus sanoo jotain muuta.</p>
+
+<p>Lyyli tuo viestintään rytmin, ei reaktiota. Se tekee viestinnästä säännöllistä, ei satunnaista sankaritekoa.</p>
+
+<p>Se ei keksi viestiä puolestasi – se auttaa viemään sen perille.</p>
+
+<h2>Kyse ei ole automaatiosta. Kyse on vastuunkannosta.</h2>
+
+<p>Emme rakentaneet Lyyliä sisällöntuottajille. Rakensimme sen ihmisille, jotka kantavat viestinnän vastuuta, mutta joilla ei ole aikaa tai työkaluja tehdä sitä hyvin. Toimitusjohtajille. Viestintävastaaville. Toiminnanjohtajille. Heille, jotka tietävät, että selkeys ratkaisee — ja että hiljaisuuskin viestii jotain.</p>
+
+<p>Lyyli ei väitä olevansa ihminen. Mutta se auttaa ihmisiä tekemään sen, minkä he muutenkin haluaisivat: viestiä selkeästi, johdonmukaisesti ja oikeaan aikaan.</p>
+
+<p>Siksi me tämän teimme.</p>
+
+<p>Ei siksi, että viestintä olisi rikki.<br>
+Vaan siksi, että se on liian tärkeää jäädäkseen tekemättä.</p>`,
+    featuredImage: "https://images.unsplash.com/photo-1515378791036-0648a814c963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    publishDate: "2025-01-25",
+    readTime: 4,
+    tags: ["blog", "news"],
+    author: {
+      name: "Mikko Oksanen",
+      title: "Perustaja & toimitusjohtaja",
+      image: "/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
+    },
+    isHighlighted: true,
     language: "fi"
   }
 ];
