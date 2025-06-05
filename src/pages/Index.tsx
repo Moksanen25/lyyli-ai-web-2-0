@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -12,6 +11,7 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import SolutionFinderChat from '@/components/solution-finder/SolutionFinderChat';
+import HowItWorks from '@/components/HowItWorks';
 import { useLanguage } from '@/hooks/useLanguage';
 
 // Error boundary class implementation
@@ -124,6 +124,11 @@ const Index = () => {
         {/* Primary messaging */}
         <SafeSection name="Hero Section">
           <HeroSection />
+        </SafeSection>
+        
+        {/* How It Works Section */}
+        <SafeSection name="How It Works">
+          <HowItWorks />
         </SafeSection>
         
         <SafeSection name="Compliance Badges">
