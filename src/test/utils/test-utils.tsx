@@ -1,8 +1,6 @@
-
 import React, { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { screen } from '@testing-library/dom';
-import { fireEvent } from '@testing-library/dom';
+import { screen, fireEvent } from '@testing-library/dom';
 import { MemoryRouter } from 'react-router-dom';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
