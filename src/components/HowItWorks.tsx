@@ -60,8 +60,12 @@ const HowItWorks: React.FC = () => {
           
           {/* Lyyli Avatar */}
           <div className="flex justify-center mb-8">
-            <div className="w-20 h-20 rounded-full bg-[#295045] flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">L</span>
+            <div className="w-20 h-20 rounded-full bg-[#295045] flex items-center justify-center p-2">
+              <img 
+                src="/lovable-uploads/2f39775c-007c-4627-828d-54a3b849413d.png" 
+                alt="Lyyli AI Assistant" 
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
           
