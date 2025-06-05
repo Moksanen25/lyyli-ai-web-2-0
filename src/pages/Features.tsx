@@ -7,6 +7,7 @@ import FeatureHero from '@/components/features/FeatureHero';
 import ComplianceBadges from '@/components/ComplianceBadges';
 import FeatureDetails from '@/components/features/FeatureDetails';
 import IntegrationShowcase from '@/components/features/IntegrationShowcase';
+import HowItWorks from '@/components/HowItWorks';
 import CustomerQuotes from '@/components/features/CustomerQuotes';
 import FeatureComparison from '@/components/features/FeatureComparison';
 import FeatureFAQ from '@/components/features/FeatureFAQ';
@@ -54,6 +55,9 @@ const Features = () => {
         {/* General Features */}
         <FeatureDetails />
         <IntegrationShowcase />
+        
+        {/* How It Works Section */}
+        <HowItWorks />
         
         {/* Customer Quotes */}
         <CustomerQuotes />
