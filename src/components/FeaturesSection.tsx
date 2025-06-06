@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
@@ -51,7 +50,7 @@ const FeaturesSection: React.FC = () => {
   const featuresSubtitle = safeTr('features.subtitle', {}, { fallback: 'Built to streamline your communication workflows' });
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="features">
+    <section className="hidden md:block py-16 md:py-24 bg-white" id="features">
       <div className="container-padding container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{featuresTitle}</h2>
