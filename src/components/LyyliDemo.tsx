@@ -48,6 +48,10 @@ const LyyliDemo: React.FC = () => {
   const handleBookDemo = () => {
     setShowBooking(true);
   };
+
+  const handleStartNow = () => {
+    window.open('https://lyyli.vercel.app', '_blank');
+  };
   
   return (
     <ErrorBoundary>
@@ -62,9 +66,9 @@ const LyyliDemo: React.FC = () => {
         
         <Button
           className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
-          onClick={handleBookDemo}
+          onClick={handleStartNow}
         >
-          {safeT('hero.primaryCta', { fallback: 'Book a demo' })}
+          {safeT('hero.primaryCta', { fallback: 'Start Now' })}
         </Button>
       </div>
       

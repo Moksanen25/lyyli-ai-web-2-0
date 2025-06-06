@@ -35,6 +35,7 @@ const HeroSection: React.FC = () => {
           <Button 
             size="lg" 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
+            onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
           >
             {heroT('cta')}
           </Button>

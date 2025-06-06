@@ -292,7 +292,12 @@ const UseCase = () => {
               {language === 'fi' ? 'Varaa demo' : 'Book a Demo'}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button size="lg" variant="outline" className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8"
+              onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+            >
               {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
               <Zap className="ml-2 w-4 h-4" />
             </Button>

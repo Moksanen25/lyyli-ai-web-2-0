@@ -75,7 +75,11 @@ const Navbar: React.FC = () => {
                   {t('nav.contact')}
                 </Link>
                 <LanguageSwitcher />
-                <Button variant="outline" className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white">
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white"
+                  onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+                >
                   <LogIn className="h-4 w-4 mr-2" />
                   {t('nav.login')}
                 </Button>
@@ -102,7 +106,11 @@ const Navbar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+          <Button 
+            variant="outline" 
+            className="border-primary text-primary hover:bg-primary hover:text-white"
+            onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+          >
             <LogIn className="h-4 w-4 mr-2" />
             {t('nav.login')}
           </Button>
