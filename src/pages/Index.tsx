@@ -10,7 +10,6 @@ import ComplianceBadges from '@/components/ComplianceBadges';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
-import SolutionFinderChat from '@/components/solution-finder/SolutionFinderChat';
 import HowItWorks from '@/components/HowItWorks';
 import { useLanguage } from '@/hooks/useLanguage';
 
@@ -106,16 +105,6 @@ const SafeSection = ({
  */
 const Index = () => {
   console.log('Index page rendering');
-  const { featuresT } = useLanguage();
-  
-  // Get safe translations with fallbacks for solution finder section
-  const solutionsTitle = featuresT('solutionFinder.sectionTitle', { 
-    fallback: 'Find the Perfect Solution for Your Industry' 
-  });
-  
-  const solutionsDescription = featuresT('solutionFinder.sectionDescription', { 
-    fallback: 'Chat with our AI assistant to discover how Lyyli can help solve your specific industry challenges.' 
-  });
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -139,22 +128,6 @@ const Index = () => {
         <SafeSection name="Features">
           <FeaturesSection />
         </SafeSection>
-        
-        {/* Solution Finder Chat - Fix height to prevent scroll issues */}
-        <SafeSection name="Solution Finder">
-          <section id="solution-finder" className="py-16 bg-primary/5">
-            <div className="container-padding container mx-auto text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{solutionsTitle}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{solutionsDescription}</p>
-            </div>
-            
-            <div className="container-padding container mx-auto">
-              <SolutionFinderChat />
-            </div>
-          </section>
-        </SafeSection>
-        
-        {/* Remove CustomerSegments as Solution Finder replaces it */}
         
         {/* How Lyyli works section */}
         <SafeSection name="Use Cases">
