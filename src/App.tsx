@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
@@ -63,6 +64,7 @@ function AppRoutes() {
       <Route path="/fi/waitlist" element={<Waitlist />} />
       <Route path="/fi/privacy" element={<PrivacyPolicy />} />
       <Route path="/fi/cookies" element={<CookiePolicy />} />
+      <Route path="/fi/jci-members" element={<JCIMembers />} />
       
       {/* Hidden pages - not linked in navigation */}
       <Route path="/jci-members" element={<JCIMembers />} />
