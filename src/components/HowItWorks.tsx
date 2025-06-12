@@ -3,6 +3,7 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Brain, 
   MessageSquare, 
@@ -14,6 +15,7 @@ import {
 
 const HowItWorks: React.FC = () => {
   const { t, language } = useLanguage();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
 
   const steps = [
     {
@@ -120,9 +122,11 @@ const HowItWorks: React.FC = () => {
           <Button 
             size="lg" 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-8 py-3"
-            onClick={() => window.open('/waitlist', '_blank')}
+            asChild
           >
-            {t('howItWorks.cta')}
+            <Link to={waitlistPath}>
+              {t('howItWorks.cta')}
+            </Link>
           </Button>
         </div>
       </div>

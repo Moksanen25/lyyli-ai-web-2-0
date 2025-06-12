@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Link } from 'react-router-dom';
 import DemoDialog from './lyyli-demo/DemoDialog';
 import BookDemoDialog from '@/components/BookDemoDialog';
 import { ErrorBoundary } from './ui/error-boundary';
@@ -13,6 +14,8 @@ const LyyliDemo: React.FC = () => {
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { safeT } = useSafeTranslation();
+  const { language } = useLanguage();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
   
   // Reset animation state when component mounts or unmounts
   useEffect(() => {
@@ -48,10 +51,6 @@ const LyyliDemo: React.FC = () => {
   const handleBookDemo = () => {
     setShowBooking(true);
   };
-
-  const handleStartNow = () => {
-    window.open('/waitlist', '_blank');
-  };
   
   return (
     <ErrorBoundary>
@@ -66,9 +65,11 @@ const LyyliDemo: React.FC = () => {
         
         <Button
           className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
-          onClick={handleStartNow}
+          asChild
         >
-          {safeT('hero.primaryCta', { fallback: 'Start Now' })}
+          <Link to={waitlistPath}>
+            {safeT('hero.primaryCta', { fallback: 'Start Now' })}
+          </Link>
         </Button>
       </div>
       

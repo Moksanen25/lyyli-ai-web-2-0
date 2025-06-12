@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import BookDemoDialog from '@/components/BookDemoDialog';
 
 const CTASection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
 
   return (
     <section className="py-16 md:py-24 bg-primary text-white">
@@ -18,9 +20,11 @@ const CTASection: React.FC = () => {
           </p>
           <Button 
             className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg"
-            onClick={() => window.open('/waitlist', '_blank')}
+            asChild
           >
-            {t('cta.button')}
+            <Link to={waitlistPath}>
+              {t('cta.button')}
+            </Link>
           </Button>
           
           {/* Decorative elements */}

@@ -4,6 +4,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { segments } from './use-case/segmentsData';
 import SegmentDetails from './use-case/SegmentDetails';
 import MobileSegmentCard from './use-case/MobileSegmentCard';
@@ -13,6 +14,7 @@ const UseCase = () => {
   const [activeSegment, setActiveSegment] = useState('tech');
 
   const currentSegment = segments.find(s => s.id === activeSegment) || segments[0];
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
 
   return (
     <section className="py-16 bg-primary/5">
@@ -87,10 +89,12 @@ const UseCase = () => {
               size="lg" 
               variant="outline" 
               className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8"
-              onClick={() => window.open('/waitlist', '_blank')}
+              asChild
             >
-              {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
-              <Zap className="ml-2 w-4 h-4" />
+              <Link to={waitlistPath}>
+                {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
+                <Zap className="ml-2 w-4 h-4" />
+              </Link>
             </Button>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,7 @@ const Navbar: React.FC = () => {
   } = useLanguage();
   const location = useLocation();
   const isMobile = useIsMobile();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
 
   // Function to close the mobile menu
   const closeMenu = () => {
@@ -77,10 +79,12 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="outline" 
                   className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white"
-                  onClick={() => window.open('/waitlist', '_blank')}
+                  asChild
                 >
-                  <LogIn className="h-4 w-4 mr-2" />
-                  {t('nav.login')}
+                  <Link to={waitlistPath}>
+                    <LogIn className="h-4 w-4 mr-2" />
+                    {t('nav.login')}
+                  </Link>
                 </Button>
               </div>
             </SheetContent>
@@ -108,10 +112,12 @@ const Navbar: React.FC = () => {
           <Button 
             variant="outline" 
             className="border-primary text-primary hover:bg-primary hover:text-white"
-            onClick={() => window.open('/waitlist', '_blank')}
+            asChild
           >
-            <LogIn className="h-4 w-4 mr-2" />
-            {t('nav.login')}
+            <Link to={waitlistPath}>
+              <LogIn className="h-4 w-4 mr-2" />
+              {t('nav.login')}
+            </Link>
           </Button>
         </nav>
       </div>

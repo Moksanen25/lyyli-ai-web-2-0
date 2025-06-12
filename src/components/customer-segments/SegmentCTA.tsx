@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
-import BookDemoDialog from '@/components/BookDemoDialog';
 import { Link } from 'react-router-dom';
+import BookDemoDialog from '@/components/BookDemoDialog';
 
 const SegmentCTA: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
   
   return (
     <div className="text-center mt-16">
@@ -24,9 +25,11 @@ const SegmentCTA: React.FC = () => {
         <Button 
           variant="outline" 
           className="border-primary text-primary h-10 px-4 py-2"
-          onClick={() => window.open('/waitlist', '_blank')}
+          asChild
         >
-          {t('customerSegments.viewComparisonButton')}
+          <Link to={waitlistPath}>
+            {t('customerSegments.viewComparisonButton')}
+          </Link>
         </Button>
       </div>
       

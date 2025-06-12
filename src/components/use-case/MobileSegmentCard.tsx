@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SegmentDetails from './SegmentDetails';
 import { Segment } from './types';
 
@@ -12,6 +13,8 @@ interface MobileSegmentCardProps {
 }
 
 const MobileSegmentCard: React.FC<MobileSegmentCardProps> = ({ segment, language }) => {
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+
   return (
     <Card className="border-none shadow-lg">
       <CardHeader className="pb-4">
@@ -34,10 +37,12 @@ const MobileSegmentCard: React.FC<MobileSegmentCardProps> = ({ segment, language
         <div className="mt-6 text-center">
           <Button 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-6 py-2 w-full"
-            onClick={() => window.open('/waitlist', '_blank')}
+            asChild
           >
-            {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
-            <Zap className="ml-2 w-4 h-4" />
+            <Link to={waitlistPath}>
+              {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
+              <Zap className="ml-2 w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </CardContent>

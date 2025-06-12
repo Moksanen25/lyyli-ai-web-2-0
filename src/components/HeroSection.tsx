@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -8,11 +9,12 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const HeroSection: React.FC = () => {
-  const { heroT } = useLanguage();
+  const { heroT, language } = useLanguage();
   const [showDemo, setShowDemo] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
   
   // Handle demo dialog
   const handleOpenDemo = () => {
@@ -34,9 +36,11 @@ const HeroSection: React.FC = () => {
           <Button 
             size="lg" 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
-            onClick={() => window.open('/waitlist', '_blank')}
+            asChild
           >
-            {heroT('cta')}
+            <Link to={waitlistPath}>
+              {heroT('cta')}
+            </Link>
           </Button>
         </div>
       </div>
