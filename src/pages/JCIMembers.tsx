@@ -127,14 +127,6 @@ const JCIMembers: React.FC = () => {
                 ? 'Haluaisimme kutsua sinut testaamaan uutta tekoälyllä toimivaa sisällönhallintajärjestelmäämme. Jätä yhteystietosi alla olevaan lomakkeeseen, niin otamme sinuun yhteyttä pian.' 
                 : 'We would like to invite you to test our new AI-powered content management platform. Please leave your contact information in the form below and we will get in touch with you soon.'}
             </p>
-
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
-              <p className="text-sm text-blue-800">
-                {language === 'fi' 
-                  ? '🚀 Oma testiohjelma JCI jäsenille - Rajoitettu määrä paikkoja saatavilla'
-                  : '🚀 Exclusive test program for JCI members - Limited spots available'}
-              </p>
-            </div>
           </div>
           
           {/* HubSpot Form */}
