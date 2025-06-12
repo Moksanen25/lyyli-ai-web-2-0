@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
@@ -9,6 +8,7 @@ import Pricing from '@/pages/Pricing';
 import CaseStudies from '@/pages/CaseStudies';
 import NotFound from '@/pages/NotFound';
 import Waitlist from '@/pages/Waitlist';
+import JCIMembers from '@/pages/JCIMembers';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import CookiePolicy from '@/pages/CookiePolicy';
 import FloatingChat from '@/components/chat/FloatingChat';
@@ -63,6 +63,9 @@ function AppRoutes() {
       <Route path="/fi/waitlist" element={<Waitlist />} />
       <Route path="/fi/privacy" element={<PrivacyPolicy />} />
       <Route path="/fi/cookies" element={<CookiePolicy />} />
+      
+      {/* Hidden pages - not linked in navigation */}
+      <Route path="/jci-members" element={<JCIMembers />} />
       
       {/* Explicit waitlist route */}
       <Route path="/waitlist" element={<Waitlist />} />
