@@ -50,7 +50,7 @@ const LyyliDemo: React.FC = () => {
   };
 
   const handleStartNow = () => {
-    window.open('https://lyyli.vercel.app', '_blank');
+    window.open('/waitlist', '_blank');
   };
   
   return (

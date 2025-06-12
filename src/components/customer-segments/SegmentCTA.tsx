@@ -24,7 +24,7 @@ const SegmentCTA: React.FC = () => {
         <Button 
           variant="outline" 
           className="border-primary text-primary h-10 px-4 py-2"
-          onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+          onClick={() => window.open('/waitlist', '_blank')}
         >
           {t('customerSegments.viewComparisonButton')}
         </Button>

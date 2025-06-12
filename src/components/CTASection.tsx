@@ -18,7 +18,7 @@ const CTASection: React.FC = () => {
           </p>
           <Button 
             className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg"
-            onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+            onClick={() => window.open('/waitlist', '_blank')}
           >
             {t('cta.button')}
           </Button>

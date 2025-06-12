@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -78,7 +77,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="outline" 
                   className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white"
-                  onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+                  onClick={() => window.open('/waitlist', '_blank')}
                 >
                   <LogIn className="h-4 w-4 mr-2" />
                   {t('nav.login')}
@@ -109,7 +108,7 @@ const Navbar: React.FC = () => {
           <Button 
             variant="outline" 
             className="border-primary text-primary hover:bg-primary hover:text-white"
-            onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+            onClick={() => window.open('/waitlist', '_blank')}
           >
             <LogIn className="h-4 w-4 mr-2" />
             {t('nav.login')}

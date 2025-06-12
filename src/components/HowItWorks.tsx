@@ -120,7 +120,7 @@ const HowItWorks: React.FC = () => {
           <Button 
             size="lg" 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-8 py-3"
-            onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+            onClick={() => window.open('/waitlist', '_blank')}
           >
             {t('howItWorks.cta')}
           </Button>

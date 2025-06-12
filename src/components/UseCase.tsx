@@ -279,7 +279,7 @@ const UseCase = () => {
                 <div className="mt-6 text-center">
                   <Button 
                     className="bg-[#295045] hover:bg-[#1f3c34] text-white px-6 py-2 w-full"
-                    onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+                    onClick={() => window.open('/waitlist', '_blank')}
                   >
                     {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
                     <Zap className="ml-2 w-4 h-4" />
@@ -306,7 +306,7 @@ const UseCase = () => {
               size="lg" 
               variant="outline" 
               className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8"
-              onClick={() => window.open('https://lyyli.vercel.app', '_blank')}
+              onClick={() => window.open('/waitlist', '_blank')}
             >
               {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
               <Zap className="ml-2 w-4 h-4" />
