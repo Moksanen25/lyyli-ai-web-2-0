@@ -37,6 +37,11 @@ export const customerSegments = {
       title: 'Teknologiayritykset',
       description: 'Virtaviivaista teknistä viestintää ja tuotepäivityksiä',
       buttonLabel: 'Teknologiayritykset',
+      features: [
+        'API-dokumentaation generointi',
+        'Teknisen muutoslokin automatisointi',
+        'Kehittäjäyhteisön hallinta'
+      ],
       painPoints: [
         'Tuotepäivitysten kommunikointi useille sidosryhmille',
         'Teknisen dokumentaation ylläpito ja päivitys',
@@ -54,6 +59,11 @@ export const customerSegments = {
       title: 'Konsultointiyritykset',
       description: 'Paranna asiakasviestintää ja projektin päivityksiä',
       buttonLabel: 'Konsultointi',
+      features: [
+        'Asiakaslähtöiset raportit',
+        'Ammattimaiset projektipäivitykset',
+        'Ehdotusautomaatio'
+      ],
       painPoints: [
         'Useiden asiakasprojektien viestinnän koordinointi',
         'Asiakasraporttien ja esitysten luomisen tehokkuus',
@@ -71,6 +81,11 @@ export const customerSegments = {
       title: 'Voittoa tavoittelemattomat järjestöt',
       description: 'Tehosta lahjoittajaviestintää ja vapaaehtoisohjelmia',
       buttonLabel: 'Voittoa tavoittelemattomat järjestöt',
+      features: [
+        'Lahjoittajien sitoutumisen automatisointi',
+        'Apurahaehdotuspohjat',
+        'Vapaaehtoisten koordinointityökalut'
+      ],
       painPoints: [
         'Rajalliset resurssit vaikuttavan viestinnän luomiseen',
         'Eri sidosryhmien (lahjoittajat, vapaaehtoiset, edunsaajat) tavoittaminen',
@@ -88,6 +103,11 @@ export const customerSegments = {
       title: 'Koulutusinstituutiot',
       description: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta tehokkaalla viestinnällä',
       buttonLabel: 'Koulutus',
+      features: [
+        'Opiskelijatavoittamisen automatisointi',
+        'Vanhempien viestintätyökalut',
+        'Henkilökunnan yhteistyöalusta'
+      ],
       painPoints: [
         'Yhtenäisen viestinnän ylläpitäminen eri osastojen välillä',
         'Useiden kohderyhmien tavoittaminen oikealla äänensävyllä',
@@ -105,6 +125,11 @@ export const customerSegments = {
       title: 'Luovat alat',
       description: 'Esittele luova työ ammattimaisesti ja voita uusia asiakkaita',
       buttonLabel: 'Luovat alat',
+      features: [
+        'Portfolioesitystyökalut',
+        'Asiakaspalautteen automatisointi',
+        'Projektin välitavoitteiden seuranta'
+      ],
       painPoints: [
         'Ainutlaatuisen brändivision välittäminen',
         'Portfolio- ja projektiesitysten luominen',
@@ -122,6 +147,11 @@ export const customerSegments = {
       title: 'Urheiluorganisaatiot',
       description: 'Sitouta fanit, jäsenet ja sponsorit tehokkaalla viestinnällä',
       buttonLabel: 'Urheiluorganisaatiot',
+      features: [
+        'Fanien sitoutumisalustat',
+        'Joukkueen viestintätyökalut',
+        'Tapahtumien edistämisen automatisointi'
+      ],
       painPoints: [
         'Fanien ja jäsenten pitäminen ajan tasalla ja sitoutuneina',
         'Tapahtumien ja toiminnan tehokas mainostaminen',
