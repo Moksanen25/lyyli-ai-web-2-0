@@ -36,41 +36,33 @@ function AppRoutes() {
 
   return (
     <Routes>
-      {/* Default route redirects to /full */}
-      <Route path="/" element={<Navigate to="/full" replace />} />
-      
       {/* English routes */}
-      <Route path="/full" element={<Index />} />
-      <Route path="/full/about" element={<About />} />
-      <Route path="/full/contact" element={<Contact />} />
-      <Route path="/full/features" element={<Features />} />
-      <Route path="/full/pricing" element={<Pricing />} />
-      <Route path="/full/case-studies" element={<CaseStudies />} />
-      <Route path="/full/blog" element={<BlogList />} />
-      <Route path="/full/blog/:slug" element={<BlogPost />} />
+      <Route path="/" element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/features" element={<Features />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/case-studies" element={<CaseStudies />} />
+      <Route path="/blog" element={<BlogList />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cookies" element={<CookiePolicy />} />
+      <Route path="/waitlist" element={<Waitlist />} />
+      <Route path="/jci-members" element={<JCIMembers />} />
       
       {/* Finnish routes */}
-      <Route path="/fi" element={<Navigate to="/fi/full" replace />} />
-      <Route path="/fi/full" element={<Index />} />
-      <Route path="/fi/full/about" element={<About />} />
-      <Route path="/fi/full/contact" element={<Contact />} />
-      <Route path="/fi/full/features" element={<Features />} />
-      <Route path="/fi/full/pricing" element={<Pricing />} />
-      <Route path="/fi/full/case-studies" element={<CaseStudies />} />
-      <Route path="/fi/full/blog" element={<BlogList />} />
-      <Route path="/fi/full/blog/:slug" element={<BlogPost />} />
+      <Route path="/fi" element={<Index />} />
+      <Route path="/fi/about" element={<About />} />
+      <Route path="/fi/contact" element={<Contact />} />
+      <Route path="/fi/features" element={<Features />} />
+      <Route path="/fi/pricing" element={<Pricing />} />
+      <Route path="/fi/case-studies" element={<CaseStudies />} />
+      <Route path="/fi/blog" element={<BlogList />} />
+      <Route path="/fi/blog/:slug" element={<BlogPost />} />
       <Route path="/fi/waitlist" element={<Waitlist />} />
       <Route path="/fi/privacy" element={<PrivacyPolicy />} />
       <Route path="/fi/cookies" element={<CookiePolicy />} />
       <Route path="/fi/jci-members" element={<JCIMembers />} />
-      
-      {/* Hidden pages - not linked in navigation */}
-      <Route path="/jci-members" element={<JCIMembers />} />
-      
-      {/* Explicit waitlist route */}
-      <Route path="/waitlist" element={<Waitlist />} />
       
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />

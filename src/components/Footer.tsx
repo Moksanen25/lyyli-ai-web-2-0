@@ -4,6 +4,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Settings, Calculator } from 'lucide-react';
+
 const Footer: React.FC = () => {
   const {
     t,
@@ -32,12 +33,14 @@ const Footer: React.FC = () => {
       }
     }
   };
-  return <footer className="bg-white pt-16 pb-8">
+
+  return (
+    <footer className="bg-white pt-16 pb-8">
       <div className="container-padding container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo and description */}
           <div>
-            <Link to={language === 'fi' ? "/fi/full" : "/full"} className="inline-block mb-4">
+            <Link to={language === 'fi' ? "/fi" : "/"} className="inline-block mb-4">
               <img alt="Lyyli.ai" className="h-10 mb-3" src="/lovable-uploads/a59c7aab-a457-41d3-a3ce-b2230ef1e41d.png" />
             </Link>
             <p className="text-primary/70 mb-4">
@@ -46,7 +49,7 @@ const Footer: React.FC = () => {
             <p className="text-primary/70 mb-4">
               {t('footer.vatNumber')}
             </p>
-            <Link to={isOnPricingPage ? "#roi-calculator" : "/full/pricing#roi-calculator"} onClick={navigateToCalculator} className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2">
+            <Link to={isOnPricingPage ? "#roi-calculator" : "/pricing#roi-calculator"} onClick={navigateToCalculator} className="flex items-center text-primary hover:text-primary/80 transition-colors mb-2">
               <Calculator className="h-4 w-4 mr-2" />
               {language === 'fi' ? 'ROI Laskuri' : 'ROI Calculator'}
             </Link>
@@ -57,17 +60,17 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4">{t('footer.product')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to={language === 'fi' ? "/fi/full/features" : "/full/features"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/features" : "/features"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.features')}
                 </Link>
               </li>
               <li>
-                <Link to={language === 'fi' ? "/fi/full/pricing" : "/full/pricing"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.pricing')}
                 </Link>
               </li>
               <li>
-                <Link to={language === 'fi' ? "/fi/full/faq" : "/full/faq"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/faq" : "/faq"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.faq')}
                 </Link>
               </li>
@@ -79,17 +82,17 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to={language === 'fi' ? "/fi/full/about" : "/full/about"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/about" : "/about"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.about')}
                 </Link>
               </li>
               <li>
-                <Link to={language === 'fi' ? "/fi/full/blog" : "/full/blog"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/blog" : "/blog"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.blog')}
                 </Link>
               </li>
               <li>
-                <Link to={language === 'fi' ? "/fi/full/contact" : "/full/contact"} className="text-primary/70 hover:text-primary transition-colors">
+                <Link to={language === 'fi' ? "/fi/contact" : "/contact"} className="text-primary/70 hover:text-primary transition-colors">
                   {t('footer.contact')}
                 </Link>
               </li>
@@ -125,6 +128,8 @@ const Footer: React.FC = () => {
           <div className="text-primary/60 text-sm">{t('footer.vatNumber')}</div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
