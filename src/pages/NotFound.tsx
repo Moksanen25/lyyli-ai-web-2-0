@@ -110,7 +110,7 @@ const NotFound: React.FC = () => {
               </div>
               <div className="text-center p-4 bg-primary/5 rounded-lg">
                 <div className="font-medium mb-1">
-                  {language === 'fi' ? '50+ Integraatiota' : '50+ Integrations'}
+                  {language === 'fi' ? '10+ Integraatiota' : '10+ Integrations'}
                 </div>
                 <div className="text-muted-foreground">
                   {language === 'fi' ? 'Työkalut' : 'Tools'}
