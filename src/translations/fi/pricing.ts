@@ -87,7 +87,24 @@ export const pricing = {
     allIntegrationsWithAPI: 'Kaikki integraatiot + API-rajapinnat',
     customFeatures: 'Räätälöidyt ominaisuudet',
     dedicatedSupport: 'Omistettu tuki',
-    customOnboarding: 'Räätälöity käyttöönotto'
+    customOnboarding: 'Räätälöity käyttöönotto',
+    
+    // Comparison table specific features
+    price: 'Hinta',
+    users: 'Käyttäjät',
+    conversations: 'Keskustelut',
+    posts: 'Julkaisut',
+    integrations: 'Integraatiot',
+    agents: 'Agentit',
+    webApp: 'Web-sovellus',
+    slack: 'Slack',
+    teams: 'Teams',
+    customization: 'Räätälöinti',
+    communicationSuggestions: 'Viestintäehdotukset',
+    onboarding: 'Käyttöönotto',
+    support: 'Tuki',
+    phoneSupport: 'Puhelintuki',
+    apiAccess: 'API-rajapinta'
   },
   showComparison: 'Näytä täydellinen ominaisuusvertailu',
   hideComparison: 'Piilota täydellinen ominaisuusvertailu',

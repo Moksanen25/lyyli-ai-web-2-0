@@ -87,7 +87,24 @@ export const pricing = {
     allIntegrationsWithAPI: 'All integrations + API access',
     customFeatures: 'Custom features',
     dedicatedSupport: 'Dedicated support',
-    customOnboarding: 'Custom onboarding'
+    customOnboarding: 'Custom onboarding',
+    
+    // Comparison table specific features
+    price: 'Price',
+    users: 'Users',
+    conversations: 'Conversations',
+    posts: 'Posts',
+    integrations: 'Integrations',
+    agents: 'Agents',
+    webApp: 'Web App',
+    slack: 'Slack',
+    teams: 'Teams',
+    customization: 'Customization',
+    communicationSuggestions: 'Communication Suggestions',
+    onboarding: 'Onboarding',
+    support: 'Support',
+    phoneSupport: 'Phone Support',
+    apiAccess: 'API Access'
   },
   showComparison: 'Show Full Feature Comparison',
   hideComparison: 'Hide Full Feature Comparison',
