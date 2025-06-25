@@ -42,6 +42,9 @@ export const pricing = {
     alsoIncluded: 'Sisältyy myös',
     custom: 'Räätälöity',
     unlimited: 'Rajoittamaton',
+    perWeek: '/viikko',
+    perDay: '/päivä',
+    freeWithAnnual: '(ilmainen vuosisopimuksella)',
     
     // Ilmainen paketti
     maxOneUser: 'Max 1 käyttäjä',

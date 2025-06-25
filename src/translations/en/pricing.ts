@@ -42,6 +42,9 @@ export const pricing = {
     alsoIncluded: 'Also included',
     custom: 'Custom',
     unlimited: 'Unlimited',
+    perWeek: '/week',
+    perDay: '/day',
+    freeWithAnnual: '(free with annual)',
     
     // Free tier features
     maxOneUser: 'Max 1 user',
