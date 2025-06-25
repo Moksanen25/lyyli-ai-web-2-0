@@ -20,25 +20,17 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
   comparisonFeatures, 
   showFullComparison 
 }) => {
-  const { t, safeTr } = useLanguage();
+  const { t } = useLanguage();
 
-  // Function to safely get feature translation
+  // Function to safely get feature translation using consistent approach
   const getFeatureText = (key: string): string => {
-    const directTranslation = t(`pricing.features.${key}`);
-    
-    // If direct translation works, use it
-    if (directTranslation && directTranslation !== `pricing.features.${key}`) {
-      return directTranslation;
+    const translation = t(`pricing.features.${key}`);
+    // If translation fails, fallback to the key itself (formatted)
+    if (translation === `pricing.features.${key}`) {
+      // Convert camelCase to readable format as fallback
+      return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     }
-    
-    // Try with features prefix as fallback
-    const featureTranslation = t(`features.${key}`);
-    if (featureTranslation && featureTranslation !== `features.${key}`) {
-      return featureTranslation;
-    }
-    
-    // Last resort fallback
-    return safeTr(`pricing.features.${key}`, {}, { fallback: key });
+    return translation;
   };
   
   if (!showFullComparison) {
@@ -46,11 +38,11 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
   }
 
   // Get translated headers
-  const featureText = getFeatureText('feature');
-  const includedText = getFeatureText('included');
-  const notIncludedText = getFeatureText('notIncluded');
+  const featureText = t('pricing.features.feature');
+  const includedText = t('pricing.features.included');
+  const notIncludedText = t('pricing.features.notIncluded');
   
-  const renderCellValue = (value: boolean | string, label: string) => {
+  const renderCellValue = (value: boolean | string) => {
     if (typeof value === 'boolean') {
       return value ? (
         <Check className="h-5 w-5 text-green-500 mx-auto" aria-label={includedText} />
@@ -73,11 +65,11 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
         <TableHeader>
           <TableRow className="bg-muted/60">
             <TableHead className="w-[25%] font-medium">{featureText}</TableHead>
-            <TableHead className="text-center">Free</TableHead>
-            <TableHead className="text-center">Starter</TableHead>
-            <TableHead className="text-center">Growth</TableHead>
-            <TableHead className="text-center">Professional</TableHead>
-            <TableHead className="text-center">Enterprise</TableHead>
+            <TableHead className="text-center">{t('pricing.free.name')}</TableHead>
+            <TableHead className="text-center">{t('pricing.starter.name')}</TableHead>
+            <TableHead className="text-center">{t('pricing.growth.name')}</TableHead>
+            <TableHead className="text-center">{t('pricing.professional.name')}</TableHead>
+            <TableHead className="text-center">{t('pricing.enterprise.name')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -85,19 +77,19 @@ const FeatureComparison: React.FC<FeatureComparisonProps> = ({
             <TableRow key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-muted/30'}>
               <TableCell className="font-medium">{getFeatureText(feature.name)}</TableCell>
               <TableCell className="text-center">
-                {renderCellValue(feature.free, includedText)}
+                {renderCellValue(feature.free)}
               </TableCell>
               <TableCell className="text-center">
-                {renderCellValue(feature.starter, includedText)}
+                {renderCellValue(feature.starter)}
               </TableCell>
               <TableCell className="text-center">
-                {renderCellValue(feature.growth, includedText)}
+                {renderCellValue(feature.growth)}
               </TableCell>
               <TableCell className="text-center">
-                {renderCellValue(feature.professional, includedText)}
+                {renderCellValue(feature.professional)}
               </TableCell>
               <TableCell className="text-center">
-                {renderCellValue(feature.enterprise, includedText)}
+                {renderCellValue(feature.enterprise)}
               </TableCell>
             </TableRow>
           ))}
