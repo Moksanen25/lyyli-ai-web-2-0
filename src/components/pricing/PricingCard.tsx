@@ -52,9 +52,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
   
   const getPrice = () => {
     if (billingPeriod === 'monthly' && monthlyPrice !== undefined) {
-      return `${monthlyPrice} €`;
+      return `${monthlyPrice}€`;
     } else if (billingPeriod === 'yearly' && yearlyPrice !== undefined) {
-      return `${yearlyPrice} €`;
+      return `${yearlyPrice}€`;
     } else {
       return t('pricing.custom');
     }
@@ -63,8 +63,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
   const handleCtaClick = () => {
     track('pricing_cta_click', { plan: name });
     
-    if (name === 'Starter') {
+    if (name === 'Free') {
+      // Handle free plan signup
       setOpenTrialDialog(true);
+    } else if (name === 'Starter') {
+      setOpenTrialDialog(true);
+    } else if (name === 'Growth') {
+      setOpenWaitlistDialog(true);
     } else if (name === 'Professional') {
       setOpenWaitlistDialog(true);
     } else if (name === 'Enterprise') {
@@ -73,59 +78,77 @@ const PricingCard: React.FC<PricingCardProps> = ({
   };
 
   return (
-    <Card className={`border-none card-shadow ${accent ? 'bg-primary text-white' : 'bg-white'}`}>
-      <CardHeader className="space-y-2.5">
+    <Card className={`h-full flex flex-col border-none card-shadow ${accent ? 'bg-primary text-white relative overflow-hidden' : 'bg-white'}`}>
+      {accent && (
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary/80" />
+      )}
+      
+      <CardHeader className="space-y-2.5 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl font-semibold">{name}</CardTitle>
-          <div className="rounded-full p-2 bg-secondary/20">
+          <div className={`rounded-full p-2 ${accent ? 'bg-white/20' : 'bg-secondary/20'}`}>
             {icon}
           </div>
         </div>
-        <CardDescription className={accent ? "text-white" : ""}>{description}</CardDescription>
+        <CardDescription className={accent ? "text-white/90" : "text-muted-foreground"}>
+          {description}
+        </CardDescription>
         
-        {/* Display price more prominently */}
-        {monthly !== null && (
-          <div className="mt-4 text-center">
-            <span className="text-3xl font-bold">{getPrice()}</span>
-            <span className="ml-1 text-sm">
-              {billingPeriod === 'yearly' ? t('pricing.perYear') : t('pricing.perMonth')}
-            </span>
-            
-            {billingPeriod === 'yearly' && (
-              <div className="mt-1 text-sm text-emerald-600 dark:text-emerald-400">
-                {t('pricing.save')} {Math.round((1 - yearlyDiscountRate) * 100)}%
+        {/* Price section with consistent height */}
+        <div className="mt-4 h-20 flex flex-col justify-center">
+          {monthly !== null ? (
+            <>
+              <div className="text-center">
+                <span className="text-4xl font-bold">{getPrice()}</span>
+                <span className="ml-1 text-sm">
+                  {billingPeriod === 'yearly' ? t('pricing.perYear') : t('pricing.perMonth')}
+                </span>
               </div>
-            )}
-          </div>
-        )}
+              
+              {billingPeriod === 'yearly' && monthly > 0 && (
+                <div className="mt-1 text-center text-sm text-emerald-600 dark:text-emerald-400">
+                  {t('pricing.save')} {Math.round((1 - yearlyDiscountRate) * 100)}%
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center">
+              <span className="text-2xl font-bold">{t('pricing.custom')}</span>
+            </div>
+          )}
+        </div>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <ul className="space-y-2">
+      
+      <CardContent className="flex-grow flex flex-col gap-4">
+        <ul className="space-y-2 flex-grow">
           {primaryFeatures.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <Check className="h-4 w-4" />
-              {feature}
+            <li key={i} className="flex items-start gap-2 text-sm">
+              <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${accent ? 'text-white' : 'text-primary'}`} />
+              <span className="leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
         
         {secondaryFeatures && (
-          <div className="mt-4">
-            <Badge variant="secondary" className="mb-2">{t('pricing.features.alsoIncluded')}</Badge>
+          <div className="mt-4 pt-4 border-t border-gray-200/20">
+            <Badge variant={accent ? "secondary" : "default"} className="mb-2 text-xs">
+              {t('pricing.features.alsoIncluded')}
+            </Badge>
             <ul className="space-y-2">
               {secondaryFeatures.map((feature, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <Check className="h-4 w-4" />
-                  {feature}
+                <li key={i} className="flex items-start gap-2 text-sm">
+                  <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${accent ? 'text-white' : 'text-primary'}`} />
+                  <span className="leading-relaxed">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
       </CardContent>
-      <CardFooter>
+      
+      <CardFooter className="mt-auto pt-6">
         <Button 
-          className="w-full" 
+          className="w-full min-h-[44px] font-semibold" 
           variant={accent ? "secondary" : "default"}
           onClick={handleCtaClick}
         >

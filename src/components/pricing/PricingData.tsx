@@ -119,23 +119,23 @@ export const usePricingData = () => {
     }
   ];
   
-  // Define comparison features for the detailed table
+  // Define comparison features for the detailed table with all 5 tiers
   const comparisonFeatures: Feature[] = [
-    { name: 'price', starter: '0€', professional: '29€', enterprise: '199€' },
-    { name: 'users', starter: '1', professional: '1', enterprise: '3' },
-    { name: 'conversations', starter: '20/week', professional: '50/week', enterprise: '100/week' },
-    { name: 'posts', starter: '5/week', professional: '10/week', enterprise: t('pricing.features.unlimited') },
-    { name: 'integrations', starter: '2', professional: '3', enterprise: t('pricing.features.unlimited') },
-    { name: 'agents', starter: '1', professional: '1', enterprise: '1' },
-    { name: 'webApp', starter: true, professional: true, enterprise: true },
-    { name: 'slack', starter: true, professional: true, enterprise: true },
-    { name: 'teams', starter: false, professional: false, enterprise: true },
-    { name: 'customization', starter: false, professional: true, enterprise: true },
-    { name: 'communicationSuggestions', starter: '3x/week', professional: '1x/day', enterprise: t('pricing.features.custom') },
-    { name: 'onboarding', starter: '199€', professional: '199€', enterprise: '199€ (free annual)' },
-    { name: 'support', starter: false, professional: false, enterprise: 'Chat 8-20' },
-    { name: 'phoneSupport', starter: false, professional: false, enterprise: false },
-    { name: 'apiAccess', starter: false, professional: false, enterprise: false },
+    { name: 'price', free: '0€', starter: '29€', growth: '199€', professional: '599€', enterprise: t('pricing.features.custom') },
+    { name: 'users', free: '1', starter: '1', growth: '3', professional: '10', enterprise: t('pricing.features.custom') },
+    { name: 'conversations', free: '20/week', starter: '50/week', growth: '100/week', professional: t('pricing.features.unlimited'), enterprise: t('pricing.features.unlimited') },
+    { name: 'posts', free: '5/week', starter: '10/week', growth: t('pricing.features.unlimited'), professional: t('pricing.features.unlimited'), enterprise: t('pricing.features.unlimited') },
+    { name: 'integrations', free: '2', starter: '3', growth: t('pricing.features.unlimited'), professional: t('pricing.features.unlimited'), enterprise: t('pricing.features.unlimited') },
+    { name: 'agents', free: '1', starter: '1', growth: '1', professional: '3', enterprise: t('pricing.features.custom') },
+    { name: 'webApp', free: true, starter: true, growth: true, professional: true, enterprise: true },
+    { name: 'slack', free: false, starter: false, growth: false, professional: true, enterprise: true },
+    { name: 'teams', free: false, starter: false, growth: true, professional: true, enterprise: true },
+    { name: 'customization', free: false, starter: true, growth: true, professional: true, enterprise: true },
+    { name: 'communicationSuggestions', free: '3x/week', starter: '1x/day', growth: t('pricing.features.custom'), professional: t('pricing.features.custom'), enterprise: t('pricing.features.custom') },
+    { name: 'onboarding', free: '199€', starter: '199€', growth: '199€ (free annual)', professional: t('pricing.features.included'), enterprise: t('pricing.features.custom') },
+    { name: 'support', free: false, starter: false, growth: 'Chat 8-20', professional: 'Chat 8-20', enterprise: t('pricing.features.custom') },
+    { name: 'phoneSupport', free: false, starter: false, growth: false, professional: '9-15', enterprise: true },
+    { name: 'apiAccess', free: false, starter: false, growth: false, professional: false, enterprise: true },
   ];
   
   return {

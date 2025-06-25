@@ -56,19 +56,20 @@ const PricingPage = () => {
           setBillingPeriod={setBillingPeriod} 
         />
         
-        {/* Main pricing cards - improved responsiveness */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+        {/* Main pricing cards - improved layout for 5 cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 max-w-8xl mx-auto">
           {pricingTiers.map((tier) => (
-            <PricingCard
-              key={tier.name}
-              {...tier}
-              billingPeriod={billingPeriod}
-              yearlyDiscountRate={yearlyDiscountRate}
-            />
+            <div key={tier.name} className={`${tier.accent ? 'xl:col-span-1 lg:col-span-1 sm:col-span-2' : ''}`}>
+              <PricingCard
+                {...tier}
+                billingPeriod={billingPeriod}
+                yearlyDiscountRate={yearlyDiscountRate}
+              />
+            </div>
           ))}
         </div>
         
-        {/* Toggle for detailed comparison - better mobile padding */}
+        {/* Toggle for detailed comparison */}
         <div className="mt-8 md:mt-12 text-center px-2 sm:px-0">
           <Button 
             variant="outline" 
