@@ -5,6 +5,7 @@ import Index from '@/pages/Index';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
 import Features from '@/pages/Features';
+import Security from '@/pages/Security';
 import Pricing from '@/pages/Pricing';
 import CaseStudies from '@/pages/CaseStudies';
 import NotFound from '@/pages/NotFound';
@@ -41,6 +42,7 @@ function AppRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/features" element={<Features />} />
+      <Route path="/security" element={<Security />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/case-studies" element={<CaseStudies />} />
       <Route path="/blog" element={<BlogList />} />
@@ -55,6 +57,7 @@ function AppRoutes() {
       <Route path="/fi/about" element={<About />} />
       <Route path="/fi/contact" element={<Contact />} />
       <Route path="/fi/features" element={<Features />} />
+      <Route path="/fi/security" element={<Security />} />
       <Route path="/fi/pricing" element={<Pricing />} />
       <Route path="/fi/case-studies" element={<CaseStudies />} />
       <Route path="/fi/blog" element={<BlogList />} />

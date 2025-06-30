@@ -13,6 +13,9 @@ import FeatureComparison from '@/components/features/FeatureComparison';
 import FeatureFAQ from '@/components/features/FeatureFAQ';
 import CTASection from '@/components/CTASection';
 import { Helmet } from 'react-helmet';
+import { Button } from '@/components/ui/button';
+import { Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 /**
  * Features page component
@@ -45,6 +48,38 @@ const Features = () => {
       <main className="flex-grow pt-16">
         {/* Hero Section */}
         <FeatureHero />
+        
+        {/* Security Highlight Section */}
+        <section className="py-12 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Shield className="h-8 w-8 text-primary" />
+                  </div>
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  {language === 'fi' 
+                    ? 'Yritystason tietoturva ja yksityisyydensuoja'
+                    : 'Enterprise-grade Security and Privacy Protection'
+                  }
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  {language === 'fi'
+                    ? 'Lyyli tarjoaa GDPR-yhteensopivan, turvallisen alustan EU-palvelimilla. Tietosi pysyvät turvassa ja eristettyinä.'
+                    : 'Lyyli provides a GDPR-compliant, secure platform with EU servers. Your data stays safe and isolated.'
+                  }
+                </p>
+                <Button size="lg" asChild>
+                  <Link to={language === 'fi' ? '/fi/security' : '/security'}>
+                    {language === 'fi' ? 'Lue lisää tietoturvasta' : 'Learn More About Security'}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Trust Indicators */}
         <ComplianceBadges 
