@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MessageCircle } from 'lucide-react';
@@ -40,7 +39,7 @@ const SecurityContact = () => {
                 }
               </p>
               <Button variant="outline" className="w-full">
-                security@lyyli.ai
+                hello@lyyli.ai
               </Button>
             </div>
             
