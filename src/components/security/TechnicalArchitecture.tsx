@@ -92,12 +92,12 @@ const TechnicalArchitecture = () => {
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">
                   {language === 'fi' ? 'Infrastruktuurin standardit' : 'Infrastructure Standards'}
                 </h4>
-                <ul className="text-left text-gray-600 space-y-2">
-                  <li>• ISO 27001</li>
-                  <li>• SOC 2 Type II</li>
-                  <li>• GDPR Compliance</li>
-                  <li>• 99.9% {language === 'fi' ? 'käytettävyys' : 'uptime'}</li>
-                </ul>
+                <p className="text-gray-600">
+                  {language === 'fi'
+                    ? 'Noudatamme alalla yleisiä standardeja. Lähestymme tietoturvaa ISO27001-viitekehyksen mukaisesti ja tulemme sertifioimaan palvelun.'
+                    : 'We follow industry-standard practices. We approach security according to the ISO27001 framework and will certify the service.'
+                  }
+                </p>
               </div>
             </div>
           </div>
