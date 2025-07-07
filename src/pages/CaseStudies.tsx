@@ -8,10 +8,17 @@ import { ArrowRight, Download } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import { Button } from '@/components/ui/button';
 import { useSafeTranslation } from '@/utils/safeTranslation';
+import { Helmet } from 'react-helmet';
 
 const CaseStudies = () => {
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
+  
+  // SEO metadata
+  const pageTitle = language === 'fi' ? 'Yritysten menestystarinat - Lyyli.ai' : 'Enterprise Success Stories - Lyyli.ai';
+  const pageDescription = language === 'fi'
+    ? 'Tutustu yritysten menestystarinoihin ja näe, kuinka Lyyli.ai on auttanut Fortune 500 -yrityksiä säästämään 45% kustannuksista ja nopeuttamaan sisällöntuotantoa 72%.'
+    : 'Explore enterprise success stories and see how Lyyli.ai has helped Fortune 500 companies save 45% costs and increase content production speed by 72%.';
   
   const industries = [
     safeT('caseStudies.industries.finance', { fallback: language === 'fi' ? "Rahoitus" : "Finance" }),
@@ -162,6 +169,19 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}case-studies`} />
+      </Helmet>
+      
       <Navbar />
       <main className="flex-grow">
         {/* Hero */}

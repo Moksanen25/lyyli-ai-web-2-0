@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import HowItWorks from '@/components/HowItWorks';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Helmet } from 'react-helmet';
 
 // Error boundary class implementation
 class ErrorBoundary extends React.Component<
@@ -104,10 +105,31 @@ const SafeSection = ({
  * Main landing page component
  */
 const Index = () => {
+  const { language } = useLanguage();
   console.log('Index page rendering');
+  
+  // SEO metadata
+  const pageTitle = language === 'fi' ? 'Lyyli.ai - Tekoälyavusteinen viestintäalusta yrityksille' : 'Lyyli.ai - AI-Powered Communication Platform for Businesses';
+  const pageDescription = language === 'fi'
+    ? 'Lyyli.ai on tekoälyavusteinen viestintäalusta, joka mullistaa yritysten sisällönluonnin. GDPR-yhteensopiva, EU-palvelimet ja yritystason tietoturva.'
+    : 'Lyyli.ai is an AI-powered communication platform that revolutionizes business content creation. GDPR compliant, EU servers, and enterprise-grade security.';
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://lyyli.ai${language === 'fi' ? '/fi' : ''}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="canonical" href={`https://lyyli.ai${language === 'fi' ? '/fi' : ''}`} />
+      </Helmet>
+      
       <Navbar />
       <main className="flex-grow">
         {/* Primary messaging */}
