@@ -14,9 +14,9 @@ export const features = {
   
   // Page hero section
   hero: {
-    title: "Enterprise-Grade Features",
+    title: "Features Expert Organizations Need",
     subtitle: "Features",
-    description: "Discover the powerful features that make Lyyli.ai the leading AI communication platform for businesses of all sizes.",
+    description: "Discover powerful features that help communication managers, HR directors, and marketing leaders coordinate internal communication in 30-1000 person expert organizations.",
     primaryCta: "Book a Demo",
     secondaryCta: "See Pricing"
   },
@@ -34,20 +34,20 @@ export const features = {
   
   // Feature items
   feature1: {
-    title: "AI Content Generation",
-    description: "Create professional content in seconds with our advanced AI models"
+    title: "Professional Messages Instantly",
+    description: "Create consistent, high-quality messages for Slack, Teams, and other channels – the communication manager's toolkit"
   },
   feature2: {
-    title: "Team Collaboration",
-    description: "Work seamlessly across your entire organization"
+    title: "Centralized Communication Control",
+    description: "Give HR and marketing leaders the tools to coordinate organization-wide communication from one place"
   },
   feature3: {
-    title: "Scheduling & Automation",
-    description: "Set it and forget it with smart scheduling and workflows"
+    title: "Automated Communication Process",
+    description: "Reduce repetitive work and ensure critical messages go out on time – time savings for executives"
   },
   feature4: {
-    title: "Advanced Analytics",
-    description: "Measure the impact of your communication efforts"
+    title: "Impact Metrics for Leadership",
+    description: "Concrete metrics on communication effectiveness to support decision-making"
   },
   
   // Additional features section
@@ -84,14 +84,14 @@ export const features = {
   // Quotes section
   quotes: {
     title: "What Our Customers Say",
-    quote1: "Lyyli has transformed how we communicate both internally and with our customers. The AI assistance is like having an extra team member.",
-    author1: "Sarah Johnson",
-    role1: "Marketing Director",
-    feature1: "Team Collaboration",
-    quote2: "We've seen a 40% increase in engagement since using Lyyli for our content creation. The quality and consistency is remarkable.",
-    author2: "Michael Chen",
-    role2: "Content Manager",
-    feature2: "AI Content Generation"
+    quote1: "Lyyli solved our 200-person organization's internal communication challenge. Messages are consistent and professional across all channels.",
+    author1: "Anna Virtanen",
+    role1: "Communication Manager",
+    feature1: "Centralized Communication Control",
+    quote2: "We save 15 hours per week with automated communication processes. ROI was visible within the first month.",
+    author2: "Pekka Laaksonen",
+    role2: "CEO",
+    feature2: "Automated Communication Process"
   },
   
   // Comparison section

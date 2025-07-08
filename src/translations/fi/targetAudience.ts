@@ -1,37 +1,37 @@
 
 export const targetAudience = {
-  title: "Kuka hyötyy Lyylista?",
+  title: "Asiantuntijaorganisaatioille, joissa viestintä on kriittistä",
   bookDemo: "Varaa demo",
   audiences: {
     techSMEs: {
-      title: "Teknologiset pk-yritykset",
-      subtitle: "Yhtenäinen viestintä, tehokas yhteistyö",
-      description: "Lyyli yhdistää tiimisi äänen – Slackissa, Teamsissä ja somessa. Johdonmukainen viestintä syntyy automaattisesti, kun arki on hajautettua ja kiireistä."
+      title: "Teknologia- ja konsultointiyritykset",
+      subtitle: "Sisäisen viestinnän koordinointi kasvavissa asiantuntijaorganisaatioissa",
+      description: "30-500 hengen asiantuntijaorganisaatioissa viestintäpäälliköt tarvitsevat työkaluja, jotka varmistavat johdonmukaisen ja ammattimaisen viestinnän kaikissa sisäisissä kanavissa."
     },
     consultants: {
-      title: "Konsultit ja asiantuntijat",
-      subtitle: "Asiantuntemus esiin – ilman kirjoittamisen tuskaa",
-      description: "Lyyli vapauttaa konsultit ja asiantuntijat keskittymään työhönsä. Uutiskirjeet, päivitykset ja somesisällöt hoituvat älykkäästi taustalla."
+      title: "HR- ja markkinointijohtajat",
+      subtitle: "Strateginen viestinnän hallinta ja prosessien automatisointi",
+      description: "Keskisuurten yritysten HR- ja markkinointijohtajat voivat keskittyä strategiseen työhön, kun rutiiniviestintä automatisoituu Lyylin avulla."
     },
     nonprofits: {
-      title: "Järjestöt ja yhdistykset",
-      subtitle: "Viestintää vaikuttavasti – vaikka resurssit olisivat rajalliset",
-      description: "Lyyli auttaa järjestöjä pitämään jäsenet, sidosryhmät ja rahoittajat ajan tasalla – automaattisesti, monikielisesti ja ajallaan."
+      title: "Toimitusjohtajat ja johtokunnat",
+      subtitle: "Aikasäästöä ja tehokkuutta johtamistyöhön",
+      description: "C-tason johtajat saavat takaisin aikaa strategiseen johtamiseen, kun Lyyli hoitaa kriittisten viestien koordinoinnin organisaatiossa."
     },
     education: {
-      title: "Koulutus ja tutkimus",
-      subtitle: "Viestintä akatemian ja yhteiskunnan välillä",
-      description: "Lyyli muuntaa tutkimustiedon ymmärrettäväksi ja kiinnostavaksi viestinnäksi – ulkoisesti ja sisäisesti."
+      title: "Viestintäpäälliköt",
+      subtitle: "Ammattimainen sisäinen viestintä yhdestä alustasta",
+      description: "Viestintävastaavat voivat varmistaa, että kaikki sisäiset viestit ovat laadukkaita, oikea-aikaisia ja saavuttavat kohderyhmänsä tehokkaasti."
     },
     creative: {
-      title: "Luovat toimistot ja arkkitehdit",
-      subtitle: "Luovuudelle tilaa, rutiinit automaatioon",
-      description: "Brändi-identiteetti pysyy ehjänä, kun Lyyli tukee sisällön suunnittelua, ajastusta ja jakelua tiimin puolesta."
+      title: "Kasvavat asiantuntijayritykset",
+      subtitle: "Skaalautuva viestintäratkaisu 30-1000 hengen organisaatioille",
+      description: "Kun yritys kasvaa, viestinnän haasteet monimutkaistuvat. Lyyli skaalautuu mukana ja varmistaa tehokkaan sisäisen viestinnän kaikissa kasvuvaiheissa."
     },
     sports: {
-      title: "Urheiluseurat ja taustayhteisöt",
-      subtitle: "Yhteisösi ansaitsee näkyvyyttä – ilman viestintäkuormaa",
-      description: "Lyyli auttaa pitämään kannattajat ja sponsorit mukana automaattisen, jatkuvan viestinnän avulla."
+      title: "Kansainväliset asiantuntijaorganisaatiot",
+      subtitle: "Monikielinen viestintä ja globaali koordinaatio",
+      description: "Yli miljoonan euron liikevaihdolla toimivat kansainväliset asiantuntijayritykset tarvitsevat monikanavaisen, monikielisen viestintäratkaisun."
     }
   }
 };

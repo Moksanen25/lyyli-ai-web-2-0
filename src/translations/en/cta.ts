@@ -1,6 +1,6 @@
 
 export const cta = {
-  title: 'Ready to transform your communication workflow?',
-  subtitle: 'Join thousands of satisfied customers today.',
-  button: 'Start Free Trial',
+  title: 'Ready to elevate your expert organization\'s communication?',
+  subtitle: 'Join growing SME leaders who have automated their most critical communication processes.',
+  button: 'Book a Demo',
 };

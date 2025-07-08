@@ -1,6 +1,6 @@
 
 export const cta = {
-  title: 'Oletko valmis muuttamaan viestintätyönkulkusi?',
-  subtitle: 'Liity tuhansien tyytyväisten asiakkaiden joukkoon jo tänään.',
-  button: 'Aloita Ilmainen Kokeilu',
+  title: 'Valmis tehostamaan asiantuntijaorganisaatiosi viestintää?',
+  subtitle: 'Liity kasvavien pk-yritysten johtajien joukkoon, jotka ovat automatisoineet tärkeimmät viestintäprosessinsa.',
+  button: 'Varaa Demo',
 };

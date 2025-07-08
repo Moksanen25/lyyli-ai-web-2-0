@@ -1,37 +1,37 @@
 
 export const targetAudience = {
-  title: "Who benefits from Lyyli?",
+  title: "For Expert Organizations Where Communication is Critical",
   bookDemo: "Book a demo",
   audiences: {
     techSMEs: {
-      title: "Tech-driven SMEs",
-      subtitle: "Unified communication, streamlined collaboration",
-      description: "Lyyli connects your team's voice across Slack, Teams, and social media. In fast-paced, distributed teams, communication stays consistent and automated."
+      title: "Technology & Consulting Companies",
+      subtitle: "Internal communication coordination in growing expert organizations",
+      description: "In 30-500 person expert organizations, communication managers need tools that ensure consistent and professional communication across all internal channels."
     },
     consultants: {
-      title: "Consultants and experts",
-      subtitle: "Highlight your expertise without the writing hassle",
-      description: "Lyyli allows consulting and expert firms to focus on their core work while newsletters, updates, and social content are generated smartly in the background."
+      title: "HR & Marketing Directors",
+      subtitle: "Strategic communication management and process automation",
+      description: "HR and marketing leaders in medium-sized companies can focus on strategic work when routine communication is automated through Lyyli."
     },
     nonprofits: {
-      title: "Nonprofits and associations",
-      subtitle: "Impactful communication, even with limited resources",
-      description: "Lyyli helps organizations keep members, stakeholders, and funders informed—automatically, multilingual, and on schedule."
+      title: "CEOs & Executive Teams",
+      subtitle: "Time savings and efficiency for leadership work",
+      description: "C-level executives regain time for strategic leadership when Lyyli handles the coordination of critical messages within the organization."
     },
     education: {
-      title: "Education and research",
-      subtitle: "Bridging communication between academia and the world",
-      description: "Lyyli transforms complex knowledge into accessible, engaging content for both internal and public communication."
+      title: "Communication Managers",
+      subtitle: "Professional internal communication from one platform",
+      description: "Communication specialists can ensure all internal messages are high-quality, timely, and effectively reach their target audience."
     },
     creative: {
-      title: "Creative firms and architects",
-      subtitle: "More time for creativity, less time on routine",
-      description: "Your brand voice stays aligned while Lyyli supports content planning, scheduling, and publishing for the entire team."
+      title: "Growing Expert Companies",
+      subtitle: "Scalable communication solution for 30-1000 person organizations",
+      description: "As companies grow, communication challenges become more complex. Lyyli scales with you and ensures effective internal communication at all growth stages."
     },
     sports: {
-      title: "Sports clubs and organizations",
-      subtitle: "Your community deserves visibility—without the comms burden",
-      description: "Lyyli helps keep fans and sponsors in the loop with continuous, automated communication."
+      title: "International Expert Organizations",
+      subtitle: "Multilingual communication and global coordination",
+      description: "International expert companies with €1M+ revenue need multichannel, multilingual communication solutions."
     }
   }
 };

@@ -14,9 +14,9 @@ export const features = {
   
   // Page hero section
   hero: {
-    title: "Yritystason ominaisuudet",
+    title: "Asiantuntijaorganisaatioiden tarvitsemat ominaisuudet",
     subtitle: "Ominaisuudet",
-    description: "Tutustu tehokkaisiin ominaisuuksiin, jotka tekevät Lyyli.ai:sta johtavan tekoälyviestintäalustan kaiken kokoisille yrityksille.",
+    description: "Tutustu tehokkaisiin ominaisuuksiin, jotka auttavat viestintäpäälliköitä, HR-johtajia ja markkinointijohtajia koordinoimaan sisäistä viestintää 30-1000 hengen asiantuntijaorganisaatioissa.",
     primaryCta: "Varaa demo",
     secondaryCta: "Katso hinnat"
   },
@@ -36,20 +36,20 @@ export const features = {
   
   // Feature items
   feature1: {
-    title: "Tekoälysisällön luonti",
-    description: "Luo ammattimaista sisältöä sekunneissa edistyneillä tekoälymalleilla"
+    title: "Ammattimaiset viestit hetkessä",
+    description: "Luo johdonmukaisia, laadukkaita viestejä Slackiin, Teamsiin ja muihin kanaviin – viestintäpäälliköiden työkalupakki"
   },
   feature2: {
-    title: "Tiimityöskentely",
-    description: "Työskentele saumattomasti koko organisaatiosi kanssa"
+    title: "Keskitetty viestinnän hallinta",
+    description: "Anna HR:lle ja markkinointijohdolle työkalut koordinoida koko organisaation viestintää yhdestä paikasta"
   },
   feature3: {
-    title: "Ajastus ja automaatio",
-    description: "Aseta ja unohda älykkäillä ajastuksilla ja työnkuluilla"
+    title: "Automatisoitu viestintäprosessi",
+    description: "Vähennä toistuvaa työtä ja varmista, että kriittiset viestit lähtevät ajoissa – toimitusjohtajien aikasäästö"
   },
   feature4: {
-    title: "Edistynyt analytiikka",
-    description: "Mittaa viestintätoimiesi vaikutusta"
+    title: "Vaikutusmittarit johdolle",
+    description: "Konkreettisia mittareita viestinnän tehosta päätöksenteon tueksi"
   },
   
   // Additional features section
@@ -86,14 +86,14 @@ export const features = {
   // Quotes section
   quotes: {
     title: "Mitä asiakkaamme sanovat",
-    quote1: "Lyyli on muuttanut tapaamme viestiä sekä sisäisesti että asiakkaidemme kanssa. Tekoälyapu on kuin ylimääräinen tiimin jäsen.",
-    author1: "Saara Jokinen",
-    role1: "Markkinointijohtaja",
-    feature1: "Tiimityöskentely",
-    quote2: "Olemme nähneet 40% kasvun sitoutumisessa käyttäessämme Lyyliä sisällönluonnissa. Laatu ja johdonmukaisuus ovat merkittäviä.",
-    author2: "Mikko Korhonen",
-    role2: "Sisältöpäällikkö",
-    feature2: "Tekoälysisällön luonti"
+    quote1: "Lyyli on ratkaissut 200 hengen organisaatiomme sisäisen viestinnän haasteen. Viestit ovat johdonmukaisia ja ammattmaisia kaikissa kanavissa.",
+    author1: "Anna Virtanen",
+    role1: "Viestintäpäällikkö",
+    feature1: "Keskitetty viestinnän hallinta",
+    quote2: "Säästämme 15 tuntia viikossa automatisoiduilla viestintäprosesseilla. ROI oli näkyvissä jo ensimmäisen kuukauden aikana.",
+    author2: "Pekka Laaksonen",
+    role2: "Toimitusjohtaja",
+    feature2: "Automatisoitu viestintäprosessi"
   },
   
   // Comparison section
