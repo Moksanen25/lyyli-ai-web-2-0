@@ -53,6 +53,52 @@ const ComplianceBadges: React.FC<ComplianceBadgesProps> = ({
   }];
   const badgesToRender = badges || defaultBadges;
   const titleToRender = title || defaultTitle;
-  return;
+
+  return (
+    <Card className={`w-full ${className}`}>
+      <CardContent className="p-6">
+        {titleToRender && (
+          <h3 className="text-xl font-semibold mb-4 text-foreground hyphens-none">
+            {titleToRender}
+          </h3>
+        )}
+        {description && (
+          <p className="text-muted-foreground mb-6 hyphens-none">
+            {description}
+          </p>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {badgesToRender.map((badge, index) => (
+            <TooltipProvider key={index}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
+                    {badge.icon && (
+                      <div className="flex-shrink-0 text-primary">
+                        {badge.icon}
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <Badge 
+                        variant={badge.color === 'green' ? 'default' : 'secondary'}
+                        className="text-xs font-medium hyphens-none"
+                      >
+                        {badge.name}
+                      </Badge>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                {badge.description && (
+                  <TooltipContent side="bottom" className="max-w-xs">
+                    <p className="text-sm hyphens-none">{badge.description}</p>
+                  </TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
 };
 export default ComplianceBadges;

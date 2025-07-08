@@ -64,8 +64,8 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-playfair;
-    word-break: break-word;
-    hyphens: auto;
+    word-break: keep-all;
+    hyphens: none;
   }
 
   /* Improved touch targets for mobile */
