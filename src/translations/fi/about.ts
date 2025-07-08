@@ -8,7 +8,7 @@ export const about = {
     title: 'Matkamme',
     founded: {
       title: 'Yritys Perustettu',
-      description: 'Content AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.'
+      description: 'Lyyli AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.'
     },
     investor: {
       title: 'Ensimmäinen Sijoittaja',

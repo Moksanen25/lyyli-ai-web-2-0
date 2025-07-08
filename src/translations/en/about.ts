@@ -8,7 +8,7 @@ export const about = {
     title: 'Our Journey',
     founded: {
       title: 'Company Founded',
-      description: 'Content AI Oy (brand name "Lyyli.ai") was founded by Mikko and Veikko.'
+      description: 'Lyyli AI Oy (brand name "Lyyli.ai") was founded by Mikko and Veikko.'
     },
     investor: {
       title: 'First Investor',
