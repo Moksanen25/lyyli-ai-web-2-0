@@ -11,8 +11,8 @@ export const about = {
       description: 'Lyyli AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.'
     },
     investor: {
-      title: 'Ensimmäinen sijoittaja',
-      description: 'Ensimmäinen sijoittaja, suomalainen perheyritys Expion Oy liittyi mukaan tarinaan.'
+      title: 'Ensimmäiset sijoittajat',
+      description: 'Ensimmäiset sijoittajat, suomalainen perheyritys Expion Oy ja North Savo Growth Fund Ky liittyivät mukaan tarinaan.'
     },
     launch: {
       title: 'Lanseeraus',
