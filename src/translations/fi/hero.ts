@@ -1,11 +1,11 @@
 
 export const hero = {
-  title: 'Kun viestintä on tärkeää, mutta aika ei riitä',
-  subtitle: 'Lyyli viestii puolestasi.',
+  title: 'Tärkeä viestintä jää tekemättä, koska siihen ei ole kunnon työkaluja',
+  subtitle: 'AI-viestintäassistentti asiantuntijaorganisaatioille – viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jää ikinä viestimättä.',
   cta: 'Aloita',
   secondaryCta: 'Katso miten se toimii',
-  enterpriseReady: 'Yrityskäyttöön valmis',
-  trustedBy: 'Fortune 500 -yritysten luottama',
+  enterpriseReady: 'Asiantuntijaorganisaatioille',
+  trustedBy: 'Sisäisen viestinnän koordinointi',
   badges: {
     security: 'Yritystason tietoturva',
     uptime: '99.9% käytettävyystakuu',

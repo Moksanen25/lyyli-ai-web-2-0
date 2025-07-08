@@ -1,11 +1,11 @@
 
 export const hero = {
-  title: 'When communication matters but time runs out',
-  subtitle: 'Lyyli takes care of it for you.',
+  title: 'Important communication goes undone because there are no proper tools',
+  subtitle: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
   cta: 'Get started',
   secondaryCta: 'See how it works',
-  enterpriseReady: 'Enterprise Ready',
-  trustedBy: 'Trusted by Fortune 500',
+  enterpriseReady: 'For Expert Organizations',
+  trustedBy: 'Internal Communication Coordination',
   badges: {
     security: 'Enterprise-grade security',
     uptime: '99.9% uptime SLA',
