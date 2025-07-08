@@ -1,7 +1,7 @@
 
 export const features = {
   // Main features section titles
-  title: "Ydinominaisuudet",
+  title: "Tärkeimmät ominaisuudet",
   subtitle: "Rakennettu tehostamaan asiantuntijaorganisaatioiden viestintäprosesseja",
   
   // Common feature labels
