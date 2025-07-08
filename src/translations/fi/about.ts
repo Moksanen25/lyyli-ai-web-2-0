@@ -7,7 +7,7 @@ export const about = {
   timeline: {
     title: 'Matkamme',
     founded: {
-      title: 'Yritys Perustettu',
+      title: 'Yritys perustettu',
       description: 'Lyyli AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.'
     },
     investor: {

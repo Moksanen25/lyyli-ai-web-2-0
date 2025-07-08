@@ -1,6 +1,6 @@
 
 export const caseStudies = {
-  title: 'Enterprise Case Studies',
+  title: 'Enterprise case studies',
   subtitle: 'See how leading organizations transformed their operations with our enterprise solutions.',
   globalFinancial: {
     company: "Global Financial Corp",
