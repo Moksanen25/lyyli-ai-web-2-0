@@ -48,7 +48,7 @@ const CompanyTimeline = () => {
       description: t('about.timeline.founded.description')
     },
     {
-      date: "06/2025",
+      date: "07/2025",
       title: t('about.timeline.investor.title'),
       description: t('about.timeline.investor.description'),
       link: {
