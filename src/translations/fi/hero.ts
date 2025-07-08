@@ -1,7 +1,7 @@
 
 export const hero = {
-  title: 'Tärkeä viestintä jää tekemättä, koska siihen ei ole kunnon työkaluja',
-  subtitle: 'AI-viestintäassistentti asiantuntijaorganisaatioille – viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jää ikinä viestimättä.',
+  title: 'AI-viestintäassistentti, jonka avulla viestit kuin ammattilainen',
+  subtitle: 'Asiantuntijaorganisaatioille tehty AI-viestintäassistentti, jonka avulla viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jaa ikinä viestimättä.',
   cta: 'Aloita',
   secondaryCta: 'Katso miten se toimii',
   enterpriseReady: 'Asiantuntijaorganisaatioille',
