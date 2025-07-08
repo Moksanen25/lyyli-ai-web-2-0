@@ -1,5 +1,9 @@
 
 export const features = {
+  // Main features section titles
+  title: "Ydinominaisuudet",
+  subtitle: "Rakennettu tehostamaan asiantuntijaorganisaatioiden viestintäprosesseja",
+  
   // Common feature labels
   enterpriseReady: "Yrityskäyttöön valmis",
   securityDesc: "Rakennettu yritystason tietoturvalla ja vaatimustenmukaisuudella",
