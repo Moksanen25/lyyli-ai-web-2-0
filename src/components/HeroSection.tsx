@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-background relative">
       <div className="container-padding container mx-auto text-center relative z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-[#295045]">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-[#295045] hyphens-none">
           {heroT('title')}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
