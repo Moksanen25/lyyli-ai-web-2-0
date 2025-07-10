@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import HowItWorks from '@/components/HowItWorks';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Helmet } from 'react-helmet';
+import { SEOHead } from '@/components/SEOHead';
 
 // Error boundary class implementation
 class ErrorBoundary extends React.Component<
@@ -116,19 +116,26 @@ const Index = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://lyyli.ai${language === 'fi' ? '/fi' : ''}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={`https://lyyli.ai${language === 'fi' ? '/fi' : ''}`} />
-      </Helmet>
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        structuredDataType="SoftwareApplication"
+        keywords={language === 'fi' ? [
+          'tekoäly viestintä',
+          'sisällönhallinta',
+          'GDPR yhteensopiva',
+          'EU palvelimet',
+          'yritysviestintä',
+          'automaattinen sisällönluonti'
+        ] : [
+          'AI communication',
+          'content management',
+          'GDPR compliant',
+          'EU servers',
+          'business communication',
+          'automated content creation'
+        ]}
+      />
       
       <Navbar />
       <main className="flex-grow">

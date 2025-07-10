@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://lyyli.ai/</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/about</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/about"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/about</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/about"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/about"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/features</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/features"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/features"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/features</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/features"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/features"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/pricing</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/pricing"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/pricing</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/pricing"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/pricing"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/security</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/security"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/security"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/security</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/security"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/security"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/case-studies</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/case-studies"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/case-studies</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/case-studies"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/contact</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/contact"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/contact</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/contact"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/contact"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/blog</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/blog"/>
+  </url>
+  <url>
+    <loc>https://lyyli.ai/fi/blog</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lyyli.ai/blog"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://lyyli.ai/fi/blog"/>
+  </url>
+</urlset>
