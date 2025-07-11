@@ -36,7 +36,7 @@ const UseCase = () => {
         {/* Desktop Tabs */}
         <div className="hidden lg:block">
           <Tabs value={activeSegment} onValueChange={setActiveSegment} className="w-full">
-            <TabsList className="grid grid-cols-6 mb-8 h-auto">
+            <TabsList className="grid grid-cols-5 mb-8 h-auto">
               {segments.map((segment) => {
                 const IconComponent = segment.icon;
                 return (

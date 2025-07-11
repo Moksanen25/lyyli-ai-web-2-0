@@ -3,7 +3,6 @@ import {
   Building2, 
   Lightbulb, 
   Heart, 
-  GraduationCap, 
   Palette, 
   Trophy
 } from 'lucide-react';
@@ -99,36 +98,6 @@ export const segments: Segment[] = [
     ],
     color: 'bg-green-500',
     lightColor: 'bg-green-50'
-  },
-  {
-    id: 'education',
-    icon: GraduationCap,
-    nameEn: 'Educational Institutions',
-    nameFi: 'Koulutusinstituutiot',
-    descEn: 'Schools and universities connecting diverse communities',
-    descFi: 'Koulut ja yliopistot yhdistävät moninaisia yhteisöjä',
-    challengesEn: [
-      'Communicating with students, parents, and faculty efficiently',
-      'Keeping all stakeholders informed about important updates',
-      'Managing multilingual communication needs'
-    ],
-    challengesFi: [
-      'Tehokas viestintä opiskelijoiden, vanhempien ja henkilökunnan kanssa',
-      'Kaikkien sidosryhmien pitäminen ajan tasalla tärkeistä päivityksistä',
-      'Monikielisten viestintätarpeiden hallinta'
-    ],
-    solutionsEn: [
-      'Automated student and parent notifications',
-      'Faculty collaboration platforms',
-      'Multilingual content distribution'
-    ],
-    solutionsFi: [
-      'Automatisoidut opiskelija- ja vanhempailmoitukset',
-      'Henkilökunnan yhteistyöalustat',
-      'Monikielinen sisällönjakelu'
-    ],
-    color: 'bg-orange-500',
-    lightColor: 'bg-orange-50'
   },
   {
     id: 'creative',
