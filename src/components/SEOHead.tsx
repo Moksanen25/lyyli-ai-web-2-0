@@ -20,7 +20,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
   url = '',
-  image = 'https://lovable.dev/opengraph-image-p98pqg.png',
+  image = 'https://lyyli.ai/images/lyyli-social-share.jpg',
   type = 'website',
   structuredDataType = 'WebSite',
   keywords = [],
