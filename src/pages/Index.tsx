@@ -11,6 +11,8 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import HowItWorks from '@/components/HowItWorks';
+import SEOContent from '@/components/SEOContent';
+
 import { useLanguage } from '@/hooks/useLanguage';
 import { SEOHead } from '@/components/SEOHead';
 
@@ -144,6 +146,11 @@ const Index = () => {
           <HeroSection />
         </SafeSection>
         
+        {/* SEO Content Section */}
+        <SafeSection name="SEO Content">
+          <SEOContent />
+        </SafeSection>
+
         {/* How It Works Section */}
         <SafeSection name="How It Works">
           <HowItWorks />

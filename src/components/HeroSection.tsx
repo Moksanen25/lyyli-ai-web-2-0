@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
           {heroT('subtitle')}
         </p>
-        <div className="flex justify-center mb-12 animate-fade-in">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
           <Button 
             size="lg" 
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
@@ -40,6 +40,16 @@ const HeroSection: React.FC = () => {
           >
             <Link to={waitlistPath}>
               {heroT('cta')}
+            </Link>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8 py-6 text-lg"
+            asChild
+          >
+            <Link to={language === 'fi' ? '/fi/features' : '/features'}>
+              {language === 'fi' ? 'Tutustu ominaisuuksiin' : 'Explore features'}
             </Link>
           </Button>
         </div>

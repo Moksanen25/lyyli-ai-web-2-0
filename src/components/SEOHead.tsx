@@ -31,7 +31,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const { language } = useLanguage();
   const baseUrl = 'https://lyyli.ai';
   const fullUrl = `${baseUrl}${language === 'fi' ? '/fi' : ''}${url}`;
-  const canonicalUrl = `${baseUrl}${url}`;
+  const canonicalUrl = `${baseUrl}${language === 'fi' ? '/fi' : ''}${url}`;
   const alternateUrl = `${baseUrl}${language === 'fi' ? '' : '/fi'}${url}`;
 
   // Generate structured data
