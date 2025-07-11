@@ -1,6 +1,6 @@
 
 export const demo = {
-  title: 'See How Lyyli Works',
+  title: 'See how Lyyli works',
   subtitle: 'See how Lyyli can automate your communications and save you time',
   step1: {
     title: 'Write what you want to do',
@@ -15,12 +15,12 @@ export const demo = {
     description: 'Review and edit the content as needed, then it\'s ready to publish'
   },
   slackIntegration: {
-    title: 'Slack Integration',
+    title: 'Slack integration',
     description: 'Use Lyyli directly from Slack - no need to switch applications',
     commandPlaceholder: 'type /lyyli [your task]',
     teamsFallback: 'Also works with Microsoft Teams',
     aiAssistant: 'Lyyli AI',
-    messageTitle: 'Slack Integration',
+    messageTitle: 'Slack integration',
     messageIntro: 'Use Lyyli directly from Slack - no need to switch applications',
     messageFeatures: 'Key features:',
     feature1: 'Generate content instantly',

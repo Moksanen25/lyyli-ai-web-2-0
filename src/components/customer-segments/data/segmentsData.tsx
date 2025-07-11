@@ -10,7 +10,7 @@ import { buildSegmentData } from './segmentBuilder';
  */
 export const createSegmentsData = (t: (key: string) => string): SegmentData[] => {
   // Define segment IDs to process
-  const segmentIds = ['tech', 'consulting', 'nonprofit', 'education', 'creative', 'sports'];
+  const segmentIds = ['tech', 'consulting', 'nonprofit', 'creative', 'sports'];
   
   // Build segment data for each ID
   return segmentIds.map(id => buildSegmentData(id, t));

@@ -5,7 +5,6 @@ import {
   Building, 
   Briefcase, 
   Handshake, 
-  School, 
   Lightbulb, 
   Flag 
 } from 'lucide-react';
@@ -27,8 +26,6 @@ const SegmentNavigation: React.FC<{ segments: Segment[] }> = ({ segments }) => {
         return <Briefcase className="w-4 h-4 mr-2" />;
       case 'nonprofit':
         return <Handshake className="w-4 h-4 mr-2" />;
-      case 'education':
-        return <School className="w-4 h-4 mr-2" />;
       case 'creative':
         return <Lightbulb className="w-4 h-4 mr-2" />;
       case 'sports':

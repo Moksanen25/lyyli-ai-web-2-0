@@ -10,8 +10,6 @@ export const customerSegments = {
   consultingDesc: 'Strategic communication and process automation',
   nonprofitTitle: 'Marketing leaders',
   nonprofitDesc: 'Brand-consistent messaging across all channels',
-  educationTitle: 'C-level executives',
-  educationDesc: 'Time savings and strategic focus for leadership',
   creativeTitle: 'Growing expert companies',
   creativeDesc: 'Scalable communication for 30-1000 person organizations',
   sportsTitle: 'International organizations',
@@ -58,16 +56,6 @@ export const customerSegments = {
         'Donor engagement automation',
         'Grant proposal templates',
         'Volunteer coordination tools'
-      ]
-    },
-    education: {
-      title: 'Educational institutions',
-      description: 'Streamline communications for schools and universities',
-      buttonLabel: 'Education',
-      features: [
-        'Student outreach automation',
-        'Parent communication tools',
-        'Faculty collaboration platform'
       ]
     },
     creative: {

@@ -1,7 +1,7 @@
 
 export const pricing = {
-  tagline: 'Pricing Plans',
-  title: 'Simple, Transparent Pricing',
+  tagline: 'Pricing plans',
+  title: 'Simple, transparent pricing',
   subtitle: 'Choose the plan that works best for your business needs. All plans include our core AI functionality.',
   monthly: 'Monthly',
   yearly: 'Yearly',
@@ -13,27 +13,27 @@ export const pricing = {
   free: {
     name: 'Free',
     description: 'Perfect for trial users, solo entrepreneurs, and small associations.',
-    cta: 'Get Started Free',
+    cta: 'Get started free',
   },
   starter: {
     name: 'Starter',
     description: 'Ideal for small operators and individual professionals.',
-    cta: 'Start Free Trial',
+    cta: 'Start free trial',
   },
   growth: {
     name: 'Growth',
     description: 'Everything you need for growing teams and expanding businesses.',
-    cta: 'Start Growing',
+    cta: 'Start growing',
   },
   professional: {
     name: 'Professional',
     description: 'Complete solution for whole organization use.',
-    cta: 'Go Professional',
+    cta: 'Go professional',
   },
   enterprise: {
     name: 'Enterprise',
     description: 'Custom solutions for large enterprises with special requirements.',
-    cta: 'Contact Sales',
+    cta: 'Contact sales',
   },
   features: {
     feature: 'Feature',
@@ -109,23 +109,23 @@ export const pricing = {
     phoneSupport: 'Phone Support',
     apiAccess: 'API Access'
   },
-  showComparison: 'Show Full Feature Comparison',
-  hideComparison: 'Hide Full Feature Comparison',
-  faqTitle: 'Have Questions?',
+  showComparison: 'Show full feature comparison',
+  hideComparison: 'Hide full feature comparison',
+  faqTitle: 'Have questions?',
   faqText: 'Visit our FAQ page or contact us for more information about our plans.',
   faqButton: 'View FAQ',
-  contactButton: 'Contact Sales',
+  contactButton: 'Contact sales',
   pricingHeader: {
-    title: 'Simple, Transparent Pricing',
+    title: 'Simple, transparent pricing',
     subtitle: 'Choose the plan that works best for your business needs. All plans include our core AI functionality.'
   },
   comparisonCaption: 'Complete feature comparison across all plans',
   comparison: {
-    title: 'Feature Comparison',
+    title: 'Feature comparison',
     subtitle: 'Compare features across all plans to find the right fit for your business'
   },
   faq: {
-    title: 'Frequently Asked Questions',
+    title: 'Frequently asked questions',
     subtitle: 'Get answers to the most common questions about our pricing and plans',
     question1: 'What happens when my trial period ends?',
     answer1: 'When your trial ends, you can choose to upgrade to one of our paid plans to continue using the service. Your data will be preserved for 30 days if you don\'t upgrade immediately.',

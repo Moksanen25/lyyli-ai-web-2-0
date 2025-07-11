@@ -10,8 +10,6 @@ export const customerSegments = {
   consultingDesc: 'Virtaviivaista asiakasviestintää ja toimituksia',
   nonprofitTitle: 'Voittoa tavoittelemattomat',
   nonprofitDesc: 'Sitouta lahjoittajia ja vapaaehtoisia tehokkaasti',
-  educationTitle: 'Koulutus',
-  educationDesc: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta',
   creativeTitle: 'Luovat alat',
   creativeDesc: 'Esittele luova työsi ammattimaisesti',
   sportsTitle: 'Urheiluorganisaatiot',
@@ -98,28 +96,6 @@ export const customerSegments = {
       ],
       quote: 'Lyylin avulla voimme luoda vaikuttavia kampanjamateriaaleja minuuteissa päivien sijaan, mikä mahdollistaa keskittymisen missioomme.',
       author: 'Sarah L., Viestintäjohtaja, Global Hope Initiative'
-    },
-    education: {
-      title: 'Koulutusinstituutiot',
-      description: 'Yhdistä opiskelijat, vanhemmat ja henkilökunta tehokkaalla viestinnällä',
-      buttonLabel: 'Koulutus',
-      features: [
-        'Opiskelijatavoittamisen automatisointi',
-        'Vanhempien viestintätyökalut',
-        'Henkilökunnan yhteistyöalusta'
-      ],
-      painPoints: [
-        'Yhtenäisen viestinnän ylläpitäminen eri osastojen välillä',
-        'Useiden kohderyhmien tavoittaminen oikealla äänensävyllä',
-        'Säännöllisten tiedotteiden ja päivitysten tehokas hallinta'
-      ],
-      solutions: [
-        'Integroitu viestintähallintajärjestelmä kaikille osastoille',
-        'Kohdennetut viestintätyökalut eri yleisöille',
-        'Automatisoitu aikataulutus ja julkaisut'
-      ],
-      quote: 'Lyyli on muuttanut tapaamme viestiä monipuolisen yhteisömme kanssa, säästäen aikaa ja tehden viesteistämme relevantimpia kullekin kohdeyleisölle.',
-      author: 'Dr. Robert Chen, Viestintädekaani, Westfield University'
     },
     creative: {
       title: 'Luovat alat',

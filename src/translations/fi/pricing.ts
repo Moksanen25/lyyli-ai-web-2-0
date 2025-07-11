@@ -13,27 +13,27 @@ export const pricing = {
   free: {
     name: 'Ilmainen',
     description: 'Täydellinen kokeilukäyttöön, yksinyrittäjille ja pienille yhdistyksille.',
-    cta: 'Aloita Ilmaiseksi',
+    cta: 'Aloita ilmaiseksi',
   },
   starter: {
     name: 'Starter',
     description: 'Ihanteellinen pienille toimijoille ja yksittäisille ammattilaisille.',
-    cta: 'Aloita Ilmainen Kokeilu',
+    cta: 'Aloita ilmainen kokeilu',
   },
   growth: {
     name: 'Growth',
     description: 'Kaikki mitä tarvitset kasvavalle tiimille ja laajenevan yrityksen.',
-    cta: 'Aloita Kasvu',
+    cta: 'Aloita kasvu',
   },
   professional: {
     name: 'Professional',
     description: 'Täydellinen ratkaisu koko organisaation käyttöön.',
-    cta: 'Siirry Professional-tasoon',
+    cta: 'Siirry professional-tasoon',
   },
   enterprise: {
     name: 'Enterprise',
     description: 'Räätälöidyt ratkaisut suuryrityksille ja erikoisvaatimuksille.',
-    cta: 'Ota Yhteyttä Myyntiin',
+    cta: 'Ota yhteyttä myyntiin',
   },
   features: {
     feature: 'Ominaisuus',
@@ -114,7 +114,7 @@ export const pricing = {
   faqTitle: 'Kysymyksiä?',
   faqText: 'Käy UKK-sivullamme tai ota yhteyttä saadaksesi lisätietoja paketeistamme.',
   faqButton: 'Katso UKK',
-  contactButton: 'Ota Yhteyttä Myyntiin',
+  contactButton: 'Ota yhteyttä myyntiin',
   pricingHeader: {
     title: 'Selkeä, läpinäkyvä hinnoittelu',
     subtitle: 'Valitse yrityksesi tarpeisiin sopiva paketti. Kaikki paketit sisältävät keskeisen tekoälytoiminnallisuuden.'
@@ -125,7 +125,7 @@ export const pricing = {
     subtitle: 'Vertaa ominaisuuksia kaikissa paketeissa löytääksesi yrityksellesi sopivan paketin'
   },
   faq: {
-    title: 'Usein Kysytyt Kysymykset',
+    title: 'Usein kysytyt kysymykset',
     subtitle: 'Vastauksia yleisimpiin kysymyksiin hinnoittelustamme ja paketeistamme',
     question1: 'Mitä tapahtuu, kun kokeilujakso päättyy?',
     answer1: 'Kun kokeilujaksosi päättyy, voit päivittää johonkin maksulliseen pakettiin jatkaaksesi palvelun käyttöä. Tietosi säilytetään 30 päivän ajan, jos et päivitä välittömästi.',

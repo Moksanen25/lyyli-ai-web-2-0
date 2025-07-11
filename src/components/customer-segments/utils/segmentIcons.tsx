@@ -44,18 +44,6 @@ export const SegmentIcons = {
     </svg>
   ),
   
-  education: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-6 h-6"
-    >
-      <path
-        d="M6.75 3h10.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75v-7.5a.75.75 0 01.75-.75zM18 6.75v10.125c0 .966-.783 1.75-1.75 1.75H7.75c-.966 0-1.75-.783-1.75-1.75V6.75h12zM19.5 12h-1.5v2.25H6v-2.25H4.5a.75.75 0 010-1.5H6V8.25h12v2.25h1.5a.75.75 0 010 1.5z"
-      />
-    </svg>
-  ),
   
   creative: (
     <svg
