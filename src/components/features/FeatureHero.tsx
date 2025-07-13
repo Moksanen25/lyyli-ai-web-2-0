@@ -35,13 +35,16 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
   const defaultTitle = t('features.hero.title');
   const defaultSubtitle = t('features.hero.subtitle');
   const defaultDescription = t('features.hero.description');
+  const { language } = useLanguage();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+  
   const defaultPrimaryCta = {
     text: t('features.hero.primaryCta'),
-    href: '/full/contact',
+    href: waitlistPath,
   };
   const defaultSecondaryCta = {
     text: t('features.hero.secondaryCta'),
-    href: '/full/pricing',
+    href: waitlistPath,
   };
   
   // Use provided values or defaults
