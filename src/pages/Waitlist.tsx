@@ -4,8 +4,8 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Waitlist: React.FC = () => {
   const { t, language } = useLanguage();
@@ -108,20 +108,10 @@ const Waitlist: React.FC = () => {
         <meta name="twitter:description" content={pageDescription} />
       </Helmet>
 
-      {/* Header */}
-      <header className="py-4 md:py-6 px-4 md:px-6 w-full">
-        <div className="container mx-auto">
-          <div className="flex justify-between items-center">
-            <Link to="/full" className="text-2xl font-bold text-primary" aria-label="Lyyli home page">Lyyli</Link>
-            <div>
-              <LanguageSwitcher />
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center justify-center py-8 px-4 md:py-16 bg-gradient-to-b from-white to-accent/20">
+      <main className="flex-grow flex flex-col items-center justify-center py-8 px-4 md:py-16 bg-gradient-to-b from-white to-accent/20 pt-20 md:pt-28">
         <div className="max-w-xl w-full mx-auto text-center animate-fade-in">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-primary">
             {language === 'fi' ? 'Jotain suurta on tulossa!' : 'Something big is coming!'}
@@ -166,12 +156,7 @@ const Waitlist: React.FC = () => {
         setIsLoading={setIsLoading}
       />
 
-      {/* Footer */}
-      <footer className="py-6 md:py-8 px-4 text-center text-sm text-foreground/70">
-        <div className="container mx-auto">
-          <p>&copy; {new Date().getFullYear()} Lyyli. {language === 'fi' ? 'Kaikki oikeudet pidätetään.' : 'All rights reserved.'}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
