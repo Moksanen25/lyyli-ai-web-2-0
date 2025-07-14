@@ -60,26 +60,36 @@ export const generateStructuredData = ({ type, language, url, title, description
       return {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'Lyyli.ai',
+        name: language === 'fi' ? 'Lyyli - Viestintäassistentti tekoälyllä' : 'Lyyli - AI Assistant for Communication',
         url: localizedUrl,
         description: description || (language === 'fi' 
-          ? 'Tekoälyavusteinen viestintäalusta yrityksille. Luo, hallitse ja jaa sisältöä tehokkaasti.'
-          : 'AI-powered communication platform for businesses. Create, manage and share content efficiently.'),
+          ? 'Sisäisen viestinnän työkalu ja viestinnän automaatio asiantuntijaorganisaatioille. Tekoäly viestintään, joka ymmärtää suomalaisen liiketoimintakulttuurin.'
+          : 'Internal communication tool with communication automation for expert organizations. AI communication tool designed for Finnish business culture.'),
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web Browser',
+        keywords: language === 'fi' 
+          ? 'viestinnän automaatio, sisäisen viestinnän työkalu, viestintäassistentti tekoälyllä, yrityksen sisäinen viestintä, tekoäly viestintään'
+          : 'internal communication tool, AI communication tool, communication automation, AI assistant for communication',
         offers: {
           '@type': 'Offer',
           price: '0',
           priceCurrency: 'EUR',
-          availability: 'https://schema.org/InStock'
+          availability: 'https://schema.org/InStock',
+          description: language === 'fi' ? 'Aloita ilmainen kokeilu' : 'Start free trial'
         },
         featureList: language === 'fi' ? [
-          'Tekoälyavusteinen sisällönluonti',
+          'Viestinnän automaatio',
+          'Sisäisen viestinnän hallinta', 
+          'Tekoäly viestintään',
+          'Integraatiot Slack ja Teams',
           'GDPR-yhteensopiva',
           'EU-palvelimet',
           'Yritystason tietoturva'
         ] : [
-          'AI-powered content creation',
+          'Communication automation',
+          'Internal communication management',
+          'AI-powered messaging',
+          'Slack and Teams integrations',
           'GDPR compliant',
           'EU servers',
           'Enterprise-grade security'

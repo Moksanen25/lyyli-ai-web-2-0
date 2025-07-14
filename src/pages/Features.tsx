@@ -23,11 +23,13 @@ import { Link } from 'react-router-dom';
 const Features = () => {
   const { t, featuresT, language } = useLanguage();
   
-  // SEO metadata with proper translations
-  const pageTitle = language === 'fi' ? 'Ominaisuudet - Lyyli.ai' : 'Features - Lyyli.ai';
+  // SEO metadata with proper translations and keywords
+  const pageTitle = language === 'fi' 
+    ? 'Tekoäly viestintään ja sisäisen viestinnän automaatio | Lyyli.ai' 
+    : 'AI Communication Tool for Internal Communication Automation | Lyyli.ai';
   const pageDescription = language === 'fi'
-    ? 'Tutustu Lyyli.ai:n tehokkaisiin ominaisuuksiin, jotka tekevät siitä johtavan tekoälyviestintäalustan yrityksesi tarpeisiin.'
-    : 'Discover Lyyli.ai\'s powerful features that make it the leading AI communication platform for your business needs.';
+    ? 'Viestintäassistentti tekoälyllä asiantuntijaorganisaatioille. Sisäisen viestinnän työkalu, joka automatisoi yrityksen sisäisen viestinnän. Viestinnän automaatio suomalaisille yrityksille.'
+    : 'AI assistant for communication designed for expert organizations. Internal communication tool with communication automation for efficient business messaging. AI communication tool for Finnish companies.';
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -41,7 +43,13 @@ const Features = () => {
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="keywords" content={language === 'fi' 
+          ? 'viestinnän automaatio, sisäisen viestinnän työkalu, viestintäassistentti tekoälyllä, yrityksen sisäinen viestintä, tekoäly viestintään' 
+          : 'internal communication tool, AI communication tool, communication automation, AI assistant for communication'} />
         <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}features`} />
+        {language === 'fi' && <link rel="alternate" hrefLang="en" href="https://lyyli.ai/features" />}
+        {language === 'en' && <link rel="alternate" hrefLang="fi" href="https://lyyli.ai/fi/features" />}
+        <link rel="alternate" hrefLang="x-default" href="https://lyyli.ai/features" />
       </Helmet>
       
       <Navbar />

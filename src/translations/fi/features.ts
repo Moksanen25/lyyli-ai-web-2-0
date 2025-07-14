@@ -18,9 +18,9 @@ export const features = {
   
   // Page hero section
   hero: {
-    title: "Asiantuntijaorganisaatioiden tarvitsemat ominaisuudet",
+    title: "Tekoäly viestintään ja sisäisen viestinnän automaatio",
     subtitle: "Ominaisuudet",
-    description: "Tutustu tehokkaisiin ominaisuuksiin, jotka auttavat viestintäpäälliköitä, HR-johtajia ja markkinointijohtajia koordinoimaan sisäistä viestintää 30-1000 hengen asiantuntijaorganisaatioissa.",
+    description: "Tutustu tehokkaaseen viestintäassistentti tekoälyllä, joka auttaa viestintäpäälliköitä, HR-johtajia ja markkinointijohtajia hallitsemaan yrityksen sisäistä viestintää 30-1000 hengen asiantuntijaorganisaatioissa. Sisäisen viestinnän työkalu, joka ymmärtää suomalaisen liiketoimintakulttuurin.",
     primaryCta: "Varaa demo",
     secondaryCta: "Katso hinnat"
   },
@@ -40,20 +40,20 @@ export const features = {
   
   // Feature items
   feature1: {
-    title: "Ammattimaiset viestit hetkessä",
-    description: "Luo johdonmukaisia, laadukkaita viestejä Slackiin, Teamsiin ja muihin kanaviin – viestintäpäälliköiden työkalupakki"
+    title: "Viestinnän automaatio ammattimaisilla viesteillä",
+    description: "Luo johdonmukaisia, laadukkaita viestejä Slackiin, Teamsiin ja muihin kanaviin automaattisesti. Sisäisen viestinnän työkalu, joka säästää aikaa ja varmistaa ammattimaisen laadun."
   },
   feature2: {
-    title: "Keskitetty viestinnän hallinta",
-    description: "Anna HR:lle ja markkinointijohdolle työkalut koordinoida koko organisaation viestintää yhdestä paikasta"
+    title: "Yrityksen sisäinen viestintä keskitetysti",
+    description: "Anna HR:lle ja markkinointijohdolle työkalut koordinoida koko organisaation viestintää yhdestä paikasta. Viestintäassistentti tekoälyllä, joka ymmärtää organisaatiosi tarpeet."
   },
   feature3: {
-    title: "Automatisoitu viestintäprosessi",
-    description: "Vähennä toistuvaa työtä ja varmista, että kriittiset viestit lähtevät ajoissa – toimitusjohtajien aikasäästö"
+    title: "Tekoäly viestintään ja automaatioon",
+    description: "Vähennä toistuvaa työtä ja varmista, että kriittiset viestit lähtevät ajoissa. Viestinnän automaatio, joka säästää johtajien aikaa strategiseen työhön."
   },
   feature4: {
-    title: "Vaikutusmittarit johdolle",
-    description: "Konkreettisia mittareita viestinnän tehosta päätöksenteon tueksi"
+    title: "Sisäisen viestinnän mittarit ja seuranta",
+    description: "Konkreettisia mittareita yrityksen sisäisen viestinnän tehokkuudesta päätöksenteon tueksi. Seuraa viestintäassistentin vaikutusta organisaatiossasi."
   },
   
   // Additional features section
@@ -75,11 +75,11 @@ export const features = {
   
   // Integrations section
   integrations: {
-    title: "Yhdistä suosikkityökaluihisi",
-    description: "Lyyli integroituu jo käyttämiisi työkaluihin, mikä tekee käyttöönotosta sujuvaa ja helpottaa omaksumista.",
-    slack: "Paranna tiimin viestintää tekoälyavusteisella tuella suoraan Slack-kanavissasi.",
-    teams: "Tuo tekoälyllä toimivat viestintätyökalut Microsoft Teams -ympäristöösi.",
-    api: "Rakenna mukautettuja integraatioita vankan API:mme ja kehittäjätyökalujen avulla."
+    title: "Yhdistä sisäisen viestinnän työkalu olemassa oleviin järjestelmiin",
+    description: "Lyyli viestintäassistentti tekoälyllä integroituu jo käyttämiisi työkaluihin, mikä tekee viestinnän automaation käyttöönotosta sujuvaa ja helpottaa omaksumista suomalaisissa organisaatioissa.",
+    slack: "Paranna yrityksen sisäistä viestintää tekoälyavusteisella tuella suoraan Slack-kanavissasi. Sisäisen viestinnän työkalu, joka toimii saumattomasti.",
+    teams: "Tuo viestinnän automaatio Microsoft Teams -ympäristöösi. Viestintäassistentti tekoälyllä, joka ymmärtää suomalaisen työkulttuurin.",
+    api: "Rakenna mukautettuja integraatioita vankan API:mme ja kehittäjätyökalujen avulla. Tekoäly viestintään räätälöitynä organisaatiosi tarpeisiin."
   },
   
   // Customer segments
@@ -138,14 +138,14 @@ export const features = {
   
   // FAQ section
   faq: {
-    title: "Usein kysytyt kysymykset",
-    question1: "Miten Lyylin tekoälysisällön luonti toimii?",
-    answer1: "Lyylin tekoälymallit on koulutettu laadukkaalla viestintädatalla tuottamaan ihmismäistä, kontekstiin sopivaa sisältöä. Annat perustiedot, ja tekoälymme ehdottaa valmista käyttökelpoista sisältöä, jota voit muokata tarpeen mukaan.",
-    question2: "Voinko integroida Lyylin olemassa oleviin työkaluihini?",
-    answer2: "Kyllä! Lyyli tarjoaa integraatioita suosittujen alustojen kuten Slackin, Microsoft Teamsin ja muiden kanssa. Tarjoamme myös vankan API:n mukautettuihin integraatioihin olemassa olevien järjestelmiesi kanssa.",
-    question3: "Kuinka turvallista datani on Lyylissä?",
-    answer3: "Turvallisuus on tärkein prioriteettimme. Käytämme yritystason salausta, säännöllisiä turvallisuusauditointeja ja noudatamme tiukkoja tietosuojakäytäntöjä. Dataasi ei koskaan käytetä tekoälymallien kouluttamiseen ilman nimenomaista suostumusta.",
-    question4: "Millaista tukea Lyyli tarjoaa?",
-    answer4: "Kaikki paketit sisältävät perustuen. Ammattilaispaketit tarjoavat etusijaisen tuen, kun taas Yritysasiakkaat saavat oman tilinhoitajan ja räätälöidyn käyttöönoton avustuksen."
+    title: "Usein kysytyt kysymykset viestintäassistentti tekoälystä",
+    question1: "Miten viestinnän automaatio toimii Lyylissä?",
+    answer1: "Lyyli viestintäassistentti tekoälyllä on koulutettu laadukkaalla viestintädatalla tuottamaan ammattimaista, kontekstiin sopivaa sisältöä. Sisäisen viestinnän työkalu analysoi organisaatiosi tarpeet ja ehdottaa valmista käyttökelpoista sisältöä yrityksen sisäiseen viestintään.",
+    question2: "Voiko sisäisen viestinnän työkalun integroida olemassa oleviin järjestelmiin?",
+    answer2: "Kyllä! Lyyli tarjoaa integraatioita suosittujen alustojen kuten Slackin, Microsoft Teamsin ja muiden kanssa. Viestinnän automaatio toimii saumattomasti olemassa olevien järjestelmiesi kanssa. Tarjoamme myös vankan API:n mukautettuihin integraatioihin.",
+    question3: "Kuinka turvallista yrityksen sisäinen viestintä on Lyylissä?",
+    answer3: "Turvallisuus on tärkein prioriteettimme. Käytämme yritystason salausta, säännöllisiä turvallisuusauditointeja ja noudatamme GDPR-vaatimuksia. Tekoäly viestintään -ratkaisumme takaa, että dataasi ei koskaan käytetä tekoälymallien kouluttamiseen ilman nimenomaista suostumusta.",
+    question4: "Millaista tukea viestintäassistentti tekoäly tarjoaa?",
+    answer4: "Kaikki paketit sisältävät perustuen suomeksi. Ammattilaispaketit tarjoavat etusijaisen tuen sisäisen viestinnän työkalulle, kun taas Yritysasiakkaat saavat oman tilinhoitajan ja räätälöidyn viestinnän automaation käyttöönoton avustuksen."
   }
 };

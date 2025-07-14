@@ -14,9 +14,9 @@ export const features = {
   
   // Page hero section
   hero: {
-    title: "Features expert organizations need",
+    title: "AI Communication Tool for Internal Communication Automation",
     subtitle: "Features",
-    description: "Discover powerful features that help communication managers, HR directors, and marketing leaders coordinate internal communication in 30-1000 person expert organizations.",
+    description: "Discover our powerful AI assistant for communication that helps communication managers, HR directors, and marketing leaders master internal communication tool capabilities in 30-1000 person expert organizations. Communication automation designed for Finnish business culture.",
     primaryCta: "Book a demo",
     secondaryCta: "See pricing"
   },
@@ -34,20 +34,20 @@ export const features = {
   
   // Feature items
   feature1: {
-    title: "Professional messages instantly",
-    description: "Create consistent, high-quality messages for Slack, Teams, and other channels – the communication manager's toolkit"
+    title: "Communication Automation with Professional Messages",
+    description: "Create consistent, high-quality messages for Slack, Teams, and other channels automatically. An internal communication tool that saves time while ensuring professional quality."
   },
   feature2: {
-    title: "Centralized communication control",
-    description: "Give HR and marketing leaders the tools to coordinate organization-wide communication from one place"
+    title: "AI Communication Tool for Centralized Control",
+    description: "Give HR and marketing leaders the AI assistant for communication to coordinate organization-wide messaging from one place. Designed with Finnish business efficiency in mind."
   },
   feature3: {
-    title: "Automated communication process",
-    description: "Reduce repetitive work and ensure critical messages go out on time – time savings for executives"
+    title: "Internal Communication Tool with Smart Automation",
+    description: "Reduce repetitive work and ensure critical messages go out on time. Communication automation that frees up executives for strategic work."
   },
   feature4: {
-    title: "Impact metrics for leadership",
-    description: "Concrete metrics on communication effectiveness to support decision-making"
+    title: "AI Communication Tool Analytics and Insights",
+    description: "Concrete metrics on internal communication tool effectiveness to support decision-making. Track your AI assistant for communication impact across the organization."
   },
   
   // Additional features section
@@ -69,11 +69,11 @@ export const features = {
   
   // Integrations section
   integrations: {
-    title: "Connect with your favorite tools",
-    description: "Lyyli integrates with the tools you already use, making implementation smooth and adoption easy.",
-    slack: "Enhance team communication with AI-powered assistance directly in your Slack channels.",
-    teams: "Bring AI-powered communication tools to your Microsoft Teams environment.",
-    api: "Build custom integrations with our robust API and developer tools."
+    title: "Connect Your Internal Communication Tool with Existing Systems",
+    description: "Lyyli AI assistant for communication integrates seamlessly with tools you already use, making communication automation implementation smooth and adoption easy in Finnish organizations.",
+    slack: "Enhance internal communication with AI-powered assistance directly in your Slack channels. Internal communication tool that works seamlessly with your workflow.",
+    teams: "Bring communication automation to your Microsoft Teams environment. AI communication tool designed for Finnish business culture and efficiency.",
+    api: "Build custom integrations with our robust API and developer tools. AI assistant for communication tailored to your organization's specific needs."
   },
   
   // Customer segments
@@ -132,14 +132,14 @@ export const features = {
   
   // FAQ section
   faq: {
-    title: "Frequently asked questions",
-    question1: "How does Lyyli's AI content generation work?",
-    answer1: "Lyyli's AI models are trained on high-quality communication data to generate human-like, contextually appropriate content. You provide basic input, and our AI suggests complete, ready-to-use content that you can edit as needed.",
-    question2: "Can I integrate Lyyli with my existing tools?",
-    answer2: "Yes! Lyyli offers integrations with popular platforms like Slack, Microsoft Teams, and more. We also provide a robust API for custom integrations with your existing systems.",
-    question3: "How secure is my data with Lyyli?",
-    answer3: "Security is our top priority. We employ enterprise-grade encryption, regular security audits, and follow strict data protection protocols. Your data is never used to train our AI models without explicit consent.",
-    question4: "What kind of support does Lyyli offer?",
-    answer4: "All plans include standard support. Professional plans offer priority support, while Enterprise customers receive dedicated account management and custom onboarding assistance."
+    title: "Frequently Asked Questions About AI Assistant for Communication",
+    question1: "How does communication automation work in Lyyli?",
+    answer1: "Lyyli AI assistant for communication is trained on high-quality communication data to generate professional, contextually appropriate content. Our internal communication tool analyzes your organization's needs and suggests complete, ready-to-use content for internal communication.",
+    question2: "Can the internal communication tool integrate with existing systems?",
+    answer2: "Yes! Lyyli offers integrations with popular platforms like Slack, Microsoft Teams, and more. Our communication automation works seamlessly with your existing systems. We also provide a robust API for custom integrations.",
+    question3: "How secure is internal communication with Lyyli?",
+    answer3: "Security is our top priority. We employ enterprise-grade encryption, regular security audits, and follow GDPR compliance. Our AI communication tool ensures your data is never used to train AI models without explicit consent.",
+    question4: "What kind of support does the AI assistant for communication offer?",
+    answer4: "All plans include standard support. Professional plans offer priority support for the internal communication tool, while Enterprise customers receive dedicated account management and custom communication automation onboarding assistance."
   }
 };
