@@ -1,0 +1,23 @@
+export const cookieBanner = {
+  title: 'Vi använder cookies',
+  description: 'Denna webbplats använder cookies för att förbättra din upplevelse och analysera webbplatsanvändning. Vi använder Datafast Analytics, Google Analytics 4 och HubSpot-spårning för att optimera vår service.',
+  
+  essential: 'Nödvändiga',
+  analytics: 'Analys',
+  marketing: 'Marknadsföring',
+  
+  essentialDescription: 'Nödvändiga cookies krävs för grundläggande webbplatsfunktioner',
+  analyticsDescription: 'Hjälper oss förstå hur besökare använder vår webbplats',
+  marketingDescription: 'Används för att visa relevanta annonser och innehåll',
+  
+  acceptAll: 'Acceptera alla',
+  acceptSelected: 'Acceptera valda',
+  rejectAll: 'Avvisa alla',
+  settings: 'Cookie-inställningar',
+  
+  settingsTitle: 'Cookie-inställningar',
+  settingsDescription: 'Vi använder cookies för att förbättra din upplevelse. Du kan välja vilka kategorier av cookies du vill tillåta.',
+  
+  save: 'Spara inställningar',
+  close: 'Stäng'
+};
