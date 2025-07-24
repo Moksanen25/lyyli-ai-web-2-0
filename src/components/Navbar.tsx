@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
                     {language === 'fi' ? 'Ominaisuudet' : language === 'sv' ? 'Funktioner' : 'Features Overview'}
                   </Link>
                   <Link to={language === 'fi' ? "/fi/executive-summary" : language === 'sv' ? "/sv/executive-summary" : "/executive-summary"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
-                    {language === 'fi' ? 'Johtajuuden yhteenveto' : language === 'sv' ? 'Ledningssammanfattning' : 'Executive Summary'}
+                    {language === 'fi' ? 'Yhteenveto päättäjälle' : language === 'sv' ? 'Ledningssammanfattning' : 'Executive Summary'}
                   </Link>
                   <Link to={language === 'fi' ? "/fi/security" : language === 'sv' ? "/sv/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
                     {language === 'fi' ? 'Tietoturva' : language === 'sv' ? 'Säkerhet' : 'Security'}
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to={language === 'fi' ? "/fi/executive-summary" : language === 'sv' ? "/sv/executive-summary" : "/executive-summary"} className="block px-4 py-2 text-sm hover:bg-gray-100 w-full">
-                  {language === 'fi' ? 'Johtajuuden yhteenveto' : language === 'sv' ? 'Ledningssammanfattning' : 'Executive Summary'}
+                  {language === 'fi' ? 'Yhteenveto päättäjälle' : language === 'sv' ? 'Ledningssammanfattning' : 'Executive Summary'}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
