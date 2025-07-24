@@ -180,11 +180,12 @@ const Index = () => {
           <TestimonialsSection />
         </SafeSection>
         
-        <SafeSection name="Implementation Timeline">
+        {/* Hidden for now */}
+        {/* <SafeSection name="Implementation Timeline">
           <React.Suspense fallback={<div>Loading...</div>}>
             <ImplementationTimeline />
           </React.Suspense>
-        </SafeSection>
+        </SafeSection> */}
         
         <SafeSection name="Blog Posts">
           <BlogCarousel />
