@@ -16,7 +16,7 @@ const isDev = import.meta.env.DEV;
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
-  { code: 'sv', name: 'Svenska', flag: '🇸🇪' },
+  // { code: 'sv', name: 'Svenska', flag: '🇸🇪' }, // Hidden for now
 ];
 
 export const LanguageSwitcher: React.FC = () => {

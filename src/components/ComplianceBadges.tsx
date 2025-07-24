@@ -32,23 +32,23 @@ const ComplianceBadges: React.FC<ComplianceBadgesProps> = ({
     name: t('compliance.badges.gdpr') || "GDPR Compliant",
     image: "https://img.shields.io/badge/GDPR-Compliant-green",
     icon: <Shield className="h-5 w-5" />,
-    description: language === 'fi' ? "Palvelumme noudattaa EU:n yleistä tietosuoja-asetusta (GDPR)." : "Our service complies with the EU General Data Protection Regulation (GDPR).",
+    description: language === 'fi' ? "Palvelumme noudattaa EU:n yleistä tietosuoja-asetusta (GDPR)." : language === 'sv' ? "Vår tjänst följer EU:s allmänna dataskyddsförordning (GDPR)." : "Our service complies with the EU General Data Protection Regulation (GDPR).",
     color: 'green'
   }, {
     name: t('compliance.badges.uptime') || "99.9% Uptime SLA",
     image: "https://img.shields.io/badge/99.9%25-Uptime_SLA-blue",
     icon: <Server className="h-5 w-5" />,
-    description: language === 'fi' ? "Takaamme 99.9% käytettävyyden palvelutasosopimuksen mukaisesti." : "We guarantee 99.9% uptime according to our Service Level Agreement.",
+    description: language === 'fi' ? "Takaamme 99.9% käytettävyyden palvelutasosopimuksen mukaisesti." : language === 'sv' ? "Vi garanterar 99,9% drifttid enligt vårt servicenivåavtal." : "We guarantee 99.9% uptime according to our Service Level Agreement.",
     color: 'blue'
   }, {
-    name: language === 'fi' ? "DPIA:n mukainen" : "DPIA Compliant",
+    name: language === 'fi' ? "DPIA:n mukainen" : language === 'sv' ? "DPIA-kompatibel" : "DPIA Compliant",
     icon: <FileCheck className="h-5 w-5" />,
-    description: language === 'fi' ? "Olemme suorittaneet tietosuojaa koskevan vaikutustenarvioinnin (DPIA) palvelullemme." : "We have conducted a Data Protection Impact Assessment (DPIA) for our service.",
+    description: language === 'fi' ? "Olemme suorittaneet tietosuojaa koskevan vaikutustenarvioinnin (DPIA) palvelullemme." : language === 'sv' ? "Vi har genomfört en konsekvensbedömning avseende dataskydd (DPIA) för vår tjänst." : "We have conducted a Data Protection Impact Assessment (DPIA) for our service.",
     color: 'purple'
   }, {
-    name: language === 'fi' ? "ISO 27001" : "ISO 27001",
+    name: language === 'fi' ? "ISO 27001" : language === 'sv' ? "ISO 27001" : "ISO 27001",
     icon: <Lock className="h-5 w-5" />,
-    description: language === 'fi' ? "Palvelumme noudattaa ISO 27001 tietoturvallisuuden hallintajärjestelmän standardia." : "Our service complies with ISO 27001 information security management system standard.",
+    description: language === 'fi' ? "Palvelumme noudattaa ISO 27001 tietoturvallisuuden hallintajärjestelmän standardia." : language === 'sv' ? "Vår tjänst följer ISO 27001-standarden för informationssäkerhet." : "Our service complies with ISO 27001 information security management system standard.",
     color: 'blue'
   }];
   const badgesToRender = badges || defaultBadges;

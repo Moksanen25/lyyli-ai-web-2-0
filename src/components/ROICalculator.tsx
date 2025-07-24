@@ -75,8 +75,6 @@ const ROICalculator = () => {
           <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
             {language === 'fi' ? 
               'Laskuri perustuu 80% tehokkuusparannukseen viestintärutiineissa Lyyli.ai:n avulla' :
-              language === 'sv' ?
-              'Kalkylatorn baseras på 80% effektivitetsförbättring i kommunikationsrutiner med Lyyli.ai' :
               'Calculator based on 80% efficiency improvement in communication routines with Lyyli.ai'
             }
           </p>
@@ -393,7 +391,7 @@ const ROICalculator = () => {
         {/* Get Started CTA */}
         <div className="text-center mt-12">
           <Button size="lg" className="px-8 py-4 text-lg">
-            Get Started
+            {language === 'fi' ? 'Aloita' : 'Get Started'}
           </Button>
           <p className="text-sm text-muted-foreground mt-2">
             Start saving today with Lyyli.ai

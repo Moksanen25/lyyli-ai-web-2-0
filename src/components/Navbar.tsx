@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   } = useLanguage();
   const location = useLocation();
   const isMobile = useIsMobile();
-  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : language === 'sv' ? '/sv/waitlist' : '/waitlist';
 
   // Function to close the mobile menu
   const closeMenu = () => {
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
     <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Shown on both mobile and desktop */}
-        <Link to={language === 'fi' ? "/fi" : "/"} className="flex items-center">
+        <Link to={language === 'fi' ? "/fi" : language === 'sv' ? "/sv" : "/"} className="flex items-center">
           <img 
             src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
             alt="Lyyli.ai"
@@ -65,23 +65,23 @@ const Navbar: React.FC = () => {
                   <div className="text-sm font-medium text-muted-foreground px-2 py-1">
                     {t('nav.features')}
                   </div>
-                  <Link to={language === 'fi' ? "/fi/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
+                  <Link to={language === 'fi' ? "/fi/features" : language === 'sv' ? "/sv/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
                     {language === 'fi' ? 'Ominaisuudet' : language === 'sv' ? 'Funktioner' : 'Features Overview'}
                   </Link>
                   <Link to={language === 'fi' ? "/fi/security" : language === 'sv' ? "/sv/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
                     {language === 'fi' ? 'Tietoturva' : language === 'sv' ? 'Säkerhet' : 'Security'}
                   </Link>
                 </div>
-                <Link to={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
+                <Link to={language === 'fi' ? "/fi/pricing" : language === 'sv' ? "/sv/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.pricing')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/about" : "/about"} className="text-sm font-medium leading-none hover:underline">
+                <Link to={language === 'fi' ? "/fi/about" : language === 'sv' ? "/sv/about" : "/about"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.about')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/blog" : "/blog"} className="text-sm font-medium leading-none hover:underline">
+                <Link to={language === 'fi' ? "/fi/blog" : language === 'sv' ? "/sv/blog" : "/blog"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.blog')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/contact" : "/contact"} className="text-sm font-medium leading-none hover:underline">
+                <Link to={language === 'fi' ? "/fi/contact" : language === 'sv' ? "/sv/contact" : "/contact"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.contact')}
                 </Link>
                 <LanguageSwitcher />
@@ -120,16 +120,16 @@ const Navbar: React.FC = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link to={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link to={language === 'fi' ? "/fi/pricing" : language === 'sv' ? "/sv/pricing" : "/pricing"} className="text-primary/70 hover:text-primary transition-colors">
             {t('nav.pricing')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/about" : "/about"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link to={language === 'fi' ? "/fi/about" : language === 'sv' ? "/sv/about" : "/about"} className="text-primary/70 hover:text-primary transition-colors">
             {t('nav.about')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/blog" : "/blog"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link to={language === 'fi' ? "/fi/blog" : language === 'sv' ? "/sv/blog" : "/blog"} className="text-primary/70 hover:text-primary transition-colors">
             {t('nav.blog')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/contact" : "/contact"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link to={language === 'fi' ? "/fi/contact" : language === 'sv' ? "/sv/contact" : "/contact"} className="text-primary/70 hover:text-primary transition-colors">
             {t('nav.contact')}
           </Link>
           <LanguageSwitcher />

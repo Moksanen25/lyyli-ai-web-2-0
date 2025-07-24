@@ -34,8 +34,8 @@ const SecurityHero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" asChild>
-              <Link to={language === 'fi' ? '/fi/contact' : '/contact'}>
-                {language === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
+              <Link to={language === 'fi' ? '/fi/contact' : language === 'sv' ? '/sv/contact' : '/contact'}>
+                {language === 'fi' ? 'Ota yhteyttä' : language === 'sv' ? 'Kontakta oss' : 'Contact Us'}
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
