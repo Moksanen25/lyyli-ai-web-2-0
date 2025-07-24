@@ -18,6 +18,7 @@ import { common } from './common';
 import { blog } from './blog';
 import { targetAudience } from './targetAudience';
 import { howItWorks } from './howItWorks';
+import { executiveSummary } from './executiveSummary';
 
 export const sv = {
   nav,
@@ -39,5 +40,6 @@ export const sv = {
   common,
   blog,
   targetAudience,
-  howItWorks
+  howItWorks,
+  executiveSummary
 };

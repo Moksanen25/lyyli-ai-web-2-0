@@ -1,12 +1,16 @@
 export const hero = {
-  headline: 'AI-driven kommunikationsassistent för expertorganisationer',
-  subheadline: 'Automatisera och förbättra intern kommunikation med intelligenta AI-verktyg designade för medelstora expertföretag i Finland och Europa.',
+  title: 'AI-kommunikationsassistent som gör att du kommunicerar som en professionell',
+  subtitle: 'AI-kommunikationsassistent för expertorganisationer – kommunicera i meddelandekanaler som en professionell och säkerställ att viktiga saker aldrig lämnas okommunicerade.',
   cta: 'Gå med i väntelistan',
-  watchDemo: 'Se demo',
-  trustedBy: 'Förtrodd av expertorganisationer',
-  stats: {
-    timeSaved: '75% mindre tid på kommunikationsuppgifter',
-    engagement: '40% förbättrat teamengagemang',
-    efficiency: '3x snabbare internkommunikation'
-  }
+  secondaryCta: 'Se hur det fungerar',
+  enterpriseReady: 'För expertorganisationer',
+  trustedBy: 'Intern kommunikationskoordinering',
+  badges: {
+    security: 'Säkerhet på företagsnivå',
+    uptime: '99.9% drifttidsgaranti',
+    support: 'Support 24/7',
+    securityDescription: 'All din data är krypterad och säkrad med säkerhet på företagsnivå',
+    uptimeDescription: 'Vi garanterar 99,9% drifttid med vår robusta infrastruktur',
+    supportDescription: 'Vårt supportteam finns tillgängligt 24/7 för att hjälpa dig med eventuella problem'
+  },
 };

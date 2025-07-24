@@ -24,12 +24,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Debug information to track initial render and context mounting
-  console.log('LanguageContext rendering, current path:', location.pathname);
-  
   // Determine language from path, localStorage, or browser
   const pathLanguage = getPathLanguage(location.pathname);
   const savedLanguage = localStorage.getItem('language') as SupportedLanguage | null;
+  
+  // Debug information to track initial render and context mounting
+  console.log('LanguageContext rendering, current path:', location.pathname, 'detected path language:', pathLanguage);
   
   // Use browser language if no explicit preference has been set yet
   const browserLanguage = getBrowserLanguage();
@@ -38,7 +38,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
   
   // Debug information
-  console.log('Selected language:', language, 'Path language:', pathLanguage, 'Path:', location.pathname);
+  console.log('Final language selected:', language, 'Path language:', pathLanguage, 'Saved:', savedLanguage, 'Browser:', browserLanguage, 'Path:', location.pathname);
 
   // Effect to update path when language changes
   useEffect(() => {
