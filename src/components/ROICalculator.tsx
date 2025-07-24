@@ -82,112 +82,113 @@ const ROICalculator = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {/* Input Section */}
-          <Card className="p-8 space-y-8 h-fit">
-            <div className="space-y-8">
-              {/* Communication Strategy Toggle */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Briefcase className="h-5 w-5 text-primary" />
-                    <Label htmlFor="partner-toggle" className="text-base font-medium">
-                      {calculatorT('usePartner')}
-                    </Label>
-                  </div>
-                  <Switch 
-                    id="partner-toggle" 
-                    checked={usePartner} 
-                    onCheckedChange={setUsePartner}
-                  />
-                </div>
-              </div>
-
-              {/* Conditional inputs based on strategy */}
-              {usePartner ? (
+          {/* Left Column - Input Section + Core Results */}
+          <div className="space-y-6">
+            {/* Input Controls */}
+            <Card className="p-8 space-y-8">
+              <div className="space-y-8">
+                {/* Communication Strategy Toggle */}
                 <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <Euro className="h-5 w-5 text-primary" />
-                    <Label className="text-base font-medium">{calculatorT('partnerFee')}</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Input 
-                      type="number" 
-                      value={partnerFee}
-                      onChange={(e) => setPartnerFee(Math.max(1000, Math.min(10000, parseInt(e.target.value) || 1000)))}
-                      className="text-right" 
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Briefcase className="h-5 w-5 text-primary" />
+                      <Label htmlFor="partner-toggle" className="text-base font-medium">
+                        {calculatorT('usePartner')}
+                      </Label>
+                    </div>
+                    <Switch 
+                      id="partner-toggle" 
+                      checked={usePartner} 
+                      onCheckedChange={setUsePartner}
                     />
-                    <span>€/{calculatorT('month')}</span>
-                  </div>
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>1 000 €</span>
-                    <span>10 000 €</span>
                   </div>
                 </div>
-              ) : (
-                <>
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <Users className="h-5 w-5 text-primary" />
-                      <Label className="text-base font-medium">{calculatorT('commPersonnel')}</Label>
-                    </div>
-                    <div className="flex justify-center gap-4">
-                      <Button 
-                        variant={hiredPersonnel === 0.5 ? "default" : "outline"}
-                        onClick={() => setHiredPersonnel(0.5)} 
-                        className="w-20"
-                      >
-                        0.5
-                      </Button>
-                      <Button 
-                        variant={hiredPersonnel === 1 ? "default" : "outline"}
-                        onClick={() => setHiredPersonnel(1)}
-                        className="w-20"
-                      >
-                        1
-                      </Button>
-                      <Button 
-                        variant={hiredPersonnel === 1.5 ? "default" : "outline"}
-                        onClick={() => setHiredPersonnel(1.5)}
-                        className="w-20"
-                      >
-                        1.5
-                      </Button>
-                      <Button 
-                        variant={hiredPersonnel === 2 ? "default" : "outline"}
-                        onClick={() => setHiredPersonnel(2)}
-                        className="w-20"
-                      >
-                        2
-                      </Button>
-                    </div>
-                  </div>
+
+                {/* Conditional inputs based on strategy */}
+                {usePartner ? (
                   <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <Euro className="h-5 w-5 text-primary" />
-                      <Label className="text-base font-medium">{calculatorT('avgSalary')}</Label>
+                      <Label className="text-base font-medium">{calculatorT('partnerFee')}</Label>
                     </div>
                     <div className="flex items-center gap-2">
                       <Input 
-                        type="number"
-                        value={commSalary}
-                        onChange={(e) => setCommSalary(Math.max(2500, Math.min(6000, parseInt(e.target.value) || 3500)))}
-                        className="text-right"
+                        type="number" 
+                        value={partnerFee}
+                        onChange={(e) => setPartnerFee(Math.max(1000, Math.min(10000, parseInt(e.target.value) || 1000)))}
+                        className="text-right" 
                       />
                       <span>€/{calculatorT('month')}</span>
                     </div>
                     <div className="flex justify-between text-sm text-muted-foreground">
-                      <span>2 500 €</span>
-                      <span>6 000 €</span>
+                      <span>1 000 €</span>
+                      <span>10 000 €</span>
                     </div>
                   </div>
-                </>
-              )}
-            </div>
-          </Card>
+                ) : (
+                  <>
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <Users className="h-5 w-5 text-primary" />
+                        <Label className="text-base font-medium">{calculatorT('commPersonnel')}</Label>
+                      </div>
+                      <div className="flex justify-center gap-4">
+                        <Button 
+                          variant={hiredPersonnel === 0.5 ? "default" : "outline"}
+                          onClick={() => setHiredPersonnel(0.5)} 
+                          className="w-20"
+                        >
+                          0.5
+                        </Button>
+                        <Button 
+                          variant={hiredPersonnel === 1 ? "default" : "outline"}
+                          onClick={() => setHiredPersonnel(1)}
+                          className="w-20"
+                        >
+                          1
+                        </Button>
+                        <Button 
+                          variant={hiredPersonnel === 1.5 ? "default" : "outline"}
+                          onClick={() => setHiredPersonnel(1.5)}
+                          className="w-20"
+                        >
+                          1.5
+                        </Button>
+                        <Button 
+                          variant={hiredPersonnel === 2 ? "default" : "outline"}
+                          onClick={() => setHiredPersonnel(2)}
+                          className="w-20"
+                        >
+                          2
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3">
+                        <Euro className="h-5 w-5 text-primary" />
+                        <Label className="text-base font-medium">{calculatorT('avgSalary')}</Label>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Input 
+                          type="number"
+                          value={commSalary}
+                          onChange={(e) => setCommSalary(Math.max(2500, Math.min(6000, parseInt(e.target.value) || 3500)))}
+                          className="text-right"
+                        />
+                        <span>€/{calculatorT('month')}</span>
+                      </div>
+                      <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>2 500 €</span>
+                        <span>6 000 €</span>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </Card>
 
-          {/* Output Section */}
-          <div className="space-y-6">
-            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
+            {/* Current Cost */}
+            <Card className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center gap-3 mb-4">
                 <Briefcase className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">
@@ -201,8 +202,9 @@ const ROICalculator = () => {
                   : safeTr('calculator.staffCostDesc', { count: hiredPersonnel })}
               </p>
             </Card>
-            
-            <Card className="bg-blue-50 p-6 rounded-lg shadow-md border-2 border-blue-200 h-fit">
+
+            {/* Efficiency Value */}
+            <Card className="bg-blue-50 p-6 rounded-lg shadow-md border-2 border-blue-200">
               <div className="flex items-center gap-3 mb-4">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
                 <h3 className="text-lg font-semibold text-blue-700">
@@ -218,8 +220,44 @@ const ROICalculator = () => {
                  'Estimated value of saved time and improved efficiency'}
               </p>
             </Card>
-            
-            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
+          </div>
+
+          {/* Right Column - Final Results */}
+          <div className="space-y-6">
+            {/* ROI Card - Most Important Result First */}
+            <Card className="bg-primary/5 p-6 rounded-lg shadow-md border-2 border-primary/20">
+              <div className="flex items-center gap-3 mb-4">
+                <TrendingUp className="h-5 w-5 text-primary" />
+                <h3 className="text-lg font-semibold text-primary/90">{calculatorT('roi')}</h3>
+              </div>
+              <p className="text-5xl font-bold text-primary mb-4">{roi}%</p>
+              <p className="text-sm text-muted-foreground">
+                {language === 'fi' ? 'Sijoitetun pääoman tuotto Lyyli-investoinnille' :
+                 language === 'sv' ? 'Avkastning på investering för Lyyli-investering' :
+                 'Return on investment for Lyyli investment'}
+              </p>
+            </Card>
+
+            {/* Net Savings */}
+            <Card className="bg-emerald-50 p-6 rounded-lg shadow-md border-2 border-emerald-200">
+              <div className="flex items-center gap-3 mb-4">
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
+                <h3 className="text-lg font-semibold text-emerald-700">
+                  {language === 'fi' ? 'Nettosäästöt' : 
+                   language === 'sv' ? 'Nettobesparingar' : 
+                   'Net Savings'}
+                </h3>
+              </div>
+              <p className="text-4xl font-bold text-emerald-600 mb-2">{savings}</p>
+              <p className="text-sm text-emerald-600">
+                {language === 'fi' ? 'Tehokkuusarvo miinus Lyyli-kustannukset' :
+                 language === 'sv' ? 'Effektivitetsvärde minus Lyyli-kostnader' :
+                 'Efficiency value minus Lyyli costs'}
+              </p>
+            </Card>
+
+            {/* Lyyli Cost */}
+            <Card className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center gap-3 mb-4">
                 <Euro className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-primary/90">{calculatorT('lyyliCost')}</h3>
@@ -227,35 +265,34 @@ const ROICalculator = () => {
               <p className="text-3xl font-bold mb-2">{lyyliCost}</p>
               <p className="text-sm text-muted-foreground">{calculatorT('lyyliCostDesc')}</p>
             </Card>
-            
-            <Card className="bg-white p-6 rounded-lg shadow-md h-fit">
-              <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-primary/90">
-                  {language === 'fi' ? 'Nettosäästöt' : 
-                   language === 'sv' ? 'Nettobesparingar' : 
-                   'Net Savings'}
-                </h3>
+
+            {/* Visual Summary */}
+            <Card className="bg-gray-50 p-6 rounded-lg">
+              <h4 className="font-medium text-foreground mb-4">
+                {language === 'fi' ? 'Laskelman yhteenveto' :
+                 language === 'sv' ? 'Beräkningssammanfattning' :
+                 'Calculation Summary'}
+              </h4>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="text-muted-foreground">
+                    {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'}
+                  </span>
+                  <span className="font-medium text-blue-600">+{efficiencyValue}</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="text-muted-foreground">
+                    {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
+                  </span>
+                  <span className="font-medium text-red-600">-{lyyliCost}</span>
+                </div>
+                <div className="flex justify-between items-center py-2 font-semibold">
+                  <span className="text-foreground">
+                    {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'}
+                  </span>
+                  <span className="text-emerald-600">{savings}</span>
+                </div>
               </div>
-              <p className="text-3xl font-bold text-emerald-600 mb-2">{savings}</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'fi' ? 'Tehokkuusarvo miinus Lyyli-kustannukset' :
-                 language === 'sv' ? 'Effektivitetsvärde minus Lyyli-kostnader' :
-                 'Efficiency value minus Lyyli costs'}
-              </p>
-            </Card>
-            
-            <Card className="bg-white p-6 rounded-lg shadow-md border-2 border-primary/20 h-fit">
-              <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-primary/90">{calculatorT('roi')}</h3>
-              </div>
-              <p className="text-4xl font-bold text-primary mb-2">{roi}%</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'fi' ? 'Sijoitetun pääoman tuotto Lyyli-investoinnille' :
-                 language === 'sv' ? 'Avkastning på investering för Lyyli-investering' :
-                 'Return on investment for Lyyli investment'}
-              </p>
             </Card>
           </div>
         </div>
