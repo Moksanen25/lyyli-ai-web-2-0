@@ -14,7 +14,7 @@ const UseCase = () => {
   const [activeSegment, setActiveSegment] = useState('tech');
 
   const currentSegment = segments.find(s => s.id === activeSegment) || segments[0];
-  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : language === 'sv' ? '/sv/waitlist' : '/waitlist';
 
   return (
     <section className="py-16 bg-primary/5">
@@ -24,11 +24,15 @@ const UseCase = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#295045]">
             {language === 'fi' 
               ? 'Ratkaisuja jokaiselle toimialalle' 
+              : language === 'sv'
+              ? 'Lösningar för varje bransch'
               : 'Solutions for every industry'}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {language === 'fi'
               ? 'Lyyli mukautuu toimialasi tarpeisiin ja ratkaisee alan suurimmat viestintähaasteet'
+              : language === 'sv'
+              ? 'Lyyli anpassar sig till din branschs behov och löser de största kommunikationsutmaningarna'
               : 'Lyyli adapts to your industry needs and solves the biggest communication challenges'}
           </p>
         </div>
@@ -78,11 +82,13 @@ const UseCase = () => {
           <h3 className="text-2xl font-bold text-[#295045]">
             {language === 'fi' 
               ? 'Valmis näkemään, miten Lyyli voi auttaa organisaatiotasi?' 
+              : language === 'sv'
+              ? 'Redo att se hur Lyyli kan hjälpa din organisation?'
               : 'Ready to see how Lyyli can help your organization?'}
           </h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-[#295045] hover:bg-[#1f3c34] text-white px-8">
-              {language === 'fi' ? 'Varaa demo' : 'Book a Demo'}
+              {language === 'fi' ? 'Varaa demo' : language === 'sv' ? 'Boka demo' : 'Book a Demo'}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
             <Button 
@@ -92,7 +98,7 @@ const UseCase = () => {
               asChild
             >
               <Link to={waitlistPath}>
-                {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
+                {language === 'fi' ? 'Aloita nyt' : language === 'sv' ? 'Börja nu' : 'Start Now'}
                 <Zap className="ml-2 w-4 h-4" />
               </Link>
             </Button>
