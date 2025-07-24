@@ -21,6 +21,17 @@ export const footer = {
     faq: 'FAQ'
   },
   
+  // Direct footer link access
+  features: 'Funktioner',
+  pricing: 'Priser',
+  faq: 'FAQ',
+  blog: 'Blogg',
+  about: 'Om oss',
+  careers: 'Karriär',
+  privacy: 'Integritetspolicy',
+  terms: 'Användarvillkor',
+  cookies: 'Cookies',
+  
   contact: {
     title: 'Kontakta oss',
     email: 'hello@lyyli.ai',

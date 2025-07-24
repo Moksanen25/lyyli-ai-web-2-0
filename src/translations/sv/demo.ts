@@ -132,5 +132,21 @@ export const demo = {
         answer: 'Efter demon kan vi diskutera en pilotimplementation för ert team.'
       }
     ]
-  }
+  },
+  
+  // Additional demo keys
+  step1: 'Steg 1: Registrera er organisation',
+  step2: 'Steg 2: Anpassa inställningar',
+  step3: 'Steg 3: Börja kommunicera smart',
+  slackIntegration: 'Slack-integration',
+  close: 'Stäng',
+  generating: 'Genererar...',
+  readyToReplaceTitle: 'Redo att ersätta traditionell kommunikation?',
+  readyToReplaceButton: 'Kom igång nu',
+  pause: 'Pausa',
+  resume: 'Fortsätt',
+  seeHowItWorks: 'Se hur det fungerar',
+  description: 'Beskrivning',
+  chatMessages: 'Chattmeddelanden',
+  generatedContent: 'Genererat innehåll'
 };

@@ -88,5 +88,23 @@ export const blog = {
   meta: {
     title: 'Lyyli Blog - Insikter om AI-kommunikation',
     description: 'Senaste insikterna om AI-driven kommunikation, fallstudier och produktnyheter från Lyyli.ai.'
-  }
+  },
+  
+  // Additional blog keys
+  filterByTag: 'Filtrera efter tagg',
+  allTags: 'Alla taggar',
+  backToBlog: 'Tillbaka till blog',
+  relatedPosts: 'Relaterade inlägg',
+  caseStudy: 'Fallstudie',
+  authorBio: 'Om författaren',
+  ctaTitle: 'Vill du veta mer?',
+  ctaSubtitle: 'Kontakta oss för mer information',
+  ctaButton: 'Kontakta oss',
+  minuteRead: 'min läsning',
+  sharePost: 'Dela inlägg',
+  postNotFound: 'Inlägget kunde inte hittas',
+  redirecting: 'Omdirigerar...',
+  loading: 'Laddar...',
+  noFilteredResults: 'Inga resultat hittades för vald filter',
+  translationNotice: 'Detta inlägg är endast tillgängligt på engelska'
 };

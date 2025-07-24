@@ -39,6 +39,10 @@ export const cookieBanner = {
   
   aria: {
     closeButton: 'Stäng cookie-banner',
-    settingsButton: 'Öppna cookie-inställningar'
+    settingsButton: 'Öppna cookie-inställningar',
+    banner: 'Cookie-medgivande banner',
+    close: 'Stäng',
+    settings: 'Cookie-inställningar',
+    dialog: 'Cookie-inställningar dialog'
   }
 };

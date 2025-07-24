@@ -100,5 +100,40 @@ export const customerSegments = {
     title: 'Hitta rätt lösning för din organisation',
     subtitle: 'Oavsett din roll eller företagsstorlek har vi en lösning som passar',
     button: 'Boka personlig demo'
+  },
+  
+  // Additional keys
+  tailoredSolutions: 'Skräddarsydda lösningar',
+  readMore: 'Läs mer',
+  techTitle: 'Teknikföretag',
+  techDesc: 'Innovativa lösningar för tech-team',
+  consultingTitle: 'Konsultföretag',
+  consultingDesc: 'Professionell kommunikation för konsulter',
+  nonprofitTitle: 'Ideella organisationer',
+  nonprofitDesc: 'Effektiv kommunikation för god sak',
+  creativeTitle: 'Kreativa byråer',
+  creativeDesc: 'Kreativ kommunikation för kreativa team',
+  sportsTitle: 'Sportorganisationer',
+  sportsDesc: 'Dynamisk kommunikation för sport',
+  ctaTitle: 'Redo att komma igång?',
+  ctaText: 'Upptäck hur Lyyli kan transformera er kommunikation',
+  ctaButton: 'Boka demo',
+  challenges: 'Utmaningar',
+  solutions: 'Lösningar',
+  readCaseStudy: 'Läs fallstudie',
+  learnMoreButton: 'Läs mer',
+  previous: 'Föregående',
+  next: 'Nästa',
+  goToSlide: 'Gå till slide',
+  noSegmentsAvailable: 'Inga segment tillgängliga',
+  closingText: 'Upptäck hur Lyyli kan förbättra er kommunikation',
+  viewComparisonButton: 'Jämför lösningar',
+  
+  segmentTypes: {
+    tech: 'Teknik',
+    consulting: 'Konsulting',
+    nonprofit: 'Ideell',
+    creative: 'Kreativ',
+    sports: 'Sport'
   }
 };
