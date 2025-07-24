@@ -476,13 +476,13 @@ It should depend on good design.</strong></p>`,
   },
   {
     id: "7",
-    title: "Content AI Oy Established – Lyyli.ai Redefines Communication Automation for Microbusinesses",
-    slug: "content-ai-established-lyyli-redefines-communication",
-    excerpt: "A new era of AI-powered communication begins today. Content AI Oy has been founded to develop and commercialize next-generation communication tools.",
+    title: "Lyyli AI Oy Established – Lyyli.ai Redefines Communication Automation for Microbusinesses",
+    slug: "lyyli-ai-established-lyyli-redefines-communication",
+    excerpt: "A new era of AI-powered communication begins today. Lyyli AI Oy has been founded to develop and commercialize next-generation communication tools.",
     content: `
       <h2>Founders and First Investor</h2>
       
-      <p>Content AI Oy was founded by Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) and Veikko Laitinen (Aimaster Oy), two experienced professionals with backgrounds in AI, communication, and small business growth. The company's first investor is Expion Oy, supporting Content AI's mission to bring intelligent communication tools within reach of every microenterprise in Europe.</p>
+      <p>Lyyli AI Oy was founded by Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) and Veikko Laitinen (Aimaster Oy), two experienced professionals with backgrounds in AI, communication, and small business growth. The company's first investor is Expion Oy, supporting Lyyli AI's mission to bring intelligent communication tools within reach of every microenterprise in Europe.</p>
       
       <h2>Lyyli.ai – Let AI Handle Your Communications</h2>
       
@@ -535,13 +535,13 @@ It should depend on good design.</strong></p>`,
   },
   {
     id: "8",
-    title: "Content AI Oy on perustettu – Lyyli.ai mullistaa viestinnän automaation mikroyrityksille",
-    slug: "content-ai-perustettu-lyyli-viestintaautomaatio",
-    excerpt: "Tekoälyn uusi aikakausi viestinnässä alkaa nyt. Uunituore Content AI Oy on perustettu kehittämään ja kaupallistamaan uuden sukupolven viestintätyökaluja.",
+    title: "Lyyli AI Oy on perustettu – Lyyli.ai mullistaa viestinnän automaation mikroyrityksille",
+    slug: "lyyli-ai-perustettu-lyyli-viestintaautomaatio",
+    excerpt: "Tekoälyn uusi aikakausi viestinnässä alkaa nyt. Uunituore Lyyli AI Oy on perustettu kehittämään ja kaupallistamaan uuden sukupolven viestintätyökaluja.",
     content: `
       <h2>Perustajat ja ensimmäinen sijoittaja</h2>
       
-      <p>Content AI Oy:n perustajat ovat Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) ja Veikko Laitinen (Aimaster Oy). Heidän taustansa yhdistävät vahvan osaamisen tekoälystä, viestinnästä ja pk-yritysten liiketoiminnasta. Yhtiön ensimmäiseksi sijoittajaksi on lähtenyt Expion Oy, joka uskoo Content AI:n visioon älykkäästä, automatisoidusta viestinnästä eurooppalaisille mikroyrityksille.</p>
+      <p>Lyyli AI Oy:n perustajat ovat Mikko Oksanen (Jiiri Asiantuntijapalvelut Oy) ja Veikko Laitinen (Aimaster Oy). Heidän taustansa yhdistävät vahvan osaamisen tekoälystä, viestinnästä ja pk-yritysten liiketoiminnasta. Yhtiön ensimmäiseksi sijoittajaksi on lähtenyt Expion Oy, joka uskoo Lyyli AI:n visioon älykkäästä, automatisoidusta viestinnästä eurooppalaisille mikroyrityksille.</p>
       
       <h2>Lyyli.ai – Tekoäly joka hoitaa viestinnän puolestasi</h2>
       

@@ -102,8 +102,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     
     if (newLanguage === 'fi' && !currentPath.startsWith('/fi')) {
       newPath = `/fi${currentPath}`;
-    } else if (newLanguage === 'en' && currentPath.startsWith('/fi')) {
-      newPath = currentPath.substring(3) || '/';
+    } else if (newLanguage === 'sv' && !currentPath.startsWith('/sv')) {
+      newPath = `/sv${currentPath}`;
+    } else if (newLanguage === 'en' && (currentPath.startsWith('/fi') || currentPath.startsWith('/sv'))) {
+      if (currentPath.startsWith('/fi/')) {
+        newPath = currentPath.substring(3) || '/';
+      } else if (currentPath.startsWith('/sv/')) {
+        newPath = currentPath.substring(3) || '/';
+      } else if (currentPath === '/fi' || currentPath === '/sv') {
+        newPath = '/';
+      }
     }
     
     if (newPath) {

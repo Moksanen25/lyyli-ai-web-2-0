@@ -5,8 +5,10 @@ import { SupportedLanguage } from "@/translations";
 export const getBrowserLanguage = (): SupportedLanguage => {
   try {
     const browserLang = navigator.language.split('-')[0].toLowerCase();
-    // Currently we only support 'en' and 'fi'
-    return browserLang === 'fi' ? 'fi' : 'en';
+    // Support 'en', 'fi', and 'sv'
+    if (browserLang === 'fi') return 'fi';
+    if (browserLang === 'sv') return 'sv';
+    return 'en'; // Default to English
   } catch (error) {
     console.error('Error detecting browser language:', error);
     return 'en'; // Default to English
@@ -38,7 +40,9 @@ export const findTranslationValue = (
 
 // Extract language path segment from URL
 export const getPathLanguage = (pathname: string): SupportedLanguage | null => {
-  return pathname.startsWith('/fi/') || pathname === '/fi' ? 'fi' : null;
+  if (pathname.startsWith('/fi/') || pathname === '/fi') return 'fi';
+  if (pathname.startsWith('/sv/') || pathname === '/sv') return 'sv';
+  return null;
 };
 
 // Update path based on language
@@ -46,18 +50,33 @@ export const getUpdatedPath = (
   currentPath: string,
   language: SupportedLanguage
 ): string | null => {
-  if (language === 'fi' && !(currentPath.startsWith('/fi'))) {
+  // Remove any existing language prefix
+  const isCurrentlyFi = currentPath.startsWith('/fi');
+  const isCurrentlySv = currentPath.startsWith('/sv');
+  
+  if (language === 'fi' && !isCurrentlyFi) {
     // Need to add /fi prefix
-    if (currentPath === '/') {
-      return '/fi';
+    let basePath = currentPath;
+    if (isCurrentlySv) {
+      basePath = currentPath.startsWith('/sv/') ? currentPath.substring(3) : '/';
     }
-    return `/fi${currentPath}`;
-  } else if (language === 'en' && currentPath.startsWith('/fi/')) {
-    // Need to remove /fi prefix
-    return currentPath.substring(3) || '/';
-  } else if (language === 'en' && currentPath === '/fi') {
-    // Handle root Finnish path
-    return '/';
+    return basePath === '/' ? '/fi' : `/fi${basePath}`;
+  } else if (language === 'sv' && !isCurrentlySv) {
+    // Need to add /sv prefix
+    let basePath = currentPath;
+    if (isCurrentlyFi) {
+      basePath = currentPath.startsWith('/fi/') ? currentPath.substring(3) : '/';
+    }
+    return basePath === '/' ? '/sv' : `/sv${basePath}`;
+  } else if (language === 'en' && (isCurrentlyFi || isCurrentlySv)) {
+    // Need to remove language prefix
+    if (currentPath.startsWith('/fi/')) {
+      return currentPath.substring(3) || '/';
+    } else if (currentPath.startsWith('/sv/')) {
+      return currentPath.substring(3) || '/';
+    } else if (currentPath === '/fi' || currentPath === '/sv') {
+      return '/';
+    }
   }
   
   return null; // No change needed
@@ -91,16 +110,28 @@ export const getLanguageFromPath = (pathname: string): SupportedLanguage => {
   if (pathname.startsWith('/fi/') || pathname === '/fi') {
     return 'fi';
   }
+  if (pathname.startsWith('/sv/') || pathname === '/sv') {
+    return 'sv';
+  }
   return 'en';
 };
 
 // Build localized path
 export const buildLocalizedPath = (path: string, language: SupportedLanguage): string => {
   // Remove existing language prefix if present
-  const cleanPath = path.startsWith('/fi/') ? path.substring(3) : path === '/fi' ? '/' : path;
+  let cleanPath = path;
+  if (path.startsWith('/fi/')) {
+    cleanPath = path.substring(3);
+  } else if (path.startsWith('/sv/')) {
+    cleanPath = path.substring(3);
+  } else if (path === '/fi' || path === '/sv') {
+    cleanPath = '/';
+  }
   
   if (language === 'fi') {
-    return cleanPath === '/' ? '/fi/' : `/fi${cleanPath}`;
+    return cleanPath === '/' ? '/fi' : `/fi${cleanPath}`;
+  } else if (language === 'sv') {
+    return cleanPath === '/' ? '/sv' : `/sv${cleanPath}`;
   }
   
   return cleanPath;
