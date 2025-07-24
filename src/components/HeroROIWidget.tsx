@@ -9,58 +9,68 @@ import { Link } from 'react-router-dom';
 
 const HeroROIWidget: React.FC = () => {
   const { language } = useLanguage();
-  const [teamSize, setTeamSize] = useState(100);
+  const [teamSize, setTeamSize] = useState(1);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // ROI Calculation
+  // ROI Calculation based on communication assistants
   const calculateROI = () => {
-    const traditionalCost = 84000; // Annual cost of hiring a communication manager
-    const lyyliCost = 7188; // Annual Lyyli subscription cost
-    const savings = traditionalCost - lyyliCost;
-    const roi = ((savings / lyyliCost) * 100);
+    const monthlySalary = 3500; // €3,500 monthly salary for communication assistant
+    const annualSalary = monthlySalary * 12; // €42,000 annual salary
+    const employerCosts = annualSalary * 1.4; // €58,800 with employer costs (benefits, taxes, etc.)
+    const efficiencyImprovement = 0.80; // 80% improvement in performance (time saved on routines)
+    const timeSavingsValue = employerCosts * efficiencyImprovement * teamSize; // Value from 80% time savings per assistant
+    const lyyliAnnualCost = 599 * 12; // €7,188 Professional subscription annual cost
+    
+    const netSavings = timeSavingsValue - lyyliAnnualCost; // Net savings
+    const roi = (netSavings / lyyliAnnualCost) * 100; // ROI percentage
     
     return {
-      savings: savings.toLocaleString('en-US'),
-      roi: Math.round(roi).toLocaleString('en-US')
+      savings: Math.round(netSavings).toLocaleString('en-US'),
+      roi: Math.round(roi).toLocaleString('en-US'),
+      timeSavingsValue: Math.round(timeSavingsValue).toLocaleString('en-US'),
+      lyyliCost: lyyliAnnualCost.toLocaleString('en-US')
     };
   };
 
-  const { savings, roi } = calculateROI();
+  const { savings, roi, timeSavingsValue, lyyliCost } = calculateROI();
 
   const getText = (key: string) => {
     const texts = {
       en: {
         title: 'See Your Savings',
-        subtitle: 'Calculate ROI in 30 seconds',
-        teamSize: 'Team size',
-        employees: 'employees',
+        subtitle: 'ROI from 80% efficiency gain',
+        teamSize: 'Communication assistants',
+        employees: 'assistant(s)',
         annualSavings: 'Annual Savings',
         roiPercentage: 'ROI',
-        vs: 'vs hiring communication staff',
+        vs: 'vs 80% time savings value',
         calculateFull: 'Calculate Full ROI',
-        bookDemo: 'Book Demo'
+        bookDemo: 'Book Demo',
+        timeSavings: 'Time Savings Value'
       },
       fi: {
         title: 'Katso säästösi',
-        subtitle: 'Laske ROI 30 sekunnissa',
-        teamSize: 'Tiimin koko',
-        employees: 'työntekijää',
+        subtitle: 'ROI 80% tehokkuuskasvusta',
+        teamSize: 'Viestintäassistentit',
+        employees: 'assistentti(a)',
         annualSavings: 'Vuosisäästöt',
         roiPercentage: 'ROI',
-        vs: 'vs viestintähenkilöstön palkkaaminen',
+        vs: 'vs 80% ajansäästön arvo',
         calculateFull: 'Laske täysi ROI',
-        bookDemo: 'Varaa demo'
+        bookDemo: 'Varaa demo',
+        timeSavings: 'Ajansäästön arvo'
       },
       sv: {
         title: 'Se dina besparingar',
-        subtitle: 'Beräkna ROI på 30 sekunder',
-        teamSize: 'Teamstorlek',
-        employees: 'anställda',
+        subtitle: 'ROI från 80% effektivitetsökning',
+        teamSize: 'Kommunikationsassistenter',
+        employees: 'assistent(er)',
         annualSavings: 'Årliga besparingar',
         roiPercentage: 'ROI',
-        vs: 'vs att anställa kommunikationspersonal',
+        vs: 'vs 80% tidsbesparingens värde',
         calculateFull: 'Beräkna full ROI',
-        bookDemo: 'Boka demo'
+        bookDemo: 'Boka demo',
+        timeSavings: 'Tidsbesparingens värde'
       }
     };
     return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
@@ -93,6 +103,10 @@ const HeroROIWidget: React.FC = () => {
               {getText('vs')}
             </p>
             
+            <div className="text-xs text-center text-muted-foreground mb-2">
+              {getText('timeSavings')}: €{timeSavingsValue} - Lyyli: €{lyyliCost}
+            </div>
+            
             <div className="flex gap-2">
               <Button 
                 variant="outline" 
@@ -123,10 +137,10 @@ const HeroROIWidget: React.FC = () => {
                 <Input
                   type="number"
                   value={teamSize}
-                  onChange={(e) => setTeamSize(Math.max(30, Math.min(1000, parseInt(e.target.value) || 100)))}
+                  onChange={(e) => setTeamSize(Math.max(1, Math.min(5, parseInt(e.target.value) || 1)))}
                   className="text-center"
-                  min="30"
-                  max="1000"
+                  min="1"
+                  max="5"
                 />
                 <span className="text-sm text-muted-foreground">{getText('employees')}</span>
               </div>
