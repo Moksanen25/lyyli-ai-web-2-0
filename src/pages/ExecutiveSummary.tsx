@@ -37,9 +37,9 @@ const ExecutiveSummary: React.FC = () => {
         title: 'Johtajuuden yhteenveto: AI-pohjainen sisäinen viestintä',
         subtitle: 'Strateginen yleiskatsaus C-tason päättäjille',
         hero: {
-          title: 'Muuta organisaatiosi viestinnän tehokkuus',
-          subtitle: 'Lyyli.ai tuottaa mitattavaa ROI:ta AI-pohjaisella sisäisen viestinnän automaatiolla eksperttiorganisaatioille',
-          cta: 'Varaa johtotason briefing',
+          title: 'Muuta asiantuntijaorganisaatiosi viestinnän tehokkuus',
+          subtitle: 'Lyyli.ai tuottaa mitattavaa ROI:ta AI-pohjaisella sisäisen viestinnän automaatiolla asiantuntijaorganisaatioille',
+          cta: 'Varaa demo päättäjille',
           secondaryCta: 'Katso toteutussuunnitelma'
         },
         businessCase: {
@@ -67,10 +67,10 @@ const ExecutiveSummary: React.FC = () => {
     } else if (language === 'sv') {
       return {
         title: 'Ledningssammanfattning: AI-driven intern kommunikation',
-        subtitle: 'Strategisk översikt för C-level beslutsfattare',
+          subtitle: 'Strateginen yleiskatsaus C-tason päättäjille',
         hero: {
-          title: 'Transformera din organisations kommunikationseffektivitet',
-          subtitle: 'Lyyli.ai levererar mätbar ROI genom AI-driven automation av intern kommunikation för expertorganisationer',
+          title: 'Muuta asiantuntijaorganisaatiosi viestinnän tehokkuus',
+          subtitle: 'Lyyli.ai tuottaa mitattavaa ROI:ta AI-pohjaisella sisäisen viestinnän automaatiolla asiantuntijaorganisaatioille',
           cta: 'Boka ledningsbriefing',
           secondaryCta: 'Se implementeringsplan'
         },
@@ -99,10 +99,10 @@ const ExecutiveSummary: React.FC = () => {
     } else {
       return {
         title: 'Executive Summary: AI-Powered Internal Communication',
-        subtitle: 'Strategic overview for C-level decision makers',
+          subtitle: 'Strategic overview for C-level decision makers',
         hero: {
           title: 'Transform Your Organization\'s Communication Efficiency',
-          subtitle: 'Lyyli.ai delivers measurable ROI through AI-powered internal communication automation for expert organizations',
+          subtitle: 'Lyyli.ai delivers measurable ROI through AI-powered internal communication automation for professional services companies',
           cta: 'Schedule Executive Briefing',
           secondaryCta: 'View Implementation Plan'
         },
@@ -192,9 +192,9 @@ const ExecutiveSummary: React.FC = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{content.businessCase.title}</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {language === 'fi' ? 'Miksi eksperttiorganisaatiot valitsevat Lyyli.ai:n' : 
+                {language === 'fi' ? 'Miksi asiantuntijaorganisaatiot valitsevat Lyyli.ai:n' :
                  language === 'sv' ? 'Varför expertorganisationer väljer Lyyli.ai' : 
-                 'Why expert organizations choose Lyyli.ai'}
+                 'Why professional services companies choose Lyyli.ai'}
               </p>
             </div>
 
@@ -369,9 +369,9 @@ const ExecutiveSummary: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6">
-                    {language === 'fi' ? 'Täydellinen 100-500 hengen organisaatioille' : 
+                    {language === 'fi' ? 'Täydellinen 100-500 hengen asiantuntijaorganisaatioille' :
                      language === 'sv' ? 'Perfekt för 100-500 personers organisationer' : 
-                     'Perfect for 100-500 person organizations'}
+                     'Perfect for 100-500 person professional services companies'}
                   </p>
                   <ul className="space-y-2">
                     {[
@@ -451,8 +451,8 @@ const ExecutiveSummary: React.FC = () => {
                 <CardContent className="p-6 text-center">
                   <Calendar className="h-8 w-8 mb-4 mx-auto" />
                   <h3 className="text-lg font-semibold mb-2">
-                    {language === 'fi' ? 'Johtajuuden demo' : 
-                     language === 'sv' ? 'Ledningsdemo' : 
+                    {language === 'fi' ? 'Demo päättäjille' : 
+                     language === 'sv' ? 'Ledningsdemo' :
                      'Executive Demo'}
                   </h3>
                   <p className="text-white/80 mb-4">
@@ -503,8 +503,8 @@ const ExecutiveSummary: React.FC = () => {
                 <CardContent className="p-6 text-center">
                   <Phone className="h-8 w-8 mb-4 mx-auto" />
                   <h3 className="text-lg font-semibold mb-2">
-                    {language === 'fi' ? 'Johtajuuden yhteystiedot' : 
-                     language === 'sv' ? 'Ledningskontakt' : 
+                    {language === 'fi' ? 'Yhteystiedot' : 
+                     language === 'sv' ? 'Ledningskontakt' :
                      'Executive Contact'}
                   </h3>
                   <p className="text-white/80 mb-4">
