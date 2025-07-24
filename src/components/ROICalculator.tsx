@@ -269,6 +269,117 @@ const ROICalculator = () => {
             Start saving today with Lyyli.ai
           </p>
         </div>
+
+        {/* ROI Calculation Assumptions */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-gray-50 rounded-lg p-8">
+            <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
+              {language === 'fi' ? 'ROI-laskurin oletukset ja metodologia' :
+               language === 'sv' ? 'ROI-kalkylatorn antaganden och metodik' :
+               'ROI Calculator Assumptions & Methodology'}
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="font-medium text-foreground mb-4">
+                  {language === 'fi' ? 'Perusoletuket' :
+                   language === 'sv' ? 'Grundantaganden' :
+                   'Base Assumptions'}
+                </h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[120px]">
+                      {language === 'fi' ? 'Oletuspalkka:' :
+                       language === 'sv' ? 'Standardlön:' :
+                       'Default Salary:'}
+                    </span>
+                    <span>€3,500/month ({language === 'fi' ? 'viestintäassistentti' : language === 'sv' ? 'kommunikationsassistent' : 'communication assistant'})</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[120px]">
+                      {language === 'fi' ? 'Työnantajakulut:' :
+                       language === 'sv' ? 'Arbetsgivarkostnader:' :
+                       'Employer Costs:'}
+                    </span>
+                    <span>+40% ({language === 'fi' ? 'edut, verot, yleiskulut' : language === 'sv' ? 'förmåner, skatter, omkostnader' : 'benefits, taxes, overhead'})</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[120px]">
+                      {language === 'fi' ? 'Lyyli Professional:' :
+                       language === 'sv' ? 'Lyyli Professional:' :
+                       'Lyyli Professional:'}
+                    </span>
+                    <span>€599/{language === 'fi' ? 'kk' : language === 'sv' ? 'månad' : 'month'} (€7,188/{language === 'fi' ? 'vuosi' : language === 'sv' ? 'år' : 'year'})</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-medium text-foreground mb-4">
+                  {language === 'fi' ? 'Tehokkuusparannukset' :
+                   language === 'sv' ? 'Effektivitetsförbättringar' :
+                   'Efficiency Improvements'}
+                </h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[100px]">
+                      {language === 'fi' ? 'Ajansäästö:' :
+                       language === 'sv' ? 'Tidsbesparing:' :
+                       'Time Savings:'}
+                    </span>
+                    <span>80% {language === 'fi' ? 'viestintärutiineissa' : language === 'sv' ? 'i kommunikationsrutiner' : 'in communication routines'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[100px]">
+                      {language === 'fi' ? 'Automaatio:' :
+                       language === 'sv' ? 'Automation:' :
+                       'Automation:'}
+                    </span>
+                    <span>{language === 'fi' ? 'Sisällönluonti, jakelu, seuranta' : language === 'sv' ? 'Innehållsskapande, distribution, uppföljning' : 'Content creation, distribution, tracking'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-medium min-w-[100px]">
+                      {language === 'fi' ? 'Laatuparannus:' :
+                       language === 'sv' ? 'Kvalitetsförbättring:' :
+                       'Quality Improvement:'}
+                    </span>
+                    <span>{language === 'fi' ? 'Johdonmukainen brändiviestintä' : language === 'sv' ? 'Konsekvent varumärkeskommunikation' : 'Consistent brand messaging'}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h4 className="font-medium text-foreground mb-4">
+                {language === 'fi' ? 'Laskentakaava' :
+                 language === 'sv' ? 'Beräkningsformel' :
+                 'Calculation Formula'}
+              </h4>
+              <div className="bg-white rounded p-4 text-sm">
+                <div className="font-mono text-center space-y-2">
+                  <div className="text-blue-600">
+                    {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'} = {language === 'fi' ? 'Vuosikustannukset' : language === 'sv' ? 'Årskostnader' : 'Annual Costs'} × 80%
+                  </div>
+                  <div className="text-emerald-600">
+                    {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'} = {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'} - {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
+                  </div>
+                  <div className="text-primary">
+                    ROI = ({language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'} ÷ {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}) × 100%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 text-xs text-muted-foreground text-center">
+              {language === 'fi' ? 
+                'Huomaa: Tulokset ovat arvioita ja todelliset säästöt voivat vaihdella organisaation ja käyttötavan mukaan.' :
+                language === 'sv' ?
+                'Obs: Resultaten är uppskattningar och faktiska besparingar kan variera beroende på organisation och användning.' :
+                'Note: Results are estimates and actual savings may vary based on organization and usage patterns.'
+              }
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
