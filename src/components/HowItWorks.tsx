@@ -15,7 +15,7 @@ import {
 
 const HowItWorks: React.FC = () => {
   const { t, language } = useLanguage();
-  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : language === 'sv' ? '/sv/waitlist' : '/waitlist';
 
   const steps = [
     {

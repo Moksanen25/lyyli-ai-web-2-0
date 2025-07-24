@@ -179,18 +179,30 @@ export const howItWorks = {
     ]
   },
   
-  cta: {
+  cta: 'Kom igång idag',
+  ctaSection: {
     title: 'Redo att se Lyyli i aktion?',
     subtitle: 'Boka en demo och se hur Lyyli kan förbättra er kommunikation',
     primaryButton: 'Boka live-demo',
     secondaryButton: 'Starta gratis testversion',
-    
     promise: 'No strings attached - se resultaten själva'
   },
 
   tagline: 'AI som lär sig, föreslår, samarbetar och publicerar',
-  step1: 'AI lär sig din kommunikationsstil',
-  step2: 'Genererar intelligenta förslag', 
-  step3: 'Samarbetar med ditt team',
-  step4: 'Publicerar och analyserar'
+  step1: {
+    title: 'AI lär sig din kommunikationsstil',
+    description: 'Lyyli analyserar din befintliga kommunikation för att förstå din ton, stil och varumärke'
+  },
+  step2: {
+    title: 'Genererar intelligenta förslag',
+    description: 'Baserat på kontext föreslår Lyyli optimala meddelanden för maximal effekt'
+  },
+  step3: {
+    title: 'Samarbetar med ditt team',
+    description: 'Integreras med era befintliga verktyg för sömlöst teamsamarbete'
+  },
+  step4: {
+    title: 'Publicerar och analyserar',
+    description: 'Automatisk publicering med detaljerad analys för kontinuerlig förbättring'
+  }
 };
