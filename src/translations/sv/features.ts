@@ -100,10 +100,22 @@ export const features = {
   hero: 'Hero-sektion',
   solutionFinder: 'Lösningssökare',
   mainFeatures: 'Huvudfunktioner',
-  feature1: 'AI-kommunikationsassistent',
-  feature2: 'Automatiserade arbetsflöden',
-  feature3: 'Team-samarbete',
-  feature4: 'Analys och rapporter',
+  feature1: {
+    title: 'AI-innehållsgenerering',
+    description: 'Skapa professionellt innehåll på sekunder'
+  },
+  feature2: {
+    title: 'Teamsamarbete',
+    description: 'Arbeta sömlöst med hela ditt team'
+  },
+  feature3: {
+    title: 'Schemaläggning & Automation',
+    description: 'Ställ in och glöm med smart schemaläggning'
+  },
+  feature4: {
+    title: 'Avancerad analys',
+    description: 'Mät effekten av din kommunikation'
+  },
   additionalFeatures: 'Ytterligare funktioner',
   integrations: 'Integrationer',
   customerSegments: 'Kundsegment',
