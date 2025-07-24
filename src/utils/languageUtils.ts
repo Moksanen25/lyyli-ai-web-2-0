@@ -50,36 +50,30 @@ export const getUpdatedPath = (
   currentPath: string,
   language: SupportedLanguage
 ): string | null => {
-  // Remove any existing language prefix
-  const isCurrentlyFi = currentPath.startsWith('/fi');
-  const isCurrentlySv = currentPath.startsWith('/sv');
-  
-  if (language === 'fi' && !isCurrentlyFi) {
-    // Need to add /fi prefix
-    let basePath = currentPath;
-    if (isCurrentlySv) {
-      basePath = currentPath.startsWith('/sv/') ? currentPath.substring(3) : '/';
-    }
-    return basePath === '/' ? '/fi' : `/fi${basePath}`;
-  } else if (language === 'sv' && !isCurrentlySv) {
-    // Need to add /sv prefix
-    let basePath = currentPath;
-    if (isCurrentlyFi) {
-      basePath = currentPath.startsWith('/fi/') ? currentPath.substring(3) : '/';
-    }
-    return basePath === '/' ? '/sv' : `/sv${basePath}`;
-  } else if (language === 'en' && (isCurrentlyFi || isCurrentlySv)) {
-    // Need to remove language prefix
-    if (currentPath.startsWith('/fi/')) {
-      return currentPath.substring(3) || '/';
-    } else if (currentPath.startsWith('/sv/')) {
-      return currentPath.substring(3) || '/';
-    } else if (currentPath === '/fi' || currentPath === '/sv') {
-      return '/';
-    }
+  // First, clean any existing language prefix to get the base path
+  let basePath = currentPath;
+  if (currentPath.startsWith('/fi/')) {
+    basePath = currentPath.substring(3);
+  } else if (currentPath.startsWith('/sv/')) {
+    basePath = currentPath.substring(3);
+  } else if (currentPath === '/fi' || currentPath === '/sv') {
+    basePath = '/';
   }
   
-  return null; // No change needed
+  // If base path is empty, default to root
+  if (!basePath || basePath === '') {
+    basePath = '/';
+  }
+  
+  // Now apply the new language prefix
+  if (language === 'fi') {
+    return basePath === '/' ? '/fi' : `/fi${basePath}`;
+  } else if (language === 'sv') {
+    return basePath === '/' ? '/sv' : `/sv${basePath}`;
+  } else {
+    // English - no prefix
+    return basePath;
+  }
 };
 
 // Safe way to get a nested translation object

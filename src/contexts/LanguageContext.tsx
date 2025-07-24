@@ -95,27 +95,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Update language in state
     setLanguageState(newLanguage);
     
-    // Immediately update the URL to match the new language preference
-    // This helps ensure the navigation happens correctly
-    const currentPath = location.pathname;
-    let newPath: string | null = null;
-    
-    if (newLanguage === 'fi' && !currentPath.startsWith('/fi')) {
-      newPath = `/fi${currentPath}`;
-    } else if (newLanguage === 'sv' && !currentPath.startsWith('/sv')) {
-      newPath = `/sv${currentPath}`;
-    } else if (newLanguage === 'en' && (currentPath.startsWith('/fi') || currentPath.startsWith('/sv'))) {
-      if (currentPath.startsWith('/fi/')) {
-        newPath = currentPath.substring(3) || '/';
-      } else if (currentPath.startsWith('/sv/')) {
-        newPath = currentPath.substring(3) || '/';
-      } else if (currentPath === '/fi' || currentPath === '/sv') {
-        newPath = '/';
-      }
-    }
+    // Get the updated path using the improved logic
+    const newPath = getUpdatedPath(location.pathname, newLanguage);
     
     if (newPath) {
-      console.log('Immediately updating path to:', newPath);
+      console.log('Immediately updating path from', location.pathname, 'to:', newPath);
       navigate(newPath, { replace: true });
     }
   };
