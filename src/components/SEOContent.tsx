@@ -14,6 +14,13 @@ const SEOContent: React.FC = () => {
     'Integraatio olemassa oleviin järjestelmiin',
     'Reaaliaikainen yhteistyö ja versionhallinta',
     'Monikanavajakelun automatisointi'
+  ] : language === 'sv' ? [
+    'Automatisk innehållsskapande med AI',
+    'GDPR-kompatibelt dataskydd',
+    'EU-servrar och svenskt stöd',
+    'Integration med befintliga system',
+    'Realtidssamarbete och versionshantering',
+    'Automatisering av flerkanalsdistribution'
   ] : [
     'Automated content creation with AI',
     'GDPR-compliant data protection',
@@ -28,6 +35,11 @@ const SEOContent: React.FC = () => {
     'Paranna viestinnän johdonmukaisuutta',
     'Vähennä markkinointikuluja merkittävästi',
     'Nopea käyttöönotto ja käyttäjäystävällinen'
+  ] : language === 'sv' ? [
+    'Spara 80% tid i innehållsproduktion',
+    'Förbättra kommunikationskonsistens',
+    'Minska marknadsföringskostnader betydligt',
+    'Snabb implementering och användarvänlig'
   ] : [
     'Save 80% time in content production',
     'Improve communication consistency',
@@ -37,14 +49,18 @@ const SEOContent: React.FC = () => {
 
   const title = language === 'fi' 
     ? 'Miksi valita Lyyli viestintäassistentiksesi?'
+    : language === 'sv'
+    ? 'Varför välja Lyyli som kommunikationsassistent?'
     : 'Why choose Lyyli as your communication assistant?';
 
   const description = language === 'fi'
     ? 'Lyyli muuttaa tapaa, jolla yritykset luovat ja hallitsevat sisältöä. Tekoälyavusteinen alustamme automatisoi rutiinitehtäviä, parantaa sisällön laatua ja varmistaa johdonmukaisen viestinnän kaikissa kanavissa.'
+    : language === 'sv'
+    ? 'Lyyli förändrar hur företag skapar och hanterar innehåll. Vår AI-drivna plattform automatiserar rutinuppgifter, förbättrar innehållskvalitet och säkerställer konsekvent kommunikation i alla kanaler.'
     : 'Lyyli transforms how businesses create and manage content. Our AI-powered platform automates routine tasks, improves content quality, and ensures consistent communication across all channels.';
 
-  const ctaText = language === 'fi' ? 'Aloita maksuton kokeilu' : 'Start free trial';
-  const learnMoreText = language === 'fi' ? 'Lue lisää ominaisuuksista' : 'Learn more about features';
+  const ctaText = language === 'fi' ? 'Aloita maksuton kokeilu' : language === 'sv' ? 'Starta gratis provperiod' : 'Start free trial';
+  const learnMoreText = language === 'fi' ? 'Lue lisää ominaisuuksista' : language === 'sv' ? 'Läs mer om funktioner' : 'Learn more about features';
 
   return (
     <section className="py-16 bg-background">
@@ -61,7 +77,7 @@ const SEOContent: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-xl font-semibold mb-4 text-foreground">
-                {language === 'fi' ? 'Keskeiset ominaisuudet' : 'Key features'}
+                {language === 'fi' ? 'Keskeiset ominaisuudet' : language === 'sv' ? 'Viktiga funktioner' : 'Key features'}
               </h3>
               <ul className="space-y-3">
                 {features.map((feature, index) => (
@@ -75,7 +91,7 @@ const SEOContent: React.FC = () => {
 
             <div>
               <h3 className="text-xl font-semibold mb-4 text-foreground">
-                {language === 'fi' ? 'Liiketoimintahyödyt' : 'Business benefits'}
+                {language === 'fi' ? 'Liiketoimintahyödyt' : language === 'sv' ? 'Affärsfördelar' : 'Business benefits'}
               </h3>
               <ul className="space-y-3">
                 {benefits.map((benefit, index) => (
@@ -95,7 +111,7 @@ const SEOContent: React.FC = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 asChild
               >
-                <Link to={language === 'fi' ? '/fi/waitlist' : '/waitlist'}>
+                <Link to={language === 'fi' ? '/fi/waitlist' : language === 'sv' ? '/sv/waitlist' : '/waitlist'}>
                   {ctaText}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
@@ -106,7 +122,7 @@ const SEOContent: React.FC = () => {
                 size="lg"
                 asChild
               >
-                <Link to={language === 'fi' ? '/fi/features' : '/features'}>
+                <Link to={language === 'fi' ? '/fi/features' : language === 'sv' ? '/sv/features' : '/features'}>
                   {learnMoreText}
                 </Link>
               </Button>
