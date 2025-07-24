@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import HowItWorks from '@/components/HowItWorks';
 import SEOContent from '@/components/SEOContent';
+import ImplementationTimeline from '@/components/ImplementationTimeline';
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { SEOHead } from '@/components/SEOHead';
@@ -177,6 +178,12 @@ const Index = () => {
         
         <SafeSection name="Testimonials">
           <TestimonialsSection />
+        </SafeSection>
+        
+        <SafeSection name="Implementation Timeline">
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <ImplementationTimeline />
+          </React.Suspense>
         </SafeSection>
         
         <SafeSection name="Blog Posts">

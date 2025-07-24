@@ -72,6 +72,18 @@ function AppRoutes() {
       
       {/* Swedish routes */}
       <Route path="/sv" element={<Index />} />
+      <Route path="/sv/about" element={<About />} />
+      <Route path="/sv/contact" element={<Contact />} />
+      <Route path="/sv/features" element={<Features />} />
+      <Route path="/sv/security" element={<Security />} />
+      <Route path="/sv/pricing" element={<Pricing />} />
+      <Route path="/sv/case-studies" element={<CaseStudies />} />
+      <Route path="/sv/blog" element={<BlogList />} />
+      <Route path="/sv/blog/:slug" element={<BlogPost />} />
+      <Route path="/sv/waitlist" element={<Waitlist />} />
+      <Route path="/sv/privacy" element={<PrivacyPolicy />} />
+      <Route path="/sv/cookies" element={<CookiePolicy />} />
+      <Route path="/sv/jci-members" element={<JCIMembers />} />
       <Route path="/sv/executive-summary" element={<ExecutiveSummary />} />
       
       {/* Catch-all route */}
