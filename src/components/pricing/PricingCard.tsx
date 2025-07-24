@@ -78,24 +78,30 @@ const PricingCard: React.FC<PricingCardProps> = ({
   };
 
   return (
-    <Card className={`h-full flex flex-col border-none card-shadow ${accent ? 'bg-primary text-white relative overflow-hidden' : 'bg-white'}`}>
+    <Card className={`h-full flex flex-col border-none transition-all duration-300 hover:-translate-y-2 group ${accent ? 'bg-gradient-to-br from-primary to-primary/90 text-white relative overflow-hidden shadow-xl' : 'bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl'}`}>
       {accent && (
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary/80" />
+        <>
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </>
+      )}
+      {!accent && (
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       )}
       
-      <CardHeader className="space-y-2.5 flex-shrink-0">
+      <CardHeader className="space-y-2.5 flex-shrink-0 relative z-10">
         <div className="flex items-center justify-between">
           <CardTitle className="text-2xl font-semibold">{name}</CardTitle>
-          <div className={`rounded-full p-2 ${accent ? 'bg-white/20' : 'bg-secondary/20'}`}>
+          <div className={`rounded-full p-3 transition-transform duration-300 group-hover:scale-110 ${accent ? 'bg-white/20' : 'bg-gradient-to-br from-primary/20 to-accent/20'}`}>
             {icon}
           </div>
         </div>
-        <CardDescription className={accent ? "text-white/90" : "text-muted-foreground"}>
+        <CardDescription className={`relative z-10 ${accent ? "text-white/90" : "text-muted-foreground"}`}>
           {description}
         </CardDescription>
         
         {/* Price section with consistent height */}
-        <div className="mt-4 h-20 flex flex-col justify-center">
+        <div className="mt-4 h-20 flex flex-col justify-center relative z-10">
           {monthly !== null ? (
             <>
               <div className="text-center">
@@ -119,7 +125,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </div>
       </CardHeader>
       
-      <CardContent className="flex-grow flex flex-col gap-4">
+      <CardContent className="flex-grow flex flex-col gap-4 relative z-10">
         <ul className="space-y-2 flex-grow">
           {primaryFeatures.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
@@ -146,9 +152,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
         )}
       </CardContent>
       
-      <CardFooter className="mt-auto pt-6">
+      <CardFooter className="mt-auto pt-6 relative z-10">
         <Button 
-          className="w-full min-h-[44px] font-semibold" 
+          className={`w-full min-h-[44px] font-semibold transition-all duration-300 hover:-translate-y-1 ${accent ? 'bg-white text-primary hover:bg-white/90 shadow-lg hover:shadow-xl' : 'bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl'}`}
           variant={accent ? "secondary" : "default"}
           onClick={handleCtaClick}
         >
