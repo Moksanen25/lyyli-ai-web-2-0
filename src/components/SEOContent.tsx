@@ -36,8 +36,8 @@ const SEOContent: React.FC = () => {
   ];
 
   const title = language === 'fi' 
-    ? 'Miksi valita Lyyli tekoälyavusteiseen viestintään?'
-    : 'Why choose Lyyli for AI-powered communication?';
+    ? 'Miksi valita Lyyli viestintäassistentiksesi?'
+    : 'Why choose Lyyli as your communication assistant?';
 
   const description = language === 'fi'
     ? 'Lyyli muuttaa tapaa, jolla yritykset luovat ja hallitsevat sisältöä. Tekoälyavusteinen alustamme automatisoi rutiinitehtäviä, parantaa sisällön laatua ja varmistaa johdonmukaisen viestinnän kaikissa kanavissa.'
