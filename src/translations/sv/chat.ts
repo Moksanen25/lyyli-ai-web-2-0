@@ -43,5 +43,12 @@ export const chat = {
     close: 'Stäng chatt',
     restart: 'Starta om chatt',
     download: 'Ladda ner konversation'
-  }
+  },
+
+  inputPlaceholder: 'Skriv ditt meddelande...',
+  error: 'Något gick fel. Försök igen.',
+  openChat: 'Öppna chat',
+  closeChat: 'Stäng chat',
+  chatPanel: 'Chat-panel',
+  caseStudy: 'Fallstudie'
 };

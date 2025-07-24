@@ -36,5 +36,6 @@ export const common = {
   free: 'Gratis',
   premium: 'Premium',
   pro: 'Pro',
-  enterprise: 'Enterprise'
+  enterprise: 'Enterprise',
+  bookDemo: 'Boka demo'
 };

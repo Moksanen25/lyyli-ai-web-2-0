@@ -88,5 +88,27 @@ export const features = {
     title: 'Redo att förbättra er expertorganisations kommunikation?',
     subtitle: 'Gå med i växande mediumstora företagsledare som har automatiserat sina viktigaste kommunikationsprocesser.',
     button: 'Gå med i väntelistan'
-  }
+  },
+
+  enterpriseReady: 'Företagsfärdig',
+  securityDesc: 'Säker och GDPR-kompatibel',
+  supportTitle: 'Support 24/7',
+  supportDesc: 'Alltid tillgänglig för att hjälpa dig',
+  additionalFeaturesAi: 'Ytterligare AI-funktioner',
+  integrationsTitle: 'Integrationer',
+  integrationsDesc: 'Anslut till dina befintliga verktyg',
+  hero: 'Hero-sektion',
+  solutionFinder: 'Lösningssökare',
+  mainFeatures: 'Huvudfunktioner',
+  feature1: 'AI-kommunikationsassistent',
+  feature2: 'Automatiserade arbetsflöden',
+  feature3: 'Team-samarbete',
+  feature4: 'Analys och rapporter',
+  additionalFeatures: 'Ytterligare funktioner',
+  integrations: 'Integrationer',
+  customerSegments: 'Kundsegment',
+  quotes: 'Kundcitat',
+  comparison: 'Jämförelse',
+  pricing: 'Prissättning',
+  faq: 'Vanliga frågor'
 };

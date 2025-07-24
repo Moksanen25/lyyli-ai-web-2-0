@@ -61,5 +61,15 @@ export const contact = {
     startChat: 'Starta chatt',
     online: 'Online nu',
     offline: 'Offline - vi svarar via e-post'
-  }
+  },
+
+  information: 'Kontaktinformation',
+  role: 'Roll',
+  call: 'Ring',
+  email: 'E-post',
+  phoneAriaLabel: 'Ring oss',
+  emailAriaLabel: 'Skicka e-post',
+  whatsappAriaLabel: 'Kontakta via WhatsApp',
+  chatAriaLabel: 'Öppna live-chat',
+  vatNumber: 'Organisationsnummer'
 };

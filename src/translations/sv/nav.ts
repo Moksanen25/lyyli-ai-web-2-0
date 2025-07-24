@@ -11,5 +11,9 @@ export const nav = {
   caseStudies: 'Fallstudier',
   security: 'Säkerhet',
   support: 'Support',
-  waitlist: 'Gå med i väntelistan'
+  waitlist: 'Gå med i väntelistan',
+  faq: 'FAQ',
+  signup: 'Registrera dig',
+  openMenu: 'Öppna meny',
+  closeMenu: 'Stäng meny'
 };

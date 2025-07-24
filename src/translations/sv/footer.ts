@@ -17,7 +17,8 @@ export const footer = {
     apiDocs: 'API-dokumentation',
     privacy: 'Integritetspolicy',
     terms: 'Användarvillkor',
-    cookies: 'Cookies'
+    cookies: 'Cookies',
+    faq: 'FAQ'
   },
   
   contact: {
@@ -40,5 +41,7 @@ export const footer = {
   },
   
   copyright: '© 2024 Lyyli.ai. Alla rättigheter förbehållna.',
-  madeIn: 'Gjort med ❤️ i Norden'
+  madeIn: 'Gjort med ❤️ i Norden',
+  description: 'AI-driven kommunikationsassistent för expertorganisationer',
+  vatNumber: 'Org.nr: 123456-7890'
 };

@@ -186,5 +186,11 @@ export const howItWorks = {
     secondaryButton: 'Starta gratis testversion',
     
     promise: 'No strings attached - se resultaten själva'
-  }
+  },
+
+  tagline: 'AI som lär sig, föreslår, samarbetar och publicerar',
+  step1: 'AI lär sig din kommunikationsstil',
+  step2: 'Genererar intelligenta förslag', 
+  step3: 'Samarbetar med ditt team',
+  step4: 'Publicerar och analyserar'
 };

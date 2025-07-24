@@ -13,5 +13,7 @@ export const cta = {
   urgency: {
     title: 'Begränsat antal platser tillgängliga',
     subtitle: 'Säkra din plats bland de första användarna'
-  }
+  },
+
+  button: 'Gå med i väntelistan'
 };

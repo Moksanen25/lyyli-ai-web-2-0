@@ -19,5 +19,26 @@ export const cookieBanner = {
   settingsDescription: 'Vi använder cookies för att förbättra din upplevelse. Du kan välja vilka kategorier av cookies du vill tillåta.',
   
   save: 'Spara inställningar',
-  close: 'Stäng'
+  close: 'Stäng',
+  
+  accept: 'Acceptera alla',
+  privacyLink: 'Integritetspolicy',
+  cookieLink: 'Cookie-policy',
+  
+  categories: {
+    necessary: 'Nödvändiga',
+    analytics: 'Analys',
+    marketing: 'Marknadsföring'
+  },
+  
+  categoryDescriptions: {
+    necessary: 'Dessa cookies är nödvändiga för att webbplatsen ska fungera korrekt.',
+    analytics: 'Dessa cookies hjälper oss att förstå hur besökare interagerar med webbplatsen.',
+    marketing: 'Dessa cookies används för att visa relevanta annonser.'
+  },
+  
+  aria: {
+    closeButton: 'Stäng cookie-banner',
+    settingsButton: 'Öppna cookie-inställningar'
+  }
 };

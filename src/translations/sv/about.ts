@@ -2,13 +2,16 @@ export const about = {
   hero: {
     title: 'Om Lyyli',
     subtitle: 'Vi byggr framtiden för AI-driven kommunikation för expertorganisationer i Norden',
-    description: 'Grundat 2024 med visionen att göra professionell kommunikation tillgänglig för alla expertorganisationer genom intelligent automatisering.'
+    description: 'Grundat 2024 med visionen att göra professionell kommunikation tillgänglig för alla expertorganisationer genom intelligent automatisering.',
+    imageAlt: 'Lyyli AI-team'
   },
   
   mission: {
     title: 'Vårt uppdrag',
     subtitle: 'Att revolutionera hur expertorganisationer kommunicerar',
     description: 'Vi tror att varje expertorganisation förtjänar verktyg som gör kommunikation enkelt, effektivt och engagerande. Vår AI-drivna plattform hjälper team att fokusera på det som verkligen betyder något.',
+    vision: 'Vår vision är att göra professionell kommunikation tillgänglig för alla expertorganisationer.',
+    impact: 'Vår påverkan på kommunikationsbranschen',
     
     values: [
       {
@@ -32,12 +35,19 @@ export const about = {
   
   team: {
     title: 'Vårt team',
-    subtitle: 'Experter inom AI, kommunikation och teknologi'
+    subtitle: 'Experter inom AI, kommunikation och teknologi',
+    description: 'Vårt team består av erfarna tekniker och kommunikationsexperter',
+    mikko: 'Mikko Oksanen - Medgrundare & VD',
+    veikko: 'Veikko Laitinen - Medgrundare & CTO'
   },
   
   timeline: {
     title: 'Vår resa',
     subtitle: 'Från idé till verklighet',
+    founded: 'Företaget grundat',
+    investor: 'Första investerare',
+    launch: 'Produktlansering',
+    international: 'Internationell expansion',
     
     events: [
       {
