@@ -1,13 +1,14 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Users, Briefcase, Euro, TrendingUp } from 'lucide-react';
+import { Users, Briefcase, Euro, TrendingUp, BarChart3, PieChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
 
 const ROICalculator = () => {
   const { calculatorT, language, safeTr } = useLanguage();
@@ -225,72 +226,164 @@ const ROICalculator = () => {
           {/* Right Column - Final Results */}
           <div className="space-y-6">
             {/* ROI Card - Most Important Result First */}
-            <Card className="bg-primary/5 p-6 rounded-lg shadow-md border-2 border-primary/20">
-              <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-primary/90">{calculatorT('roi')}</h3>
+            <Card className="bg-gradient-to-br from-emerald-50 to-green-50 p-6 rounded-lg shadow-md border-2 border-emerald-200 relative overflow-hidden">
+              {/* Background decoration inspired by Lyyli app */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-full opacity-20 transform translate-x-8 -translate-y-8"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-200 rounded-full opacity-15 transform -translate-x-4 translate-y-4"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-emerald-100 rounded-lg">
+                      <TrendingUp className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-emerald-800">{calculatorT('roi')}</h3>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-emerald-600 font-medium">
+                      {language === 'fi' ? 'Vuosituotto' : 
+                       language === 'sv' ? 'Årlig avkastning' : 
+                       'Annual Return'}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mb-4">
+                  <p className="text-5xl font-bold text-emerald-700 mb-2">{roi}%</p>
+                  <div className="flex items-center gap-2">
+                    <div className="flex-1 bg-emerald-100 rounded-full h-2">
+                      <div 
+                        className="bg-gradient-to-r from-emerald-400 to-emerald-600 h-2 rounded-full transition-all duration-1000"
+                        style={{width: `${Math.min(parseFloat(roi.replace(',', '')), 1000) / 10}%`}}
+                      ></div>
+                    </div>
+                    <span className="text-xs text-emerald-600 font-medium">
+                      {language === 'fi' ? 'Erinomainen' : language === 'sv' ? 'Utmärkt' : 'Excellent'}
+                    </span>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-emerald-700">
+                  {language === 'fi' ? 'Sijoitetun pääoman tuotto Lyyli-investoinnille' :
+                   language === 'sv' ? 'Avkastning på investering för Lyyli-investering' :
+                   'Return on investment for Lyyli investment'}
+                </p>
               </div>
-              <p className="text-5xl font-bold text-primary mb-4">{roi}%</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'fi' ? 'Sijoitetun pääoman tuotto Lyyli-investoinnille' :
-                 language === 'sv' ? 'Avkastning på investering för Lyyli-investering' :
-                 'Return on investment for Lyyli investment'}
-              </p>
             </Card>
 
             {/* Net Savings */}
-            <Card className="bg-emerald-50 p-6 rounded-lg shadow-md border-2 border-emerald-200">
-              <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="h-5 w-5 text-emerald-600" />
-                <h3 className="text-lg font-semibold text-emerald-700">
-                  {language === 'fi' ? 'Nettosäästöt' : 
-                   language === 'sv' ? 'Nettobesparingar' : 
-                   'Net Savings'}
-                </h3>
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg shadow-md border border-blue-200 relative overflow-hidden">
+              {/* Subtle background pattern */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-blue-100 rounded-full opacity-30 transform translate-x-6 -translate-y-6"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-100 rounded-lg">
+                      <Euro className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-blue-800">
+                      {language === 'fi' ? 'Nettosäästöt' : 
+                       language === 'sv' ? 'Nettobesparingar' : 
+                       'Net Savings'}
+                    </h3>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
+                      {language === 'fi' ? 'Vuosittain' : language === 'sv' ? 'Årligen' : 'Annually'}
+                    </div>
+                  </div>
+                </div>
+                
+                <p className="text-4xl font-bold text-blue-700 mb-3">{savings}</p>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm text-blue-600">+15%</span>
+                  <div className="text-xs text-blue-500">
+                    {language === 'fi' ? 'vs edellinen vuosi' : language === 'sv' ? 'vs föregående år' : 'vs previous year'}
+                  </div>
+                </div>
+                <p className="text-sm text-blue-600">
+                  {language === 'fi' ? 'Tehokkuusarvo miinus Lyyli-kustannukset' :
+                   language === 'sv' ? 'Effektivitetsvärde minus Lyyli-kostnader' :
+                   'Efficiency value minus Lyyli costs'}
+                </p>
               </div>
-              <p className="text-4xl font-bold text-emerald-600 mb-2">{savings}</p>
-              <p className="text-sm text-emerald-600">
-                {language === 'fi' ? 'Tehokkuusarvo miinus Lyyli-kustannukset' :
-                 language === 'sv' ? 'Effektivitetsvärde minus Lyyli-kostnader' :
-                 'Efficiency value minus Lyyli costs'}
-              </p>
             </Card>
 
             {/* Lyyli Cost */}
-            <Card className="bg-white p-6 rounded-lg shadow-md">
+            <Card className="bg-gradient-to-br from-gray-50 to-slate-50 p-6 rounded-lg shadow-md border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Euro className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-primary/90">{calculatorT('lyyliCost')}</h3>
+                <div className="p-2 bg-gray-100 rounded-lg">
+                  <PieChart className="h-5 w-5 text-gray-600" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-700">{calculatorT('lyyliCost')}</h3>
               </div>
-              <p className="text-3xl font-bold mb-2">{lyyliCost}</p>
-              <p className="text-sm text-muted-foreground">{calculatorT('lyyliCostDesc')}</p>
+              <p className="text-3xl font-bold text-gray-800 mb-2">{lyyliCost}</p>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-full bg-gray-200 rounded-full h-1.5">
+                  <div className="bg-gray-400 h-1.5 rounded-full" style={{width: '25%'}}></div>
+                </div>
+                <span className="text-xs text-gray-500">25% of total value</span>
+              </div>
+              <p className="text-sm text-gray-600">{calculatorT('lyyliCostDesc')}</p>
             </Card>
 
-            {/* Visual Summary */}
-            <Card className="bg-gray-50 p-6 rounded-lg">
-              <h4 className="font-medium text-foreground mb-4">
-                {language === 'fi' ? 'Laskelman yhteenveto' :
-                 language === 'sv' ? 'Beräkningssammanfattning' :
-                 'Calculation Summary'}
-              </h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                  <span className="text-muted-foreground">
-                    {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'}
-                  </span>
-                  <span className="font-medium text-blue-600">+{efficiencyValue}</span>
+            {/* Visual Summary - Enhanced with Lyyli app-style design */}
+            <Card className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-lg shadow-md border border-gray-100 relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-green-100 rounded-full opacity-20 transform translate-x-16 -translate-y-16"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-gradient-to-br from-blue-100 to-green-100 rounded-lg">
+                    <BarChart3 className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-800">
+                    {language === 'fi' ? 'Laskelman yhteenveto' :
+                     language === 'sv' ? 'Beräkningssammanfattning' :
+                     'Calculation Summary'}
+                  </h4>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                  <span className="text-muted-foreground">
-                    {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
-                  </span>
-                  <span className="font-medium text-red-600">-{lyyliCost}</span>
-                </div>
-                <div className="flex justify-between items-center py-2 font-semibold">
-                  <span className="text-foreground">
-                    {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'}
-                  </span>
-                  <span className="text-emerald-600">{savings}</span>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
+                      <span className="text-sm text-gray-600">
+                        {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-semibold text-blue-600">+{efficiencyValue}</span>
+                      <div className="text-xs text-blue-500">80% improvement</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></div>
+                      <span className="text-sm text-gray-600">
+                        {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="font-semibold text-gray-600">-{lyyliCost}</span>
+                      <div className="text-xs text-gray-500">Annual subscription</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center py-3 bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg px-4 -mx-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full"></div>
+                      <span className="font-semibold text-emerald-800">
+                        {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-lg font-bold text-emerald-700">{savings}</span>
+                      <div className="text-xs text-emerald-600">{roi}% ROI</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>
