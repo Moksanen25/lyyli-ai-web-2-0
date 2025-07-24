@@ -19,6 +19,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import TranslationManager from '@/components/dev/TranslationManager';
 import BlogList from '@/pages/BlogList';
 import BlogPost from '@/pages/BlogPost';
+import ExecutiveSummary from '@/pages/ExecutiveSummary';
 
 function AppRoutes() {
   const location = useLocation();
@@ -51,6 +52,7 @@ function AppRoutes() {
       <Route path="/cookies" element={<CookiePolicy />} />
       <Route path="/waitlist" element={<Waitlist />} />
       <Route path="/jci-members" element={<JCIMembers />} />
+      <Route path="/executive-summary" element={<ExecutiveSummary />} />
       
       {/* Finnish routes */}
       <Route path="/fi" element={<Index />} />
@@ -66,6 +68,11 @@ function AppRoutes() {
       <Route path="/fi/privacy" element={<PrivacyPolicy />} />
       <Route path="/fi/cookies" element={<CookiePolicy />} />
       <Route path="/fi/jci-members" element={<JCIMembers />} />
+      <Route path="/fi/executive-summary" element={<ExecutiveSummary />} />
+      
+      {/* Swedish routes */}
+      <Route path="/sv" element={<Index />} />
+      <Route path="/sv/executive-summary" element={<ExecutiveSummary />} />
       
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />

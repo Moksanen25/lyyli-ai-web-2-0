@@ -7,6 +7,7 @@ import { Shield, Database, MessageSquare } from 'lucide-react';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import HeroROIWidget from '@/components/HeroROIWidget';
 
 const HeroSection: React.FC = () => {
   const { heroT, language } = useLanguage();
@@ -32,26 +33,33 @@ const HeroSection: React.FC = () => {
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
           {heroT('subtitle')}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-          <Button 
-            size="lg" 
-            className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
-            asChild
-          >
-            <Link to={waitlistPath}>
-              {heroT('cta')}
-            </Link>
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8 py-6 text-lg"
-            asChild
-          >
-            <Link to={language === 'fi' ? '/fi/features' : '/features'}>
-              {language === 'fi' ? 'Tutustu ominaisuuksiin' : 'Explore features'}
-            </Link>
-          </Button>
+        <div className="flex flex-col lg:flex-row gap-8 justify-center items-center mb-12 animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button 
+              size="lg" 
+              className="bg-[#295045] hover:bg-[#1f3c34] text-white px-12 py-6 text-xl rounded-md"
+              asChild
+            >
+              <Link to={waitlistPath}>
+                {heroT('cta')}
+              </Link>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-[#295045] text-[#295045] hover:bg-[#295045] hover:text-white px-8 py-6 text-lg"
+              asChild
+            >
+              <Link to={language === 'fi' ? '/fi/features' : '/features'}>
+                {language === 'fi' ? 'Tutustu ominaisuuksiin' : 'Explore features'}
+              </Link>
+            </Button>
+          </div>
+          
+          {/* ROI Widget */}
+          <div className="lg:ml-8">
+            <HeroROIWidget />
+          </div>
         </div>
       </div>
 
