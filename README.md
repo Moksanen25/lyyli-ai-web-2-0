@@ -12,7 +12,7 @@ npm install
 
 # Start development
 npm run dev
-# Open http://localhost:5173
+# Open http://localhost:8080
 ```
 
 ## 📱 Mobile-Optimized & SEO-Ready
@@ -22,15 +22,13 @@ npm run dev
 - **Core Web Vitals**: Optimized for Google's performance metrics
 - **International**: Full Finnish/English localization with proper hreflang tags
 
-## 🛠️ Tech Stack & Features
+## 🛠️ Tech Stack
 
 - **Frontend**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS + shadcn/ui design system
 - **Backend**: Supabase (Auth, Database, Edge Functions)
 - **AI Integration**: OpenAI API with secure edge functions
-- **SEO**: React Helmet, meta tags, structured data
-- **Mobile**: Responsive design, PWA-ready
-- **i18n**: Finnish/English with safe translation utilities
+- **i18n**: Finnish/English/Swedish support
 - **Testing**: Vitest + React Testing Library
 
 ## 🔧 Configuration
@@ -41,24 +39,24 @@ npm run dev
 
 ### Development Commands
 ```bash
-npm run dev        # Start development server
+npm run dev        # Start development server (port 8080)
 npm run build      # Production build
-npm run test       # Run tests
 npm run lint       # Code linting
+npm run preview    # Preview production build
 ```
 
 ## 📚 Documentation
 
 - **[Development Guide](docs/DEVELOPMENT.md)** - Complete development workflow
 - **[Deployment Guide](docs/DEPLOYMENT.md)** - Production deployment strategies  
-- **[SEO Guide](docs/SEO-GUIDE.md)** - SEO optimization and best practices
 - **[Architecture](docs/architecture.md)** - System architecture overview
+- **[Contributing](docs/CONTRIBUTING.md)** - How to contribute to the project
 
-## 🌍 Internationalization
+## 🌍 Languages
 
-- English (default): `https://lyyli.ai/`
-- Finnish: `https://lyyli.ai/fi/`
-- URL-based language switching with proper SEO implementation
+- English (default)
+- Finnish (`/fi/` routes)
+- Swedish (`/sv/` routes)
 
 ## 🚀 Deployment
 
@@ -76,9 +74,10 @@ npm run build
 ## 🔗 Resources
 
 - [Lovable Platform](https://docs.lovable.dev/) - Development platform
-- [Supabase](https://supabase.com/docs) - Backend services
+- [Supabase Docs](https://supabase.com/docs) - Backend services
 - [Tailwind CSS](https://tailwindcss.com/) - Styling framework
+- [React](https://react.dev/) - Frontend framework
 
 ---
 
-**Built with ❤️ using Lovable Platform**
+**Built with Lovable Platform**

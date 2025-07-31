@@ -48,7 +48,7 @@ Lyyli.ai is a modern AI-powered communication platform built with React, TypeScr
    ```
 
 4. **Open in browser**
-   Navigate to `http://localhost:5173`
+   Navigate to `http://localhost:8080`
 
 ## Project Structure
 
