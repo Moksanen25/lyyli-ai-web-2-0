@@ -1,6 +1,9 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import ProblemSection from '@/components/ProblemSection';
+import SolutionIntroSection from '@/components/SolutionIntroSection';
+import ValuePropositionsSection from '@/components/ValuePropositionsSection';
 import UseCase from '@/components/UseCase';
 import FeaturesSection from '@/components/FeaturesSection';
 import EnterpriseCallout from '@/components/EnterpriseCallout';
@@ -147,9 +150,19 @@ const Index = () => {
           <HeroSection />
         </SafeSection>
         
-        {/* SEO Content Section */}
-        <SafeSection name="SEO Content">
-          <SEOContent />
+        {/* Problem Section - Creates empathy */}
+        <SafeSection name="Problem Section">
+          <ProblemSection />
+        </SafeSection>
+        
+        {/* Solution Introduction */}
+        <SafeSection name="Solution Intro">
+          <SolutionIntroSection />
+        </SafeSection>
+        
+        {/* Value Propositions - Three key arguments */}
+        <SafeSection name="Value Propositions">
+          <ValuePropositionsSection />
         </SafeSection>
 
         {/* How It Works Section */}
