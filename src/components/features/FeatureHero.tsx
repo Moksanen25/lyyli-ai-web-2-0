@@ -3,7 +3,7 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 
 interface FeatureHeroProps {
@@ -74,13 +74,13 @@ const FeatureHero: React.FC<FeatureHeroProps> = ({
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link to={displayPrimaryCta.href}>
+              <Link href={displayPrimaryCta.href}>
                 <Button className="bg-primary hover:bg-primary/90 h-10 px-4 py-2">
                   {displayPrimaryCta.text}
                 </Button>
               </Link>
               
-              <Link to={displaySecondaryCta.href}>
+              <Link href={displaySecondaryCta.href}>
                 <Button variant="outline" className="border-primary text-primary h-10 px-4 py-2">
                   {displaySecondaryCta.text} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
@@ -11,7 +13,6 @@ import TagFilter from '@/components/blog/TagFilter';
 import BlogCTA from '@/components/blog/BlogCTA';
 import { hasFinishTranslation } from '@/components/blog/blogTranslations';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Helmet } from 'react-helmet';
 
 const BlogList: React.FC = () => {
   const { language } = useLanguage();
@@ -100,27 +101,9 @@ const BlogList: React.FC = () => {
     return filteredPosts.filter(post => post.id !== featuredPost.id);
   }, [filteredPosts, featuredPost]);
   
-  // SEO metadata
-  const pageTitle = language === 'fi' ? 'Blogi - Lyyli.ai' : 'Blog - Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Tutustu Lyyli.ai:n blogiin, jossa jaetaan vinkkejä tekoälyavusteiseen viestintään, liiketoiminnan tehostamiseen ja digitaalisen transformaation parhaita käytäntöjä.'
-    : 'Explore Lyyli.ai\'s blog for tips on AI-assisted communication, business optimization, and digital transformation best practices.';
-  
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}blog`} />
-      </Helmet>
-      
+
       <Navbar />
       <main className="flex-grow">
         {/* Blog header */}

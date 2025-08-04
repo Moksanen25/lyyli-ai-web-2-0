@@ -1,3 +1,5 @@
+'use client';
+
 
 import { useState } from 'react';
 import { useChatThread } from '@/hooks/use-chat-thread';
@@ -47,22 +49,15 @@ export function useSolutionChat(): UseSolutionChatReturn {
       
       // Show messages gradually with a delay between each one
       displayMessagesWithDelay(
-        processedResponses,
-        (content) => {
-          setMessages(prev => [
-            ...prev, 
-            { 
-              role: 'assistant', 
-              content, 
-              timestamp: new Date() 
-            }
-          ]);
+        processedResponses.map(content => ({ role: 'assistant', content, timestamp: new Date() })),
+        (message) => {
+          setMessages(prev => [...prev, message]);
         },
-        () => {
-          setIsTyping(false);
-          setIsLoading(false);
-        }
-      );
+        1000
+      ).then(() => {
+        setIsTyping(false);
+        setIsLoading(false);
+      });
     }
   });
 
@@ -90,7 +85,7 @@ export function useSolutionChat(): UseSolutionChatReturn {
     setIsTyping(true); // Show typing indicator immediately
     
     // Create a context-enhanced prompt, use current language
-    const enhancedPrompt = createEnhancedPrompt(inputMessage, language);
+    const enhancedPrompt = createEnhancedPrompt(inputMessage, language as SupportedLanguage);
     
     // Send message using the extracted logic
     sendMessage(enhancedPrompt);

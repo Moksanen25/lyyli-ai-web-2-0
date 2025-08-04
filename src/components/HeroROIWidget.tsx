@@ -1,11 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { TrendingUp, Calculator, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Calculator, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const HeroROIWidget: React.FC = () => {
   const { language } = useLanguage();
@@ -59,18 +60,6 @@ const HeroROIWidget: React.FC = () => {
         calculateFull: 'Laske täysi ROI',
         bookDemo: 'Varaa demo',
         timeSavings: 'Ajansäästön arvo'
-      },
-      sv: {
-        title: 'Se dina besparingar',
-        subtitle: 'ROI från 80% effektivitetsökning',
-        teamSize: 'Kommunikationsassistenter',
-        employees: 'assistent(er)',
-        annualSavings: 'Årliga besparingar',
-        roiPercentage: 'ROI',
-        vs: 'vs 80% tidsbesparingens värde',
-        calculateFull: 'Beräkna full ROI',
-        bookDemo: 'Boka demo',
-        timeSavings: 'Tidsbesparingens värde'
       }
     };
     return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
@@ -121,7 +110,7 @@ const HeroROIWidget: React.FC = () => {
                 className="flex-1"
                 asChild
               >
-                <Link to={language === 'fi' ? '/fi/contact' : language === 'sv' ? '/sv/contact' : '/contact'}>
+                <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
                   {getText('bookDemo')}
                 </Link>
               </Button>
@@ -171,7 +160,7 @@ const HeroROIWidget: React.FC = () => {
                 className="flex-1"
                 asChild
               >
-                <Link to={language === 'fi' ? '/fi/pricing' : language === 'sv' ? '/sv/pricing' : '/pricing'}>
+                <Link href={language === 'fi' ? '/fi/pricing' : '/pricing'}>
                   {getText('calculateFull')} <ArrowRight className="h-4 w-4 ml-1" />
                 </Link>
               </Button>

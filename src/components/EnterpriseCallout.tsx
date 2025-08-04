@@ -1,16 +1,16 @@
+'use client';
+
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { Shield, Users, Database, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import BookDemoDialog from '@/components/BookDemoDialog';
 
 const EnterpriseCallout: React.FC = () => {
   const { t, featuresT } = useLanguage();
-  const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
   

@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
 import { languages, SupportedLanguage } from '@/translations';
@@ -14,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { verifyTranslations } from '@/utils/translationUtils';
 
 const TranslationManager: React.FC = () => {
-  const { language } = useLanguage();
+  const {} = useLanguage();
   const [results, setResults] = useState<Record<string, ReturnType<typeof verifyTranslations>>>({});
   const [open, setOpen] = useState(false);
 
@@ -42,8 +44,8 @@ const TranslationManager: React.FC = () => {
     }
   };
 
-  // Only show in development mode
-  if (!import.meta.env.DEV) return null;
+  // Only show in development
+  if (process.env.NODE_ENV !== 'development') return null;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, FileImage } from 'lucide-react';
@@ -106,7 +106,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
             </div>
           </div>
           
-          <Link to={getBlogPostUrl()}>
+          <Link href={getBlogPostUrl()}>
             <Button className="flex items-center">
               {safeT('blog.readMore')} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

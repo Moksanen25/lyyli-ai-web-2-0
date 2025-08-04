@@ -1,7 +1,7 @@
+'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { useParams, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogData';
@@ -11,13 +11,13 @@ import BlogCTA from '@/components/blog/BlogCTA';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import { toast } from '@/components/ui/use-toast';
-import { blogTranslations } from '@/components/blog/blogTranslations';
 
 const BlogPost: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+  const params = useParams();
+  const slug = params?.slug as string;
+  const router = useRouter();
   const { language } = useLanguage();
-  const { safeT, blogT } = useSafeTranslation();
+  const { safeT } = useSafeTranslation();
   const [currentPost, setCurrentPost] = useState<typeof blogPosts[0] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -27,26 +27,28 @@ const BlogPost: React.FC = () => {
   };
   
   // Get SEO metadata based on language and translation
-  const getSEOData = () => {
-    if (!currentPost) return null;
-    
-    const translationKey = `${currentPost.slug}-${language}`;
-    const translation = language === 'fi' ? blogTranslations[translationKey] : null;
-    
-    const title = translation?.title || currentPost.title;
-    const description = translation?.excerpt || currentPost.excerpt;
-    
-    const siteUrl = window.location.origin;
-    const postUrl = `${siteUrl}${language === 'fi' ? '/fi' : ''}/full/blog/${currentPost.slug}`;
-    
-    return {
-      title: `${title} | Lyyli.ai`,
-      description,
-      url: postUrl,
-      image: currentPost.featuredImage,
-      keywords: 'organizational communication, communication burden, internal messaging, leadership support, AI writing assistant'
-    };
-  };
+  // const getSEOData = () => {
+  //   if (!currentPost) return null;
+  //   
+  //   const translationKey = `${currentPost.slug}-${language}`;
+  //   const translation = blogTranslations[translationKey];
+  //   
+  //   if (!translation) {
+  //     console.warn(`No translation found for key: ${translationKey}`);
+  //     return null;
+  //   }
+  //   
+  //   const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://lyyli.ai';
+  //   const postUrl = `${baseUrl}/${language === 'fi' ? 'fi/' : ''}blog/${currentPost.slug}`;
+  //   
+  //   return {
+  //     title: translation.title || currentPost.title,
+  //     description: translation.description || currentPost.excerpt,
+  //     keywords: translation.keywords || currentPost.tags.join(', '),
+  //     image: translation.image || currentPost.image || '/images/lyyli-social-share.jpg',
+  //     url: postUrl,
+  //   };
+  // };
   
   // Enhanced approach for finding posts based on language
   useEffect(() => {
@@ -55,7 +57,7 @@ const BlogPost: React.FC = () => {
     
     if (!slug) {
       console.warn('No slug provided');
-      navigate(getBlogUrl(), { replace: true });
+      router.replace(getBlogUrl());
       return;
     }
     
@@ -73,7 +75,7 @@ const BlogPost: React.FC = () => {
           variant: "destructive",
         });
         
-        navigate(getBlogUrl(), { replace: true });
+        router.replace(getBlogUrl());
         return null;
       }
       
@@ -116,9 +118,9 @@ const BlogPost: React.FC = () => {
     setIsLoading(false);
     
     if (!foundPost) {
-      navigate(getBlogUrl(), { replace: true });
+      router.replace(getBlogUrl());
     }
-  }, [slug, language, navigate, getBlogUrl, safeT]);
+  }, [slug, language, router, getBlogUrl, safeT]);
   
   if (isLoading) {
     return (
@@ -139,40 +141,10 @@ const BlogPost: React.FC = () => {
   console.log('BlogPost: Rendering post:', currentPost.id, 'title:', currentPost.title, 'language:', currentPost.language || 'default');
   
   // Get SEO data for the current post
-  const seoData = getSEOData();
-  
+  // const seoData = getSEOData();
+
   return (
     <div className="min-h-screen flex flex-col">
-      {seoData && (
-        <Helmet>
-          <title>{seoData.title}</title>
-          <meta name="description" content={seoData.description} />
-          <meta name="keywords" content={seoData.keywords} />
-          
-          {/* Open Graph tags */}
-          <meta property="og:title" content={seoData.title} />
-          <meta property="og:description" content={seoData.description} />
-          <meta property="og:image" content={seoData.image} />
-          <meta property="og:url" content={seoData.url} />
-          <meta property="og:type" content="article" />
-          <meta property="og:site_name" content="Lyyli.ai" />
-          
-          {/* Twitter Card tags */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={seoData.title} />
-          <meta name="twitter:description" content={seoData.description} />
-          <meta name="twitter:image" content={seoData.image} />
-          
-          {/* Article specific tags */}
-          <meta property="article:author" content={currentPost?.author.name} />
-          <meta property="article:published_time" content={currentPost?.publishDate} />
-          <meta property="article:section" content="Blog" />
-          {currentPost?.tags.map(tag => (
-            <meta key={tag} property="article:tag" content={tag} />
-          ))}
-        </Helmet>
-      )}
-      
       <Navbar />
       <main className="flex-grow">
         <div className="container mx-auto px-4 pt-28 pb-16">

@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { SegmentData } from '../types/segmentTypes';
 import { buildSegmentData } from './segmentBuilder';
 

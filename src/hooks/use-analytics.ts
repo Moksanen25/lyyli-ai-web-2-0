@@ -13,6 +13,12 @@ export const useAnalytics = () => {
       timestamp: new Date().toISOString()
     };
 
+    // Only track in production
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Analytics disabled in development mode');
+      return;
+    }
+
     // In development, log to console
     if (import.meta.env.DEV) {
       console.log('Analytics event:', event);

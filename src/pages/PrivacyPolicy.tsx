@@ -2,25 +2,14 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import Link from 'next/link';
 
 const PrivacyPolicy: React.FC = () => {
   const { language } = useLanguage();
   
-  const pageTitle = language === 'fi' ? 'Lyyli - Tietosuojakäytäntö' : 'Lyyli - Privacy Policy';
-  
   return (
     <>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={
-          language === 'fi' 
-            ? 'Lyylin tietosuojakäytäntö kertoo, miten keräämme, käytämme ja suojaamme henkilötietojasi.' 
-            : 'Lyyli privacy policy explains how we collect, use, and protect your personal information.'
-        } />
-      </Helmet>
-      
+
       <Navbar />
       
       <main className="container-padding py-12 md:py-16">
@@ -256,7 +245,7 @@ const PrivacyPolicy: React.FC = () => {
               {language === 'fi'
                 ? 'Käytämme evästeitä ja muita seurantateknologioita parantaaksemme käyttökokemustasi sivustollamme. Lisätietoja evästeiden käytöstä löydät '
                 : 'We use cookies and other tracking technologies to enhance your experience on our website. For more information about our use of cookies, please see our '}
-              <Link to="/cookies" className="text-primary hover:underline">
+              <Link href="/cookies" className="text-primary hover:underline">
                 {language === 'fi' ? 'evästekäytännöstämme' : 'Cookie Policy'}
               </Link>.
             </p>
@@ -284,7 +273,7 @@ const PrivacyPolicy: React.FC = () => {
                 : 'If you have any questions about this Privacy Policy or wish to exercise your data protection rights, please contact us:'}
             </p>
             <p className="mt-2">
-              <Link to="/contact" className="text-primary hover:underline">
+              <Link href="/contact" className="text-primary hover:underline">
                 {language === 'fi' ? 'Yhteystiedot' : 'Contact Page'}
               </Link>
             </p>

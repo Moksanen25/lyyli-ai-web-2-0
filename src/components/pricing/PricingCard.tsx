@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,9 +8,6 @@ import { Check } from 'lucide-react';
 import { TrialSignupDialog } from './TrialSignupDialog';
 import { EnterpriseDialog } from './EnterpriseDialog';
 import { WaitlistDialog } from './WaitlistDialog';
-import { useProPlan } from '@/hooks/use-pro-plan';
-import { useEnterprisePlan } from '@/hooks/use-enterprise-plan';
-import { useFreePlan } from '@/hooks/use-free-plan';
 import { useAnalytics } from '@/hooks/use-analytics';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Badge } from '@/components/ui/badge';
@@ -41,9 +40,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
   const [openTrialDialog, setOpenTrialDialog] = useState(false);
   const [openEnterpriseDialog, setOpenEnterpriseDialog] = useState(false);
   const [openWaitlistDialog, setOpenWaitlistDialog] = useState(false);
-  const { isProPlan } = useProPlan();
-  const { isEnterprisePlan } = useEnterprisePlan();
-  const { isFreePlan } = useFreePlan();
   const { track } = useAnalytics();
   const { t } = useLanguage();
   

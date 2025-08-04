@@ -1,7 +1,8 @@
+'use client';
+
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,16 +12,12 @@ import FeatureComparison from '@/components/pricing/FeatureComparison';
 import PricingFAQ from '@/components/pricing/PricingFAQ';
 import ComplianceBadges from '@/components/ComplianceBadges';
 import ROICalculator from '@/components/ROICalculator';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { useSafeTranslation } from '@/utils/safeTranslation';
 import { usePricingData } from '@/components/pricing/PricingData';
 
 const PricingPage = () => {
-  const { t, language } = useLanguage();
-  const { pricingT } = useSafeTranslation();
+  const { t } = useLanguage();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showFullComparison, setShowFullComparison] = useState(false);
-  const isMobile = useIsMobile();
   
   // Get pricing data from the custom hook
   const { pricingTiers, comparisonFeatures } = usePricingData();
@@ -29,26 +26,13 @@ const PricingPage = () => {
   const yearlyDiscountRate = 0.8; // 20% discount
 
   // Enhanced SEO metadata with more descriptive content
-  const pageTitle = language === 'fi' ? 'Hinnoittelu - Lyyli.ai' : 'Pricing - Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
-    : 'Clear pricing for Lyyli.ai\'s AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
+  // const pageDescription = language === 'fi'
+  //   ? 'Lyyli.ai:n selkeä hinnoittelu yrityksesi tarpeisiin. Kokeile ROI-laskuriamme ja näe kuinka paljon voit säästää tekoälyavusteisella viestinnällä.'
+  //   : 'Clear pricing for Lyyli.ai\'s AI communication platform. Try our ROI calculator and see how much you can save with AI-assisted communication.';
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}pricing`} />
-      </Helmet>
-      
+
       <Navbar />
       <div className="container-padding py-8 md:py-16 lg:py-24 flex-grow animate-fade-in">
         <PricingHeader 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import SegmentDetails from './SegmentDetails';
 import { Segment } from './types';
 
@@ -39,7 +39,7 @@ const MobileSegmentCard: React.FC<MobileSegmentCardProps> = ({ segment, language
             className="bg-[#295045] hover:bg-[#1f3c34] text-white px-6 py-2 w-full"
             asChild
           >
-            <Link to={waitlistPath}>
+            <Link href={waitlistPath}>
               {language === 'fi' ? 'Aloita nyt' : 'Start Now'}
               <Zap className="ml-2 w-4 h-4" />
             </Link>

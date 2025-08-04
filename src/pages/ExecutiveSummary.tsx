@@ -1,6 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,25 +10,21 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
   TrendingUp, 
-  Shield, 
-  Clock, 
   Users, 
   Target, 
   BarChart3, 
-  CheckCircle,
   ArrowRight,
-  Phone,
+  CheckCircle,
   Calendar,
-  Calculator
+  Calculator,
+  Phone
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import BookDemoDialog from '@/components/BookDemoDialog';
 import ImplementationTimeline from '@/components/ImplementationTimeline';
-import { useSafeTranslation } from '@/utils/safeTranslation';
 
 const ExecutiveSummary: React.FC = () => {
   const { language } = useLanguage();
-  const { safeTr } = useSafeTranslation();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
 
   // Get translations based on language
@@ -60,38 +57,6 @@ const ExecutiveSummary: React.FC = () => {
               '340% ROI ensimmäisen vuoden aikana',
               '45 000€+ vuosisäästöt vs. lisähenkilöstön palkkaaminen',
               '2 viikon käyttöönotto välittömällä arvolla'
-            ]
-          }
-        }
-      };
-    } else if (language === 'sv') {
-      return {
-        title: 'Ledningssammanfattning: AI-driven intern kommunikation',
-          subtitle: 'Strateginen yleiskatsaus C-tason päättäjille',
-        hero: {
-          title: 'Muuta asiantuntijaorganisaatiosi viestinnän tehokkuus',
-          subtitle: 'Lyyli.ai tuottaa mitattavaa ROI:ta AI-pohjaisella sisäisen viestinnän automaatiolla asiantuntijaorganisaatioille',
-          cta: 'Boka ledningsbriefing',
-          secondaryCta: 'Se implementeringsplan'
-        },
-        businessCase: {
-          title: 'Affärsargumentet',
-          problem: {
-            title: 'Kommunikationsutmaningar kostar pengar',
-            points: [
-              '75% av arbetstiden försvinner på ineffektiv intern kommunikation',
-              'Genomsnittlig kostnad 620 000 kr årligen per kommunikationschef',
-              '47% av anställdas oengagemang på grund av dålig intern kommunikation',
-              '3,2x längre projekttidslinjer på grund av kommunikationsflaskhalsar'
-            ]
-          },
-          solution: {
-            title: 'AI-driven lösning levererar resultat',
-            points: [
-              '87% minskning av manuella kommunikationsuppgifter',
-              '340% ROI inom första året',
-              '450 000+ kr årliga besparingar vs att anställa ytterligare personal',
-              '2-veckors implementering med omedelbart värde'
             ]
           }
         }
@@ -135,15 +100,6 @@ const ExecutiveSummary: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{content.title} | Lyyli.ai</title>
-        <meta name="description" content={content.subtitle} />
-        <link rel="canonical" href={`https://lyyli.ai${language === 'fi' ? '/fi' : language === 'sv' ? '/sv' : ''}/executive-summary`} />
-        {language === 'fi' && <link rel="alternate" hrefLang="en" href="https://lyyli.ai/executive-summary" />}
-        {language === 'sv' && <link rel="alternate" hrefLang="en" href="https://lyyli.ai/executive-summary" />}
-        {language === 'en' && <link rel="alternate" hrefLang="fi" href="https://lyyli.ai/fi/executive-summary" />}
-        {language === 'en' && <link rel="alternate" hrefLang="sv" href="https://lyyli.ai/sv/executive-summary" />}
-      </Helmet>
 
       <Navbar />
       
@@ -153,7 +109,7 @@ const ExecutiveSummary: React.FC = () => {
           <div className="container-padding container mx-auto">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="outline" className="mb-6 text-primary border-primary/20">
-                {language === 'fi' ? 'Johtotasolle' : language === 'sv' ? 'För ledning' : 'For Executives'}
+                {language === 'fi' ? 'Johtotasolle' : 'For Executives'}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
                 {content.hero.title}
@@ -176,7 +132,7 @@ const ExecutiveSummary: React.FC = () => {
                   asChild
                   className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg"
                 >
-                  <Link to="#implementation">
+                  <Link href="#implementation">
                     {content.hero.secondaryCta}
                     <ArrowRight className="h-5 w-5 ml-2" />
                   </Link>
@@ -192,8 +148,7 @@ const ExecutiveSummary: React.FC = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{content.businessCase.title}</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {language === 'fi' ? 'Miksi asiantuntijaorganisaatiot valitsevat Lyyli.ai:n' :
-                 language === 'sv' ? 'Varför expertorganisationer väljer Lyyli.ai' : 
+                {language === 'fi' ? 'Miksi asiantuntijaorganisaatiot valitsevat Lyyli.ai:n' : 
                  'Why professional services companies choose Lyyli.ai'}
               </p>
             </div>
@@ -248,7 +203,6 @@ const ExecutiveSummary: React.FC = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {language === 'fi' ? 'Strategiset hyödyt johdolle' : 
-                 language === 'sv' ? 'Strategiska fördelar för ledningen' : 
                  'Strategic Benefits for Leadership'}
               </h2>
             </div>
@@ -259,19 +213,17 @@ const ExecutiveSummary: React.FC = () => {
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-6 w-6 text-primary" />
                     {language === 'fi' ? 'Operatiivinen tehokkuus' : 
-                     language === 'sv' ? 'Operativ effektivitet' : 
                      'Operational Efficiency'}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
                     {language === 'fi' ? 'Vähennä viestinnän yleiskustannuksia samalla kun parannat viestin laatua ja kattavuutta' : 
-                     language === 'sv' ? 'Minska kommunikationskostnader samtidigt som du förbättrar meddelandekvalitet och räckvidd' : 
                      'Reduce communication overhead while improving message quality and reach'}
                   </p>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span>{language === 'fi' ? 'Aikasäästö' : language === 'sv' ? 'Tidsbesparingar' : 'Time savings'}</span>
+                      <span>{language === 'fi' ? 'Aikasäästö' : 'Time savings'}</span>
                       <span>75%</span>
                     </div>
                     <Progress value={75} />
@@ -284,19 +236,17 @@ const ExecutiveSummary: React.FC = () => {
                   <CardTitle className="flex items-center gap-2">
                     <BarChart3 className="h-6 w-6 text-primary" />
                     {language === 'fi' ? 'Kasvun mahdollistaminen' : 
-                     language === 'sv' ? 'Tillväxtmöjliggörande' : 
                      'Growth Enablement'}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
                     {language === 'fi' ? 'Skaalaa viestintäinfrastruktuuria ilman suhteellisia henkilöstölisäyksiä' : 
-                     language === 'sv' ? 'Skala kommunikationsinfrastruktur utan proportionella personalökningar' : 
                      'Scale communication infrastructure without proportional headcount increases'}
                   </p>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span>{language === 'fi' ? 'Skaalautuvuus' : language === 'sv' ? 'Skalbarhet' : 'Scalability'}</span>
+                      <span>{language === 'fi' ? 'Skaalautuvuus' : 'Scalability'}</span>
                       <span>10x</span>
                     </div>
                     <Progress value={90} />
@@ -309,19 +259,17 @@ const ExecutiveSummary: React.FC = () => {
                   <CardTitle className="flex items-center gap-2">
                     <Users className="h-6 w-6 text-primary" />
                     {language === 'fi' ? 'Kilpailuetu' : 
-                     language === 'sv' ? 'Konkurrensfördel' : 
                      'Competitive Advantage'}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
                     {language === 'fi' ? 'Nopeampi päätöksenteko ja toteutus parannetun tiedonkulun kautta' : 
-                     language === 'sv' ? 'Snabbare beslutsfattande och utförande genom förbättrat informationsflöde' : 
                      'Faster decision-making and execution through improved information flow'}
                   </p>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span>{language === 'fi' ? 'Nopeampi koordinaatio' : language === 'sv' ? 'Snabbare koordinering' : 'Faster coordination'}</span>
+                      <span>{language === 'fi' ? 'Nopeampi koordinaatio' : 'Faster coordination'}</span>
                       <span>50%</span>
                     </div>
                     <Progress value={50} />
@@ -343,12 +291,10 @@ const ExecutiveSummary: React.FC = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {language === 'fi' ? 'Investointiyhteenveto' : 
-                 language === 'sv' ? 'Investeringssammanfattning' : 
                  'Investment Summary'}
               </h2>
               <p className="text-lg text-muted-foreground">
                 {language === 'fi' ? 'Selkeä ROI joustavalla hinnoittelulla' : 
-                 language === 'sv' ? 'Tydlig ROI med flexibel prissättning' : 
                  'Clear ROI with flexible pricing'}
               </p>
             </div>
@@ -358,27 +304,24 @@ const ExecutiveSummary: React.FC = () => {
                 <CardHeader>
                   <CardTitle>
                     {language === 'fi' ? 'Professional-suunnitelma' : 
-                     language === 'sv' ? 'Professional Plan' : 
                      'Professional Plan'}
                   </CardTitle>
                   <div className="text-3xl font-bold text-primary">
                     {language === 'fi' ? '599€/kk' : 
-                     language === 'sv' ? '5 990 kr/månad' : 
                      '€599/month'}
                   </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6">
                     {language === 'fi' ? 'Täydellinen 100-500 hengen asiantuntijaorganisaatioille' :
-                     language === 'sv' ? 'Perfekt för 100-500 personers organisationer' : 
                      'Perfect for 100-500 person professional services companies'}
                   </p>
                   <ul className="space-y-2">
                     {[
-                      language === 'fi' ? 'Rajoittamattomat AI-pohjaiset viestit' : language === 'sv' ? 'Obegränsade AI-drivna meddelanden' : 'Unlimited AI-powered messages',
-                      language === 'fi' ? 'Monikanavainen jakelu' : language === 'sv' ? 'Flerkanaldistribution' : 'Multi-channel distribution',
-                      language === 'fi' ? 'Edistynyt analytiikka' : language === 'sv' ? 'Avancerad analys' : 'Advanced analytics',
-                      language === 'fi' ? 'Prioriteettituki' : language === 'sv' ? 'Prioriterad support' : 'Priority support'
+                      language === 'fi' ? 'Rajoittamattomat AI-pohjaiset viestit' : 'Unlimited AI-powered messages',
+                      language === 'fi' ? 'Monikanavainen jakelu' : 'Multi-channel distribution',
+                      language === 'fi' ? 'Edistynyt analytiikka' : 'Advanced analytics',
+                      language === 'fi' ? 'Prioriteettituki' : 'Priority support'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -393,35 +336,33 @@ const ExecutiveSummary: React.FC = () => {
                 <CardHeader>
                   <CardTitle>
                     {language === 'fi' ? 'Tyypillinen ROI-analyysi' : 
-                     language === 'sv' ? 'Typisk ROI-analys' : 
                      'Typical ROI Analysis'}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                      <span>{language === 'fi' ? 'Viestintäpäällikön palkkaaminen' : language === 'sv' ? 'Anställa kommunikationschef' : 'Hiring Communication Manager'}</span>
+                      <span>{language === 'fi' ? 'Viestintäpäällikön palkkaaminen' : 'Hiring Communication Manager'}</span>
                       <span className="font-bold text-red-600">
-                        {language === 'fi' ? '84 000€/v' : language === 'sv' ? '840 000 kr/år' : '€84,000/year'}
+                        {language === 'fi' ? '84 000€/v' : '€84,000/year'}
                       </span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span>Lyyli.ai Professional</span>
                       <span className="font-bold text-primary">
-                        {language === 'fi' ? '7 188€/v' : language === 'sv' ? '71 880 kr/år' : '€7,188/year'}
+                        {language === 'fi' ? '7 188€/v' : '€7,188/year'}
                       </span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-emerald-50 rounded-lg border border-emerald-200">
-                      <span className="font-medium">{language === 'fi' ? 'Vuosisäästöt' : language === 'sv' ? 'Årliga besparingar' : 'Annual Savings'}</span>
+                      <span className="font-medium">{language === 'fi' ? 'Vuosisäästöt' : 'Annual Savings'}</span>
                       <span className="font-bold text-emerald-600">
-                        {language === 'fi' ? '76 812€' : language === 'sv' ? '768 120 kr' : '€76,812'}
+                        {language === 'fi' ? '76 812€' : '€76,812'}
                       </span>
                     </div>
                     <div className="text-center p-4 bg-emerald-100 rounded-lg">
                       <div className="text-3xl font-bold text-emerald-600">1,068%</div>
                       <div className="text-sm text-emerald-700">
                         {language === 'fi' ? 'ROI ensimmäisenä vuonna' : 
-                         language === 'sv' ? 'ROI år ett' : 
                          'ROI in year one'}
                       </div>
                     </div>
@@ -437,12 +378,10 @@ const ExecutiveSummary: React.FC = () => {
           <div className="container-padding container mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {language === 'fi' ? 'Seuraavat askeleet' : 
-               language === 'sv' ? 'Nästa steg' : 
                'Next Steps'}
             </h2>
             <p className="text-xl mb-12 text-white/80">
               {language === 'fi' ? 'Valmis muuttamaan viestintääsi?' : 
-               language === 'sv' ? 'Redo att transformera din kommunikation?' : 
                'Ready to transform your communication?'}
             </p>
 
@@ -452,12 +391,10 @@ const ExecutiveSummary: React.FC = () => {
                   <Calendar className="h-8 w-8 mb-4 mx-auto" />
                   <h3 className="text-lg font-semibold mb-2">
                     {language === 'fi' ? 'Demo päättäjille' : 
-                     language === 'sv' ? 'Ledningsdemo' :
                      'Executive Demo'}
                   </h3>
                   <p className="text-white/80 mb-4">
                     {language === 'fi' ? '30 minuutin henkilökohtainen esittely' : 
-                     language === 'sv' ? '30-minuters personlig demonstration' : 
                      '30-minute personalized demonstration'}
                   </p>
                   <Button 
@@ -466,7 +403,6 @@ const ExecutiveSummary: React.FC = () => {
                     className="w-full"
                   >
                     {language === 'fi' ? 'Varaa demo' : 
-                     language === 'sv' ? 'Boka demo' : 
                      'Schedule Demo'}
                   </Button>
                 </CardContent>
@@ -477,12 +413,10 @@ const ExecutiveSummary: React.FC = () => {
                   <Calculator className="h-8 w-8 mb-4 mx-auto" />
                   <h3 className="text-lg font-semibold mb-2">
                     {language === 'fi' ? 'ROI-analyysi' : 
-                     language === 'sv' ? 'ROI-analys' : 
                      'ROI Analysis'}
                   </h3>
                   <p className="text-white/80 mb-4">
                     {language === 'fi' ? 'Räätälöity ROI-laskenta organisaatiollesi' : 
-                     language === 'sv' ? 'Anpassad ROI-kalkylering för din organisation' : 
                      'Custom ROI calculation for your organization'}
                   </p>
                   <Button 
@@ -490,9 +424,8 @@ const ExecutiveSummary: React.FC = () => {
                     asChild
                     className="w-full"
                   >
-                    <Link to={language === 'fi' ? '/fi/pricing' : language === 'sv' ? '/sv/pricing' : '/pricing'}>
+                    <Link href={language === 'fi' ? '/fi/pricing' : '/pricing'}>
                       {language === 'fi' ? 'Hanki analyysi' : 
-                       language === 'sv' ? 'Få analys' : 
                        'Get Analysis'}
                     </Link>
                   </Button>
@@ -504,12 +437,10 @@ const ExecutiveSummary: React.FC = () => {
                   <Phone className="h-8 w-8 mb-4 mx-auto" />
                   <h3 className="text-lg font-semibold mb-2">
                     {language === 'fi' ? 'Yhteystiedot' : 
-                     language === 'sv' ? 'Ledningskontakt' :
                      'Executive Contact'}
                   </h3>
                   <p className="text-white/80 mb-4">
                     {language === 'fi' ? 'Keskustele suoraan johtotiimimme kanssa' : 
-                     language === 'sv' ? 'Tala direkt med vårt ledningsteam' : 
                      'Speak directly with our leadership team'}
                   </p>
                   <Button 
@@ -517,9 +448,8 @@ const ExecutiveSummary: React.FC = () => {
                     asChild
                     className="w-full"
                   >
-                    <Link to={language === 'fi' ? '/fi/contact' : language === 'sv' ? '/sv/contact' : '/contact'}>
+                    <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
                       {language === 'fi' ? 'Ota yhteyttä' : 
-                       language === 'sv' ? 'Kontakta oss' : 
                        'Contact Us'}
                     </Link>
                   </Button>

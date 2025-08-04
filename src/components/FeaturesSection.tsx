@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import BookDemoDialog from '@/components/BookDemoDialog';
 
 const FeaturesSection: React.FC = () => {
-  const { t, featuresT, safeTr } = useLanguage();
+  const { featuresT, safeTr } = useLanguage();
   const [showDemoDialog, setShowDemoDialog] = useState(false);
   
   // Use both featuresT and safeTr for maximum safety

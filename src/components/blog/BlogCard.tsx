@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { formatDistanceToNow } from 'date-fns';
@@ -49,7 +49,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
         featured ? 'bg-secondary/10' : hasTranslation ? 'bg-primary/5' : 'bg-white'
       }`}
     >
-      <Link to={getBlogPostUrl()} className="flex-grow flex flex-col">
+      <Link href={getBlogPostUrl()} className="flex-grow flex flex-col">
         <CardContent className="p-0 flex flex-col h-full">
           {/* Image area with tags */}
           <div className="relative bg-primary/5 h-48 overflow-hidden">

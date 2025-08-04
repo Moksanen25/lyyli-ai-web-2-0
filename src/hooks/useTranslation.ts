@@ -1,13 +1,10 @@
+'use client';
 
-import { useContext, useMemo, useCallback } from 'react';
-import { languages, SupportedLanguage } from '@/translations';
-import { findTranslationValue } from '@/utils/languageUtils';
+import { useContext } from 'react';
 import { LanguageContext } from '@/contexts/LanguageContext';
+import { languages, SupportedLanguage } from '@/translations';
 
-/**
- * Custom hook for translation functionality
- */
-export const useTranslation = () => {
+export const useTranslation = (): { t: (key: string) => string; language: string } => {
   const context = useContext(LanguageContext);
   
   if (context === undefined) {
@@ -15,65 +12,36 @@ export const useTranslation = () => {
   }
   
   const { language } = context;
-
-  /**
-   * Translate a key to the current language with fallbacks
-   */
-  const t = useCallback((key: string): string => {
+  
+  const t = (key: string): string => {
     try {
-      if (!key) {
-        console.warn('Empty translation key provided');
-        return '';
-      }
-      
+      // Simple translation lookup
       const keys = key.split('.');
+      let result: any = languages[language as SupportedLanguage] || languages.en;
       
-      // Try current language first
-      let currentLangValue: any = languages[language];
-      
-      if (!currentLangValue) {
-        console.error(`Language not found: ${language}`);
-        // Fallback to English
-        currentLangValue = languages.en;
-        if (!currentLangValue) return key;
-      }
-      
-      // Use utility function to find translation in current language
-      const translatedValue = findTranslationValue(currentLangValue, keys);
-      
-      if (translatedValue !== null) {
-        return translatedValue;
-      }
-      
-      // If translation not found in current language, try English
-      if (language !== 'en') {
-        const enValue = findTranslationValue(languages.en, keys);
-        if (enValue !== null) {
-          // Log missing translations in development
-          if (import.meta.env.DEV) {
-            console.warn(`Missing translation for ${language}: ${key}, using English fallback`);
+      for (const k of keys) {
+        if (result && typeof result === 'object' && k in result) {
+          result = result[k];
+        } else {
+          // Fallback to English
+          result = languages.en;
+          for (const fallbackKey of keys) {
+            if (result && typeof result === 'object' && fallbackKey in result) {
+              result = result[fallbackKey];
+            } else {
+              return key; // Return key if translation not found
+            }
           }
-          return enValue;
+          break;
         }
       }
       
-      // If still not found, return key
-      if (import.meta.env.DEV) {
-        console.warn(`Missing translation for key: ${key} in both ${language} and en languages`);
-      }
-      
-      return key;
+      return typeof result === 'string' ? result : key;
     } catch (error) {
-      console.error(`Error translating key: ${key}`, error);
+      console.error('Translation error:', error);
       return key;
     }
-  }, [language]);
-  
-  // Memoize result to prevent unnecessary re-renders
-  const value = useMemo(() => ({
-    t,
-    language
-  }), [t, language]);
+  };
 
-  return value;
+  return { t, language };
 };

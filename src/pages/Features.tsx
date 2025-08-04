@@ -1,5 +1,7 @@
+'use client';
 
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -12,46 +14,24 @@ import CustomerQuotes from '@/components/features/CustomerQuotes';
 import FeatureComparison from '@/components/features/FeatureComparison';
 import FeatureFAQ from '@/components/features/FeatureFAQ';
 import CTASection from '@/components/CTASection';
-import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 /**
  * Features page component
  */
 const Features = () => {
-  const { t, featuresT, language } = useLanguage();
+  const { featuresT, language } = useLanguage();
   
   // SEO metadata with proper translations and keywords
-  const pageTitle = language === 'fi' 
-    ? 'Tekoäly viestintään ja sisäisen viestinnän automaatio | Lyyli.ai' 
-    : 'AI Communication Tool for Internal Communication Automation | Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Viestintäassistentti tekoälyllä asiantuntijaorganisaatioille. Sisäisen viestinnän työkalu, joka automatisoi yrityksen sisäisen viestinnän. Viestinnän automaatio suomalaisille yrityksille.'
-    : 'AI assistant for communication designed for expert organizations. Internal communication tool with communication automation for efficient business messaging. AI communication tool for Finnish companies.';
+  // const pageDescription = language === 'fi'
+  //   ? 'Viestintäassistentti tekoälyllä asiantuntijaorganisaatioille. Sisäisen viestinnän työkalu, joka automatisoi yrityksen sisäisen viestinnän. Viestinnän automaatio suomalaisille yrityksille.'
+  //   : 'AI communication assistant for expert organizations. Internal communication tool that automates company internal communication. Communication automation for Finnish companies.';
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="keywords" content={language === 'fi' 
-          ? 'viestinnän automaatio, sisäisen viestinnän työkalu, viestintäassistentti tekoälyllä, yrityksen sisäinen viestintä, tekoäly viestintään' 
-          : 'internal communication tool, AI communication tool, communication automation, AI assistant for communication'} />
-        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}features`} />
-        {language === 'fi' && <link rel="alternate" hrefLang="en" href="https://lyyli.ai/features" />}
-        {language === 'en' && <link rel="alternate" hrefLang="fi" href="https://lyyli.ai/fi/features" />}
-        <link rel="alternate" hrefLang="x-default" href="https://lyyli.ai/features" />
-      </Helmet>
-      
+
       <Navbar />
       <main className="flex-grow pt-16">
         {/* Hero Section */}
@@ -80,7 +60,7 @@ const Features = () => {
                   }
                 </p>
                 <Button size="lg" asChild>
-                  <Link to={language === 'fi' ? '/fi/security' : '/security'}>
+                  <Link href={language === 'fi' ? '/fi/security' : '/security'}>
                     {language === 'fi' ? 'Lue lisää tietoturvasta' : 'Learn More About Security'}
                   </Link>
                 </Button>

@@ -8,58 +8,58 @@ const ImplementationTimeline: React.FC = () => {
   const { language } = useLanguage();
 
   // Static data with fallbacks for different languages
-  const getTranslatedText = (key: string, fallback: string) => {
+  const getTranslatedText = (fallback: string) => {
     // Simple fallback for now - can be enhanced with proper translations later
     return fallback;
   };
 
   const timelineData = [
     {
-      phase: getTranslatedText('week1.phase', language === 'fi' ? 'Viikko 1' : language === 'sv' ? 'Vecka 1' : 'Week 1'),
-      title: getTranslatedText('week1.title', language === 'fi' ? 'Asennus ja integraatio' : language === 'sv' ? 'Installation och integration' : 'Setup & Integration'),
-      description: getTranslatedText('week1.desc', language === 'fi' ? 'Yhdistä olemassa olevat työkalut, konfiguroi AI-assistentti, tiimin perehdytys' : language === 'sv' ? 'Anslut befintliga verktyg, konfigurera AI-assistent, teamintroduktion' : 'Connect existing tools, configure AI assistant, team onboarding'),
+      phase: getTranslatedText(language === 'fi' ? 'Viikko 1' : 'Week 1'),
+      title: getTranslatedText(language === 'fi' ? 'Asennus ja integraatio' : 'Setup & Integration'),
+      description: getTranslatedText(language === 'fi' ? 'Yhdistä olemassa olevat työkalut, konfiguroi AI-assistentti, tiimin perehdytys' : 'Connect existing tools, configure AI assistant, team onboarding'),
       icon: CheckCircle,
       status: 'current',
       deliverables: [
-        language === 'fi' ? 'Slack/Teams integraatio' : language === 'sv' ? 'Slack/Teams integration' : 'Slack/Teams integration',
-        language === 'fi' ? 'AI:n koulutus yrityksen äänellä' : language === 'sv' ? 'AI-träning på företagsröst' : 'AI training on company voice',
-        language === 'fi' ? 'Alkuperäinen käyttäjäpääsy' : language === 'sv' ? 'Initial användaråtkomst' : 'Initial user access'
+        language === 'fi' ? 'Slack/Teams integraatio' : 'Slack/Teams integration',
+        language === 'fi' ? 'AI:n koulutus yrityksen äänellä' : 'AI training on company voice',
+        language === 'fi' ? 'Alkuperäinen käyttäjäpääsy' : 'Initial user access'
       ]
     },
     {
-      phase: getTranslatedText('week2.phase', language === 'fi' ? 'Viikko 2' : language === 'sv' ? 'Vecka 2' : 'Week 2'),
-      title: getTranslatedText('week2.title', language === 'fi' ? 'Pilottilanseeraus' : language === 'sv' ? 'Pilotlansering' : 'Live Pilot'),
-      description: getTranslatedText('week2.desc', language === 'fi' ? 'Live-pilotti avaintiimien kanssa, palautteen keruu, optimointi' : language === 'sv' ? 'Live-pilot med nyckelteam, feedbackinsamling, optimering' : 'Active pilot with key teams, feedback collection, optimization'),
+      phase: getTranslatedText(language === 'fi' ? 'Viikko 2' : 'Week 2'),
+      title: getTranslatedText(language === 'fi' ? 'Pilottilanseeraus' : 'Live Pilot'),
+      description: getTranslatedText(language === 'fi' ? 'Live-pilotti avaintiimien kanssa, palautteen keruu, optimointi' : 'Active pilot with key teams, feedback collection, optimization'),
       icon: Clock,
       status: 'upcoming',
       deliverables: [
-        language === 'fi' ? 'Pilottitiimin koulutus' : language === 'sv' ? 'Pilotteamträning' : 'Pilot team training',
-        language === 'fi' ? 'Ensimmäiset automatisoidut kampanjat' : language === 'sv' ? 'Första automatiserade kampanjer' : 'First automated campaigns',
-        language === 'fi' ? 'Menestysmetriikkojen lähtötaso' : language === 'sv' ? 'Baslinjer för framgångsmått' : 'Success metrics baseline'
+        language === 'fi' ? 'Pilottitiimin koulutus' : 'Pilot team training',
+        language === 'fi' ? 'Ensimmäiset automatisoidut kampanjat' : 'First automated campaigns',
+        language === 'fi' ? 'Menestysmetriikkojen lähtötaso' : 'Success metrics baseline'
       ]
     },
     {
-      phase: getTranslatedText('month1.phase', language === 'fi' ? 'Kuukausi 1' : language === 'sv' ? 'Månad 1' : 'Month 1'),
-      title: getTranslatedText('month1.title', language === 'fi' ? 'Täysi käyttöönotto' : language === 'sv' ? 'Full utrullning' : 'Full Deployment'),
-      description: getTranslatedText('month1.desc', language === 'fi' ? 'Organisaatiolaajuinen lanseeraus, edistyneet ominaisuudet, hallinnon setup' : language === 'sv' ? 'Organisationsomfattande lansering, avancerade funktioner, styrningsuppsättning' : 'Organization-wide rollout, advanced features, governance setup'),
+      phase: getTranslatedText(language === 'fi' ? 'Kuukausi 1' : 'Month 1'),
+      title: getTranslatedText(language === 'fi' ? 'Täysi käyttöönotto' : 'Full Deployment'),
+      description: getTranslatedText(language === 'fi' ? 'Organisaatiolaajuinen lanseeraus, edistyneet ominaisuudet, hallinnon setup' : 'Organization-wide rollout, advanced features, governance setup'),
       icon: Calendar,
       status: 'upcoming',
       deliverables: [
-        language === 'fi' ? 'Yrityslaajuinen pääsy' : language === 'sv' ? 'Företagsomfattande åtkomst' : 'Company-wide access',
-        language === 'fi' ? 'Edistyneet työnkulut' : language === 'sv' ? 'Avancerade arbetsflöden' : 'Advanced workflows',
-        language === 'fi' ? 'Vaatimustenmukaisuuskäytännöt' : language === 'sv' ? 'Compliance-policyer' : 'Compliance policies'
+        language === 'fi' ? 'Yrityslaajuinen pääsy' : 'Company-wide access',
+        language === 'fi' ? 'Edistyneet työnkulut' : 'Advanced workflows',
+        language === 'fi' ? 'Vaatimustenmukaisuuskäytännöt' : 'Compliance policies'
       ]
     },
     {
-      phase: getTranslatedText('ongoing.phase', language === 'fi' ? 'Jatkuva' : language === 'sv' ? 'Pågående' : 'Ongoing'),
-      title: getTranslatedText('ongoing.title', language === 'fi' ? 'Optimointi' : language === 'sv' ? 'Optimering' : 'Optimization'),
-      description: getTranslatedText('ongoing.desc', language === 'fi' ? 'Jatkuva parantaminen, uudet käyttötapaukset, ROI:n seuranta' : language === 'sv' ? 'Kontinuerlig förbättring, nya användningsfall, ROI-spårning' : 'Continuous improvement, new use cases, ROI tracking'),
+      phase: getTranslatedText(language === 'fi' ? 'Jatkuva' : 'Ongoing'),
+      title: getTranslatedText(language === 'fi' ? 'Optimointi' : 'Optimization'),
+      description: getTranslatedText(language === 'fi' ? 'Jatkuva parantaminen, uudet käyttötapaukset, ROI:n seuranta' : 'Continuous improvement, new use cases, ROI tracking'),
       icon: TrendingUp,
       status: 'future',
       deliverables: [
-        language === 'fi' ? 'Kuukausittaiset ROI-raportit' : language === 'sv' ? 'Månatliga ROI-rapporter' : 'Monthly ROI reports',
-        language === 'fi' ? 'Ominaisuuksien laajentaminen' : language === 'sv' ? 'Funktionsexpansion' : 'Feature expansion',
-        language === 'fi' ? 'Parhaiden käytäntöjen jakaminen' : language === 'sv' ? 'Delning av bästa praxis' : 'Best practice sharing'
+        language === 'fi' ? 'Kuukausittaiset ROI-raportit' : 'Monthly ROI reports',
+        language === 'fi' ? 'Ominaisuuksien laajentaminen' : 'Feature expansion',
+        language === 'fi' ? 'Parhaiden käytäntöjen jakaminen' : 'Best practice sharing'
       ]
     }
   ];
@@ -78,10 +78,10 @@ const ImplementationTimeline: React.FC = () => {
       <div className="container-padding container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            {language === 'fi' ? 'Saa arvoa 2 viikossa' : language === 'sv' ? 'Få värde på 2 veckor' : 'Get Value in 2 Weeks'}
+            {language === 'fi' ? 'Saa arvoa 2 viikossa' : 'Get Value in 2 Weeks'}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {language === 'fi' ? 'Todistettu toteutusmenetelmämme tuottaa välitöntä arvoa ja skaalautuu organisaatiosi kanssa' : language === 'sv' ? 'Vår beprövade implementeringsmetodik levererar omedelbart värde och skalar med din organisation' : 'Our proven implementation methodology delivers immediate value and scales with your organization'}
+            {language === 'fi' ? 'Todistettu toteutusmenetelmämme tuottaa välitöntä arvoa ja skaalautuu organisaatiosi kanssa' : 'Our proven implementation methodology delivers immediate value and scales with your organization'}
           </p>
         </div>
 
@@ -108,7 +108,7 @@ const ImplementationTimeline: React.FC = () => {
                   
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium text-foreground">
-                      {language === 'fi' ? 'Keskeiset tuotokset' : language === 'sv' ? 'Viktiga leverabler' : 'Key Deliverables'}:
+                      {language === 'fi' ? 'Keskeiset tuotokset' : 'Key Deliverables'}:
                     </h4>
                     <ul className="space-y-1">
                       {item.deliverables.map((deliverable, deliverableIndex) => (
@@ -137,28 +137,28 @@ const ImplementationTimeline: React.FC = () => {
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">2</div>
             <div className="text-sm font-medium text-foreground mb-1">
-              {language === 'fi' ? 'Viikkoa' : language === 'sv' ? 'Veckor' : 'Weeks'}
+              {language === 'fi' ? 'Viikkoa' : 'Weeks'}
             </div>
             <div className="text-xs text-muted-foreground">
-              {language === 'fi' ? 'ensimmäiseen arvoon' : language === 'sv' ? 'till första värdet' : 'to first value'}
+              {language === 'fi' ? 'ensimmäiseen arvoon' : 'to first value'}
             </div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">87%</div>
             <div className="text-sm font-medium text-foreground mb-1">
-              {language === 'fi' ? 'Tehokkuuden kasvu' : language === 'sv' ? 'Effektivitetsökning' : 'Efficiency gain'}
+              {language === 'fi' ? 'Tehokkuuden kasvu' : 'Efficiency gain'}
             </div>
             <div className="text-xs text-muted-foreground">
-              {language === 'fi' ? 'ensimmäisessä kuussa' : language === 'sv' ? 'första månaden' : 'in first month'}
+              {language === 'fi' ? 'ensimmäisessä kuussa' : 'in first month'}
             </div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">24/7</div>
             <div className="text-sm font-medium text-foreground mb-1">
-              {language === 'fi' ? 'Tuki' : language === 'sv' ? 'Support' : 'Support'}
+              {language === 'fi' ? 'Tuki' : 'Support'}
             </div>
             <div className="text-xs text-muted-foreground">
-              {language === 'fi' ? 'koko prosessin ajan' : language === 'sv' ? 'under hela processen' : 'throughout process'}
+              {language === 'fi' ? 'koko prosessin ajan' : 'throughout process'}
             </div>
           </div>
         </div>

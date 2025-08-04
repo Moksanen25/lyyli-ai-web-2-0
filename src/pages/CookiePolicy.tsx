@@ -2,30 +2,13 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import { useLanguage } from '@/hooks/useLanguage';
 import Footer from '@/components/Footer';
-import { Helmet } from 'react-helmet';
 
 const CookiePolicy = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
-  const pageTitle = language === 'fi' ? 'Evästekäytäntö - Lyyli.ai' : 'Cookie Policy - Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Lyyli.ai:n evästekäytäntö selitettynä. Lue miten käytämme evästeitä parantaaksemme käyttökokemustasi ja tarjotaksemme personoitua sisältöä.'
-    : 'Lyyli.ai\'s cookie policy explained. Learn how we use cookies to improve your browsing experience and provide personalized content.';
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}cookies`} />
-      </Helmet>
-      
+
       <Navbar />
       <main className="container-padding container mx-auto py-12 md:py-24 flex-grow animate-fade-in">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">{t('cookiePolicy.title')}</h1>

@@ -1,5 +1,6 @@
+'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Check, ChevronDown } from 'lucide-react';
@@ -11,12 +12,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 // Only show verification button in development mode
-const isDev = import.meta.env.DEV;
+const isDev = process.env.NODE_ENV === 'development';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
-  // { code: 'sv', name: 'Svenska', flag: '🇸🇪' }, // Hidden for now
 ];
 
 export const LanguageSwitcher: React.FC = () => {
@@ -26,7 +26,7 @@ export const LanguageSwitcher: React.FC = () => {
 
   const handleLanguageChange = (newLanguage: string) => {
     console.log('Switching language from', language, 'to', newLanguage);
-    setLanguage(newLanguage as 'en' | 'fi' | 'sv');
+    setLanguage(newLanguage as 'en' | 'fi');
   };
 
   return (

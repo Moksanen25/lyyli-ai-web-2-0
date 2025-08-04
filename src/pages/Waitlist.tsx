@@ -1,9 +1,10 @@
+'use client';
+
 
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
-import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -92,21 +93,8 @@ const Waitlist: React.FC = () => {
     }
   }, [showDemo]);
 
-  const pageTitle = language === 'fi' ? 'Lyyli - Liity jonotuslistalle' : 'Lyyli - Join our Waitlist';
-  const pageDescription = language === 'fi' 
-    ? 'Liity Lyylin jonotuslistalle ollaksesi ensimmäinen, joka saa tietää kun julkaisemme tekoälyllä toimivan sisällönhallintajärjestelmän.' 
-    : 'Join the Lyyli waitlist to be the first to know when we launch our AI-powered content management platform.';
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-      </Helmet>
 
       <Navbar />
 

@@ -1,6 +1,7 @@
 
-import { useTranslation } from '@/hooks/useTranslation';
-import { languages } from '@/translations';
+import { useContext } from 'react';
+import { LanguageContext } from '@/contexts/LanguageContext';
+import { languages, SupportedLanguage } from '@/translations';
 import { SafeTranslationOptions } from './types';
 
 /**
@@ -10,9 +11,6 @@ export const createSafeTranslator = (t: (key: string) => string, language: strin
   return (key: string, options: SafeTranslationOptions = {}) => {
     try {
       if (!key) return options.fallback || ''; 
-      
-      // Allow forcing a specific language for translation
-      const currentLanguage = options.forceLanguage || language;
       
       // Get translation or fallback to key
       let translation = t(key) || '';
@@ -29,13 +27,9 @@ export const createSafeTranslator = (t: (key: string) => string, language: strin
         });
       }
       
-      // Debug output in development
-      if (options.debug && import.meta.env.DEV) {
-        console.log(`[safeT] Key: ${key}, Result: "${translation}", Language: ${currentLanguage}`);
-        
-        if (translation === key) {
-          console.warn(`[safeT] Translation likely missing for: ${key}`);
-        }
+      // Debug logging
+      if (options.debug && process.env.NODE_ENV === 'development') {
+        console.log(`Safe translation for key: ${key}`, { language, result: translation, fallback: options.fallback });
       }
       
       return translation || options.fallback || key;
@@ -51,7 +45,44 @@ export const createSafeTranslator = (t: (key: string) => string, language: strin
  * to prevent UI crashes due to missing translation keys
  */
 export const useSafeTranslationBase = () => {
-  const { t, language } = useTranslation();
+  const context = useContext(LanguageContext);
+  
+  if (context === undefined) {
+    throw new Error('useSafeTranslationBase must be used within a LanguageProvider');
+  }
+  
+  const { language } = context;
+  
+  // Simple translation function to avoid circular dependency
+  const t = (key: string): string => {
+    try {
+      const keys = key.split('.');
+      let result: any = languages[language as SupportedLanguage] || languages.en;
+      
+      for (const k of keys) {
+        if (result && typeof result === 'object' && k in result) {
+          result = result[k];
+        } else {
+          // Fallback to English
+          result = languages.en;
+          for (const fallbackKey of keys) {
+            if (result && typeof result === 'object' && fallbackKey in result) {
+              result = result[fallbackKey];
+            } else {
+              return key; // Return key if translation not found
+            }
+          }
+          break;
+        }
+      }
+      
+      return typeof result === 'string' ? result : key;
+    } catch (error) {
+      console.error('Translation error:', error);
+      return key;
+    }
+  };
+  
   const safeT = createSafeTranslator(t, language);
   
   return {

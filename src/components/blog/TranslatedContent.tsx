@@ -1,7 +1,8 @@
+'use client';
 
-import React, { useMemo, useEffect } from 'react';
+
+import React, { useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useSafeTranslation } from '@/utils/safeTranslation';
 import type { BlogPost } from '@/data/blogData';
 import { blogTranslations } from './blogTranslations';
 
@@ -12,7 +13,6 @@ interface TranslatedContentProps {
 
 const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children }) => {
   const { language } = useLanguage();
-  const { safeT } = useSafeTranslation();
   
   // Debug the translation lookup
   useEffect(() => {
@@ -35,7 +35,7 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   }, [post.id, post.slug, language]);
   
   // Memoize the translation lookup
-  const translation = useMemo(() => {
+  const translation = React.useMemo(() => {
     if (language === 'fi') {
       const translationKey = `${post.slug}-${language}`;
       return blogTranslations[translationKey] || null;
@@ -44,7 +44,7 @@ const TranslatedContent: React.FC<TranslatedContentProps> = ({ post, children })
   }, [post.slug, language]);
   
   // Modify the children to replace content with translations when available
-  const modifiedChildren = useMemo(() => {
+  const modifiedChildren = React.useMemo(() => {
     if (language === 'fi' && translation) {
       // Clone the children and modify specific elements
       return React.Children.map(children, child => {

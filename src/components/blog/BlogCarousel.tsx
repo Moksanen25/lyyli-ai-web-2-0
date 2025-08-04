@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -10,11 +12,12 @@ import { formatDistanceToNow } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
 
 const BlogCarousel: React.FC = () => {
+  const router = useRouter();
   const {
     t,
     language
   } = useLanguage();
-  const navigate = useNavigate();
+  // const navigate = useRouter(); // Unused variable removed
 
   // Get the 5 newest blog posts
   const newestPosts = [...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 5);
@@ -40,7 +43,7 @@ const BlogCarousel: React.FC = () => {
             <CarouselContent>
               {newestPosts.map((post, index) => <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300" onClick={() => navigate(`${getPathPrefix()}/full/blog/${post.slug}`)}>
+                    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow duration-300" onClick={() => router.push(`${getPathPrefix()}/full/blog/${post.slug}`)}>
                       <CardContent className="p-0 flex flex-col h-full">
                         {/* Image area with tags */}
                         <div className="relative bg-primary/5 h-48 overflow-hidden">
@@ -80,7 +83,7 @@ const BlogCarousel: React.FC = () => {
         
         {/* "View All" button */}
         <div className="text-center">
-          <Button variant="outline" className="mt-4" onClick={() => navigate(`${getPathPrefix()}/full/blog`)}>
+          <Button variant="outline" className="mt-4" onClick={() => router.push(`${getPathPrefix()}/full/blog`)}>
             {t('blog.readMore')} <ArrowRight className="h-4 w-4 ml-1" />
           </Button>
         </div>

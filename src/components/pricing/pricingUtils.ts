@@ -1,6 +1,5 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
-import { SafeTranslationOptions } from '@/utils/translation/types';
 
 export const usePricingTranslations = () => {
   const { t, safeT, featuresT } = useLanguage();
@@ -32,6 +31,9 @@ export const usePricingTranslations = () => {
   };
 
   return {
+    t,
+    safeT,
+    featuresT,
     translateFeature
   };
 };

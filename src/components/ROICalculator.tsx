@@ -1,14 +1,14 @@
+'use client';
 
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Users, Briefcase, Euro, TrendingUp, BarChart3, PieChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
 
 const ROICalculator = () => {
   const { calculatorT, language, safeTr } = useLanguage();
@@ -207,15 +207,12 @@ const ROICalculator = () => {
               <div className="flex items-center gap-3 mb-4">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
                 <h3 className="text-lg font-semibold text-blue-700">
-                  {language === 'fi' ? '80% tehokkuusarvo' : 
-                   language === 'sv' ? '80% effektivitetsvärde' : 
-                   '80% Efficiency Value'}
+                  {language === 'fi' ? '80% tehokkuusarvo' : '80% Efficiency Value'}
                 </h3>
               </div>
               <p className="text-3xl font-bold text-blue-600 mb-2">{efficiencyValue}</p>
               <p className="text-sm text-blue-600">
                 {language === 'fi' ? 'Arvio säästetystä työajasta ja parantuneesta tehokkuudesta' :
-                 language === 'sv' ? 'Uppskattat värde av sparad arbetstid och förbättrad effektivitet' :
                  'Estimated value of saved time and improved efficiency'}
               </p>
             </Card>
@@ -239,9 +236,7 @@ const ROICalculator = () => {
                   </div>
                   <div className="text-right">
                     <div className="text-sm text-emerald-600 font-medium">
-                      {language === 'fi' ? 'Vuosituotto' : 
-                       language === 'sv' ? 'Årlig avkastning' : 
-                       'Annual Return'}
+                      {language === 'fi' ? 'Vuosituotto' : 'Annual Return'}
                     </div>
                   </div>
                 </div>
@@ -256,14 +251,13 @@ const ROICalculator = () => {
                       ></div>
                     </div>
                     <span className="text-xs text-emerald-600 font-medium">
-                      {language === 'fi' ? 'Erinomainen' : language === 'sv' ? 'Utmärkt' : 'Excellent'}
+                      {language === 'fi' ? 'Erinomainen' : 'Excellent'}
                     </span>
                   </div>
                 </div>
                 
                 <p className="text-sm text-emerald-700">
                   {language === 'fi' ? 'Sijoitetun pääoman tuotto Lyyli-investoinnille' :
-                   language === 'sv' ? 'Avkastning på investering för Lyyli-investering' :
                    'Return on investment for Lyyli investment'}
                 </p>
               </div>
@@ -281,14 +275,12 @@ const ROICalculator = () => {
                       <Euro className="h-6 w-6 text-blue-600" />
                     </div>
                     <h3 className="text-lg font-semibold text-blue-800">
-                      {language === 'fi' ? 'Nettosäästöt' : 
-                       language === 'sv' ? 'Nettobesparingar' : 
-                       'Net Savings'}
+                      {language === 'fi' ? 'Nettosäästöt' : 'Net Savings'}
                     </h3>
                   </div>
                   <div className="text-right">
                     <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
-                      {language === 'fi' ? 'Vuosittain' : language === 'sv' ? 'Årligen' : 'Annually'}
+                      {language === 'fi' ? 'Vuosittain' : 'Annually'}
                     </div>
                   </div>
                 </div>
@@ -297,12 +289,11 @@ const ROICalculator = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-sm text-blue-600">+15%</span>
                   <div className="text-xs text-blue-500">
-                    {language === 'fi' ? 'vs edellinen vuosi' : language === 'sv' ? 'vs föregående år' : 'vs previous year'}
+                    {language === 'fi' ? 'vs edellinen vuosi' : 'vs previous year'}
                   </div>
                 </div>
                 <p className="text-sm text-blue-600">
                   {language === 'fi' ? 'Tehokkuusarvo miinus Lyyli-kustannukset' :
-                   language === 'sv' ? 'Effektivitetsvärde minus Lyyli-kostnader' :
                    'Efficiency value minus Lyyli costs'}
                 </p>
               </div>
@@ -338,7 +329,6 @@ const ROICalculator = () => {
                   </div>
                   <h4 className="font-semibold text-gray-800">
                     {language === 'fi' ? 'Laskelman yhteenveto' :
-                     language === 'sv' ? 'Beräkningssammanfattning' :
                      'Calculation Summary'}
                   </h4>
                 </div>
@@ -348,7 +338,7 @@ const ROICalculator = () => {
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
                       <span className="text-sm text-gray-600">
-                        {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'}
+                        {language === 'fi' ? 'Tehokkuusarvo' : 'Efficiency Value'}
                       </span>
                     </div>
                     <div className="text-right">
@@ -361,7 +351,7 @@ const ROICalculator = () => {
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></div>
                       <span className="text-sm text-gray-600">
-                        {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
+                        {language === 'fi' ? 'Lyyli-kustannukset' : 'Lyyli Costs'}
                       </span>
                     </div>
                     <div className="text-right">
@@ -374,7 +364,7 @@ const ROICalculator = () => {
                     <div className="flex items-center gap-3">
                       <div className="w-4 h-4 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full"></div>
                       <span className="font-semibold text-emerald-800">
-                        {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'}
+                        {language === 'fi' ? 'Nettosäästöt' : 'Net Savings'}
                       </span>
                     </div>
                     <div className="text-right">
@@ -403,7 +393,6 @@ const ROICalculator = () => {
           <div className="bg-gray-50 rounded-lg p-8">
             <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
               {language === 'fi' ? 'ROI-laskurin oletukset ja metodologia' :
-               language === 'sv' ? 'ROI-kalkylatorn antaganden och metodik' :
                'ROI Calculator Assumptions & Methodology'}
             </h3>
             
@@ -411,33 +400,29 @@ const ROICalculator = () => {
               <div>
                 <h4 className="font-medium text-foreground mb-4">
                   {language === 'fi' ? 'Perusoletuket' :
-                   language === 'sv' ? 'Grundantaganden' :
                    'Base Assumptions'}
                 </h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[120px]">
                       {language === 'fi' ? 'Oletuspalkka:' :
-                       language === 'sv' ? 'Standardlön:' :
                        'Default Salary:'}
                     </span>
-                    <span>€3,500/month ({language === 'fi' ? 'viestintäassistentti' : language === 'sv' ? 'kommunikationsassistent' : 'communication assistant'})</span>
+                    <span>€3,500/month ({language === 'fi' ? 'viestintäassistentti' : 'communication assistant'})</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[120px]">
                       {language === 'fi' ? 'Työnantajakulut:' :
-                       language === 'sv' ? 'Arbetsgivarkostnader:' :
                        'Employer Costs:'}
                     </span>
-                    <span>+40% ({language === 'fi' ? 'edut, verot, yleiskulut' : language === 'sv' ? 'förmåner, skatter, omkostnader' : 'benefits, taxes, overhead'})</span>
+                    <span>+40% ({language === 'fi' ? 'edut, verot, yleiskulut' : 'benefits, taxes, overhead'})</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[120px]">
                       {language === 'fi' ? 'Lyyli Professional:' :
-                       language === 'sv' ? 'Lyyli Professional:' :
                        'Lyyli Professional:'}
                     </span>
-                    <span>€599/{language === 'fi' ? 'kk' : language === 'sv' ? 'månad' : 'month'} (€7,188/{language === 'fi' ? 'vuosi' : language === 'sv' ? 'år' : 'year'})</span>
+                    <span>€599/{language === 'fi' ? 'kk' : 'month'} (€7,188/{language === 'fi' ? 'vuosi' : 'year'})</span>
                   </li>
                 </ul>
               </div>
@@ -445,33 +430,29 @@ const ROICalculator = () => {
               <div>
                 <h4 className="font-medium text-foreground mb-4">
                   {language === 'fi' ? 'Tehokkuusparannukset' :
-                   language === 'sv' ? 'Effektivitetsförbättringar' :
                    'Efficiency Improvements'}
                 </h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[100px]">
                       {language === 'fi' ? 'Ajansäästö:' :
-                       language === 'sv' ? 'Tidsbesparing:' :
                        'Time Savings:'}
                     </span>
-                    <span>80% {language === 'fi' ? 'viestintärutiineissa' : language === 'sv' ? 'i kommunikationsrutiner' : 'in communication routines'}</span>
+                    <span>80% {language === 'fi' ? 'viestintärutiineissa' : 'in communication routines'}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[100px]">
                       {language === 'fi' ? 'Automaatio:' :
-                       language === 'sv' ? 'Automation:' :
                        'Automation:'}
                     </span>
-                    <span>{language === 'fi' ? 'Sisällönluonti, jakelu, seuranta' : language === 'sv' ? 'Innehållsskapande, distribution, uppföljning' : 'Content creation, distribution, tracking'}</span>
+                    <span>{language === 'fi' ? 'Sisällönluonti, jakelu, seuranta' : 'Content creation, distribution, tracking'}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-medium min-w-[100px]">
                       {language === 'fi' ? 'Laatuparannus:' :
-                       language === 'sv' ? 'Kvalitetsförbättring:' :
                        'Quality Improvement:'}
                     </span>
-                    <span>{language === 'fi' ? 'Johdonmukainen brändiviestintä' : language === 'sv' ? 'Konsekvent varumärkeskommunikation' : 'Consistent brand messaging'}</span>
+                    <span>{language === 'fi' ? 'Johdonmukainen brändiviestintä' : 'Consistent brand messaging'}</span>
                   </li>
                 </ul>
               </div>
@@ -480,19 +461,18 @@ const ROICalculator = () => {
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h4 className="font-medium text-foreground mb-4">
                 {language === 'fi' ? 'Laskentakaava' :
-                 language === 'sv' ? 'Beräkningsformel' :
                  'Calculation Formula'}
               </h4>
               <div className="bg-white rounded p-4 text-sm">
                 <div className="font-mono text-center space-y-2">
                   <div className="text-blue-600">
-                    {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'} = {language === 'fi' ? 'Vuosikustannukset' : language === 'sv' ? 'Årskostnader' : 'Annual Costs'} × 80%
+                    {language === 'fi' ? 'Tehokkuusarvo' : 'Efficiency Value'} = {language === 'fi' ? 'Vuosikustannukset' : 'Annual Costs'} × 80%
                   </div>
                   <div className="text-emerald-600">
-                    {language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'} = {language === 'fi' ? 'Tehokkuusarvo' : language === 'sv' ? 'Effektivitetsvärde' : 'Efficiency Value'} - {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}
+                    {language === 'fi' ? 'Nettosäästöt' : 'Net Savings'} = {language === 'fi' ? 'Tehokkuusarvo' : 'Efficiency Value'} - {language === 'fi' ? 'Lyyli-kustannukset' : 'Lyyli Costs'}
                   </div>
                   <div className="text-primary">
-                    ROI = ({language === 'fi' ? 'Nettosäästöt' : language === 'sv' ? 'Nettobesparingar' : 'Net Savings'} ÷ {language === 'fi' ? 'Lyyli-kustannukset' : language === 'sv' ? 'Lyyli-kostnader' : 'Lyyli Costs'}) × 100%
+                    ROI = ({language === 'fi' ? 'Nettosäästöt' : 'Net Savings'} ÷ {language === 'fi' ? 'Lyyli-kustannukset' : 'Lyyli Costs'}) × 100%
                   </div>
                 </div>
               </div>
@@ -501,8 +481,6 @@ const ROICalculator = () => {
             <div className="mt-6 text-xs text-muted-foreground text-center">
               {language === 'fi' ? 
                 'Huomaa: Tulokset ovat arvioita ja todelliset säästöt voivat vaihdella organisaation ja käyttötavan mukaan.' :
-                language === 'sv' ?
-                'Obs: Resultaten är uppskattningar och faktiska besparingar kan variera beroende på organisation och användning.' :
                 'Note: Results are estimates and actual savings may vary based on organization and usage patterns.'
               }
             </div>

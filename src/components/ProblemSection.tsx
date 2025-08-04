@@ -1,70 +1,56 @@
+'use client';
+
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Clock, MessageSquareX, TrendingDown, AlertTriangle } from 'lucide-react';
 
 const ProblemSection: React.FC = () => {
   const { language } = useLanguage();
 
   const problems = [
     {
-      icon: <MessageSquareX className="h-12 w-12 text-destructive" />,
-      title: language === 'fi' ? 'Tärkeät viestit jäävät lähettämättä' : 'Important messages go undelivered',
+      title: language === 'fi' ? 'Kalliit markkinointikampanjat' : 'Expensive marketing campaigns',
       description: language === 'fi' 
-        ? 'Kiireessä unohtuu informoida kollegoita tärkeistä asioista, mikä johtaa väärinkäsityksiin ja viivästyksiin.'
-        : 'In the rush of daily work, colleagues forget to inform about important matters, leading to misunderstandings and delays.'
+        ? 'Yritykset käyttävät valtavia summia markkinointiin ilman tietoa siitä, kuka oikeasti ostaa.'
+        : 'Companies spend huge amounts on marketing without knowing who actually buys.',
+      icon: '💰'
     },
     {
-      icon: <Clock className="h-12 w-12 text-destructive" />,
-      title: language === 'fi' ? 'Aikaa kuluu viestien kirjoittamiseen' : 'Time wasted writing messages',
+      title: language === 'fi' ? 'Aikaa vievä asiakastutkimus' : 'Time-consuming customer research',
       description: language === 'fi'
-        ? 'Sähköpostien ja viestien muotoilu vie aikaa varsinaiselta työltä, erityisesti kun pitää viestiä ammattimaisesti.'
-        : 'Formatting emails and messages takes time away from actual work, especially when communicating professionally.'
+        ? 'Asiakkaiden segmentointi ja analysointi vie paljon aikaa ja resursseja.'
+        : 'Segmenting and analyzing customers takes a lot of time and resources.',
+      icon: '⏰'
     },
     {
-      icon: <TrendingDown className="h-12 w-12 text-destructive" />,
-      title: language === 'fi' ? 'Epäjohdonmukainen viestintä' : 'Inconsistent communication',
+      title: language === 'fi' ? 'Epätarkat kohderyhmät' : 'Inaccurate target audiences',
       description: language === 'fi'
-        ? 'Eri tiimiläiset viestivät eri tavoin, mikä luo epäselvyyttä ja heikentää ammatillista imagoa.'
-        : 'Different team members communicate differently, creating confusion and weakening professional image.'
+        ? 'Markkinointi kohdistuu usein väärille ihmisille, mikä johtaa huonoihin tuloksiin.'
+        : 'Marketing often targets the wrong people, leading to poor results.',
+      icon: '🎯'
     }
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto container-padding">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <AlertTriangle className="h-4 w-4" />
-            {language === 'fi' ? 'Ongelma' : 'The Problem'}
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            {language === 'fi' 
-              ? 'Asiantuntijaorganisaatioissa viestintä ontuu'
-              : 'Communication struggles in expert organizations'
-            }
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {language === 'fi' ? 'Yleisiä ongelmia' : 'Common Problems'}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {language === 'fi'
-              ? 'Nykyiset viestintätyökalut eivät tue asiantuntijoiden tarpeita. Tärkeä tieto jää jakamatta ja aika kuluu muotoiluun.'
-              : 'Current communication tools don\'t support experts\' needs. Important information goes unshared and time is wasted on formatting.'
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {language === 'fi' 
+              ? 'Monet yritykset kohtaavat samat haasteet asiakkaidensa ymmärtämisessä'
+              : 'Many companies face the same challenges in understanding their customers'
             }
           </p>
         </div>
-
+        
         <div className="grid md:grid-cols-3 gap-8">
           {problems.map((problem, index) => (
-            <div key={index} className="bg-background rounded-xl p-8 shadow-sm border border-border hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center text-center">
-                <div className="bg-destructive/10 p-4 rounded-full mb-6">
-                  {problem.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
-                  {problem.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {problem.description}
-                </p>
-              </div>
+            <div key={index} className="text-center p-6 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+              <div className="text-4xl mb-4">{problem.icon}</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">{problem.title}</h3>
+              <p className="text-gray-600">{problem.description}</p>
             </div>
           ))}
         </div>

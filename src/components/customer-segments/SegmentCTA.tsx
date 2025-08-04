@@ -1,8 +1,10 @@
+'use client';
+
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import BookDemoDialog from '@/components/BookDemoDialog';
 
 const SegmentCTA: React.FC = () => {
@@ -27,7 +29,7 @@ const SegmentCTA: React.FC = () => {
           className="border-primary text-primary h-10 px-4 py-2"
           asChild
         >
-          <Link to={waitlistPath}>
+          <Link href={waitlistPath}>
             {t('customerSegments.viewComparisonButton')}
           </Link>
         </Button>

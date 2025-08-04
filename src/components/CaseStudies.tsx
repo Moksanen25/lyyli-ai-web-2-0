@@ -1,9 +1,11 @@
+'use client';
+
 
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
 import { useSafeTranslation } from '@/utils/safeTranslation';
@@ -11,7 +13,7 @@ import { useSafeTranslation } from '@/utils/safeTranslation';
 const CaseStudies: React.FC = () => {
   const { language } = useLanguage();
   const { safeT } = useSafeTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const isMobile = useIsMobile();
   
   // Create case studies with proper translation handling
@@ -64,7 +66,7 @@ const CaseStudies: React.FC = () => {
             <Card 
               key={index} 
               className="border-none card-shadow hover:shadow-lg transition-shadow duration-300"
-              onClick={() => navigate('/case-studies')}
+              onClick={() => router.push('/case-studies')}
             >
               <CardContent className="pt-6 flex flex-col h-full">
                 <div className="mb-4">
@@ -108,7 +110,7 @@ const CaseStudies: React.FC = () => {
             <Button 
               variant="outline" 
               className="mt-4" 
-              onClick={() => navigate('/case-studies')}
+              onClick={() => router.push('/case-studies')}
             >
               {safeT('caseStudies.seeAll', { fallback: language === 'fi' ? 'Näytä kaikki tapaustutkimukset' : 'See All Case Studies' })} <ArrowRight className="h-4 w-4 ml-1" />
             </Button>

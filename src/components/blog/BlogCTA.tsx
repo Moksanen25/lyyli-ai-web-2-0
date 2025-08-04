@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const BlogCTA: React.FC = () => {
   const { t, language } = useLanguage();
@@ -15,7 +15,7 @@ const BlogCTA: React.FC = () => {
       <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
         {t('blog.ctaSubtitle')}
       </p>
-      <Link to={language === 'fi' ? "/fi/contact" : "/contact"}>
+      <Link href={language === 'fi' ? "/fi/contact" : "/contact"}>
         <Button size="lg">
           {t('blog.ctaButton')}
         </Button>

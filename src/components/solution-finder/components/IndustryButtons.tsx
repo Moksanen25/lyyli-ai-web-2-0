@@ -3,18 +3,15 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { industryOptions } from '../data/industryOptions';
 import { useSafeTranslation } from '@/utils/safeTranslation';
-import { SupportedLanguage } from '@/translations';
 
 interface IndustryButtonsProps {
-  onSelectIndustry: (industry: string, industryId: string) => void;
+  onSelectIndustry: (industry: string) => void;
   isVisible: boolean;
-  language: SupportedLanguage;
 }
 
 const IndustryButtons: React.FC<IndustryButtonsProps> = ({ 
   onSelectIndustry, 
-  isVisible,
-  language
+  isVisible
 }) => {
   const { customerSegmentsT } = useSafeTranslation();
   
@@ -28,10 +25,7 @@ const IndustryButtons: React.FC<IndustryButtonsProps> = ({
           variant="outline"
           size="sm"
           className="text-xs"
-          onClick={() => onSelectIndustry(
-            customerSegmentsT(`segments.${option.id}.buttonLabel`, { fallback: option.label }),
-            option.id
-          )}
+          onClick={() => onSelectIndustry(option.id)}
         >
           {customerSegmentsT(`segments.${option.id}.buttonLabel`, { fallback: option.label })}
         </Button>

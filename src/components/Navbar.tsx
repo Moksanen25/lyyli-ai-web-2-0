@@ -1,13 +1,14 @@
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Menu, X, LogIn, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,8 @@ const Navbar: React.FC = () => {
     t,
     language
   } = useLanguage();
-  const location = useLocation();
-  const isMobile = useIsMobile();
-  const waitlistPath = language === 'fi' ? '/fi/waitlist' : language === 'sv' ? '/sv/waitlist' : '/waitlist';
+  const pathname = usePathname();
+  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
 
   // Function to close the mobile menu
   const closeMenu = () => {
@@ -32,17 +32,17 @@ const Navbar: React.FC = () => {
   // Close the menu when the route changes
   useEffect(() => {
     closeMenu();
-  }, [location.pathname]);
+  }, [pathname]);
   
   return (
     <header className="bg-white py-4 shadow-sm sticky top-0 z-50">
       <div className="container-padding container mx-auto flex items-center justify-between">
         {/* Logo - Shown on both mobile and desktop */}
-        <Link to={language === 'fi' ? "/fi" : language === 'sv' ? "/sv" : "/"} className="flex items-center">
+        <Link href={language === 'fi' ? "/fi" : "/"} className="flex items-center">
           <img 
-            src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
+            src="/logo.svg"
             alt="Lyyli.ai"
-            className="h-10 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 
@@ -65,23 +65,23 @@ const Navbar: React.FC = () => {
                   <div className="text-sm font-medium text-muted-foreground px-2 py-1">
                     {t('nav.features')}
                   </div>
-                  <Link to={language === 'fi' ? "/fi/features" : language === 'sv' ? "/sv/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
-                    {language === 'fi' ? 'Ominaisuudet' : language === 'sv' ? 'Funktioner' : 'Features Overview'}
+                  <Link href={language === 'fi' ? "/fi/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
+                    {language === 'fi' ? 'Ominaisuudet' : 'Features Overview'}
                   </Link>
-                  <Link to={language === 'fi' ? "/fi/security" : language === 'sv' ? "/sv/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
-                    {language === 'fi' ? 'Tietoturva' : language === 'sv' ? 'Säkerhet' : 'Security'}
+                  <Link href={language === 'fi' ? "/fi/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
+                    {language === 'fi' ? 'Tietoturva' : 'Security'}
                   </Link>
                 </div>
-                <Link to={language === 'fi' ? "/fi/pricing" : language === 'sv' ? "/sv/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
+                <Link href={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.pricing')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/about" : language === 'sv' ? "/sv/about" : "/about"} className="text-sm font-medium leading-none hover:underline">
+                <Link href={language === 'fi' ? "/fi/about" : "/about"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.about')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/blog" : language === 'sv' ? "/sv/blog" : "/blog"} className="text-sm font-medium leading-none hover:underline">
+                <Link href={language === 'fi' ? "/fi/blog" : "/blog"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.blog')}
                 </Link>
-                <Link to={language === 'fi' ? "/fi/contact" : language === 'sv' ? "/sv/contact" : "/contact"} className="text-sm font-medium leading-none hover:underline">
+                <Link href={language === 'fi' ? "/fi/contact" : "/contact"} className="text-sm font-medium leading-none hover:underline">
                   {t('nav.contact')}
                 </Link>
                 <LanguageSwitcher />
@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
                   className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white"
                   asChild
                 >
-                  <Link to={waitlistPath}>
+                  <Link href={waitlistPath}>
                     <LogIn className="h-4 w-4 mr-2" />
                     {t('nav.login')}
                   </Link>
@@ -99,46 +99,51 @@ const Navbar: React.FC = () => {
             </SheetContent>
           </Sheet>
         </div>
-        
-        {/* Desktop Navigation - hidden on mobile */}
-        <nav className="hidden md:flex items-center space-x-6 ml-auto">
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {/* Features Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-primary/70 hover:text-primary transition-colors flex items-center gap-1">
-              {t('nav.features')}
-              <ChevronDown className="h-4 w-4" />
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="flex items-center gap-1">
+                {t('nav.features')}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg rounded-md z-50 min-w-48">
+            <DropdownMenuContent align="start" className="w-48">
               <DropdownMenuItem asChild>
-                <Link to={language === 'fi' ? "/fi/features" : language === 'sv' ? "/sv/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-gray-100 w-full">
-                  {language === 'fi' ? 'Ominaisuudet' : language === 'sv' ? 'Funktioner' : 'Features Overview'}
+                <Link href={language === 'fi' ? "/fi/features" : "/features"}>
+                  {language === 'fi' ? 'Ominaisuudet' : 'Features Overview'}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to={language === 'fi' ? "/fi/security" : language === 'sv' ? "/sv/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-gray-100 w-full">
-                  {language === 'fi' ? 'Tietoturva' : language === 'sv' ? 'Säkerhet' : 'Security'}
+                <Link href={language === 'fi' ? "/fi/security" : "/security"}>
+                  {language === 'fi' ? 'Tietoturva' : 'Security'}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link to={language === 'fi' ? "/fi/pricing" : language === 'sv' ? "/sv/pricing" : "/pricing"} className="text-primary/70 hover:text-primary transition-colors">
+
+          {/* Other Navigation Links */}
+          <Link href={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
             {t('nav.pricing')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/about" : language === 'sv' ? "/sv/about" : "/about"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link href={language === 'fi' ? "/fi/about" : "/about"} className="text-sm font-medium leading-none hover:underline">
             {t('nav.about')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/blog" : language === 'sv' ? "/sv/blog" : "/blog"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link href={language === 'fi' ? "/fi/blog" : "/blog"} className="text-sm font-medium leading-none hover:underline">
             {t('nav.blog')}
           </Link>
-          <Link to={language === 'fi' ? "/fi/contact" : language === 'sv' ? "/sv/contact" : "/contact"} className="text-primary/70 hover:text-primary transition-colors">
+          <Link href={language === 'fi' ? "/fi/contact" : "/contact"} className="text-sm font-medium leading-none hover:underline">
             {t('nav.contact')}
           </Link>
+
+          {/* Language Switcher */}
           <LanguageSwitcher />
-          <Button 
-            variant="outline" 
-            className="border-primary text-primary hover:bg-primary hover:text-white"
-            asChild
-          >
-            <Link to={waitlistPath}>
+
+          {/* Login Button */}
+          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white" asChild>
+            <Link href={waitlistPath}>
               <LogIn className="h-4 w-4 mr-2" />
               {t('nav.login')}
             </Link>

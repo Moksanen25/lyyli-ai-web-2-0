@@ -1,11 +1,6 @@
 
 import { supabase } from "@/integrations/supabase/client";
 
-interface ChatMessage {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-}
-
 export const hasOpenAICredentials = (): boolean => {
   return true; // Always return true since we're using server-side credentials
 };

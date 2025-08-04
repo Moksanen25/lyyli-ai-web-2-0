@@ -1,8 +1,10 @@
+'use client';
+
 
 import React, { useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ChevronLeft, FileImage } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSafeTranslation } from '@/utils/safeTranslation';
@@ -55,7 +57,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   return (
     <article className="max-w-3xl mx-auto">
       {/* Back to blog link - translated */}
-      <Link to={getBlogUrl()} className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
+      <Link href={getBlogUrl()} className="text-muted-foreground hover:text-primary inline-flex items-center mb-6">
         <ChevronLeft className="h-4 w-4 mr-1" /> {safeT('blog.backToBlog')}
       </Link>
       

@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -10,7 +12,7 @@ interface DesktopTabsProps {
 }
 
 const DesktopTabs: React.FC<DesktopTabsProps> = ({ segments }) => {
-  const { t } = useLanguage();
+  const {} = useLanguage();
   const [activeTab, setActiveTab] = useState(segments.length > 0 ? segments[0].id : '');
   
   return (

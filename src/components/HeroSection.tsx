@@ -1,12 +1,10 @@
+'use client';
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
-import { Shield, Database, MessageSquare } from 'lucide-react';
 import DemoDialog from '@/components/lyyli-demo/DemoDialog';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import HeroROIWidget from '@/components/HeroROIWidget';
 
 const HeroSection: React.FC = () => {
@@ -14,15 +12,7 @@ const HeroSection: React.FC = () => {
   const [showDemo, setShowDemo] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const isMobile = useIsMobile();
   const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
-  
-  // Handle demo dialog
-  const handleOpenDemo = () => {
-    setAnimationPhase(0); // Reset animation
-    setIsLoading(true);   // Start with loading state
-    setShowDemo(true);    // Show the demo dialog
-  };
   
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-background to-primary/5 relative overflow-hidden">
@@ -45,7 +35,7 @@ const HeroSection: React.FC = () => {
               className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white px-12 py-6 text-xl rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               asChild
             >
-              <Link to={waitlistPath}>
+              <Link href={waitlistPath}>
                 {heroT('cta')}
               </Link>
             </Button>
@@ -55,7 +45,7 @@ const HeroSection: React.FC = () => {
               className="border-primary/20 bg-white/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               asChild
             >
-              <Link to={language === 'fi' ? '/fi/features' : '/features'}>
+              <Link href={language === 'fi' ? '/fi/features' : '/features'}>
                 {language === 'fi' ? 'Tutustu ominaisuuksiin' : 'Explore features'}
               </Link>
             </Button>

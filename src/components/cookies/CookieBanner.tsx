@@ -3,7 +3,7 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import { X, Settings } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CookieSettings } from './types';
 import { saveCookieSettings } from './cookieUtils';
 
@@ -19,7 +19,6 @@ const CookieBanner: React.FC<CookieBannerProps> = ({
   visible, 
   setVisible, 
   setSettingsOpen,
-  settings,
   setSettings
 }) => {
   const { t, language } = useLanguage();
@@ -60,11 +59,11 @@ const CookieBanner: React.FC<CookieBannerProps> = ({
             <h3 className="text-lg font-semibold mb-2">{t('cookieBanner.title')}</h3>
             <p className="text-primary/70">{t('cookieBanner.description')}</p>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-primary/60">
-              <Link to={language === 'fi' ? '/fi/privacy' : '/privacy'} className="underline hover:text-primary">
+              <Link href={language === 'fi' ? '/fi/privacy' : '/privacy'} className="underline hover:text-primary">
                 {t('cookieBanner.privacyLink')}
               </Link>
               <span>•</span>
-              <Link to={language === 'fi' ? '/fi/cookies' : '/cookies'} className="underline hover:text-primary">
+              <Link href={language === 'fi' ? '/fi/cookies' : '/cookies'} className="underline hover:text-primary">
                 {t('cookieBanner.cookieLink')}
               </Link>
             </div>

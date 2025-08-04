@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
@@ -10,7 +12,6 @@ import IndustryButtons from './components/IndustryButtons';
 import ChatForm from './components/ChatForm';
 import ChatToggle from './components/ChatToggle';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { industryOptions } from './data/industryOptions';
 import { useLanguage } from '@/hooks/useLanguage';
 
 const SolutionFinderChat: React.FC = () => {
@@ -64,12 +65,12 @@ const SolutionFinderChat: React.FC = () => {
   };
 
   // Modified industry selection handler to immediately start the chat process in correct language
-  const handleIndustryButtonClick = (industry: string, industryId: string) => {
+  const handleIndustryButtonClick = (industryId: string) => {
     // Hide the industry buttons immediately
     setShowIndustryButtons(false);
     
     // Directly submit the industry selection to start the chat process in current language
-    handleIndustrySelection(industry, industryId, language);
+    handleIndustrySelection(industryId, industryId, language);
   };
 
   return (
@@ -93,7 +94,6 @@ const SolutionFinderChat: React.FC = () => {
             <IndustryButtons 
               onSelectIndustry={handleIndustryButtonClick} 
               isVisible={showIndustryButtons}
-              language={language}
             />
             
             <ChatForm

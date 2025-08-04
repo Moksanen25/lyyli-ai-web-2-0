@@ -38,7 +38,7 @@ export const createSafeTrTranslation = (safeT: (key: string, options?: SafeTrans
  */
 export const useSafeTrTranslation = () => {
   // This will be replaced by the actual implementation in the useSafeTranslation hook
-  const safeTr = (key: string, interpolation?: Record<string, string | number>, options?: SafeTranslationOptions): string => {
+  const safeTr = (key: string): string => {
     console.error('safeTr should not be called directly from useSafeTrTranslation');
     return key;
   };

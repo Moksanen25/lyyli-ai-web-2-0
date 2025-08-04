@@ -1,25 +1,21 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { screen, fireEvent } from '@testing-library/dom';
-import { MemoryRouter } from 'react-router-dom';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 // Custom render function that includes providers
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <MemoryRouter>
-      <LanguageProvider>
-        {children}
-      </LanguageProvider>
-    </MemoryRouter>
+    <LanguageProvider>
+      {children}
+    </LanguageProvider>
   );
 };
 
 const customRender = (
-  ui: ReactElement,
+  ui: React.ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>,
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
 // Re-export everything
 export * from '@testing-library/react';
-export { customRender as render, screen, fireEvent };
+export { customRender as render };

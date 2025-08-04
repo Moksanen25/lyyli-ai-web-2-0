@@ -104,7 +104,7 @@ export class ErrorMonitor {
     }
   }
 
-  setUser(userId: string, additionalData?: Record<string, any>) {
+  setUser() {
     // Set user context for error tracking
     if (this.isProduction && this.sentryDsn) {
       // Sentry.setUser({ id: userId, ...additionalData });

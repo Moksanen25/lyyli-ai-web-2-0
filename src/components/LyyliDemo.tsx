@@ -1,8 +1,10 @@
+'use client';
+
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import DemoDialog from './lyyli-demo/DemoDialog';
 import BookDemoDialog from '@/components/BookDemoDialog';
 import { ErrorBoundary } from './ui/error-boundary';
@@ -47,10 +49,6 @@ const LyyliDemo: React.FC = () => {
       setIsLoading(false);
     }, 300);
   };
-
-  const handleBookDemo = () => {
-    setShowBooking(true);
-  };
   
   return (
     <ErrorBoundary>
@@ -67,7 +65,7 @@ const LyyliDemo: React.FC = () => {
           className="bg-primary hover:bg-primary/90 h-10 px-4 py-2"
           asChild
         >
-          <Link to={waitlistPath}>
+          <Link href={waitlistPath}>
             {safeT('hero.primaryCta', { fallback: 'Start Now' })}
           </Link>
         </Button>

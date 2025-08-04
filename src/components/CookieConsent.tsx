@@ -1,7 +1,8 @@
+'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { CookieSettings } from './cookies/types';
-import { saveCookieSettings } from './cookies/cookieUtils';
 import CookieBanner from './cookies/CookieBanner';
 import CookieSettingsDialog from './cookies/CookieSettingsDialog';
 

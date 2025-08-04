@@ -6,7 +6,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { usePricingTranslations } from './pricingUtils';
 
 export const usePricingData = () => {
-  const { t, featuresT } = useLanguage();
+  const { t } = useLanguage();
   const { translateFeature } = usePricingTranslations();
   
   // Define pricing tiers with new structure

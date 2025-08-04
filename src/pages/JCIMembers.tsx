@@ -1,8 +1,9 @@
+'use client';
+
 
 import React, { useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 const JCIMembers: React.FC = () => {
@@ -79,28 +80,14 @@ const JCIMembers: React.FC = () => {
     };
   }, []);
 
-  const pageTitle = language === 'fi' ? 'Lyyli - JCI jäsenet' : 'Lyyli - JCI Members';
-  const pageDescription = language === 'fi' 
-    ? 'Lyyli testiohjelma JCI jäsenille - Liity mukaan testaamaan tekoälyllä toimivaa sisällönhallintajärjestelmää.' 
-    : 'Lyyli test program for JCI members - Join to test our AI-powered content management platform.';
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
 
       {/* Header */}
       <header className="py-4 md:py-6 px-4 md:px-6 w-full">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
-            <Link to="/full" className="flex items-center" aria-label="Lyyli home page">
+            <Link href="/full" className="flex items-center" aria-label="Lyyli home page">
               <img 
                 src="/lovable-uploads/39c9c229-44c8-40ee-9e43-016269635def.png"
                 alt="Lyyli.ai"

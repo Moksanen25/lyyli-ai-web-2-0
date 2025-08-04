@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -10,7 +12,7 @@ interface BookDemoDialogProps {
 }
 
 const BookDemoDialog: React.FC<BookDemoDialogProps> = ({ open, onOpenChange }) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const isMobile = useIsMobile();
   
   // Load HubSpot meetings script when the dialog opens

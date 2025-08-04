@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -38,7 +38,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ role, content, timestamp, isM
           <>
             <p>{formatMessageContent(parts[0])}</p>
             {parts[1] && (
-              <Link to={parts[1]} className="mt-2 block">
+              <Link href={parts[1]} className="mt-2 block">
                 <Button variant="outline" size="sm" className="mt-2">
                   <ExternalLink className="mr-1 h-4 w-4" />
                   {t('chat.caseStudy.view')}

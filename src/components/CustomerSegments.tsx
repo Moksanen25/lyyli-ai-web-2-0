@@ -1,3 +1,5 @@
+'use client';
+
 
 import React, { useState, useEffect } from 'react';
 import { useSegmentsData } from './customer-segments/useSegmentsData';
@@ -54,14 +56,6 @@ const CustomerSegments: React.FC = () => {
         setIsLoaded(true);
       }
     }, [segments, activeSegmentId]);
-
-    // Handler for switching segments
-    const handleSegmentChange = (id: string) => {
-      console.log('Changing segment to:', id);
-      if (id) {
-        setActiveSegmentId(id);
-      }
-    };
 
     // Fall back to a placeholder if we have no segments
     if (segments.length === 0 && isLoaded && !hasError) {

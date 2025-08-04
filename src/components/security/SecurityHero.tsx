@@ -3,10 +3,10 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Shield, Lock, Server } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const SecurityHero = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   
   return (
     <section className="bg-gradient-to-br from-primary/5 via-primary/10 to-secondary/5 py-24">
@@ -34,12 +34,12 @@ const SecurityHero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" asChild>
-              <Link to={language === 'fi' ? '/fi/contact' : language === 'sv' ? '/sv/contact' : '/contact'}>
-                {language === 'fi' ? 'Ota yhteyttä' : language === 'sv' ? 'Kontakta oss' : 'Contact Us'}
+              <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
+                {language === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to={language === 'fi' ? '/fi/features' : '/features'}>
+              <Link href={language === 'fi' ? '/fi/features' : '/features'}>
                 {language === 'fi' ? 'Katso ominaisuudet' : 'View Features'}
               </Link>
             </Button>

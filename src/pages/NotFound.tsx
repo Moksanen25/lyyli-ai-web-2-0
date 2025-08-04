@@ -1,61 +1,28 @@
+'use client';
 
-import React from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
-import { Button } from "@/components/ui/button";
-import { ImageWithFallback } from "@/components/ui/image-with-fallback";
-import { ArrowLeft, Home, Search, MessageCircle, Zap } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import Link from 'next/link';
+import { Home, MessageCircle, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Navbar from '@/components/Navbar';
+import { ImageWithFallback } from '@/components/ui/image-with-fallback';
+import { useLanguage } from '@/hooks/useLanguage';
+import SSRSafeWrapper from '@/components/SSRSafeWrapper';
 
 const NotFound: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  return (
+    <SSRSafeWrapper>
+      <NotFoundContent />
+    </SSRSafeWrapper>
+  );
+};
+
+const NotFoundContent: React.FC = () => {
   const { language, safeT } = useLanguage();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-    
-    // Check for malformed language paths and redirect
-    const path = location.pathname;
-    const malformedPattern = /^\/(?:fi|sv)\/(?:fi|sv)/;
-    
-    if (malformedPattern.test(path)) {
-      console.log('Detected malformed language path:', path, 'redirecting to appropriate language root');
-      // Redirect to the root of the current language
-      if (language === 'fi') {
-        navigate('/fi', { replace: true });
-      } else if (language === 'sv') {
-        navigate('/sv', { replace: true });
-      } else {
-        navigate('/', { replace: true });
-      }
-    }
-  }, [location.pathname, language, navigate]);
-
-  const homePath = language === 'fi' ? "/fi" : language === 'sv' ? "/sv" : "/";
-
-  // SEO metadata
-  const pageTitle = language === 'fi' ? '404 - Sivu ei löytynyt | Lyyli.ai' : '404 - Page Not Found | Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Sivu, jota etsit, ei löytynyt. Palaa takaisin Lyyli.ai:n etusivulle ja tutustu tekoälypohjaiseen viestintäalustaamme.'
-    : "The page you're looking for doesn't exist. Return to Lyyli.ai's homepage and explore our AI-powered communication platform.";
+  const homePath = language === 'fi' ? '/fi' : '/';
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-      
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
       
       <main className="flex-grow flex flex-col items-center justify-center bg-gradient-to-b from-background to-primary/5 px-4 py-12">
@@ -80,14 +47,14 @@ const NotFound: React.FC = () => {
           {/* Main CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button asChild size="lg" className="flex gap-2">
-              <Link to={homePath}>
+              <Link href={homePath}>
                 <Home size={18} /> 
                 {safeT('common.backHome', { fallback: 'Back to Home' })}
               </Link>
             </Button>
             
             <Button asChild variant="outline" size="lg" className="flex gap-2">
-              <Link to={language === 'fi' ? "/fi/contact" : language === 'sv' ? "/sv/contact" : "/contact"}>
+              <Link href={language === 'fi' ? "/fi/contact" : "/contact"}>
                 <MessageCircle size={18} />
                 {safeT('common.contactUs', { fallback: 'Contact Us' })}
               </Link>
@@ -99,40 +66,38 @@ const NotFound: React.FC = () => {
             <div className="flex items-center justify-center gap-2 mb-4">
               <Zap className="h-6 w-6 text-primary" />
               <h3 className="text-xl font-semibold">
-                {language === 'fi' ? 'Löysit Lyyli.ai:n!' : language === 'sv' ? 'Du hittade Lyyli.ai!' : 'You Found Lyyli.ai!'}
+                {language === 'fi' ? 'Löysit Lyyli.ai:n!' : 'You Found Lyyli.ai!'}
               </h3>
             </div>
             <p className="text-muted-foreground mb-6">
               {language === 'fi' 
                 ? 'Tekoälypohjainen viestintäalusta, joka muuttaa tapasi luoda sisältöä. Säästä aikaa ja paranna viestintäsi laatua.'
-                : language === 'sv' 
-                  ? 'Den AI-drivna kommunikationsplattformen som förändrar hur du skapar innehåll. Spara tid och förbättra kvaliteten på din kommunikation.'
-                  : 'The AI-powered communication platform that transforms how you create content. Save time and improve your communication quality.'
+                : 'The AI-powered communication platform that transforms how you create content. Save time and improve your communication quality.'
               }
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div className="text-center p-4 bg-primary/5 rounded-lg">
                 <div className="font-medium mb-1">
-                  {language === 'fi' ? '10x Nopeampi' : language === 'sv' ? '10x Snabbare' : '10x Faster'}
+                  {language === 'fi' ? '10x Nopeampi' : '10x Faster'}
                 </div>
                 <div className="text-muted-foreground">
-                  {language === 'fi' ? 'Sisällöntuotanto' : language === 'sv' ? 'Innehållsskapande' : 'Content Creation'}
+                  {language === 'fi' ? 'Sisällöntuotanto' : 'Content Creation'}
                 </div>
               </div>
               <div className="text-center p-4 bg-primary/5 rounded-lg">
                 <div className="font-medium mb-1">
-                  {language === 'fi' ? 'GDPR-yhteensopiva' : language === 'sv' ? 'GDPR-kompatibel' : 'GDPR Compliant'}
+                  {language === 'fi' ? 'GDPR-yhteensopiva' : 'GDPR Compliant'}
                 </div>
                 <div className="text-muted-foreground">
-                  {language === 'fi' ? 'Tietoturva' : language === 'sv' ? 'Datasäkerhet' : 'Data Security'}
+                  {language === 'fi' ? 'Tietoturva' : 'Data Security'}
                 </div>
               </div>
               <div className="text-center p-4 bg-primary/5 rounded-lg">
                 <div className="font-medium mb-1">
-                  {language === 'fi' ? '10+ Integraatiota' : language === 'sv' ? '10+ Integrationer' : '10+ Integrations'}
+                  {language === 'fi' ? '10+ Integraatiota' : '10+ Integrations'}
                 </div>
                 <div className="text-muted-foreground">
-                  {language === 'fi' ? 'Työkalut' : language === 'sv' ? 'Verktyg' : 'Tools'}
+                  {language === 'fi' ? 'Työkalut' : 'Tools'}
                 </div>
               </div>
             </div>
@@ -144,46 +109,30 @@ const NotFound: React.FC = () => {
               {safeT('common.tryAgain', { fallback: 'Looking for something specific?' })}
             </h3>
             <div className="grid grid-cols-2 gap-3 text-left">
-              <Link 
-                to={language === 'fi' ? "/fi/features" : language === 'sv' ? "/sv/features" : "/features"} 
+              <Link href={language === 'fi' ? "/fi/features" : "/features"} 
                 className="text-primary hover:underline flex items-center gap-1 p-2 rounded hover:bg-primary/5 transition-colors"
               >
                 {safeT('nav.features', { fallback: 'Features' })}
               </Link>
-              <Link 
-                to={language === 'fi' ? "/fi/pricing" : language === 'sv' ? "/sv/pricing" : "/pricing"} 
+              <Link href={language === 'fi' ? "/fi/pricing" : "/pricing"} 
                 className="text-primary hover:underline flex items-center gap-1 p-2 rounded hover:bg-primary/5 transition-colors"
               >
                 {safeT('nav.pricing', { fallback: 'Pricing' })}
               </Link>
-              <Link 
-                to={language === 'fi' ? "/fi/blog" : language === 'sv' ? "/sv/blog" : "/blog"} 
+              <Link href={language === 'fi' ? "/fi/blog" : "/blog"} 
                 className="text-primary hover:underline flex items-center gap-1 p-2 rounded hover:bg-primary/5 transition-colors"
               >
                 {safeT('nav.blog', { fallback: 'Blog' })}
               </Link>
-              <Link 
-                to={language === 'fi' ? "/fi/about" : language === 'sv' ? "/sv/about" : "/about"} 
+              <Link href={language === 'fi' ? "/fi/contact" : "/contact"} 
                 className="text-primary hover:underline flex items-center gap-1 p-2 rounded hover:bg-primary/5 transition-colors"
               >
-                {safeT('nav.about', { fallback: 'About' })}
+                {safeT('nav.contact', { fallback: 'Contact' })}
               </Link>
             </div>
           </div>
-
-          {/* Go back button */}
-          <Button 
-            variant="ghost" 
-            className="flex gap-2 mt-6"
-            onClick={() => window.history.back()}
-          >
-            <ArrowLeft size={18} />
-            {safeT('common.goBack', { fallback: 'Go Back' })}
-          </Button>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 };

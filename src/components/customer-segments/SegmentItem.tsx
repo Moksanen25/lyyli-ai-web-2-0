@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { type SegmentData } from './useSegmentsData';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
@@ -12,7 +12,7 @@ interface SegmentItemProps {
 }
 
 const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
-  const { t, language, customerSegmentsT } = useLanguage();
+  const { language, customerSegmentsT } = useLanguage();
   
   // Handle potentially undefined arrays safely
   const painPoints = (segment.painPoints || []);
@@ -65,7 +65,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
           )}
         </div>
         
-        <Link to={caseStudyUrl}>
+        <Link href={caseStudyUrl}>
           <Button className="mt-4">
             {customerSegmentsT('readCaseStudy') || 'Read Case Study'}
             <ArrowRight className="ml-2 h-4 w-4" />

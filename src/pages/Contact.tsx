@@ -1,15 +1,12 @@
+'use client';
 
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
+
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ChatInterface from '@/components/chat/ChatInterface';
 import { Mail, Phone, Globe, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { PhoneInput } from '@/components/ui/phone-input';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -17,25 +14,9 @@ const Contact = () => {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
   
-  const pageTitle = language === 'fi' ? 'Ota yhteyttä - Lyyli.ai' : 'Contact Us - Lyyli.ai';
-  const pageDescription = language === 'fi'
-    ? 'Ota yhteyttä Lyyli.aiin tekoälyavusteisen viestinnän automaation asiantuntijoihin. Teemme viestinnästä helppoa, tuottavaa ja mitattavaa.'
-    : 'Contact Lyyli.ai\'s AI communication automation experts. We make communication easy, productive, and measurable for your business.';
-    
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <link rel="canonical" href={`https://lyyli.ai/${language === 'fi' ? 'fi/' : ''}contact`} />
-      </Helmet>
-      
+
       <Navbar />
       
       {/* Increased padding-top to prevent content from being cut off by navbar */}

@@ -1,13 +1,14 @@
+'use client';
+
 
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 const FeatureComparison = () => {
   const { featuresT, language } = useLanguage();
-  const navigate = useNavigate();
   
   // Define the feature comparison based on current pricing structure
   const planFeatures = [
@@ -154,7 +155,7 @@ const FeatureComparison = () => {
         <div className="text-center mt-10">
           <Button 
             size="lg" 
-            onClick={() => navigate(language === 'fi' ? '/fi/pricing' : '/pricing')}
+            onClick={() => useRouter().push(language === 'fi' ? '/fi/pricing' : '/pricing')}
             className="animate-fade-in"
           >
             {ctaText}

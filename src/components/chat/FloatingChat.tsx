@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
@@ -10,12 +11,18 @@ import { useLanguage } from '@/hooks/useLanguage';
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showButton, setShowButton] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const isMobile = useIsMobile();
   const { t } = useLanguage();
 
+  // Mark as client-side after hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Handle scroll position to hide button when scrolling down on mobile
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isClient || !isMobile) return;
 
     let lastScrollY = window.scrollY;
     
@@ -28,11 +35,16 @@ const FloatingChat = () => {
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, isClient]);
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
   };
+
+  // Don't render anything during SSR
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div 

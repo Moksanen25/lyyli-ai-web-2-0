@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { type SegmentData } from './useSegmentsData';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
@@ -13,7 +13,7 @@ interface SegmentCardProps {
 }
 
 const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
-  const { t, language, customerSegmentsT, safeTr } = useLanguage();
+  const { language, safeTr } = useLanguage();
   
   // Use safe translations for UI elements with fallbacks
   const challengesLabel = safeTr('customerSegments.challenges', {}, { fallback: 'Challenges' });
@@ -75,7 +75,7 @@ const SegmentCard: React.FC<SegmentCardProps> = ({ segment }) => {
         </div>
         
         <div className="mt-auto pt-4">
-          <Link to={caseStudyUrl}>
+          <Link href={caseStudyUrl}>
             <Button variant="ghost" className="w-full justify-between">
               {learnMoreButton}
               <ChevronRight className="h-4 w-4" />

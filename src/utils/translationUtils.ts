@@ -1,5 +1,5 @@
 
-import { languages, SupportedLanguage, TranslationsType } from '@/translations';
+import { languages, SupportedLanguage } from '@/translations';
 
 /**
  * Recursively check if all keys in the reference object exist in the target object

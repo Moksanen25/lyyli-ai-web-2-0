@@ -1,37 +1,30 @@
 
-import { ChatMessage } from "../hooks/types";
-
 /**
  * Displays messages with a delay to create a natural conversation flow
+ * @param messages - Array of messages to display
+ * @param onMessageDisplay - Callback function when a message is displayed
+ * @param delay - Delay between messages in milliseconds
  */
-export const displayMessagesWithDelay = (
-  messageContents: string[],
-  addMessage: (content: string) => void,
-  onComplete: () => void
+export const displayMessagesWithDelay = async (
+  messages: any[],
+  onMessageDisplay: (message: any) => void,
+  delay: number = 1000
 ) => {
-  // Base delay between messages for better reading pace (2 seconds)
-  const baseDelay = 2000; 
-  // Additional delay per character (simulates typing speed)
-  const charDelay = 0.05;
-  
+  // Character delay for typing effect (milliseconds per character)
+  const charDelay = 50;
   let cumulativeDelay = 0;
   
-  messageContents.forEach((content, index) => {
+  messages.forEach((message, index) => {
     // Calculate delay based on previous message length
-    const prevContentLength = index > 0 ? messageContents[index-1].length : 0;
+    const prevContentLength = index > 0 ? messages[index-1].content?.length || 0 : 0;
     const typingDelay = prevContentLength * charDelay;
     
-    // Add increasing delay for each message: base delay + typing simulation
-    cumulativeDelay += baseDelay + Math.min(typingDelay, 1000); // Cap typing delay at 1s max
+    // Add base delay plus typing delay
+    cumulativeDelay += delay + typingDelay;
     
     setTimeout(() => {
       // Add the message
-      addMessage(content);
-      
-      // If this is the last message, call the onComplete callback
-      if (index === messageContents.length - 1) {
-        onComplete();
-      }
+      onMessageDisplay(message);
     }, cumulativeDelay);
   });
 };
