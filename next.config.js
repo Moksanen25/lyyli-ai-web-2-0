@@ -5,6 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: false,
+  // Disable static generation entirely
+  output: 'standalone',
   // Vercel-optimized settings
   experimental: {
     // Enable Vercel optimizations
