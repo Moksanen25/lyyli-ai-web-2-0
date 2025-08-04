@@ -5,13 +5,11 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: false,
-  // Disable static generation for problematic pages
+  // Vercel-optimized settings
   experimental: {
     // Enable Vercel optimizations
     serverComponentsExternalPackages: [],
   },
-  // Force dynamic rendering for all pages
-  generateStaticParams: false,
   webpack: (config, { isServer }) => {
     // Exclude Supabase Edge Functions from the build
     config.externals = config.externals || [];
