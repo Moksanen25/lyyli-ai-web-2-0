@@ -1,20 +1,22 @@
 
-import { supabase } from "@/integrations/supabase/client";
-
 export const hasOpenAICredentials = (): boolean => {
   return true; // Always return true since we're using server-side credentials
 };
 
 export const createThread = async () => {
   try {
-    const { data, error } = await supabase.functions.invoke('openai-assistant', {
-      body: { action: 'createThread' }
+    const response = await fetch('/api/openai/thread', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    if (error) {
-      throw new Error(`Failed to create thread: ${error.message}`);
+    if (!response.ok) {
+      throw new Error(`Failed to create thread: ${response.statusText}`);
     }
 
+    const data = await response.json();
     localStorage.setItem('openai_thread_id', data.id);
     return data.id;
   } catch (error) {
@@ -29,15 +31,19 @@ export const getThreadId = (): string | null => {
 
 export const addMessageToThread = async (threadId: string, message: string) => {
   try {
-    const { data, error } = await supabase.functions.invoke('openai-assistant', {
-      body: { action: 'addMessage', data: { threadId, message } }
+    const response = await fetch('/api/openai/message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ threadId, message }),
     });
 
-    if (error) {
-      throw new Error(`Failed to add message: ${error.message}`);
+    if (!response.ok) {
+      throw new Error(`Failed to add message: ${response.statusText}`);
     }
 
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Error adding message to thread:', error);
     throw error;
@@ -46,15 +52,19 @@ export const addMessageToThread = async (threadId: string, message: string) => {
 
 export const runAssistant = async (threadId: string) => {
   try {
-    const { data, error } = await supabase.functions.invoke('openai-assistant', {
-      body: { action: 'runAssistant', data: { threadId } }
+    const response = await fetch('/api/openai/run', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ threadId }),
     });
 
-    if (error) {
-      throw new Error(`Failed to run assistant: ${error.message}`);
+    if (!response.ok) {
+      throw new Error(`Failed to run assistant: ${response.statusText}`);
     }
 
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Error running assistant:', error);
     throw error;
@@ -63,15 +73,18 @@ export const runAssistant = async (threadId: string) => {
 
 export const checkRunStatus = async (threadId: string, runId: string) => {
   try {
-    const { data, error } = await supabase.functions.invoke('openai-assistant', {
-      body: { action: 'checkRunStatus', data: { threadId, runId } }
+    const response = await fetch(`/api/openai/run-status?threadId=${threadId}&runId=${runId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    if (error) {
-      throw new Error(`Failed to check run status: ${error.message}`);
+    if (!response.ok) {
+      throw new Error(`Failed to check run status: ${response.statusText}`);
     }
 
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Error checking run status:', error);
     throw error;
@@ -80,15 +93,18 @@ export const checkRunStatus = async (threadId: string, runId: string) => {
 
 export const getMessages = async (threadId: string) => {
   try {
-    const { data, error } = await supabase.functions.invoke('openai-assistant', {
-      body: { action: 'getMessages', data: { threadId } }
+    const response = await fetch(`/api/openai/messages?threadId=${threadId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    if (error) {
-      throw new Error(`Failed to retrieve messages: ${error.message}`);
+    if (!response.ok) {
+      throw new Error(`Failed to retrieve messages: ${response.statusText}`);
     }
 
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Error getting messages:', error);
     throw error;

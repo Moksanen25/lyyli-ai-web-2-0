@@ -1,6 +1,6 @@
 # Lyyli.ai - AI-Powered Communication Platform
 
-Modern AI communication platform built with React, TypeScript, and Supabase. Features comprehensive SEO optimization, mobile-first design, and enterprise-grade security.
+Modern AI communication platform built with React, TypeScript, and Next.js. Features comprehensive SEO optimization, mobile-first design, and enterprise-grade security.
 
 ## 🚀 Quick Start
 
@@ -26,14 +26,14 @@ npm run dev
 
 - **Frontend**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS + shadcn/ui design system
-- **Backend**: Supabase (Auth, Database, Edge Functions)
-- **AI Integration**: OpenAI API with secure edge functions
+- **Backend**: Next.js API Routes
+- **AI Integration**: OpenAI API with secure server-side integration
 - **i18n**: Finnish/English/Swedish support
 - **Testing**: Vitest + React Testing Library
 
 ## 🔧 Configuration
 
-### Supabase Secrets (No .env files needed)
+### Environment Variables
 - `OPENAI_API_KEY` - OpenAI API key for AI features
 - `OPENAI_ASSISTANT_ID` - OpenAI Assistant ID
 
@@ -74,7 +74,7 @@ npm run build
 ## 🔗 Resources
 
 - [Lovable Platform](https://docs.lovable.dev/) - Development platform
-- [Supabase Docs](https://supabase.com/docs) - Backend services
+- [Next.js Docs](https://nextjs.org/docs) - React framework
 - [Tailwind CSS](https://tailwindcss.com/) - Styling framework
 - [React](https://react.dev/) - Frontend framework
 

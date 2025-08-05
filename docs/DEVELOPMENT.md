@@ -2,7 +2,7 @@
 
 ## Overview
 
-Lyyli.ai is a modern AI-powered communication platform built with React, TypeScript, and Supabase. This guide provides comprehensive instructions for developers working on the project.
+Lyyli.ai is a modern AI-powered communication platform built with React, TypeScript, and Next.js. This guide provides comprehensive instructions for developers working on the project.
 
 ## Table of Contents
 
@@ -69,8 +69,8 @@ Lyyli.ai is a modern AI-powered communication platform built with React, TypeScr
 │   ├── contexts/          # React contexts
 │   ├── integrations/      # External service integrations
 │   └── services/          # API services
-├── supabase/
-│   └── functions/         # Supabase Edge Functions
+├── app/                   # Next.js App Router
+│   └── api/              # API routes
 └── public/                # Static assets
 ```
 

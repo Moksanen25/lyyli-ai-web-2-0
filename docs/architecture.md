@@ -12,8 +12,8 @@ Lyyli.ai is a React-based web application built with modern web technologies, fo
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **Routing**: React Router DOM
 - **State Management**: React Context API + Custom Hooks
-- **Backend**: Supabase (Database, Authentication, Edge Functions)
-- **AI Integration**: OpenAI API via Supabase Edge Functions
+- **Backend**: Next.js API Routes
+- **AI Integration**: OpenAI API via server-side integration
 
 ## Project Structure
 
@@ -62,10 +62,10 @@ src/
 
 ## API Integration
 
-### Supabase Edge Functions
-- **openai-assistant**: Handles OpenAI API communication
-- Secure API key management via Supabase secrets
-- CORS handling for web application requests
+### Next.js API Routes
+- **/api/openai/***: Handles OpenAI API communication
+- Secure API key management via environment variables
+- Server-side processing for enhanced security
 
 ### Service Layer
 - `openaiService.ts`: Abstracts OpenAI API interactions
@@ -126,8 +126,8 @@ src/
 ## Security
 
 ### API Security
-- Supabase Row Level Security (RLS) policies
-- Environment variable management via Supabase secrets
+- Next.js API route security
+- Environment variable management via .env files
 - CORS configuration for API endpoints
 
 ### Client Security
@@ -141,7 +141,7 @@ src/
 1. Clone repository
 2. Install dependencies with `npm i`
 3. Start development server with `npm run dev`
-4. Configure Supabase integration
+4. Configure OpenAI API integration
 
 ### Code Quality
 - TypeScript for type safety

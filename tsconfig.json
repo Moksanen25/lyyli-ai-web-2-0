@@ -45,7 +45,6 @@
     "out/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "supabase"
+    "node_modules"
   ]
 }

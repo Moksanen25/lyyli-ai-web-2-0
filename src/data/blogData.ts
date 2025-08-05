@@ -19,6 +19,106 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "11",
+    title: "Lyyli.ai:n kehitystä vauhdittamaan pääomasijoittajia – mullistaa yritysten viestinnän tekoälyllä",
+    slug: "lyyli-ai-paomasijoittajat-kehitys",
+    excerpt: "Viestintäassistentti Lyyli.ai on saanut merkittävän pääomasijoituksen kasvun vauhdittamiseksi. Expion ja Redstonen hallinnoima South Savo Growth Fund tukevat yhtiötä.",
+    content: `
+      <p>Viestintäassistentti <strong>Lyyli.ai</strong> on saanut merkittävän pääomasijoituksen kasvun vauhdittamiseksi. <strong>Expion</strong> ja <strong>Redstone</strong>n hallinnoima South Savo Growth Fund tukevat yhtiötä, joka automatisoi ja tehostaa yritysten sisäistä ja ulkoista viestintää älykkäällä teknologialla.</p>
+
+      <p>Lyyli.ai muuttaa tapaa, jolla yritykset luovat ja hallitsevat sisältöä. Tekoälyavusteinen viestintäassistentti automatisoi rutiinitehtäviä, parantaa sisällön laatua ja varmistaa johdonmukaisen viestinnän kaikissa kanavissa. AI-agentti oppii yrityksen brändin, arvot ja viestintätyylin, ja tuottaa sitten johdonmukaista, laadukasta sisältöä kaikille kanaville – LinkedInista sisäisiin tiedotteisiin. Yrityksen toimitusjohtaja ja toinen perustajista on <strong>Mikko Oksanen</strong>, toinen perustajista <strong>Veikko Laitinen</strong> toimii yrityksen teknologiajohtajana.</p>
+
+      <p>"Mikko tuntee hyvin asiantuntijaorganisaatioiden viestinnälliset haasteet ja Veikon osaaminen ja ymmärrys tekoälyteknologioiden laaja-alaisesta ymmärtämisestä vakuuttivat meidät", sanoo <strong>Expion Oy</strong>:n toimitusjohtaja <strong>Sannamari Nykänen</strong>, joka liittyy sijoituksen myötä myös yhtiön hallitukseen. "Olemme tehneet Mikon kanssa yhteistyötä jo useamman vuoden ja onkin hienoa, että Expionin ensimmäinen pääomasijoitus kohdistuu juuri Lyyli.ai:n kehitystyöhön."</p>
+
+      <p>Rahoituksen avulla yritys viimeistelee tuotteensa markkinavalmiiksi ja käynnistää aktiivisen myynnin Suomessa 50-1000 hengen asiantuntija- ja projektiorganisaatioille, joiden viestintähaasteet ovat suurimmat.</p>
+
+      <p>"Sijoittajien tuki on ratkaisevaa startupin alkuvaiheessa – se tuo paitsi pääomaa, myös kokemusta ja verkostoja, joita ilman eteneminen olisi huomattavasti hitaampaa. Nyt pääsemme todella näyttämään, miten tekoäly voi vapauttaa viestintäammattilaiset luovaan työhön", toteaa <strong>Lyyli AI Oy</strong>:n toimitusjohtaja Mikko Oksanen.</p>
+
+      <p>"Teknisestä näkökulmasta Lyyli on täydellinen projekti minulle, saan yhdistettyä kaikki ne osaamisalueet joita olen vuosien varrella kerännyt ja samalla oppia jatkuvasti uutta", kertoo teknologiajohtaja Veikko Laitinen. "Tekoälyn mahdollisuudet viestinnässä ovat valtavat, ja meidän tekninen ratkaisu on rakennettu skaalautuvaksi alusta alkaen. Kun näkee kuinka Lyyli oppii yrityksen viestintätyylin ja alkaa tuottaa aidosti laadukasta sisältöä, niin tajuaa että tämä on sitä teknologiaa joka todella muuttaa tapaa tehdä työtä tiimeissä. On hienoa saada sijoittajien tuki ja luottamus projektille. Se antaa meille mahdollisuuden keskittyä täysillä tuotekehitykseen ja vie meidät nopeammin markkinoille."</p>
+
+      <h2>Hallitukseen laaja-alaista osaamista</h2>
+
+      <p>Sijoituksen myötä yhtiön hallitukseen liittyy Sannamari Nykänen, kokenut talousjohtaja joka on vienyt läpi useita Due Diligence -prosesseja. Hallituksen muodostavat nyt Mikko Oksanen, Sannamari Nykänen ja puheenjohtajana toimiva Veikko Laitinen.</p>
+
+      <p>"Sannis tuo hallituksemme toimintaan talousjohtamisen osaamista ja ulkopuolisen näkemystä. On mukavaa, että joku välillä vähän kyseenalaistaa meidän päätöksiämme", toteaa Oksanen.</p>
+
+      <p>Lisäksi hallituksen neuvonantajiksi yhtiöön liittyvät <strong>Perttu Ahvenainen</strong> (<strong>Taitori Oy</strong>:n myynti- ja markkinointijohtaja) ja KHT-tilintarkastaja <strong>Teemu Laitinen</strong> (<strong>Kuittiniilo Oy</strong>:n perustaja).</p>
+
+      <p>"Olemme kiitollisia sijoittajiemme tuesta ja odotamme innolla tulevaa yhteistyötä heidän kanssaan. Nyt on aika näyttää, miten suomalainen tekoälyosaaminen pärjää globaalilla viestintämarkkinalla", päättää Oksanen.</p>
+
+      <h3><em>Sijoittajista</em></h3>
+
+      <p><em><strong>Expion</strong><br>
+      Expion on uusi suomalainen kasvupalveluita ja rahoitusmahdollisuuksia tarjoava family office -yhtiö. Yhtiö keskittyy tukemaan pieniä ja keskisuuria yrityksiä kasvun ja kansainvälistymisen tiellä, tarjoaa yrityksille sekä rahoitusta että asiantuntijapalveluita, joita olemme itse kokeneet tarpeelliseksi kasvun ja yritystoiminnan arjessa.<br>
+      www.expion.fi</em></p>
+
+      <p><em><strong>Redstone</strong><br>
+      Redstone on eurooppalainen pääomasijoitusyhtiö. Hallinnoimme useita VC-rahastoja, joissa keskitytään aikaisen vaiheen eurooppalaisiin yrityksiin esimerkiksi finanssiteknologian, terveydenhuollon-, teollisen syväteknologian, kiinteistöteknologian, energian ja ilmastoteknologian aloilla. Suurimmat toimistomme sijaitsevat Berliinissä, Münchenissa, Zürichissä ja Helsingissä, ja rahastosalkkuihimme kuuluu yli 180 yritystä.<br>
+      www.redstone.vc</em></p>
+    `,
+    author: {
+      name: "Lyyli-tiimi",
+      title: "Viestintä",
+      image: "https://img.shields.io/badge/LT-placeholder-blue"
+    },
+    publishDate: "2025-01-27",
+    readTime: 5,
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+    tags: ["News", "Investment", "Growth"],
+    isHighlighted: true,
+    language: "fi"
+  },
+  {
+    id: "12",
+    title: "Lyyli.ai Accelerates Development with Venture Capital Investment – Revolutionizing Business Communication with AI",
+    slug: "lyyli-ai-venture-capital-investment-development",
+    excerpt: "Communication assistant Lyyli.ai has received significant venture capital investment to accelerate growth. Expion and Redstone's managed South Savo Growth Fund supports the company.",
+    content: `
+      <p>Communication assistant <strong>Lyyli.ai</strong> has received significant venture capital investment to accelerate growth. <strong>Expion</strong> and <strong>Redstone</strong>'s managed South Savo Growth Fund supports the company that automates and enhances businesses' internal and external communication with intelligent technology.</p>
+
+      <p>Lyyli.ai is changing how companies create and manage content. The AI-powered communication assistant automates routine tasks, improves content quality, and ensures consistent communication across all channels. The AI agent learns the company's brand, values, and communication style, then produces consistent, high-quality content for all channels – from LinkedIn to internal announcements. The company's CEO and co-founder is <strong>Mikko Oksanen</strong>, while the other co-founder <strong>Veikko Laitinen</strong> serves as the company's CTO.</p>
+
+      <p>"Mikko understands well the communication challenges of expert organizations, and Veikko's expertise and comprehensive understanding of AI technologies convinced us," says <strong>Sannamari Nykänen</strong>, CEO of <strong>Expion Oy</strong>, who also joins the company's board with the investment. "We've been working with Mikko for several years now, and it's wonderful that Expion's first venture capital investment is directed specifically at Lyyli.ai's development work."</p>
+
+      <p>With the funding, the company will finalize its product for market readiness and launch active sales in Finland to 50-1000 person expert and project organizations, whose communication challenges are the greatest.</p>
+
+      <p>"Investor support is crucial in a startup's early stage – it brings not only capital but also experience and networks, without which progress would be significantly slower. Now we can truly show how AI can free communication professionals for creative work," states <strong>Mikko Oksanen</strong>, CEO of <strong>Lyyli AI Oy</strong>.</p>
+
+      <p>"From a technical perspective, Lyyli is a perfect project for me, I get to combine all the expertise areas I've gathered over the years while continuously learning new things," says CTO Veikko Laitinen. "The possibilities of AI in communication are vast, and our technical solution is built to be scalable from the ground up. When you see how Lyyli learns a company's communication style and starts producing genuinely high-quality content, you realize this is the technology that truly changes how work is done in teams. It's wonderful to receive investors' support and trust for the project. It gives us the opportunity to focus fully on product development and brings us to market faster."</p>
+
+      <h2>Board Brings Diverse Expertise</h2>
+
+      <p>With the investment, <strong>Sannamari Nykänen</strong> joins the company's board, an experienced CFO who has led several Due Diligence processes. The board now consists of Mikko Oksanen, Sannamari Nykänen, and Veikko Laitinen serving as chairman.</p>
+
+      <p>"Sanni brings financial management expertise and external perspective to our board's operations. It's nice that someone occasionally questions our decisions a bit," states Oksanen.</p>
+
+      <p>Additionally, <strong>Perttu Ahvenainen</strong> (Sales and Marketing Director at <strong>Taitori Oy</strong>) and CPA <strong>Teemu Laitinen</strong> (Founder of <strong>Kuittiniilo Oy</strong>) join as board advisors.</p>
+
+      <p>"We are grateful for our investors' support and look forward to future collaboration with them. Now it's time to show how Finnish AI expertise performs in the global communication market," concludes Oksanen.</p>
+
+      <h3><em>About the Investors</em></h3>
+
+      <p><em><strong>Expion</strong><br>
+      Expion is a new Finnish family office company offering growth services and financing opportunities. The company focuses on supporting small and medium-sized companies on their path to growth and internationalization, offering companies both financing and expert services that we ourselves have found necessary in the daily life of growth and business operations.<br>
+      www.expion.fi</em></p>
+
+      <p><em><strong>Redstone</strong><br>
+      Redstone is a European venture capital company. We manage several VC funds focusing on early-stage European companies in areas such as fintech, healthcare, industrial deep tech, proptech, energy and climate technology. Our largest offices are located in Berlin, Munich, Zurich and Helsinki, and our fund portfolios include over 180 companies.<br>
+      www.redstone.vc</em></p>
+    `,
+    author: {
+      name: "Lyyli Team",
+      title: "Communications",
+      image: "https://img.shields.io/badge/LT-placeholder-blue"
+    },
+    publishDate: "2025-01-27",
+    readTime: 5,
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+    tags: ["News", "Investment", "Growth"],
+    isHighlighted: true,
+    language: "en"
+  },
+  {
     id: "10",
     title: "Who Lyyli Was Built For: The Invisible Burden of Communication",
     slug: "who-lyyli-was-built-for-invisible-burden",
