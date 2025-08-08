@@ -74,20 +74,35 @@ export default function SolutionsSection() {
               </h3>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {(t(`solutions.${activeTab}.problems.list`) || []).map((problem, index) => (
-                <li key={index} style={{ 
-                  display: 'flex', 
-                  alignItems: 'flex-start', 
-                  marginBottom: '16px',
-                  padding: '12px',
-                  backgroundColor: '#fef2f2',
-                  borderRadius: '8px',
-                  border: '1px solid #fecaca'
-                }}>
-                  <X style={{ width: '20px', height: '20px', color: '#ef4444', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
-                  <span style={{ color: '#7f1d1d', lineHeight: '1.6' }}>{problem}</span>
-                </li>
-              ))}
+              {Array.isArray(t(`solutions.${activeTab}.problems.list`)) ? 
+                t(`solutions.${activeTab}.problems.list`).map((problem, index) => (
+                  <li key={index} style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    marginBottom: '16px',
+                    padding: '12px',
+                    backgroundColor: '#fef2f2',
+                    borderRadius: '8px',
+                    border: '1px solid #fecaca'
+                  }}>
+                    <X style={{ width: '20px', height: '20px', color: '#ef4444', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ color: '#7f1d1d', lineHeight: '1.6' }}>{problem}</span>
+                  </li>
+                )) : (
+                  <li style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    marginBottom: '16px',
+                    padding: '12px',
+                    backgroundColor: '#fef2f2',
+                    borderRadius: '8px',
+                    border: '1px solid #fecaca'
+                  }}>
+                    <X style={{ width: '20px', height: '20px', color: '#ef4444', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ color: '#7f1d1d', lineHeight: '1.6' }}>Kommunikoinnin haasteet</span>
+                  </li>
+                )
+              }
             </ul>
           </div>
 
@@ -105,20 +120,35 @@ export default function SolutionsSection() {
               </h3>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {(t(`solutions.${activeTab}.solutions.list`) || []).map((solution, index) => (
-                <li key={index} style={{ 
-                  display: 'flex', 
-                  alignItems: 'flex-start', 
-                  marginBottom: '16px',
-                  padding: '12px',
-                  backgroundColor: '#f0fdf4',
-                  borderRadius: '8px',
-                  border: '1px solid #bbf7d0'
-                }}>
-                  <Check style={{ width: '20px', height: '20px', color: '#10b981', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
-                  <span style={{ color: '#14532d', lineHeight: '1.6' }}>{solution}</span>
-                </li>
-              ))}
+              {Array.isArray(t(`solutions.${activeTab}.solutions.list`)) ? 
+                t(`solutions.${activeTab}.solutions.list`).map((solution, index) => (
+                  <li key={index} style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    marginBottom: '16px',
+                    padding: '12px',
+                    backgroundColor: '#f0fdf4',
+                    borderRadius: '8px',
+                    border: '1px solid #bbf7d0'
+                  }}>
+                    <Check style={{ width: '20px', height: '20px', color: '#10b981', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ color: '#14532d', lineHeight: '1.6' }}>{solution}</span>
+                  </li>
+                )) : (
+                  <li style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    marginBottom: '16px',
+                    padding: '12px',
+                    backgroundColor: '#f0fdf4',
+                    borderRadius: '8px',
+                    border: '1px solid #bbf7d0'
+                  }}>
+                    <Check style={{ width: '20px', height: '20px', color: '#10b981', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ color: '#14532d', lineHeight: '1.6' }}>Lyyli ratkaisee viestintähaasteet</span>
+                  </li>
+                )
+              }
             </ul>
           </div>
         </div>
