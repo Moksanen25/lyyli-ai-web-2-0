@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import { Clock, Sparkles, Users, Send } from 'lucide-react'
 import { useLanguage } from '@/hooks/useLanguage'
 
