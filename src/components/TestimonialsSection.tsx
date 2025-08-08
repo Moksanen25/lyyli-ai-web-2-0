@@ -21,7 +21,7 @@ const testimonials = [
     quote: "Asiakastyytyväisyys on parantunut huomattavasti kun viestintä on yhtenäisempää ja ammattimaisempaa.",
     author: "Anna Koskinen",
     title: "Asiakaspalvelupäällikkö",
-    company: "ServicePlus"
+    company: "ServiceFirst Ltd"
   }
 ]
 
@@ -38,76 +38,143 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+    <section style={{ backgroundColor: '#f9fafb', padding: '64px 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
             {t('testimonials.title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p style={{ fontSize: '18px', color: '#6b7280', maxWidth: '600px', margin: '0 auto' }}>
             {t('testimonials.subtitle')}
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-lg p-6 shadow-lg border border-gray-100 transition-all duration-300 ${
-                  index === currentIndex ? 'scale-105 shadow-xl' : 'opacity-75'
-                }`}
-              >
-                {/* Stars */}
-                <div className="flex justify-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
+        <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '16px', 
+            padding: '48px', 
+            boxShadow: '0 10px 25px -3px rgba(0, 0, 0, 0.1)',
+            textAlign: 'center',
+            minHeight: '280px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+          }}>
+            {/* Stars */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} style={{ width: '20px', height: '20px', color: '#fbbf24', fill: '#fbbf24', marginRight: '4px' }} />
+              ))}
+            </div>
 
-                {/* Quote */}
-                <p className="text-gray-700 mb-6 italic text-center">
-                  "{testimonial.quote}"
-                </p>
+            {/* Quote */}
+            <blockquote style={{ 
+              fontSize: '20px', 
+              fontStyle: 'italic', 
+              color: '#1f2937', 
+              marginBottom: '32px',
+              lineHeight: '1.6',
+              margin: '0 0 32px 0'
+            }}>
+              "{testimonials[currentIndex].quote}"
+            </blockquote>
 
-                {/* Author */}
-                <div className="text-center">
-                  <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600">{testimonial.title}</p>
-                  <p className="text-sm text-gray-500">{testimonial.company}</p>
-                </div>
+            {/* Author */}
+            <div>
+              <div style={{ fontWeight: '600', color: '#1f2937', fontSize: '18px' }}>
+                {testimonials[currentIndex].author}
               </div>
-            ))}
+              <div style={{ color: '#6b7280', fontSize: '16px' }}>
+                {testimonials[currentIndex].title}
+              </div>
+              <div style={{ color: '#2F5D50', fontSize: '16px', fontWeight: '500' }}>
+                {testimonials[currentIndex].company}
+              </div>
+            </div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+            style={{
+              position: 'absolute',
+              left: '-20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              backgroundColor: 'white',
+              border: '2px solid #e5e7eb',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.borderColor = '#2F5D50'
+              e.target.style.backgroundColor = '#f9fafb'
+            }}
+            onMouseOut={(e) => {
+              e.target.style.borderColor = '#e5e7eb'
+              e.target.style.backgroundColor = 'white'
+            }}
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft style={{ width: '20px', height: '20px', color: '#6b7280' }} />
           </button>
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+            style={{
+              position: 'absolute',
+              right: '-20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              backgroundColor: 'white',
+              border: '2px solid #e5e7eb',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.borderColor = '#2F5D50'
+              e.target.style.backgroundColor = '#f9fafb'
+            }}
+            onMouseOut={(e) => {
+              e.target.style.borderColor = '#e5e7eb'
+              e.target.style.backgroundColor = 'white'
+            }}
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight style={{ width: '20px', height: '20px', color: '#6b7280' }} />
           </button>
+        </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
+        {/* Dots */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '32px', gap: '8px' }}>
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: currentIndex === index ? '#2F5D50' : '#d1d5db',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s'
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>

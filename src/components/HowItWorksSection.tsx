@@ -30,55 +30,77 @@ export default function HowItWorksSection() {
   const { t } = useLanguage()
   
   return (
-    <section style={{ backgroundColor: 'red', padding: '64px 0', minHeight: '200px' }}>
-      <div style={{ textAlign: 'center', color: 'white', fontSize: '48px', fontWeight: 'bold' }}>
-        DEBUG: HOW IT WORKS SECTION IS RENDERING!
-      </div>
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+    <section style={{ backgroundColor: 'white', padding: '64px 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#1f2937', marginBottom: '16px' }}>
             {t('howItWorks.title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p style={{ fontSize: '18px', color: '#6b7280', maxWidth: '600px', margin: '0 auto' }}>
             {t('howItWorks.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '32px', 
+          position: 'relative' 
+        }}>
           {steps.map((step, index) => {
             const IconComponent = step.icon
             return (
-              <div key={index} className="relative">
-                <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-100 text-center">
-                                  <div className="w-12 h-12 bg-[#2F5D50] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="w-6 h-6 text-white" />
-                </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div key={index} style={{ textAlign: 'center', position: 'relative' }}>
+                <div style={{ 
+                  backgroundColor: 'white', 
+                  borderRadius: '8px', 
+                  padding: '24px', 
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+                  border: '1px solid #f3f4f6' 
+                }}>
+                  <div style={{ 
+                    width: '48px', 
+                    height: '48px', 
+                    backgroundColor: '#2F5D50', 
+                    borderRadius: '50%', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    margin: '0 auto 16px' 
+                  }}>
+                    <IconComponent style={{ width: '24px', height: '24px', color: 'white' }} />
+                  </div>
+                  <h3 style={{ fontSize: '18px', fontWeight: '600', color: '#1f2937', marginBottom: '8px' }}>
                     {t(step.titleKey)}
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p style={{ color: '#6b7280', fontSize: '14px', lineHeight: '1.6' }}>
                     {t(step.descriptionKey)}
                   </p>
                 </div>
-                
-                {/* Arrow connector */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-[#2F5D50]"></div>
-                    <div className="w-2 h-2 bg-[#2F5D50] rounded-full absolute -top-1 right-0"></div>
-                  </div>
-                )}
               </div>
             )
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="bg-[#2F5D50] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A6A5C] transition-colors">
+        <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <button 
+            style={{ 
+              backgroundColor: '#2F5D50', 
+              color: 'white', 
+              padding: '12px 32px', 
+              borderRadius: '8px', 
+              fontWeight: '600', 
+              border: 'none', 
+              cursor: 'pointer',
+              transition: 'background-color 0.3s'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#3A6A5C'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#2F5D50'}
+          >
             Lue lisää
           </button>
         </div>
       </div>
     </section>
   )
-} 
+}
