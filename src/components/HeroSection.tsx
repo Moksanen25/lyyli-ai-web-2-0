@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-lg opacity-50"></div>
       
       <div className="container-padding container mx-auto text-center relative z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-[#295045] hyphens-none">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in text-foreground hyphens-none">
           {heroT('title')}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white px-12 py-6 text-xl rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-12 py-6 text-xl rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               asChild
             >
               <Link href={waitlistPath}>
@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-primary/20 bg-white/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="border-primary/20 bg-card/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               asChild
             >
               <Link href={language === 'fi' ? '/fi/features' : '/features'}>

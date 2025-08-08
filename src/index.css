@@ -58,12 +58,12 @@
   }
 
   body {
-    @apply bg-[#F5F5F4] text-[#2F5D50] font-inter;
+    @apply bg-background text-foreground font-inter font-normal;
     overflow-x: hidden; /* Prevent horizontal scroll on mobile */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+    @apply font-playfair font-semibold;
     word-break: keep-all;
     hyphens: none;
   }

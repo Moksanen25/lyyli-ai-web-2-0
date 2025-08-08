@@ -8,6 +8,7 @@ export const nav = {
   signup: 'Rekisteröidy',
   about: 'Tietoa meistä',
   blog: 'Blogi',
+  security: 'Tietoturva',
   openMenu: 'Avaa valikko',
   closeMenu: 'Sulje valikko',
 };

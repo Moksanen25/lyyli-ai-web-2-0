@@ -66,10 +66,10 @@ const Navbar: React.FC = () => {
                     {t('nav.features')}
                   </div>
                   <Link href={language === 'fi' ? "/fi/features" : "/features"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
-                    {language === 'fi' ? 'Ominaisuudet' : 'Features Overview'}
+                    {t('nav.features')}
                   </Link>
                   <Link href={language === 'fi' ? "/fi/security" : "/security"} className="block px-4 py-2 text-sm hover:bg-accent rounded-md">
-                    {language === 'fi' ? 'Tietoturva' : 'Security'}
+                    {t('nav.security')}
                   </Link>
                 </div>
                 <Link href={language === 'fi' ? "/fi/pricing" : "/pricing"} className="text-sm font-medium leading-none hover:underline">
@@ -113,12 +113,12 @@ const Navbar: React.FC = () => {
             <DropdownMenuContent align="start" className="w-48">
               <DropdownMenuItem asChild>
                 <Link href={language === 'fi' ? "/fi/features" : "/features"}>
-                  {language === 'fi' ? 'Ominaisuudet' : 'Features Overview'}
+                  {t('nav.features')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href={language === 'fi' ? "/fi/security" : "/security"}>
-                  {language === 'fi' ? 'Tietoturva' : 'Security'}
+                  {t('nav.security')}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

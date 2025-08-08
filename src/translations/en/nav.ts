@@ -8,6 +8,7 @@ export const nav = {
   signup: 'Sign Up',
   about: 'About',
   blog: 'Blog',
+  security: 'Security',
   openMenu: 'Open menu',
   closeMenu: 'Close menu',
 };
