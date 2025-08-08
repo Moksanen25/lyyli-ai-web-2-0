@@ -15,8 +15,8 @@ export default function SolutionsSection() {
   const [activeTab, setActiveTab] = useState('sales')
 
   return (
-    <section className="py-16 bg-blue-500 min-h-[200px]">
-      <div className="text-center text-white text-4xl font-bold">
+    <section style={{ backgroundColor: 'blue', padding: '64px 0', minHeight: '200px' }}>
+      <div style={{ textAlign: 'center', color: 'white', fontSize: '48px', fontWeight: 'bold' }}>
         DEBUG: SOLUTIONS SECTION IS RENDERING!
       </div>
       <div className="container mx-auto px-4">

@@ -30,8 +30,8 @@ export default function HowItWorksSection() {
   const { t } = useLanguage()
   
   return (
-    <section className="py-16 bg-red-500 min-h-[200px]">
-      <div className="text-center text-white text-4xl font-bold">
+    <section style={{ backgroundColor: 'red', padding: '64px 0', minHeight: '200px' }}>
+      <div style={{ textAlign: 'center', color: 'white', fontSize: '48px', fontWeight: 'bold' }}>
         DEBUG: HOW IT WORKS SECTION IS RENDERING!
       </div>
       <div className="container mx-auto px-4">
