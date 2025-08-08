@@ -1,10 +1,20 @@
 // Simple translation system without circular dependencies
 export const translations = {
   en: {
+    nav: {
+      features: 'Features',
+      pricing: 'Pricing',
+      about: 'About',
+      blog: 'Blog',
+      contact: 'Contact',
+      login: 'Login',
+      security: 'Security'
+    },
     hero: {
       title: 'Lyyli.ai revolutionizes expert communication',
       subtitle: 'AI communication assistant that understands expert organizations\' needs. Automatic message formatting, proactive communication, and professional tone in all communications.',
       cta: 'Get Started',
+      demoCta: 'Book demo',
       exploreFeatures: 'Explore Features'
     },
     problems: {
@@ -79,13 +89,44 @@ export const translations = {
       title: 'Start today',
       subtitle: 'Join the waitlist and be among the first to try Lyyli',
       button: 'Join waitlist'
+    },
+    roi: {
+      title: 'Average ROI',
+      subtitle: '€39,852',
+      percentage: '654%',
+      calculateROI: 'Calculate Lyyli ROI',
+      bookDemo: 'Book demo'
+    },
+    communicationProblems: {
+      title: 'Why choose Lyyli as your communication assistant?',
+      subtitle: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
+      cta: 'Start free trial',
+      demoCta: 'Book demo',
+      userFriendly: 'User-friendliness',
+      efficiency: 'Efficiency benefits',
+      autoMessages: 'Automatic message creation',
+      saveCosts: 'Save 30-100% on communication costs',
+      professionalTone: 'Professional tone in all messages',
+      timeSavings: 'Save time on routine communication',
+      consistency: 'Consistent communication style',
+      analytics: 'Communication analytics and insights'
     }
   },
   fi: {
+    nav: {
+      features: 'Ominaisuudet',
+      pricing: 'Hinnat',
+      about: 'Tietoa meistä',
+      blog: 'Blogi',
+      contact: 'Yhteystiedot',
+      login: 'Kirjaudu',
+      security: 'Tietoturva'
+    },
     hero: {
       title: 'Lyyli.ai mullistaa asiantuntijaviestinnän',
       subtitle: 'AI-viestintäassistentti, joka ymmärtää asiantuntijaorganisaatioiden tarpeita. Automaattinen viestien muotoilu, proaktiivinen kommunikointi ja ammattimainen sävy kaikessa viestinnässä.',
       cta: 'Aloita',
+      demoCta: 'Varaa demo',
       exploreFeatures: 'Tutustu ominaisuuksiin'
     },
     problems: {
@@ -100,12 +141,12 @@ export const translations = {
         description: 'Asiakkaiden segmentointi ja analysointi vie paljon aikaa ja resursseja.'
       },
       inaccurate: {
-        title: 'Epätarkat kohderyhmät',
-        description: 'Markkinointi kohdistuu usein väärille ihmisille, mikä johtaa huonoihin tuloksiin.'
+        title: 'Virheelliset kohderyhmät',
+        description: 'Markkinointi kohdistuu usein väärään yleisöön, mikä johtaa huonoihin tuloksiin.'
       }
     },
     solution: {
-      title: 'Miten Lyyli ratkaisee ongelmat?',
+      title: 'Miten Lyyli ratkaisee nämä ongelmat?',
       subtitle: 'Tekoälypohjainen asiakassegmentointi auttaa sinua ymmärtämään asiakkaitasi paremmin',
       automatic: {
         title: 'Automaattinen segmentointi',
@@ -113,11 +154,11 @@ export const translations = {
       },
       realtime: {
         title: 'Reaaliaikainen analyysi',
-        description: 'Saat päivittäisiä päivityksiä asiakkaidesi muutoksista ja trendeistä.'
+        description: 'Saa päivittäisiä päivityksiä asiakaskantasi muutoksista ja trendeistä.'
       },
       targeted: {
         title: 'Kohdennetut kampanjat',
-        description: 'Luo henkilökohtaisia markkinointikampanjoita jokaiselle segmentille.'
+        description: 'Luo henkilökohtaiset markkinointikampanjat jokaiselle segmentille.'
       }
     },
     valueProps: {
@@ -125,7 +166,7 @@ export const translations = {
       subtitle: 'Lyyli auttaa sinua rakentamaan parempia suhteita asiakkaitasi kanssa',
       saveTime: {
         title: 'Säästä aikaa',
-        description: 'Automaattinen segmentointi säästää tuntikausia manuaalista työtä.'
+        description: 'Automaattinen segmentointi säästää tunteja manuaalista työtä.'
       },
       improveROI: {
         title: 'Paranna ROI',
@@ -137,36 +178,67 @@ export const translations = {
       }
     },
     howItWorks: {
-      title: 'Miten se toimii?',
-      subtitle: 'Kolme yksinkertaista vaihetta parempaan asiakassegmentointiin',
+      title: 'Miten se toimii',
+      subtitle: 'Kolme yksinkertaista askelta parempaan asiakassegmentointiin',
       step1: {
         title: 'Yhdistä tietosi',
         description: 'Lyyli yhdistää automaattisesti asiakastietosi eri lähteistä.'
       },
       step2: {
         title: 'Analysoi käyttäytymistä',
-        description: 'AI analysoi asiakkaidesi käyttäytymistä ja luo segmentit.'
+        description: 'Tekoäly analysoi asiakkaidesi käyttäytymistä ja luo segmentit.'
       },
       step3: {
         title: 'Luo kampanjat',
-        description: 'Luo henkilökohtaisia markkinointikampanjoita jokaiselle segmentille.'
+        description: 'Luo henkilökohtaiset markkinointikampanjat jokaiselle segmentille.'
       }
     },
     testimonials: {
-      title: 'Asiakkaidemme kokemukset',
+      title: 'Mitä asiakkaamme sanovat',
       subtitle: 'Katso mitä asiakkaamme sanovat Lyylin vaikutuksesta liiketoimintaansa'
     },
     cta: {
       title: 'Aloita tänään',
-      subtitle: 'Liity odotuslistalle ja ole ensimmäisten joukossa kokeilemassa Lyylia',
+      subtitle: 'Liity odotuslistalle ja ole ensimmäisten joukossa kokeilemassa Lyyliä',
       button: 'Liity odotuslistalle'
+    },
+    roi: {
+      title: 'Keskimääräinen ROI',
+      subtitle: '€39,852',
+      percentage: '654%',
+      calculateROI: 'Laske Lyyli ROI',
+      bookDemo: 'Varaa demo'
+    },
+    communicationProblems: {
+      title: 'Miksi valita Lyyli asiakkaan viestintäassistenttina?',
+      subtitle: 'Tekoälyviestintäassistentti asiantuntijayrityksille – viestinnässä kanavilla kuten profesioonaalisesti ja varmista, että tärkeät asiat eivät jää viestimättä.',
+      cta: 'Aloita ilmainen kokeilu',
+      demoCta: 'Varaa demo',
+      userFriendly: 'Käyttöystävällisyys',
+      efficiency: 'Tehokkuuden edut',
+      autoMessages: 'Automaattinen viestin luominen',
+      saveCosts: 'Säästä 30-100% viestinnän kustannuksissa',
+      professionalTone: 'Ammattimainen sävy kaikissa viesteissä',
+      timeSavings: 'Säästä aika perusviestinnässä',
+      consistency: 'Konsistentti viestintätyyli',
+      analytics: 'Viestintäanalyytikka ja näkökohdat'
     }
   },
   sv: {
+    nav: {
+      features: 'Funktioner',
+      pricing: 'Priser',
+      about: 'Om oss',
+      blog: 'Blogg',
+      contact: 'Kontakt',
+      login: 'Logga in',
+      security: 'Säkerhet'
+    },
     hero: {
       title: 'Lyyli.ai revolutionerar expertkommunikation',
       subtitle: 'AI-kommunikationsassistent som förstår expertorganisationers behov. Automatisk meddelandeformatering, proaktiv kommunikation och professionell ton i all kommunikation.',
       cta: 'Kom igång',
+      demoCta: 'Boka demo',
       exploreFeatures: 'Utforska funktioner'
     },
     problems: {
@@ -241,6 +313,27 @@ export const translations = {
       title: 'Börja idag',
       subtitle: 'Gå med i väntelistan och var bland de första att prova Lyyli',
       button: 'Gå med i väntelistan'
+    },
+    roi: {
+      title: 'Genomsnittlig ROI',
+      subtitle: '€39,852',
+      percentage: '654%',
+      calculateROI: 'Beräkna Lyyli ROI',
+      bookDemo: 'Boka demo'
+    },
+    communicationProblems: {
+      title: 'Varför välja Lyyli som din kommunikationsassistent?',
+      subtitle: 'AI-kommunikationsassistent för expertorganisationer – kommunicera i meddelandekanaler som en professionell och säkerställ att viktiga saker aldrig lämnas ocommunikerade.',
+      cta: 'Börja gratis provperiod',
+      demoCta: 'Boka demo',
+      userFriendly: 'Användarvänlighet',
+      efficiency: 'Effektivitetsfördelar',
+      autoMessages: 'Automatiskt meddelande skapande',
+      saveCosts: 'Spara 30-100% på kommunikationskostnader',
+      professionalTone: 'Professionell ton i alla meddelanden',
+      timeSavings: 'Spara tid på rutinmässig kommunikation',
+      consistency: 'Konsistent kommunikationsstil',
+      analytics: 'Kommunikationsanalys och insikter'
     }
   }
 };

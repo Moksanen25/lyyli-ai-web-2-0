@@ -7,41 +7,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 const ProblemSection: React.FC = () => {
-  const { language } = useLanguage();
-
-  const getText = (key: string) => {
-    const texts = {
-      en: {
-        title: 'Why choose Lyyli as your communication assistant?',
-        subtitle: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
-        cta: 'Start free trial',
-        demoCta: 'Book demo',
-        userFriendly: 'User-friendliness',
-        efficiency: 'Efficiency benefits',
-        autoMessages: 'Automatic message creation',
-        saveCosts: 'Save 30-100% on communication costs',
-        professionalTone: 'Professional tone in all messages',
-        timeSavings: 'Save time on routine communication',
-        consistency: 'Consistent communication style',
-        analytics: 'Communication analytics and insights'
-      },
-      fi: {
-        title: 'Miksi valita Lyyli viestintäassistentiksesi?',
-        subtitle: 'Asiantuntijaorganisaatioille tehty AI-viestintäassistentti, jonka avulla viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jaa ikinä viestimättä.',
-        cta: 'Aloita ilmainen kokeilu',
-        demoCta: 'Varaa demo',
-        userFriendly: 'Käyttäjäystävällisyys',
-        efficiency: 'Tehokkuushyödyt',
-        autoMessages: 'Automaattinen viestien luonti',
-        saveCosts: 'Säästä 30-100% viestintäkuluista',
-        professionalTone: 'Ammattimainen sävy kaikissa viesteissä',
-        timeSavings: 'Säästä aikaa rutiiniviestinnässä',
-        consistency: 'Yhtenäinen viestintätyyli',
-        analytics: 'Viestintäanalytiikka ja oivallukset'
-      }
-    };
-    return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
-  };
+  const { language, t } = useLanguage();
 
   const features = [
     { category: 'userFriendly', items: ['autoMessages', 'professionalTone', 'consistency'] },
@@ -53,10 +19,10 @@ const ProblemSection: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            {getText('title')}
+            {t('communicationProblems.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {getText('subtitle')}
+            {t('communicationProblems.subtitle')}
           </p>
         </div>
         
@@ -64,7 +30,7 @@ const ProblemSection: React.FC = () => {
           {features.map((featureGroup, groupIndex) => (
             <div key={groupIndex} className="space-y-6">
               <h3 className="text-xl font-semibold text-primary mb-4">
-                {getText(featureGroup.category)}
+                {t(`communicationProblems.${featureGroup.category}`)}
               </h3>
               <div className="space-y-4">
                 {featureGroup.items.map((item, itemIndex) => (
@@ -73,7 +39,7 @@ const ProblemSection: React.FC = () => {
                       <Check className="h-4 w-4 text-emerald-600" />
                     </div>
                     <p className="text-muted-foreground">
-                      {getText(item)}
+                      {t(`communicationProblems.${item}`)}
                     </p>
                   </div>
                 ))}
@@ -89,7 +55,7 @@ const ProblemSection: React.FC = () => {
             asChild
           >
             <Link href={language === 'fi' ? '/fi/waitlist' : '/waitlist'}>
-              {getText('cta')}
+              {t('communicationProblems.cta')}
             </Link>
           </Button>
           <Button 
@@ -99,7 +65,7 @@ const ProblemSection: React.FC = () => {
             asChild
           >
             <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
-              {getText('demoCta')}
+              {t('communicationProblems.demoCta')}
             </Link>
           </Button>
         </div>
