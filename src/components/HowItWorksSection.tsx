@@ -32,7 +32,7 @@ export default function HowItWorksSection() {
   console.log('HowItWorksSection rendering, language:', t('howItWorks.title'))
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-yellow-300 border-4 border-red-500">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
