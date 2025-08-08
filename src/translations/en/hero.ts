@@ -1,8 +1,9 @@
 
 export const hero = {
-  title: 'Important communication goes undone because there are no proper tools',
+  title: 'AI communication assistant with which you communicate like a professional',
   subtitle: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
-  cta: 'Get started',
+  cta: 'Start free trial',
+  demoCta: 'Book demo',
   secondaryCta: 'See how it works',
   enterpriseReady: 'For Expert Organizations',
   trustedBy: 'Internal Communication Coordination',

@@ -17,7 +17,7 @@ export default function WaitlistPage() {
           
           <div className="bg-white p-8 rounded-lg shadow-md">
             <p className="text-lg mb-6 text-center">
-              Be the first to know when Lyyli AI's service is available!
+              Be the first to know when Lyyli AI&apos;s service is available!
             </p>
             
             <form className="space-y-4">
@@ -58,7 +58,7 @@ export default function WaitlistPage() {
             </form>
             
             <p className="text-sm text-gray-600 mt-4 text-center">
-              We won't share your information with third parties.
+              We won&apos;t share your information with third parties.
             </p>
           </div>
         </div>

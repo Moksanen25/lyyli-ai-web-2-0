@@ -2,57 +2,106 @@
 
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 const ProblemSection: React.FC = () => {
   const { language } = useLanguage();
 
-  const problems = [
-    {
-      title: language === 'fi' ? 'Kalliit markkinointikampanjat' : 'Expensive marketing campaigns',
-      description: language === 'fi' 
-        ? 'Yritykset käyttävät valtavia summia markkinointiin ilman tietoa siitä, kuka oikeasti ostaa.'
-        : 'Companies spend huge amounts on marketing without knowing who actually buys.',
-      icon: '💰'
-    },
-    {
-      title: language === 'fi' ? 'Aikaa vievä asiakastutkimus' : 'Time-consuming customer research',
-      description: language === 'fi'
-        ? 'Asiakkaiden segmentointi ja analysointi vie paljon aikaa ja resursseja.'
-        : 'Segmenting and analyzing customers takes a lot of time and resources.',
-      icon: '⏰'
-    },
-    {
-      title: language === 'fi' ? 'Epätarkat kohderyhmät' : 'Inaccurate target audiences',
-      description: language === 'fi'
-        ? 'Markkinointi kohdistuu usein väärille ihmisille, mikä johtaa huonoihin tuloksiin.'
-        : 'Marketing often targets the wrong people, leading to poor results.',
-      icon: '🎯'
-    }
+  const getText = (key: string) => {
+    const texts = {
+      en: {
+        title: 'Why choose Lyyli as your communication assistant?',
+        subtitle: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
+        cta: 'Start free trial',
+        demoCta: 'Book demo',
+        userFriendly: 'User-friendliness',
+        efficiency: 'Efficiency benefits',
+        autoMessages: 'Automatic message creation',
+        saveCosts: 'Save 30-100% on communication costs',
+        professionalTone: 'Professional tone in all messages',
+        timeSavings: 'Save time on routine communication',
+        consistency: 'Consistent communication style',
+        analytics: 'Communication analytics and insights'
+      },
+      fi: {
+        title: 'Miksi valita Lyyli viestintäassistentiksesi?',
+        subtitle: 'Asiantuntijaorganisaatioille tehty AI-viestintäassistentti, jonka avulla viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jaa ikinä viestimättä.',
+        cta: 'Aloita ilmainen kokeilu',
+        demoCta: 'Varaa demo',
+        userFriendly: 'Käyttäjäystävällisyys',
+        efficiency: 'Tehokkuushyödyt',
+        autoMessages: 'Automaattinen viestien luonti',
+        saveCosts: 'Säästä 30-100% viestintäkuluista',
+        professionalTone: 'Ammattimainen sävy kaikissa viesteissä',
+        timeSavings: 'Säästä aikaa rutiiniviestinnässä',
+        consistency: 'Yhtenäinen viestintätyyli',
+        analytics: 'Viestintäanalytiikka ja oivallukset'
+      }
+    };
+    return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
+  };
+
+  const features = [
+    { category: 'userFriendly', items: ['autoMessages', 'professionalTone', 'consistency'] },
+    { category: 'efficiency', items: ['saveCosts', 'timeSavings', 'analytics'] }
   ];
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {language === 'fi' ? 'Yleisiä ongelmia' : 'Common Problems'}
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            {getText('title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {language === 'fi' 
-              ? 'Monet yritykset kohtaavat samat haasteet asiakkaidensa ymmärtämisessä'
-              : 'Many companies face the same challenges in understanding their customers'
-            }
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {getText('subtitle')}
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
-          {problems.map((problem, index) => (
-            <div key={index} className="text-center p-6 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
-              <div className="text-4xl mb-4">{problem.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">{problem.title}</h3>
-              <p className="text-gray-600">{problem.description}</p>
+        <div className="grid md:grid-cols-2 gap-12 mb-12">
+          {features.map((featureGroup, groupIndex) => (
+            <div key={groupIndex} className="space-y-6">
+              <h3 className="text-xl font-semibold text-primary mb-4">
+                {getText(featureGroup.category)}
+              </h3>
+              <div className="space-y-4">
+                {featureGroup.items.map((item, itemIndex) => (
+                  <div key={itemIndex} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mt-0.5">
+                      <Check className="h-4 w-4 text-emerald-600" />
+                    </div>
+                    <p className="text-muted-foreground">
+                      {getText(item)}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            asChild
+          >
+            <Link href={language === 'fi' ? '/fi/waitlist' : '/waitlist'}>
+              {getText('cta')}
+            </Link>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            asChild
+          >
+            <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
+              {getText('demoCta')}
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

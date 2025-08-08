@@ -7,27 +7,34 @@ import Link from 'next/link';
 
 const CTASection: React.FC = () => {
   const { language } = useLanguage();
-  const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
+
+  const getText = (key: string) => {
+    const texts = {
+      en: {
+        title: 'Ready to boost your expert organization\'s communication?',
+        cta: 'Book demo'
+      },
+      fi: {
+        title: 'Valmis tehostamaan asiantuntijaorganisaatiosi viestintää?',
+        cta: 'Varaa demo'
+      }
+    };
+    return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
+  };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-white">
+    <section className="py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {language === 'fi' ? 'Aloita tänään' : 'Start today'}
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            {getText('title')}
           </h2>
-          <p className="text-xl mb-8 text-white/80">
-            {language === 'fi'
-              ? 'Liity odotuslistalle ja ole ensimmäisten joukossa kokeilemassa Lyylia'
-              : 'Join the waitlist and be among the first to try Lyyli'
-            }
-          </p>
           <Button 
-            className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 font-semibold"
+            className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 font-semibold rounded-lg"
             asChild
           >
-            <Link href={waitlistPath}>
-              {language === 'fi' ? 'Liity odotuslistalle' : 'Join waitlist'}
+            <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
+              {getText('cta')}
             </Link>
           </Button>
         </div>

@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <div className="prose max-w-none mb-12">
             <p className="text-lg text-gray-700 mb-4">
-              Tämä tietosuojakäytäntö kuvaa, miten Lyyli AI Oy ("me", "meidän") keräämme, käytämme ja suojaamme henkilötietojasi. 
+              Tämä tietosuojakäytäntö kuvaa, miten Lyyli AI Oy (&ldquo;me&rdquo;, &ldquo;meidän&rdquo;) keräämme, käytämme ja suojaamme henkilötietojasi. 
               Olemme sitoutuneet suojaamaan yksityisyyttäsi ja noudattamaan kaikkia sovellettavia tietosuoja-asetuksia, 
               mukaan lukien EU:n yleinen tietosuoja-asetus (GDPR).
             </p>

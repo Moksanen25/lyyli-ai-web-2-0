@@ -15,7 +15,7 @@ export default function SecurityPage() {
             Security
           </h1>
           <div className="bg-white p-8 rounded-lg shadow-md prose max-w-none">
-            <p>Lyyli AI's security policies and measures ensure the safety of your data.</p>
+            <p>Lyyli AI&apos;s security policies and measures ensure the safety of your data.</p>
             <p>Coming soon - Detailed security policy information.</p>
           </div>
         </div>

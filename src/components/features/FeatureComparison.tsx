@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 
 const FeatureComparison = () => {
   const { featuresT, language } = useLanguage();
+  const router = useRouter();
   
   // Define the feature comparison based on current pricing structure
   const planFeatures = [
@@ -155,7 +156,7 @@ const FeatureComparison = () => {
         <div className="text-center mt-10">
           <Button 
             size="lg" 
-            onClick={() => useRouter().push(language === 'fi' ? '/fi/pricing' : '/pricing')}
+            onClick={() => router.push(language === 'fi' ? '/fi/pricing' : '/pricing')}
             className="animate-fade-in"
           >
             {ctaText}

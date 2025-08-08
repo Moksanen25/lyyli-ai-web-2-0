@@ -40,9 +40,9 @@ const Navbar: React.FC = () => {
         {/* Logo - Shown on both mobile and desktop */}
         <Link href={language === 'fi' ? "/fi" : "/"} className="flex items-center">
           <img 
-            src="/logo.svg"
+            src="/Lyyli.ai (1500 x 500 px).svg"
             alt="Lyyli.ai"
-            className="h-8 w-auto"
+            className="h-10 w-auto"
           />
         </Link>
 

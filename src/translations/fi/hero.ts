@@ -2,7 +2,8 @@
 export const hero = {
   title: 'AI-viestintäassistentti, jonka avulla viestit kuin ammattilainen',
   subtitle: 'Asiantuntijaorganisaatioille tehty AI-viestintäassistentti, jonka avulla viestit pikaviestikanavissa kuin ammattilainen ja varmistat, etteivät tärkeät asiat jaa ikinä viestimättä.',
-  cta: 'Aloita',
+  cta: 'Aloita ilmainen kokeilu',
+  demoCta: 'Varaa demo',
   secondaryCta: 'Katso miten se toimii',
   enterpriseReady: 'Asiantuntijaorganisaatioille',
   trustedBy: 'Sisäisen viestinnän koordinointi',

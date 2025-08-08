@@ -128,7 +128,7 @@ export default function AboutPageFi() {
                           <h3 className="text-lg font-bold text-primary">04/2025 - Yritys perustettu</h3>
                         </div>
                         <p className="text-gray-700">
-                          Lyyli AI Oy (brändinimi "Lyyli.ai") perustettiin Mikon ja Veikon toimesta.
+                          Lyyli AI Oy (brändinimi &ldquo;Lyyli.ai&rdquo;) perustettiin Mikon ja Veikon toimesta.
                         </p>
                       </div>
                     </div>

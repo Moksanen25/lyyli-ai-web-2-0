@@ -19,12 +19,11 @@ const CustomerSegments: React.FC = () => {
   
   console.log('CustomerSegments using language:', language);
   
-  try {
-    // Get segment data with error handling
-    const { segments } = useSegmentsData();
-    const [activeSegmentId, setActiveSegmentId] = useState<string>('');
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [hasError, setHasError] = useState(false);
+  // Get segment data with error handling
+  const { segments } = useSegmentsData();
+  const [activeSegmentId, setActiveSegmentId] = useState<string>('');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
     
     // Log segments for debugging
     console.log('Retrieved segments:', segments ? segments.length : 0);
@@ -32,30 +31,30 @@ const CustomerSegments: React.FC = () => {
       console.log('First segment:', segments[0].name);
     }
     
-    // Initialize with safer logic
-    useEffect(() => {
-      try {
-        console.log('CustomerSegments useEffect running', { 
-          segmentsCount: segments?.length || 0, 
-          activeSegmentId 
-        });
-        
-        if (segments && segments.length > 0) {
-          // Make sure we have a valid active segment
-          if (!activeSegmentId || !segments.some(s => s.id === activeSegmentId)) {
-            setActiveSegmentId(segments[0]?.id || '');
-          }
-          setIsLoaded(true);
-        } else if (segments && segments.length === 0) {
-          // Even with no segments, mark as loaded
-          setIsLoaded(true);
+  // Initialize with safer logic
+  useEffect(() => {
+    try {
+      console.log('CustomerSegments useEffect running', { 
+        segmentsCount: segments?.length || 0, 
+        activeSegmentId 
+      });
+      
+      if (segments && segments.length > 0) {
+        // Make sure we have a valid active segment
+        if (!activeSegmentId || !segments.some(s => s.id === activeSegmentId)) {
+          setActiveSegmentId(segments[0]?.id || '');
         }
-      } catch (error) {
-        console.error('Error in CustomerSegments useEffect:', error);
-        setHasError(true);
+        setIsLoaded(true);
+      } else if (segments && segments.length === 0) {
+        // Even with no segments, mark as loaded
         setIsLoaded(true);
       }
-    }, [segments, activeSegmentId]);
+    } catch (error) {
+      console.error('Error in CustomerSegments useEffect:', error);
+      setHasError(true);
+      setIsLoaded(true);
+    }
+  }, [segments, activeSegmentId]);
 
     // Fall back to a placeholder if we have no segments
     if (segments.length === 0 && isLoaded && !hasError) {
@@ -118,17 +117,6 @@ const CustomerSegments: React.FC = () => {
         </div>
       </section>
     );
-  } catch (error) {
-    console.error('Fatal error in CustomerSegments component:', error);
-    return (
-      <section className="py-16 md:py-32 bg-muted/20" id="customer-segments">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-2xl font-bold text-red-600">Unable to render customer segments</h2>
-          <p className="mt-4">There was an unexpected error. Please try refreshing the page.</p>
-        </div>
-      </section>
-    );
-  }
 };
 
 export default CustomerSegments;

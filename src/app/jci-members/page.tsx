@@ -17,7 +17,7 @@ export default function JCIMembersPage() {
           
           <div className="bg-white p-8 rounded-lg shadow-md">
             <p className="text-lg mb-6">
-              Lyyli AI's team consists of experienced JCI members who bring extensive 
+              Lyyli AI&apos;s team consists of experienced JCI members who bring extensive 
               expertise in business, technology, and communication.
             </p>
             
