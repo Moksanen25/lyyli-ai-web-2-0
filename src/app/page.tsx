@@ -1,24 +1,24 @@
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
-import HowItWorks from '@/components/HowItWorks';
-import SolutionIntroSection from '@/components/SolutionIntroSection';
-import ValuePropositionsSection from '@/components/ValuePropositionsSection';
+import HowItWorksSection from '@/components/HowItWorksSection';
+import SolutionsSection from '@/components/SolutionsSection';
+import AutomationSection from '@/components/AutomationSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import BlogInsightsSection from '@/components/BlogInsightsSection';
-import CTASection from '@/components/CTASection';
+import InsightsSection from '@/components/InsightsSection';
+import FinalCTASection from '@/components/FinalCTASection';
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
       <ProblemSection />
-      <HowItWorks />
-      <SolutionIntroSection />
-      <ValuePropositionsSection />
+      <HowItWorksSection />
+      <SolutionsSection />
+      <AutomationSection />
       <TestimonialsSection />
-      <BlogInsightsSection />
-      <CTASection />
+      <InsightsSection />
+      <FinalCTASection />
     </>
   );
 } 

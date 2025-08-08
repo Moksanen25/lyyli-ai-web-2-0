@@ -1,78 +1,115 @@
 'use client';
 
-import React from 'react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { useLanguage } from '@/hooks/useLanguage'
 
-const TestimonialsSection: React.FC = () => {
-  const { language } = useLanguage();
-  
-  const getText = (key: string) => {
-    const texts = {
-      en: {
-        title: 'What our customers say',
-        subtitle: 'See what our customers say about Lyyli\'s impact on their business'
-      },
-      fi: {
-        title: 'Mitä asiakkaamme sanovat',
-        subtitle: 'Katso mitä asiakkaamme sanovat Lyylin vaikutuksesta liiketoimintaansa'
-      }
-    };
-    return texts[language as keyof typeof texts]?.[key as keyof typeof texts.en] || texts.en[key as keyof typeof texts.en];
-  };
+const testimonials = [
+  {
+    quote: "Lyyli on muuttanut täysin miten viestimme asiakkaillemme. Viestintä on nyt ammattimaisempaa ja tehokkaampaa.",
+    author: "Mari Virtanen",
+    title: "Markkinointipäällikkö",
+    company: "TechCorp Oy"
+  },
+  {
+    quote: "Ajan säästö on ollut valtava. Viestien kirjoittaminen vie nyt minuutteja tuntien sijaan.",
+    author: "Jussi Mäkinen",
+    title: "Myyntipäällikkö",
+    company: "SalesPro Finland"
+  },
+  {
+    quote: "Asiakastyytyväisyys on parantunut huomattavasti kun viestintä on yhtenäisempää ja ammattimaisempaa.",
+    author: "Anna Koskinen",
+    title: "Asiakaspalvelupäällikkö",
+    company: "ServicePlus"
+  }
+]
 
-  const testimonials = [
-    {
-      name: language === 'fi' ? 'Mikko Oksanen' : 'Mikko Oksanen',
-      role: language === 'fi' ? 'Toimitusjohtaja' : 'CEO',
-      company: 'Nordic Solutions',
-      content: language === 'fi' 
-        ? 'Lyyli on muuttanut täysin viestintätehokkuutemme. Tekoälyassistentti auttaa meitä ylläpitämään ammattimaista sävyä kaikissa viesteissämme.'
-        : 'Lyyli has completely transformed our communication efficiency. The AI assistant helps us maintain professional tone in all our messages.'
-    },
-    {
-      name: language === 'fi' ? 'Jaana Virtanen' : 'Jaana Virtanen',
-      role: language === 'fi' ? 'Markkinointipäällikkö' : 'Marketing Director',
-      company: 'TechCorp',
-      content: language === 'fi'
-        ? 'Automaatioominaisuudet ovat säästäneet meille lukemattomia tunteja. Tiimimme voi nyt keskittyä strategisiin tehtäviin rutiiniviestinnän sijaan.'
-        : 'The automation features have saved us countless hours. Our team can now focus on strategic tasks instead of routine communication.'
-    },
-    {
-      name: language === 'fi' ? 'Erik Andersson' : 'Erik Andersson',
-      role: language === 'fi' ? 'Asiakkuusjohtaja' : 'Customer Success Manager',
-      company: 'GrowthLab',
-      content: language === 'fi'
-        ? 'Asiakkaidemme tyytyväisyys on parantunut merkittävästi Lyylin käyttöönoton jälkeen. Ammattimainen viestintätyyli tekee todellisen eron.'
-        : 'Our customer satisfaction has improved significantly since implementing Lyyli. The professional communication style makes a real difference.'
-    }
-  ];
+export default function TestimonialsSection() {
+  const { t } = useLanguage()
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            {getText('title')}
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            {t('testimonials.title')}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {getText('subtitle')}
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {t('testimonials.subtitle')}
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white border-2 border-primary/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <p className="text-muted-foreground mb-6 italic leading-relaxed">&ldquo;{testimonial.content}&rdquo;</p>
-              <div>
-                <p className="font-semibold text-primary">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
+
+        <div className="relative max-w-4xl mx-auto">
+          {/* Testimonial Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-lg p-6 shadow-lg border border-gray-100 transition-all duration-300 ${
+                  index === currentIndex ? 'scale-105 shadow-xl' : 'opacity-75'
+                }`}
+              >
+                {/* Stars */}
+                <div className="flex justify-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-700 mb-6 italic text-center">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Author */}
+                <div className="text-center">
+                  <p className="font-semibold text-gray-900">{testimonial.author}</p>
+                  <p className="text-sm text-gray-600">{testimonial.title}</p>
+                  <p className="text-sm text-gray-500">{testimonial.company}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? 'bg-primary' : 'bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-export default TestimonialsSection;
+  )
+}

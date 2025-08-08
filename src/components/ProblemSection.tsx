@@ -10,8 +10,8 @@ const ProblemSection: React.FC = () => {
   const { language, t } = useLanguage();
 
   const features = [
-    { category: 'userFriendly', items: ['autoMessages', 'professionalTone', 'consistency'] },
-    { category: 'efficiency', items: ['saveCosts', 'timeSavings', 'analytics'] }
+    { category: 'features', items: ['support', 'interface', 'automation', 'costSavings', 'professionalTone'] },
+    { category: 'benefits', items: ['timeSavings', 'consistency', 'analytics', 'satisfaction'] }
   ];
 
   return (
@@ -19,10 +19,10 @@ const ProblemSection: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            {t('communicationProblems.title')}
+            {t('whyChoose.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {t('communicationProblems.subtitle')}
+            {t('whyChoose.subtitle')}
           </p>
         </div>
         
@@ -30,7 +30,7 @@ const ProblemSection: React.FC = () => {
           {features.map((featureGroup, groupIndex) => (
             <div key={groupIndex} className="space-y-6">
               <h3 className="text-xl font-semibold text-primary mb-4">
-                {t(`communicationProblems.${featureGroup.category}`)}
+                {featureGroup.category === 'features' ? 'Ominaisuudet' : 'Edut'}
               </h3>
               <div className="space-y-4">
                 {featureGroup.items.map((item, itemIndex) => (
@@ -39,7 +39,7 @@ const ProblemSection: React.FC = () => {
                       <Check className="h-4 w-4 text-emerald-600" />
                     </div>
                     <p className="text-muted-foreground">
-                      {t(`communicationProblems.${item}`)}
+                      {t(`whyChoose.${featureGroup.category}.${item}`)}
                     </p>
                   </div>
                 ))}
@@ -55,7 +55,7 @@ const ProblemSection: React.FC = () => {
             asChild
           >
             <Link href={language === 'fi' ? '/fi/waitlist' : '/waitlist'}>
-              {t('communicationProblems.cta')}
+              {t('hero.cta')}
             </Link>
           </Button>
           <Button 
@@ -65,7 +65,7 @@ const ProblemSection: React.FC = () => {
             asChild
           >
             <Link href={language === 'fi' ? '/fi/contact' : '/contact'}>
-              {t('communicationProblems.demoCta')}
+              {t('hero.demoCta')}
             </Link>
           </Button>
         </div>
