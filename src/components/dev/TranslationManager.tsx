@@ -95,7 +95,7 @@ const TranslationManager: React.FC = () => {
                 })
               ) : (
                 <div className="text-center py-6">
-                  <p>No verification results available. Click "Verify Translations" to check.</p>
+                  <p>No verification results available. Click &ldquo;Verify Translations&rdquo; to check.</p>
                 </div>
               )}
             </div>
@@ -127,7 +127,7 @@ const TranslationManager: React.FC = () => {
                 </div>
               ) : (
                 <div className="text-center py-6">
-                  <p>No verification results for {lang.toUpperCase()}. Click "Verify Translations" to check.</p>
+                  <p>No verification results for {lang.toUpperCase()}. Click &ldquo;Verify Translations&rdquo; to check.</p>
                 </div>
               )}
             </TabsContent>

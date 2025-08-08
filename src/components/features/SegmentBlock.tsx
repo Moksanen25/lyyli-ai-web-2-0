@@ -84,7 +84,7 @@ const SegmentBlock: React.FC<SegmentBlockProps> = ({
             {caseStudy && caseStudy.quote && (
               <Card className="mt-8 bg-primary/5 border-none">
                 <CardContent className="p-6">
-                  <p className="italic mb-4">"{caseStudy.quote}"</p>
+                  <p className="italic mb-4">&ldquo;{caseStudy.quote}&rdquo;</p>
                   <p className="font-semibold text-sm">— {caseStudy.author}</p>
                 </CardContent>
               </Card>

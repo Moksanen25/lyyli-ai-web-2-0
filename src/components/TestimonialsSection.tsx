@@ -62,7 +62,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white border-2 border-primary/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <p className="text-muted-foreground mb-6 italic leading-relaxed">"{testimonial.content}"</p>
+              <p className="text-muted-foreground mb-6 italic leading-relaxed">&ldquo;{testimonial.content}&rdquo;</p>
               <div>
                 <p className="font-semibold text-primary">{testimonial.name}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.role}, {testimonial.company}</p>

@@ -32,7 +32,7 @@ const CustomerQuotes = () => {
           {quotes.map((quote, index) => (
             <Card key={index} className="border-none shadow hover:shadow-md transition-shadow duration-300">
               <CardContent className="pt-6">
-                <div className="text-4xl text-primary mb-3">"</div>
+                <div className="text-4xl text-primary mb-3">&ldquo;</div>
                 <p className="text-muted-foreground italic mb-4">{quote.quote}</p>
                 <p className="font-medium mb-1">{quote.author}</p>
                 <p className="text-sm text-muted-foreground mb-3">{quote.role}</p>

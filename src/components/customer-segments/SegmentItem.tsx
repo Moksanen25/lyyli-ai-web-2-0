@@ -84,7 +84,7 @@ const SegmentItem: React.FC<SegmentItemProps> = ({ segment }) => {
       
       {testimonial && testimonial.quote && (
         <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 md:col-span-2 mt-4">
-          <blockquote className="text-lg italic mb-4">"{testimonial.quote}"</blockquote>
+          <blockquote className="text-lg italic mb-4">&ldquo;{testimonial.quote}&rdquo;</blockquote>
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               {testimonial.author?.charAt(0) || '?'}
