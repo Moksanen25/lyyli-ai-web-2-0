@@ -46,7 +46,7 @@ export default function AutomationSection() {
             const IconComponent = feature.icon
             return (
               <div key={index} className="bg-white rounded-lg p-6 shadow-lg border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-[#2F5D50] rounded-full flex items-center justify-center mx-auto mb-4">
                   <IconComponent className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -61,7 +61,7 @@ export default function AutomationSection() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+          <button className="bg-[#2F5D50] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A6A5C] transition-colors">
             Lue lisää
           </button>
         </div>

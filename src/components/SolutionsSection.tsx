@@ -35,7 +35,7 @@ export default function SolutionsSection() {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-6 py-2 rounded-md font-medium transition-colors ${
                   activeTab === tab.key
-                    ? 'bg-primary text-white'
+                    ? 'bg-[#2F5D50] text-white'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -90,10 +90,10 @@ export default function SolutionsSection() {
 
         {/* CTA Buttons */}
         <div className="text-center mt-12 space-x-4">
-          <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+          <button className="bg-[#2F5D50] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A6A5C] transition-colors">
             {t('hero.cta')}
           </button>
-          <button className="bg-white text-primary border border-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+          <button className="bg-white text-[#2F5D50] border border-[#2F5D50] px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
             {t('hero.demoCta')}
           </button>
         </div>

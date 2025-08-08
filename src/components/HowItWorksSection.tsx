@@ -47,9 +47,9 @@ export default function HowItWorksSection() {
             return (
               <div key={index} className="relative">
                 <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-100 text-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
+                                  <div className="w-12 h-12 bg-[#2F5D50] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IconComponent className="w-6 h-6 text-white" />
+                </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {t(step.titleKey)}
                   </h3>
@@ -61,8 +61,8 @@ export default function HowItWorksSection() {
                 {/* Arrow connector */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <div className="w-8 h-0.5 bg-primary"></div>
-                    <div className="w-2 h-2 bg-primary rounded-full absolute -top-1 right-0"></div>
+                    <div className="w-8 h-0.5 bg-[#2F5D50]"></div>
+                    <div className="w-2 h-2 bg-[#2F5D50] rounded-full absolute -top-1 right-0"></div>
                   </div>
                 )}
               </div>
@@ -71,7 +71,7 @@ export default function HowItWorksSection() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+          <button className="bg-[#2F5D50] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A6A5C] transition-colors">
             Lue lisää
           </button>
         </div>
