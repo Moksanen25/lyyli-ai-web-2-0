@@ -1,5 +1,25 @@
-import CookiePolicy from '@/pages/CookiePolicy'
+import React from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Cookie Policy - Lyyli AI',
+  description: 'Learn about how Lyyli AI uses cookies and similar technologies.',
+}
 
 export default function CookiesPage() {
-  return <CookiePolicy />
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">
+            Cookie Policy
+          </h1>
+          <div className="bg-white p-8 rounded-lg shadow-md prose max-w-none">
+            <p>This cookie policy explains how Lyyli AI uses cookies and similar technologies.</p>
+            <p>Coming soon - Detailed cookie policy information.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }

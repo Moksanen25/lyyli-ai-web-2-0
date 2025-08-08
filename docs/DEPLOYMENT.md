@@ -22,42 +22,47 @@ This guide covers deployment strategies and configurations for Lyyli.ai across d
 - Node.js 18+
 - npm/yarn/bun
 - Git access to repository
-- Supabase project setup
+- Vercel account (for deployment)
 
 ### Required Secrets
 
-Configure these in your Supabase project:
+Configure these in your Vercel project:
 - `OPENAI_API_KEY`: OpenAI API key for AI features
 - `OPENAI_ASSISTANT_ID`: OpenAI Assistant ID
 
 ## Environment Configuration
 
-### Supabase Setup
+### Vercel Setup
 
-1. **Create Supabase Project**
+1. **Create Vercel Project**
    ```bash
-   # Login to Supabase
-   npx supabase login
+   # Install Vercel CLI
+   npm i -g vercel
    
-   # Link to existing project
-   npx supabase link --project-ref YOUR_PROJECT_REF
+   # Login to Vercel
+   vercel login
    ```
 
-2. **Configure Secrets**
-   In Supabase Dashboard > Settings > Secrets:
+2. **Configure Environment Variables**
+   In Vercel Dashboard > Settings > Environment Variables:
    ```
    OPENAI_API_KEY=your_openai_api_key_here
    OPENAI_ASSISTANT_ID=your_assistant_id_here
    ```
 
-3. **Deploy Edge Functions**
+3. **Deploy API Routes**
    ```bash
-   npx supabase functions deploy openai-assistant
+   # Deploy to Vercel
+   vercel --prod
    ```
 
 ### Environment Variables
 
-No `.env` files needed - all configuration through Supabase secrets.
+Create `.env.local` for local development:
+```
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_ASSISTANT_ID=your_assistant_id_here
+```
 
 ## Build Process
 
@@ -292,7 +297,7 @@ class ErrorBoundary extends React.Component {
    - Verify base URL configuration
 
 3. **API Connection Issues**
-   - Verify Supabase configuration
+   - Verify Next.js API routes
    - Check CORS settings
    - Validate environment variables
 

@@ -1,0 +1,279 @@
+# Brand Compliance Rules
+
+## Overview
+These rules ensure that all code changes, UI updates, and content modifications strictly follow the Lyyli AI brand guidelines.
+
+## Color Compliance
+
+### Primary Colors - STRICT ENFORCEMENT
+```typescript
+// ALWAYS use these exact color values
+const BRAND_COLORS = {
+  primary: '#2F5D50',        // Deep professional green
+  primaryLight: '#A7D6D1',   // Light accent green
+  secondary: '#F7EBEB',      // Soft background
+  accent: '#A7D6D1',         // Accent green
+  background: '#FFFFFF',     // White background
+  foreground: '#2F5D50',     // Dark text
+} as const;
+
+// NEVER use these colors
+const FORBIDDEN_COLORS = [
+  '#000000', '#FF0000', '#00FF00', '#0000FF', // Pure colors
+  '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', // Bright colors
+  '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'  // Pastel colors
+];
+```
+
+### Color Usage Rules
+- ✅ **Primary green (#2F5D50)** for main CTAs, headers, and brand elements
+- ✅ **Light green (#A7D6D1)** for accents, highlights, and secondary actions
+- ✅ **Soft background (#F7EBEB)** for section backgrounds and cards
+- ❌ **Never use pure colors** (red, blue, yellow) without brand approval
+- ❌ **Never use bright or neon colors** that don't match the professional tone
+
+## Typography Compliance
+
+### Font Usage - MANDATORY
+```typescript
+// ALWAYS use these font families
+const TYPOGRAPHY = {
+  primary: 'Inter, ui-sans-serif, system-ui, sans-serif',
+  secondary: 'Playfair Display, ui-serif, Georgia, serif',
+} as const;
+
+// Font hierarchy - MUST follow this structure
+const FONT_HIERARCHY = {
+  h1: 'text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight',
+  h2: 'text-3xl md:text-4xl font-semibold tracking-tight',
+  h3: 'text-2xl md:text-3xl font-semibold',
+  h4: 'text-xl md:text-2xl font-medium',
+  h5: 'text-lg md:text-xl font-medium',
+  h6: 'text-base md:text-lg font-medium',
+  body: 'text-base leading-relaxed',
+  small: 'text-sm leading-normal',
+} as const;
+```
+
+### Typography Rules
+- ✅ **Inter font** for all body text, buttons, and UI elements
+- ✅ **Playfair Display** only for headings and special accents
+- ✅ **Consistent hierarchy** - never skip heading levels
+- ✅ **Proper line height** - always use leading-relaxed for body text
+- ❌ **Never use system fonts** without Inter fallback
+- ❌ **Never mix fonts** without clear hierarchy
+- ❌ **Never use decorative fonts** without brand approval
+
+## Layout & Spacing Compliance
+
+### Container System - REQUIRED
+```typescript
+// ALWAYS use this container structure
+const LAYOUT = {
+  container: 'container mx-auto px-4 py-16',
+  maxWidth: 'max-w-6xl mx-auto',
+  section: 'py-16 md:py-24',
+  grid: 'grid md:grid-cols-2 lg:grid-cols-3 gap-8',
+} as const;
+
+// Spacing scale - MUST follow this
+const SPACING = {
+  xs: '0.25rem',    // 4px
+  sm: '0.5rem',     // 8px
+  md: '1rem',       // 16px
+  lg: '1.5rem',     // 24px
+  xl: '2rem',       // 32px
+  '2xl': '3rem',    // 48px
+  '3xl': '4rem',    // 64px
+  '4xl': '6rem',    // 96px
+} as const;
+```
+
+### Layout Rules
+- ✅ **Consistent padding** - always use 2rem (32px) container padding
+- ✅ **Responsive design** - mobile-first approach required
+- ✅ **Proper spacing** - use the defined spacing scale
+- ✅ **Grid system** - use Tailwind's grid classes consistently
+- ❌ **Never use arbitrary values** for spacing without approval
+- ❌ **Never create layouts** that aren't responsive
+- ❌ **Never use fixed widths** that break on mobile
+
+## Component Compliance
+
+### Button Styles - STANDARDIZED
+```typescript
+// Primary button - ALWAYS use this style
+const PRIMARY_BUTTON = 'bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors';
+
+// Secondary button - ALWAYS use this style
+const SECONDARY_BUTTON = 'bg-secondary text-primary px-6 py-3 rounded-md hover:bg-secondary/90 transition-colors';
+
+// Button rules
+const BUTTON_RULES = {
+  primary: 'Use for main CTAs and important actions',
+  secondary: 'Use for secondary actions and navigation',
+  size: 'Always use px-6 py-3 for consistent sizing',
+  hover: 'Always include hover states with transition-colors',
+  disabled: 'Use opacity-50 and cursor-not-allowed for disabled states',
+} as const;
+```
+
+### Card Styles - STANDARDIZED
+```typescript
+// Card component - ALWAYS use this structure
+const CARD_STYLES = {
+  container: 'bg-white p-8 rounded-lg shadow-soft',
+  header: 'text-2xl font-semibold mb-4',
+  content: 'text-base leading-relaxed',
+  footer: 'mt-6 pt-4 border-t border-border',
+} as const;
+```
+
+## Content Compliance
+
+### Messaging Framework - MANDATORY
+```typescript
+// ALWAYS follow this messaging structure
+const MESSAGING_FRAMEWORK = {
+  problem: 'Identify the communication challenge clearly',
+  solution: 'Present Lyyli AI as the specific answer',
+  benefit: 'Highlight concrete outcomes and results',
+  proof: 'Include case studies, metrics, or testimonials',
+} as const;
+
+// Key messages - ALWAYS include these
+const KEY_MESSAGES = [
+  'AI-powered communication automation',
+  'Consistent brand voice across all channels',
+  '90%+ consistency in brand messaging',
+  'Enterprise-grade security and compliance',
+  'Multi-language support',
+] as const;
+```
+
+### Content Rules
+- ✅ **Professional tone** - always use business-appropriate language
+- ✅ **Solution-focused** - emphasize benefits and outcomes
+- ✅ **Clear and concise** - avoid jargon and complex sentences
+- ✅ **Trust indicators** - always include GDPR, ISO, AI Act badges
+- ❌ **Never use casual language** or slang
+- ❌ **Never make unsubstantiated claims** without proof
+- ❌ **Never ignore accessibility** in content creation
+
+## Accessibility Compliance
+
+### WCAG 2.1 AA - MANDATORY
+```typescript
+// ALWAYS ensure these accessibility requirements
+const ACCESSIBILITY = {
+  colorContrast: '4.5:1 minimum for normal text, 3:1 for large text',
+  focusIndicators: 'Always visible focus rings on interactive elements',
+  keyboardNavigation: 'Full keyboard support for all interactions',
+  screenReaders: 'Proper ARIA labels and semantic HTML',
+  touchTargets: 'Minimum 44px for touch targets on mobile',
+} as const;
+```
+
+### Accessibility Rules
+- ✅ **Color contrast** - always test with contrast checkers
+- ✅ **Focus management** - never remove focus indicators
+- ✅ **Semantic HTML** - use proper heading hierarchy and landmarks
+- ✅ **Alt text** - always provide descriptive alt text for images
+- ❌ **Never rely solely on color** to convey information
+- ❌ **Never create keyboard traps** or inaccessible interactions
+- ❌ **Never ignore screen reader compatibility**
+
+## Code Quality Compliance
+
+### TypeScript - REQUIRED
+```typescript
+// ALWAYS use TypeScript for type safety
+const CODE_STANDARDS = {
+  strict: true,
+  noImplicitAny: true,
+  strictNullChecks: true,
+  noUnusedLocals: true,
+  noUnusedParameters: true,
+} as const;
+```
+
+### Code Rules
+- ✅ **TypeScript strict mode** - always enabled
+- ✅ **Proper typing** - never use 'any' without justification
+- ✅ **Clean code** - follow ESLint rules strictly
+- ✅ **Component structure** - use consistent file organization
+- ❌ **Never commit code** with TypeScript errors
+- ❌ **Never use deprecated patterns** or unsafe code
+- ❌ **Never ignore linting warnings**
+
+## Testing Compliance
+
+### Brand Testing - REQUIRED
+```typescript
+// ALWAYS test these brand elements
+const BRAND_TESTING = {
+  colors: 'Verify all colors match brand palette exactly',
+  typography: 'Check font hierarchy and sizing consistency',
+  spacing: 'Ensure proper spacing scale usage',
+  accessibility: 'Test with screen readers and keyboard navigation',
+  responsive: 'Verify mobile-first responsive design',
+} as const;
+```
+
+### Testing Rules
+- ✅ **Visual regression testing** - catch brand inconsistencies
+- ✅ **Accessibility testing** - use automated and manual testing
+- ✅ **Cross-browser testing** - ensure consistent appearance
+- ✅ **Mobile testing** - verify responsive behavior
+- ❌ **Never deploy** without brand compliance testing
+- ❌ **Never skip accessibility** testing
+- ❌ **Never ignore visual inconsistencies**
+
+## Review Process
+
+### Pre-commit Checklist
+```typescript
+const PRE_COMMIT_CHECKLIST = [
+  '✅ Colors match brand palette exactly',
+  '✅ Typography follows hierarchy',
+  '✅ Spacing uses defined scale',
+  '✅ Components follow standardized patterns',
+  '✅ Content follows messaging framework',
+  '✅ Accessibility requirements met',
+  '✅ TypeScript strict mode passes',
+  '✅ ESLint rules followed',
+  '✅ Responsive design verified',
+  '✅ Brand testing completed',
+] as const;
+```
+
+### Code Review Requirements
+- **Brand compliance review** - mandatory for all UI changes
+- **Accessibility review** - required for all interactive elements
+- **Content review** - needed for all text and messaging
+- **Visual review** - required for all design changes
+
+## Enforcement
+
+### Automated Checks
+- **ESLint rules** - enforce code quality standards
+- **TypeScript strict mode** - catch type errors
+- **Pre-commit hooks** - prevent non-compliant code
+- **CI/CD pipeline** - automated brand compliance testing
+
+### Manual Reviews
+- **Design review** - visual consistency check
+- **Content review** - messaging alignment
+- **Accessibility review** - compliance verification
+- **Brand audit** - quarterly comprehensive review
+
+---
+
+**Enforcement Level:** STRICT  
+**Compliance Required:** 100%  
+**Review Frequency:** Every commit  
+**Audit Schedule:** Monthly
+description:
+globs:
+alwaysApply: false
+---

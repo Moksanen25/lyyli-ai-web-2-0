@@ -1,28 +1,74 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image optimization
   images: {
-    domains: ['localhost'],
-    unoptimized: true,
+    domains: ['localhost', 'images.unsplash.com'],
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  trailingSlash: false,
-  // Vercel-optimized settings
+  
+  // Performance optimizations
   experimental: {
-    // Enable Vercel optimizations
-    serverComponentsExternalPackages: [],
+    // optimizeCss: true, // Temporarily disabled due to critters dependency issue
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
-  webpack: (config, { isServer }) => {
-    return config;
+  
+  // Compression
+  compress: true,
+  
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+    ]
   },
+  
+  // Redirects
   async redirects() {
     return [
-      // Redirect old routes if needed
-    ];
+      {
+        source: '/old-blog/:slug*',
+        destination: '/blog/:slug*',
+        permanent: true,
+      },
+    ]
   },
-  async rewrites() {
-    return [
-      // Handle API routes
-    ];
+  
+  // Webpack optimizations
+  webpack: (config, { dev, isServer }) => {
+    // Optimize bundle size
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      }
+    }
+    
+    return config
   },
-};
+}
 
-module.exports = nextConfig; 
+module.exports = nextConfig 

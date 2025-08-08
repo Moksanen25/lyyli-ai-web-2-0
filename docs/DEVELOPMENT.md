@@ -117,7 +117,7 @@ Always develop with mobile-first approach:
 - **Frontend**: React 18, TypeScript, Vite
 - **Styling**: Tailwind CSS, shadcn/ui
 - **Routing**: React Router DOM
-- **Backend**: Supabase (Database, Auth, Edge Functions)
+- **Backend**: Next.js API Routes
 - **AI**: OpenAI API integration
 - **i18n**: Custom translation system
 - **Testing**: Vitest, React Testing Library
@@ -130,12 +130,12 @@ Always develop with mobile-first approach:
 
 ### API Integration
 
-All API calls go through Supabase Edge Functions:
+All API calls go through Next.js API Routes:
 ```typescript
-import { supabase } from '@/integrations/supabase/client';
-
-const response = await supabase.functions.invoke('function-name', {
-  body: { data }
+const response = await fetch('/api/endpoint', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
 });
 ```
 
@@ -277,7 +277,7 @@ npm run build
 
 ### Environment Configuration
 
-Use Supabase secrets instead of .env files:
+Use environment variables in `.env.local`:
 - `OPENAI_API_KEY`
 - `OPENAI_ASSISTANT_ID`
 
@@ -324,13 +324,13 @@ Use Supabase secrets instead of .env files:
 
 - React Developer Tools
 - Browser DevTools
-- Supabase Dashboard
+- Next.js DevTools
 - Network inspection
 
 ### Common Issues
 
 1. **Build Errors**: Check TypeScript types
-2. **API Issues**: Verify Supabase configuration
+2. **API Issues**: Verify Next.js API routes
 3. **Styling Issues**: Check Tailwind classes
 4. **Translation Missing**: Update translation files
 
@@ -339,7 +339,7 @@ Use Supabase secrets instead of .env files:
 - [React Documentation](https://react.dev/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Supabase Docs](https://supabase.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
 - [Vite Guide](https://vitejs.dev/guide/)
 
 ## Support

@@ -15,7 +15,7 @@ import {
 const isDev = process.env.NODE_ENV === 'development';
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
 ];
 

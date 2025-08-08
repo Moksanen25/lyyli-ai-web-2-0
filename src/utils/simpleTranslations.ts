@@ -161,10 +161,91 @@ export const translations = {
       subtitle: 'Liity odotuslistalle ja ole ensimmäisten joukossa kokeilemassa Lyylia',
       button: 'Liity odotuslistalle'
     }
+  },
+  sv: {
+    hero: {
+      title: 'Lyyli.ai revolutionerar expertkommunikation',
+      subtitle: 'AI-kommunikationsassistent som förstår expertorganisationers behov. Automatisk meddelandeformatering, proaktiv kommunikation och professionell ton i all kommunikation.',
+      cta: 'Kom igång',
+      exploreFeatures: 'Utforska funktioner'
+    },
+    problems: {
+      title: 'Varför är kundsegmentering viktigt?',
+      subtitle: 'Företag möter flera utmaningar utan effektiv kundsegmentering',
+      expensive: {
+        title: 'Dyra marknadsföringskampanjer',
+        description: 'Företag spenderar enorma belopp på marknadsföring utan att veta vem som faktiskt köper.'
+      },
+      timeConsuming: {
+        title: 'Tidskrävande kundforskning',
+        description: 'Segmentering och analys av kunder tar mycket tid och resurser.'
+      },
+      inaccurate: {
+        title: 'Felaktiga målgrupper',
+        description: 'Marknadsföring riktar sig ofta till fel personer, vilket leder till dåliga resultat.'
+      }
+    },
+    solution: {
+      title: 'Hur löser Lyyli dessa problem?',
+      subtitle: 'AI-driven kundsegmentering hjälper dig att förstå dina kunder bättre',
+      automatic: {
+        title: 'Automatisk segmentering',
+        description: 'Lyyli analyserar automatiskt dina kunders beteende och skapar precisa segment.'
+      },
+      realtime: {
+        title: 'Realtidsanalys',
+        description: 'Få dagliga uppdateringar om förändringar och trender i din kundbas.'
+      },
+      targeted: {
+        title: 'Riktade kampanjer',
+        description: 'Skapa personliga marknadsföringskampanjer för varje segment.'
+      }
+    },
+    valueProps: {
+      title: 'Varför välja Lyyli?',
+      subtitle: 'Lyyli hjälper dig att bygga bättre relationer med dina kunder',
+      saveTime: {
+        title: 'Spara tid',
+        description: 'Automatisk segmentering sparar timmar av manuellt arbete.'
+      },
+      improveROI: {
+        title: 'Förbättra ROI',
+        description: 'Riktade kampanjer ger bättre resultat och högre avkastning.'
+      },
+      understand: {
+        title: 'Förstå dina kunder',
+        description: 'Få djupa insikter om dina kunders behov och beteende.'
+      }
+    },
+    howItWorks: {
+      title: 'Hur det fungerar',
+      subtitle: 'Tre enkla steg till bättre kundsegmentering',
+      step1: {
+        title: 'Anslut dina data',
+        description: 'Lyyli ansluter automatiskt dina kunddata från olika källor.'
+      },
+      step2: {
+        title: 'Analysera beteende',
+        description: 'AI analyserar dina kunders beteende och skapar segment.'
+      },
+      step3: {
+        title: 'Skapa kampanjer',
+        description: 'Skapa personliga marknadsföringskampanjer för varje segment.'
+      }
+    },
+    testimonials: {
+      title: 'Vad våra kunder säger',
+      subtitle: 'Se vad våra kunder säger om Lyylis påverkan på deras verksamhet'
+    },
+    cta: {
+      title: 'Börja idag',
+      subtitle: 'Gå med i väntelistan och var bland de första att prova Lyyli',
+      button: 'Gå med i väntelistan'
+    }
   }
 };
 
-export type SupportedLanguage = 'en' | 'fi';
+export type SupportedLanguage = 'en' | 'fi' | 'sv';
 
 export const getTranslation = (language: SupportedLanguage, key: string): string => {
   const keys = key.split('.');

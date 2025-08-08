@@ -10,8 +10,8 @@ export interface ErrorContext {
 
 export class ErrorMonitor {
   private static instance: ErrorMonitor;
-  private isProduction = import.meta.env.PROD;
-  private sentryDsn = import.meta.env.VITE_SENTRY_DSN; // Configure in production
+  private isProduction = process.env.NODE_ENV === 'production';
+  private sentryDsn = process.env.NEXT_PUBLIC_SENTRY_DSN; // Configure in production
 
   private constructor() {
     this.setupGlobalErrorHandlers();
@@ -26,25 +26,27 @@ export class ErrorMonitor {
 
   private setupGlobalErrorHandlers() {
     // Global error handler
-    window.addEventListener('error', (event) => {
-      this.captureError(new Error(event.message), {
-        url: event.filename,
-        additionalData: {
-          line: event.lineno,
-          column: event.colno,
-        }
+    if (typeof window !== 'undefined') {
+      window.addEventListener('error', (event) => {
+        this.captureError(new Error(event.message), {
+          url: event.filename,
+          additionalData: {
+            line: event.lineno,
+            column: event.colno,
+          }
+        });
       });
-    });
 
-    // Unhandled promise rejections
-    window.addEventListener('unhandledrejection', (event) => {
-      this.captureError(new Error(event.reason), {
-        additionalData: {
-          type: 'unhandledrejection',
-          reason: event.reason
-        }
+      // Unhandled promise rejections
+      window.addEventListener('unhandledrejection', (event) => {
+        this.captureError(new Error(event.reason), {
+          additionalData: {
+            type: 'unhandledrejection',
+            reason: event.reason
+          }
+        });
       });
-    });
+    }
   }
 
   captureError(error: Error, context?: ErrorContext) {
@@ -53,8 +55,8 @@ export class ErrorMonitor {
       stack: error.stack,
       name: error.name,
       timestamp: new Date().toISOString(),
-      url: window.location.href,
-      userAgent: navigator.userAgent,
+      url: typeof window !== 'undefined' ? window.location.href : '',
+      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
       ...context
     };
 
@@ -72,7 +74,7 @@ export class ErrorMonitor {
       message,
       level,
       timestamp: new Date().toISOString(),
-      url: window.location.href,
+      url: typeof window !== 'undefined' ? window.location.href : '',
       ...context
     };
 

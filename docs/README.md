@@ -22,7 +22,7 @@ npm run preview    # Preview production build
 ### Key Technologies
 - **Frontend**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS + shadcn/ui
-- **Backend**: Supabase (Auth, Database, Edge Functions)
+- **Backend**: Next.js API Routes
 - **AI**: OpenAI API integration
 - **i18n**: Finnish/English support
 
@@ -34,7 +34,7 @@ src/
 ├── hooks/         # Custom React hooks
 ├── translations/  # i18n files
 ├── utils/         # Utility functions
-└── integrations/  # External services
+└── api/          # Next.js API routes
 ```
 
 For detailed information, see the individual documentation files above.
