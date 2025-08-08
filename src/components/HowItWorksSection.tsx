@@ -28,6 +28,8 @@ const steps = [
 
 export default function HowItWorksSection() {
   const { t } = useLanguage()
+  
+  console.log('HowItWorksSection rendering, language:', t('howItWorks.title'))
 
   return (
     <section className="py-16 bg-white">
