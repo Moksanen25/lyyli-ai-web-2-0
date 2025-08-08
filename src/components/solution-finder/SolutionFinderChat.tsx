@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { useSafeTranslation } from '@/utils/safeTranslation';
 import BookDemoDialog from '@/components/BookDemoDialog';
 import { useSolutionChat } from './hooks/useSolutionChat';
+import { ChatMessage } from './hooks/types';
 import ChatHeader from './components/ChatHeader';
 import ChatMessages from './components/ChatMessages';
 import IndustryButtons from './components/IndustryButtons';
@@ -41,7 +42,7 @@ const SolutionFinderChat: React.FC = () => {
     
     if (messages.length === 0) {
       // Only set initial message if there are no messages yet
-      const initialMessage = { 
+      const initialMessage: ChatMessage = { 
         role: 'assistant', 
         content: welcomeMessage, 
         timestamp: new Date() 
@@ -53,7 +54,7 @@ const SolutionFinderChat: React.FC = () => {
     }
   }, [featuresT, messages.length]);
   
-  const handleReceiveWelcomeMessage = (message: any) => {
+  const handleReceiveWelcomeMessage = (message: ChatMessage) => {
     // This is just a helper to add the initial message directly
     if (messages.length === 0) {
       messages.push(message);

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import Navbar from '@/components/Navbar'
@@ -8,15 +8,27 @@ import FloatingChat from '@/components/chat/FloatingChat'
 import { Toaster } from '@/components/ui/toaster'
 import TranslationManager from '@/components/dev/TranslationManager'
 
-const inter = Inter({ subsets: ['latin'] })
+// Typography - EXACT FROM BRAND BOOK
+const inter = Inter({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // Regular, Medium, Semi-Bold, Bold
+  variable: '--font-inter'
+})
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  weight: ['400', '700'], // Regular, Bold
+  style: ['normal', 'italic'],
+  variable: '--font-playfair'
+})
 
 export const metadata: Metadata = {
-  title: 'Lyyli AI - Customer Segmentation Platform',
-  description: 'AI-powered customer segmentation platform for businesses',
-  keywords: 'customer segmentation, AI, business intelligence, marketing automation',
-  authors: [{ name: 'Lyyli AI' }],
-  creator: 'Lyyli AI',
-  publisher: 'Lyyli AI',
+  title: 'Lyyli.io - AI Communication Assistant',
+  description: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
+  keywords: 'AI communication, messaging automation, professional communication, customer segmentation, business intelligence',
+  authors: [{ name: 'Lyyli.io' }],
+  creator: 'Lyyli.io',
+  publisher: 'Lyyli.io',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -31,12 +43,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://lyyli.ai'),
+  metadataBase: new URL('https://lyyli.io'),
   openGraph: {
-    title: 'Lyyli AI - Customer Segmentation Platform',
-    description: 'AI-powered customer segmentation platform for businesses',
-    url: 'https://lyyli.ai',
-    siteName: 'Lyyli AI',
+    title: 'Lyyli.io - AI Communication Assistant',
+    description: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
+    url: 'https://lyyli.io',
+    siteName: 'Lyyli.io',
     images: [
       {
         url: '/og-image.jpg',
@@ -49,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lyyli AI - Customer Segmentation Platform',
-    description: 'AI-powered customer segmentation platform for businesses',
+    title: 'Lyyli.io - AI Communication Assistant',
+    description: 'AI communication assistant for expert organizations – communicate in messaging channels like a professional and ensure important matters are never left uncommunicated.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -72,10 +84,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={`${inter.className} font-inter`}>
         <LanguageProvider>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col bg-light-gray">
             <Navbar />
             <main className="flex-grow pt-16">
               {children}

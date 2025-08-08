@@ -1,3 +1,4 @@
+import { ChatMessage } from '../hooks/types';
 
 /**
  * Displays messages with a delay to create a natural conversation flow
@@ -6,8 +7,8 @@
  * @param delay - Delay between messages in milliseconds
  */
 export const displayMessagesWithDelay = async (
-  messages: any[],
-  onMessageDisplay: (message: any) => void,
+  messages: ChatMessage[],
+  onMessageDisplay: (message: ChatMessage) => void,
   delay: number = 1000
 ) => {
   // Character delay for typing effect (milliseconds per character)

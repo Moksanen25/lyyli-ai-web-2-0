@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,44 +7,45 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 162 32% 28%;
+    /* Brand Colors - EXACT VALUES FROM BRAND BOOK */
+    --background: 60 9% 98%;        /* Light Gray #F5F5F4 */
+    --foreground: 162 32% 28%;      /* Forest Green #2F5D50 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 162 32% 28%;
+    --card: 0 0% 100%;              /* White #FFFFFF */
+    --card-foreground: 162 32% 28%; /* Forest Green #2F5D50 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 162 32% 28%;
+    --popover: 0 0% 100%;           /* White #FFFFFF */
+    --popover-foreground: 162 32% 28%; /* Forest Green #2F5D50 */
 
-    --primary: 162 32% 28%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 162 32% 28%;         /* Forest Green #2F5D50 */
+    --primary-foreground: 0 0% 100%; /* White #FFFFFF */
 
-    --secondary: 0 35% 95%;
-    --secondary-foreground: 162 32% 28%;
+    --secondary: 0 35% 95%;         /* Soft Rose #F7EBEB */
+    --secondary-foreground: 162 32% 28%; /* Forest Green #2F5D50 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 60 9% 98%;             /* Light Gray #F5F5F4 */
+    --muted-foreground: 0 0% 40%;   /* Medium Gray #666666 */
 
-    --accent: 175 37% 74%;
-    --accent-foreground: 162 32% 28%;
+    --accent: 175 37% 74%;          /* Muted Turquoise #A7D6D1 */
+    --accent-foreground: 162 32% 28%; /* Forest Green #2F5D50 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;       /* Error Red #D64045 */
+    --destructive-foreground: 0 0% 100%; /* White #FFFFFF */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 162 32% 28%;
+    --border: 0 0% 90%;             /* Light Gray #E5E5E4 */
+    --input: 0 0% 90%;              /* Light Gray #E5E5E4 */
+    --ring: 162 32% 28%;            /* Forest Green #2F5D50 */
 
-    --radius: 0.75rem;
+    --radius: 0.75rem;              /* 12px border radius */
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 98%; /* Light Gray #F5F5F4 */
+    --sidebar-foreground: 0 0% 26%; /* Dark Gray #333333 */
+    --sidebar-primary: 0 0% 10%;    /* Very Dark Gray */
+    --sidebar-primary-foreground: 0 0% 98%; /* Light Gray #F5F5F4 */
+    --sidebar-accent: 0 0% 96%;     /* Very Light Gray */
+    --sidebar-accent-foreground: 0 0% 10%; /* Very Dark Gray */
+    --sidebar-border: 0 0% 91%;     /* Light Gray #E5E5E4 */
+    --sidebar-ring: 162 32% 28%;    /* Forest Green #2F5D50 */
   }
 
   * {
@@ -62,10 +63,40 @@
     overflow-x: hidden; /* Prevent horizontal scroll on mobile */
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair font-semibold;
+  /* Typography Hierarchy - EXACT FROM BRAND BOOK */
+  h1 {
+    @apply font-playfair font-normal text-4xl md:text-5xl lg:text-6xl leading-tight text-forest-green;
     word-break: keep-all;
     hyphens: none;
+  }
+
+  h2 {
+    @apply font-playfair font-normal text-3xl md:text-4xl leading-tight text-forest-green;
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  h3 {
+    @apply font-playfair font-normal text-2xl md:text-3xl leading-tight text-forest-green;
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  h4 {
+    @apply font-inter font-semibold text-xl md:text-2xl leading-tight text-forest-green;
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  h5, h6 {
+    @apply font-inter font-semibold text-lg md:text-xl leading-tight text-forest-green;
+    word-break: keep-all;
+    hyphens: none;
+  }
+
+  /* Body text styling */
+  p {
+    @apply font-inter font-normal text-base leading-relaxed text-dark-gray;
   }
 
   /* Improved touch targets for mobile */
@@ -77,12 +108,12 @@
   
   /* Global focus styles for accessibility */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary/70;
+    @apply outline-2 outline-offset-2 outline-forest-green/70;
   }
   
   /* Skip to content link for keyboard users */
   .skip-to-content {
-    @apply absolute left-0 -top-12 bg-primary text-white p-3 transition-all focus:top-0 z-[100];
+    @apply absolute left-0 -top-12 bg-forest-green text-white p-3 transition-all focus:top-0 z-[100];
   }
   
   /* Better image handling for responsive designs */
@@ -94,7 +125,7 @@
 
 @layer components {
   .card-shadow {
-    @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)];
+    @apply shadow-soft;
   }
   
   .container-padding {
@@ -117,11 +148,11 @@
   
   /* Mobile specific text classes */
   .mobile-heading {
-    @apply text-xl md:text-3xl lg:text-4xl font-bold;
+    @apply text-xl md:text-3xl lg:text-4xl font-playfair font-normal text-forest-green;
   }
   
   .mobile-subheading {
-    @apply text-base md:text-xl font-medium;
+    @apply text-base md:text-xl font-inter font-medium text-dark-gray;
   }
   
   /* Accessible form fields */
@@ -130,12 +161,12 @@
   }
   
   .form-label {
-    @apply block text-sm font-medium mb-1;
+    @apply block text-sm font-inter font-medium mb-1 text-dark-gray;
   }
   
   .form-input {
-    @apply w-full p-2 border rounded focus:ring-2 focus:ring-primary/50 focus:border-primary transition;
-    min-height: 44px;
+    @apply w-full p-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-forest-green/50 focus:border-forest-green transition;
+    min-height: 48px; /* Brand book specification */
     font-size: 16px; /* Prevents iOS zoom on focus */
   }
   
@@ -148,12 +179,41 @@
   
   /* Link with hover state */
   .hover-link {
-    @apply text-primary hover:text-primary/80 transition-colors;
+    @apply text-forest-green hover:text-forest-green/80 transition-colors;
   }
   
   /* Underline animation for links */
   .animated-link {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:bg-primary after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:bg-forest-green after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  /* Brand Button Styles - EXACT FROM BRAND BOOK */
+  .btn-primary {
+    @apply bg-forest-green text-white px-6 py-3 rounded-lg font-inter font-semibold text-base hover:bg-forest-green/90 active:bg-forest-green/80 disabled:opacity-50 transition-colors;
+    min-height: 48px; /* Brand book specification */
+  }
+
+  .btn-secondary {
+    @apply bg-white text-forest-green border-2 border-forest-green px-6 py-3 rounded-lg font-inter font-semibold text-base hover:bg-light-gray active:bg-soft-rose disabled:opacity-50 transition-colors;
+    min-height: 48px; /* Brand book specification */
+  }
+
+  .btn-tertiary {
+    @apply bg-transparent text-forest-green px-6 py-3 rounded-lg font-inter font-semibold text-base hover:bg-forest-green/10 active:bg-forest-green/20 disabled:opacity-50 transition-colors;
+    min-height: 48px; /* Brand book specification */
+  }
+
+  /* Card Styles - EXACT FROM BRAND BOOK */
+  .card {
+    @apply bg-white border border-light-gray rounded-xl shadow-soft p-6;
+  }
+
+  .card-header {
+    @apply font-playfair font-normal text-xl text-forest-green mb-4;
+  }
+
+  .card-content {
+    @apply font-inter font-normal text-base leading-relaxed text-dark-gray;
   }
 }
 
@@ -166,8 +226,8 @@
   input[type="button"], 
   input[type="submit"], 
   .interactive-element {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 44px; /* Brand book specification */
+    min-width: 44px; /* Brand book specification */
   }
   
   .nav-link {
@@ -192,17 +252,17 @@
     opacity: 1;
   }
   
-  /* Better responsive font sizes */
+  /* Better responsive font sizes - BRAND BOOK SPECIFICATIONS */
   h1 {
-    @apply text-2xl md:text-4xl;
+    @apply text-2xl md:text-4xl; /* 36px mobile, 48px desktop */
   }
   
   h2 {
-    @apply text-xl md:text-3xl;
+    @apply text-xl md:text-3xl; /* 28px mobile, 36px desktop */
   }
   
   h3 {
-    @apply text-lg md:text-2xl;
+    @apply text-lg md:text-2xl; /* 20px mobile, 24px desktop */
   }
   
   /* Improve large table handling */
@@ -260,15 +320,15 @@
 
 /* Better dropdown accessibility */
 [role="menu"] {
-  @apply bg-white shadow-lg rounded-md border border-gray-200 z-50;
+  @apply bg-white shadow-medium rounded-lg border border-light-gray z-50;
 }
 
 /* Image loading states */
 .image-loading {
-  @apply bg-gray-200 animate-pulse;
+  @apply bg-light-gray animate-pulse;
 }
 
 /* Proper buttons for screen readers */
 .sr-button {
-  @apply sr-only focus:not-sr-only focus:absolute focus:p-2 focus:bg-primary focus:text-white focus:z-50;
+  @apply sr-only focus:not-sr-only focus:absolute focus:p-2 focus:bg-forest-green focus:text-white focus:z-50;
 }

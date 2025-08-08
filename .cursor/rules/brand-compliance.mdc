@@ -1,279 +1,548 @@
-# Brand Compliance Rules
+# Lyyli.io Brand Compliance Rules
 
 ## Overview
-These rules ensure that all code changes, UI updates, and content modifications strictly follow the Lyyli AI brand guidelines.
+These rules ensure that all code changes, UI updates, and content modifications strictly follow the Lyyli.io brand guidelines as defined in the official brand book.
 
-## Color Compliance
+## Brand Mission & Values Compliance
 
-### Primary Colors - STRICT ENFORCEMENT
+### Core Values - MANDATORY ADHERENCE
 ```typescript
-// ALWAYS use these exact color values
+const BRAND_VALUES = {
+  empathy: 'Understand and address user challenges with genuine care',
+  reliability: 'Deliver consistent, high-quality assistance users can depend on',
+  discreetIntelligence: 'Sophisticated AI technology presented with understated intelligence',
+  clarity: 'Prioritize being understood over being impressive',
+  accessibility: 'Welcoming and easy to adopt, especially for non-technical users'
+} as const;
+```
+
+### Brand Personality - ALWAYS REFLECT
+```typescript
+const BRAND_PERSONALITY = {
+  friendly: 'Warm and welcoming in all communications',
+  calm: 'Never rushed or overwhelming',
+  encouraging: 'Celebrates user successes and provides supportive guidance',
+  practical: 'Focused on delivering real value rather than flashy features',
+  thoughtful: 'Anticipates user needs and provides proactive assistance',
+  humble: 'Confident in capabilities without being boastful'
+} as const;
+```
+
+## Color Palette Compliance - STRICT ENFORCEMENT
+
+### Primary Colors - EXACT VALUES REQUIRED
+```typescript
 const BRAND_COLORS = {
-  primary: '#2F5D50',        // Deep professional green
-  primaryLight: '#A7D6D1',   // Light accent green
-  secondary: '#F7EBEB',      // Soft background
-  accent: '#A7D6D1',         // Accent green
-  background: '#FFFFFF',     // White background
-  foreground: '#2F5D50',     // Dark text
+  // Primary Color
+  forestGreen: '#2F5D50',        // Primary brand color - reliability and calm
+  forestGreenRGB: '47, 93, 80',  // RGB values
+  forestGreenCMYK: '50%, 0%, 14%, 64%', // CMYK values
+  
+  // Secondary Colors
+  softRose: '#F7EBEB',           // Gentle warmth and empathy
+  softRoseRGB: '247, 235, 235',  // RGB values
+  softRoseCMYK: '0%, 5%, 5%, 3%', // CMYK values
+  
+  lightGray: '#F5F5F4',          // Minimalism and clarity
+  lightGrayRGB: '245, 245, 244', // RGB values
+  lightGrayCMYK: '0%, 0%, 0%, 4%', // CMYK values
+  
+  mutedTurquoise: '#A7D6D1',     // Subtle technological accent
+  mutedTurquoiseRGB: '167, 214, 209', // RGB values
+  mutedTurquoiseCMYK: '22%, 0%, 2%, 16%', // CMYK values
+  
+  // Supporting Colors
+  white: '#FFFFFF',
+  darkGray: '#333333',
+  mediumGray: '#666666'
 } as const;
-
-// NEVER use these colors
-const FORBIDDEN_COLORS = [
-  '#000000', '#FF0000', '#00FF00', '#0000FF', // Pure colors
-  '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', // Bright colors
-  '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'  // Pastel colors
-];
 ```
 
-### Color Usage Rules
-- ✅ **Primary green (#2F5D50)** for main CTAs, headers, and brand elements
-- ✅ **Light green (#A7D6D1)** for accents, highlights, and secondary actions
-- ✅ **Soft background (#F7EBEB)** for section backgrounds and cards
-- ❌ **Never use pure colors** (red, blue, yellow) without brand approval
-- ❌ **Never use bright or neon colors** that don't match the professional tone
-
-## Typography Compliance
-
-### Font Usage - MANDATORY
+### Color Usage Rules - MANDATORY
 ```typescript
-// ALWAYS use these font families
+const COLOR_USAGE = {
+  // UI Applications
+  primaryButton: {
+    background: '#2F5D50', // Forest Green
+    text: '#FFFFFF',
+    hover: '#3A6A5C' // Slightly lighter Forest Green
+  },
+  secondaryButton: {
+    background: '#FFFFFF',
+    border: '#2F5D50',
+    text: '#2F5D50',
+    hover: '#F5F5F4' // Light Gray
+  },
+  cards: {
+    background: '#FFFFFF' || '#F5F5F4', // White or Light Gray
+    borders: '#E5E5E4' || '#F7EBEB', // Light Gray or Soft Rose
+    accents: '#A7D6D1' // Muted Turquoise
+  },
+  navigation: {
+    active: '#2F5D50', // Forest Green
+    inactive: '#666666', // Dark Gray
+    background: '#FFFFFF' || '#F5F5F4' // White or Light Gray
+  }
+} as const;
+```
+
+### Accessibility Color Requirements
+```typescript
+const COLOR_ACCESSIBILITY = {
+  // Minimum contrast ratios
+  smallText: '4.5:1', // Below 18pt
+  largeText: '3:1',   // 18pt and above
+  uiComponents: '3:1', // UI components and graphical objects
+  
+  // Compliant combinations
+  compliant: [
+    'Forest Green (#2F5D50) on White (#FFFFFF): 7.1:1',
+    'Forest Green (#2F5D50) on Light Gray (#F5F5F4): 6.8:1',
+    'Forest Green (#2F5D50) on Soft Rose (#F7EBEB): 6.5:1',
+    'White (#FFFFFF) on Forest Green (#2F5D50): 7.1:1',
+    'Dark Gray (#333333) on Muted Turquoise (#A7D6D1): 4.6:1'
+  ],
+  
+  // Non-compliant combinations to avoid
+  forbidden: [
+    'Muted Turquoise (#A7D6D1) on White (#FFFFFF): 1.9:1',
+    'Soft Rose (#F7EBEB) on White (#FFFFFF): 1.1:1',
+    'Light Gray (#F5F5F4) on White (#FFFFFF): 1.1:1'
+  ]
+} as const;
+```
+
+## Typography Compliance - EXACT SPECIFICATIONS
+
+### Font Families - MANDATORY
+```typescript
 const TYPOGRAPHY = {
-  primary: 'Inter, ui-sans-serif, system-ui, sans-serif',
-  secondary: 'Playfair Display, ui-serif, Georgia, serif',
-} as const;
-
-// Font hierarchy - MUST follow this structure
-const FONT_HIERARCHY = {
-  h1: 'text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight',
-  h2: 'text-3xl md:text-4xl font-semibold tracking-tight',
-  h3: 'text-2xl md:text-3xl font-semibold',
-  h4: 'text-xl md:text-2xl font-medium',
-  h5: 'text-lg md:text-xl font-medium',
-  h6: 'text-base md:text-lg font-medium',
-  body: 'text-base leading-relaxed',
-  small: 'text-sm leading-normal',
+  // Primary Typefaces
+  headings: 'Playfair Display, ui-serif, Georgia, serif', // Elegance and trust
+  body: 'Inter, ui-sans-serif, system-ui, sans-serif',    // Clarity and readability
+  
+  // Font Weights
+  playfairWeights: ['400', '400italic', '700', '700italic'], // Regular, Italic, Bold, Bold Italic
+  interWeights: ['400', '500', '600', '700'] // Regular, Medium, Semi-Bold, Bold
 } as const;
 ```
 
-### Typography Rules
-- ✅ **Inter font** for all body text, buttons, and UI elements
-- ✅ **Playfair Display** only for headings and special accents
-- ✅ **Consistent hierarchy** - never skip heading levels
-- ✅ **Proper line height** - always use leading-relaxed for body text
-- ❌ **Never use system fonts** without Inter fallback
-- ❌ **Never mix fonts** without clear hierarchy
-- ❌ **Never use decorative fonts** without brand approval
-
-## Layout & Spacing Compliance
-
-### Container System - REQUIRED
+### Typography Hierarchy - STRICT ADHERENCE
 ```typescript
-// ALWAYS use this container structure
-const LAYOUT = {
-  container: 'container mx-auto px-4 py-16',
-  maxWidth: 'max-w-6xl mx-auto',
-  section: 'py-16 md:py-24',
-  grid: 'grid md:grid-cols-2 lg:grid-cols-3 gap-8',
-} as const;
-
-// Spacing scale - MUST follow this
-const SPACING = {
-  xs: '0.25rem',    // 4px
-  sm: '0.5rem',     // 8px
-  md: '1rem',       // 16px
-  lg: '1.5rem',     // 24px
-  xl: '2rem',       // 32px
-  '2xl': '3rem',    // 48px
-  '3xl': '4rem',    // 64px
-  '4xl': '6rem',    // 96px
-} as const;
-```
-
-### Layout Rules
-- ✅ **Consistent padding** - always use 2rem (32px) container padding
-- ✅ **Responsive design** - mobile-first approach required
-- ✅ **Proper spacing** - use the defined spacing scale
-- ✅ **Grid system** - use Tailwind's grid classes consistently
-- ❌ **Never use arbitrary values** for spacing without approval
-- ❌ **Never create layouts** that aren't responsive
-- ❌ **Never use fixed widths** that break on mobile
-
-## Component Compliance
-
-### Button Styles - STANDARDIZED
-```typescript
-// Primary button - ALWAYS use this style
-const PRIMARY_BUTTON = 'bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors';
-
-// Secondary button - ALWAYS use this style
-const SECONDARY_BUTTON = 'bg-secondary text-primary px-6 py-3 rounded-md hover:bg-secondary/90 transition-colors';
-
-// Button rules
-const BUTTON_RULES = {
-  primary: 'Use for main CTAs and important actions',
-  secondary: 'Use for secondary actions and navigation',
-  size: 'Always use px-6 py-3 for consistent sizing',
-  hover: 'Always include hover states with transition-colors',
-  disabled: 'Use opacity-50 and cursor-not-allowed for disabled states',
+const TYPOGRAPHY_HIERARCHY = {
+  h1: {
+    font: 'Playfair Display Regular',
+    size: '48px / 3rem (desktop), 36px / 2.25rem (mobile)',
+    lineHeight: '1.2',
+    color: '#2F5D50', // Forest Green
+    usage: 'Page titles, main section headings'
+  },
+  h2: {
+    font: 'Playfair Display Regular',
+    size: '36px / 2.25rem (desktop), 28px / 1.75rem (mobile)',
+    lineHeight: '1.3',
+    color: '#2F5D50', // Forest Green
+    usage: 'Major section headings, article titles'
+  },
+  h3: {
+    font: 'Playfair Display Regular',
+    size: '24px / 1.5rem (desktop), 20px / 1.25rem (mobile)',
+    lineHeight: '1.4',
+    color: '#2F5D50', // Forest Green
+    usage: 'Subsection headings, feature headings'
+  },
+  h4: {
+    font: 'Inter Semi-Bold',
+    size: '20px / 1.25rem (desktop), 18px / 1.125rem (mobile)',
+    lineHeight: '1.4',
+    color: '#2F5D50', // Forest Green
+    usage: 'Minor headings, UI section titles'
+  },
+  subheading: {
+    font: 'Inter Medium',
+    size: '18px / 1.125rem',
+    lineHeight: '1.5',
+    color: '#333333', // Dark Gray
+    usage: 'Introductory text, lead paragraphs, feature descriptions'
+  },
+  body: {
+    font: 'Inter Regular',
+    size: '16px / 1rem',
+    lineHeight: '1.6',
+    color: '#333333', // Dark Gray
+    paragraphSpacing: '1rem (16px)',
+    usage: 'Primary content text'
+  },
+  caption: {
+    font: 'Inter Regular',
+    size: '14px / 0.875rem (captions), 12px / 0.75rem (small text)',
+    lineHeight: '1.5',
+    color: '#666666', // Medium Gray
+    usage: 'Image captions, footnotes, supplementary information'
+  }
 } as const;
 ```
 
-### Card Styles - STANDARDIZED
+### Typography Rules - MANDATORY
 ```typescript
-// Card component - ALWAYS use this structure
-const CARD_STYLES = {
-  container: 'bg-white p-8 rounded-lg shadow-soft',
-  header: 'text-2xl font-semibold mb-4',
-  content: 'text-base leading-relaxed',
-  footer: 'mt-6 pt-4 border-t border-border',
+const TYPOGRAPHY_RULES = {
+  // Do's
+  do: [
+    'Maintain consistent hierarchy',
+    'Use appropriate contrast',
+    'Limit typeface variations',
+    'Use proper typographic punctuation',
+    'Consider line length (45-75 characters per line)',
+    'Use relative units (rem, em) rather than fixed units (px)',
+    'Implement fluid typography using CSS clamp()'
+  ],
+  
+  // Don'ts
+  dont: [
+    'Mix additional typefaces beyond Playfair Display and Inter',
+    'Use extreme font weights (lightest and heaviest)',
+    'Stretch or condense type',
+    'Use all caps for body text',
+    'Use Playfair Display below 18px',
+    'Use fixed units (px) instead of relative units'
+  ]
 } as const;
 ```
 
-## Content Compliance
+## Tone of Voice Compliance - MANDATORY
 
-### Messaging Framework - MANDATORY
+### Voice Characteristics - ALWAYS MAINTAIN
 ```typescript
-// ALWAYS follow this messaging structure
-const MESSAGING_FRAMEWORK = {
-  problem: 'Identify the communication challenge clearly',
-  solution: 'Present Lyyli AI as the specific answer',
-  benefit: 'Highlight concrete outcomes and results',
-  proof: 'Include case studies, metrics, or testimonials',
+const TONE_OF_VOICE = {
+  characteristics: {
+    friendly: 'Communications feel personal and genuine, never cold or robotic',
+    calm: 'Instructions and explanations are thorough without being condescending',
+    encouraging: 'Language focuses on solutions and possibilities rather than limitations',
+    reassuring: 'Users are made to feel confident in their communication choices',
+    supportive: 'Celebrates user achievements and provides encouragement'
+  },
+  
+  principles: {
+    clarityOverCleverness: 'Prioritize being understood over being impressive',
+    straightforwardLanguage: 'Avoid jargon, technical terms, and unnecessary complexity',
+    conciseExpressions: 'Say what needs to be said without excessive wordiness',
+    purposefulCommunication: 'Every message has a clear intent and value',
+    accessibleExplanations: 'Complex concepts broken down into understandable terms',
+    naturalPhrasing: 'Sounds like a helpful human colleague, not a marketing brochure'
+  }
 } as const;
-
-// Key messages - ALWAYS include these
-const KEY_MESSAGES = [
-  'AI-powered communication automation',
-  'Consistent brand voice across all channels',
-  '90%+ consistency in brand messaging',
-  'Enterprise-grade security and compliance',
-  'Multi-language support',
-] as const;
 ```
 
-### Content Rules
-- ✅ **Professional tone** - always use business-appropriate language
-- ✅ **Solution-focused** - emphasize benefits and outcomes
-- ✅ **Clear and concise** - avoid jargon and complex sentences
-- ✅ **Trust indicators** - always include GDPR, ISO, AI Act badges
-- ❌ **Never use casual language** or slang
-- ❌ **Never make unsubstantiated claims** without proof
-- ❌ **Never ignore accessibility** in content creation
-
-## Accessibility Compliance
-
-### WCAG 2.1 AA - MANDATORY
+### Writing Guidelines - MANDATORY
 ```typescript
-// ALWAYS ensure these accessibility requirements
+const WRITING_GUIDELINES = {
+  principles: [
+    'Be conversational but professional',
+    'Write as you would speak to a respected colleague',
+    'Maintain professionalism without being stiff or formal',
+    'Use active voice',
+    'Keep sentences and paragraphs concise (15-20 words average)',
+    'Address the user directly using "you" and "your"',
+    'Be specific and concrete with examples',
+    'Show rather than tell whenever possible'
+  ],
+  
+  style: {
+    contractions: 'Use contractions (you\'re, we\'ll, it\'s) to maintain conversational tone',
+    punctuation: 'Use standard punctuation; avoid excessive exclamation points',
+    capitalization: 'Use sentence case for headings and titles',
+    numbers: 'Spell out numbers one through nine; use numerals for 10 and above',
+    oxfordComma: 'Use the Oxford comma for clarity in lists',
+    emoji: 'Use sparingly and purposefully, primarily in casual communications'
+  }
+} as const;
+```
+
+### Microcopy Examples - REFERENCE STANDARDS
+```typescript
+const MICROCOPY_EXAMPLES = {
+  successMessages: [
+    'Your email template has been saved. It\'s ready whenever you need it.',
+    'Message scheduled for Tuesday at 10 AM. You\'re all set.'
+  ],
+  loadingStates: [
+    'Creating your social post. This will take just a moment...',
+    'Analyzing your previous communications to match your style...'
+  ],
+  emptyStates: [
+    'No templates yet. Create your first one to save time on future messages.',
+    'Your dashboard is ready for your communication projects.'
+  ],
+  errorMessages: [
+    'It looks like we need a bit more information to create your post. Could you add a few details about your target audience?',
+    'We couldn\'t save your changes due to a connection issue. Your work is safe, and we can try again when you\'re ready.'
+  ]
+} as const;
+```
+
+## UI Guidelines Compliance - MANDATORY
+
+### Layout Principles - ALWAYS FOLLOW
+```typescript
+const LAYOUT_PRINCIPLES = {
+  foundation: {
+    generousWhitespace: 'Ample breathing room between elements creates visual clarity',
+    clearVisualHierarchy: 'Important elements receive visual prominence',
+    consistentPatterns: 'Predictable layouts and interactions build user confidence',
+    purposefulSimplicity: 'Elements serve clear functions without unnecessary decoration',
+    scannableContent: 'Information organized in easily digestible chunks'
+  },
+  
+  gridSystem: {
+    baseUnit: '8px as the fundamental unit of measurement',
+    columnStructure: '12-column grid for desktop, 8-column for tablet, 4-column for mobile',
+    gutters: '24px standard gutter width (desktop), scaling to 16px on mobile',
+    margins: 'Minimum 24px page margins on desktop, 16px on mobile'
+  }
+} as const;
+```
+
+### Component Specifications - EXACT IMPLEMENTATION
+```typescript
+const UI_COMPONENTS = {
+  buttons: {
+    primary: {
+      background: '#2F5D50', // Forest Green
+      text: '#FFFFFF',
+      borderRadius: '8px',
+      padding: '12px 24px',
+      textStyle: 'Inter Semi-Bold, 16px',
+      hover: '#3A6A5C', // Slightly lighter Forest Green
+      active: '#274A40', // Slightly darker Forest Green
+      disabled: '50% opacity'
+    },
+    secondary: {
+      background: '#FFFFFF',
+      text: '#2F5D50', // Forest Green
+      border: '2px solid #2F5D50',
+      borderRadius: '8px',
+      padding: '12px 24px',
+      textStyle: 'Inter Semi-Bold, 16px',
+      hover: '#F5F5F4', // Light Gray background
+      active: '#F7EBEB', // Soft Rose background
+      disabled: '50% opacity'
+    }
+  },
+  
+  cards: {
+    background: '#FFFFFF',
+    border: '1px solid #E5E5E4', // Light Gray
+    borderRadius: '12px',
+    shadow: '0px 4px 12px rgba(0, 0, 0, 0.05)',
+    padding: '24px',
+    header: 'Optional #A7D6D1 (Muted Turquoise) top section',
+    title: 'Playfair Display, 20px, #2F5D50 (Forest Green)',
+    content: 'Inter Regular, 16px, #333333 (Dark Gray)'
+  },
+  
+  formElements: {
+    textInputs: {
+      background: '#FFFFFF',
+      border: '1px solid #E5E5E4', // Light Gray
+      borderRadius: '8px',
+      height: '48px (standard), 40px (compact)',
+      padding: '12px 16px',
+      text: 'Inter Regular, 16px, #333333 (Dark Gray)',
+      label: 'Inter Medium, 14px, positioned above input',
+      focus: '2px #2F5D50 (Forest Green) border',
+      error: '2px #D64045 border with error message below'
+    }
+  }
+} as const;
+```
+
+### Responsive Design - MANDATORY
+```typescript
+const RESPONSIVE_DESIGN = {
+  breakpoints: {
+    small: '320px-639px (mobile)',
+    medium: '640px-1023px (tablet)',
+    large: '1024px-1439px (desktop)',
+    extraLarge: '1440px+ (large desktop)'
+  },
+  
+  principles: {
+    mobileFirst: 'Design core experiences for mobile before expanding to larger screens',
+    fluidLayouts: 'Elements scale proportionally between breakpoints',
+    contentPrioritization: 'Critical content remains accessible across all devices',
+    contextualAdaptation: 'UI elements adjust based on device capabilities'
+  },
+  
+  touchTargets: {
+    primaryButtons: 'Minimum 48×48px',
+    secondaryButtons: 'Minimum 44×44px',
+    formControls: 'Minimum 44×44px',
+    interactiveIcons: 'Minimum 44×44px touch area'
+  }
+} as const;
+```
+
+## Accessibility Compliance - WCAG 2.1 AA MANDATORY
+
+### Accessibility Requirements - ALWAYS ENFORCE
+```typescript
 const ACCESSIBILITY = {
-  colorContrast: '4.5:1 minimum for normal text, 3:1 for large text',
-  focusIndicators: 'Always visible focus rings on interactive elements',
-  keyboardNavigation: 'Full keyboard support for all interactions',
-  screenReaders: 'Proper ARIA labels and semantic HTML',
-  touchTargets: 'Minimum 44px for touch targets on mobile',
+  contrast: {
+    smallText: '4.5:1 minimum for normal text',
+    largeText: '3:1 minimum for large text (18pt+)',
+    uiComponents: '3:1 minimum for interactive elements'
+  },
+  
+  keyboardSupport: {
+    focusOrder: 'Logical tab order following visual layout',
+    focusVisibility: 'Clear visual indicators when elements receive keyboard focus',
+    noKeyboardTraps: 'Users can navigate to and from all interactive elements',
+    skipLinks: 'Allow keyboard users to skip navigation and go directly to main content'
+  },
+  
+  screenReaderSupport: {
+    semanticHTML: 'Proper use of headings, landmarks, and semantic elements',
+    ariaAttributes: 'Used appropriately when HTML semantics are insufficient',
+    altText: 'Descriptive alt text for all images',
+    formLabels: 'All form controls have associated labels'
+  }
 } as const;
 ```
 
-### Accessibility Rules
-- ✅ **Color contrast** - always test with contrast checkers
-- ✅ **Focus management** - never remove focus indicators
-- ✅ **Semantic HTML** - use proper heading hierarchy and landmarks
-- ✅ **Alt text** - always provide descriptive alt text for images
-- ❌ **Never rely solely on color** to convey information
-- ❌ **Never create keyboard traps** or inaccessible interactions
-- ❌ **Never ignore screen reader compatibility**
+## Logo Usage Compliance - STRICT ENFORCEMENT
 
-## Code Quality Compliance
-
-### TypeScript - REQUIRED
+### Logo Specifications - EXACT REQUIREMENTS
 ```typescript
-// ALWAYS use TypeScript for type safety
+const LOGO_SPECIFICATIONS = {
+  primaryLogo: {
+    colors: {
+      text: '#2F5D50', // Forest Green for "Lyyli" and "io"
+      dot: '#A7D6D1'   // Muted Turquoise for the dot accent
+    },
+    clearSpace: 'Equal to the height of the "L" must be maintained around all sides',
+    minimumSize: '100px wide for digital applications or 1 inch for print'
+  },
+  
+  monochromeVersions: {
+    black: {
+      use: 'On white or very light backgrounds when color printing is not available',
+      color: '#000000'
+    },
+    white: {
+      use: 'On dark backgrounds or photographs',
+      color: '#FFFFFF'
+    },
+    reversed: {
+      text: '#FFFFFF', // White "Lyyli" and "io"
+      dot: '#A7D6D1'   // Muted Turquoise dot
+    }
+  },
+  
+  simplifiedLogo: {
+    use: 'For very small applications (below 100px wide)',
+    elements: 'The "L" icon with the turquoise dot',
+    minimumSize: '32px for digital applications or 0.5 inches for print'
+  }
+} as const;
+```
+
+## Code Quality Compliance - MANDATORY
+
+### TypeScript Standards - STRICT ENFORCEMENT
+```typescript
 const CODE_STANDARDS = {
-  strict: true,
-  noImplicitAny: true,
-  strictNullChecks: true,
-  noUnusedLocals: true,
-  noUnusedParameters: true,
+  typescript: {
+    strict: true,
+    noImplicitAny: true,
+    strictNullChecks: true,
+    noUnusedLocals: true,
+    noUnusedParameters: true
+  },
+  
+  rules: [
+    'ALWAYS use TypeScript for type safety',
+    'NEVER use "any" without justification',
+    'ALWAYS use proper typing for all variables and functions',
+    'ALWAYS follow ESLint rules strictly',
+    'NEVER commit code with TypeScript errors'
+  ]
 } as const;
 ```
 
-### Code Rules
-- ✅ **TypeScript strict mode** - always enabled
-- ✅ **Proper typing** - never use 'any' without justification
-- ✅ **Clean code** - follow ESLint rules strictly
-- ✅ **Component structure** - use consistent file organization
-- ❌ **Never commit code** with TypeScript errors
-- ❌ **Never use deprecated patterns** or unsafe code
-- ❌ **Never ignore linting warnings**
+## Testing Compliance - MANDATORY
 
-## Testing Compliance
-
-### Brand Testing - REQUIRED
+### Brand Testing Requirements - ALWAYS VERIFY
 ```typescript
-// ALWAYS test these brand elements
 const BRAND_TESTING = {
-  colors: 'Verify all colors match brand palette exactly',
-  typography: 'Check font hierarchy and sizing consistency',
-  spacing: 'Ensure proper spacing scale usage',
-  accessibility: 'Test with screen readers and keyboard navigation',
-  responsive: 'Verify mobile-first responsive design',
+  visual: [
+    'Verify all colors match brand palette exactly',
+    'Check font hierarchy and sizing consistency',
+    'Ensure proper spacing scale usage',
+    'Test logo usage and clear space requirements',
+    'Verify responsive design across all breakpoints'
+  ],
+  
+  accessibility: [
+    'Test with screen readers and keyboard navigation',
+    'Verify color contrast ratios meet WCAG 2.1 AA standards',
+    'Check focus indicators and keyboard support',
+    'Test with color blindness simulation tools'
+  ],
+  
+  content: [
+    'Verify tone of voice matches brand guidelines',
+    'Check messaging framework adherence',
+    'Test microcopy examples for consistency',
+    'Verify typography hierarchy and readability'
+  ]
 } as const;
 ```
 
-### Testing Rules
-- ✅ **Visual regression testing** - catch brand inconsistencies
-- ✅ **Accessibility testing** - use automated and manual testing
-- ✅ **Cross-browser testing** - ensure consistent appearance
-- ✅ **Mobile testing** - verify responsive behavior
-- ❌ **Never deploy** without brand compliance testing
-- ❌ **Never skip accessibility** testing
-- ❌ **Never ignore visual inconsistencies**
+## Pre-commit Checklist - MANDATORY
 
-## Review Process
-
-### Pre-commit Checklist
+### Compliance Verification - ALWAYS COMPLETE
 ```typescript
 const PRE_COMMIT_CHECKLIST = [
-  '✅ Colors match brand palette exactly',
-  '✅ Typography follows hierarchy',
-  '✅ Spacing uses defined scale',
+  '✅ Colors match brand palette exactly (#2F5D50, #F7EBEB, #F5F5F4, #A7D6D1)',
+  '✅ Typography follows hierarchy (Playfair Display for headings, Inter for body)',
+  '✅ Spacing uses defined scale (8px base unit)',
   '✅ Components follow standardized patterns',
-  '✅ Content follows messaging framework',
-  '✅ Accessibility requirements met',
+  '✅ Tone of voice matches brand guidelines (friendly, calm, encouraging)',
+  '✅ Accessibility requirements met (WCAG 2.1 AA)',
   '✅ TypeScript strict mode passes',
   '✅ ESLint rules followed',
-  '✅ Responsive design verified',
-  '✅ Brand testing completed',
+  '✅ Responsive design verified across breakpoints',
+  '✅ Logo usage follows specifications',
+  '✅ Brand testing completed'
 ] as const;
 ```
-
-### Code Review Requirements
-- **Brand compliance review** - mandatory for all UI changes
-- **Accessibility review** - required for all interactive elements
-- **Content review** - needed for all text and messaging
-- **Visual review** - required for all design changes
 
 ## Enforcement
 
-### Automated Checks
-- **ESLint rules** - enforce code quality standards
-- **TypeScript strict mode** - catch type errors
-- **Pre-commit hooks** - prevent non-compliant code
-- **CI/CD pipeline** - automated brand compliance testing
+### Automated Checks - ALWAYS RUN
+```typescript
+const AUTOMATED_CHECKS = {
+  eslint: 'Enforce code quality and brand compliance standards',
+  typescript: 'Catch type errors and ensure strict mode compliance',
+  preCommitHooks: 'Prevent non-compliant code from being committed',
+  ciCdPipeline: 'Automated brand compliance testing in deployment pipeline'
+} as const;
+```
 
-### Manual Reviews
-- **Design review** - visual consistency check
-- **Content review** - messaging alignment
-- **Accessibility review** - compliance verification
-- **Brand audit** - quarterly comprehensive review
+### Manual Reviews - MANDATORY
+```typescript
+const MANUAL_REVIEWS = {
+  designReview: 'Visual consistency and brand alignment check',
+  contentReview: 'Messaging and tone of voice alignment',
+  accessibilityReview: 'WCAG 2.1 AA compliance verification',
+  brandAudit: 'Quarterly comprehensive brand compliance review'
+} as const;
+```
 
 ---
 
 **Enforcement Level:** STRICT  
 **Compliance Required:** 100%  
 **Review Frequency:** Every commit  
-**Audit Schedule:** Monthly
-description:
-globs:
-alwaysApply: false
----
+**Audit Schedule:** Monthly  
+**Brand Book Version:** 1.0 - April 2025

@@ -15,21 +15,21 @@ const HeroSection: React.FC = () => {
   const waitlistPath = language === 'fi' ? '/fi/waitlist' : '/waitlist';
   
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-light-gray via-white to-soft-rose/30 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Main content */}
           <div className="text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-normal mb-6 text-forest-green leading-tight">
               {heroT('title')}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-dark-gray mb-8 leading-relaxed font-inter font-normal">
               {heroT('subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="btn-primary px-8 py-4 text-lg font-inter font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
                 asChild
               >
                 <Link href={waitlistPath}>
@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                className="btn-secondary px-8 py-4 text-lg font-inter font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
                 onClick={() => setShowDemo(true)}
               >
                 {heroT('demoCta')}

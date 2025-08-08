@@ -1,6 +1,5 @@
 'use client';
 
-
 import React, { useState, useEffect } from 'react';
 import { CookieSettings } from './cookies/types';
 import CookieBanner from './cookies/CookieBanner';
@@ -9,11 +8,15 @@ import CookieSettingsDialog from './cookies/CookieSettingsDialog';
 // Make sure TypeScript knows about dataLayer for GA4
 declare global {
   interface Window {
-    dataLayer?: any[];
+    dataLayer: unknown[];
   }
 }
 
-const CookieConsent: React.FC = () => {
+interface CookieConsentProps {
+  onConsentChange?: (settings: CookieSettings) => void;
+}
+
+const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
   const [visible, setVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<CookieSettings>({
@@ -62,6 +65,14 @@ const CookieConsent: React.FC = () => {
     };
   }, []);
 
+  const handleSettingsChange = (newSettings: CookieSettings | ((prev: CookieSettings) => CookieSettings)) => {
+    const finalSettings = typeof newSettings === 'function' ? newSettings(settings) : newSettings;
+    setSettings(finalSettings);
+    if (onConsentChange) {
+      onConsentChange(finalSettings);
+    }
+  };
+
   return (
     <>
       <CookieBanner 
@@ -69,14 +80,14 @@ const CookieConsent: React.FC = () => {
         setVisible={setVisible}
         setSettingsOpen={setSettingsOpen}
         settings={settings}
-        setSettings={setSettings}
+        setSettings={handleSettingsChange}
       />
       
       <CookieSettingsDialog
         open={settingsOpen}
         setOpen={setSettingsOpen}
         settings={settings}
-        setSettings={setSettings}
+        setSettings={handleSettingsChange}
         setVisible={setVisible}
       />
     </>
@@ -84,3 +95,4 @@ const CookieConsent: React.FC = () => {
 };
 
 export default CookieConsent;
+

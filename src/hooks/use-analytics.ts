@@ -1,12 +1,12 @@
 
 interface AnalyticsEvent {
   name: string;
-  properties?: Record<string, any>;
+  properties?: Record<string, unknown>;
   timestamp: string;
 }
 
 export const useAnalytics = () => {
-  const track = (eventName: string, properties?: Record<string, any>) => {
+  const track = (eventName: string, properties?: Record<string, unknown>) => {
     const event: AnalyticsEvent = {
       name: eventName,
       properties,

@@ -17,7 +17,7 @@ export const useChatThread = ({ onError, onMessageReceived }: UseChatThreadProps
     setThreadId('new-session');
   }, []);
 
-  const sendChatMessage = async (_message: string) => {
+  const sendChatMessage = async (message: string) => {
     if (!threadId) {
       onError('noThread');
       return;
@@ -26,7 +26,7 @@ export const useChatThread = ({ onError, onMessageReceived }: UseChatThreadProps
     try {
       const response = await sendMessage();
       if (response.success && 'content' in response) {
-        onMessageReceived((response as any).content);
+        onMessageReceived((response as { content: string }).content);
       } else {
         onError('sendMessage');
       }

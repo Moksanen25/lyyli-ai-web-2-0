@@ -44,7 +44,7 @@ const SolutionIntroSection: React.FC = () => {
     if (key.includes('.')) {
       const [parentKey, childKey] = key.split('.');
       const parent = texts[language as keyof typeof texts]?.[parentKey as keyof typeof texts.en] || texts.en[parentKey as keyof typeof texts.en];
-      const result = (parent as any)?.[childKey];
+      const result = (parent as Record<string, unknown>)?.[childKey];
       return result || '';
     }
     
